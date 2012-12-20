@@ -5,16 +5,11 @@ package org.obeonetwork.dsl.gen.eclipsemodel.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.obeonetwork.dsl.gen.eclipsemodel.Bundle;
 import org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage;
 import org.obeonetwork.dsl.gen.eclipsemodel.Feature;

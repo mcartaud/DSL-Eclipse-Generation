@@ -82,6 +82,7 @@ class View extends Part {
 	String viewID
 	contains Action[] actions
 	contains Menu[] menus
+	contains ActionSet[] actionSets
 }
 
 class Editor extends Part {

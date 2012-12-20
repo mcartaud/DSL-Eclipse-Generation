@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.View#getViewID <em>View ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.View#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.View#getMenus <em>Menus</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.View#getActionSets <em>Action Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,5 +109,21 @@ public interface View extends Part
    * @generated
    */
   EList<Menu> getMenus();
+
+  /**
+   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipsemodel.ActionSet}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Action Sets</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getView_ActionSets()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ActionSet> getActionSets();
 
 } // View

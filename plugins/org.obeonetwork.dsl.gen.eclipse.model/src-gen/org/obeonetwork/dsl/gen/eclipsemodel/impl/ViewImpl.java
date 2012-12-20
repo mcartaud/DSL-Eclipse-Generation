@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipsemodel.Action;
+import org.obeonetwork.dsl.gen.eclipsemodel.ActionSet;
 import org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage;
 import org.obeonetwork.dsl.gen.eclipsemodel.Menu;
 import org.obeonetwork.dsl.gen.eclipsemodel.View;
@@ -33,6 +34,7 @@ import org.obeonetwork.dsl.gen.eclipsemodel.View;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ViewImpl#getViewID <em>View ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ViewImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ViewImpl#getMenus <em>Menus</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ViewImpl#getActionSets <em>Action Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,6 +101,16 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected EList<Menu> menus;
+
+  /**
+   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActionSets()
+   * @generated
+   * @ordered
+   */
+  protected EList<ActionSet> actionSets;
 
   /**
    * <!-- begin-user-doc -->
@@ -200,6 +212,20 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ActionSet> getActionSets()
+  {
+    if (actionSets == null)
+    {
+      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsemodelPackage.VIEW__ACTION_SETS);
+    }
+    return actionSets;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -209,6 +235,8 @@ public class ViewImpl extends PartImpl implements View
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
       case EclipsemodelPackage.VIEW__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
+        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -231,6 +259,8 @@ public class ViewImpl extends PartImpl implements View
         return getActions();
       case EclipsemodelPackage.VIEW__MENUS:
         return getMenus();
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
+        return getActionSets();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,6 +290,10 @@ public class ViewImpl extends PartImpl implements View
         getMenus().clear();
         getMenus().addAll((Collection<? extends Menu>)newValue);
         return;
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
+        getActionSets().clear();
+        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -286,6 +320,9 @@ public class ViewImpl extends PartImpl implements View
       case EclipsemodelPackage.VIEW__MENUS:
         getMenus().clear();
         return;
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
+        getActionSets().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -308,6 +345,8 @@ public class ViewImpl extends PartImpl implements View
         return actions != null && !actions.isEmpty();
       case EclipsemodelPackage.VIEW__MENUS:
         return menus != null && !menus.isEmpty();
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
+        return actionSets != null && !actionSets.isEmpty();
     }
     return super.eIsSet(featureID);
   }

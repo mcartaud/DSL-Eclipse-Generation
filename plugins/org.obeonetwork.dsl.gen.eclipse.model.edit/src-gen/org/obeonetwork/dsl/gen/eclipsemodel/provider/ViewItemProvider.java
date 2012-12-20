@@ -132,6 +132,7 @@ public class ViewItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsemodelPackage.Literals.VIEW__ACTIONS);
       childrenFeatures.add(EclipsemodelPackage.Literals.VIEW__MENUS);
+      childrenFeatures.add(EclipsemodelPackage.Literals.VIEW__ACTION_SETS);
     }
     return childrenFeatures;
   }
@@ -197,6 +198,7 @@ public class ViewItemProvider
         return;
       case EclipsemodelPackage.VIEW__ACTIONS:
       case EclipsemodelPackage.VIEW__MENUS:
+      case EclipsemodelPackage.VIEW__ACTION_SETS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -224,6 +226,11 @@ public class ViewItemProvider
       (createChildParameter
         (EclipsemodelPackage.Literals.VIEW__MENUS,
          EclipsemodelFactory.eINSTANCE.createMenu()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsemodelPackage.Literals.VIEW__ACTION_SETS,
+         EclipsemodelFactory.eINSTANCE.createActionSet()));
   }
 
 }

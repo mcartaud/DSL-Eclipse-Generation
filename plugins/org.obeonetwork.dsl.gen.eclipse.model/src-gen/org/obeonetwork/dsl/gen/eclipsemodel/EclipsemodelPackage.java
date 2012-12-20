@@ -799,13 +799,22 @@ public interface EclipsemodelPackage extends EPackage
   int VIEW__MENUS = PART_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ACTION_SETS = PART_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>View</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
+  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
 
   /**
    * The number of operations of the '<em>View</em>' class.
@@ -1872,6 +1881,17 @@ public interface EclipsemodelPackage extends EPackage
   EReference getView_Menus();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipsemodel.View#getActionSets <em>Action Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.View#getActionSets()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_ActionSets();
+
+  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipsemodel.Editor <em>Editor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2683,6 +2703,14 @@ public interface EclipsemodelPackage extends EPackage
      * @generated
      */
     EReference VIEW__MENUS = eINSTANCE.getView_Menus();
+
+    /**
+     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__ACTION_SETS = eINSTANCE.getView_ActionSets();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.EditorImpl <em>Editor</em>}' class.

@@ -8,9 +8,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.gen.eclipsemodel.Action;
 import org.obeonetwork.dsl.gen.eclipsemodel.ActionSet;
 import org.obeonetwork.dsl.gen.eclipsemodel.Application;
@@ -837,6 +835,16 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getView_ActionSets()
+  {
+    return (EReference)viewEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEditor()
   {
     return editorEClass;
@@ -1201,6 +1209,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
     createEAttribute(viewEClass, VIEW__VIEW_ID);
     createEReference(viewEClass, VIEW__ACTIONS);
     createEReference(viewEClass, VIEW__MENUS);
+    createEReference(viewEClass, VIEW__ACTION_SETS);
 
     editorEClass = createEClass(EDITOR);
     createEAttribute(editorEClass, EDITOR__NAME);
@@ -1344,6 +1353,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
     initEAttribute(getView_ViewID(), theEcorePackage.getEString(), "viewID", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Actions(), this.getAction(), null, "actions", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Menus(), this.getMenu(), null, "menus", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getView_ActionSets(), this.getActionSet(), null, "actionSets", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(editorEClass, Editor.class, "Editor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEditor_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
