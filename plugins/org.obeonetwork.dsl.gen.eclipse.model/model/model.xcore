@@ -1,0 +1,130 @@
+@Ecore(nsURI="http://www.obeonetwork.org/dsl/eclipse", nsPrefix="eclipse")
+@GenModel(editDirectory="/org.obeonetwork.dsl.gen.eclipse.model.edit/src-gen")
+@GenModel(editorDirectory="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen")
+package org.obeonetwork.dsl.gen.eclipsemodel
+
+
+class Application {
+	String name
+	String applicationID
+	String provider
+	String copyright
+	String version
+	contains Repository[] repositories
+	contains Feature[] features
+	contains Bundle[] bundles
+}
+
+class Repository {
+	String name
+	String repositoryID
+	String version
+	String categoryyName
+	String categoryLabel
+	String categoryDescription
+	refers Feature[] features
+	refers Bundle[] bundles
+}
+
+class Feature {
+	String label
+	String featureID
+	String copyright
+	String description
+	String version
+	refers Bundle[] bundles
+}
+
+class Bundle {
+	String name
+	String symbolicName
+	String version
+	String requiredEnvironment
+	contains Service[] services
+	contains PartCategory[] partCategories
+	contains Perspective[] perspectives
+	contains Help[] helps	
+}
+
+class ActionSet {
+	String name
+	String ID
+	contains Menu[] menus
+	contains Action[] actions
+}
+
+class Menu {
+	String name
+	contains Binding binding
+	contains Menu[] menus
+	contains Action[] actions
+}
+
+class Action {
+	String name
+	contains Binding binding
+}
+
+class PartCategory {
+	String name
+	String partCategoryID
+	contains Part[] parts
+}
+
+abstract class Part {
+	String partID
+	contains ContextualHelp contextualHelp
+	refers Perspective[] perspectives opposite parts
+}
+
+class View extends Part {
+	String name
+	String viewID
+	contains Action[] actions
+	contains Menu[] menus
+}
+
+class Editor extends Part {
+	String name
+	String editorID
+	contains ActionSet[] actionSets
+}
+
+class Perspective {
+	String name
+	String perspectiveID
+	contains ActionSet[] actionSets
+	refers Part[] parts opposite perspectives
+}
+
+class Binding {
+	String name
+	String key
+}
+
+class Help {
+	String name
+	String helpID
+	contains Page[] pages
+}
+
+class Page {
+	String name
+	String pageID
+}
+
+class ContextualHelp {
+	String contextualHelpID
+	contains Page page
+}
+
+class Service {
+	String name
+	String serviceID
+	ServiceKind[] serviceKinds
+}
+
+enum ServiceKind {
+	Provided
+	Required
+}
