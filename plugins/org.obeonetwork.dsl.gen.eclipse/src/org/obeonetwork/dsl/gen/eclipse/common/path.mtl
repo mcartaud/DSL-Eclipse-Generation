@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module path('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template public genProjectPath(aProject : Project)]
+[aProject.projectID/]
+[/template]

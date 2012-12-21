@@ -14,10 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getRepositoryID <em>Repository ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getVersion <em>Version</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryyName <em>Categoryy Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryName <em>Category Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryLabel <em>Category Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getFeatures <em>Features</em>}</li>
@@ -29,111 +26,33 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Repository extends EObject
+public interface Repository extends Project
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Category Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Category Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getRepository_Name()
+   * @return the value of the '<em>Category Name</em>' attribute.
+   * @see #setCategoryName(String)
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getRepository_CategoryName()
    * @model unique="false"
    * @generated
    */
-  String getName();
+  String getCategoryName();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryName <em>Category Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Category Name</em>' attribute.
+   * @see #getCategoryName()
    * @generated
    */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Repository ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Repository ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Repository ID</em>' attribute.
-   * @see #setRepositoryID(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getRepository_RepositoryID()
-   * @model unique="false"
-   * @generated
-   */
-  String getRepositoryID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getRepositoryID <em>Repository ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Repository ID</em>' attribute.
-   * @see #getRepositoryID()
-   * @generated
-   */
-  void setRepositoryID(String value);
-
-  /**
-   * Returns the value of the '<em><b>Version</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Version</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Version</em>' attribute.
-   * @see #setVersion(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getRepository_Version()
-   * @model unique="false"
-   * @generated
-   */
-  String getVersion();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getVersion <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Version</em>' attribute.
-   * @see #getVersion()
-   * @generated
-   */
-  void setVersion(String value);
-
-  /**
-   * Returns the value of the '<em><b>Categoryy Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Categoryy Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Categoryy Name</em>' attribute.
-   * @see #setCategoryyName(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getRepository_CategoryyName()
-   * @model unique="false"
-   * @generated
-   */
-  String getCategoryyName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryyName <em>Categoryy Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Categoryy Name</em>' attribute.
-   * @see #getCategoryyName()
-   * @generated
-   */
-  void setCategoryyName(String value);
+  void setCategoryName(String value);
 
   /**
    * Returns the value of the '<em><b>Category Label</b></em>' attribute.

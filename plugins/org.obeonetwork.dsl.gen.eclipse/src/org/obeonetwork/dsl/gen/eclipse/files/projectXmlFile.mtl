@@ -1,0 +1,65 @@
+[comment encoding = UTF-8 /]
+[module projectXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path/]
+
+[template private projectXmlFile(aProject : Project)]
+[aProject.genProjectPath()/]/.project
+[/template]
+
+[template public genProjectXmlFile(aProject : Project)]
+[file (aProject.projectXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>[aProject.projectID/]</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.pde.[aProject.buildCommand()/]</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+[if (aProject.oclIsKindOf(Bundle))][aProject.bundleBuild()/][/if]
+	</buildSpec>
+	<natures>
+[aProject.natureCommand()/]
+	</natures>
+</projectDescription>
+[/file]
+[/template]
+
+[template private buildCommand(aProject : Project)]
+[if (aProject.oclIsKindOf(Feature))]
+FeatureBuilder
+[elseif (aProject.oclIsKindOf(Repository))]
+UpdateSiteBuilder
+[else]
+javabuilder
+[/if]
+[/template]
+
+[template private natureCommand(aProject : Project)]
+[if (aProject.oclIsKindOf(Feature))]
+		<nature>org.eclipse.pde.FeatureNature</nature>
+[elseif (aProject.oclIsKindOf(Repository))]
+		<nature>org.eclipse.pde.UpdateSiteNature</nature>
+[else]
+		<nature>org.eclipse.pde.PluginNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+[/if]
+[/template]
+
+[template private bundleBuild(aProject : Project)]
+		<buildCommand>
+			<name>org.eclipse.pde.ManifestBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.SchemaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+[/template]

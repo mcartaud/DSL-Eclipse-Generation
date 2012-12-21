@@ -14,10 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getSymbolicName <em>Symbolic Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getRequiredEnvironment <em>Required Environment</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getServices <em>Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getPerspectives <em>Perspectives</em>}</li>
@@ -29,60 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Bundle extends EObject
+public interface Bundle extends Project
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getBundle_Name()
-   * @model unique="false"
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Symbolic Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Symbolic Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Symbolic Name</em>' attribute.
-   * @see #setSymbolicName(String)
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getBundle_SymbolicName()
-   * @model unique="false"
-   * @generated
-   */
-  String getSymbolicName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getSymbolicName <em>Symbolic Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Symbolic Name</em>' attribute.
-   * @see #getSymbolicName()
-   * @generated
-   */
-  void setSymbolicName(String value);
-
   /**
    * Returns the value of the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -134,6 +81,32 @@ public interface Bundle extends EObject
    * @generated
    */
   void setRequiredEnvironment(String value);
+
+  /**
+   * Returns the value of the '<em><b>Vendor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Vendor</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Vendor</em>' attribute.
+   * @see #setVendor(String)
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage#getBundle_Vendor()
+   * @model unique="false"
+   * @generated
+   */
+  String getVendor();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVendor <em>Vendor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Vendor</em>' attribute.
+   * @see #getVendor()
+   * @generated
+   */
+  void setVendor(String value);
 
   /**
    * Returns the value of the '<em><b>Services</b></em>' containment reference list.

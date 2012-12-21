@@ -160,6 +160,52 @@ public interface EclipsemodelPackage extends EPackage
   int APPLICATION_OPERATION_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ProjectImpl <em>Project</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.ProjectImpl
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getProject()
+   * @generated
+   */
+  int PROJECT = 1;
+
+  /**
+   * The feature id for the '<em><b>Project ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__PROJECT_ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Project Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__PROJECT_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Project</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_FEATURE_COUNT = 2;
+
+  /**
+   * The number of operations of the '<em>Project</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_OPERATION_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl <em>Repository</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -167,43 +213,34 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getRepository()
    * @generated
    */
-  int REPOSITORY = 1;
+  int REPOSITORY = 2;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Project ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY__NAME = 0;
+  int REPOSITORY__PROJECT_ID = PROJECT__PROJECT_ID;
 
   /**
-   * The feature id for the '<em><b>Repository ID</b></em>' attribute.
+   * The feature id for the '<em><b>Project Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY__REPOSITORY_ID = 1;
+  int REPOSITORY__PROJECT_NAME = PROJECT__PROJECT_NAME;
 
   /**
-   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * The feature id for the '<em><b>Category Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY__VERSION = 2;
-
-  /**
-   * The feature id for the '<em><b>Categoryy Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPOSITORY__CATEGORYY_NAME = 3;
+  int REPOSITORY__CATEGORY_NAME = PROJECT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Category Label</b></em>' attribute.
@@ -212,7 +249,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY__CATEGORY_LABEL = 4;
+  int REPOSITORY__CATEGORY_LABEL = PROJECT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Category Description</b></em>' attribute.
@@ -221,7 +258,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY__CATEGORY_DESCRIPTION = 5;
+  int REPOSITORY__CATEGORY_DESCRIPTION = PROJECT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
@@ -230,7 +267,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY__FEATURES = 6;
+  int REPOSITORY__FEATURES = PROJECT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Bundles</b></em>' reference list.
@@ -239,7 +276,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY__BUNDLES = 7;
+  int REPOSITORY__BUNDLES = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Repository</em>' class.
@@ -248,7 +285,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY_FEATURE_COUNT = 8;
+  int REPOSITORY_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The number of operations of the '<em>Repository</em>' class.
@@ -257,7 +294,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY_OPERATION_COUNT = 0;
+  int REPOSITORY_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl <em>Feature</em>}' class.
@@ -267,25 +304,25 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 2;
+  int FEATURE = 3;
 
   /**
-   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * The feature id for the '<em><b>Project ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__LABEL = 0;
+  int FEATURE__PROJECT_ID = PROJECT__PROJECT_ID;
 
   /**
-   * The feature id for the '<em><b>Feature ID</b></em>' attribute.
+   * The feature id for the '<em><b>Project Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__FEATURE_ID = 1;
+  int FEATURE__PROJECT_NAME = PROJECT__PROJECT_NAME;
 
   /**
    * The feature id for the '<em><b>Copyright</b></em>' attribute.
@@ -294,7 +331,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__COPYRIGHT = 2;
+  int FEATURE__COPYRIGHT = PROJECT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -303,7 +340,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__DESCRIPTION = 3;
+  int FEATURE__DESCRIPTION = PROJECT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -312,7 +349,25 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__VERSION = 4;
+  int FEATURE__VERSION = PROJECT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>License</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__LICENSE = PROJECT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Feature Provider</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__FEATURE_PROVIDER = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Bundles</b></em>' reference list.
@@ -321,7 +376,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__BUNDLES = 5;
+  int FEATURE__BUNDLES = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -330,7 +385,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = 6;
+  int FEATURE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The number of operations of the '<em>Feature</em>' class.
@@ -339,7 +394,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_OPERATION_COUNT = 0;
+  int FEATURE_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl <em>Bundle</em>}' class.
@@ -349,25 +404,25 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getBundle()
    * @generated
    */
-  int BUNDLE = 3;
+  int BUNDLE = 4;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Project ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__NAME = 0;
+  int BUNDLE__PROJECT_ID = PROJECT__PROJECT_ID;
 
   /**
-   * The feature id for the '<em><b>Symbolic Name</b></em>' attribute.
+   * The feature id for the '<em><b>Project Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__SYMBOLIC_NAME = 1;
+  int BUNDLE__PROJECT_NAME = PROJECT__PROJECT_NAME;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -376,7 +431,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__VERSION = 2;
+  int BUNDLE__VERSION = PROJECT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Required Environment</b></em>' attribute.
@@ -385,7 +440,16 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__REQUIRED_ENVIRONMENT = 3;
+  int BUNDLE__REQUIRED_ENVIRONMENT = PROJECT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Vendor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__VENDOR = PROJECT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Services</b></em>' containment reference list.
@@ -394,7 +458,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__SERVICES = 4;
+  int BUNDLE__SERVICES = PROJECT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Part Categories</b></em>' containment reference list.
@@ -403,7 +467,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__PART_CATEGORIES = 5;
+  int BUNDLE__PART_CATEGORIES = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
@@ -412,7 +476,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__PERSPECTIVES = 6;
+  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Helps</b></em>' containment reference list.
@@ -421,7 +485,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__HELPS = 7;
+  int BUNDLE__HELPS = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -430,7 +494,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = 8;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 7;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -439,7 +503,7 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_OPERATION_COUNT = 0;
+  int BUNDLE_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ActionSetImpl <em>Action Set</em>}' class.
@@ -449,7 +513,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getActionSet()
    * @generated
    */
-  int ACTION_SET = 4;
+  int ACTION_SET = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -513,7 +577,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getMenu()
    * @generated
    */
-  int MENU = 5;
+  int MENU = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -577,7 +641,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 6;
+  int ACTION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -623,7 +687,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getPartCategory()
    * @generated
    */
-  int PART_CATEGORY = 7;
+  int PART_CATEGORY = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -678,7 +742,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getPart()
    * @generated
    */
-  int PART = 8;
+  int PART = 9;
 
   /**
    * The feature id for the '<em><b>Part ID</b></em>' attribute.
@@ -733,7 +797,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getView()
    * @generated
    */
-  int VIEW = 9;
+  int VIEW = 10;
 
   /**
    * The feature id for the '<em><b>Part ID</b></em>' attribute.
@@ -833,7 +897,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getEditor()
    * @generated
    */
-  int EDITOR = 10;
+  int EDITOR = 11;
 
   /**
    * The feature id for the '<em><b>Part ID</b></em>' attribute.
@@ -915,7 +979,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getPerspective()
    * @generated
    */
-  int PERSPECTIVE = 11;
+  int PERSPECTIVE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -979,7 +1043,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 12;
+  int BINDING = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1025,7 +1089,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getHelp()
    * @generated
    */
-  int HELP = 13;
+  int HELP = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1080,7 +1144,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getPage()
    * @generated
    */
-  int PAGE = 14;
+  int PAGE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1126,7 +1190,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getContextualHelp()
    * @generated
    */
-  int CONTEXTUAL_HELP = 15;
+  int CONTEXTUAL_HELP = 16;
 
   /**
    * The feature id for the '<em><b>Contextual Help ID</b></em>' attribute.
@@ -1172,7 +1236,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 16;
+  int SERVICE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1227,7 +1291,7 @@ public interface EclipsemodelPackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getServiceKind()
    * @generated
    */
-  int SERVICE_KIND = 17;
+  int SERVICE_KIND = 18;
 
 
   /**
@@ -1329,6 +1393,38 @@ public interface EclipsemodelPackage extends EPackage
   EReference getApplication_Bundles();
 
   /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipsemodel.Project <em>Project</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Project</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Project
+   * @generated
+   */
+  EClass getProject();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Project#getProjectID <em>Project ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Project ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Project#getProjectID()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_ProjectID();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Project#getProjectName <em>Project Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Project Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Project#getProjectName()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_ProjectName();
+
+  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository <em>Repository</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1339,48 +1435,15 @@ public interface EclipsemodelPackage extends EPackage
   EClass getRepository();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryName <em>Category Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Repository#getName()
+   * @return the meta object for the attribute '<em>Category Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryName()
    * @see #getRepository()
    * @generated
    */
-  EAttribute getRepository_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getRepositoryID <em>Repository ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Repository ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Repository#getRepositoryID()
-   * @see #getRepository()
-   * @generated
-   */
-  EAttribute getRepository_RepositoryID();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getVersion <em>Version</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Version</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Repository#getVersion()
-   * @see #getRepository()
-   * @generated
-   */
-  EAttribute getRepository_Version();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryyName <em>Categoryy Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Categoryy Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryyName()
-   * @see #getRepository()
-   * @generated
-   */
-  EAttribute getRepository_CategoryyName();
+  EAttribute getRepository_CategoryName();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Repository#getCategoryLabel <em>Category Label</em>}'.
@@ -1437,28 +1500,6 @@ public interface EclipsemodelPackage extends EPackage
   EClass getFeature();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getLabel <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Feature#getLabel()
-   * @see #getFeature()
-   * @generated
-   */
-  EAttribute getFeature_Label();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getFeatureID <em>Feature ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Feature ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Feature#getFeatureID()
-   * @see #getFeature()
-   * @generated
-   */
-  EAttribute getFeature_FeatureID();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getCopyright <em>Copyright</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1492,6 +1533,28 @@ public interface EclipsemodelPackage extends EPackage
   EAttribute getFeature_Version();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getLicense <em>License</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>License</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Feature#getLicense()
+   * @see #getFeature()
+   * @generated
+   */
+  EAttribute getFeature_License();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getFeatureProvider <em>Feature Provider</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Feature Provider</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Feature#getFeatureProvider()
+   * @see #getFeature()
+   * @generated
+   */
+  EAttribute getFeature_FeatureProvider();
+
+  /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipsemodel.Feature#getBundles <em>Bundles</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1511,28 +1574,6 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    */
   EClass getBundle();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getName()
-   * @see #getBundle()
-   * @generated
-   */
-  EAttribute getBundle_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getSymbolicName <em>Symbolic Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Symbolic Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getSymbolicName()
-   * @see #getBundle()
-   * @generated
-   */
-  EAttribute getBundle_SymbolicName();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVersion <em>Version</em>}'.
@@ -1555,6 +1596,17 @@ public interface EclipsemodelPackage extends EPackage
    * @generated
    */
   EAttribute getBundle_RequiredEnvironment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVendor <em>Vendor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Vendor</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getVendor()
+   * @see #getBundle()
+   * @generated
+   */
+  EAttribute getBundle_Vendor();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipsemodel.Bundle#getServices <em>Services</em>}'.
@@ -2279,6 +2331,32 @@ public interface EclipsemodelPackage extends EPackage
     EReference APPLICATION__BUNDLES = eINSTANCE.getApplication_Bundles();
 
     /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.ProjectImpl <em>Project</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.ProjectImpl
+     * @see org.obeonetwork.dsl.gen.eclipsemodel.impl.EclipsemodelPackageImpl#getProject()
+     * @generated
+     */
+    EClass PROJECT = eINSTANCE.getProject();
+
+    /**
+     * The meta object literal for the '<em><b>Project ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__PROJECT_ID = eINSTANCE.getProject_ProjectID();
+
+    /**
+     * The meta object literal for the '<em><b>Project Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__PROJECT_NAME = eINSTANCE.getProject_ProjectName();
+
+    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl <em>Repository</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2289,36 +2367,12 @@ public interface EclipsemodelPackage extends EPackage
     EClass REPOSITORY = eINSTANCE.getRepository();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Category Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REPOSITORY__NAME = eINSTANCE.getRepository_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Repository ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REPOSITORY__REPOSITORY_ID = eINSTANCE.getRepository_RepositoryID();
-
-    /**
-     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REPOSITORY__VERSION = eINSTANCE.getRepository_Version();
-
-    /**
-     * The meta object literal for the '<em><b>Categoryy Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REPOSITORY__CATEGORYY_NAME = eINSTANCE.getRepository_CategoryyName();
+    EAttribute REPOSITORY__CATEGORY_NAME = eINSTANCE.getRepository_CategoryName();
 
     /**
      * The meta object literal for the '<em><b>Category Label</b></em>' attribute feature.
@@ -2363,22 +2417,6 @@ public interface EclipsemodelPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
-     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FEATURE__LABEL = eINSTANCE.getFeature_Label();
-
-    /**
-     * The meta object literal for the '<em><b>Feature ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FEATURE__FEATURE_ID = eINSTANCE.getFeature_FeatureID();
-
-    /**
      * The meta object literal for the '<em><b>Copyright</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2403,6 +2441,22 @@ public interface EclipsemodelPackage extends EPackage
     EAttribute FEATURE__VERSION = eINSTANCE.getFeature_Version();
 
     /**
+     * The meta object literal for the '<em><b>License</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FEATURE__LICENSE = eINSTANCE.getFeature_License();
+
+    /**
+     * The meta object literal for the '<em><b>Feature Provider</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FEATURE__FEATURE_PROVIDER = eINSTANCE.getFeature_FeatureProvider();
+
+    /**
      * The meta object literal for the '<em><b>Bundles</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2421,22 +2475,6 @@ public interface EclipsemodelPackage extends EPackage
     EClass BUNDLE = eINSTANCE.getBundle();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUNDLE__NAME = eINSTANCE.getBundle_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Symbolic Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUNDLE__SYMBOLIC_NAME = eINSTANCE.getBundle_SymbolicName();
-
-    /**
      * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2451,6 +2489,14 @@ public interface EclipsemodelPackage extends EPackage
      * @generated
      */
     EAttribute BUNDLE__REQUIRED_ENVIRONMENT = eINSTANCE.getBundle_RequiredEnvironment();
+
+    /**
+     * The meta object literal for the '<em><b>Vendor</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUNDLE__VENDOR = eINSTANCE.getBundle_Vendor();
 
     /**
      * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.

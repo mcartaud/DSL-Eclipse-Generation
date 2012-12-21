@@ -29,7 +29,7 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Feature;
  * @generated
  */
 public class FeatureItemProvider
-  extends ItemProviderAdapter
+  extends ProjectItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -61,60 +61,14 @@ public class FeatureItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addLabelPropertyDescriptor(object);
-      addFeatureIDPropertyDescriptor(object);
       addCopyrightPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
+      addLicensePropertyDescriptor(object);
+      addFeatureProviderPropertyDescriptor(object);
       addBundlesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Label feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLabelPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Feature_label_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Feature_label_feature", "_UI_Feature_type"),
-         EclipsemodelPackage.Literals.FEATURE__LABEL,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Feature ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addFeatureIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Feature_featureID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Feature_featureID_feature", "_UI_Feature_type"),
-         EclipsemodelPackage.Literals.FEATURE__FEATURE_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -187,6 +141,52 @@ public class FeatureItemProvider
   }
 
   /**
+   * This adds a property descriptor for the License feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addLicensePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Feature_license_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Feature_license_feature", "_UI_Feature_type"),
+         EclipsemodelPackage.Literals.FEATURE__LICENSE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Feature Provider feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFeatureProviderPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Feature_featureProvider_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Feature_featureProvider_feature", "_UI_Feature_type"),
+         EclipsemodelPackage.Literals.FEATURE__FEATURE_PROVIDER,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This adds a property descriptor for the Bundles feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -230,7 +230,7 @@ public class FeatureItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Feature)object).getLabel();
+    String label = ((Feature)object).getProjectName();
     return label == null || label.length() == 0 ?
       getString("_UI_Feature_type") :
       getString("_UI_Feature_type") + " " + label;
@@ -250,11 +250,11 @@ public class FeatureItemProvider
 
     switch (notification.getFeatureID(Feature.class))
     {
-      case EclipsemodelPackage.FEATURE__LABEL:
-      case EclipsemodelPackage.FEATURE__FEATURE_ID:
       case EclipsemodelPackage.FEATURE__COPYRIGHT:
       case EclipsemodelPackage.FEATURE__DESCRIPTION:
       case EclipsemodelPackage.FEATURE__VERSION:
+      case EclipsemodelPackage.FEATURE__LICENSE:
+      case EclipsemodelPackage.FEATURE__FEATURE_PROVIDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }
@@ -272,18 +272,6 @@ public class FeatureItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return EclipsemodelEditPlugin.INSTANCE;
   }
 
 }

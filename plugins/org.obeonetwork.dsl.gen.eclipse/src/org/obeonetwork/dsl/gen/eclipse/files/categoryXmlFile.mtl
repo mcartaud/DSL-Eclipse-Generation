@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private categoryXmlFile(aRepository : Repository)]
+[aRepository.projectID/]/category.xml
+[/template]
+
+[template public genCategoryXmlFile(aRepository : Repository)]
+[file (aRepository.categoryXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+[for (aFeature : Feature | aRepository.features)]
+   <feature url="features/[aRepository.projectID/]_[aFeature.version/].jar" id="[aRepository.projectID/]" version="[aFeature.version/]">
+      <category name="[aRepository.categoryName/]"/>
+   </feature>
+[/for]
+   <category-def name="[aRepository.categoryName/]" label="[aRepository.categoryLabel/]">
+      <description>
+         [aRepository.categoryDescription/]
+      </description>
+   </category-def>
+</site>
+[/file]
+[/template]

@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module buildPropertiesBundleFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private buildPropertiesBundleFile(aBundle : Bundle)]
+[aBundle.projectID/]/build.properties
+[/template]
+
+[template public genBuildPropertiesBundleFile(aBundle : Bundle)]
+[file (aBundle.buildPropertiesBundleFile(), false, 'UTF-8')]
+source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\
+               plugin.properties	
+[/file]
+[/template]

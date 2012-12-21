@@ -80,6 +80,11 @@ public class EclipsemodelAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
+      public Adapter caseProject(Project object)
+      {
+        return createProjectAdapter();
+      }
+      @Override
       public Adapter caseRepository(Repository object)
       {
         return createRepositoryAdapter();
@@ -192,6 +197,21 @@ public class EclipsemodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createApplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipsemodel.Project <em>Project</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipsemodel.Project
+   * @generated
+   */
+  public Adapter createProjectAdapter()
   {
     return null;
   }

@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template public featurePropertiesFile(aFeature : Feature)]
+[aFeature.projectID/]/feature.properties
+[/template]
+
+[template public genFeaturePropertiesFile(aFeature : Feature)]
+[file (aFeature.featurePropertiesFile(), false, 'UTF-8')]
+Feature-Name = [aFeature.projectName/]
+Feature-Provider = [aFeature.featureProvider/] 
+[/file]
+[/template]

@@ -27,10 +27,7 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Repository;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getRepositoryID <em>Repository ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getCategoryyName <em>Categoryy Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getCategoryName <em>Category Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getCategoryLabel <em>Category Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.RepositoryImpl#getFeatures <em>Features</em>}</li>
@@ -40,87 +37,27 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Repository;
  *
  * @generated
  */
-public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repository
+public class RepositoryImpl extends ProjectImpl implements Repository
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCategoryName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String CATEGORY_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCategoryName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getRepositoryID() <em>Repository ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRepositoryID()
-   * @generated
-   * @ordered
-   */
-  protected static final String REPOSITORY_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRepositoryID() <em>Repository ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRepositoryID()
-   * @generated
-   * @ordered
-   */
-  protected String repositoryID = REPOSITORY_ID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVersion()
-   * @generated
-   * @ordered
-   */
-  protected static final String VERSION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVersion()
-   * @generated
-   * @ordered
-   */
-  protected String version = VERSION_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getCategoryyName() <em>Categoryy Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategoryyName()
-   * @generated
-   * @ordered
-   */
-  protected static final String CATEGORYY_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCategoryyName() <em>Categoryy Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategoryyName()
-   * @generated
-   * @ordered
-   */
-  protected String categoryyName = CATEGORYY_NAME_EDEFAULT;
+  protected String categoryName = CATEGORY_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getCategoryLabel() <em>Category Label</em>}' attribute.
@@ -208,9 +145,9 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getCategoryName()
   {
-    return name;
+    return categoryName;
   }
 
   /**
@@ -218,81 +155,12 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setCategoryName(String newCategoryName)
   {
-    String oldName = name;
-    name = newName;
+    String oldCategoryName = categoryName;
+    categoryName = newCategoryName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.REPOSITORY__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getRepositoryID()
-  {
-    return repositoryID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRepositoryID(String newRepositoryID)
-  {
-    String oldRepositoryID = repositoryID;
-    repositoryID = newRepositoryID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.REPOSITORY__REPOSITORY_ID, oldRepositoryID, repositoryID));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getVersion()
-  {
-    return version;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVersion(String newVersion)
-  {
-    String oldVersion = version;
-    version = newVersion;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.REPOSITORY__VERSION, oldVersion, version));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getCategoryyName()
-  {
-    return categoryyName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCategoryyName(String newCategoryyName)
-  {
-    String oldCategoryyName = categoryyName;
-    categoryyName = newCategoryyName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.REPOSITORY__CATEGORYY_NAME, oldCategoryyName, categoryyName));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.REPOSITORY__CATEGORY_NAME, oldCategoryName, categoryName));
   }
 
   /**
@@ -379,14 +247,8 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.REPOSITORY__NAME:
-        return getName();
-      case EclipsemodelPackage.REPOSITORY__REPOSITORY_ID:
-        return getRepositoryID();
-      case EclipsemodelPackage.REPOSITORY__VERSION:
-        return getVersion();
-      case EclipsemodelPackage.REPOSITORY__CATEGORYY_NAME:
-        return getCategoryyName();
+      case EclipsemodelPackage.REPOSITORY__CATEGORY_NAME:
+        return getCategoryName();
       case EclipsemodelPackage.REPOSITORY__CATEGORY_LABEL:
         return getCategoryLabel();
       case EclipsemodelPackage.REPOSITORY__CATEGORY_DESCRIPTION:
@@ -410,17 +272,8 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.REPOSITORY__NAME:
-        setName((String)newValue);
-        return;
-      case EclipsemodelPackage.REPOSITORY__REPOSITORY_ID:
-        setRepositoryID((String)newValue);
-        return;
-      case EclipsemodelPackage.REPOSITORY__VERSION:
-        setVersion((String)newValue);
-        return;
-      case EclipsemodelPackage.REPOSITORY__CATEGORYY_NAME:
-        setCategoryyName((String)newValue);
+      case EclipsemodelPackage.REPOSITORY__CATEGORY_NAME:
+        setCategoryName((String)newValue);
         return;
       case EclipsemodelPackage.REPOSITORY__CATEGORY_LABEL:
         setCategoryLabel((String)newValue);
@@ -450,17 +303,8 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.REPOSITORY__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case EclipsemodelPackage.REPOSITORY__REPOSITORY_ID:
-        setRepositoryID(REPOSITORY_ID_EDEFAULT);
-        return;
-      case EclipsemodelPackage.REPOSITORY__VERSION:
-        setVersion(VERSION_EDEFAULT);
-        return;
-      case EclipsemodelPackage.REPOSITORY__CATEGORYY_NAME:
-        setCategoryyName(CATEGORYY_NAME_EDEFAULT);
+      case EclipsemodelPackage.REPOSITORY__CATEGORY_NAME:
+        setCategoryName(CATEGORY_NAME_EDEFAULT);
         return;
       case EclipsemodelPackage.REPOSITORY__CATEGORY_LABEL:
         setCategoryLabel(CATEGORY_LABEL_EDEFAULT);
@@ -488,14 +332,8 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.REPOSITORY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsemodelPackage.REPOSITORY__REPOSITORY_ID:
-        return REPOSITORY_ID_EDEFAULT == null ? repositoryID != null : !REPOSITORY_ID_EDEFAULT.equals(repositoryID);
-      case EclipsemodelPackage.REPOSITORY__VERSION:
-        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-      case EclipsemodelPackage.REPOSITORY__CATEGORYY_NAME:
-        return CATEGORYY_NAME_EDEFAULT == null ? categoryyName != null : !CATEGORYY_NAME_EDEFAULT.equals(categoryyName);
+      case EclipsemodelPackage.REPOSITORY__CATEGORY_NAME:
+        return CATEGORY_NAME_EDEFAULT == null ? categoryName != null : !CATEGORY_NAME_EDEFAULT.equals(categoryName);
       case EclipsemodelPackage.REPOSITORY__CATEGORY_LABEL:
         return CATEGORY_LABEL_EDEFAULT == null ? categoryLabel != null : !CATEGORY_LABEL_EDEFAULT.equals(categoryLabel);
       case EclipsemodelPackage.REPOSITORY__CATEGORY_DESCRIPTION:
@@ -519,14 +357,8 @@ public class RepositoryImpl extends MinimalEObjectImpl.Container implements Repo
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", repositoryID: ");
-    result.append(repositoryID);
-    result.append(", version: ");
-    result.append(version);
-    result.append(", categoryyName: ");
-    result.append(categoryyName);
+    result.append(" (categoryName: ");
+    result.append(categoryName);
     result.append(", categoryLabel: ");
     result.append(categoryLabel);
     result.append(", categoryDescription: ");

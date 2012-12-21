@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module dsl2eclipse('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template public generateElement(anApplication : Application)]
+[comment @main/]
+[/template]

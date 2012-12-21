@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Page;
 import org.obeonetwork.dsl.gen.eclipsemodel.Part;
 import org.obeonetwork.dsl.gen.eclipsemodel.PartCategory;
 import org.obeonetwork.dsl.gen.eclipsemodel.Perspective;
+import org.obeonetwork.dsl.gen.eclipsemodel.Project;
 import org.obeonetwork.dsl.gen.eclipsemodel.Repository;
 import org.obeonetwork.dsl.gen.eclipsemodel.Service;
 import org.obeonetwork.dsl.gen.eclipsemodel.ServiceKind;
@@ -44,6 +45,13 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * @generated
    */
   private EClass applicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass projectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -325,6 +333,36 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProject()
+  {
+    return projectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProject_ProjectID()
+  {
+    return (EAttribute)projectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProject_ProjectName()
+  {
+    return (EAttribute)projectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRepository()
   {
     return repositoryEClass;
@@ -335,7 +373,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_Name()
+  public EAttribute getRepository_CategoryName()
   {
     return (EAttribute)repositoryEClass.getEStructuralFeatures().get(0);
   }
@@ -345,7 +383,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_RepositoryID()
+  public EAttribute getRepository_CategoryLabel()
   {
     return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
   }
@@ -355,7 +393,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_Version()
+  public EAttribute getRepository_CategoryDescription()
   {
     return (EAttribute)repositoryEClass.getEStructuralFeatures().get(2);
   }
@@ -365,39 +403,9 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_CategoryyName()
-  {
-    return (EAttribute)repositoryEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRepository_CategoryLabel()
-  {
-    return (EAttribute)repositoryEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRepository_CategoryDescription()
-  {
-    return (EAttribute)repositoryEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRepository_Features()
   {
-    return (EReference)repositoryEClass.getEStructuralFeatures().get(6);
+    return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -407,7 +415,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    */
   public EReference getRepository_Bundles()
   {
-    return (EReference)repositoryEClass.getEStructuralFeatures().get(7);
+    return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -425,7 +433,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Label()
+  public EAttribute getFeature_Copyright()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
   }
@@ -435,7 +443,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_FeatureID()
+  public EAttribute getFeature_Description()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
   }
@@ -445,7 +453,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Copyright()
+  public EAttribute getFeature_Version()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
   }
@@ -455,7 +463,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Description()
+  public EAttribute getFeature_License()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
   }
@@ -465,7 +473,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Version()
+  public EAttribute getFeature_FeatureProvider()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
   }
@@ -495,7 +503,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBundle_Name()
+  public EAttribute getBundle_Version()
   {
     return (EAttribute)bundleEClass.getEStructuralFeatures().get(0);
   }
@@ -505,7 +513,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBundle_SymbolicName()
+  public EAttribute getBundle_RequiredEnvironment()
   {
     return (EAttribute)bundleEClass.getEStructuralFeatures().get(1);
   }
@@ -515,7 +523,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBundle_Version()
+  public EAttribute getBundle_Vendor()
   {
     return (EAttribute)bundleEClass.getEStructuralFeatures().get(2);
   }
@@ -525,19 +533,9 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBundle_RequiredEnvironment()
-  {
-    return (EAttribute)bundleEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getBundle_Services()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(4);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -547,7 +545,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    */
   public EReference getBundle_PartCategories()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(5);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -557,7 +555,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    */
   public EReference getBundle_Perspectives()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(6);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -567,7 +565,7 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
    */
   public EReference getBundle_Helps()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(7);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1150,29 +1148,29 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
     createEReference(applicationEClass, APPLICATION__FEATURES);
     createEReference(applicationEClass, APPLICATION__BUNDLES);
 
+    projectEClass = createEClass(PROJECT);
+    createEAttribute(projectEClass, PROJECT__PROJECT_ID);
+    createEAttribute(projectEClass, PROJECT__PROJECT_NAME);
+
     repositoryEClass = createEClass(REPOSITORY);
-    createEAttribute(repositoryEClass, REPOSITORY__NAME);
-    createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_ID);
-    createEAttribute(repositoryEClass, REPOSITORY__VERSION);
-    createEAttribute(repositoryEClass, REPOSITORY__CATEGORYY_NAME);
+    createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_NAME);
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_LABEL);
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_DESCRIPTION);
     createEReference(repositoryEClass, REPOSITORY__FEATURES);
     createEReference(repositoryEClass, REPOSITORY__BUNDLES);
 
     featureEClass = createEClass(FEATURE);
-    createEAttribute(featureEClass, FEATURE__LABEL);
-    createEAttribute(featureEClass, FEATURE__FEATURE_ID);
     createEAttribute(featureEClass, FEATURE__COPYRIGHT);
     createEAttribute(featureEClass, FEATURE__DESCRIPTION);
     createEAttribute(featureEClass, FEATURE__VERSION);
+    createEAttribute(featureEClass, FEATURE__LICENSE);
+    createEAttribute(featureEClass, FEATURE__FEATURE_PROVIDER);
     createEReference(featureEClass, FEATURE__BUNDLES);
 
     bundleEClass = createEClass(BUNDLE);
-    createEAttribute(bundleEClass, BUNDLE__NAME);
-    createEAttribute(bundleEClass, BUNDLE__SYMBOLIC_NAME);
     createEAttribute(bundleEClass, BUNDLE__VERSION);
     createEAttribute(bundleEClass, BUNDLE__REQUIRED_ENVIRONMENT);
+    createEAttribute(bundleEClass, BUNDLE__VENDOR);
     createEReference(bundleEClass, BUNDLE__SERVICES);
     createEReference(bundleEClass, BUNDLE__PART_CATEGORIES);
     createEReference(bundleEClass, BUNDLE__PERSPECTIVES);
@@ -1280,6 +1278,9 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    repositoryEClass.getESuperTypes().add(this.getProject());
+    featureEClass.getESuperTypes().add(this.getProject());
+    bundleEClass.getESuperTypes().add(this.getProject());
     viewEClass.getESuperTypes().add(this.getPart());
     editorEClass.getESuperTypes().add(this.getPart());
 
@@ -1294,29 +1295,29 @@ public class EclipsemodelPackageImpl extends EPackageImpl implements Eclipsemode
     initEReference(getApplication_Features(), this.getFeature(), null, "features", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProject_ProjectID(), theEcorePackage.getEString(), "projectID", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProject_ProjectName(), theEcorePackage.getEString(), "projectName", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRepository_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRepository_RepositoryID(), theEcorePackage.getEString(), "repositoryID", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRepository_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRepository_CategoryyName(), theEcorePackage.getEString(), "categoryyName", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRepository_CategoryName(), theEcorePackage.getEString(), "categoryName", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRepository_CategoryLabel(), theEcorePackage.getEString(), "categoryLabel", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRepository_CategoryDescription(), theEcorePackage.getEString(), "categoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepository_Features(), this.getFeature(), null, "features", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFeature_Label(), theEcorePackage.getEString(), "label", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_FeatureID(), theEcorePackage.getEString(), "featureID", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Copyright(), theEcorePackage.getEString(), "copyright", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_License(), theEcorePackage.getEString(), "license", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_FeatureProvider(), theEcorePackage.getEString(), "featureProvider", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBundle_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBundle_SymbolicName(), theEcorePackage.getEString(), "symbolicName", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBundle_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBundle_RequiredEnvironment(), theEcorePackage.getEString(), "requiredEnvironment", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBundle_Vendor(), theEcorePackage.getEString(), "vendor", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Services(), this.getService(), null, "services", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_PartCategories(), this.getPartCategory(), null, "partCategories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

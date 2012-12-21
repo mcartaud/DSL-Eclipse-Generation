@@ -79,10 +79,18 @@ public class EclipsemodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsemodelPackage.PROJECT:
+      {
+        Project project = (Project)theEObject;
+        T result = caseProject(project);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsemodelPackage.REPOSITORY:
       {
         Repository repository = (Repository)theEObject;
         T result = caseRepository(repository);
+        if (result == null) result = caseProject(repository);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -90,6 +98,7 @@ public class EclipsemodelSwitch<T> extends Switch<T>
       {
         Feature feature = (Feature)theEObject;
         T result = caseFeature(feature);
+        if (result == null) result = caseProject(feature);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -97,6 +106,7 @@ public class EclipsemodelSwitch<T> extends Switch<T>
       {
         Bundle bundle = (Bundle)theEObject;
         T result = caseBundle(bundle);
+        if (result == null) result = caseProject(bundle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -209,6 +219,22 @@ public class EclipsemodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseApplication(Application object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProject(Project object)
   {
     return null;
   }

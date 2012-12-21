@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module manifestMFFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private manifestMFFile(aBundle : Bundle)]
+[aBundle.genProjectPath()/]/META-INF/MANIFEST.MF
+[/template]
+
+[template public genManifestMFFile(aBundle : Bundle)]
+[file (aBundle.manifestMFFile(), false, 'UTF-8')]
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: [aBundle.projectID/]
+Bundle-Version: [aBundle.bundleVersion()/]
+Bundle-Vendor: %Provider-Name
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+[/file]
+[/template]
+
+[template private bundleVersion(aBundle : Bundle)]
+[if (aBundle.version->size() > 0)]
+[aBundle.version/]
+[else]
+1.0.0.qualifier
+[/if]
+[/template]

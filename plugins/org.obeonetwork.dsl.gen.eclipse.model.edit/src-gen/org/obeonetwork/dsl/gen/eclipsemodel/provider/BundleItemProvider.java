@@ -35,7 +35,7 @@ import org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage;
  * @generated
  */
 public class BundleItemProvider
-  extends ItemProviderAdapter
+  extends ProjectItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -67,58 +67,11 @@ public class BundleItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
-      addSymbolicNamePropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addRequiredEnvironmentPropertyDescriptor(object);
+      addVendorPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Bundle_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_name_feature", "_UI_Bundle_type"),
-         EclipsemodelPackage.Literals.BUNDLE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Symbolic Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addSymbolicNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Bundle_symbolicName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_symbolicName_feature", "_UI_Bundle_type"),
-         EclipsemodelPackage.Literals.BUNDLE__SYMBOLIC_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -159,6 +112,29 @@ public class BundleItemProvider
          getString("_UI_Bundle_requiredEnvironment_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Bundle_requiredEnvironment_feature", "_UI_Bundle_type"),
          EclipsemodelPackage.Literals.BUNDLE__REQUIRED_ENVIRONMENT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Vendor feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addVendorPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_vendor_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_vendor_feature", "_UI_Bundle_type"),
+         EclipsemodelPackage.Literals.BUNDLE__VENDOR,
          true,
          false,
          false,
@@ -224,7 +200,7 @@ public class BundleItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Bundle)object).getName();
+    String label = ((Bundle)object).getProjectName();
     return label == null || label.length() == 0 ?
       getString("_UI_Bundle_type") :
       getString("_UI_Bundle_type") + " " + label;
@@ -244,10 +220,9 @@ public class BundleItemProvider
 
     switch (notification.getFeatureID(Bundle.class))
     {
-      case EclipsemodelPackage.BUNDLE__NAME:
-      case EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME:
       case EclipsemodelPackage.BUNDLE__VERSION:
       case EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT:
+      case EclipsemodelPackage.BUNDLE__VENDOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsemodelPackage.BUNDLE__SERVICES:
@@ -291,18 +266,6 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsemodelPackage.Literals.BUNDLE__HELPS,
          EclipsemodelFactory.eINSTANCE.createHelp()));
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return EclipsemodelEditPlugin.INSTANCE;
   }
 
 }

@@ -21,59 +21,19 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Feature;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getFeatureID <em>Feature ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getLicense <em>License</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getFeatureProvider <em>Feature Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.FeatureImpl#getBundles <em>Bundles</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
+public class FeatureImpl extends ProjectImpl implements Feature
 {
-  /**
-   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabel()
-   * @generated
-   * @ordered
-   */
-  protected static final String LABEL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabel()
-   * @generated
-   * @ordered
-   */
-  protected String label = LABEL_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getFeatureID() <em>Feature ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFeatureID()
-   * @generated
-   * @ordered
-   */
-  protected static final String FEATURE_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFeatureID() <em>Feature ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFeatureID()
-   * @generated
-   * @ordered
-   */
-  protected String featureID = FEATURE_ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -135,6 +95,46 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected String version = VERSION_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getLicense() <em>License</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLicense()
+   * @generated
+   * @ordered
+   */
+  protected static final String LICENSE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLicense()
+   * @generated
+   * @ordered
+   */
+  protected String license = LICENSE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFeatureProvider() <em>Feature Provider</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFeatureProvider()
+   * @generated
+   * @ordered
+   */
+  protected static final String FEATURE_PROVIDER_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFeatureProvider() <em>Feature Provider</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFeatureProvider()
+   * @generated
+   * @ordered
+   */
+  protected String featureProvider = FEATURE_PROVIDER_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getBundles() <em>Bundles</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -163,52 +163,6 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected EClass eStaticClass()
   {
     return EclipsemodelPackage.Literals.FEATURE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLabel()
-  {
-    return label;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLabel(String newLabel)
-  {
-    String oldLabel = label;
-    label = newLabel;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.FEATURE__LABEL, oldLabel, label));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getFeatureID()
-  {
-    return featureID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFeatureID(String newFeatureID)
-  {
-    String oldFeatureID = featureID;
-    featureID = newFeatureID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.FEATURE__FEATURE_ID, oldFeatureID, featureID));
   }
 
   /**
@@ -285,6 +239,52 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getLicense()
+  {
+    return license;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLicense(String newLicense)
+  {
+    String oldLicense = license;
+    license = newLicense;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.FEATURE__LICENSE, oldLicense, license));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFeatureProvider()
+  {
+    return featureProvider;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeatureProvider(String newFeatureProvider)
+  {
+    String oldFeatureProvider = featureProvider;
+    featureProvider = newFeatureProvider;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.FEATURE__FEATURE_PROVIDER, oldFeatureProvider, featureProvider));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Bundle> getBundles()
   {
     if (bundles == null)
@@ -304,16 +304,16 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.FEATURE__LABEL:
-        return getLabel();
-      case EclipsemodelPackage.FEATURE__FEATURE_ID:
-        return getFeatureID();
       case EclipsemodelPackage.FEATURE__COPYRIGHT:
         return getCopyright();
       case EclipsemodelPackage.FEATURE__DESCRIPTION:
         return getDescription();
       case EclipsemodelPackage.FEATURE__VERSION:
         return getVersion();
+      case EclipsemodelPackage.FEATURE__LICENSE:
+        return getLicense();
+      case EclipsemodelPackage.FEATURE__FEATURE_PROVIDER:
+        return getFeatureProvider();
       case EclipsemodelPackage.FEATURE__BUNDLES:
         return getBundles();
     }
@@ -331,12 +331,6 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.FEATURE__LABEL:
-        setLabel((String)newValue);
-        return;
-      case EclipsemodelPackage.FEATURE__FEATURE_ID:
-        setFeatureID((String)newValue);
-        return;
       case EclipsemodelPackage.FEATURE__COPYRIGHT:
         setCopyright((String)newValue);
         return;
@@ -345,6 +339,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
         return;
       case EclipsemodelPackage.FEATURE__VERSION:
         setVersion((String)newValue);
+        return;
+      case EclipsemodelPackage.FEATURE__LICENSE:
+        setLicense((String)newValue);
+        return;
+      case EclipsemodelPackage.FEATURE__FEATURE_PROVIDER:
+        setFeatureProvider((String)newValue);
         return;
       case EclipsemodelPackage.FEATURE__BUNDLES:
         getBundles().clear();
@@ -364,12 +364,6 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.FEATURE__LABEL:
-        setLabel(LABEL_EDEFAULT);
-        return;
-      case EclipsemodelPackage.FEATURE__FEATURE_ID:
-        setFeatureID(FEATURE_ID_EDEFAULT);
-        return;
       case EclipsemodelPackage.FEATURE__COPYRIGHT:
         setCopyright(COPYRIGHT_EDEFAULT);
         return;
@@ -378,6 +372,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
         return;
       case EclipsemodelPackage.FEATURE__VERSION:
         setVersion(VERSION_EDEFAULT);
+        return;
+      case EclipsemodelPackage.FEATURE__LICENSE:
+        setLicense(LICENSE_EDEFAULT);
+        return;
+      case EclipsemodelPackage.FEATURE__FEATURE_PROVIDER:
+        setFeatureProvider(FEATURE_PROVIDER_EDEFAULT);
         return;
       case EclipsemodelPackage.FEATURE__BUNDLES:
         getBundles().clear();
@@ -396,16 +396,16 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.FEATURE__LABEL:
-        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-      case EclipsemodelPackage.FEATURE__FEATURE_ID:
-        return FEATURE_ID_EDEFAULT == null ? this.featureID != null : !FEATURE_ID_EDEFAULT.equals(this.featureID);
       case EclipsemodelPackage.FEATURE__COPYRIGHT:
         return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
       case EclipsemodelPackage.FEATURE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case EclipsemodelPackage.FEATURE__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+      case EclipsemodelPackage.FEATURE__LICENSE:
+        return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
+      case EclipsemodelPackage.FEATURE__FEATURE_PROVIDER:
+        return FEATURE_PROVIDER_EDEFAULT == null ? featureProvider != null : !FEATURE_PROVIDER_EDEFAULT.equals(featureProvider);
       case EclipsemodelPackage.FEATURE__BUNDLES:
         return bundles != null && !bundles.isEmpty();
     }
@@ -423,16 +423,16 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (label: ");
-    result.append(label);
-    result.append(", featureID: ");
-    result.append(featureID);
-    result.append(", copyright: ");
+    result.append(" (copyright: ");
     result.append(copyright);
     result.append(", description: ");
     result.append(description);
     result.append(", version: ");
     result.append(version);
+    result.append(", license: ");
+    result.append(license);
+    result.append(", featureProvider: ");
+    result.append(featureProvider);
     result.append(')');
     return result.toString();
   }

@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module siteXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private siteXmlFile(aRepository : Repository)]
+[aRepository.projectID/]/site.xml
+[/template]
+
+[template public genSiteXmlFile(aRepository : Repository)]
+[file (aRepository.siteXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+</site>
+[/file]
+[/template]

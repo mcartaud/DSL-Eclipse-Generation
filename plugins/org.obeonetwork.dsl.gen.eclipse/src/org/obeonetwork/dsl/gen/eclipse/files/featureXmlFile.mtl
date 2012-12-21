@@ -1,0 +1,40 @@
+[comment encoding = UTF-8 /]
+[module featureXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private featureXmlFile(aFeature : Feature)]
+[aFeature.projectID/]/feature.xml
+[/template]
+
+[template public genFeatureXmlFile(aFeature : Feature)]
+[file (aFeature.featureXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="[aFeature.projectID/]"
+      label="%Feature-Name"
+      version="[aFeature.oclAsType(Feature).version/]"
+	  provider-name="%Feature-Provider">
+
+   <description url="http://www.example.com/description">
+      [aFeature.description/]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [aFeature.copyright/]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [aFeature.license/]
+   </license>
+
+[for (aBundle : Bundle | aFeature.bundles)]
+   <plugin
+         id="[aBundle.projectID/]"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+[/for]
+</feature>
+[/file]
+[/template]

@@ -32,10 +32,9 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Service;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getSymbolicName <em>Symbolic Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getServices <em>Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipsemodel.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
@@ -45,48 +44,8 @@ import org.obeonetwork.dsl.gen.eclipsemodel.Service;
  *
  * @generated
  */
-public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
+public class BundleImpl extends ProjectImpl implements Bundle
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getSymbolicName() <em>Symbolic Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSymbolicName()
-   * @generated
-   * @ordered
-   */
-  protected static final String SYMBOLIC_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSymbolicName() <em>Symbolic Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSymbolicName()
-   * @generated
-   * @ordered
-   */
-  protected String symbolicName = SYMBOLIC_NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -126,6 +85,26 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
    * @ordered
    */
   protected String requiredEnvironment = REQUIRED_ENVIRONMENT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVendor()
+   * @generated
+   * @ordered
+   */
+  protected static final String VENDOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVendor()
+   * @generated
+   * @ordered
+   */
+  protected String vendor = VENDOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
@@ -193,52 +172,6 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.BUNDLE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getSymbolicName()
-  {
-    return symbolicName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSymbolicName(String newSymbolicName)
-  {
-    String oldSymbolicName = symbolicName;
-    symbolicName = newSymbolicName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME, oldSymbolicName, symbolicName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getVersion()
   {
     return version;
@@ -278,6 +211,29 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
     requiredEnvironment = newRequiredEnvironment;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT, oldRequiredEnvironment, requiredEnvironment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getVendor()
+  {
+    return vendor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVendor(String newVendor)
+  {
+    String oldVendor = vendor;
+    vendor = newVendor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsemodelPackage.BUNDLE__VENDOR, oldVendor, vendor));
   }
 
   /**
@@ -368,14 +324,12 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.BUNDLE__NAME:
-        return getName();
-      case EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME:
-        return getSymbolicName();
       case EclipsemodelPackage.BUNDLE__VERSION:
         return getVersion();
       case EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT:
         return getRequiredEnvironment();
+      case EclipsemodelPackage.BUNDLE__VENDOR:
+        return getVendor();
       case EclipsemodelPackage.BUNDLE__SERVICES:
         return getServices();
       case EclipsemodelPackage.BUNDLE__PART_CATEGORIES:
@@ -399,17 +353,14 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.BUNDLE__NAME:
-        setName((String)newValue);
-        return;
-      case EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME:
-        setSymbolicName((String)newValue);
-        return;
       case EclipsemodelPackage.BUNDLE__VERSION:
         setVersion((String)newValue);
         return;
       case EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT:
         setRequiredEnvironment((String)newValue);
+        return;
+      case EclipsemodelPackage.BUNDLE__VENDOR:
+        setVendor((String)newValue);
         return;
       case EclipsemodelPackage.BUNDLE__SERVICES:
         getServices().clear();
@@ -441,17 +392,14 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.BUNDLE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME:
-        setSymbolicName(SYMBOLIC_NAME_EDEFAULT);
-        return;
       case EclipsemodelPackage.BUNDLE__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
       case EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT:
         setRequiredEnvironment(REQUIRED_ENVIRONMENT_EDEFAULT);
+        return;
+      case EclipsemodelPackage.BUNDLE__VENDOR:
+        setVendor(VENDOR_EDEFAULT);
         return;
       case EclipsemodelPackage.BUNDLE__SERVICES:
         getServices().clear();
@@ -479,14 +427,12 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
   {
     switch (featureID)
     {
-      case EclipsemodelPackage.BUNDLE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsemodelPackage.BUNDLE__SYMBOLIC_NAME:
-        return SYMBOLIC_NAME_EDEFAULT == null ? symbolicName != null : !SYMBOLIC_NAME_EDEFAULT.equals(symbolicName);
       case EclipsemodelPackage.BUNDLE__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case EclipsemodelPackage.BUNDLE__REQUIRED_ENVIRONMENT:
         return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
+      case EclipsemodelPackage.BUNDLE__VENDOR:
+        return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
       case EclipsemodelPackage.BUNDLE__SERVICES:
         return services != null && !services.isEmpty();
       case EclipsemodelPackage.BUNDLE__PART_CATEGORIES:
@@ -510,14 +456,12 @@ public class BundleImpl extends MinimalEObjectImpl.Container implements Bundle
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", symbolicName: ");
-    result.append(symbolicName);
-    result.append(", version: ");
+    result.append(" (version: ");
     result.append(version);
     result.append(", requiredEnvironment: ");
     result.append(requiredEnvironment);
+    result.append(", vendor: ");
+    result.append(vendor);
     result.append(')');
     return result.toString();
   }

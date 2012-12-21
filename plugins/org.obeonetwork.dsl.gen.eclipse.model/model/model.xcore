@@ -15,31 +15,33 @@ class Application {
 	contains Bundle[] bundles
 }
 
-class Repository {
-	String name
-	String repositoryID
-	String version
-	String categoryyName
+abstract class Project {
+	String projectID
+	String projectName
+
+}
+
+class Repository extends Project {
+	String categoryName
 	String categoryLabel
 	String categoryDescription
 	refers Feature[] features
 	refers Bundle[] bundles
 }
 
-class Feature {
-	String label
-	String featureID
+class Feature extends Project {
 	String copyright
 	String description
 	String version
+	String license
+	String featureProvider
 	refers Bundle[] bundles
 }
 
-class Bundle {
-	String name
-	String symbolicName
+class Bundle extends Project {
 	String version
 	String requiredEnvironment
+	String vendor
 	contains Service[] services
 	contains PartCategory[] partCategories
 	contains Perspective[] perspectives
