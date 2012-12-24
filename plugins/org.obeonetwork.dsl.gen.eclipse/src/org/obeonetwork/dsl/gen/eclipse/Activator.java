@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Obeo - initial API and implementation
+ *     Mathieu Cartaud (Obeo) - initial API and implementation
  *******************************************************************************/
 package org.obeonetwork.dsl.gen.eclipse;
 
