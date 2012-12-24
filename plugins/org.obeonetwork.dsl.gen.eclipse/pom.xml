@@ -25,39 +25,37 @@
 
   <name>Acceleo DSL to Eclipse Generator</name>
 
-  
-
- <build>   
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-source-plugin</artifactId>
-      </plugin>   
-      <plugin>  
-          <groupId>org.codehaus.mojo</groupId>  
-          <artifactId>exec-maven-plugin</artifactId>  
-          <version>1.1.1</version>  
-          <executions>  
-            <execution>  
-              <phase>compile</phase>  
-              <goals>  
-                <goal>java</goal>  
+  <build>
+     <plugins>
+       <plugin>
+         <groupId>org.eclipse.acceleo</groupId>
+         <artifactId>maven</artifactId>
+         <version>3.2.1</version>
+         <executions>
+           <execution>
+             <phase>compile</phase>
+             <goals>
+                <goal>acceleo-compile</goal>
               </goals>
-              <configuration>
-                <!--
-                   Calls the AcceleoCompiler to launch the compilation.
-                -->
-                <mainClass>org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse</mainClass>  
-                <arguments>  
-                  <argument>${basedir}/src/</argument>  <!-- The source folder -->  
-                  <argument>${basedir}/target/classes</argument>  <!-- The output folder -->
-                  <argument>false</argument>  <!-- Indicates if we should use binary resources serializations -->
-                  <argument>${basedir}/../org.eclipse.mylyn.docs.intent.markup.gen/target/classes</argument>  <!-- The project dependencies in the workspace -->
-                </arguments>  
-              </configuration>  
-            </execution>  
-          </executions>  
-        </plugin>
-    </plugins>
-  </build>
+           </execution>
+         </executions>
+         <configuration>
+           <useBinaryResources>false</useBinaryResources>
+           <usePlatformResourcePath>true</usePlatformResourcePath>
+           <acceleoProject>
+             <root>${project.basedir}</root>
+             <entries>
+               <entry>
+                 <input>src</input>
+                 <output>target/classes</output>
+               </entry>
+             </entries>
+           </acceleoProject>
+           <packagesToRegister>
+             <packageToRegister>org.obeonetwork.dsl.eclispe.EclipsePackage</packageToRegister>
+           </packagesToRegister>
+         </configuration>
+       </plugin>
+     </plugins>
+   </build>
 </project>
