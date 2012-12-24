@@ -53,7 +53,7 @@
            </acceleoProject>
 <!--
            <packagesToRegister>
-             <packageToRegister>org.obeonetwork.dsl.gen.eclispe.EclipsePackage</packageToRegister>
+             <packageToRegister>org.obeonetwork.dsl.gen.eclipse.EclipsePackage</packageToRegister>
            </packagesToRegister>
 -->
          </configuration>
