@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/eclipse"
-            class="org.obeonetwork.dsl.gen.eclipsemodel.provider.EclipsemodelItemProviderAdapterFactory"
+            class="org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

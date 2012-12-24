@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.gen.eclipse.model.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelEditorPlugin$Implementation
+Bundle-Activator: org.obeonetwork.dsl.gen.eclipse.presentation.EclipseEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.obeonetwork.dsl.gen.eclipsemodel.presentation
+Export-Package: org.obeonetwork.dsl.gen.eclipse.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.obeonetwork.dsl.gen.eclipse.model.edit;visibility:=reexport,

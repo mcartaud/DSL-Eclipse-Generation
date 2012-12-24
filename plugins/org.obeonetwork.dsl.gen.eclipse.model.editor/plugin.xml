@@ -11,11 +11,11 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelModelWizardID"
+            id="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseModelWizardID"
             name="%_UI_EclipsemodelModelWizard_label"
-            class="org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelModelWizard"
+            class="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EclipsemodelModelFile.gif">
+            icon="icons/full/obj16/EclipseModelFile.gif">
          <description>%_UI_EclipsemodelModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -23,12 +23,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelEditorID"
+            id="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseEditorID"
             name="%_UI_EclipsemodelEditor_label"
-            icon="icons/full/obj16/EclipsemodelModelFile.gif"
-            extensions="eclipsemodel"
-            class="org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelEditor"
-            contributorClass="org.obeonetwork.dsl.gen.eclipsemodel.presentation.EclipsemodelActionBarContributor">
+            icon="icons/full/obj16/EclipseModelFile.gif"
+            extensions="eclipse"
+            class="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseEditor"
+            contributorClass="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseActionBarContributor">
       </editor>
    </extension>
 

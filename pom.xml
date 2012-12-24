@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
+  <groupId>org.obeonetwork.acceleo</groupId>
+  <artifactId>org.obeonetwork.dsl.gen.eclipse.parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Acceleo DSL to Eclipse Generator Project</name>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public License v1.0</name>
+      <comments>
+       All rights reserved.
+
+       This program and the accompanying materials are made
+       available under the terms of the Eclipse Public License v1.0
+       which accompanies this distribution, and is available at
+       http://www.eclipse.org/legal/epl-v10.htm
+      </comments>
+    </license>
+  </licenses>
+  
+  <modules>
+    <module>plugins/org.obeonetwork.dsl.gen.eclipse.model</module>
+    <module>plugins/org.obeonetwork.dsl.gen.eclipse.model.edit</module>
+    <module>plugins/org.obeonetwork.dsl.gen.eclipse.model.editor</module>
+    <module>plugins/org.obeonetwork.dsl.gen.eclipse</module>
+    <module>features/org.obeonetwork.dsl.gen.eclipse.feature</module>
+  </modules>
+
+  <properties>
+    <acceleo-version>3.3.0-SNAPSHOT</acceleo-version>
+    <tycho-version>0.14.1</tycho-version>
+    <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
+    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
+    <eclipse-site>http://download.eclipse.org/releases/juno</eclipse-site>
+    <platform-version>[3.8,4.2]</platform-version>
+  </properties>
+  
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <resolver>p2</resolver>
+          <pomDependencies>consider</pomDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <!-- TODO remove workaround when https://issues.sonatype.org/browse/TYCHO-473 is fixed -->
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-source-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <executions>
+            <execution>
+              <id>attach-source</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>plugin-source</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.1</version>
+          <configuration>
+            <encoding>ISO-8859-1</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+    <repositories>
+	<repository><id>juno</id>
+           <layout>p2</layout>
+	   <url>http://download.eclipse.org/releases/juno</url>          
+	</repository>
+	<repository><id>platform</id>
+	   <layout>p2</layout>
+	   <url>http://download.eclipse.org/eclipse/updates/4.2</url>          
+	</repository>
+  </repositories>
+
+</project>

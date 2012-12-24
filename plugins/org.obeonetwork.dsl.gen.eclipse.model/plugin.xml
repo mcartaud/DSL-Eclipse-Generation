@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.obeonetwork.org/dsl/eclipse"
-            class="org.obeonetwork.dsl.gen.eclipsemodel.EclipsemodelPackage"
+            class="org.obeonetwork.dsl.gen.eclipse.EclipsePackage"
             genModel="model/model.xcore"/>
    </extension>
 

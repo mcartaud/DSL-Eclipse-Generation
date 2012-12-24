@@ -1,0 +1,468 @@
+/**
+ */
+package org.obeonetwork.dsl.gen.eclipse.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.obeonetwork.dsl.gen.eclipse.Bundle;
+import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Help;
+import org.obeonetwork.dsl.gen.eclipse.PartCategory;
+import org.obeonetwork.dsl.gen.eclipse.Perspective;
+import org.obeonetwork.dsl.gen.eclipse.Service;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Bundle</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class BundleImpl extends ProjectImpl implements Bundle
+{
+  /**
+   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVersion()
+   * @generated
+   * @ordered
+   */
+  protected static final String VERSION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVersion()
+   * @generated
+   * @ordered
+   */
+  protected String version = VERSION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getRequiredEnvironment() <em>Required Environment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRequiredEnvironment()
+   * @generated
+   * @ordered
+   */
+  protected static final String REQUIRED_ENVIRONMENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRequiredEnvironment() <em>Required Environment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRequiredEnvironment()
+   * @generated
+   * @ordered
+   */
+  protected String requiredEnvironment = REQUIRED_ENVIRONMENT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVendor()
+   * @generated
+   * @ordered
+   */
+  protected static final String VENDOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVendor()
+   * @generated
+   * @ordered
+   */
+  protected String vendor = VENDOR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getServices()
+   * @generated
+   * @ordered
+   */
+  protected EList<Service> services;
+
+  /**
+   * The cached value of the '{@link #getPartCategories() <em>Part Categories</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPartCategories()
+   * @generated
+   * @ordered
+   */
+  protected EList<PartCategory> partCategories;
+
+  /**
+   * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPerspectives()
+   * @generated
+   * @ordered
+   */
+  protected EList<Perspective> perspectives;
+
+  /**
+   * The cached value of the '{@link #getHelps() <em>Helps</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHelps()
+   * @generated
+   * @ordered
+   */
+  protected EList<Help> helps;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BundleImpl()
+  {
+    super();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return EclipsePackage.Literals.BUNDLE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getVersion()
+  {
+    return version;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVersion(String newVersion)
+  {
+    String oldVersion = version;
+    version = newVersion;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__VERSION, oldVersion, version));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getRequiredEnvironment()
+  {
+    return requiredEnvironment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRequiredEnvironment(String newRequiredEnvironment)
+  {
+    String oldRequiredEnvironment = requiredEnvironment;
+    requiredEnvironment = newRequiredEnvironment;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT, oldRequiredEnvironment, requiredEnvironment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getVendor()
+  {
+    return vendor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVendor(String newVendor)
+  {
+    String oldVendor = vendor;
+    vendor = newVendor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__VENDOR, oldVendor, vendor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Service> getServices()
+  {
+    if (services == null)
+    {
+      services = new EObjectContainmentEList<Service>(Service.class, this, EclipsePackage.BUNDLE__SERVICES);
+    }
+    return services;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<PartCategory> getPartCategories()
+  {
+    if (partCategories == null)
+    {
+      partCategories = new EObjectContainmentEList<PartCategory>(PartCategory.class, this, EclipsePackage.BUNDLE__PART_CATEGORIES);
+    }
+    return partCategories;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Perspective> getPerspectives()
+  {
+    if (perspectives == null)
+    {
+      perspectives = new EObjectContainmentEList<Perspective>(Perspective.class, this, EclipsePackage.BUNDLE__PERSPECTIVES);
+    }
+    return perspectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Help> getHelps()
+  {
+    if (helps == null)
+    {
+      helps = new EObjectContainmentEList<Help>(Help.class, this, EclipsePackage.BUNDLE__HELPS);
+    }
+    return helps;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.BUNDLE__SERVICES:
+        return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+        return ((InternalEList<?>)getPartCategories()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__HELPS:
+        return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.BUNDLE__VERSION:
+        return getVersion();
+      case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
+        return getRequiredEnvironment();
+      case EclipsePackage.BUNDLE__VENDOR:
+        return getVendor();
+      case EclipsePackage.BUNDLE__SERVICES:
+        return getServices();
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+        return getPartCategories();
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return getPerspectives();
+      case EclipsePackage.BUNDLE__HELPS:
+        return getHelps();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.BUNDLE__VERSION:
+        setVersion((String)newValue);
+        return;
+      case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
+        setRequiredEnvironment((String)newValue);
+        return;
+      case EclipsePackage.BUNDLE__VENDOR:
+        setVendor((String)newValue);
+        return;
+      case EclipsePackage.BUNDLE__SERVICES:
+        getServices().clear();
+        getServices().addAll((Collection<? extends Service>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+        getPartCategories().clear();
+        getPartCategories().addAll((Collection<? extends PartCategory>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        getPerspectives().clear();
+        getPerspectives().addAll((Collection<? extends Perspective>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__HELPS:
+        getHelps().clear();
+        getHelps().addAll((Collection<? extends Help>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.BUNDLE__VERSION:
+        setVersion(VERSION_EDEFAULT);
+        return;
+      case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
+        setRequiredEnvironment(REQUIRED_ENVIRONMENT_EDEFAULT);
+        return;
+      case EclipsePackage.BUNDLE__VENDOR:
+        setVendor(VENDOR_EDEFAULT);
+        return;
+      case EclipsePackage.BUNDLE__SERVICES:
+        getServices().clear();
+        return;
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+        getPartCategories().clear();
+        return;
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        getPerspectives().clear();
+        return;
+      case EclipsePackage.BUNDLE__HELPS:
+        getHelps().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.BUNDLE__VERSION:
+        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+      case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
+        return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
+      case EclipsePackage.BUNDLE__VENDOR:
+        return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
+      case EclipsePackage.BUNDLE__SERVICES:
+        return services != null && !services.isEmpty();
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+        return partCategories != null && !partCategories.isEmpty();
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return perspectives != null && !perspectives.isEmpty();
+      case EclipsePackage.BUNDLE__HELPS:
+        return helps != null && !helps.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (version: ");
+    result.append(version);
+    result.append(", requiredEnvironment: ");
+    result.append(requiredEnvironment);
+    result.append(", vendor: ");
+    result.append(vendor);
+    result.append(')');
+    return result.toString();
+  }
+
+} //BundleImpl
