@@ -27,9 +27,15 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::siteCssFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::siteXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::siteXslFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
+
 
 [template public generateElement(anApplication : Application)]
 [comment @main/]
+[for (aProject : Project | anApplication.eAllContents(Project))]
+[aProject.genPomXmlFile()/]
+[/for]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 [aBundle.genBuildPropertiesBundleFile()/]
 [aBundle.genClassPathXmlFile()/]
@@ -52,4 +58,5 @@ Contributors :
 [aRepository.genSiteXlsFile()/]
 [aRepository.genSiteXmlFile()/]
 [/for]
+[anApplication.genPomParentXmlFile()/]
 [/template]

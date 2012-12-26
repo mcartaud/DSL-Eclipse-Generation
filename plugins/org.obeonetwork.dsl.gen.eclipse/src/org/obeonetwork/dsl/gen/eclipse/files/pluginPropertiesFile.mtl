@@ -13,10 +13,10 @@ Contributors :
 /]
 [module pluginPropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
+[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
 
 [template public pluginPropertiesFile(aBundle : Bundle)]
-[aBundle.ancestors(Application).genApplicationFolder()/]/[aBundle.projectID/]/plugin.properties
+[aBundle.genProjectFolder()/]/plugin.properties
 [/template]
 
 [template public genPluginPropertiesFile(aBundle : Bundle)]

@@ -1,7 +1,0 @@
-[comment encoding = UTF-8 /]
-[module applicationFolder('http://www.obeonetwork.org/dsl/eclipse')]
-
-
-[template public genApplicationFolder(anApplication : Application)]
-[anApplication.name/]
-[/template]

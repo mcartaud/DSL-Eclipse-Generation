@@ -13,10 +13,10 @@ Contributors :
 /]
 [module siteXslFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
+[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
 
 [template private siteXlsFile(aRepository : Repository)]
-[aRepository.ancestors(Application).genApplicationFolder()/]/[aRepository.projectID/]/web/site.xls
+[aRepository.genProjectFolder()/]/web/site.xls
 [/template]
 
 [template public genSiteXlsFile(aRepository : Repository)]

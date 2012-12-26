@@ -13,10 +13,10 @@ Contributors :
 /]
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
+[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
 
 [template public featurePropertiesFile(aFeature : Feature)]
-[aFeature.ancestors(Application).genApplicationFolder()/]/[aFeature.projectID/]/feature.properties
+[aFeature.genProjectFolder()/]/feature.properties
 [/template]
 
 [template public genFeaturePropertiesFile(aFeature : Feature)]
