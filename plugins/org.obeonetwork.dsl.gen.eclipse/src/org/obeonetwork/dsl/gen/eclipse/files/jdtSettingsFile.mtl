@@ -13,9 +13,10 @@ Contributors :
 /]
 [module jdtSettingsFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private jdtSettingsFile(aBundle : Bundle)]
-[aBundle.projectID/]/.settings/org.eclipse.jdt.core.prefs
+[aBundle.ancestors(Application).genApplicationFolder()/]/[aBundle.projectID/]/.settings/org.eclipse.jdt.core.prefs
 [/template]
 
 [template public genJdtSettingsFile(aBundle : Bundle)]

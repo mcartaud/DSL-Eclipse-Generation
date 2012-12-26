@@ -13,9 +13,10 @@ Contributors :
 /]
 [module featureXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private featureXmlFile(aFeature : Feature)]
-[aFeature.projectID/]/feature.xml
+[aFeature.ancestors(Application).genApplicationFolder()/]/[aFeature.projectID/]/feature.xml
 [/template]
 
 [template public genFeatureXmlFile(aFeature : Feature)]

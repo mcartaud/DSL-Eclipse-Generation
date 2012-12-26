@@ -13,9 +13,10 @@ Contributors :
 /]
 [module buildPropertiesBundleFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder/]
 
 [template private buildPropertiesBundleFile(aBundle : Bundle)]
-[aBundle.projectID/]/build.properties
+[aBundle.ancestors(Application).genApplicationFolder()/]/[aBundle.projectID/]/build.properties
 [/template]
 
 [template public genBuildPropertiesBundleFile(aBundle : Bundle)]

@@ -13,9 +13,10 @@ Contributors :
 /]
 [module indexHtmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private indexHtemlFile(aRepository : Repository)]
-[aRepository.projectID/]/index.html
+[aRepository.ancestors(Application).genApplicationFolder()/]/[aRepository.projectID/]/index.html
 [/template]
 
 [template public genIndexHtmlFile(aRepository : Repository)]

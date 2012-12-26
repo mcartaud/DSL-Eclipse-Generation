@@ -13,10 +13,10 @@ Contributors :
 /]
 [module manifestMFFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private manifestMFFile(aBundle : Bundle)]
-[aBundle.genProjectPath()/]/META-INF/MANIFEST.MF
+[aBundle.ancestors(Application).genApplicationFolder()/]/[aBundle.projectID/]/META-INF/MANIFEST.MF
 [/template]
 
 [template public genManifestMFFile(aBundle : Bundle)]

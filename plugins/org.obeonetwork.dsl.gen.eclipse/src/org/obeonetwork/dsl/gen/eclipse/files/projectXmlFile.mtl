@@ -13,10 +13,10 @@ Contributors :
 /]
 [module projectXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path/]
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private projectXmlFile(aProject : Project)]
-[aProject.genProjectPath()/]/.project
+[aProject.ancestors(Application).genApplicationFolder()/]/[aProject.projectID/]/.project
 [/template]
 
 [template public genProjectXmlFile(aProject : Project)]

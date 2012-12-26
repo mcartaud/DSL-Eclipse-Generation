@@ -13,9 +13,10 @@ Contributors :
 /]
 [module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::applicationFolder /]
 
 [template private categoryXmlFile(aRepository : Repository)]
-[aRepository.projectID/]/category.xml
+[aRepository.ancestors(Application).genApplicationFolder()/]/[aRepository.projectID/]/category.xml
 [/template]
 
 [template public genCategoryXmlFile(aRepository : Repository)]
