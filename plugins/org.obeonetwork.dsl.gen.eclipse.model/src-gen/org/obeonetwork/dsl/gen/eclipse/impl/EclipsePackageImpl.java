@@ -305,9 +305,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Repositories()
+  public EAttribute getApplication_Description()
   {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -315,19 +315,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Features()
+  public EReference getApplication_Projects()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getApplication_Bundles()
-  {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1146,9 +1136,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(applicationEClass, APPLICATION__PROVIDER);
     createEAttribute(applicationEClass, APPLICATION__COPYRIGHT);
     createEAttribute(applicationEClass, APPLICATION__VERSION);
-    createEReference(applicationEClass, APPLICATION__REPOSITORIES);
-    createEReference(applicationEClass, APPLICATION__FEATURES);
-    createEReference(applicationEClass, APPLICATION__BUNDLES);
+    createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
+    createEReference(applicationEClass, APPLICATION__PROJECTS);
 
     projectEClass = createEClass(PROJECT);
     createEAttribute(projectEClass, PROJECT__PROJECT_ID);
@@ -1293,9 +1282,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getApplication_Provider(), theEcorePackage.getEString(), "provider", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Copyright(), theEcorePackage.getEString(), "copyright", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_Repositories(), this.getRepository(), null, "repositories", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_Features(), this.getFeature(), null, "features", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplication_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_Projects(), this.getProject(), null, "projects", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProject_ProjectID(), theEcorePackage.getEString(), "projectID", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

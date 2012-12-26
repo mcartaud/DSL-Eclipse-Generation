@@ -10,9 +10,8 @@ class Application {
 	String provider
 	String copyright
 	String version
-	contains Repository[] repositories
-	contains Feature[] features
-	contains Bundle[] bundles
+	String description
+	contains Project[] projects
 }
 
 abstract class Project {

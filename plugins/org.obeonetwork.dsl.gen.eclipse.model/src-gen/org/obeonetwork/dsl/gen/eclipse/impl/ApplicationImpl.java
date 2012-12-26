@@ -6,23 +6,16 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.Application;
-import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Feature;
-import org.obeonetwork.dsl.gen.eclipse.Repository;
+import org.obeonetwork.dsl.gen.eclipse.Project;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,9 +29,8 @@ import org.obeonetwork.dsl.gen.eclipse.Repository;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getFeatures <em>Features</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getBundles <em>Bundles</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProjects <em>Projects</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,34 +139,34 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
   protected String version = VERSION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRepositories()
+   * @see #getDescription()
    * @generated
    * @ordered
    */
-  protected EList<Repository> repositories;
+  protected static final String DESCRIPTION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeatures()
+   * @see #getDescription()
    * @generated
    * @ordered
    */
-  protected EList<Feature> features;
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getBundles() <em>Bundles</em>}' containment reference list.
+   * The cached value of the '{@link #getProjects() <em>Projects</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBundles()
+   * @see #getProjects()
    * @generated
    * @ordered
    */
-  protected EList<Bundle> bundles;
+  protected EList<Project> projects;
 
   /**
    * <!-- begin-user-doc -->
@@ -317,13 +309,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Repository> getRepositories()
+  public String getDescription()
   {
-    if (repositories == null)
-    {
-      repositories = new EObjectContainmentEList<Repository>(Repository.class, this, EclipsePackage.APPLICATION__REPOSITORIES);
-    }
-    return repositories;
+    return description;
   }
 
   /**
@@ -331,13 +319,12 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature> getFeatures()
+  public void setDescription(String newDescription)
   {
-    if (features == null)
-    {
-      features = new EObjectContainmentEList<Feature>(Feature.class, this, EclipsePackage.APPLICATION__FEATURES);
-    }
-    return features;
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -345,13 +332,13 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Bundle> getBundles()
+  public EList<Project> getProjects()
   {
-    if (bundles == null)
+    if (projects == null)
     {
-      bundles = new EObjectContainmentEList<Bundle>(Bundle.class, this, EclipsePackage.APPLICATION__BUNDLES);
+      projects = new EObjectContainmentEList<Project>(Project.class, this, EclipsePackage.APPLICATION__PROJECTS);
     }
-    return bundles;
+    return projects;
   }
 
   /**
@@ -364,12 +351,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
   {
     switch (featureID)
     {
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-        return ((InternalEList<?>)getRepositories()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.APPLICATION__FEATURES:
-        return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.APPLICATION__BUNDLES:
-        return ((InternalEList<?>)getBundles()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.APPLICATION__PROJECTS:
+        return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -394,12 +377,10 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getCopyright();
       case EclipsePackage.APPLICATION__VERSION:
         return getVersion();
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-        return getRepositories();
-      case EclipsePackage.APPLICATION__FEATURES:
-        return getFeatures();
-      case EclipsePackage.APPLICATION__BUNDLES:
-        return getBundles();
+      case EclipsePackage.APPLICATION__DESCRIPTION:
+        return getDescription();
+      case EclipsePackage.APPLICATION__PROJECTS:
+        return getProjects();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -430,17 +411,12 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case EclipsePackage.APPLICATION__VERSION:
         setVersion((String)newValue);
         return;
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-        getRepositories().clear();
-        getRepositories().addAll((Collection<? extends Repository>)newValue);
+      case EclipsePackage.APPLICATION__DESCRIPTION:
+        setDescription((String)newValue);
         return;
-      case EclipsePackage.APPLICATION__FEATURES:
-        getFeatures().clear();
-        getFeatures().addAll((Collection<? extends Feature>)newValue);
-        return;
-      case EclipsePackage.APPLICATION__BUNDLES:
-        getBundles().clear();
-        getBundles().addAll((Collection<? extends Bundle>)newValue);
+      case EclipsePackage.APPLICATION__PROJECTS:
+        getProjects().clear();
+        getProjects().addAll((Collection<? extends Project>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -471,14 +447,11 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case EclipsePackage.APPLICATION__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-        getRepositories().clear();
+      case EclipsePackage.APPLICATION__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.APPLICATION__FEATURES:
-        getFeatures().clear();
-        return;
-      case EclipsePackage.APPLICATION__BUNDLES:
-        getBundles().clear();
+      case EclipsePackage.APPLICATION__PROJECTS:
+        getProjects().clear();
         return;
     }
     super.eUnset(featureID);
@@ -504,12 +477,10 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
       case EclipsePackage.APPLICATION__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-        return repositories != null && !repositories.isEmpty();
-      case EclipsePackage.APPLICATION__FEATURES:
-        return features != null && !features.isEmpty();
-      case EclipsePackage.APPLICATION__BUNDLES:
-        return bundles != null && !bundles.isEmpty();
+      case EclipsePackage.APPLICATION__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.APPLICATION__PROJECTS:
+        return projects != null && !projects.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -535,6 +506,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     result.append(copyright);
     result.append(", version: ");
     result.append(version);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

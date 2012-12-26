@@ -19,9 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getRepositories <em>Repositories</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getFeatures <em>Features</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getBundles <em>Bundles</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,51 +161,45 @@ public interface Application extends EObject
   void setVersion(String value);
 
   /**
-   * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Repository}.
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Repositories</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Repositories()
-   * @model containment="true"
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Description()
+   * @model unique="false"
    * @generated
    */
-  EList<Repository> getRepositories();
+  String getDescription();
 
   /**
-   * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Feature}.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Features</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Features()
-   * @model containment="true"
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
    * @generated
    */
-  EList<Feature> getFeatures();
+  void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Bundles</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Bundle}.
+   * Returns the value of the '<em><b>Projects</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Project}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bundles</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Projects</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bundles</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Bundles()
+   * @return the value of the '<em>Projects</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Projects()
    * @model containment="true"
    * @generated
    */
-  EList<Bundle> getBundles();
+  EList<Project> getProjects();
 
 } // Application

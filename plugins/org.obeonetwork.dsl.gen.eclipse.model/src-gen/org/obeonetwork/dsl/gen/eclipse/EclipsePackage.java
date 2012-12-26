@@ -115,31 +115,22 @@ public interface EclipsePackage extends EPackage
   int APPLICATION__VERSION = 4;
 
   /**
-   * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+   * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__REPOSITORIES = 5;
+  int APPLICATION__DESCRIPTION = 5;
 
   /**
-   * The feature id for the '<em><b>Features</b></em>' containment reference list.
+   * The feature id for the '<em><b>Projects</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__FEATURES = 6;
-
-  /**
-   * The feature id for the '<em><b>Bundles</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION__BUNDLES = 7;
+  int APPLICATION__PROJECTS = 6;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -148,7 +139,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 8;
+  int APPLICATION_FEATURE_COUNT = 7;
 
   /**
    * The number of operations of the '<em>Application</em>' class.
@@ -1360,37 +1351,26 @@ public interface EclipsePackage extends EPackage
   EAttribute getApplication_Version();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Application#getRepositories <em>Repositories</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Repositories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Application#getRepositories()
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Application#getDescription()
    * @see #getApplication()
    * @generated
    */
-  EReference getApplication_Repositories();
+  EAttribute getApplication_Description();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Application#getFeatures <em>Features</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Features</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Application#getFeatures()
+   * @return the meta object for the containment reference list '<em>Projects</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Application#getProjects()
    * @see #getApplication()
    * @generated
    */
-  EReference getApplication_Features();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Application#getBundles <em>Bundles</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bundles</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Application#getBundles()
-   * @see #getApplication()
-   * @generated
-   */
-  EReference getApplication_Bundles();
+  EReference getApplication_Projects();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Project <em>Project</em>}'.
@@ -2307,28 +2287,20 @@ public interface EclipsePackage extends EPackage
     EAttribute APPLICATION__VERSION = eINSTANCE.getApplication_Version();
 
     /**
-     * The meta object literal for the '<em><b>Repositories</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APPLICATION__REPOSITORIES = eINSTANCE.getApplication_Repositories();
+    EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
 
     /**
-     * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Projects</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APPLICATION__FEATURES = eINSTANCE.getApplication_Features();
-
-    /**
-     * The meta object literal for the '<em><b>Bundles</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference APPLICATION__BUNDLES = eINSTANCE.getApplication_Bundles();
+    EReference APPLICATION__PROJECTS = eINSTANCE.getApplication_Projects();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl <em>Project</em>}' class.

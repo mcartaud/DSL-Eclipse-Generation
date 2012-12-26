@@ -72,6 +72,7 @@ public class ApplicationItemProvider
       addProviderPropertyDescriptor(object);
       addCopyrightPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -192,6 +193,29 @@ public class ApplicationItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Description feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Application_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Application_description_feature", "_UI_Application_type"),
+         EclipsePackage.Literals.APPLICATION__DESCRIPTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -205,9 +229,7 @@ public class ApplicationItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.APPLICATION__REPOSITORIES);
-      childrenFeatures.add(EclipsePackage.Literals.APPLICATION__FEATURES);
-      childrenFeatures.add(EclipsePackage.Literals.APPLICATION__BUNDLES);
+      childrenFeatures.add(EclipsePackage.Literals.APPLICATION__PROJECTS);
     }
     return childrenFeatures;
   }
@@ -272,11 +294,10 @@ public class ApplicationItemProvider
       case EclipsePackage.APPLICATION__PROVIDER:
       case EclipsePackage.APPLICATION__COPYRIGHT:
       case EclipsePackage.APPLICATION__VERSION:
+      case EclipsePackage.APPLICATION__DESCRIPTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.APPLICATION__REPOSITORIES:
-      case EclipsePackage.APPLICATION__FEATURES:
-      case EclipsePackage.APPLICATION__BUNDLES:
+      case EclipsePackage.APPLICATION__PROJECTS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -297,17 +318,17 @@ public class ApplicationItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.APPLICATION__REPOSITORIES,
+        (EclipsePackage.Literals.APPLICATION__PROJECTS,
          EclipseFactory.eINSTANCE.createRepository()));
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.APPLICATION__FEATURES,
+        (EclipsePackage.Literals.APPLICATION__PROJECTS,
          EclipseFactory.eINSTANCE.createFeature()));
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.APPLICATION__BUNDLES,
+        (EclipsePackage.Literals.APPLICATION__PROJECTS,
          EclipseFactory.eINSTANCE.createBundle()));
   }
 
