@@ -3,6 +3,8 @@
 @GenModel(editorDirectory="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen")
 package org.obeonetwork.dsl.gen.eclipse
 
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EPackage
 
 class Application {
 	String name
@@ -40,10 +42,19 @@ class Bundle extends Project {
 	String version
 	String requiredEnvironment
 	String vendor
-	contains Service[] services
+	contains ProvidedService[] providedServices
+	contains RequiredService[] requiredServices
 	contains PartCategory[] partCategories
 	contains Perspective[] perspectives
-	contains Help[] helps	
+	contains Help[] helps
+	contains ImportedPackageDeclaration[] importedPackageDeclarations
+	refers EPackage[] exportedPackages
+}
+
+
+class ImportedPackageDeclaration {
+	String packageName
+	String packageVersion
 }
 
 class ActionSet {
@@ -119,13 +130,16 @@ class ContextualHelp {
 	contains Page page
 }
 
-class Service {
+class ProvidedService {
 	String name
 	String serviceID
-	ServiceKind[] serviceKinds
+	refers EClass implementation
+	refers EClass ^interface
+	refers RequiredService[] requiredServices
 }
 
-enum ServiceKind {
-	Provided
-	Required
+class RequiredService {
+	String name
+	String serviceID
+	refers EClass ^interface
 }

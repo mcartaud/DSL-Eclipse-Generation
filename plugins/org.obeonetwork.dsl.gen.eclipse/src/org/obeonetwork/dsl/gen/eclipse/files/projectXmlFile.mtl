@@ -14,7 +14,7 @@ Contributors :
 [module projectXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private projectXmlFile(aProject : Project)]
-[aProject.eContainer(Application).applicationID/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/.project
+[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/.project
 [/template]
 
 [template public genProjectXmlFile(aProject : Project)]

@@ -3,7 +3,7 @@
 
 
 [template private pomParentXmlFile(anApplication : Application)]
-[anApplication.applicationID/]/pom.xml
+[anApplication.name/]/pom.xml
 [/template]
 
 [template public genPomParentXmlFile(anApplication : Application)]

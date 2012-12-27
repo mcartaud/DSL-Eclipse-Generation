@@ -14,7 +14,7 @@ Contributors :
 [module buildPropertiesBundleFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private buildPropertiesBundleFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).applicationID/]/plugins/[aBundle.projectID/]/build.properties
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/build.properties
 [/template]
 
 [template public genBuildPropertiesBundleFile(aBundle : Bundle)]

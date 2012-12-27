@@ -14,7 +14,7 @@ Contributors :
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template public featurePropertiesFile(aFeature : Feature)]
-[aFeature.eContainer(Application).applicationID/]/features/[aFeature.projectID/]/feature.properties
+[aFeature.eContainer(Application).name/]/features/[aFeature.projectID/]/feature.properties
 [/template]
 
 [template public genFeaturePropertiesFile(aFeature : Feature)]

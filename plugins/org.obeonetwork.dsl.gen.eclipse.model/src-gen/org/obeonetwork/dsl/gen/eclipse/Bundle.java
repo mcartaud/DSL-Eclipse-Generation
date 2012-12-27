@@ -4,6 +4,8 @@ package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EPackage;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Bundle</b></em>'.
@@ -15,10 +17,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVendor <em>Vendor</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getServices <em>Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getProvidedServices <em>Provided Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps <em>Helps</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,20 +112,36 @@ public interface Bundle extends Project
   void setVendor(String value);
 
   /**
-   * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Service}.
+   * Returns the value of the '<em><b>Provided Services</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ProvidedService}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Provided Services</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Services</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Services()
+   * @return the value of the '<em>Provided Services</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ProvidedServices()
    * @model containment="true"
    * @generated
    */
-  EList<Service> getServices();
+  EList<ProvidedService> getProvidedServices();
+
+  /**
+   * Returns the value of the '<em><b>Required Services</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.RequiredService}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Required Services</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Required Services</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_RequiredServices()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RequiredService> getRequiredServices();
 
   /**
    * Returns the value of the '<em><b>Part Categories</b></em>' containment reference list.
@@ -169,5 +190,37 @@ public interface Bundle extends Project
    * @generated
    */
   EList<Help> getHelps();
+
+  /**
+   * Returns the value of the '<em><b>Imported Package Declarations</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imported Package Declarations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imported Package Declarations</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ImportedPackageDeclarations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ImportedPackageDeclaration> getImportedPackageDeclarations();
+
+  /**
+   * Returns the value of the '<em><b>Exported Packages</b></em>' reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EPackage}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exported Packages</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exported Packages</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ExportedPackages()
+   * @model
+   * @generated
+   */
+  EList<EPackage> getExportedPackages();
 
 } // Bundle

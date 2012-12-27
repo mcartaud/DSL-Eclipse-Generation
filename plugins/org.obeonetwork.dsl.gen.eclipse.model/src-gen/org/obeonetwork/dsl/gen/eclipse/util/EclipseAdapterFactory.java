@@ -100,6 +100,11 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createBundleAdapter();
       }
       @Override
+      public Adapter caseImportedPackageDeclaration(ImportedPackageDeclaration object)
+      {
+        return createImportedPackageDeclarationAdapter();
+      }
+      @Override
       public Adapter caseActionSet(ActionSet object)
       {
         return createActionSetAdapter();
@@ -160,9 +165,14 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createContextualHelpAdapter();
       }
       @Override
-      public Adapter caseService(Service object)
+      public Adapter caseProvidedService(ProvidedService object)
       {
-        return createServiceAdapter();
+        return createProvidedServiceAdapter();
+      }
+      @Override
+      public Adapter caseRequiredService(RequiredService object)
+      {
+        return createRequiredServiceAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -257,6 +267,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBundleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
+   * @generated
+   */
+  public Adapter createImportedPackageDeclarationAdapter()
   {
     return null;
   }
@@ -442,16 +467,31 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Service <em>Service</em>}'.
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.Service
+   * @see org.obeonetwork.dsl.gen.eclipse.ProvidedService
    * @generated
    */
-  public Adapter createServiceAdapter()
+  public Adapter createProvidedServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService <em>Required Service</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService
+   * @generated
+   */
+  public Adapter createRequiredServiceAdapter()
   {
     return null;
   }

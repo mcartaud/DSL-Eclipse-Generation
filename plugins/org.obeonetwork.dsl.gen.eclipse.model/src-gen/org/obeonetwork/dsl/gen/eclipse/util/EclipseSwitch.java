@@ -110,6 +110,13 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsePackage.IMPORTED_PACKAGE_DECLARATION:
+      {
+        ImportedPackageDeclaration importedPackageDeclaration = (ImportedPackageDeclaration)theEObject;
+        T result = caseImportedPackageDeclaration(importedPackageDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsePackage.ACTION_SET:
       {
         ActionSet actionSet = (ActionSet)theEObject;
@@ -196,10 +203,17 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclipsePackage.SERVICE:
+      case EclipsePackage.PROVIDED_SERVICE:
       {
-        Service service = (Service)theEObject;
-        T result = caseService(service);
+        ProvidedService providedService = (ProvidedService)theEObject;
+        T result = caseProvidedService(providedService);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.REQUIRED_SERVICE:
+      {
+        RequiredService requiredService = (RequiredService)theEObject;
+        T result = caseRequiredService(requiredService);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -283,6 +297,22 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBundle(Bundle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportedPackageDeclaration(ImportedPackageDeclaration object)
   {
     return null;
   }
@@ -480,17 +510,33 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Provided Service</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Service</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Provided Service</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseService(Service object)
+  public T caseProvidedService(ProvidedService object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Required Service</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Required Service</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRequiredService(RequiredService object)
   {
     return null;
   }

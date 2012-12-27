@@ -23,15 +23,15 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Service;
+import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Service} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ProvidedService} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceItemProvider
+public class ProvidedServiceItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class ServiceItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ServiceItemProvider(AdapterFactory adapterFactory)
+  public ProvidedServiceItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -66,7 +66,9 @@ public class ServiceItemProvider
 
       addNamePropertyDescriptor(object);
       addServiceIDPropertyDescriptor(object);
-      addServiceKindsPropertyDescriptor(object);
+      addImplementationPropertyDescriptor(object);
+      addInterfacePropertyDescriptor(object);
+      addRequiredServicesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -83,9 +85,9 @@ public class ServiceItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Service_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Service_name_feature", "_UI_Service_type"),
-         EclipsePackage.Literals.SERVICE__NAME,
+         getString("_UI_ProvidedService_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_name_feature", "_UI_ProvidedService_type"),
+         EclipsePackage.Literals.PROVIDED_SERVICE__NAME,
          true,
          false,
          false,
@@ -106,9 +108,9 @@ public class ServiceItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Service_serviceID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Service_serviceID_feature", "_UI_Service_type"),
-         EclipsePackage.Literals.SERVICE__SERVICE_ID,
+         getString("_UI_ProvidedService_serviceID_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_serviceID_feature", "_UI_ProvidedService_type"),
+         EclipsePackage.Literals.PROVIDED_SERVICE__SERVICE_ID,
          true,
          false,
          false,
@@ -118,30 +120,76 @@ public class ServiceItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Service Kinds feature.
+   * This adds a property descriptor for the Implementation feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addServiceKindsPropertyDescriptor(Object object)
+  protected void addImplementationPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Service_serviceKinds_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Service_serviceKinds_feature", "_UI_Service_type"),
-         EclipsePackage.Literals.SERVICE__SERVICE_KINDS,
+         getString("_UI_ProvidedService_implementation_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_implementation_feature", "_UI_ProvidedService_type"),
+         EclipsePackage.Literals.PROVIDED_SERVICE__IMPLEMENTATION,
          true,
          false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         true,
+         null,
          null,
          null));
   }
 
   /**
-   * This returns Service.gif.
+   * This adds a property descriptor for the Interface feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addInterfacePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ProvidedService_interface_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_interface_feature", "_UI_ProvidedService_type"),
+         EclipsePackage.Literals.PROVIDED_SERVICE__INTERFACE,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Required Services feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRequiredServicesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_ProvidedService_requiredServices_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_requiredServices_feature", "_UI_ProvidedService_type"),
+         EclipsePackage.Literals.PROVIDED_SERVICE__REQUIRED_SERVICES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This returns ProvidedService.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -149,7 +197,7 @@ public class ServiceItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Service"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ProvidedService"));
   }
 
   /**
@@ -161,10 +209,10 @@ public class ServiceItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Service)object).getName();
+    String label = ((ProvidedService)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Service_type") :
-      getString("_UI_Service_type") + " " + label;
+      getString("_UI_ProvidedService_type") :
+      getString("_UI_ProvidedService_type") + " " + label;
   }
 
   /**
@@ -179,11 +227,10 @@ public class ServiceItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Service.class))
+    switch (notification.getFeatureID(ProvidedService.class))
     {
-      case EclipsePackage.SERVICE__NAME:
-      case EclipsePackage.SERVICE__SERVICE_ID:
-      case EclipsePackage.SERVICE__SERVICE_KINDS:
+      case EclipsePackage.PROVIDED_SERVICE__NAME:
+      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

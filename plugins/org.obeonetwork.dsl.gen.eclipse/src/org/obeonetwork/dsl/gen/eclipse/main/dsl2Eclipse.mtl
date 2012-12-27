@@ -29,6 +29,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::siteXslFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::providedServiceXmlFile /]
 
 
 [template public generateElement(anApplication : Application)]
@@ -41,6 +42,9 @@ Contributors :
 [aBundle.genPluginPropertiesFile()/]
 [aBundle.genProjectXmlFile()/]
 [aBundle.genPomXmlFile()/]
+[for (aProvidedService : ProvidedService | aBundle.providedServices)]
+[aProvidedService.genProvidedServiceXmlFile()/]
+[/for]
 [/for]
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 [aFeature.genBuildPropertiesFile()/]

@@ -155,6 +155,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactory;
 
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -768,6 +770,7 @@ public class EclipseEditor
 
     adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new EclipseItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
     adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
     // Create the command stack that will notify this editor as commands are executed.

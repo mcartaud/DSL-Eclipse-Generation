@@ -12,11 +12,11 @@
             name="%_UI_Wizard_category"/>
       <wizard
             id="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseModelWizardID"
-            name="%_UI_EclipsemodelModelWizard_label"
+            name="%_UI_EclipseModelWizard_label"
             class="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/EclipseModelFile.gif">
-         <description>%_UI_EclipsemodelModelWizard_description</description>
+         <description>%_UI_EclipseModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -24,7 +24,7 @@
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseEditorID"
-            name="%_UI_EclipsemodelEditor_label"
+            name="%_UI_EclipseEditor_label"
             icon="icons/full/obj16/EclipseModelFile.gif"
             extensions="eclipse"
             class="org.obeonetwork.dsl.gen.eclipse.presentation.EclipseEditor"

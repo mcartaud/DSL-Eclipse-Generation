@@ -14,7 +14,7 @@ Contributors :
 [module indexHtmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private indexHtemlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).applicationID/]/repository/[aRepository.projectID/]/index.html
+[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/index.html
 [/template]
 
 [template public genIndexHtmlFile(aRepository : Repository)]

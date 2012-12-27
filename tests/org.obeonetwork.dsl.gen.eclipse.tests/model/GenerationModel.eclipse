@@ -5,6 +5,11 @@
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.model" projectName="model" version="1.0.0.qualifier" requiredEnvironment="java 1.7" vendor=" Mathieu Cartaud"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.edit" projectName="edit" version="1.0.0" requiredEnvironment="java 1.5" vendor="mathieu Cartaud"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.editor" projectName="editor" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
-  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud">
+    <providedServices name="service" serviceID="service1">
+      <implementation href="MyProject.ecore#//model/eclipse/testC"/>
+      <interface href="MyProject.ecore#//eclipse1/main/test21"/>
+    </providedServices>
+  </projects>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.tests" projectName="tests" version="1.0.0" requiredEnvironment="java1.7" vendor="Mathieu Cartaud"/>
 </eclipse:Application>

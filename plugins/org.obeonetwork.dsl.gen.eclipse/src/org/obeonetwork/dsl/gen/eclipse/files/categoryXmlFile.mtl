@@ -14,7 +14,7 @@ Contributors :
 [module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private categoryXmlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).applicationID/]/repository/[aRepository.projectID/]/category.xml
+[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/category.xml
 [/template]
 
 [template public genCategoryXmlFile(aRepository : Repository)]

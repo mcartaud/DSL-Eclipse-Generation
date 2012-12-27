@@ -15,7 +15,7 @@ Contributors :
 
 
 [template private siteXlsFile(aRepository : Repository)]
-[aRepository.eContainer(Application).applicationID/]/repository/[aRepository.projectID/]/web/site.xls
+[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/web/site.xls
 [/template]
 
 [template public genSiteXlsFile(aRepository : Repository)]

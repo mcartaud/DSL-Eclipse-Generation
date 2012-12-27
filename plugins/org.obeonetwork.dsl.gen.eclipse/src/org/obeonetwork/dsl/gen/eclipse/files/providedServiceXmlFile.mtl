@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module providedServiceXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private providedServiceXmlFile(aProvidedService : ProvidedService)]
+[aProvidedService.eContainer(Bundle).eContainer(Application).name/]/plugins/[aProvidedService.eContainer(Bundle).projectID/]/OSGI-INF/[aProvidedService.serviceID/].xml
+[/template]
+
+[template public genProvidedServiceXmlFile(aProvidedService : ProvidedService)]
+[file (aProvidedService.providedServiceXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aProvidedService.name/]">
+   <implementation class="[aProvidedService.implementation.ePackage.nsURI/].[aProvidedService.implementation.name/]"/>
+   <service>
+      <provide interface="[aProvidedService.interface.ePackage.nsURI/].[aProvidedService.interface.name/]"/>
+   </service>
+</scr:component>
+[/file]
+[/template]

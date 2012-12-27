@@ -67,6 +67,7 @@ public class BundleItemProvider
       addVersionPropertyDescriptor(object);
       addRequiredEnvironmentPropertyDescriptor(object);
       addVendorPropertyDescriptor(object);
+      addExportedPackagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -141,6 +142,29 @@ public class BundleItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Exported Packages feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addExportedPackagesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_exportedPackages_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_exportedPackages_feature", "_UI_Bundle_type"),
+         EclipsePackage.Literals.BUNDLE__EXPORTED_PACKAGES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -154,10 +178,12 @@ public class BundleItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__SERVICES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PROVIDED_SERVICES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__REQUIRED_SERVICES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PART_CATEGORIES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELPS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS);
     }
     return childrenFeatures;
   }
@@ -222,10 +248,12 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__VENDOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.BUNDLE__SERVICES:
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
       case EclipsePackage.BUNDLE__PERSPECTIVES:
       case EclipsePackage.BUNDLE__HELPS:
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -246,8 +274,13 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__SERVICES,
-         EclipseFactory.eINSTANCE.createService()));
+        (EclipsePackage.Literals.BUNDLE__PROVIDED_SERVICES,
+         EclipseFactory.eINSTANCE.createProvidedService()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__REQUIRED_SERVICES,
+         EclipseFactory.eINSTANCE.createRequiredService()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -263,6 +296,11 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__HELPS,
          EclipseFactory.eINSTANCE.createHelp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS,
+         EclipseFactory.eINSTANCE.createImportedPackageDeclaration()));
   }
 
 }

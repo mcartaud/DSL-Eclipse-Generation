@@ -2,39 +2,33 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Service;
-import org.obeonetwork.dsl.gen.eclipse.ServiceKind;
+import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Service</b></em>'.
+ * An implementation of the model object '<em><b>Required Service</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ServiceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ServiceImpl#getServiceID <em>Service ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ServiceImpl#getServiceKinds <em>Service Kinds</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getServiceID <em>Service ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
+public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements RequiredService
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -77,21 +71,21 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
   protected String serviceID = SERVICE_ID_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getServiceKinds() <em>Service Kinds</em>}' attribute list.
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getServiceKinds()
+   * @see #getInterface()
    * @generated
    * @ordered
    */
-  protected EList<ServiceKind> serviceKinds;
+  protected EClass interface_;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ServiceImpl()
+  protected RequiredServiceImpl()
   {
     super();
   }
@@ -104,7 +98,7 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
   @Override
   protected EClass eStaticClass()
   {
-    return EclipsePackage.Literals.SERVICE;
+    return EclipsePackage.Literals.REQUIRED_SERVICE;
   }
 
   /**
@@ -127,7 +121,7 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.SERVICE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__NAME, oldName, name));
   }
 
   /**
@@ -150,7 +144,7 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
     String oldServiceID = serviceID;
     serviceID = newServiceID;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.SERVICE__SERVICE_ID, oldServiceID, serviceID));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__SERVICE_ID, oldServiceID, serviceID));
   }
 
   /**
@@ -158,13 +152,42 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceKind> getServiceKinds()
+  public EClass getInterface()
   {
-    if (serviceKinds == null)
+    if (interface_ != null && interface_.eIsProxy())
     {
-      serviceKinds = new EDataTypeEList<ServiceKind>(ServiceKind.class, this, EclipsePackage.SERVICE__SERVICE_KINDS);
+      InternalEObject oldInterface = (InternalEObject)interface_;
+      interface_ = (EClass)eResolveProxy(oldInterface);
+      if (interface_ != oldInterface)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.REQUIRED_SERVICE__INTERFACE, oldInterface, interface_));
+      }
     }
-    return serviceKinds;
+    return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass basicGetInterface()
+  {
+    return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInterface(EClass newInterface)
+  {
+    EClass oldInterface = interface_;
+    interface_ = newInterface;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__INTERFACE, oldInterface, interface_));
   }
 
   /**
@@ -177,12 +200,13 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
   {
     switch (featureID)
     {
-      case EclipsePackage.SERVICE__NAME:
+      case EclipsePackage.REQUIRED_SERVICE__NAME:
         return getName();
-      case EclipsePackage.SERVICE__SERVICE_ID:
+      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
         return getServiceID();
-      case EclipsePackage.SERVICE__SERVICE_KINDS:
-        return getServiceKinds();
+      case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
+        if (resolve) return getInterface();
+        return basicGetInterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,21 +216,19 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EclipsePackage.SERVICE__NAME:
+      case EclipsePackage.REQUIRED_SERVICE__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.SERVICE__SERVICE_ID:
+      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
         setServiceID((String)newValue);
         return;
-      case EclipsePackage.SERVICE__SERVICE_KINDS:
-        getServiceKinds().clear();
-        getServiceKinds().addAll((Collection<? extends ServiceKind>)newValue);
+      case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
+        setInterface((EClass)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,14 +244,14 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
   {
     switch (featureID)
     {
-      case EclipsePackage.SERVICE__NAME:
+      case EclipsePackage.REQUIRED_SERVICE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.SERVICE__SERVICE_ID:
+      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
         setServiceID(SERVICE_ID_EDEFAULT);
         return;
-      case EclipsePackage.SERVICE__SERVICE_KINDS:
-        getServiceKinds().clear();
+      case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
+        setInterface((EClass)null);
         return;
     }
     super.eUnset(featureID);
@@ -245,12 +267,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
   {
     switch (featureID)
     {
-      case EclipsePackage.SERVICE__NAME:
+      case EclipsePackage.REQUIRED_SERVICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.SERVICE__SERVICE_ID:
+      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
         return SERVICE_ID_EDEFAULT == null ? serviceID != null : !SERVICE_ID_EDEFAULT.equals(serviceID);
-      case EclipsePackage.SERVICE__SERVICE_KINDS:
-        return serviceKinds != null && !serviceKinds.isEmpty();
+      case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
+        return interface_ != null;
     }
     return super.eIsSet(featureID);
   }
@@ -270,10 +292,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
     result.append(name);
     result.append(", serviceID: ");
     result.append(serviceID);
-    result.append(", serviceKinds: ");
-    result.append(serviceKinds);
     result.append(')');
     return result.toString();
   }
 
-} //ServiceImpl
+} //RequiredServiceImpl

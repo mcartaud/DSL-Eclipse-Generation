@@ -14,7 +14,7 @@ Contributors :
 [module classPathXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private classPathXmlFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).applicationID/]/plugins/[aBundle.projectID/]/.classpath
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/.classpath
 [/template]
 
 [template public genClassPathXmlFile(aBundle : Bundle)]

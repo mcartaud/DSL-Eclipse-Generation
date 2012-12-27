@@ -59,6 +59,15 @@ public interface EclipseFactory extends EFactory
   Bundle createBundle();
 
   /**
+   * Returns a new object of class '<em>Imported Package Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Imported Package Declaration</em>'.
+   * @generated
+   */
+  ImportedPackageDeclaration createImportedPackageDeclaration();
+
+  /**
    * Returns a new object of class '<em>Action Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,13 +167,22 @@ public interface EclipseFactory extends EFactory
   ContextualHelp createContextualHelp();
 
   /**
-   * Returns a new object of class '<em>Service</em>'.
+   * Returns a new object of class '<em>Provided Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Service</em>'.
+   * @return a new object of class '<em>Provided Service</em>'.
    * @generated
    */
-  Service createService();
+  ProvidedService createProvidedService();
+
+  /**
+   * Returns a new object of class '<em>Required Service</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Required Service</em>'.
+   * @generated
+   */
+  RequiredService createRequiredService();
 
   /**
    * Returns the package supported by this factory.

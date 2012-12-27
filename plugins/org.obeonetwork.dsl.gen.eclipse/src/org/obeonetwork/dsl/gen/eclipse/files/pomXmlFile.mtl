@@ -2,7 +2,7 @@
 [module pomXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private pomXmlFile(aProject : Project)]
-[aProject.eContainer(Application).applicationID/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/pom.xml
+[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/pom.xml
 [/template]
 
 [template public genPomXmlFile(aProject : Project)]

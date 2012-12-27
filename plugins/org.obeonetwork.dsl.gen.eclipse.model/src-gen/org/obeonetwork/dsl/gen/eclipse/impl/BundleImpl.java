@@ -10,19 +10,23 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Help;
+import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
-import org.obeonetwork.dsl.gen.eclipse.Service;
+import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
+import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,10 +38,13 @@ import org.obeonetwork.dsl.gen.eclipse.Service;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getProvidedServices <em>Provided Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,14 +113,24 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected String vendor = VENDOR_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+   * The cached value of the '{@link #getProvidedServices() <em>Provided Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getServices()
+   * @see #getProvidedServices()
    * @generated
    * @ordered
    */
-  protected EList<Service> services;
+  protected EList<ProvidedService> providedServices;
+
+  /**
+   * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRequiredServices()
+   * @generated
+   * @ordered
+   */
+  protected EList<RequiredService> requiredServices;
 
   /**
    * The cached value of the '{@link #getPartCategories() <em>Part Categories</em>}' containment reference list.
@@ -144,6 +161,26 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<Help> helps;
+
+  /**
+   * The cached value of the '{@link #getImportedPackageDeclarations() <em>Imported Package Declarations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImportedPackageDeclarations()
+   * @generated
+   * @ordered
+   */
+  protected EList<ImportedPackageDeclaration> importedPackageDeclarations;
+
+  /**
+   * The cached value of the '{@link #getExportedPackages() <em>Exported Packages</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExportedPackages()
+   * @generated
+   * @ordered
+   */
+  protected EList<EPackage> exportedPackages;
 
   /**
    * <!-- begin-user-doc -->
@@ -240,13 +277,27 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Service> getServices()
+  public EList<ProvidedService> getProvidedServices()
   {
-    if (services == null)
+    if (providedServices == null)
     {
-      services = new EObjectContainmentEList<Service>(Service.class, this, EclipsePackage.BUNDLE__SERVICES);
+      providedServices = new EObjectContainmentEList<ProvidedService>(ProvidedService.class, this, EclipsePackage.BUNDLE__PROVIDED_SERVICES);
     }
-    return services;
+    return providedServices;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<RequiredService> getRequiredServices()
+  {
+    if (requiredServices == null)
+    {
+      requiredServices = new EObjectContainmentEList<RequiredService>(RequiredService.class, this, EclipsePackage.BUNDLE__REQUIRED_SERVICES);
+    }
+    return requiredServices;
   }
 
   /**
@@ -296,19 +347,51 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ImportedPackageDeclaration> getImportedPackageDeclarations()
+  {
+    if (importedPackageDeclarations == null)
+    {
+      importedPackageDeclarations = new EObjectContainmentEList<ImportedPackageDeclaration>(ImportedPackageDeclaration.class, this, EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS);
+    }
+    return importedPackageDeclarations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<EPackage> getExportedPackages()
+  {
+    if (exportedPackages == null)
+    {
+      exportedPackages = new EObjectResolvingEList<EPackage>(EPackage.class, this, EclipsePackage.BUNDLE__EXPORTED_PACKAGES);
+    }
+    return exportedPackages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case EclipsePackage.BUNDLE__SERVICES:
-        return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+        return ((InternalEList<?>)getProvidedServices()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+        return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return ((InternalEList<?>)getPartCategories()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__PERSPECTIVES:
         return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__HELPS:
         return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+        return ((InternalEList<?>)getImportedPackageDeclarations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -329,14 +412,20 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getRequiredEnvironment();
       case EclipsePackage.BUNDLE__VENDOR:
         return getVendor();
-      case EclipsePackage.BUNDLE__SERVICES:
-        return getServices();
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+        return getProvidedServices();
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+        return getRequiredServices();
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return getPartCategories();
       case EclipsePackage.BUNDLE__PERSPECTIVES:
         return getPerspectives();
       case EclipsePackage.BUNDLE__HELPS:
         return getHelps();
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+        return getImportedPackageDeclarations();
+      case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
+        return getExportedPackages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -361,9 +450,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor((String)newValue);
         return;
-      case EclipsePackage.BUNDLE__SERVICES:
-        getServices().clear();
-        getServices().addAll((Collection<? extends Service>)newValue);
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+        getProvidedServices().clear();
+        getProvidedServices().addAll((Collection<? extends ProvidedService>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+        getRequiredServices().clear();
+        getRequiredServices().addAll((Collection<? extends RequiredService>)newValue);
         return;
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         getPartCategories().clear();
@@ -376,6 +469,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__HELPS:
         getHelps().clear();
         getHelps().addAll((Collection<? extends Help>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+        getImportedPackageDeclarations().clear();
+        getImportedPackageDeclarations().addAll((Collection<? extends ImportedPackageDeclaration>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
+        getExportedPackages().clear();
+        getExportedPackages().addAll((Collection<? extends EPackage>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -400,8 +501,11 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor(VENDOR_EDEFAULT);
         return;
-      case EclipsePackage.BUNDLE__SERVICES:
-        getServices().clear();
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+        getProvidedServices().clear();
+        return;
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+        getRequiredServices().clear();
         return;
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         getPartCategories().clear();
@@ -411,6 +515,12 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return;
       case EclipsePackage.BUNDLE__HELPS:
         getHelps().clear();
+        return;
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+        getImportedPackageDeclarations().clear();
+        return;
+      case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
+        getExportedPackages().clear();
         return;
     }
     super.eUnset(featureID);
@@ -432,14 +542,20 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
       case EclipsePackage.BUNDLE__VENDOR:
         return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
-      case EclipsePackage.BUNDLE__SERVICES:
-        return services != null && !services.isEmpty();
+      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
+        return providedServices != null && !providedServices.isEmpty();
+      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+        return requiredServices != null && !requiredServices.isEmpty();
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return partCategories != null && !partCategories.isEmpty();
       case EclipsePackage.BUNDLE__PERSPECTIVES:
         return perspectives != null && !perspectives.isEmpty();
       case EclipsePackage.BUNDLE__HELPS:
         return helps != null && !helps.isEmpty();
+      case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+        return importedPackageDeclarations != null && !importedPackageDeclarations.isEmpty();
+      case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
+        return exportedPackages != null && !exportedPackages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

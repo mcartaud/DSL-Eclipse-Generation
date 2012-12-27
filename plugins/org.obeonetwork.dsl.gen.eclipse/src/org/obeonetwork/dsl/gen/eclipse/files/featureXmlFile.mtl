@@ -15,7 +15,7 @@ Contributors :
 
 
 [template private featureXmlFile(aFeature : Feature)]
-[aFeature.eContainer(Application).applicationID/]/features/[aFeature.projectID/]/feature.xml
+[aFeature.eContainer(Application).name/]/features/[aFeature.projectID/]/feature.xml
 [/template]
 
 [template public genFeatureXmlFile(aFeature : Feature)]

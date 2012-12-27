@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Dsl2Eclipse" nsURI="org.obeonetwork.dsl.gen.dsl2eclipse">
+  <eSubpackages name="model" nsURI="org.obeonetwork.dsl.gen.eclipse.model">
+    <eSubpackages name="eclipse" nsURI="org.obeonetwork.dsl.gen.eclipse">
+      <eClassifiers xsi:type="ecore:EClass" name="testC"/>
+      <eClassifiers xsi:type="ecore:EClass" name="testC1"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TestI" abstract="true" interface="true"/>
+    </eSubpackages>
+    <eSubpackages name="impl" nsURI="org.obeonetwork.dsl.gen.eclipse.impl"/>
+    <eSubpackages name="util" nsURI="org.obeonetwork.dsl.gen.eclipse.util"/>
+  </eSubpackages>
+  <eSubpackages name="edit" nsURI="org.obeonetwork.dsl.gen.eclipse.edit">
+    <eSubpackages name="provider" nsURI="org.obeonetwork.dsl.gen.eclipse.provider"/>
+  </eSubpackages>
+  <eSubpackages name="editor" nsURI="org.obeonetwork.dsl.gen.eclipse.">
+    <eSubpackages name="presentation" nsURI="org.obeonetwork.dsl.gen.eclipse.presentation"/>
+  </eSubpackages>
+  <eSubpackages name="eclipse1" nsURI="org.obeonetwork.dsl.gen.eclipse.base">
+    <eSubpackages name="files" nsURI="org.obeonetwork.dsl.gen.eclipse.files"/>
+    <eSubpackages name="main" nsURI="org.obeonetwork.dsl.gen.eclipse.main">
+      <eClassifiers xsi:type="ecore:EClass" name="test21" abstract="true" interface="true"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="repository" nsURI="org.obeonetwork.dsl.gen.eclipse.repository"/>
+  <eSubpackages name="feature" nsURI="org.obeonetwork.dsl.gen.eclipse.feature"/>
+</ecore:EPackage>

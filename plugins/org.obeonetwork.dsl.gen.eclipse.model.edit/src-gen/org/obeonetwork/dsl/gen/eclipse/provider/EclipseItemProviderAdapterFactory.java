@@ -174,6 +174,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ImportedPackageDeclarationItemProvider importedPackageDeclarationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createImportedPackageDeclarationAdapter()
+  {
+    if (importedPackageDeclarationItemProvider == null)
+    {
+      importedPackageDeclarationItemProvider = new ImportedPackageDeclarationItemProvider(this);
+    }
+
+    return importedPackageDeclarationItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ActionSet} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -449,28 +474,53 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Service} instances.
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ProvidedService} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ServiceItemProvider serviceItemProvider;
+  protected ProvidedServiceItemProvider providedServiceItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Service}.
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ProvidedService}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createServiceAdapter()
+  public Adapter createProvidedServiceAdapter()
   {
-    if (serviceItemProvider == null)
+    if (providedServiceItemProvider == null)
     {
-      serviceItemProvider = new ServiceItemProvider(this);
+      providedServiceItemProvider = new ProvidedServiceItemProvider(this);
     }
 
-    return serviceItemProvider;
+    return providedServiceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.RequiredService} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RequiredServiceItemProvider requiredServiceItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.RequiredService}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRequiredServiceAdapter()
+  {
+    if (requiredServiceItemProvider == null)
+    {
+      requiredServiceItemProvider = new RequiredServiceItemProvider(this);
+    }
+
+    return requiredServiceItemProvider;
   }
 
   /**
@@ -588,6 +638,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (repositoryItemProvider != null) repositoryItemProvider.dispose();
     if (featureItemProvider != null) featureItemProvider.dispose();
     if (bundleItemProvider != null) bundleItemProvider.dispose();
+    if (importedPackageDeclarationItemProvider != null) importedPackageDeclarationItemProvider.dispose();
     if (actionSetItemProvider != null) actionSetItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();
     if (actionItemProvider != null) actionItemProvider.dispose();
@@ -599,7 +650,8 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (helpItemProvider != null) helpItemProvider.dispose();
     if (pageItemProvider != null) pageItemProvider.dispose();
     if (contextualHelpItemProvider != null) contextualHelpItemProvider.dispose();
-    if (serviceItemProvider != null) serviceItemProvider.dispose();
+    if (providedServiceItemProvider != null) providedServiceItemProvider.dispose();
+    if (requiredServiceItemProvider != null) requiredServiceItemProvider.dispose();
   }
 
 }
