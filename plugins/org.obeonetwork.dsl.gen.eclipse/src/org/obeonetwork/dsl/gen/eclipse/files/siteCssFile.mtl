@@ -13,10 +13,8 @@ Contributors :
 /]
 [module siteCssFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
-
 [template private siteCssFile(aRepository : Repository)]
-[aRepository.genProjectFolder()/]/web/site.css
+[aRepository.eContainer(Application).applicationID/]/repository/[aRepository.projectID/]/web/site.css
 [/template]
 
 [template public genSiteCssFile(aRepository : Repository)]

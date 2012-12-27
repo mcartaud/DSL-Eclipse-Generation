@@ -1,10 +1,8 @@
 [comment encoding = UTF-8 /]
 [module pomXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
-
 [template private pomXmlFile(aProject : Project)]
-[aProject.genProjectFolder()/]/pom.xml
+[aProject.eContainer(Application).applicationID/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/pom.xml
 [/template]
 
 [template public genPomXmlFile(aProject : Project)]
@@ -22,88 +20,90 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
-[for (aBundle : Bundle | aProject.current(Bundle))][aBundle.pomBundle()/][/for]
-[for (aRepository : Repository | aProject.current(Repository))][aRepository.pomRepository()/][/for]
-[for (aFeature : Feature | aProject.current(Feature))][aFeature.pomFeature()/][/for]
+
+  [if (aProject.oclIsKindOf(Bundle))]
+  [aProject.oclAsType(Bundle).pomBundle()/]
+  [elseif aProject.oclIsKindOf(Feature)]
+  [aProject.oclAsType(Feature).pomFeature()/]
+  [elseif aProject.oclIsKindOf(Repository)]
+  [aProject.oclAsType(Repository).pomRepository()/]
+  [/if]
 </project>
 [/file]
 [/template]
 
 
 [template private pomRepository(aRepository : Repository)]
-  <artifactId>[aRepository.projectID/]</artifactId>
-  <packaging>eclipse-repository</packaging>
+<artifactId>[aRepository.projectID/]</artifactId>
+<packaging>eclipse-repository</packaging>
 
-  <name>[aRepository.ancestors(Application)/] Repository</name>
-  
-  <!-- see http://issues.sonatype.org/browse/TYCHO-313 -->
-  <version>1.0.0-SNAPSHOT</version>
+<name>[aRepository.projectName/]</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/target/repository</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>.</directory>
-                  <includes>
-                    <include>index.html</include>
-	                <include>web/*</include>
-	                <include>compositeArtifacts.xml</include>
-	                <include>compositeContent.xml</include>
-                  </includes>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+<version>1.0.0-SNAPSHOT</version>
+
+<build>
+  <plugins>
+    <plugin>
+      <artifactId>maven-resources-plugin</artifactId>
+      <executions>
+        <execution>
+          <id>copy-resources</id>
+          <phase>validate</phase>
+          <goals>
+            <goal>copy-resources</goal>
+          </goals>
+          <configuration>
+            <outputDirectory>${basedir}/target/repository</outputDirectory>
+            <resources>
+              <resource>
+                <directory>.</directory>
+                <includes>
+                  <include>index.html</include>
+                  <include>web/*</include>
+	              <include>compositeArtifacts.xml</include>
+	              <include>compositeContent.xml</include>
+                </includes>
+              </resource>
+            </resources>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
 [/template]
 
-
 [template private pomFeature(aFeature : Feature)]
-  <artifactId>[aFeature.projectID/]</artifactId>
-  <packaging>eclipse-feature</packaging>
+<artifactId>[aFeature.projectID/]</artifactId>
+<version>[aFeature.version/]-SNAPSHOT</version>
+<packaging>eclipse-feature</packaging>
 
-  <name>[aFeature.ancestors(Application).description/] Feature</name>
-
+<name>[aFeature.projectName/] Feature</name>
 [/template]
 
 
 [template private pomBundle(aBundle : Bundle)]
+<artifactId>[aBundle.projectID/]</artifactId>
+<version>[aBundle.version/]-SNAPSHOT</version>
+<packaging>eclipse-plugin</packaging>
 
-  <artifactId>[aBundle.projectID/]</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>eclipse-plugin</packaging>
+<name>[aBundle.projectName/]</name>
 
-  <name>[aBundle.ancestors(Application).description/] Model Edit</name>
-
-  <!-- workaround for https://issues.sonatype.org/browse/TYCHO-168 -->
-  <build>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-source-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
+<!-- workaround for https://issues.sonatype.org/browse/TYCHO-168 -->
+<build>
+  <resources>
+    <resource>
+      <directory>src</directory>
+      <excludes>
+        <exclude>**/*.java</exclude>
+      </excludes>
+    </resource>
+  </resources>
+  <plugins>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-source-plugin</artifactId>
+    </plugin>
+  </plugins>
+</build>
 [/template]

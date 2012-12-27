@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.gen.eclipse
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.obeonetwork.dsl.gen.eclipse.Activator
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.runtime, 
  org.obeonetwork.dsl.gen.eclipse.model, 

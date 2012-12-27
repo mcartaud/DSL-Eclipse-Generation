@@ -1,10 +1,9 @@
 [comment encoding = UTF-8 /]
 [module pomParentXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::genFolder /]
 
 [template private pomParentXmlFile(anApplication : Application)]
-[anApplication.genApplicationFolder()/]/pom.xml
+[anApplication.applicationID/]/pom.xml
 [/template]
 
 [template public genPomParentXmlFile(anApplication : Application)]
@@ -34,9 +33,7 @@
   </licenses>
   
   <modules>
-[for (aBundle : Bundle | anApplication.eAllContents(Bundle)) separator (anApplication.lineSeparator())][aBundle.getBundleName()/][/for]
-[for (aFeature : Feature | anApplication.eAllContents(Feature)) separator (anApplication.lineSeparator())][aFeature.getFeatureName()/][/for]
-[for (aRepository : Repository | anApplication.eAllContents(Repository)) separator (anApplication.lineSeparator())][aRepository.getRepositoryName()/][/for]
+    [anApplication.modulesLocation()/]
   </modules>
 
   <properties>
@@ -195,15 +192,14 @@
 [/file]
 [/template]
 
-
-[template private getBundleName(aBundle : Bundle)]
-    <module>plugins/[aBundle.projectID/]</module>
-[/template]
-
-[template private getRepositoryName(aRepository : Repository)]
-    <module>repository/[aRepository.projectID/]</module>
-[/template]
-
-[template private getFeatureName(aFeature : Feature)]
-    <module>features/[aFeature.projectID/]</module>
+[template private modulesLocation(anApplication : Application) post(trim())]
+[for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
+<module>plugins/[aBundle.projectID/]</module>
+[/for]
+[for (aFeature : Feature | anApplication.eAllContents(Feature))]
+<module>features/[aFeature.projectID/]</module>
+[/for]
+[for (aRepository : Repository | anApplication.eAllContents(Repository))]
+<module>repository/[aRepository.projectID/]</module>
+[/for]
 [/template]
