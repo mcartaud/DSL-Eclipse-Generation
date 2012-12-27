@@ -6,4 +6,5 @@
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.edit" projectName="edit" version="1.0.0" requiredEnvironment="java 1.5" vendor="mathieu Cartaud"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.editor" projectName="editor" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.tests" projectName="tests" version="1.0.0" requiredEnvironment="java1.7" vendor="Mathieu Cartaud"/>
 </eclipse:Application>
