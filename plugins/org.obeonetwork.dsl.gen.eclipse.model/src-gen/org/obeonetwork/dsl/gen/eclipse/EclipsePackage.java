@@ -442,13 +442,22 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__VENDOR = PROJECT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Base Package</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__BASE_PACKAGE = PROJECT_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__PROVIDED_SERVICES = PROJECT_FEATURE_COUNT + 3;
+  int BUNDLE__PROVIDED_SERVICES = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
@@ -457,7 +466,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__REQUIRED_SERVICES = PROJECT_FEATURE_COUNT + 4;
+  int BUNDLE__REQUIRED_SERVICES = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Part Categories</b></em>' containment reference list.
@@ -466,7 +475,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__PART_CATEGORIES = PROJECT_FEATURE_COUNT + 5;
+  int BUNDLE__PART_CATEGORIES = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
@@ -475,7 +484,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 6;
+  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Helps</b></em>' containment reference list.
@@ -484,7 +493,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__HELPS = PROJECT_FEATURE_COUNT + 7;
+  int BUNDLE__HELPS = PROJECT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Imported Package Declarations</b></em>' containment reference list.
@@ -493,7 +502,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 8;
+  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
@@ -502,7 +511,25 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 9;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 11;
+
+  /**
+   * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 12;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -511,7 +538,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 10;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 13;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -1393,13 +1420,49 @@ public interface EclipsePackage extends EPackage
   int REQUIRED_SERVICE__SERVICE_ID = 1;
 
   /**
+   * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRED_SERVICE__LOWER_BOUND = 2;
+
+  /**
+   * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRED_SERVICE__UPPER_BOUND = 3;
+
+  /**
    * The feature id for the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIRED_SERVICE__INTERFACE = 2;
+  int REQUIRED_SERVICE__INTERFACE = 4;
+
+  /**
+   * The feature id for the '<em><b>Implementation</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRED_SERVICE__IMPLEMENTATION = 5;
+
+  /**
+   * The feature id for the '<em><b>Binded Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRED_SERVICE__BINDED_REFERENCE = 6;
 
   /**
    * The number of structural features of the '<em>Required Service</em>' class.
@@ -1408,7 +1471,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIRED_SERVICE_FEATURE_COUNT = 3;
+  int REQUIRED_SERVICE_FEATURE_COUNT = 7;
 
   /**
    * The number of operations of the '<em>Required Service</em>' class.
@@ -1724,6 +1787,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getBundle_Vendor();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasePackage <em>Base Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Base Package</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getBasePackage()
+   * @see #getBundle()
+   * @generated
+   */
+  EAttribute getBundle_BasePackage();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getProvidedServices <em>Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1799,6 +1873,28 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getBundle_ExportedPackages();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Owned Packages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_OwnedPackages();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages <em>All Exported Packages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>All Exported Packages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_AllExportedPackages();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
@@ -2457,6 +2553,28 @@ public interface EclipsePackage extends EPackage
   EAttribute getRequiredService_ServiceID();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound <em>Lower Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lower Bound</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound()
+   * @see #getRequiredService()
+   * @generated
+   */
+  EAttribute getRequiredService_LowerBound();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound <em>Upper Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Upper Bound</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound()
+   * @see #getRequiredService()
+   * @generated
+   */
+  EAttribute getRequiredService_UpperBound();
+
+  /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2466,6 +2584,28 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getRequiredService_Interface();
+
+  /**
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation <em>Implementation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Implementation</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation()
+   * @see #getRequiredService()
+   * @generated
+   */
+  EReference getRequiredService_Implementation();
+
+  /**
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference <em>Binded Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Binded Reference</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference()
+   * @see #getRequiredService()
+   * @generated
+   */
+  EReference getRequiredService_BindedReference();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2726,6 +2866,14 @@ public interface EclipsePackage extends EPackage
     EAttribute BUNDLE__VENDOR = eINSTANCE.getBundle_Vendor();
 
     /**
+     * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUNDLE__BASE_PACKAGE = eINSTANCE.getBundle_BasePackage();
+
+    /**
      * The meta object literal for the '<em><b>Provided Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2780,6 +2928,22 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference BUNDLE__EXPORTED_PACKAGES = eINSTANCE.getBundle_ExportedPackages();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Packages</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__OWNED_PACKAGES = eINSTANCE.getBundle_OwnedPackages();
+
+    /**
+     * The meta object literal for the '<em><b>All Exported Packages</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__ALL_EXPORTED_PACKAGES = eINSTANCE.getBundle_AllExportedPackages();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.
@@ -3300,12 +3464,44 @@ public interface EclipsePackage extends EPackage
     EAttribute REQUIRED_SERVICE__SERVICE_ID = eINSTANCE.getRequiredService_ServiceID();
 
     /**
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIRED_SERVICE__LOWER_BOUND = eINSTANCE.getRequiredService_LowerBound();
+
+    /**
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIRED_SERVICE__UPPER_BOUND = eINSTANCE.getRequiredService_UpperBound();
+
+    /**
      * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference REQUIRED_SERVICE__INTERFACE = eINSTANCE.getRequiredService_Interface();
+
+    /**
+     * The meta object literal for the '<em><b>Implementation</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIRED_SERVICE__IMPLEMENTATION = eINSTANCE.getRequiredService_Implementation();
+
+    /**
+     * The meta object literal for the '<em><b>Binded Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIRED_SERVICE__BINDED_REFERENCE = eINSTANCE.getRequiredService_BindedReference();
 
   }
 

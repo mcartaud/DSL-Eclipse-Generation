@@ -2,14 +2,19 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import com.google.common.base.Objects;
+
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -18,6 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -38,6 +47,7 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBasePackage <em>Base Package</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
@@ -45,6 +55,8 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +123,26 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected String vendor = VENDOR_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBasePackage()
+   * @generated
+   * @ordered
+   */
+  protected static final String BASE_PACKAGE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBasePackage()
+   * @generated
+   * @ordered
+   */
+  protected String basePackage = BASE_PACKAGE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getProvidedServices() <em>Provided Services</em>}' containment reference list.
@@ -181,6 +213,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<EPackage> exportedPackages;
+
+  /**
+   * The cached value of the '{@link #getOwnedPackages() <em>Owned Packages</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOwnedPackages()
+   * @generated
+   * @ordered
+   */
+  protected EList<EPackage> ownedPackages;
 
   /**
    * <!-- begin-user-doc -->
@@ -270,6 +312,29 @@ public class BundleImpl extends ProjectImpl implements Bundle
     vendor = newVendor;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__VENDOR, oldVendor, vendor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBasePackage()
+  {
+    return basePackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBasePackage(String newBasePackage)
+  {
+    String oldBasePackage = basePackage;
+    basePackage = newBasePackage;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__BASE_PACKAGE, oldBasePackage, basePackage));
   }
 
   /**
@@ -375,6 +440,76 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<EPackage> getOwnedPackages()
+  {
+    if (ownedPackages == null)
+    {
+      ownedPackages = new EObjectResolvingEList<EPackage>(EPackage.class, this, EclipsePackage.BUNDLE__OWNED_PACKAGES);
+    }
+    return ownedPackages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<EPackage> getAllExportedPackages()
+  {
+    BasicEList<EPackage> _basicEList = new BasicEList<EPackage>();
+    final BasicEList<EPackage> packages = _basicEList;
+    EList<EPackage> _exportedPackages = this.getExportedPackages();
+    packages.addAllUnique(_exportedPackages);
+    EList<ProvidedService> _providedServices = this.getProvidedServices();
+    final Function1<ProvidedService,EPackage> _function = new Function1<ProvidedService,EPackage>()
+    {
+        public EPackage apply(final ProvidedService pS)
+        {
+          final EClass impl = pS.getInterface();
+          final EObject p = impl.eContainer();
+          EPackage ep = null;
+          if ((p instanceof EPackage))
+          {
+            ep = ((EPackage) p);
+            EPackage epTmp = ep;
+            boolean _notEquals = (!Objects.equal(epTmp, null));
+            boolean _while = _notEquals;
+            while (_while)
+            {
+              {
+                EList<EPackage> _ownedPackages = getOwnedPackages();
+                boolean _contains = _ownedPackages.contains(epTmp);
+                if (_contains)
+                {
+                  return ep;
+                }
+                final EObject containerTmp = epTmp.eContainer();
+                if ((containerTmp instanceof EPackage))
+                {
+                  epTmp = ((EPackage) containerTmp);
+                }
+                else
+                {
+                  epTmp = null;
+                }
+              }
+              boolean _notEquals_1 = (!Objects.equal(epTmp, null));
+              _while = _notEquals_1;
+            }
+          }
+          return null;
+        }
+      };
+    List<EPackage> _map = ListExtensions.<ProvidedService, EPackage>map(_providedServices, _function);
+    packages.addAllUnique(_map);
+    return packages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -412,6 +547,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getRequiredEnvironment();
       case EclipsePackage.BUNDLE__VENDOR:
         return getVendor();
+      case EclipsePackage.BUNDLE__BASE_PACKAGE:
+        return getBasePackage();
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         return getProvidedServices();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
@@ -426,6 +563,10 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getImportedPackageDeclarations();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return getExportedPackages();
+      case EclipsePackage.BUNDLE__OWNED_PACKAGES:
+        return getOwnedPackages();
+      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
+        return getAllExportedPackages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -449,6 +590,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return;
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor((String)newValue);
+        return;
+      case EclipsePackage.BUNDLE__BASE_PACKAGE:
+        setBasePackage((String)newValue);
         return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         getProvidedServices().clear();
@@ -478,6 +622,10 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getExportedPackages().clear();
         getExportedPackages().addAll((Collection<? extends EPackage>)newValue);
         return;
+      case EclipsePackage.BUNDLE__OWNED_PACKAGES:
+        getOwnedPackages().clear();
+        getOwnedPackages().addAll((Collection<? extends EPackage>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -501,6 +649,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor(VENDOR_EDEFAULT);
         return;
+      case EclipsePackage.BUNDLE__BASE_PACKAGE:
+        setBasePackage(BASE_PACKAGE_EDEFAULT);
+        return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         getProvidedServices().clear();
         return;
@@ -522,6 +673,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
         return;
+      case EclipsePackage.BUNDLE__OWNED_PACKAGES:
+        getOwnedPackages().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -542,6 +696,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
       case EclipsePackage.BUNDLE__VENDOR:
         return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
+      case EclipsePackage.BUNDLE__BASE_PACKAGE:
+        return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         return providedServices != null && !providedServices.isEmpty();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
@@ -556,6 +712,10 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return importedPackageDeclarations != null && !importedPackageDeclarations.isEmpty();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return exportedPackages != null && !exportedPackages.isEmpty();
+      case EclipsePackage.BUNDLE__OWNED_PACKAGES:
+        return ownedPackages != null && !ownedPackages.isEmpty();
+      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
+        return !getAllExportedPackages().isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -577,6 +737,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
     result.append(requiredEnvironment);
     result.append(", vendor: ");
     result.append(vendor);
+    result.append(", basePackage: ");
+    result.append(basePackage);
     result.append(')');
     return result.toString();
   }

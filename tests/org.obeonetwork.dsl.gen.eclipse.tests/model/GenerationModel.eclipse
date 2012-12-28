@@ -2,14 +2,40 @@
 <eclipse:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse" name="Dsl2Eclipse" applicationID="org.obeonetwork.dsl.gen.dsl2eclipse" provider="Mathieu Cartaud" copyright="obeo" version="1.0.0" description="Allow to generate all files for an Eclipse plugin">
   <projects xsi:type="eclipse:Repository" projectID="org.obeonetwork.dsl.gen.eclipse.repository" projectName="repository" categoryName="org.obeonetwork.dsl.gen.eclipse.category" categoryLabel="category" categoryDescription="This category contains all the projects for Dsl2Eclipse" features="//@projects.1" bundles="//@projects.2 //@projects.3 //@projects.5 //@projects.4"/>
   <projects xsi:type="eclipse:Feature" projectID="org.obeonetwork.dsl.gen.eclipse.feature" projectName="feature" copyright="Obeo" description="contains all of the bundles" version="1.0.0" license="Eclipse Public License - v 1.0" featureProvider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3 //@projects.4 //@projects.5"/>
-  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.model" projectName="model" version="1.0.0.qualifier" requiredEnvironment="java 1.7" vendor=" Mathieu Cartaud"/>
-  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.edit" projectName="edit" version="1.0.0" requiredEnvironment="java 1.5" vendor="mathieu Cartaud"/>
-  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.editor" projectName="editor" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
-  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud">
-    <providedServices name="service" serviceID="service1">
-      <implementation href="MyProject.ecore#//model/eclipse/testC"/>
-      <interface href="MyProject.ecore#//eclipse1/main/test21"/>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen" projectName="model" version="1.0.0.qualifier" requiredEnvironment="java 1.7" vendor=" Mathieu Cartaud" basePackage="org.obeonetwork.dsl.gen">
+    <providedServices name="Model Provided Service">
+      <implementation href="model.ecore#//impl/Model"/>
+      <interface href="model.ecore#//IModel"/>
     </providedServices>
+    <importedPackageDeclarations packageName="org.eclipse.emf.ecore" packageVersion="1.0.0"/>
+    <ownedPackages href="model.ecore#/"/>
   </projects>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.edit" projectName="edit" version="1.0.0" requiredEnvironment="java 1.5" vendor="mathieu Cartaud" basePackage="org.obeonetwork.dsl">
+    <providedServices name="Edit Provided Service" serviceID="org.obeonetwork.dsl.gen.eclipse.edit.service">
+      <implementation href="edit.ecore#//impl/Edit"/>
+      <interface href="edit.ecore#//IEdit"/>
+    </providedServices>
+    <exportedPackages href="edit.ecore#/"/>
+    <ownedPackages href="edit.ecore#/"/>
+  </projects>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse.editor" projectName="editor" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud" basePackage="org.obeonetwork.dsl.gen.eclipse">
+    <providedServices name="Editor Provided Service" serviceID="org.obeonetwork.dsl.gen.eclipse.editor.service" requiredServices="//@projects.4/@requiredServices.0">
+      <implementation href="editor.ecore#//impl/Editor"/>
+      <interface href="editor.ecore#//IEditor"/>
+    </providedServices>
+    <requiredServices name="Edit Required Service" serviceID="org.obeonetwork.dsl.gen.eclipse.edit.service" lowerBound="0" upperBound="1">
+      <interface href="edit.ecore#//IEdit"/>
+      <implementation href="editor.ecore#//impl/Editor"/>
+      <bindedReference href="editor.ecore#//impl/Editor/edit"/>
+    </requiredServices>
+    <requiredServices name="Model Required Service">
+      <interface href="model.ecore#//IModel"/>
+      <implementation href="editor.ecore#//impl/Editor"/>
+      <bindedReference href="model.ecore#//impl/Model/model"/>
+    </requiredServices>
+    <ownedPackages href="editor.ecore#/"/>
+    <ownedPackages href="edit.ecore#//impl"/>
+  </projects>
+  <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="java 1.7" vendor="Mathieu Cartaud"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.tests" projectName="tests" version="1.0.0" requiredEnvironment="java1.7" vendor="Mathieu Cartaud"/>
 </eclipse:Application>

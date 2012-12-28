@@ -5,6 +5,9 @@ package org.obeonetwork.dsl.gen.eclipse
 
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EReference
+
+import org.eclipse.emf.common.util.BasicEList
 
 class Application {
 	String name
@@ -42,6 +45,7 @@ class Bundle extends Project {
 	String version
 	String requiredEnvironment
 	String vendor
+	String basePackage
 	contains ProvidedService[] providedServices
 	contains RequiredService[] requiredServices
 	contains PartCategory[] partCategories
@@ -49,6 +53,34 @@ class Bundle extends Project {
 	contains Help[] helps
 	contains ImportedPackageDeclaration[] importedPackageDeclarations
 	refers EPackage[] exportedPackages
+	refers EPackage[] ownedPackages
+	refers derived EPackage[] allExportedPackages get {
+		val BasicEList<EPackage> packages = new BasicEList<EPackage>();
+		packages.addAllUnique(exportedPackages);
+		packages.addAllUnique(providedServices.map[pS | 
+			val impl = pS.^interface;
+			val p = impl.eContainer;
+			var EPackage ep = null;
+			if (p instanceof EPackage) {
+				ep = p as EPackage;
+				
+				var EPackage epTmp = ep;
+				while (epTmp != null) {
+					if (ownedPackages.^contains(epTmp)) {
+						return ep;
+					}
+					
+					val containerTmp = epTmp.eContainer;
+					if (containerTmp instanceof EPackage) {
+						epTmp = containerTmp as EPackage;						
+					} else {
+						epTmp = null;
+					}
+				}
+			}
+		])
+		return packages;
+	}
 }
 
 
@@ -141,5 +173,9 @@ class ProvidedService {
 class RequiredService {
 	String name
 	String serviceID
+	Integer lowerBound
+	Integer upperBound
 	refers EClass ^interface
+	refers EClass implementation
+	refers EReference bindedReference
 }

@@ -1,7 +1,33 @@
 [comment encoding = UTF-8 /]
-[module path('http://www.obeonetwork.org/dsl/eclipse')]
+[module path('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 
 [template public genInterfacePath(aProvidedService : ProvidedService)]
-[aProvidedService.interface.eContainer().ancestors()/]
+[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.interfacePath()->sep('.')/]
 [/template]
+
+[template public genImplementationPath(aProvidedService : ProvidedService)]
+[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.implementationPath()->sep('.')/]
+[/template]
+
+[query private interfacePath(aProvidedService : ProvidedService) : Sequence(String) = 
+aProvidedService.interface.ancestors(EPackage)->reverse().name
+/]
+
+[query private implementationPath(aProvidedService : ProvidedService) : Sequence(String) = 
+aProvidedService.implementation.ancestors(EPackage)->reverse().name
+/]
+
+[template public genInterfacePath(aRequiredService : RequiredService)]
+[aRequiredService.interface.eContainer(EPackage).eInverse(Bundle).basePackage/].[aRequiredService.interfacePath()->sep('.')/]
+[/template]
+
+[query private interfacePath(aRequiredService : RequiredService) : Sequence(String) =
+aRequiredService.interface.ancestors(EPackage)->reverse().name 
+/]
+
+[template public genBundlePath(aBundle : Bundle)]
+[for (anEPackage : EPackage | aBundle.allExportedPackages) separator (',' + aBundle.lineSeparator())]
+ [aBundle.basePackage/].[if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage)->reverse().name/].[/if][anEPackage.name/][/for]
+[/template]
+

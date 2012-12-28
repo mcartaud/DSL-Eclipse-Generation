@@ -67,7 +67,10 @@ public class BundleItemProvider
       addVersionPropertyDescriptor(object);
       addRequiredEnvironmentPropertyDescriptor(object);
       addVendorPropertyDescriptor(object);
+      addBasePackagePropertyDescriptor(object);
       addExportedPackagesPropertyDescriptor(object);
+      addOwnedPackagesPropertyDescriptor(object);
+      addAllExportedPackagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -137,6 +140,75 @@ public class BundleItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Base Package feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addBasePackagePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_basePackage_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_basePackage_feature", "_UI_Bundle_type"),
+         EclipsePackage.Literals.BUNDLE__BASE_PACKAGE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Owned Packages feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addOwnedPackagesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_ownedPackages_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_ownedPackages_feature", "_UI_Bundle_type"),
+         EclipsePackage.Literals.BUNDLE__OWNED_PACKAGES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the All Exported Packages feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addAllExportedPackagesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_allExportedPackages_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_allExportedPackages_feature", "_UI_Bundle_type"),
+         EclipsePackage.Literals.BUNDLE__ALL_EXPORTED_PACKAGES,
+         false,
+         false,
+         false,
+         null,
          null,
          null));
   }
@@ -246,6 +318,7 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__VERSION:
       case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
       case EclipsePackage.BUNDLE__VENDOR:
+      case EclipsePackage.BUNDLE__BASE_PACKAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:

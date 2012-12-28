@@ -13,6 +13,8 @@ Contributors :
 /]
 [module manifestMFFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
 [template private manifestMFFile(aBundle : Bundle)]
 [aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/META-INF/MANIFEST.MF
 [/template]
@@ -29,9 +31,9 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Export-Package: [if (aBundle.exportedPackages->size() > 0)][aBundle.exportedPackages.nsURI/][/if]
-[for (aProvidedService : ProvidedService | aBundle.providedServices) separator(',' + aBundle.lineSeparator())]Import-Package: [aProvidedService.getImportPackage()/][/for]
-[if (aBundle.providedServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
+Export-Package:[if (aBundle.allExportedPackages->size() > 0)][aBundle.genBundlePath()/][/if]
+[if (aBundle.requiredServices->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
+[/if][if (aBundle.providedServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
 
 [/file]
 [/template]
@@ -40,6 +42,7 @@ Export-Package: [if (aBundle.exportedPackages->size() > 0)][aBundle.exportedPack
 [if (aBundle.version->size() > 0)][aBundle.version/][else]1.0.0.qualifier[/if]
 [/template]
 
-[template private getImportPackage(aProvidedService : ProvidedService)]
-[aProvidedService.interface.ePackage.nsURI/]
+[template private exportPackage(aBundle : Bundle)]
+[for (aBundle : Bundle | aBundle) separator(',')]
+[if (aBundle.exportedPackages->size() > 0)][for (aBundle : Bundle | aBundle) separator(',')][aBundle.genBundlePath()/][/for][/if][if (aBundle.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.providedServices) separator(',')][aProvidedService.genInterfacePath()/][/for][/if][/for]
 [/template]
