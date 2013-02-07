@@ -2,7 +2,6 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
