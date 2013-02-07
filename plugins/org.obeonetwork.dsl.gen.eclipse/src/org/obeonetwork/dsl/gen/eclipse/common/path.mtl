@@ -31,3 +31,7 @@ aRequiredService.interface.ancestors(EPackage)->reverse().name
  [aBundle.basePackage/].[if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage)->reverse().name/].[/if][anEPackage.name/][/for]
 [/template]
 
+[query public allExportedPackages(aBundle : Bundle) : EPackage = 
+	invoke('org.obeonetwork.dsl.gen.eclipse.impl.spec.BundleSpec', 'getAllExportedPackages()', Sequence{})
+/]
+

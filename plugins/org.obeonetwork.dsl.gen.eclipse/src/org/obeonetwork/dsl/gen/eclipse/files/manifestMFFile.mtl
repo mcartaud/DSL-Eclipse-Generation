@@ -27,10 +27,15 @@ Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: [aBundle.projectID/]
 Bundle-Version: [aBundle.bundleVersion()/]
 Bundle-Vendor: %Provider-Name
+Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
+[if (aBundle.importedPackageDeclarations->size() > 0)]Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) separator(',' + aBundle.lineSeparator())]
+ [anImportedpackage.packageName/]
+[/for]
+[/if]
 Export-Package:[if (aBundle.allExportedPackages->size() > 0)][aBundle.genBundlePath()/][/if]
 [if (aBundle.requiredServices->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
 [/if][if (aBundle.providedServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]

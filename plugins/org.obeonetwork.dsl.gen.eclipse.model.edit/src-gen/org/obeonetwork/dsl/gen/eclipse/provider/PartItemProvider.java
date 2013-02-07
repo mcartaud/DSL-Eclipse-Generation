@@ -68,7 +68,8 @@ public class PartItemProvider
       super.getPropertyDescriptors(object);
 
       addPartIDPropertyDescriptor(object);
-      addPerspectivesPropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -97,24 +98,47 @@ public class PartItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Perspectives feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPerspectivesPropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Part_perspectives_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Part_perspectives_feature", "_UI_Part_type"),
-         EclipsePackage.Literals.PART__PERSPECTIVES,
+         getString("_UI_Part_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Part_name_feature", "_UI_Part_type"),
+         EclipsePackage.Literals.PART__NAME,
          true,
          false,
-         true,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Description feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Part_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Part_description_feature", "_UI_Part_type"),
+         EclipsePackage.Literals.PART__DESCRIPTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
@@ -133,6 +157,7 @@ public class PartItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
+      childrenFeatures.add(EclipsePackage.Literals.PART__ACTION_SETS);
       childrenFeatures.add(EclipsePackage.Literals.PART__CONTEXTUAL_HELP);
     }
     return childrenFeatures;
@@ -161,7 +186,7 @@ public class PartItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Part)object).getPartID();
+    String label = ((Part)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Part_type") :
       getString("_UI_Part_type") + " " + label;
@@ -182,8 +207,11 @@ public class PartItemProvider
     switch (notification.getFeatureID(Part.class))
     {
       case EclipsePackage.PART__PART_ID:
+      case EclipsePackage.PART__NAME:
+      case EclipsePackage.PART__DESCRIPTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
+      case EclipsePackage.PART__ACTION_SETS:
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -202,6 +230,11 @@ public class PartItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PART__ACTION_SETS,
+         EclipseFactory.eINSTANCE.createActionSet()));
 
     newChildDescriptors.add
       (createChildParameter

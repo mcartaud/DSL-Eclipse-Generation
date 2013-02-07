@@ -15,9 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.ContextualHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Part;
@@ -31,8 +33,10 @@ import org.obeonetwork.dsl.gen.eclipse.Perspective;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getPartID <em>Part ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getContextualHelp <em>Contextual Help</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getPerspectives <em>Perspectives</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +65,56 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   protected String partID = PART_ID_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActionSets()
+   * @generated
+   * @ordered
+   */
+  protected EList<ActionSet> actionSets;
+
+  /**
    * The cached value of the '{@link #getContextualHelp() <em>Contextual Help</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,16 +123,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * @ordered
    */
   protected ContextualHelp contextualHelp;
-
-  /**
-   * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPerspectives()
-   * @generated
-   * @ordered
-   */
-  protected EList<Perspective> perspectives;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,6 +166,66 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     partID = newPartID;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__PART_ID, oldPartID, partID));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ActionSet> getActionSets()
+  {
+    if (actionSets == null)
+    {
+      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.PART__ACTION_SETS);
+    }
+    return actionSets;
   }
 
   /**
@@ -177,46 +281,15 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Perspective> getPerspectives()
-  {
-    if (perspectives == null)
-    {
-      perspectives = new EObjectWithInverseResolvingEList.ManyInverse<Perspective>(Perspective.class, this, EclipsePackage.PART__PERSPECTIVES, EclipsePackage.PERSPECTIVE__PARTS);
-    }
-    return perspectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__PERSPECTIVES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getPerspectives()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case EclipsePackage.PART__ACTION_SETS:
+        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         return basicSetContextualHelp(null, msgs);
-      case EclipsePackage.PART__PERSPECTIVES:
-        return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -233,10 +306,14 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     {
       case EclipsePackage.PART__PART_ID:
         return getPartID();
+      case EclipsePackage.PART__NAME:
+        return getName();
+      case EclipsePackage.PART__DESCRIPTION:
+        return getDescription();
+      case EclipsePackage.PART__ACTION_SETS:
+        return getActionSets();
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         return getContextualHelp();
-      case EclipsePackage.PART__PERSPECTIVES:
-        return getPerspectives();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,12 +332,18 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
       case EclipsePackage.PART__PART_ID:
         setPartID((String)newValue);
         return;
+      case EclipsePackage.PART__NAME:
+        setName((String)newValue);
+        return;
+      case EclipsePackage.PART__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
+      case EclipsePackage.PART__ACTION_SETS:
+        getActionSets().clear();
+        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+        return;
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         setContextualHelp((ContextualHelp)newValue);
-        return;
-      case EclipsePackage.PART__PERSPECTIVES:
-        getPerspectives().clear();
-        getPerspectives().addAll((Collection<? extends Perspective>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -279,11 +362,17 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
       case EclipsePackage.PART__PART_ID:
         setPartID(PART_ID_EDEFAULT);
         return;
+      case EclipsePackage.PART__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case EclipsePackage.PART__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case EclipsePackage.PART__ACTION_SETS:
+        getActionSets().clear();
+        return;
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         setContextualHelp((ContextualHelp)null);
-        return;
-      case EclipsePackage.PART__PERSPECTIVES:
-        getPerspectives().clear();
         return;
     }
     super.eUnset(featureID);
@@ -301,10 +390,14 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     {
       case EclipsePackage.PART__PART_ID:
         return PART_ID_EDEFAULT == null ? partID != null : !PART_ID_EDEFAULT.equals(partID);
+      case EclipsePackage.PART__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EclipsePackage.PART__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.PART__ACTION_SETS:
+        return actionSets != null && !actionSets.isEmpty();
       case EclipsePackage.PART__CONTEXTUAL_HELP:
         return contextualHelp != null;
-      case EclipsePackage.PART__PERSPECTIVES:
-        return perspectives != null && !perspectives.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -322,6 +415,10 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (partID: ");
     result.append(partID);
+    result.append(", name: ");
+    result.append(name);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

@@ -23,6 +23,14 @@ source.. = src/
 output.. = bin/
 bin.includes = META-INF/,\
                .,\
-               plugin.properties	
+               plugin.properties
+			   [buildPropertiesView()/]
 [/file]
+[/template]
+
+[template private buildPropertiesView(aBundle : Bundle)]
+[if ((aBundle.eContents(View)->size() > 0) or (aBundle.eContents(Editor)->size() > 0))]
+icons/,\
+plugins.xml[if (aBundle.eContents(Help)->size() > 0)],\
+contexts.xml[/if][/if]
 [/template]

@@ -3,10 +3,9 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import com.google.common.base.Objects;
-
 import java.util.Collection;
-import java.util.List;
 
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,9 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-
 import org.eclipse.xtext.xbase.lib.ListExtensions;
-
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Help;
@@ -223,6 +220,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<EPackage> ownedPackages;
+
+  /**
+   * The cached value of the '{@link #getAllExportedPackages() <em>All Exported Packages</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAllExportedPackages()
+   * @generated
+   * @ordered
+   */
+  protected EList<EPackage> allExportedPackages;
 
   /**
    * <!-- begin-user-doc -->
@@ -456,53 +463,11 @@ public class BundleImpl extends ProjectImpl implements Bundle
    */
   public EList<EPackage> getAllExportedPackages()
   {
-    BasicEList<EPackage> _basicEList = new BasicEList<EPackage>();
-    final BasicEList<EPackage> packages = _basicEList;
-    EList<EPackage> _exportedPackages = this.getExportedPackages();
-    packages.addAllUnique(_exportedPackages);
-    EList<ProvidedService> _providedServices = this.getProvidedServices();
-    final Function1<ProvidedService,EPackage> _function = new Function1<ProvidedService,EPackage>()
+    if (allExportedPackages == null)
     {
-        public EPackage apply(final ProvidedService pS)
-        {
-          final EClass impl = pS.getInterface();
-          final EObject p = impl.eContainer();
-          EPackage ep = null;
-          if ((p instanceof EPackage))
-          {
-            ep = ((EPackage) p);
-            EPackage epTmp = ep;
-            boolean _notEquals = (!Objects.equal(epTmp, null));
-            boolean _while = _notEquals;
-            while (_while)
-            {
-              {
-                EList<EPackage> _ownedPackages = getOwnedPackages();
-                boolean _contains = _ownedPackages.contains(epTmp);
-                if (_contains)
-                {
-                  return ep;
-                }
-                final EObject containerTmp = epTmp.eContainer();
-                if ((containerTmp instanceof EPackage))
-                {
-                  epTmp = ((EPackage) containerTmp);
-                }
-                else
-                {
-                  epTmp = null;
-                }
-              }
-              boolean _notEquals_1 = (!Objects.equal(epTmp, null));
-              _while = _notEquals_1;
-            }
-          }
-          return null;
-        }
-      };
-    List<EPackage> _map = ListExtensions.<ProvidedService, EPackage>map(_providedServices, _function);
-    packages.addAllUnique(_map);
-    return packages;
+      allExportedPackages = new EObjectResolvingEList<EPackage>(EPackage.class, this, EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES);
+    }
+    return allExportedPackages;
   }
 
   /**
@@ -626,6 +591,10 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getOwnedPackages().clear();
         getOwnedPackages().addAll((Collection<? extends EPackage>)newValue);
         return;
+      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
+        getAllExportedPackages().clear();
+        getAllExportedPackages().addAll((Collection<? extends EPackage>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -676,6 +645,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
         getOwnedPackages().clear();
         return;
+      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
+        getAllExportedPackages().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -715,7 +687,7 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
         return ownedPackages != null && !ownedPackages.isEmpty();
       case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
-        return !getAllExportedPackages().isEmpty();
+        return allExportedPackages != null && !allExportedPackages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

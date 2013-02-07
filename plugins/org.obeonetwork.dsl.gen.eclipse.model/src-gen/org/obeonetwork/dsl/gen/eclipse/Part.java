@@ -15,8 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getPartID <em>Part ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp <em>Contextual Help</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getPerspectives <em>Perspectives</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +55,74 @@ public interface Part extends EObject
   void setPartID(String value);
 
   /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_Name()
+   * @model unique="false"
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_Description()
+   * @model unique="false"
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Action Sets</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_ActionSets()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ActionSet> getActionSets();
+
+  /**
    * Returns the value of the '<em><b>Contextual Help</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -77,23 +147,5 @@ public interface Part extends EObject
    * @generated
    */
   void setContextualHelp(ContextualHelp value);
-
-  /**
-   * Returns the value of the '<em><b>Perspectives</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Perspective}.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getParts <em>Parts</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Perspectives</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Perspectives</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_Perspectives()
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getParts
-   * @model opposite="parts"
-   * @generated
-   */
-  EList<Perspective> getPerspectives();
 
 } // Part

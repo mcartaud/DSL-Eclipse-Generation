@@ -69,7 +69,7 @@ public class PerspectiveItemProvider
 
       addNamePropertyDescriptor(object);
       addPerspectiveIDPropertyDescriptor(object);
-      addPartsPropertyDescriptor(object);
+      addViewsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -121,20 +121,20 @@ public class PerspectiveItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Parts feature.
+   * This adds a property descriptor for the Views feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPartsPropertyDescriptor(Object object)
+  protected void addViewsPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Perspective_parts_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Perspective_parts_feature", "_UI_Perspective_type"),
-         EclipsePackage.Literals.PERSPECTIVE__PARTS,
+         getString("_UI_Perspective_views_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Perspective_views_feature", "_UI_Perspective_type"),
+         EclipsePackage.Literals.PERSPECTIVE__VIEWS,
          true,
          false,
          true,

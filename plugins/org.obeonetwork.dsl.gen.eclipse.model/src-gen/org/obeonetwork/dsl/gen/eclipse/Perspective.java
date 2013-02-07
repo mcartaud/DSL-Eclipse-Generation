@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getPerspectiveID <em>Perspective ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets <em>Action Sets</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getParts <em>Parts</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,21 +96,21 @@ public interface Perspective extends EObject
   EList<ActionSet> getActionSets();
 
   /**
-   * Returns the value of the '<em><b>Parts</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Part}.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Part#getPerspectives <em>Perspectives</em>}'.
+   * Returns the value of the '<em><b>Views</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.View}.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parts</em>' reference list isn't clear,
+   * If the meaning of the '<em>Views</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parts</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Parts()
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getPerspectives
+   * @return the value of the '<em>Views</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Views()
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getPerspectives
    * @model opposite="perspectives"
    * @generated
    */
-  EList<Part> getParts();
+  EList<View> getViews();
 
 } // Perspective

@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Part;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
+import org.obeonetwork.dsl.gen.eclipse.View;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.Perspective;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getPerspectiveID <em>Perspective ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getActionSets <em>Action Sets</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getParts <em>Parts</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,14 +94,14 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
   protected EList<ActionSet> actionSets;
 
   /**
-   * The cached value of the '{@link #getParts() <em>Parts</em>}' reference list.
+   * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParts()
+   * @see #getViews()
    * @generated
    * @ordered
    */
-  protected EList<Part> parts;
+  protected EList<View> views;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,13 +189,13 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Part> getParts()
+  public EList<View> getViews()
   {
-    if (parts == null)
+    if (views == null)
     {
-      parts = new EObjectWithInverseResolvingEList.ManyInverse<Part>(Part.class, this, EclipsePackage.PERSPECTIVE__PARTS, EclipsePackage.PART__PERSPECTIVES);
+      views = new EObjectWithInverseResolvingEList.ManyInverse<View>(View.class, this, EclipsePackage.PERSPECTIVE__VIEWS, EclipsePackage.VIEW__PERSPECTIVES);
     }
-    return parts;
+    return views;
   }
 
   /**
@@ -208,8 +209,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
   {
     switch (featureID)
     {
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getParts()).basicAdd(otherEnd, msgs);
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -226,8 +227,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
     {
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -248,8 +249,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return getPerspectiveID();
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return getActionSets();
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        return getParts();
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        return getViews();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -275,9 +276,9 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         getActionSets().clear();
         getActionSets().addAll((Collection<? extends ActionSet>)newValue);
         return;
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        getParts().clear();
-        getParts().addAll((Collection<? extends Part>)newValue);
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        getViews().clear();
+        getViews().addAll((Collection<? extends View>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -302,8 +303,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         getActionSets().clear();
         return;
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        getParts().clear();
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        getViews().clear();
         return;
     }
     super.eUnset(featureID);
@@ -325,8 +326,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return PERSPECTIVE_ID_EDEFAULT == null ? perspectiveID != null : !PERSPECTIVE_ID_EDEFAULT.equals(perspectiveID);
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return actionSets != null && !actionSets.isEmpty();
-      case EclipsePackage.PERSPECTIVE__PARTS:
-        return parts != null && !parts.isEmpty();
+      case EclipsePackage.PERSPECTIVE__VIEWS:
+        return views != null && !views.isEmpty();
     }
     return super.eIsSet(featureID);
   }

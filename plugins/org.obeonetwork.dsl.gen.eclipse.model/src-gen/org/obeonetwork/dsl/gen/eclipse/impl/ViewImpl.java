@@ -15,12 +15,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
+import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
 
 /**
@@ -30,11 +32,10 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getViewID <em>View ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getMenus <em>Menus</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getPerspectives <em>Perspectives</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,26 +43,6 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  */
 public class ViewImpl extends PartImpl implements View
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getViewID() <em>View ID</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -103,14 +84,14 @@ public class ViewImpl extends PartImpl implements View
   protected EList<Menu> menus;
 
   /**
-   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActionSets()
+   * @see #getPerspectives()
    * @generated
    * @ordered
    */
-  protected EList<ActionSet> actionSets;
+  protected EList<Perspective> perspectives;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,29 +112,6 @@ public class ViewImpl extends PartImpl implements View
   protected EClass eStaticClass()
   {
     return EclipsePackage.Literals.VIEW;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__NAME, oldName, name));
   }
 
   /**
@@ -212,13 +170,30 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ActionSet> getActionSets()
+  public EList<Perspective> getPerspectives()
   {
-    if (actionSets == null)
+    if (perspectives == null)
     {
-      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.VIEW__ACTION_SETS);
+      perspectives = new EObjectWithInverseResolvingEList.ManyInverse<Perspective>(Perspective.class, this, EclipsePackage.VIEW__PERSPECTIVES, EclipsePackage.PERSPECTIVE__VIEWS);
     }
-    return actionSets;
+    return perspectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getPerspectives()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -235,8 +210,8 @@ public class ViewImpl extends PartImpl implements View
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
       case EclipsePackage.VIEW__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.VIEW__ACTION_SETS:
-        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -251,16 +226,14 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__NAME:
-        return getName();
       case EclipsePackage.VIEW__VIEW_ID:
         return getViewID();
       case EclipsePackage.VIEW__ACTIONS:
         return getActions();
       case EclipsePackage.VIEW__MENUS:
         return getMenus();
-      case EclipsePackage.VIEW__ACTION_SETS:
-        return getActionSets();
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        return getPerspectives();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -276,9 +249,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__NAME:
-        setName((String)newValue);
-        return;
       case EclipsePackage.VIEW__VIEW_ID:
         setViewID((String)newValue);
         return;
@@ -290,9 +260,9 @@ public class ViewImpl extends PartImpl implements View
         getMenus().clear();
         getMenus().addAll((Collection<? extends Menu>)newValue);
         return;
-      case EclipsePackage.VIEW__ACTION_SETS:
-        getActionSets().clear();
-        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        getPerspectives().clear();
+        getPerspectives().addAll((Collection<? extends Perspective>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,9 +278,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case EclipsePackage.VIEW__VIEW_ID:
         setViewID(VIEW_ID_EDEFAULT);
         return;
@@ -320,8 +287,8 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__MENUS:
         getMenus().clear();
         return;
-      case EclipsePackage.VIEW__ACTION_SETS:
-        getActionSets().clear();
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        getPerspectives().clear();
         return;
     }
     super.eUnset(featureID);
@@ -337,16 +304,14 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.VIEW__VIEW_ID:
         return VIEW_ID_EDEFAULT == null ? viewID != null : !VIEW_ID_EDEFAULT.equals(viewID);
       case EclipsePackage.VIEW__ACTIONS:
         return actions != null && !actions.isEmpty();
       case EclipsePackage.VIEW__MENUS:
         return menus != null && !menus.isEmpty();
-      case EclipsePackage.VIEW__ACTION_SETS:
-        return actionSets != null && !actionSets.isEmpty();
+      case EclipsePackage.VIEW__PERSPECTIVES:
+        return perspectives != null && !perspectives.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -362,9 +327,7 @@ public class ViewImpl extends PartImpl implements View
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", viewID: ");
+    result.append(" (viewID: ");
     result.append(viewID);
     result.append(')');
     return result.toString();

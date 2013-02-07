@@ -852,9 +852,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPart_ContextualHelp()
+  public EAttribute getPart_Name()
   {
-    return (EReference)partEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)partEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -862,9 +862,29 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPart_Perspectives()
+  public EAttribute getPart_Description()
   {
-    return (EReference)partEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)partEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPart_ActionSets()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPart_ContextualHelp()
+  {
+    return (EReference)partEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -882,7 +902,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getView_Name()
+  public EAttribute getView_ViewID()
   {
     return (EAttribute)viewEClass.getEStructuralFeatures().get(0);
   }
@@ -892,19 +912,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getView_ViewID()
-  {
-    return (EAttribute)viewEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getView_Actions()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(2);
+    return (EReference)viewEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -914,7 +924,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getView_Menus()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(3);
+    return (EReference)viewEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -922,9 +932,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getView_ActionSets()
+  public EReference getView_Perspectives()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(4);
+    return (EReference)viewEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -942,7 +952,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEditor_Name()
+  public EAttribute getEditor_EditorID()
   {
     return (EAttribute)editorEClass.getEStructuralFeatures().get(0);
   }
@@ -952,19 +962,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEditor_EditorID()
+  public EAttribute getEditor_Language()
   {
     return (EAttribute)editorEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEditor_ActionSets()
-  {
-    return (EReference)editorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1012,7 +1012,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPerspective_Parts()
+  public EReference getPerspective_Views()
   {
     return (EReference)perspectiveEClass.getEStructuralFeatures().get(3);
   }
@@ -1387,26 +1387,26 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     partEClass = createEClass(PART);
     createEAttribute(partEClass, PART__PART_ID);
+    createEAttribute(partEClass, PART__NAME);
+    createEAttribute(partEClass, PART__DESCRIPTION);
+    createEReference(partEClass, PART__ACTION_SETS);
     createEReference(partEClass, PART__CONTEXTUAL_HELP);
-    createEReference(partEClass, PART__PERSPECTIVES);
 
     viewEClass = createEClass(VIEW);
-    createEAttribute(viewEClass, VIEW__NAME);
     createEAttribute(viewEClass, VIEW__VIEW_ID);
     createEReference(viewEClass, VIEW__ACTIONS);
     createEReference(viewEClass, VIEW__MENUS);
-    createEReference(viewEClass, VIEW__ACTION_SETS);
+    createEReference(viewEClass, VIEW__PERSPECTIVES);
 
     editorEClass = createEClass(EDITOR);
-    createEAttribute(editorEClass, EDITOR__NAME);
     createEAttribute(editorEClass, EDITOR__EDITOR_ID);
-    createEReference(editorEClass, EDITOR__ACTION_SETS);
+    createEAttribute(editorEClass, EDITOR__LANGUAGE);
 
     perspectiveEClass = createEClass(PERSPECTIVE);
     createEAttribute(perspectiveEClass, PERSPECTIVE__NAME);
     createEAttribute(perspectiveEClass, PERSPECTIVE__PERSPECTIVE_ID);
     createEReference(perspectiveEClass, PERSPECTIVE__ACTION_SETS);
-    createEReference(perspectiveEClass, PERSPECTIVE__PARTS);
+    createEReference(perspectiveEClass, PERSPECTIVE__VIEWS);
 
     bindingEClass = createEClass(BINDING);
     createEAttribute(bindingEClass, BINDING__NAME);
@@ -1522,7 +1522,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEReference(getBundle_ImportedPackageDeclarations(), this.getImportedPackageDeclaration(), null, "importedPackageDeclarations", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_ExportedPackages(), theEcorePackage.getEPackage(), null, "exportedPackages", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_OwnedPackages(), theEcorePackage.getEPackage(), null, "ownedPackages", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBundle_AllExportedPackages(), theEcorePackage.getEPackage(), null, "allExportedPackages", null, 0, -1, Bundle.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getBundle_AllExportedPackages(), theEcorePackage.getEPackage(), null, "allExportedPackages", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(importedPackageDeclarationEClass, ImportedPackageDeclaration.class, "ImportedPackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImportedPackageDeclaration_PackageName(), theEcorePackage.getEString(), "packageName", null, 0, 1, ImportedPackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1551,26 +1551,26 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(partEClass, Part.class, "Part", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPart_PartID(), theEcorePackage.getEString(), "partID", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPart_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPart_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPart_ActionSets(), this.getActionSet(), null, "actionSets", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPart_ContextualHelp(), this.getContextualHelp(), null, "contextualHelp", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPart_Perspectives(), this.getPerspective(), this.getPerspective_Parts(), "perspectives", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getView_Name(), theEcorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getView_ViewID(), theEcorePackage.getEString(), "viewID", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Actions(), this.getAction(), null, "actions", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Menus(), this.getMenu(), null, "menus", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getView_ActionSets(), this.getActionSet(), null, "actionSets", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getView_Perspectives(), this.getPerspective(), this.getPerspective_Views(), "perspectives", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(editorEClass, Editor.class, "Editor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEditor_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEditor_EditorID(), theEcorePackage.getEString(), "editorID", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEditor_ActionSets(), this.getActionSet(), null, "actionSets", null, 0, -1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEditor_Language(), theEcorePackage.getEString(), "language", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(perspectiveEClass, Perspective.class, "Perspective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPerspective_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPerspective_PerspectiveID(), theEcorePackage.getEString(), "perspectiveID", null, 0, 1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPerspective_ActionSets(), this.getActionSet(), null, "actionSets", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPerspective_Parts(), this.getPart(), this.getPart_Perspectives(), "parts", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPerspective_Views(), this.getView(), this.getView_Perspectives(), "views", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBinding_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

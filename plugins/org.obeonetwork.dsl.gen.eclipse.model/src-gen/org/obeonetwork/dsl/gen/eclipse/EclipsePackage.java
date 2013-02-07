@@ -844,22 +844,40 @@ public interface EclipsePackage extends EPackage
   int PART__PART_ID = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__DESCRIPTION = 2;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__ACTION_SETS = 3;
+
+  /**
    * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PART__CONTEXTUAL_HELP = 1;
-
-  /**
-   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__PERSPECTIVES = 2;
+  int PART__CONTEXTUAL_HELP = 4;
 
   /**
    * The number of structural features of the '<em>Part</em>' class.
@@ -868,7 +886,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PART_FEATURE_COUNT = 3;
+  int PART_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Part</em>' class.
@@ -899,6 +917,33 @@ public interface EclipsePackage extends EPackage
   int VIEW__PART_ID = PART__PART_ID;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__NAME = PART__NAME;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__DESCRIPTION = PART__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ACTION_SETS = PART__ACTION_SETS;
+
+  /**
    * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -908,31 +953,13 @@ public interface EclipsePackage extends EPackage
   int VIEW__CONTEXTUAL_HELP = PART__CONTEXTUAL_HELP;
 
   /**
-   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__PERSPECTIVES = PART__PERSPECTIVES;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__NAME = PART_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>View ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW__VIEW_ID = PART_FEATURE_COUNT + 1;
+  int VIEW__VIEW_ID = PART_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -941,7 +968,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW__ACTIONS = PART_FEATURE_COUNT + 2;
+  int VIEW__ACTIONS = PART_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -950,16 +977,16 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW__MENUS = PART_FEATURE_COUNT + 3;
+  int VIEW__MENUS = PART_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW__ACTION_SETS = PART_FEATURE_COUNT + 4;
+  int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>View</em>' class.
@@ -968,7 +995,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
+  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
 
   /**
    * The number of operations of the '<em>View</em>' class.
@@ -999,6 +1026,33 @@ public interface EclipsePackage extends EPackage
   int EDITOR__PART_ID = PART__PART_ID;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__NAME = PART__NAME;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__DESCRIPTION = PART__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__ACTION_SETS = PART__ACTION_SETS;
+
+  /**
    * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1008,40 +1062,22 @@ public interface EclipsePackage extends EPackage
   int EDITOR__CONTEXTUAL_HELP = PART__CONTEXTUAL_HELP;
 
   /**
-   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__PERSPECTIVES = PART__PERSPECTIVES;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__NAME = PART_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Editor ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EDITOR__EDITOR_ID = PART_FEATURE_COUNT + 1;
+  int EDITOR__EDITOR_ID = PART_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * The feature id for the '<em><b>Language</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EDITOR__ACTION_SETS = PART_FEATURE_COUNT + 2;
+  int EDITOR__LANGUAGE = PART_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Editor</em>' class.
@@ -1050,7 +1086,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
+  int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
   /**
    * The number of operations of the '<em>Editor</em>' class.
@@ -1099,13 +1135,13 @@ public interface EclipsePackage extends EPackage
   int PERSPECTIVE__ACTION_SETS = 2;
 
   /**
-   * The feature id for the '<em><b>Parts</b></em>' reference list.
+   * The feature id for the '<em><b>Views</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSPECTIVE__PARTS = 3;
+  int PERSPECTIVE__VIEWS = 3;
 
   /**
    * The number of structural features of the '<em>Perspective</em>' class.
@@ -2133,6 +2169,39 @@ public interface EclipsePackage extends EPackage
   EAttribute getPart_PartID();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getName()
+   * @see #getPart()
+   * @generated
+   */
+  EAttribute getPart_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getDescription()
+   * @see #getPart()
+   * @generated
+   */
+  EAttribute getPart_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getActionSets()
+   * @see #getPart()
+   * @generated
+   */
+  EReference getPart_ActionSets();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp <em>Contextual Help</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2144,17 +2213,6 @@ public interface EclipsePackage extends EPackage
   EReference getPart_ContextualHelp();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Part#getPerspectives <em>Perspectives</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Perspectives</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getPerspectives()
-   * @see #getPart()
-   * @generated
-   */
-  EReference getPart_Perspectives();
-
-  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.View <em>View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2163,17 +2221,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EClass getView();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getName()
-   * @see #getView()
-   * @generated
-   */
-  EAttribute getView_Name();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#getViewID <em>View ID</em>}'.
@@ -2209,15 +2256,15 @@ public interface EclipsePackage extends EPackage
   EReference getView_Menus();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActionSets <em>Action Sets</em>}'.
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getActionSets()
+   * @return the meta object for the reference list '<em>Perspectives</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getPerspectives()
    * @see #getView()
    * @generated
    */
-  EReference getView_ActionSets();
+  EReference getView_Perspectives();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Editor <em>Editor</em>}'.
@@ -2228,17 +2275,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EClass getEditor();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getName()
-   * @see #getEditor()
-   * @generated
-   */
-  EAttribute getEditor_Name();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getEditorID <em>Editor ID</em>}'.
@@ -2252,15 +2288,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getEditor_EditorID();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getActionSets <em>Action Sets</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage <em>Language</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getActionSets()
+   * @return the meta object for the attribute '<em>Language</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage()
    * @see #getEditor()
    * @generated
    */
-  EReference getEditor_ActionSets();
+  EAttribute getEditor_Language();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Perspective <em>Perspective</em>}'.
@@ -2306,15 +2342,15 @@ public interface EclipsePackage extends EPackage
   EReference getPerspective_ActionSets();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getParts <em>Parts</em>}'.
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Parts</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getParts()
+   * @return the meta object for the reference list '<em>Views</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews()
    * @see #getPerspective()
    * @generated
    */
-  EReference getPerspective_Parts();
+  EReference getPerspective_Views();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Binding <em>Binding</em>}'.
@@ -3134,20 +3170,36 @@ public interface EclipsePackage extends EPackage
     EAttribute PART__PART_ID = eINSTANCE.getPart_PartID();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__NAME = eINSTANCE.getPart_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__DESCRIPTION = eINSTANCE.getPart_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART__ACTION_SETS = eINSTANCE.getPart_ActionSets();
+
+    /**
      * The meta object literal for the '<em><b>Contextual Help</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PART__CONTEXTUAL_HELP = eINSTANCE.getPart_ContextualHelp();
-
-    /**
-     * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART__PERSPECTIVES = eINSTANCE.getPart_Perspectives();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
@@ -3158,14 +3210,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EClass VIEW = eINSTANCE.getView();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VIEW__NAME = eINSTANCE.getView_Name();
 
     /**
      * The meta object literal for the '<em><b>View ID</b></em>' attribute feature.
@@ -3192,12 +3236,12 @@ public interface EclipsePackage extends EPackage
     EReference VIEW__MENUS = eINSTANCE.getView_Menus();
 
     /**
-     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VIEW__ACTION_SETS = eINSTANCE.getView_ActionSets();
+    EReference VIEW__PERSPECTIVES = eINSTANCE.getView_Perspectives();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
@@ -3210,14 +3254,6 @@ public interface EclipsePackage extends EPackage
     EClass EDITOR = eINSTANCE.getEditor();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EDITOR__NAME = eINSTANCE.getEditor_Name();
-
-    /**
      * The meta object literal for the '<em><b>Editor ID</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3226,12 +3262,12 @@ public interface EclipsePackage extends EPackage
     EAttribute EDITOR__EDITOR_ID = eINSTANCE.getEditor_EditorID();
 
     /**
-     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EDITOR__ACTION_SETS = eINSTANCE.getEditor_ActionSets();
+    EAttribute EDITOR__LANGUAGE = eINSTANCE.getEditor_Language();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
@@ -3268,12 +3304,12 @@ public interface EclipsePackage extends EPackage
     EReference PERSPECTIVE__ACTION_SETS = eINSTANCE.getPerspective_ActionSets();
 
     /**
-     * The meta object literal for the '<em><b>Parts</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PERSPECTIVE__PARTS = eINSTANCE.getPerspective_Parts();
+    EReference PERSPECTIVE__VIEWS = eINSTANCE.getPerspective_Views();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BindingImpl <em>Binding</em>}' class.

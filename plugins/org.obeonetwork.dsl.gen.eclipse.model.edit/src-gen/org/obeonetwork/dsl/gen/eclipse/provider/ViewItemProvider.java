@@ -64,33 +64,10 @@ public class ViewItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addNamePropertyDescriptor(object);
       addViewIDPropertyDescriptor(object);
+      addPerspectivesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_View_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_View_name_feature", "_UI_View_type"),
-         EclipsePackage.Literals.VIEW__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -117,6 +94,29 @@ public class ViewItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Perspectives feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addPerspectivesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_View_perspectives_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_perspectives_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__PERSPECTIVES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -132,7 +132,6 @@ public class ViewItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.VIEW__ACTIONS);
       childrenFeatures.add(EclipsePackage.Literals.VIEW__MENUS);
-      childrenFeatures.add(EclipsePackage.Literals.VIEW__ACTION_SETS);
     }
     return childrenFeatures;
   }
@@ -192,13 +191,11 @@ public class ViewItemProvider
 
     switch (notification.getFeatureID(View.class))
     {
-      case EclipsePackage.VIEW__NAME:
       case EclipsePackage.VIEW__VIEW_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.VIEW__ACTIONS:
       case EclipsePackage.VIEW__MENUS:
-      case EclipsePackage.VIEW__ACTION_SETS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -226,11 +223,6 @@ public class ViewItemProvider
       (createChildParameter
         (EclipsePackage.Literals.VIEW__MENUS,
          EclipseFactory.eINSTANCE.createMenu()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.VIEW__ACTION_SETS,
-         EclipseFactory.eINSTANCE.createActionSet()));
   }
 
 }

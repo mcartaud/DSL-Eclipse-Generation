@@ -12,9 +12,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getEditorID <em>Editor ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage <em>Language</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,32 +23,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Editor extends Part
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_Name()
-   * @model unique="false"
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Editor ID</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -77,19 +50,29 @@ public interface Editor extends Part
   void setEditorID(String value);
 
   /**
-   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
+   * Returns the value of the '<em><b>Language</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Language</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Sets</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_ActionSets()
-   * @model containment="true"
+   * @return the value of the '<em>Language</em>' attribute.
+   * @see #setLanguage(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_Language()
+   * @model unique="false"
    * @generated
    */
-  EList<ActionSet> getActionSets();
+  String getLanguage();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage <em>Language</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Language</em>' attribute.
+   * @see #getLanguage()
+   * @generated
+   */
+  void setLanguage(String value);
 
 } // Editor

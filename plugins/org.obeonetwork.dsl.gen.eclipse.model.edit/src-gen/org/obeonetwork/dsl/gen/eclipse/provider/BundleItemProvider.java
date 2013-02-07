@@ -205,9 +205,9 @@ public class BundleItemProvider
          getString("_UI_Bundle_allExportedPackages_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Bundle_allExportedPackages_feature", "_UI_Bundle_type"),
          EclipsePackage.Literals.BUNDLE__ALL_EXPORTED_PACKAGES,
+         true,
          false,
-         false,
-         false,
+         true,
          null,
          null,
          null));
