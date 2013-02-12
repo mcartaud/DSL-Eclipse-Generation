@@ -50,6 +50,10 @@ class Bundle extends Project {
 	contains Perspective[] perspectives
 	contains Help[] helps
 	contains ImportedPackageDeclaration[] importedPackageDeclarations
+	contains Nature[] natures
+	contains Builder[] builders
+	contains Wizard[] wizards
+	contains Extension[] extensions
 	refers EPackage[] exportedPackages
 	refers EPackage[] ownedPackages
  	refers derived EPackage[] allExportedPackages
@@ -150,4 +154,53 @@ class RequiredService {
 	refers EClass ^interface
 	refers EClass implementation
 	refers EReference bindedReference
+}
+
+class Builder {
+	String name
+	String builderID
+	refers Nature[] natures opposite builders
+}
+
+class Nature {
+	String name
+	String langageName
+	String natureID
+	boolean hasToogleNature
+	refers Builder[] builders opposite natures
+}
+
+class Wizard {
+	String name
+	String title
+	String description
+	String wizardID
+	String category
+	String categoryID
+}
+
+class ProjectWizard extends Wizard {
+	refers Nature[] natures
+}
+
+class Extension {
+	String name
+	boolean required
+	contains Attribute[] attributes
+}
+
+class Attribute {
+	String name
+	boolean required
+	boolean translatable
+	Type ^type
+	
+}
+
+enum Type {
+	string
+	^boolean
+	java
+	resource
+	identifier
 }

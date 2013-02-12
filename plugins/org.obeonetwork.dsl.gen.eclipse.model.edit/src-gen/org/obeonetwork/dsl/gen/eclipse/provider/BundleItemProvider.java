@@ -168,6 +168,29 @@ public class BundleItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Exported Packages feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addExportedPackagesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Bundle_exportedPackages_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_exportedPackages_feature", "_UI_Bundle_type"),
+         EclipsePackage.Literals.BUNDLE__EXPORTED_PACKAGES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This adds a property descriptor for the Owned Packages feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -214,29 +237,6 @@ public class BundleItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Exported Packages feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addExportedPackagesPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Bundle_exportedPackages_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_exportedPackages_feature", "_UI_Bundle_type"),
-         EclipsePackage.Literals.BUNDLE__EXPORTED_PACKAGES,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -256,6 +256,10 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELPS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__NATURES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BUILDERS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__WIZARDS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSIONS);
     }
     return childrenFeatures;
   }
@@ -327,6 +331,10 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__PERSPECTIVES:
       case EclipsePackage.BUNDLE__HELPS:
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
+      case EclipsePackage.BUNDLE__NATURES:
+      case EclipsePackage.BUNDLE__BUILDERS:
+      case EclipsePackage.BUNDLE__WIZARDS:
+      case EclipsePackage.BUNDLE__EXTENSIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -374,6 +382,31 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS,
          EclipseFactory.eINSTANCE.createImportedPackageDeclaration()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__NATURES,
+         EclipseFactory.eINSTANCE.createNature()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__BUILDERS,
+         EclipseFactory.eINSTANCE.createBuilder()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__WIZARDS,
+         EclipseFactory.eINSTANCE.createWizard()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__WIZARDS,
+         EclipseFactory.eINSTANCE.createProjectWizard()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__EXTENSIONS,
+         EclipseFactory.eINSTANCE.createExtension()));
   }
 
 }

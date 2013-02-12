@@ -1,0 +1,97 @@
+[comment encoding = UTF-8 /]
+[module pluginXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private pluginXmlFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/plugin.xml
+[/template]
+
+[template public genPluginXmlFile(aBundle : Bundle)]
+[file (pluginXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+[for (aNature : Nature | aBundle.natures)][naturePlugin()/][/for]
+[for (aBuilder : Builder | aBundle.builders)][builderPlugin()/][/for]
+[for (aNature : Nature | aBundle.natures)][toogleNature()/][/for]
+[for (aWizard : Wizard | aBundle.wizardNewFiles)][wizard()/][/for]
+[for (aWizard : Wizard | aBundle.wizardNewProjects)][wizard()/][/for]
+</plugin>
+[/file]
+[/template]
+
+[template private naturePlugin(aNature : Nature)]
+  <extension
+      point="org.eclipse.core.resources.natures"
+      id="[aNature.natureID/]"
+      name="[aNature.name/]">
+      <runtime>
+         <run 
+			class="[aNature.ancestors(Bundle).projectID/].nature.[aNature.natureID/]">
+         </run>
+      </runtime>
+[if ((aNature.builders)->size() > 0)]
+      <builder
+            id="[aNature.ancestors(Bundle).projectID/].builder.[aNature.builders.builderID/]">
+      </builder>[/if]
+   </extension>
+[if (aNature.asToogleNature)][/if]
+[/template]
+
+[template private builderPlugin(aBuilder : Builder)]
+   <extension
+         id="[aBuilder.builderID/]"
+         name="[aBuilder.name/]"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="[associatedNature()/]">
+         <run
+               class="[aBuilder.ancestors(Bundle).projectID/].builder.[aBuilder.builderID/]">
+         </run>
+      </builder>
+   </extension>
+[/template]
+
+[template private associatedNature(aBuilder : Builder)]
+[if ((aBuilder.natures)->size() > 0)]
+true
+[else]
+false
+[/if]
+[/template]
+
+[template private toogleNature(aNature : Nature)]
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="[aNature.ancestors(Bundle).projectID/].[aNature.natureID/]Contribution">
+         <action
+               label="Add/Remove [aNature.name/] Nature"
+               class="[aNature.ancestors(Bundle).projectID/].nature.Toggle[aNature.natureID/]Action"
+               menubarPath="additions"
+               enablesFor="+"
+               id="[aNature.ancestors(Bundle).projectID/].addRemove[aNature.natureID/]Action">
+         </action>
+      </objectContribution>
+   </extension>
+[/template]
+
+[template private wizard(aWizard : Wizard)]
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="[aWizard.category/]"
+            id="[aWizard.categoryID/]">
+      </category>
+      <wizard
+            name="[aWizard.name/]"
+            icon="icons/sample.gif"
+            category="[aWizard.categoryID/]"
+            class="[aWizard.ancestors(Bundle).projectID/].ui.wizards.[aWizard.wizardID/]"
+            id="[aWizard.ancestors(Bundle).projectID/].ui.wizards.[aWizard.wizardID/]">
+      </wizard>
+   </extension>
+[/template]

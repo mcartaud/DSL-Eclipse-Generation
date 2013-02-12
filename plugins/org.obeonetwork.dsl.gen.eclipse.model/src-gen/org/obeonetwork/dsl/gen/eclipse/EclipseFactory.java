@@ -185,6 +185,60 @@ public interface EclipseFactory extends EFactory
   RequiredService createRequiredService();
 
   /**
+   * Returns a new object of class '<em>Builder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Builder</em>'.
+   * @generated
+   */
+  Builder createBuilder();
+
+  /**
+   * Returns a new object of class '<em>Nature</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nature</em>'.
+   * @generated
+   */
+  Nature createNature();
+
+  /**
+   * Returns a new object of class '<em>Wizard</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Wizard</em>'.
+   * @generated
+   */
+  Wizard createWizard();
+
+  /**
+   * Returns a new object of class '<em>Project Wizard</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Project Wizard</em>'.
+   * @generated
+   */
+  ProjectWizard createProjectWizard();
+
+  /**
+   * Returns a new object of class '<em>Extension</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extension</em>'.
+   * @generated
+   */
+  Extension createExtension();
+
+  /**
+   * Returns a new object of class '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute</em>'.
+   * @generated
+   */
+  Attribute createAttribute();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

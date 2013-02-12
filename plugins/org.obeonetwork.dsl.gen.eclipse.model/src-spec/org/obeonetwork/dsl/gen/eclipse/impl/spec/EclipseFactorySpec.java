@@ -21,17 +21,17 @@ import org.obeonetwork.dsl.gen.eclipse.impl.EclipseFactoryImpl;
  * @author Mathieu Cartaud
  */
 public class EclipseFactorySpec extends EclipseFactoryImpl {
-	
+
 	/**
 	 * Constructor.
 	 */
 	public EclipseFactorySpec() {
 		super();
 	}
-	
+
 	public Bundle createBundle(){
 		BundleImpl bundle = new BundleSpec();
 	    return bundle;
 	}
-	
+
 }

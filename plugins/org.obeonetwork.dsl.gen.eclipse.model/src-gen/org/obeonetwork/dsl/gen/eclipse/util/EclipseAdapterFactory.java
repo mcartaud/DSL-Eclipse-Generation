@@ -175,6 +175,36 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createRequiredServiceAdapter();
       }
       @Override
+      public Adapter caseBuilder(Builder object)
+      {
+        return createBuilderAdapter();
+      }
+      @Override
+      public Adapter caseNature(Nature object)
+      {
+        return createNatureAdapter();
+      }
+      @Override
+      public Adapter caseWizard(Wizard object)
+      {
+        return createWizardAdapter();
+      }
+      @Override
+      public Adapter caseProjectWizard(ProjectWizard object)
+      {
+        return createProjectWizardAdapter();
+      }
+      @Override
+      public Adapter caseExtension(Extension object)
+      {
+        return createExtensionAdapter();
+      }
+      @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -492,6 +522,96 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRequiredServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Builder <em>Builder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Builder
+   * @generated
+   */
+  public Adapter createBuilderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Nature <em>Nature</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature
+   * @generated
+   */
+  public Adapter createNatureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Wizard <em>Wizard</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard
+   * @generated
+   */
+  public Adapter createWizardAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard <em>Project Wizard</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.ProjectWizard
+   * @generated
+   */
+  public Adapter createProjectWizardAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Extension <em>Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Extension
+   * @generated
+   */
+  public Adapter createExtensionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute
+   * @generated
+   */
+  public Adapter createAttributeAdapter()
   {
     return null;
   }

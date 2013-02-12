@@ -1,0 +1,97 @@
+[comment encoding = UTF-8 /]
+[module natureJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private natureJavaFile(aNature : Nature)]
+[aNature.eContainer(Application).name/]/plugins/[aNature.ancestors(Bundle).projectID/]/src/[aNature.ancestors(Bundle).projectID/]/nature/[aNature.name/]Nature.java
+[/template]
+
+[template public genNatureJavaFile(aNature : Nature)]
+[file (natureJavaFile(), false, 'UTF-8')]
+package [aNature.ancestors(Bundle).projectID/].nature;
+
+import org.eclipse.core.resources.ICommand;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.runtime.CoreException;
+
+public class [aNature.name/]Nature implements IProjectNature {
+
+	/**
+	 * ID of this project nature
+	 */
+	public static final String NATURE_ID = "[aNature.ancestors(Bundle).projectID/].[aNature.natureID/]Nature";
+
+	private IProject project;
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#configure()
+	 */
+	public void configure() throws CoreException {
+[if (aNature.builders->size() > 0)]
+		IProjectDescription desc = project.getDescription();
+		ICommand['['/]] commands = desc.getBuildSpec();
+
+		for (int i = 0; i < commands.length; ++i) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/]Builder.BUILDER_ID)) {
+				return;
+			}
+		}
+
+		ICommand['['/]] newCommands = new ICommand['['/]commands.length + 1];
+		System.arraycopy(commands, 0, newCommands, 0, commands.length);
+		ICommand command = desc.newCommand();
+		command.setBuilderName([aNature.builders.name/]Builder.BUILDER_ID);
+		newCommands['['/]newCommands.length - 1] = command;
+		desc.setBuildSpec(newCommands);
+		project.setDescription(desc, null);
+[/if]
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#deconfigure()
+	 */
+	public void deconfigure() throws CoreException {
+[if (aNature.builders->size() > 0)]
+		IProjectDescription description = getProject().getDescription();
+		ICommand['['/]] commands = description.getBuildSpec();
+		for (int i = 0; i < commands.length; ++i) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/]Builder.BUILDER_ID)) {
+				ICommand['['/]] newCommands = new ICommand['['/]commands.length - 1];
+				System.arraycopy(commands, 0, newCommands, 0, i);
+				System.arraycopy(commands, i + 1, newCommands, i,
+						commands.length - i - 1);
+				description.setBuildSpec(newCommands);
+				project.setDescription(description, null);			
+				return;
+			}
+		}
+[/if]
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#getProject()
+	 */
+	public IProject getProject() {
+		return project;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#setProject(org.eclipse.core.resources.IProject)
+	 */
+	public void setProject(IProject project) {
+		this.project = project;
+	}
+
+}
+[/file]
+[/template]

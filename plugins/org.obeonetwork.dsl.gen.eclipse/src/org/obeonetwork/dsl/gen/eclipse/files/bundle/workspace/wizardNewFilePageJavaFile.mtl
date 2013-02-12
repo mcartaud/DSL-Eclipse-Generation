@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module wizardNewFilePageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private wizardNewFilePageJavaFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/wizards/[aBundle.wizardNewFiles.wizardPages.wizardPageID/].java
+[/template]
+
+[template public genWizardNewFilePageJavaFile(aBundle : Bundle)]
+[file (wizardNewFilePageJavaFile(), false, 'UTF-8')]
+package [aBundle.projectID/].wizards;
+
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+
+public class [aBundle.wizardNewFiles.wizardPages.wizardPageID/] extends WizardNewFileCreationPage{
+
+	public [aBundle.wizardNewFiles.wizardPages.wizardPageID/](String pageName, IStructuredSelection selection) {
+		super(pageName, selection);
+		// TODO Auto-generated constructor stub
+	}
+
+}
+[/file]
+[/template]

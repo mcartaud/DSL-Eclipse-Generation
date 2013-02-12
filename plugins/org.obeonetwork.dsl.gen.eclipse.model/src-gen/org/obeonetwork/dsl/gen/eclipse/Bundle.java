@@ -24,6 +24,10 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders <em>Builders</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards <em>Wizards</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions <em>Extensions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -235,6 +239,70 @@ public interface Bundle extends Project
    * @generated
    */
   EList<ImportedPackageDeclaration> getImportedPackageDeclarations();
+
+  /**
+   * Returns the value of the '<em><b>Natures</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Nature}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Natures</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Natures</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Natures()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Nature> getNatures();
+
+  /**
+   * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Builder}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Builders</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Builders</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Builders()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Builder> getBuilders();
+
+  /**
+   * Returns the value of the '<em><b>Wizards</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Wizard}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Wizards</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Wizards</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Wizards()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Wizard> getWizards();
+
+  /**
+   * Returns the value of the '<em><b>Extensions</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Extension}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extensions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extensions</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Extensions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Extension> getExtensions();
 
   /**
    * Returns the value of the '<em><b>Exported Packages</b></em>' reference list.

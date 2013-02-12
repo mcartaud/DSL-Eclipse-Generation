@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -82,8 +83,48 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.CONTEXTUAL_HELP: return createContextualHelp();
       case EclipsePackage.PROVIDED_SERVICE: return createProvidedService();
       case EclipsePackage.REQUIRED_SERVICE: return createRequiredService();
+      case EclipsePackage.BUILDER: return createBuilder();
+      case EclipsePackage.NATURE: return createNature();
+      case EclipsePackage.WIZARD: return createWizard();
+      case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
+      case EclipsePackage.EXTENSION: return createExtension();
+      case EclipsePackage.ATTRIBUTE: return createAttribute();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case EclipsePackage.TYPE:
+        return createTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case EclipsePackage.TYPE:
+        return convertTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -283,6 +324,94 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     RequiredServiceImpl requiredService = new RequiredServiceImpl();
     return requiredService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Builder createBuilder()
+  {
+    BuilderImpl builder = new BuilderImpl();
+    return builder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Nature createNature()
+  {
+    NatureImpl nature = new NatureImpl();
+    return nature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Wizard createWizard()
+  {
+    WizardImpl wizard = new WizardImpl();
+    return wizard;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProjectWizard createProjectWizard()
+  {
+    ProjectWizardImpl projectWizard = new ProjectWizardImpl();
+    return projectWizard;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Extension createExtension()
+  {
+    ExtensionImpl extension = new ExtensionImpl();
+    return extension;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute createAttribute()
+  {
+    AttributeImpl attribute = new AttributeImpl();
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createTypeFromString(EDataType eDataType, String initialValue)
+  {
+    Type result = Type.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -1,0 +1,74 @@
+[comment encoding = UTF-8 /]
+[module extensionRegistryJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private extensionRegistryJavaFile(anExtension : Extension)]
+[anExtension.eContainer(Application).name/]/plugins/[anExtension.ancestors(Bundle).projectID/]/src/[anExtension.ancestors(Bundle).projectID/]/registry/[anExtension.genExtensionName()/]ExtensionRegistry.java
+[/template]
+
+[template public genExtensionRegistryJavaFile(anExtension : Extension)]
+[file (extensionRegistryJavaFile(), false, 'UTF-8')]
+package [anExtension.ancestors(Bundle).projectID/].registry;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * This will contain all [anExtension.name/] extension that have been parsed from the extension point.
+ * 
+ */
+public class [anExtension.genExtensionName()/]ExtensionRegistry {
+	/** List of extensions created from the extension point contributions. */
+	private static final List<[anExtension.genExtensionName()/]ExtensionDescriptor> EXTENSIONS = new ArrayList<[anExtension.genExtensionName()/]ExtensionDescriptor>();
+
+	/**
+	 * Utility classes don't need a default constructor.
+	 */
+	private [anExtension.genExtensionName()/]ExtensionRegistry() {
+		// hides constructor
+	}
+
+	/**
+	 * Adds an extension to the registry.
+	 * 
+	 * @param extension
+	 *            The extension that is to be added to the registry.
+	 */
+	public static void addExtension([anExtension.genExtensionName()/]ExtensionDescriptor extension) {
+		EXTENSIONS.add(extension);
+	}
+
+	/**
+	 * Removes all extensions from the registry. This will be called at plugin stopping.
+	 */
+	public static void clearRegistry() {
+		EXTENSIONS.clear();
+	}
+
+	/**
+	 * Returns a copy of the registered extensions list.
+	 * 
+	 * @return A copy of the registered extensions list.
+	 */
+	public static List<[anExtension.genExtensionName()/]ExtensionDescriptor> getRegisteredExtensions() {
+		return new ArrayList<[anExtension.genExtensionName()/]ExtensionDescriptor>(EXTENSIONS);
+	}
+
+	/**
+	 * Removes a phantom from the registry.
+	 * 
+	 * @param syncElementClassName
+	 *            Qualified class name of the sync element which corresponding phantom is to be removed from
+	 *            the registry.
+	 */
+	public static void removeExtension(String extensionClassName) {
+		for ([anExtension.genExtensionName()/]ExtensionDescriptor extension : getRegisteredExtensions()) {
+			if (extension.getExtensionClassName().equals(extensionClassName)) {
+				EXTENSIONS.remove(extension);
+			}
+		}
+	}
+}
+[/file]
+[/template]

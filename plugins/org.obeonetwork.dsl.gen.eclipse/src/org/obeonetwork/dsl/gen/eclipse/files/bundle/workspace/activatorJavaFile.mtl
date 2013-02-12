@@ -1,0 +1,97 @@
+[comment encoding = UTF-8 /]
+[module activatorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private activatorJavafile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/Activator.java
+[/template]
+
+[template public genActivatorJavaFile(aBundle : Bundle)]
+[file (activatorJavafile(), false, 'UTF-8')]
+package [aBundle.projectID/];
+
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
+[if (aBundle.extensions->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;[/if]
+[for (anExtension : Extension | aBundle.extensions)]
+import [aBundle.projectID/].registry.[anExtension.genExtensionName()/]ExtensionRegistry;
+import [aBundle.projectID/].registry.[anExtension.genExtensionName()/]RegistryListener;
+[/for]
+/**
+ * The activator class controls the plug-in life cycle
+ */
+public class Activator extends AbstractUIPlugin {
+
+	/** The plug-in ID */
+	public static final String PLUGIN_ID = "[aBundle.projectID/]"; //$NON-NLS-1$
+
+	/** The shared instance */
+	private static Activator plugin;
+	
+[for (anExtension : Extension | aBundle.extensions)]
+	/** The registry listener that will be used to listen to [anExtension.name/] extension changes. */
+	private [anExtension.genExtensionName()/]RegistryListener registryListener = new [anExtension.genExtensionName()/]RegistryListener();
+[/for]
+
+	/**
+	 * The constructor
+	 */
+	public Activator() {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 */
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
+		plugin = this;
+[for (anExtension : Extension | aBundle.extensions)]
+		final IExtensionRegistry registry = Platform.getExtensionRegistry();
+		registry.addListener(registryListener, [anExtension.genExtensionName()/]RegistryListener.[anExtension.staticExtensionName()/]_EXTENSION_POINT);
+		registryListener.parseInitialContributions();
+[/for]
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext context) throws Exception {
+		plugin = null;
+		super.stop(context);
+[for (anExtension : Extension | aBundle.extensions)]
+		final IExtensionRegistry registry = Platform.getExtensionRegistry();
+		registry.removeListener(registryListener);
+		[anExtension.genExtensionName()/]ExtensionRegistry.clearRegistry();
+[/for]
+	}
+
+	/**
+	 * Returns the shared instance
+	 *
+	 * @return the shared instance
+	 */
+	public static Activator getDefault() {
+		return plugin;
+	}
+
+[if ((aBundle.wizards)->size() > 0)]
+	/**
+	 * Returns an image descriptor for the image file at the given
+	 * plug-in relative path
+	 *
+	 * @param path the path
+	 * @return the image descriptor
+	 */
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+[/if]
+}
+[/file]
+[/template]

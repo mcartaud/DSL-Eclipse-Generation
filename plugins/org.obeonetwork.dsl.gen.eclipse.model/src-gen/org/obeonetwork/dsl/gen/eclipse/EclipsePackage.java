@@ -4,6 +4,7 @@ package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -505,13 +506,49 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 9;
 
   /**
+   * The feature id for the '<em><b>Natures</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__NATURES = PROJECT_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Builders</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__BUILDERS = PROJECT_FEATURE_COUNT + 11;
+
+  /**
+   * The feature id for the '<em><b>Wizards</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 12;
+
+  /**
+   * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__EXTENSIONS = PROJECT_FEATURE_COUNT + 13;
+
+  /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 10;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 14;
 
   /**
    * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
@@ -520,7 +557,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 11;
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 15;
 
   /**
    * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
@@ -529,7 +566,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 12;
+  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 16;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -538,7 +575,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 13;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 17;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -1518,6 +1555,438 @@ public interface EclipsePackage extends EPackage
    */
   int REQUIRED_SERVICE_OPERATION_COUNT = 0;
 
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl <em>Builder</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBuilder()
+   * @generated
+   */
+  int BUILDER = 20;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILDER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Builder ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILDER__BUILDER_ID = 1;
+
+  /**
+   * The feature id for the '<em><b>Natures</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILDER__NATURES = 2;
+
+  /**
+   * The number of structural features of the '<em>Builder</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILDER_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Builder</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUILDER_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl <em>Nature</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNature()
+   * @generated
+   */
+  int NATURE = 21;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Langage Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE__LANGAGE_NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Nature ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE__NATURE_ID = 2;
+
+  /**
+   * The feature id for the '<em><b>Has Toogle Nature</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE__HAS_TOOGLE_NATURE = 3;
+
+  /**
+   * The feature id for the '<em><b>Builders</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE__BUILDERS = 4;
+
+  /**
+   * The number of structural features of the '<em>Nature</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE_FEATURE_COUNT = 5;
+
+  /**
+   * The number of operations of the '<em>Nature</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NATURE_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl <em>Wizard</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getWizard()
+   * @generated
+   */
+  int WIZARD = 22;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__TITLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__DESCRIPTION = 2;
+
+  /**
+   * The feature id for the '<em><b>Wizard ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__WIZARD_ID = 3;
+
+  /**
+   * The feature id for the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__CATEGORY = 4;
+
+  /**
+   * The feature id for the '<em><b>Category ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__CATEGORY_ID = 5;
+
+  /**
+   * The number of structural features of the '<em>Wizard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD_FEATURE_COUNT = 6;
+
+  /**
+   * The number of operations of the '<em>Wizard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl <em>Project Wizard</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProjectWizard()
+   * @generated
+   */
+  int PROJECT_WIZARD = 23;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__NAME = WIZARD__NAME;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__TITLE = WIZARD__TITLE;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__DESCRIPTION = WIZARD__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Wizard ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__WIZARD_ID = WIZARD__WIZARD_ID;
+
+  /**
+   * The feature id for the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__CATEGORY = WIZARD__CATEGORY;
+
+  /**
+   * The feature id for the '<em><b>Category ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__CATEGORY_ID = WIZARD__CATEGORY_ID;
+
+  /**
+   * The feature id for the '<em><b>Natures</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__NATURES = WIZARD_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Project Wizard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD_FEATURE_COUNT = WIZARD_FEATURE_COUNT + 1;
+
+  /**
+   * The number of operations of the '<em>Project Wizard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD_OPERATION_COUNT = WIZARD_OPERATION_COUNT + 0;
+
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl <em>Extension</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtension()
+   * @generated
+   */
+  int EXTENSION = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION__REQUIRED = 1;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION__ATTRIBUTES = 2;
+
+  /**
+   * The number of structural features of the '<em>Extension</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Extension</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_OPERATION_COUNT = 0;
+
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Required</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__REQUIRED = 1;
+
+  /**
+   * The feature id for the '<em><b>Translatable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TRANSLATABLE = 2;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__TYPE = 3;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.Type
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 26;
+
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Application <em>Application</em>}'.
@@ -1898,6 +2367,50 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getBundle_ImportedPackageDeclarations();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Natures</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Natures();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders <em>Builders</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Builders</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Builders();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards <em>Wizards</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Wizards</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Wizards();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions <em>Extensions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Extensions</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Extensions();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}'.
@@ -2644,6 +3157,318 @@ public interface EclipsePackage extends EPackage
   EReference getRequiredService_BindedReference();
 
   /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Builder <em>Builder</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Builder</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Builder
+   * @generated
+   */
+  EClass getBuilder();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Builder#getName()
+   * @see #getBuilder()
+   * @generated
+   */
+  EAttribute getBuilder_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID <em>Builder ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Builder ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID()
+   * @see #getBuilder()
+   * @generated
+   */
+  EAttribute getBuilder_BuilderID();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getNatures <em>Natures</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Natures</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Builder#getNatures()
+   * @see #getBuilder()
+   * @generated
+   */
+  EReference getBuilder_Natures();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Nature <em>Nature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nature</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature
+   * @generated
+   */
+  EClass getNature();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getName()
+   * @see #getNature()
+   * @generated
+   */
+  EAttribute getNature_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Langage Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName()
+   * @see #getNature()
+   * @generated
+   */
+  EAttribute getNature_LangageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID <em>Nature ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nature ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID()
+   * @see #getNature()
+   * @generated
+   */
+  EAttribute getNature_NatureID();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Has Toogle Nature</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature()
+   * @see #getNature()
+   * @generated
+   */
+  EAttribute getNature_HasToogleNature();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders <em>Builders</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Builders</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders()
+   * @see #getNature()
+   * @generated
+   */
+  EReference getNature_Builders();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Wizard <em>Wizard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Wizard</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard
+   * @generated
+   */
+  EClass getWizard();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getName()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getTitle()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_Title();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID <em>Wizard ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Wizard ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_WizardID();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_Category();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID <em>Category ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_CategoryID();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard <em>Project Wizard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Project Wizard</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ProjectWizard
+   * @generated
+   */
+  EClass getProjectWizard();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard#getNatures <em>Natures</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Natures</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ProjectWizard#getNatures()
+   * @see #getProjectWizard()
+   * @generated
+   */
+  EReference getProjectWizard_Natures();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Extension <em>Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Extension</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Extension
+   * @generated
+   */
+  EClass getExtension();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Extension#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Extension#getName()
+   * @see #getExtension()
+   * @generated
+   */
+  EAttribute getExtension_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Extension#isRequired <em>Required</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Required</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Extension#isRequired()
+   * @see #getExtension()
+   * @generated
+   */
+  EAttribute getExtension_Required();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Extension#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Extension#getAttributes()
+   * @see #getExtension()
+   * @generated
+   */
+  EReference getExtension_Attributes();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute
+   * @generated
+   */
+  EClass getAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute#getName()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#isRequired <em>Required</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Required</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute#isRequired()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Required();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#isTranslatable <em>Translatable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Translatable</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute#isTranslatable()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Translatable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Attribute#getType()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Type();
+
+  /**
+   * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Type</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Type
+   * @generated
+   */
+  EEnum getType();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2956,6 +3781,38 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = eINSTANCE.getBundle_ImportedPackageDeclarations();
+
+    /**
+     * The meta object literal for the '<em><b>Natures</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__NATURES = eINSTANCE.getBundle_Natures();
+
+    /**
+     * The meta object literal for the '<em><b>Builders</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__BUILDERS = eINSTANCE.getBundle_Builders();
+
+    /**
+     * The meta object literal for the '<em><b>Wizards</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__WIZARDS = eINSTANCE.getBundle_Wizards();
+
+    /**
+     * The meta object literal for the '<em><b>Extensions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__EXTENSIONS = eINSTANCE.getBundle_Extensions();
 
     /**
      * The meta object literal for the '<em><b>Exported Packages</b></em>' reference list feature.
@@ -3538,6 +4395,252 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference REQUIRED_SERVICE__BINDED_REFERENCE = eINSTANCE.getRequiredService_BindedReference();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl <em>Builder</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBuilder()
+     * @generated
+     */
+    EClass BUILDER = eINSTANCE.getBuilder();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUILDER__NAME = eINSTANCE.getBuilder_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Builder ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUILDER__BUILDER_ID = eINSTANCE.getBuilder_BuilderID();
+
+    /**
+     * The meta object literal for the '<em><b>Natures</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUILDER__NATURES = eINSTANCE.getBuilder_Natures();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl <em>Nature</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNature()
+     * @generated
+     */
+    EClass NATURE = eINSTANCE.getNature();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NATURE__NAME = eINSTANCE.getNature_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Langage Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NATURE__LANGAGE_NAME = eINSTANCE.getNature_LangageName();
+
+    /**
+     * The meta object literal for the '<em><b>Nature ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NATURE__NATURE_ID = eINSTANCE.getNature_NatureID();
+
+    /**
+     * The meta object literal for the '<em><b>Has Toogle Nature</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NATURE__HAS_TOOGLE_NATURE = eINSTANCE.getNature_HasToogleNature();
+
+    /**
+     * The meta object literal for the '<em><b>Builders</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NATURE__BUILDERS = eINSTANCE.getNature_Builders();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl <em>Wizard</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getWizard()
+     * @generated
+     */
+    EClass WIZARD = eINSTANCE.getWizard();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__NAME = eINSTANCE.getWizard_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__TITLE = eINSTANCE.getWizard_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__DESCRIPTION = eINSTANCE.getWizard_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Wizard ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__WIZARD_ID = eINSTANCE.getWizard_WizardID();
+
+    /**
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__CATEGORY = eINSTANCE.getWizard_Category();
+
+    /**
+     * The meta object literal for the '<em><b>Category ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__CATEGORY_ID = eINSTANCE.getWizard_CategoryID();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl <em>Project Wizard</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProjectWizard()
+     * @generated
+     */
+    EClass PROJECT_WIZARD = eINSTANCE.getProjectWizard();
+
+    /**
+     * The meta object literal for the '<em><b>Natures</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT_WIZARD__NATURES = eINSTANCE.getProjectWizard_Natures();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl <em>Extension</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtension()
+     * @generated
+     */
+    EClass EXTENSION = eINSTANCE.getExtension();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTENSION__NAME = eINSTANCE.getExtension_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTENSION__REQUIRED = eINSTANCE.getExtension_Required();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTENSION__ATTRIBUTES = eINSTANCE.getExtension_Attributes();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
+     * @generated
+     */
+    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__REQUIRED = eINSTANCE.getAttribute_Required();
+
+    /**
+     * The meta object literal for the '<em><b>Translatable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__TRANSLATABLE = eINSTANCE.getAttribute_Translatable();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.Type
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
+     * @generated
+     */
+    EEnum TYPE = eINSTANCE.getType();
 
   }
 

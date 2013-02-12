@@ -1,0 +1,41 @@
+[comment encoding = UTF-8 /]
+[module builderJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private builderJavaFile(aBuilder : Builder)]
+[aBuilder.eContainer(Application).name/]/plugins/[aBuilder.ancestors(Bundle).projectID/]/src/[aBuilder.ancestors(Bundle).projectID/]/builder/[aBuilder.name/]Builder.java
+[/template]
+
+[template public genBuilderJavaFile(aBuilder : Builder)]
+[file (builderJavaFile(), false, 'UTF-8')]
+package [aBuilder.ancestors(Bundle).projectID/].builder;
+
+import java.util.Map;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+
+public class [aBuilder.name/]Builder extends IncrementalProjectBuilder { 
+
+	/**
+	 * The ID of the builder.
+	 */
+	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).projectID/].[aBuilder.name/]Builder";
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see  org.eclipse.core.resources.IncrementalProjectBuilder#build(int,
+	 *      java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
+	 */
+	@Override
+	protected IProject['['/]] build(int kind, Map<String, String> options, IProgressMonitor monitor) throws CoreException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+ }
+[/file]
+[/template]

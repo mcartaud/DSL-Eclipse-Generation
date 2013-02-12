@@ -6,22 +6,31 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Extension;
 import org.obeonetwork.dsl.gen.eclipse.Help;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
+import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
+import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +49,10 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBuilders <em>Builders</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getWizards <em>Wizards</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensions <em>Extensions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -189,6 +202,46 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<ImportedPackageDeclaration> importedPackageDeclarations;
+
+  /**
+   * The cached value of the '{@link #getNatures() <em>Natures</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNatures()
+   * @generated
+   * @ordered
+   */
+  protected EList<Nature> natures;
+
+  /**
+   * The cached value of the '{@link #getBuilders() <em>Builders</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBuilders()
+   * @generated
+   * @ordered
+   */
+  protected EList<Builder> builders;
+
+  /**
+   * The cached value of the '{@link #getWizards() <em>Wizards</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWizards()
+   * @generated
+   * @ordered
+   */
+  protected EList<Wizard> wizards;
+
+  /**
+   * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtensions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Extension> extensions;
 
   /**
    * The cached value of the '{@link #getExportedPackages() <em>Exported Packages</em>}' reference list.
@@ -422,6 +475,62 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Nature> getNatures()
+  {
+    if (natures == null)
+    {
+      natures = new EObjectContainmentEList<Nature>(Nature.class, this, EclipsePackage.BUNDLE__NATURES);
+    }
+    return natures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Builder> getBuilders()
+  {
+    if (builders == null)
+    {
+      builders = new EObjectContainmentEList<Builder>(Builder.class, this, EclipsePackage.BUNDLE__BUILDERS);
+    }
+    return builders;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Wizard> getWizards()
+  {
+    if (wizards == null)
+    {
+      wizards = new EObjectContainmentEList<Wizard>(Wizard.class, this, EclipsePackage.BUNDLE__WIZARDS);
+    }
+    return wizards;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Extension> getExtensions()
+  {
+    if (extensions == null)
+    {
+      extensions = new EObjectContainmentEList<Extension>(Extension.class, this, EclipsePackage.BUNDLE__EXTENSIONS);
+    }
+    return extensions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EPackage> getExportedPackages()
   {
     if (exportedPackages == null)
@@ -481,6 +590,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return ((InternalEList<?>)getImportedPackageDeclarations()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__NATURES:
+        return ((InternalEList<?>)getNatures()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__BUILDERS:
+        return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__WIZARDS:
+        return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__EXTENSIONS:
+        return ((InternalEList<?>)getExtensions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -515,6 +632,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getHelps();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return getImportedPackageDeclarations();
+      case EclipsePackage.BUNDLE__NATURES:
+        return getNatures();
+      case EclipsePackage.BUNDLE__BUILDERS:
+        return getBuilders();
+      case EclipsePackage.BUNDLE__WIZARDS:
+        return getWizards();
+      case EclipsePackage.BUNDLE__EXTENSIONS:
+        return getExtensions();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return getExportedPackages();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
@@ -572,6 +697,22 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getImportedPackageDeclarations().clear();
         getImportedPackageDeclarations().addAll((Collection<? extends ImportedPackageDeclaration>)newValue);
         return;
+      case EclipsePackage.BUNDLE__NATURES:
+        getNatures().clear();
+        getNatures().addAll((Collection<? extends Nature>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__BUILDERS:
+        getBuilders().clear();
+        getBuilders().addAll((Collection<? extends Builder>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__WIZARDS:
+        getWizards().clear();
+        getWizards().addAll((Collection<? extends Wizard>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__EXTENSIONS:
+        getExtensions().clear();
+        getExtensions().addAll((Collection<? extends Extension>)newValue);
+        return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
         getExportedPackages().addAll((Collection<? extends EPackage>)newValue);
@@ -628,6 +769,18 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         getImportedPackageDeclarations().clear();
         return;
+      case EclipsePackage.BUNDLE__NATURES:
+        getNatures().clear();
+        return;
+      case EclipsePackage.BUNDLE__BUILDERS:
+        getBuilders().clear();
+        return;
+      case EclipsePackage.BUNDLE__WIZARDS:
+        getWizards().clear();
+        return;
+      case EclipsePackage.BUNDLE__EXTENSIONS:
+        getExtensions().clear();
+        return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
         return;
@@ -671,6 +824,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return helps != null && !helps.isEmpty();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return importedPackageDeclarations != null && !importedPackageDeclarations.isEmpty();
+      case EclipsePackage.BUNDLE__NATURES:
+        return natures != null && !natures.isEmpty();
+      case EclipsePackage.BUNDLE__BUILDERS:
+        return builders != null && !builders.isEmpty();
+      case EclipsePackage.BUNDLE__WIZARDS:
+        return wizards != null && !wizards.isEmpty();
+      case EclipsePackage.BUNDLE__EXTENSIONS:
+        return extensions != null && !extensions.isEmpty();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return exportedPackages != null && !exportedPackages.isEmpty();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:

@@ -1,0 +1,45 @@
+[comment encoding = UTF-8 /]
+[module wizardNewProjectPageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private wizardNewProjectPageJavaFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/wizards/[aBundle.wizardNewProjects.wizardPages.wizardPageID/].java
+[/template]
+
+[template public genWizardNewProjectPageJavaFile(aBundle : Bundle)]
+[file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
+package [aBundle.projectID/].wizards;
+
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+
+
+public class [aBundle.wizardNewProjects.wizardPages.wizardPageID/] extends WizardNewProjectCreationPage {
+
+	private Text containerText;
+	
+	public [aBundle.wizardNewProjects.wizardPages.wizardPageID/]() {
+		super("[aBundle.wizardNewProjects.wizardPages.name/]");
+		this.setTitle("[aBundle.wizardNewProjects.wizardPages.title/]");
+		this.setDescription("[aBundle.wizardNewProjects.wizardPages.description/]");
+	}
+	
+	@Override
+	public void createControl(Composite arg0) {
+		super.createControl(arg0);
+	}
+	
+	@Override
+	public Image getImage() {
+		return super.getImage();
+	}
+	
+	public String getContainerName() {
+		return containerText.getText();
+	}
+	
+}
+[/file]
+[/template]

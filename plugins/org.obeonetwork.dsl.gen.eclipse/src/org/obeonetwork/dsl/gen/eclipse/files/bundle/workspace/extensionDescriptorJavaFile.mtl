@@ -1,0 +1,72 @@
+[comment encoding = UTF-8 /]
+[module extensionDescriptorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private extensionDescriptorJavaFile(anExtension : Extension)]
+[anExtension.eContainer(Application).name/]/plugins/[anExtension.ancestors(Bundle).projectID/]/src/[anExtension.ancestors(Bundle).projectID/]/registry/[anExtension.genExtensionName()/]ExtensionDescriptor.java
+[/template]
+
+[template public genExtensionDescriptorJavaFile(anExtension : Extension)]
+[file (extensionDescriptorJavaFile(), false, 'UTF-8')]
+package [anExtension.ancestors(Bundle).projectID/].registry;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+
+/**
+ * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).projectID/].[anExtension.genExtensionName()/]Extension" extension point.
+ * 
+ */
+public class [anExtension.genExtensionName()/]ExtensionDescriptor {
+	/** Name of the [anExtension.name/] extension point's tag "extension" attribute. */
+	public static final String [anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION = "extension"; //$NON-NLS-1$
+
+	/** Configuration element of this descriptor. */
+	private final IConfigurationElement element;
+
+	/** Qualified class name of the [anExtension.name/] extension. This will be used as an id to remove contributions. */
+	private final String extensionClassName;
+
+	/** We only need to create the instance once, this will keep reference to it. */
+	private I[anExtension.genExtensionName()/]Extension extension;
+
+	/**
+	 * Instantiates a descriptor with all information.
+	 * 
+	 * @param configuration
+	 *            Configuration element from which to create this descriptor.
+	 */
+	public [anExtension.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
+		element = configuration;
+		extensionClassName = configuration.getAttribute([anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+	}
+
+	/**
+	 * Returns this descriptor's "extension" class name.
+	 * 
+	 * @return This descriptor's "extension" class name.
+	 */
+	public String getExtensionClassName() {
+		return extensionClassName;
+	}
+
+	/**
+	 * Creates an instance of this descriptor's {@link I[anExtension.genExtensionName()/]Extension}.
+	 * 
+	 * @return A new instance of this descriptor's {@link I[anExtension.genExtensionName()/]Extension}.
+	 */
+	public I[anExtension.genExtensionName()/]Extension get[anExtension.genExtensionName()/]Extension() {
+		if (extension == null) {
+			try {
+				extension = (I[anExtension.genExtensionName()/]Extension)element
+						.createExecutableExtension([anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+			} catch (CoreException e) {
+				// FIXME log this!
+			}
+		}
+		return extension;
+	}
+}
+[/file]
+[/template]

@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module wizardNewFileJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private wizardNewFileJavaFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/wizards/[aBundle.wizardNewFiles.wizardID/].java
+[/template]
+
+[template public genWizardNewFileJavaFile(aBundle : Bundle)]
+[file (wizardNewFileJavaFile(), false, 'UTF-8')]
+
+[/file]
+[/template]

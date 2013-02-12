@@ -524,6 +524,156 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Builder} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BuilderItemProvider builderItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Builder}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBuilderAdapter()
+  {
+    if (builderItemProvider == null)
+    {
+      builderItemProvider = new BuilderItemProvider(this);
+    }
+
+    return builderItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Nature} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected NatureItemProvider natureItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Nature}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createNatureAdapter()
+  {
+    if (natureItemProvider == null)
+    {
+      natureItemProvider = new NatureItemProvider(this);
+    }
+
+    return natureItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Wizard} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected WizardItemProvider wizardItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Wizard}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createWizardAdapter()
+  {
+    if (wizardItemProvider == null)
+    {
+      wizardItemProvider = new WizardItemProvider(this);
+    }
+
+    return wizardItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ProjectWizardItemProvider projectWizardItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createProjectWizardAdapter()
+  {
+    if (projectWizardItemProvider == null)
+    {
+      projectWizardItemProvider = new ProjectWizardItemProvider(this);
+    }
+
+    return projectWizardItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Extension} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ExtensionItemProvider extensionItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Extension}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createExtensionAdapter()
+  {
+    if (extensionItemProvider == null)
+    {
+      extensionItemProvider = new ExtensionItemProvider(this);
+    }
+
+    return extensionItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Attribute} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AttributeItemProvider attributeItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Attribute}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createAttributeAdapter()
+  {
+    if (attributeItemProvider == null)
+    {
+      attributeItemProvider = new AttributeItemProvider(this);
+    }
+
+    return attributeItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -652,6 +802,12 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (contextualHelpItemProvider != null) contextualHelpItemProvider.dispose();
     if (providedServiceItemProvider != null) providedServiceItemProvider.dispose();
     if (requiredServiceItemProvider != null) requiredServiceItemProvider.dispose();
+    if (builderItemProvider != null) builderItemProvider.dispose();
+    if (natureItemProvider != null) natureItemProvider.dispose();
+    if (wizardItemProvider != null) wizardItemProvider.dispose();
+    if (projectWizardItemProvider != null) projectWizardItemProvider.dispose();
+    if (extensionItemProvider != null) extensionItemProvider.dispose();
+    if (attributeItemProvider != null) attributeItemProvider.dispose();
   }
 
 }
