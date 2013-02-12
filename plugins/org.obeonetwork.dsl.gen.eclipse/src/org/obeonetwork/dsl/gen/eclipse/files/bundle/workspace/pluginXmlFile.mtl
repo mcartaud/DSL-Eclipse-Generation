@@ -14,8 +14,7 @@
 [for (aNature : Nature | aBundle.natures)][naturePlugin()/][/for]
 [for (aBuilder : Builder | aBundle.builders)][builderPlugin()/][/for]
 [for (aNature : Nature | aBundle.natures)][toogleNature()/][/for]
-[for (aWizard : Wizard | aBundle.wizardNewFiles)][wizard()/][/for]
-[for (aWizard : Wizard | aBundle.wizardNewProjects)][wizard()/][/for]
+[for (aWizard : Wizard | aBundle.wizards)][wizard()/][/for]
 </plugin>
 [/file]
 [/template]
@@ -35,7 +34,7 @@
             id="[aNature.ancestors(Bundle).projectID/].builder.[aNature.builders.builderID/]">
       </builder>[/if]
    </extension>
-[if (aNature.asToogleNature)][/if]
+[if (aNature.hasToogleNature)][/if]
 [/template]
 
 [template private builderPlugin(aBuilder : Builder)]

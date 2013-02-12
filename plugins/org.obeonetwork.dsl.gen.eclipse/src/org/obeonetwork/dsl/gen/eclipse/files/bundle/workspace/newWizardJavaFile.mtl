@@ -1,14 +1,15 @@
 [comment encoding = UTF-8 /]
-[module wizardNewProjectJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module newWizardJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private wizardNewProjectFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/wizards/[aBundle.wizards.wizardID/].java
+[template private newWizardJavaFile(aWizard : Wizard)]
+[aWizard.eContainer(Bundle).genBundlePath()/]/wizards/[aWizard.wizardID.toUpperFirst()/].java
 [/template]
 
-[template public genWizardNewProjectFile(aBundle : Bundle)]
-[file (wizardNewProjectFile(), false, 'UTF-8')]
-package [aBundle.projectID/].wizards;
+[template public gennewWizardJavaFile(aWizard : Wizard)]
+[file (newWizardJavaFile(), false, 'UTF-8')]
+package [aWizard.ancestors(Bundle).projectID/].wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -22,38 +23,39 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
-[if (aBundle.natures->size() > 0)]
-import [aBundle.projectID/].nature.[aBundle.natures.natureID/][/if]
+[for (aNature : Nature | aWizard.ancestors(Bundle).natures)]
+import [aWizard.ancestors(Bundle).projectID/].nature.[aNature.natureID.toUpperFirst()/];
+[/for]
 
-public class [aBundle.wizards.wizardID/] extends Wizard implements INewWizard{
+public class [aWizard.wizardID.toUpperFirst()/] extends Wizard implements INewWizard{
 
-	private [aBundle.wizards.wizardID.toUpperFirst()/] [aBundle.wizards.wizardID.toLowerFirst()/];
+	private [aWizard.wizardID.toUpperFirst()/] [aWizard.wizardID.toLowerFirst()/];
 	
-	public MyWizard() {
+	public [aWizard.wizardID.toUpperFirst()/]() {
 		super();		
 		setNeedsProgressMonitor(true);
-		setWindowTitle("[aBundle.wizards.name/]");
+		setWindowTitle("[aWizard.name/]");
 	}
 	
 	@Override
 	public void addPages() {
-		[aBundle.wizards.wizardID.toLowerFirst()/] = new [aBundle.wizards.wizardID.toUpperFirst()/];
-		addPage([aBundle.wizards.wizardID.toLowerFirst()/]);
+		[aWizard.wizardID.toLowerFirst()/] = new [aWizard.wizardID.toUpperFirst()/]();
+		addPage([aWizard.wizardID.toLowerFirst()/]);
 	}
 
 	@Override
 	public boolean performFinish() {
-		String projectName = [aBundle.wizards.wizardID.toLowerFirst()/].getProjectName();
+		String projectName = [aWizard.wizardID.toLowerFirst()/].getProjectName();
 		final IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		if (!project.exists()) {
 			IRunnableWithProgress runnable = new IRunnableWithProgress() {
 				@Override
 				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 					try {
-
-						[if (aBundle.natures->size() > 0)]
-						[aBundle.natures.name.toUpperFirst()/]Nature [aBundle.natures.name.toLowerFirst()/]Nature = new [aBundle.natures.name.toUpperFirst()/]Nature(project);
-						[aBundle.natures.name.toLowerFirst()/]Nature.configure();[/if]
+						[for (aNature : Nature | aWizard.ancestors(Bundle).natures)]
+						[aNature.natureID.toUpperFirst()/] [aNature.natureID.toLowerFirst()/] = new [aNature.natureID.toUpperFirst()/](project);
+						[aNature.natureID.toLowerFirst()/].configure();[/for]
+						
 						project.create(monitor);
 						project.open(monitor);
 					} catch (CoreException e) {

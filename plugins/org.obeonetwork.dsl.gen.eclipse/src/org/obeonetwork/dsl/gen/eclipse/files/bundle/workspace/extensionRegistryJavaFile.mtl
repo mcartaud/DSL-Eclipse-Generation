@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionRegistryJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Application).name/]/plugins/[anExtension.ancestors(Bundle).projectID/]/src/[anExtension.ancestors(Bundle).projectID/]/registry/[anExtension.genExtensionName()/]ExtensionRegistry.java
+[anExtension.eContainer(Bundle).genBundlePath()/]/registry/[anExtension.genExtensionName()/]ExtensionRegistry.java
 [/template]
 
 [template public genExtensionRegistryJavaFile(anExtension : Extension)]

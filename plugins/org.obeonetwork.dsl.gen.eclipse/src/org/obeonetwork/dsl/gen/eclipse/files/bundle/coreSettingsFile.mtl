@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module coreSettingsFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private coreSettingsFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/.settings/org.eclipse.core.ressources.prefs
+[/template]
+
+[template public genCoreSettingsFile(aBundle : Bundle)]
+[file (aBundle.coreSettingsFile(), false, 'UTF-8')]
+eclipse.preferences.version=1
+encoding/<project>=UTF-8
+[/file]
+[/template]

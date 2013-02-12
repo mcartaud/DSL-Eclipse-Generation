@@ -23,14 +23,23 @@ source.. = src/
 output.. = bin/
 bin.includes = META-INF/,\
                .,\
-               plugin.properties
-			   [buildPropertiesView()/]
+               plugin.properties[binIncludes()/]
+			   
 [/file]
 [/template]
 
-[template private buildPropertiesView(aBundle : Bundle)]
-[if ((aBundle.eContents(View)->size() > 0) or (aBundle.eContents(Editor)->size() > 0))]
+[template private buildPropertiesWorkspace(aBundle : Bundle)]
+
 icons/,\
-plugins.xml[if (aBundle.eContents(Help)->size() > 0)],\
-contexts.xml[/if][/if]
+plugin.xml
+[/template]
+
+[template private buildPropertiesOSGi(aBundle : Bundle)]
+
+OSGI-INF/
+[/template]
+
+[template private binIncludes(aBundle : Bundle)]
+[if ((aBundle.eContents(Wizard)->size() > 0) or (aBundle.eContents(Nature)->size() > 0) or (aBundle.eContents(Builder)->size() > 0))],\[buildPropertiesWorkspace()/]
+[elseif (aBundle.providedServices->size() > 0)],\[buildPropertiesOSGi()/][/if]
 [/template]

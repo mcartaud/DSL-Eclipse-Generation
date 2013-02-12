@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module natureJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private natureJavaFile(aNature : Nature)]
-[aNature.eContainer(Application).name/]/plugins/[aNature.ancestors(Bundle).projectID/]/src/[aNature.ancestors(Bundle).projectID/]/nature/[aNature.name/]Nature.java
+[aNature.eContainer(Bundle).genBundlePath()/]/nature/[aNature.natureID.toUpperFirst()/].java
 [/template]
 
 [template public genNatureJavaFile(aNature : Nature)]
@@ -15,13 +16,16 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
+[for (aBuilder : Builder | aNature.builders)]
+import [aBuilder.eContainer(Bundle).projectID/].builder.[aNature.builders.builderID.toUpperFirst()/];
+[/for]
 
-public class [aNature.name/]Nature implements IProjectNature {
+public class [aNature.natureID.toUpperFirst()/] implements IProjectNature {
 
 	/**
 	 * ID of this project nature
 	 */
-	public static final String NATURE_ID = "[aNature.ancestors(Bundle).projectID/].[aNature.natureID/]Nature";
+	public static final String NATURE_ID = "[aNature.ancestors(Bundle).projectID/].[aNature.natureID/]";
 
 	private IProject project;
 
@@ -36,7 +40,7 @@ public class [aNature.name/]Nature implements IProjectNature {
 		ICommand['['/]] commands = desc.getBuildSpec();
 
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/]Builder.BUILDER_ID)) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/].BUILDER_ID)) {
 				return;
 			}
 		}
@@ -44,7 +48,7 @@ public class [aNature.name/]Nature implements IProjectNature {
 		ICommand['['/]] newCommands = new ICommand['['/]commands.length + 1];
 		System.arraycopy(commands, 0, newCommands, 0, commands.length);
 		ICommand command = desc.newCommand();
-		command.setBuilderName([aNature.builders.name/]Builder.BUILDER_ID);
+		command.setBuilderName([aNature.builders.name/].BUILDER_ID);
 		newCommands['['/]newCommands.length - 1] = command;
 		desc.setBuildSpec(newCommands);
 		project.setDescription(desc, null);

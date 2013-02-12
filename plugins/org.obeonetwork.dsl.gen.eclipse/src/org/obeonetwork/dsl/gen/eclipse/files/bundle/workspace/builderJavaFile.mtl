@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module builderJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private builderJavaFile(aBuilder : Builder)]
-[aBuilder.eContainer(Application).name/]/plugins/[aBuilder.ancestors(Bundle).projectID/]/src/[aBuilder.ancestors(Bundle).projectID/]/builder/[aBuilder.name/]Builder.java
+[aBuilder.eContainer(Bundle).genBundlePath()/]/builder/[aBuilder.builderID.toUpperFirst()/].java
 [/template]
 
 [template public genBuilderJavaFile(aBuilder : Builder)]
@@ -17,12 +18,12 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-public class [aBuilder.name/]Builder extends IncrementalProjectBuilder { 
+public class [aBuilder.builderID.toUpperFirst()/] extends IncrementalProjectBuilder { 
 
 	/**
 	 * The ID of the builder.
 	 */
-	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).projectID/].[aBuilder.name/]Builder";
+	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).projectID/].[aBuilder.name/]";
 
 	/**
 	 * {@inheritDoc}

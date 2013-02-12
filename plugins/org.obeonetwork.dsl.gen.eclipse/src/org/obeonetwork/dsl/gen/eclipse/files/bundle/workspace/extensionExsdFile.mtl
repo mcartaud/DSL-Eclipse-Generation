@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionExsdFile(anExtension : Extension)]
-[anExtension.eContainer(Application).name/]/plugins/[anExtension.ancestors(Bundle).projectID/]/schema/[anExtension.genExtensionName()/]Extension.exsd
+[anExtension.eContainer(Application).name/]/plugins/[anExtension.eContainer(Bundle).projectID/]/schema/[anExtension.genExtensionName()/]Extension.exsd
 [/template]
 
 [template public genExtensionExsdFile(anExtension : Extension)]

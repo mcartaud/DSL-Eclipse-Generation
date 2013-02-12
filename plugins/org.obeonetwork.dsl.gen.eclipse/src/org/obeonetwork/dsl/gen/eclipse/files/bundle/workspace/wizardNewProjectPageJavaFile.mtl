@@ -1,34 +1,35 @@
 [comment encoding = UTF-8 /]
 [module wizardNewProjectPageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private wizardNewProjectPageJavaFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.projectID/]/wizards/[aBundle.wizardNewProjects.wizardPages.wizardPageID/].java
+[template private wizardNewProjectPageJavaFile(aWizard : Wizard)]
+[aWizard.eContainer(Bundle).genBundlePath()/]/wizards/[aWizard.wizardID.toUpperFirst()/]ProjectPage.java
 [/template]
 
-[template public genWizardNewProjectPageJavaFile(aBundle : Bundle)]
+[template public genWizardNewProjectPageJavaFile(aWizard : Wizard)]
 [file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
-package [aBundle.projectID/].wizards;
+package [aWizard.ancestors(Bundle).projectID/].wizards;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
+public class [aWizard.wizardID.toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
 
-public class [aBundle.wizardNewProjects.wizardPages.wizardPageID/] extends WizardNewProjectCreationPage {
 
 	private Text containerText;
 	
-	public [aBundle.wizardNewProjects.wizardPages.wizardPageID/]() {
-		super("[aBundle.wizardNewProjects.wizardPages.name/]");
-		this.setTitle("[aBundle.wizardNewProjects.wizardPages.title/]");
-		this.setDescription("[aBundle.wizardNewProjects.wizardPages.description/]");
+	public [aWizard.wizardID.toUpperFirst()/]ProjectPage() {
+		super("[aWizard.name/]");
+		this.setTitle("[aWizard.title/]");
+		this.setDescription("[aWizard.description/]");
 	}
 	
 	@Override
-	public void createControl(Composite arg0) {
-		super.createControl(arg0);
+	public void createControl(Composite composite) {
+		super.createControl(composite);
 	}
 	
 	@Override

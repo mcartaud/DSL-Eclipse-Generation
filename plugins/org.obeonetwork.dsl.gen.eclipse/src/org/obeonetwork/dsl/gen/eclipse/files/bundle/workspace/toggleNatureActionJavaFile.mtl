@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module toggleNatureActionJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private toggleNatureActionJavaFile(aNature : Nature)]
-[aNature.eContainer(Application).name/]/plugins/[aNature.ancestors(Bundle).projectID/]/src/[aNature.ancestors(Bundle).projectID/]/nature/Toggle[aNature.name/]Action.java
+[aNature.eContainer(Bundle).genBundlePath()/]/nature/Toggle[aNature.name/]Action.java
 [/template]
 
 [template public genToggleNatureActionJavaFile(aNature : Nature)]
