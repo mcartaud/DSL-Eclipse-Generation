@@ -13,13 +13,45 @@ Contributors :
 /]
 [module pluginPropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[template public pluginPropertiesFile(aBundle : Bundle)]
+[template private pluginPropertiesFile(aBundle : Bundle)]
 [aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/plugin.properties
 [/template]
 
 [template public genPluginPropertiesFile(aBundle : Bundle)]
 [file (aBundle.pluginPropertiesFile(), false, 'UTF-8')]
 Bundle-Name = [aBundle.projectName/]
-Bundle-Provider = [aBundle.vendor/] 
+Bundle-Provider = [aBundle.vendor/]
+[for (aWizard : Wizard | aBundle.wizards)]
+[wizardInformation()/]
+[/for]
+[for (aNature : Nature | aBundle.natures)]
+[natureInformation()/]
+[/for]
+[for (aBuilder : Builder | aBundle.builders)]
+[builderInformation()/]
+[/for] 
 [/file]
 [/template]
+
+[template private wizardInformation(aWizard : Wizard)]
+
+# User information for the wizard [aWizard.name.toUpperFirst()/]
+Wizard-Name = [aWizard.name/]
+Wizard-Description = [aWizard.description/]
+[if (aWizard.category->size() > 0)]
+Category-Name = [aWizard.category/]
+[/if]
+[/template]
+
+[template private natureInformation(aNature : Nature)]
+
+# User information for the nature [aNature.name.toUpperFirst()/]
+Nature-Name = [aNature.name/]
+[/template]
+
+[template private builderInformation(aBuilder : Builder)]
+
+# User information for the builder [aBuilder.name.toUpperFirst()/]
+Builder-Name = [aBuilder.name/]
+[/template]
+

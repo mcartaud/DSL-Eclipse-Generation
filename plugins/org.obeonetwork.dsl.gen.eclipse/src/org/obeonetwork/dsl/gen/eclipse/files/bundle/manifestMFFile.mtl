@@ -30,10 +30,11 @@ Bundle-Vendor: %Provider-Name
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-[if (aBundle.requiredEnvironment->size() > 0)]Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
-[/if][if (aBundle.importedPackageDeclarations->size() > 0)]Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for]
+[if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0)]Bundle-Activator: [aBundle.basePackage/].Activator
+[/if][if (aBundle.requiredEnvironment->size() > 0)]Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
+[/if][if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0)]Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0)][wizardRequired()/][/if]
 [/if][if (aBundle.allExportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
-[/if][if (aBundle.requiredServices->size() > 0 or aBundle.wizards->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for][if (aBundle.wizards->size() > 0)][wizardImport()/][/if]
+[/if][if (aBundle.requiredServices->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
 [/if][if (aBundle.providedServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
 
 [/file]
@@ -53,17 +54,10 @@ Bundle-Localization: plugin
 [if (aBundle.exportedPackages->size() > 0)][for (aBundle : Bundle | aBundle) separator(',')][aBundle.bundleExportedPackages()/][/for][/if][if (aBundle.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.providedServices) separator(',')][aProvidedService.genInterfacePath()/][/for][/if][/for]
 [/template]
 
-[template public wizardImport(aBundle : Bundle)]
- org.eclipse.core.resources,
- org.eclipse.core.runtime,
- org.eclipse.jface.operation,
- org.eclipse.jface.viewers,
- org.eclipse.jface.wizard,
- org.eclipse.jface.resource,
- org.eclipse.swt.graphics,
- org.eclipse.swt.widgets,
- org.eclipse.ui,
- org.eclipse.ui.dialogs,
- org.eclipse.ui.plugin,
- org.osgi.framework
+[template private wizardRequired(aBundle : Bundle)]
+ org.eclipse.jface;bundle-version="3.7.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.ui.ide;bundle-version="3.7.0"
 [/template]

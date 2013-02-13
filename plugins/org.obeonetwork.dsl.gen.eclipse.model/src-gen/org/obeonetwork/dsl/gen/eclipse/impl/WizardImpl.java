@@ -22,9 +22,8 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getWizardID <em>Wizard ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategoryID <em>Category ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#isIsProject <em>Is Project</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,26 +92,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getWizardID() <em>Wizard ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWizardID()
-   * @generated
-   * @ordered
-   */
-  protected static final String WIZARD_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getWizardID() <em>Wizard ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWizardID()
-   * @generated
-   * @ordered
-   */
-  protected String wizardID = WIZARD_ID_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -133,24 +112,24 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
   protected String category = CATEGORY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
+   * The default value of the '{@link #isIsProject() <em>Is Project</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCategoryID()
+   * @see #isIsProject()
    * @generated
    * @ordered
    */
-  protected static final String CATEGORY_ID_EDEFAULT = null;
+  protected static final boolean IS_PROJECT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
+   * The cached value of the '{@link #isIsProject() <em>Is Project</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCategoryID()
+   * @see #isIsProject()
    * @generated
    * @ordered
    */
-  protected String categoryID = CATEGORY_ID_EDEFAULT;
+  protected boolean isProject = IS_PROJECT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -247,29 +226,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getWizardID()
-  {
-    return wizardID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setWizardID(String newWizardID)
-  {
-    String oldWizardID = wizardID;
-    wizardID = newWizardID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__WIZARD_ID, oldWizardID, wizardID));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getCategory()
   {
     return category;
@@ -293,9 +249,9 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCategoryID()
+  public boolean isIsProject()
   {
-    return categoryID;
+    return isProject;
   }
 
   /**
@@ -303,12 +259,12 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCategoryID(String newCategoryID)
+  public void setIsProject(boolean newIsProject)
   {
-    String oldCategoryID = categoryID;
-    categoryID = newCategoryID;
+    boolean oldIsProject = isProject;
+    isProject = newIsProject;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__CATEGORY_ID, oldCategoryID, categoryID));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__IS_PROJECT, oldIsProject, isProject));
   }
 
   /**
@@ -327,12 +283,10 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return getTitle();
       case EclipsePackage.WIZARD__DESCRIPTION:
         return getDescription();
-      case EclipsePackage.WIZARD__WIZARD_ID:
-        return getWizardID();
       case EclipsePackage.WIZARD__CATEGORY:
         return getCategory();
-      case EclipsePackage.WIZARD__CATEGORY_ID:
-        return getCategoryID();
+      case EclipsePackage.WIZARD__IS_PROJECT:
+        return isIsProject();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -356,14 +310,11 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case EclipsePackage.WIZARD__WIZARD_ID:
-        setWizardID((String)newValue);
-        return;
       case EclipsePackage.WIZARD__CATEGORY:
         setCategory((String)newValue);
         return;
-      case EclipsePackage.WIZARD__CATEGORY_ID:
-        setCategoryID((String)newValue);
+      case EclipsePackage.WIZARD__IS_PROJECT:
+        setIsProject((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -388,14 +339,11 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.WIZARD__WIZARD_ID:
-        setWizardID(WIZARD_ID_EDEFAULT);
-        return;
       case EclipsePackage.WIZARD__CATEGORY:
         setCategory(CATEGORY_EDEFAULT);
         return;
-      case EclipsePackage.WIZARD__CATEGORY_ID:
-        setCategoryID(CATEGORY_ID_EDEFAULT);
+      case EclipsePackage.WIZARD__IS_PROJECT:
+        setIsProject(IS_PROJECT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -417,12 +365,10 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.WIZARD__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case EclipsePackage.WIZARD__WIZARD_ID:
-        return WIZARD_ID_EDEFAULT == null ? wizardID != null : !WIZARD_ID_EDEFAULT.equals(wizardID);
       case EclipsePackage.WIZARD__CATEGORY:
         return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
-      case EclipsePackage.WIZARD__CATEGORY_ID:
-        return CATEGORY_ID_EDEFAULT == null ? categoryID != null : !CATEGORY_ID_EDEFAULT.equals(categoryID);
+      case EclipsePackage.WIZARD__IS_PROJECT:
+        return isProject != IS_PROJECT_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -444,12 +390,10 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
     result.append(title);
     result.append(", description: ");
     result.append(description);
-    result.append(", wizardID: ");
-    result.append(wizardID);
     result.append(", category: ");
     result.append(category);
-    result.append(", categoryID: ");
-    result.append(categoryID);
+    result.append(", isProject: ");
+    result.append(isProject);
     result.append(')');
     return result.toString();
   }

@@ -31,7 +31,6 @@ import org.obeonetwork.dsl.gen.eclipse.Nature;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getLangageName <em>Langage Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getNatureID <em>Nature ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#isHasToogleNature <em>Has Toogle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getBuilders <em>Builders</em>}</li>
  * </ul>
@@ -80,26 +79,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
    * @ordered
    */
   protected String langageName = LANGAGE_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getNatureID() <em>Nature ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNatureID()
-   * @generated
-   * @ordered
-   */
-  protected static final String NATURE_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNatureID() <em>Nature ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNatureID()
-   * @generated
-   * @ordered
-   */
-  protected String natureID = NATURE_ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #isHasToogleNature() <em>Has Toogle Nature</em>}' attribute.
@@ -203,29 +182,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNatureID()
-  {
-    return natureID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNatureID(String newNatureID)
-  {
-    String oldNatureID = natureID;
-    natureID = newNatureID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__NATURE_ID, oldNatureID, natureID));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public boolean isHasToogleNature()
   {
     return hasToogleNature;
@@ -305,8 +261,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
         return getName();
       case EclipsePackage.NATURE__LANGAGE_NAME:
         return getLangageName();
-      case EclipsePackage.NATURE__NATURE_ID:
-        return getNatureID();
       case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
         return isHasToogleNature();
       case EclipsePackage.NATURE__BUILDERS:
@@ -331,9 +285,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
         return;
       case EclipsePackage.NATURE__LANGAGE_NAME:
         setLangageName((String)newValue);
-        return;
-      case EclipsePackage.NATURE__NATURE_ID:
-        setNatureID((String)newValue);
         return;
       case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
         setHasToogleNature((Boolean)newValue);
@@ -362,9 +313,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
       case EclipsePackage.NATURE__LANGAGE_NAME:
         setLangageName(LANGAGE_NAME_EDEFAULT);
         return;
-      case EclipsePackage.NATURE__NATURE_ID:
-        setNatureID(NATURE_ID_EDEFAULT);
-        return;
       case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
         setHasToogleNature(HAS_TOOGLE_NATURE_EDEFAULT);
         return;
@@ -389,8 +337,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.NATURE__LANGAGE_NAME:
         return LANGAGE_NAME_EDEFAULT == null ? langageName != null : !LANGAGE_NAME_EDEFAULT.equals(langageName);
-      case EclipsePackage.NATURE__NATURE_ID:
-        return NATURE_ID_EDEFAULT == null ? natureID != null : !NATURE_ID_EDEFAULT.equals(natureID);
       case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
         return hasToogleNature != HAS_TOOGLE_NATURE_EDEFAULT;
       case EclipsePackage.NATURE__BUILDERS:
@@ -414,8 +360,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     result.append(name);
     result.append(", langageName: ");
     result.append(langageName);
-    result.append(", natureID: ");
-    result.append(natureID);
     result.append(", hasToogleNature: ");
     result.append(hasToogleNature);
     result.append(')');

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID <em>Nature ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders <em>Builders</em>}</li>
  * </ul>
@@ -79,32 +78,6 @@ public interface Nature extends EObject
    * @generated
    */
   void setLangageName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Nature ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Nature ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Nature ID</em>' attribute.
-   * @see #setNatureID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_NatureID()
-   * @model unique="false"
-   * @generated
-   */
-  String getNatureID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID <em>Nature ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Nature ID</em>' attribute.
-   * @see #getNatureID()
-   * @generated
-   */
-  void setNatureID(String value);
 
   /**
    * Returns the value of the '<em><b>Has Toogle Nature</b></em>' attribute.

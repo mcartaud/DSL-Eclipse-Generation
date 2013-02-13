@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private natureJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundlePath()/]/nature/[aNature.natureID.toUpperFirst()/].java
+[aNature.eContainer(Bundle).genBundlePath()/]/ui/nature/[aNature.name.toUpperFirst()/].java
 [/template]
 
 [template public genNatureJavaFile(aNature : Nature)]
 [file (natureJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).projectID/].nature;
+package [aNature.ancestors(Bundle).projectID/].ui.nature;
 
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
@@ -17,15 +17,15 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 [for (aBuilder : Builder | aNature.builders)]
-import [aBuilder.eContainer(Bundle).projectID/].builder.[aNature.builders.builderID.toUpperFirst()/];
+import [aBuilder.eContainer(Bundle).projectID/].ui.builder.[aNature.builders.name.toUpperFirst()/];
 [/for]
 
-public class [aNature.natureID.toUpperFirst()/] implements IProjectNature {
+public class [aNature.name.toUpperFirst()/] implements IProjectNature {
 
 	/**
 	 * ID of this project nature
 	 */
-	public static final String NATURE_ID = "[aNature.ancestors(Bundle).projectID/].[aNature.natureID/]";
+	public static final String NATURE_ID = "[aNature.ancestors(Bundle).projectID/].[aNature.name.toLowerFirst()/]";
 
 	private IProject project;
 
@@ -40,7 +40,7 @@ public class [aNature.natureID.toUpperFirst()/] implements IProjectNature {
 		ICommand['['/]] commands = desc.getBuildSpec();
 
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/].BUILDER_ID)) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.toUpperFirst()/].BUILDER_ID)) {
 				return;
 			}
 		}
@@ -48,7 +48,7 @@ public class [aNature.natureID.toUpperFirst()/] implements IProjectNature {
 		ICommand['['/]] newCommands = new ICommand['['/]commands.length + 1];
 		System.arraycopy(commands, 0, newCommands, 0, commands.length);
 		ICommand command = desc.newCommand();
-		command.setBuilderName([aNature.builders.name/].BUILDER_ID);
+		command.setBuilderName([aNature.builders.name.toUpperFirst()/].BUILDER_ID);
 		newCommands['['/]newCommands.length - 1] = command;
 		desc.setBuildSpec(newCommands);
 		project.setDescription(desc, null);
@@ -65,7 +65,7 @@ public class [aNature.natureID.toUpperFirst()/] implements IProjectNature {
 		IProjectDescription description = getProject().getDescription();
 		ICommand['['/]] commands = description.getBuildSpec();
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands['['/]i].getBuilderName().equals([aNature.builders.name/]Builder.BUILDER_ID)) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.toUpperFirst()/].BUILDER_ID)) {
 				ICommand['['/]] newCommands = new ICommand['['/]commands.length - 1];
 				System.arraycopy(commands, 0, newCommands, 0, i);
 				System.arraycopy(commands, i + 1, newCommands, i,

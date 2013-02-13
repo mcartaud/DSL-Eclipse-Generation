@@ -67,9 +67,8 @@ public class WizardItemProvider
       addNamePropertyDescriptor(object);
       addTitlePropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
-      addWizardIDPropertyDescriptor(object);
       addCategoryPropertyDescriptor(object);
-      addCategoryIDPropertyDescriptor(object);
+      addIsProjectPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -144,29 +143,6 @@ public class WizardItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Wizard ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addWizardIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Wizard_wizardID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_wizardID_feature", "_UI_Wizard_type"),
-         EclipsePackage.Literals.WIZARD__WIZARD_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
    * This adds a property descriptor for the Category feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -190,24 +166,24 @@ public class WizardItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Category ID feature.
+   * This adds a property descriptor for the Is Project feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addCategoryIDPropertyDescriptor(Object object)
+  protected void addIsProjectPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Wizard_categoryID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_categoryID_feature", "_UI_Wizard_type"),
-         EclipsePackage.Literals.WIZARD__CATEGORY_ID,
+         getString("_UI_Wizard_isProject_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_isProject_feature", "_UI_Wizard_type"),
+         EclipsePackage.Literals.WIZARD__IS_PROJECT,
          true,
          false,
          false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
          null,
          null));
   }
@@ -256,9 +232,8 @@ public class WizardItemProvider
       case EclipsePackage.WIZARD__NAME:
       case EclipsePackage.WIZARD__TITLE:
       case EclipsePackage.WIZARD__DESCRIPTION:
-      case EclipsePackage.WIZARD__WIZARD_ID:
       case EclipsePackage.WIZARD__CATEGORY:
-      case EclipsePackage.WIZARD__CATEGORY_ID:
+      case EclipsePackage.WIZARD__IS_PROJECT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

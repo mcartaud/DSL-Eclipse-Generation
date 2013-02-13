@@ -158,14 +158,12 @@ class RequiredService {
 
 class Builder {
 	String name
-	String builderID
 	refers Nature[] natures opposite builders
 }
 
 class Nature {
 	String name
 	String langageName
-	String natureID
 	boolean hasToogleNature
 	refers Builder[] builders opposite natures
 }
@@ -174,9 +172,8 @@ class Wizard {
 	String name
 	String title
 	String description
-	String wizardID
 	String category
-	String categoryID
+	boolean isProject
 }
 
 class ProjectWizard extends Wizard {
@@ -194,7 +191,6 @@ class Attribute {
 	boolean required
 	boolean translatable
 	Type ^type
-	
 }
 
 enum Type {

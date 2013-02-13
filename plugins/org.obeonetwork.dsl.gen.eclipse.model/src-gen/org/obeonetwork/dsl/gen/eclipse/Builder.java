@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Builder#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID <em>Builder ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Builder#getNatures <em>Natures</em>}</li>
  * </ul>
  * </p>
@@ -51,32 +50,6 @@ public interface Builder extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Builder ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Builder ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Builder ID</em>' attribute.
-   * @see #setBuilderID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBuilder_BuilderID()
-   * @model unique="false"
-   * @generated
-   */
-  String getBuilderID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID <em>Builder ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Builder ID</em>' attribute.
-   * @see #getBuilderID()
-   * @generated
-   */
-  void setBuilderID(String value);
 
   /**
    * Returns the value of the '<em><b>Natures</b></em>' reference list.

@@ -1409,19 +1409,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBuilder_BuilderID()
-  {
-    return (EAttribute)builderEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getBuilder_Natures()
   {
-    return (EReference)builderEClass.getEStructuralFeatures().get(2);
+    return (EReference)builderEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1459,7 +1449,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNature_NatureID()
+  public EAttribute getNature_HasToogleNature()
   {
     return (EAttribute)natureEClass.getEStructuralFeatures().get(2);
   }
@@ -1469,19 +1459,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNature_HasToogleNature()
-  {
-    return (EAttribute)natureEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getNature_Builders()
   {
-    return (EReference)natureEClass.getEStructuralFeatures().get(4);
+    return (EReference)natureEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1529,7 +1509,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWizard_WizardID()
+  public EAttribute getWizard_Category()
   {
     return (EAttribute)wizardEClass.getEStructuralFeatures().get(3);
   }
@@ -1539,19 +1519,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWizard_Category()
+  public EAttribute getWizard_IsProject()
   {
     return (EAttribute)wizardEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWizard_CategoryID()
-  {
-    return (EAttribute)wizardEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1834,13 +1804,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     builderEClass = createEClass(BUILDER);
     createEAttribute(builderEClass, BUILDER__NAME);
-    createEAttribute(builderEClass, BUILDER__BUILDER_ID);
     createEReference(builderEClass, BUILDER__NATURES);
 
     natureEClass = createEClass(NATURE);
     createEAttribute(natureEClass, NATURE__NAME);
     createEAttribute(natureEClass, NATURE__LANGAGE_NAME);
-    createEAttribute(natureEClass, NATURE__NATURE_ID);
     createEAttribute(natureEClass, NATURE__HAS_TOOGLE_NATURE);
     createEReference(natureEClass, NATURE__BUILDERS);
 
@@ -1848,9 +1816,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(wizardEClass, WIZARD__NAME);
     createEAttribute(wizardEClass, WIZARD__TITLE);
     createEAttribute(wizardEClass, WIZARD__DESCRIPTION);
-    createEAttribute(wizardEClass, WIZARD__WIZARD_ID);
     createEAttribute(wizardEClass, WIZARD__CATEGORY);
-    createEAttribute(wizardEClass, WIZARD__CATEGORY_ID);
+    createEAttribute(wizardEClass, WIZARD__IS_PROJECT);
 
     projectWizardEClass = createEClass(PROJECT_WIZARD);
     createEReference(projectWizardEClass, PROJECT_WIZARD__NATURES);
@@ -2040,13 +2007,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(builderEClass, Builder.class, "Builder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBuilder_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBuilder_BuilderID(), theEcorePackage.getEString(), "builderID", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBuilder_Natures(), this.getNature(), this.getNature_Builders(), "natures", null, 0, -1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(natureEClass, Nature.class, "Nature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNature_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNature_LangageName(), theEcorePackage.getEString(), "langageName", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getNature_NatureID(), theEcorePackage.getEString(), "natureID", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNature_HasToogleNature(), theEcorePackage.getEBoolean(), "hasToogleNature", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNature_Builders(), this.getBuilder(), this.getBuilder_Natures(), "builders", null, 0, -1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2054,9 +2019,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getWizard_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWizard_Title(), theEcorePackage.getEString(), "title", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWizard_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWizard_WizardID(), theEcorePackage.getEString(), "wizardID", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWizard_Category(), theEcorePackage.getEString(), "category", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWizard_CategoryID(), theEcorePackage.getEString(), "categoryID", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWizard_IsProject(), theEcorePackage.getEBoolean(), "isProject", null, 0, 1, Wizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectWizardEClass, ProjectWizard.class, "ProjectWizard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProjectWizard_Natures(), this.getNature(), null, "natures", null, 0, -1, ProjectWizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

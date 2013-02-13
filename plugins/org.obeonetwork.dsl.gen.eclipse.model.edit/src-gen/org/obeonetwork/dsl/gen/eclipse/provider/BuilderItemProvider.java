@@ -65,7 +65,6 @@ public class BuilderItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addBuilderIDPropertyDescriptor(object);
       addNaturesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -86,29 +85,6 @@ public class BuilderItemProvider
          getString("_UI_Builder_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Builder_name_feature", "_UI_Builder_type"),
          EclipsePackage.Literals.BUILDER__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Builder ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addBuilderIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Builder_builderID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Builder_builderID_feature", "_UI_Builder_type"),
-         EclipsePackage.Literals.BUILDER__BUILDER_ID,
          true,
          false,
          false,
@@ -182,7 +158,6 @@ public class BuilderItemProvider
     switch (notification.getFeatureID(Builder.class))
     {
       case EclipsePackage.BUILDER__NAME:
-      case EclipsePackage.BUILDER__BUILDER_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

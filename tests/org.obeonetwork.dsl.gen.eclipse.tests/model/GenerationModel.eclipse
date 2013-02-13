@@ -37,9 +37,9 @@
   </projects>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.eclipse" projectName="eclipse" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud" basePackage="org.obeonetwork.dsl.gen.eclipse"/>
   <projects xsi:type="eclipse:Bundle" projectID="org.obeonetwork.dsl.gen.tests" projectName="tests" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud" basePackage="org.obeonetwork.dsl.gen.tests">
-    <natures name="nature" langageName="" natureID="nature11" builders="//@projects.6/@builders.0"/>
-    <builders name="builder" builderID="builder1" natures="//@projects.6/@natures.0"/>
-    <wizards name="fileWizard" title="file" description="super fileWizard" wizardID="fileWizard" category="file" categoryID="FILE1"/>
-    <wizards xsi:type="eclipse:ProjectWizard" name="super catego1" title="super" description="plein de chose" wizardID="catego1" category="cat1" categoryID="org.cat1" natures="//@projects.6/@natures.0"/>
+    <natures name="nature" langageName="" hasToogleNature="true" builders="//@projects.6/@builders.0"/>
+    <builders name="builder" natures="//@projects.6/@natures.0"/>
+    <wizards name="fileWizard" title="file" description="super fileWizard" category="file"/>
+    <wizards xsi:type="eclipse:ProjectWizard" name="catego1" title="super" description="plein de chose" category="cat1" isProject="true" natures="//@projects.6/@natures.0"/>
   </projects>
 </eclipse:Application>

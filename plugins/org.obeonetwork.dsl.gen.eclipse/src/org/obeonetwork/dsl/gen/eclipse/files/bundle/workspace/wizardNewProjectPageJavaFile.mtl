@@ -4,43 +4,22 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private wizardNewProjectPageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundlePath()/]/wizards/[aWizard.wizardID.toUpperFirst()/]ProjectPage.java
+[aWizard.eContainer(Bundle).genBundlePath()/]/ui/wizards/[aWizard.name.toUpperFirst()/]ProjectPage.java
 [/template]
 
 [template public genWizardNewProjectPageJavaFile(aWizard : Wizard)]
 [file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].wizards;
+package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
 
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
-public class [aWizard.wizardID.toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
-
-
-	private Text containerText;
+public class [aWizard.name.toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
 	
-	public [aWizard.wizardID.toUpperFirst()/]ProjectPage() {
+	public [aWizard.name.toUpperFirst()/]ProjectPage() {
 		super("[aWizard.name/]");
 		this.setTitle("[aWizard.title/]");
 		this.setDescription("[aWizard.description/]");
 	}
-	
-	@Override
-	public void createControl(Composite composite) {
-		super.createControl(composite);
-	}
-	
-	@Override
-	public Image getImage() {
-		return super.getImage();
-	}
-	
-	public String getContainerName() {
-		return containerText.getText();
-	}
-	
 }
 [/file]
 [/template]

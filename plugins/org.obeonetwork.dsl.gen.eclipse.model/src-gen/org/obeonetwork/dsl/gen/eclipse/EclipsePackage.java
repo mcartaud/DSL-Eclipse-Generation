@@ -1575,22 +1575,13 @@ public interface EclipsePackage extends EPackage
   int BUILDER__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Builder ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUILDER__BUILDER_ID = 1;
-
-  /**
    * The feature id for the '<em><b>Natures</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUILDER__NATURES = 2;
+  int BUILDER__NATURES = 1;
 
   /**
    * The number of structural features of the '<em>Builder</em>' class.
@@ -1599,7 +1590,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILDER_FEATURE_COUNT = 3;
+  int BUILDER_FEATURE_COUNT = 2;
 
   /**
    * The number of operations of the '<em>Builder</em>' class.
@@ -1639,22 +1630,13 @@ public interface EclipsePackage extends EPackage
   int NATURE__LANGAGE_NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Nature ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NATURE__NATURE_ID = 2;
-
-  /**
    * The feature id for the '<em><b>Has Toogle Nature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NATURE__HAS_TOOGLE_NATURE = 3;
+  int NATURE__HAS_TOOGLE_NATURE = 2;
 
   /**
    * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -1663,7 +1645,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NATURE__BUILDERS = 4;
+  int NATURE__BUILDERS = 3;
 
   /**
    * The number of structural features of the '<em>Nature</em>' class.
@@ -1672,7 +1654,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NATURE_FEATURE_COUNT = 5;
+  int NATURE_FEATURE_COUNT = 4;
 
   /**
    * The number of operations of the '<em>Nature</em>' class.
@@ -1721,31 +1703,22 @@ public interface EclipsePackage extends EPackage
   int WIZARD__DESCRIPTION = 2;
 
   /**
-   * The feature id for the '<em><b>Wizard ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WIZARD__WIZARD_ID = 3;
-
-  /**
    * The feature id for the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WIZARD__CATEGORY = 4;
+  int WIZARD__CATEGORY = 3;
 
   /**
-   * The feature id for the '<em><b>Category ID</b></em>' attribute.
+   * The feature id for the '<em><b>Is Project</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WIZARD__CATEGORY_ID = 5;
+  int WIZARD__IS_PROJECT = 4;
 
   /**
    * The number of structural features of the '<em>Wizard</em>' class.
@@ -1754,7 +1727,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int WIZARD_FEATURE_COUNT = 6;
+  int WIZARD_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Wizard</em>' class.
@@ -1803,15 +1776,6 @@ public interface EclipsePackage extends EPackage
   int PROJECT_WIZARD__DESCRIPTION = WIZARD__DESCRIPTION;
 
   /**
-   * The feature id for the '<em><b>Wizard ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROJECT_WIZARD__WIZARD_ID = WIZARD__WIZARD_ID;
-
-  /**
    * The feature id for the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1821,13 +1785,13 @@ public interface EclipsePackage extends EPackage
   int PROJECT_WIZARD__CATEGORY = WIZARD__CATEGORY;
 
   /**
-   * The feature id for the '<em><b>Category ID</b></em>' attribute.
+   * The feature id for the '<em><b>Is Project</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT_WIZARD__CATEGORY_ID = WIZARD__CATEGORY_ID;
+  int PROJECT_WIZARD__IS_PROJECT = WIZARD__IS_PROJECT;
 
   /**
    * The feature id for the '<em><b>Natures</b></em>' reference list.
@@ -3178,17 +3142,6 @@ public interface EclipsePackage extends EPackage
   EAttribute getBuilder_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID <em>Builder ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Builder ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Builder#getBuilderID()
-   * @see #getBuilder()
-   * @generated
-   */
-  EAttribute getBuilder_BuilderID();
-
-  /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Builder#getNatures <em>Natures</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3230,17 +3183,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EAttribute getNature_LangageName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID <em>Nature ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nature ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getNatureID()
-   * @see #getNature()
-   * @generated
-   */
-  EAttribute getNature_NatureID();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}'.
@@ -3308,17 +3250,6 @@ public interface EclipsePackage extends EPackage
   EAttribute getWizard_Description();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID <em>Wizard ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Wizard ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID()
-   * @see #getWizard()
-   * @generated
-   */
-  EAttribute getWizard_WizardID();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3330,15 +3261,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getWizard_Category();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID <em>Category ID</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Category ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID()
+   * @return the meta object for the attribute '<em>Is Project</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject()
    * @see #getWizard()
    * @generated
    */
-  EAttribute getWizard_CategoryID();
+  EAttribute getWizard_IsProject();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard <em>Project Wizard</em>}'.
@@ -4415,14 +4346,6 @@ public interface EclipsePackage extends EPackage
     EAttribute BUILDER__NAME = eINSTANCE.getBuilder_Name();
 
     /**
-     * The meta object literal for the '<em><b>Builder ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUILDER__BUILDER_ID = eINSTANCE.getBuilder_BuilderID();
-
-    /**
      * The meta object literal for the '<em><b>Natures</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4455,14 +4378,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EAttribute NATURE__LANGAGE_NAME = eINSTANCE.getNature_LangageName();
-
-    /**
-     * The meta object literal for the '<em><b>Nature ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NATURE__NATURE_ID = eINSTANCE.getNature_NatureID();
 
     /**
      * The meta object literal for the '<em><b>Has Toogle Nature</b></em>' attribute feature.
@@ -4515,14 +4430,6 @@ public interface EclipsePackage extends EPackage
     EAttribute WIZARD__DESCRIPTION = eINSTANCE.getWizard_Description();
 
     /**
-     * The meta object literal for the '<em><b>Wizard ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WIZARD__WIZARD_ID = eINSTANCE.getWizard_WizardID();
-
-    /**
      * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4531,12 +4438,12 @@ public interface EclipsePackage extends EPackage
     EAttribute WIZARD__CATEGORY = eINSTANCE.getWizard_Category();
 
     /**
-     * The meta object literal for the '<em><b>Category ID</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Is Project</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WIZARD__CATEGORY_ID = eINSTANCE.getWizard_CategoryID();
+    EAttribute WIZARD__IS_PROJECT = eINSTANCE.getWizard_IsProject();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl <em>Project Wizard</em>}' class.

@@ -4,23 +4,21 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private wizardNewFilePageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundlePath()/]/wizards/[aWizard.wizardID.toUpperFirst()/]FilePage.java
+[aWizard.eContainer(Bundle).genBundlePath()/]/ui/wizards/[aWizard.name.toUpperFirst()/]FilePage.java
 [/template]
 
 [template public genWizardNewFilePageJavaFile(aWizard : Wizard)]
 [file (wizardNewFilePageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].wizards;
+package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-public class [aWizard.wizardID.toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
+public class [aWizard.name.toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
 
-	public [aWizard.wizardID.toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
+	public [aWizard.name.toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
 		super(pageName, selection);
-		// TODO Auto-generated constructor stub
 	}
-
 }
 [/file]
 [/template]

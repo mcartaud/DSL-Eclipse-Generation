@@ -13,7 +13,7 @@ Contributors :
 /]
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[template public featurePropertiesFile(aFeature : Feature)]
+[template private featurePropertiesFile(aFeature : Feature)]
 [aFeature.eContainer(Application).name/]/features/[aFeature.projectID/]/feature.properties
 [/template]
 

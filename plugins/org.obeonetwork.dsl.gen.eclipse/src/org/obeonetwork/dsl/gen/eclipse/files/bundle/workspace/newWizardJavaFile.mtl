@@ -4,16 +4,15 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private newWizardJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundlePath()/]/wizards/[aWizard.wizardID.toUpperFirst()/].java
+[aWizard.eContainer(Bundle).genBundlePath()/]/ui/wizards/[aWizard.name.toUpperFirst()/].java
 [/template]
 
 [template public gennewWizardJavaFile(aWizard : Wizard)]
 [file (newWizardJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].wizards;
+package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -23,41 +22,70 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
-[for (aNature : Nature | aWizard.ancestors(Bundle).natures)]
-import [aWizard.ancestors(Bundle).projectID/].nature.[aNature.natureID.toUpperFirst()/];
-[/for]
+[for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
+import [aWizard.ancestors(Bundle).projectID/].ui.nature.[aNature.name.toUpperFirst()/];
+[/if][/for][if (aWizard.oclIsKindOf(ProjectWizard))]
+import org.eclipse.core.resources.IProject;
+[else]
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.resources.IFile;
+[/if]
 
-public class [aWizard.wizardID.toUpperFirst()/] extends Wizard implements INewWizard{
+public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard{
 
-	private [aWizard.wizardID.toUpperFirst()/] [aWizard.wizardID.toLowerFirst()/];
-	
-	public [aWizard.wizardID.toUpperFirst()/]() {
+[if (aWizard.oclIsKindOf(ProjectWizard))]
+	private [aWizard.name.toUpperFirst()/]ProjectPage [aWizard.name.toLowerFirst()/]ProjectPage;
+[else]
+	private [aWizard.name.toUpperFirst()/]FilePage [aWizard.name.toLowerFirst()/]FilePage;
+	private IStructuredSelection selection;
+[/if]
+
+	public [aWizard.name.toUpperFirst()/]() {
 		super();		
 		setNeedsProgressMonitor(true);
-		setWindowTitle("[aWizard.name/]");
+		setWindowTitle("[aWizard.title/]");
 	}
 	
 	@Override
 	public void addPages() {
-		[aWizard.wizardID.toLowerFirst()/] = new [aWizard.wizardID.toUpperFirst()/]();
-		addPage([aWizard.wizardID.toLowerFirst()/]);
+[if (aWizard.oclIsKindOf(ProjectWizard))]
+		[aWizard.name.toLowerFirst()/]ProjectPage = new [aWizard.name.toUpperFirst()/]ProjectPage();
+		addPage([aWizard.name.toLowerFirst()/]ProjectPage);
+[else]
+		[aWizard.name.toLowerFirst()/]FilePage = new [aWizard.name.toUpperFirst()/]FilePage("[aWizard.title/]" , selection);
+		addPage([aWizard.name.toLowerFirst()/]FilePage);
+[/if]	
 	}
 
 	@Override
 	public boolean performFinish() {
-		String projectName = [aWizard.wizardID.toLowerFirst()/].getProjectName();
+[if (aWizard.oclIsKindOf(ProjectWizard))]
+		String projectName = [aWizard.name.toLowerFirst()/]ProjectPage.getProjectName();
 		final IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		if (!project.exists()) {
+[else]
+		IPath filePath = [aWizard.name.toLowerFirst()/]FilePage.getContainerFullPath();
+		final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(filePath);
+		if (!file.exists()) {
+[/if]	
 			IRunnableWithProgress runnable = new IRunnableWithProgress() {
 				@Override
 				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 					try {
-						[for (aNature : Nature | aWizard.ancestors(Bundle).natures)]
-						[aNature.natureID.toUpperFirst()/] [aNature.natureID.toLowerFirst()/] = new [aNature.natureID.toUpperFirst()/](project);
-						[aNature.natureID.toLowerFirst()/].configure();[/for]
-						
+						[for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
+						[aNature.name.toUpperFirst()/] [aNature.name.toLowerFirst()/] = new [aNature.name.toUpperFirst()/]();
+						[aNature.name.toLowerFirst()/].setProject(project);
+						[aNature.name.toLowerFirst()/].configure();[/if][/for]
+
+						[if (aWizard.oclIsKindOf(ProjectWizard))]	
 						project.create(monitor);
 						project.open(monitor);
+						[else]
+						InputStream inputStream = new ByteArrayInputStream("".getBytes());
+						file.create(inputStream, true, monitor);
+						[/if]
 					} catch (CoreException e) {
 						e.printStackTrace();
 					}					
@@ -73,8 +101,12 @@ public class [aWizard.wizardID.toUpperFirst()/] extends Wizard implements INewWi
 	}
 
 	@Override
-	public void init(IWorkbench arg0, IStructuredSelection arg1) {
+	public void init(IWorkbench arg0, IStructuredSelection selection) {
+		[if (aWizard.oclIsKindOf(ProjectWizard))]
 		// TODO Auto-generated method stub	
+		[else]
+		this.selection = selection;
+		[/if]
 	}
 
 }

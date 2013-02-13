@@ -66,7 +66,6 @@ public class NatureItemProvider
 
       addNamePropertyDescriptor(object);
       addLangageNamePropertyDescriptor(object);
-      addNatureIDPropertyDescriptor(object);
       addHasToogleNaturePropertyDescriptor(object);
       addBuildersPropertyDescriptor(object);
     }
@@ -111,29 +110,6 @@ public class NatureItemProvider
          getString("_UI_Nature_langageName_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Nature_langageName_feature", "_UI_Nature_type"),
          EclipsePackage.Literals.NATURE__LANGAGE_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Nature ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addNatureIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Nature_natureID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Nature_natureID_feature", "_UI_Nature_type"),
-         EclipsePackage.Literals.NATURE__NATURE_ID,
          true,
          false,
          false,
@@ -231,7 +207,6 @@ public class NatureItemProvider
     {
       case EclipsePackage.NATURE__NAME:
       case EclipsePackage.NATURE__LANGAGE_NAME:
-      case EclipsePackage.NATURE__NATURE_ID:
       case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

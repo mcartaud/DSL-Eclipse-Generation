@@ -27,7 +27,7 @@ Contributors :
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.pde.[aProject.buildCommand()/]</name>
+			<name>org.eclipse.[aProject.buildCommand()/]</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -60,10 +60,10 @@ Contributors :
 
 [template private buildCommand(aProject : Project) post(trim())]
 [if (aProject.oclIsKindOf(Feature))]
-FeatureBuilder
+pde.FeatureBuilder
 [elseif (aProject.oclIsKindOf(Repository))]
-UpdateSiteBuilder
+pde.UpdateSiteBuilder
 [elseif (aProject.oclIsKindOf(Bundle))]
-javabuilder
+jdt.core.javabuilder
 [/if]
 [/template]

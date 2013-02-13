@@ -30,7 +30,6 @@ import org.obeonetwork.dsl.gen.eclipse.Nature;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl#getBuilderID <em>Builder ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl#getNatures <em>Natures</em>}</li>
  * </ul>
  * </p>
@@ -58,26 +57,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getBuilderID() <em>Builder ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBuilderID()
-   * @generated
-   * @ordered
-   */
-  protected static final String BUILDER_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBuilderID() <em>Builder ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBuilderID()
-   * @generated
-   * @ordered
-   */
-  protected String builderID = BUILDER_ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getNatures() <em>Natures</em>}' reference list.
@@ -131,29 +110,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUILDER__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getBuilderID()
-  {
-    return builderID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBuilderID(String newBuilderID)
-  {
-    String oldBuilderID = builderID;
-    builderID = newBuilderID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUILDER__BUILDER_ID, oldBuilderID, builderID));
   }
 
   /**
@@ -215,8 +171,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
     {
       case EclipsePackage.BUILDER__NAME:
         return getName();
-      case EclipsePackage.BUILDER__BUILDER_ID:
-        return getBuilderID();
       case EclipsePackage.BUILDER__NATURES:
         return getNatures();
     }
@@ -236,9 +190,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
     {
       case EclipsePackage.BUILDER__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.BUILDER__BUILDER_ID:
-        setBuilderID((String)newValue);
         return;
       case EclipsePackage.BUILDER__NATURES:
         getNatures().clear();
@@ -261,9 +212,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
       case EclipsePackage.BUILDER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.BUILDER__BUILDER_ID:
-        setBuilderID(BUILDER_ID_EDEFAULT);
-        return;
       case EclipsePackage.BUILDER__NATURES:
         getNatures().clear();
         return;
@@ -283,8 +231,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
     {
       case EclipsePackage.BUILDER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.BUILDER__BUILDER_ID:
-        return BUILDER_ID_EDEFAULT == null ? builderID != null : !BUILDER_ID_EDEFAULT.equals(builderID);
       case EclipsePackage.BUILDER__NATURES:
         return natures != null && !natures.isEmpty();
     }
@@ -304,8 +250,6 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", builderID: ");
-    result.append(builderID);
     result.append(')');
     return result.toString();
   }

@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private toggleNatureActionJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundlePath()/]/nature/Toggle[aNature.name/]Action.java
+[aNature.eContainer(Bundle).genBundlePath()/]/ui/nature/Toggle[aNature.name.toUpperFirst()/]Action.java
 [/template]
 
 [template public genToggleNatureActionJavaFile(aNature : Nature)]
 [file (toggleNatureActionJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).projectID/].nature;
+package [aNature.ancestors(Bundle).projectID/].ui.nature;
 
 import java.util.Iterator;
 
@@ -27,7 +27,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import [aNature.ancestors(Bundle).projectID/].Activator;
 
-public class Toggle[aNature.name/]Action implements IObjectActionDelegate {
+public class Toggle[aNature.name.toUpperFirst()/]Action implements IObjectActionDelegate {
 
 	/**
 	 * The current selection.
@@ -41,7 +41,7 @@ public class Toggle[aNature.name/]Action implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 		if (selection instanceof IStructuredSelection) {
-			for (Iterator it = ((IStructuredSelection) selection).iterator(); it
+			for (Iterator<?> it = ((IStructuredSelection) selection).iterator(); it
 					.hasNext();) {
 				Object element = it.next();
 				IProject project = null;
@@ -89,7 +89,7 @@ public class Toggle[aNature.name/]Action implements IObjectActionDelegate {
 			String['['/]] natures = description.getNatureIds();
 
 			for (int i = 0; i < natures.length; ++i) {
-				if ([aNature.name/]Nature.NATURE_ID.equals(natures['['/]i])) {
+				if ([aNature.name.toUpperFirst()/].NATURE_ID.equals(natures['['/]i])) {
 					// Remove the nature
 					String['['/]] newNatures = new String['['/]natures.length - 1];
 					System.arraycopy(natures, 0, newNatures, 0, i);
@@ -104,7 +104,7 @@ public class Toggle[aNature.name/]Action implements IObjectActionDelegate {
 			// Add the nature
 			String['['/]] newNatures = new String['['/]natures.length + 1];
 			System.arraycopy(natures, 0, newNatures, 0, natures.length);
-			newNatures['['/]natures.length] = [aNature.name/]Nature.NATURE_ID;
+			newNatures['['/]natures.length] = [aNature.name.toUpperFirst()/].NATURE_ID;
 			description.setNatureIds(newNatures);
 			project.setDescription(description, null);
 						

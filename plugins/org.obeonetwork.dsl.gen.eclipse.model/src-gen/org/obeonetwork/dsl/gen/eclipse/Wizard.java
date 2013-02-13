@@ -15,9 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID <em>Wizard ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID <em>Category ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,32 +105,6 @@ public interface Wizard extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Wizard ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Wizard ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Wizard ID</em>' attribute.
-   * @see #setWizardID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_WizardID()
-   * @model unique="false"
-   * @generated
-   */
-  String getWizardID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getWizardID <em>Wizard ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Wizard ID</em>' attribute.
-   * @see #getWizardID()
-   * @generated
-   */
-  void setWizardID(String value);
-
-  /**
    * Returns the value of the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -158,29 +131,29 @@ public interface Wizard extends EObject
   void setCategory(String value);
 
   /**
-   * Returns the value of the '<em><b>Category ID</b></em>' attribute.
+   * Returns the value of the '<em><b>Is Project</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Category ID</em>' attribute isn't clear,
+   * If the meaning of the '<em>Is Project</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Category ID</em>' attribute.
-   * @see #setCategoryID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_CategoryID()
+   * @return the value of the '<em>Is Project</em>' attribute.
+   * @see #setIsProject(boolean)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_IsProject()
    * @model unique="false"
    * @generated
    */
-  String getCategoryID();
+  boolean isIsProject();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategoryID <em>Category ID</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Category ID</em>' attribute.
-   * @see #getCategoryID()
+   * @param value the new value of the '<em>Is Project</em>' attribute.
+   * @see #isIsProject()
    * @generated
    */
-  void setCategoryID(String value);
+  void setIsProject(boolean value);
 
 } // Wizard
