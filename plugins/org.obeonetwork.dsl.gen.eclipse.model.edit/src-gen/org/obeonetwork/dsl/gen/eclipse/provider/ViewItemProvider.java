@@ -64,31 +64,55 @@ public class ViewItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addViewIDPropertyDescriptor(object);
+      addCategoryPropertyDescriptor(object);
+      addIsTreePropertyDescriptor(object);
       addPerspectivesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the View ID feature.
+   * This adds a property descriptor for the Category feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addViewIDPropertyDescriptor(Object object)
+  protected void addCategoryPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_View_viewID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_View_viewID_feature", "_UI_View_type"),
-         EclipsePackage.Literals.VIEW__VIEW_ID,
+         getString("_UI_View_category_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_category_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__CATEGORY,
          true,
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Is Tree feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIsTreePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_View_isTree_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_isTree_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__IS_TREE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
          null,
          null));
   }
@@ -191,7 +215,8 @@ public class ViewItemProvider
 
     switch (notification.getFeatureID(View.class))
     {
-      case EclipsePackage.VIEW__VIEW_ID:
+      case EclipsePackage.VIEW__CATEGORY:
+      case EclipsePackage.VIEW__IS_TREE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.VIEW__ACTIONS:

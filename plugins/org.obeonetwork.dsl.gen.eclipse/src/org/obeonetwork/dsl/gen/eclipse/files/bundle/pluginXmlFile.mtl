@@ -1,0 +1,29 @@
+[comment encoding = UTF-8 /]
+[module pluginXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::workspacePluginXml /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::workbenchPluginXml /]
+
+[template private pluginXmlFile(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/plugin.xml
+[/template]
+
+[template public genPluginXmlFile(aBundle : Bundle)]
+[file (pluginXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+[for (aNature : Nature | aBundle.natures)][naturePlugin()/]
+[/for][for (aBuilder : Builder | aBundle.builders)][builderPlugin()/]
+[/for][for (aWizard : Wizard | aBundle.wizards)][wizardPlugin()/]
+[/for][for (aDecorator : Decorator | aBundle.decorators)][decoratorPlugin()/]
+[/for][for (aMarker : Marker | aBundle.markers)][markersPlugin()/]
+[/for][for (aPerspective : Perspective | aBundle.perspectives)][perspectivePlugin()/]
+[/for][for (aView : View | aBundle.views)][viewPlugin()/]
+[/for][for (anEditor : Editor | aBundle.editors)][editorPlugin()/]
+[/for]
+</plugin>
+[/file]
+[/template]

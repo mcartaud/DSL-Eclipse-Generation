@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,17 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
+import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Help;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Help} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HelpItemProvider
+public class DynamicHelpItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -49,7 +46,7 @@ public class HelpItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public HelpItemProvider(AdapterFactory adapterFactory)
+  public DynamicHelpItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -68,6 +65,9 @@ public class HelpItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
+      addLabelPropertyDescriptor(object);
+      addTitlePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -84,9 +84,9 @@ public class HelpItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Help_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Help_name_feature", "_UI_Help_type"),
-         EclipsePackage.Literals.HELP__NAME,
+         getString("_UI_DynamicHelp_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_name_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__NAME,
          true,
          false,
          false,
@@ -96,40 +96,76 @@ public class HelpItemProvider
   }
 
   /**
-   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * This adds a property descriptor for the Description feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  protected void addDescriptionPropertyDescriptor(Object object)
   {
-    if (childrenFeatures == null)
-    {
-      super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.HELP__PAGES);
-    }
-    return childrenFeatures;
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_description_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__DESCRIPTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
+   * This adds a property descriptor for the Label feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  protected EStructuralFeature getChildFeature(Object object, Object child)
+  protected void addLabelPropertyDescriptor(Object object)
   {
-    // Check the type of the specified child object and return the proper feature to use for
-    // adding (see {@link AddCommand}) it as a child.
-
-    return super.getChildFeature(object, child);
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_label_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_label_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
-   * This returns Help.gif.
+   * This adds a property descriptor for the Title feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTitlePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_title_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_title_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__TITLE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This returns DynamicHelp.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -137,7 +173,7 @@ public class HelpItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Help"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/DynamicHelp"));
   }
 
   /**
@@ -149,10 +185,10 @@ public class HelpItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Help)object).getName();
+    String label = ((DynamicHelp)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Help_type") :
-      getString("_UI_Help_type") + " " + label;
+      getString("_UI_DynamicHelp_type") :
+      getString("_UI_DynamicHelp_type") + " " + label;
   }
 
   /**
@@ -167,13 +203,13 @@ public class HelpItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Help.class))
+    switch (notification.getFeatureID(DynamicHelp.class))
     {
-      case EclipsePackage.HELP__NAME:
+      case EclipsePackage.DYNAMIC_HELP__NAME:
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-        return;
-      case EclipsePackage.HELP__PAGES:
-        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -190,11 +226,6 @@ public class HelpItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.HELP__PAGES,
-         EclipseFactory.eINSTANCE.createPage()));
   }
 
   /**

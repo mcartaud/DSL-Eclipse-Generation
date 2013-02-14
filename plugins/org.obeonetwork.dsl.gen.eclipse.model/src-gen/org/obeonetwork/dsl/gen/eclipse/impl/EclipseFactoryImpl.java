@@ -70,17 +70,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.FEATURE: return createFeature();
       case EclipsePackage.BUNDLE: return createBundle();
       case EclipsePackage.IMPORTED_PACKAGE_DECLARATION: return createImportedPackageDeclaration();
-      case EclipsePackage.ACTION_SET: return createActionSet();
-      case EclipsePackage.MENU: return createMenu();
-      case EclipsePackage.ACTION: return createAction();
-      case EclipsePackage.PART_CATEGORY: return createPartCategory();
-      case EclipsePackage.VIEW: return createView();
-      case EclipsePackage.EDITOR: return createEditor();
-      case EclipsePackage.PERSPECTIVE: return createPerspective();
-      case EclipsePackage.BINDING: return createBinding();
-      case EclipsePackage.HELP: return createHelp();
-      case EclipsePackage.PAGE: return createPage();
-      case EclipsePackage.CONTEXTUAL_HELP: return createContextualHelp();
       case EclipsePackage.PROVIDED_SERVICE: return createProvidedService();
       case EclipsePackage.REQUIRED_SERVICE: return createRequiredService();
       case EclipsePackage.BUILDER: return createBuilder();
@@ -89,6 +78,16 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
       case EclipsePackage.EXTENSION: return createExtension();
       case EclipsePackage.ATTRIBUTE: return createAttribute();
+      case EclipsePackage.DECORATOR: return createDecorator();
+      case EclipsePackage.MARKER: return createMarker();
+      case EclipsePackage.PERSPECTIVE: return createPerspective();
+      case EclipsePackage.PART_CATEGORY: return createPartCategory();
+      case EclipsePackage.VIEW: return createView();
+      case EclipsePackage.EDITOR: return createEditor();
+      case EclipsePackage.ACTION_SET: return createActionSet();
+      case EclipsePackage.MENU: return createMenu();
+      case EclipsePackage.ACTION: return createAction();
+      case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -106,6 +105,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
     {
       case EclipsePackage.TYPE:
         return createTypeFromString(eDataType, initialValue);
+      case EclipsePackage.LOCATION:
+        return createLocationFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -123,6 +124,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
     {
       case EclipsePackage.TYPE:
         return convertTypeToString(eDataType, instanceValue);
+      case EclipsePackage.LOCATION:
+        return convertLocationToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -181,127 +184,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     ImportedPackageDeclarationImpl importedPackageDeclaration = new ImportedPackageDeclarationImpl();
     return importedPackageDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ActionSet createActionSet()
-  {
-    ActionSetImpl actionSet = new ActionSetImpl();
-    return actionSet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Menu createMenu()
-  {
-    MenuImpl menu = new MenuImpl();
-    return menu;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Action createAction()
-  {
-    ActionImpl action = new ActionImpl();
-    return action;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PartCategory createPartCategory()
-  {
-    PartCategoryImpl partCategory = new PartCategoryImpl();
-    return partCategory;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public View createView()
-  {
-    ViewImpl view = new ViewImpl();
-    return view;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Editor createEditor()
-  {
-    EditorImpl editor = new EditorImpl();
-    return editor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Perspective createPerspective()
-  {
-    PerspectiveImpl perspective = new PerspectiveImpl();
-    return perspective;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Binding createBinding()
-  {
-    BindingImpl binding = new BindingImpl();
-    return binding;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Help createHelp()
-  {
-    HelpImpl help = new HelpImpl();
-    return help;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Page createPage()
-  {
-    PageImpl page = new PageImpl();
-    return page;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ContextualHelp createContextualHelp()
-  {
-    ContextualHelpImpl contextualHelp = new ContextualHelpImpl();
-    return contextualHelp;
   }
 
   /**
@@ -397,6 +279,116 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Decorator createDecorator()
+  {
+    DecoratorImpl decorator = new DecoratorImpl();
+    return decorator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Marker createMarker()
+  {
+    MarkerImpl marker = new MarkerImpl();
+    return marker;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Perspective createPerspective()
+  {
+    PerspectiveImpl perspective = new PerspectiveImpl();
+    return perspective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PartCategory createPartCategory()
+  {
+    PartCategoryImpl partCategory = new PartCategoryImpl();
+    return partCategory;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public View createView()
+  {
+    ViewImpl view = new ViewImpl();
+    return view;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Editor createEditor()
+  {
+    EditorImpl editor = new EditorImpl();
+    return editor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionSet createActionSet()
+  {
+    ActionSetImpl actionSet = new ActionSetImpl();
+    return actionSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Menu createMenu()
+  {
+    MenuImpl menu = new MenuImpl();
+    return menu;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Action createAction()
+  {
+    ActionImpl action = new ActionImpl();
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DynamicHelp createDynamicHelp()
+  {
+    DynamicHelpImpl dynamicHelp = new DynamicHelpImpl();
+    return dynamicHelp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Type createTypeFromString(EDataType eDataType, String initialValue)
   {
     Type result = Type.get(initialValue);
@@ -410,6 +402,28 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * @generated
    */
   public String convertTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Location createLocationFromString(EDataType eDataType, String initialValue)
+  {
+    Location result = Location.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLocationToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

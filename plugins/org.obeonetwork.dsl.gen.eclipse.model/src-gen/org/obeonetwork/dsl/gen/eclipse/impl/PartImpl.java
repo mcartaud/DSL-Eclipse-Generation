@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.ActionSet;
-import org.obeonetwork.dsl.gen.eclipse.ContextualHelp;
+import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Part;
 
@@ -30,11 +30,10 @@ import org.obeonetwork.dsl.gen.eclipse.Part;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getPartID <em>Part ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getActionSets <em>Action Sets</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getContextualHelp <em>Contextual Help</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getDynamicHelp <em>Dynamic Help</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,26 +41,6 @@ import org.obeonetwork.dsl.gen.eclipse.Part;
  */
 public abstract class PartImpl extends MinimalEObjectImpl.Container implements Part
 {
-  /**
-   * The default value of the '{@link #getPartID() <em>Part ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartID()
-   * @generated
-   * @ordered
-   */
-  protected static final String PART_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPartID() <em>Part ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartID()
-   * @generated
-   * @ordered
-   */
-  protected String partID = PART_ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -83,24 +62,24 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getIcon()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected static final String ICON_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getIcon()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected String icon = ICON_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
@@ -113,14 +92,14 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   protected EList<ActionSet> actionSets;
 
   /**
-   * The cached value of the '{@link #getContextualHelp() <em>Contextual Help</em>}' containment reference.
+   * The cached value of the '{@link #getDynamicHelp() <em>Dynamic Help</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContextualHelp()
+   * @see #getDynamicHelp()
    * @generated
    * @ordered
    */
-  protected ContextualHelp contextualHelp;
+  protected DynamicHelp dynamicHelp;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,29 +120,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   protected EClass eStaticClass()
   {
     return EclipsePackage.Literals.PART;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getPartID()
-  {
-    return partID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPartID(String newPartID)
-  {
-    String oldPartID = partID;
-    partID = newPartID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__PART_ID, oldPartID, partID));
   }
 
   /**
@@ -194,9 +150,9 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public String getIcon()
   {
-    return description;
+    return icon;
   }
 
   /**
@@ -204,12 +160,12 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public void setIcon(String newIcon)
   {
-    String oldDescription = description;
-    description = newDescription;
+    String oldIcon = icon;
+    icon = newIcon;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__ICON, oldIcon, icon));
   }
 
   /**
@@ -231,9 +187,9 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextualHelp getContextualHelp()
+  public DynamicHelp getDynamicHelp()
   {
-    return contextualHelp;
+    return dynamicHelp;
   }
 
   /**
@@ -241,13 +197,13 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContextualHelp(ContextualHelp newContextualHelp, NotificationChain msgs)
+  public NotificationChain basicSetDynamicHelp(DynamicHelp newDynamicHelp, NotificationChain msgs)
   {
-    ContextualHelp oldContextualHelp = contextualHelp;
-    contextualHelp = newContextualHelp;
+    DynamicHelp oldDynamicHelp = dynamicHelp;
+    dynamicHelp = newDynamicHelp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__CONTEXTUAL_HELP, oldContextualHelp, newContextualHelp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DYNAMIC_HELP, oldDynamicHelp, newDynamicHelp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -258,20 +214,20 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContextualHelp(ContextualHelp newContextualHelp)
+  public void setDynamicHelp(DynamicHelp newDynamicHelp)
   {
-    if (newContextualHelp != contextualHelp)
+    if (newDynamicHelp != dynamicHelp)
     {
       NotificationChain msgs = null;
-      if (contextualHelp != null)
-        msgs = ((InternalEObject)contextualHelp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__CONTEXTUAL_HELP, null, msgs);
-      if (newContextualHelp != null)
-        msgs = ((InternalEObject)newContextualHelp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__CONTEXTUAL_HELP, null, msgs);
-      msgs = basicSetContextualHelp(newContextualHelp, msgs);
+      if (dynamicHelp != null)
+        msgs = ((InternalEObject)dynamicHelp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
+      if (newDynamicHelp != null)
+        msgs = ((InternalEObject)newDynamicHelp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
+      msgs = basicSetDynamicHelp(newDynamicHelp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__CONTEXTUAL_HELP, newContextualHelp, newContextualHelp));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DYNAMIC_HELP, newDynamicHelp, newDynamicHelp));
   }
 
   /**
@@ -286,8 +242,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     {
       case EclipsePackage.PART__ACTION_SETS:
         return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
-        return basicSetContextualHelp(null, msgs);
+      case EclipsePackage.PART__DYNAMIC_HELP:
+        return basicSetDynamicHelp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -302,16 +258,14 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case EclipsePackage.PART__PART_ID:
-        return getPartID();
       case EclipsePackage.PART__NAME:
         return getName();
-      case EclipsePackage.PART__DESCRIPTION:
-        return getDescription();
+      case EclipsePackage.PART__ICON:
+        return getIcon();
       case EclipsePackage.PART__ACTION_SETS:
         return getActionSets();
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
-        return getContextualHelp();
+      case EclipsePackage.PART__DYNAMIC_HELP:
+        return getDynamicHelp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -327,21 +281,18 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case EclipsePackage.PART__PART_ID:
-        setPartID((String)newValue);
-        return;
       case EclipsePackage.PART__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.PART__DESCRIPTION:
-        setDescription((String)newValue);
+      case EclipsePackage.PART__ICON:
+        setIcon((String)newValue);
         return;
       case EclipsePackage.PART__ACTION_SETS:
         getActionSets().clear();
         getActionSets().addAll((Collection<? extends ActionSet>)newValue);
         return;
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
-        setContextualHelp((ContextualHelp)newValue);
+      case EclipsePackage.PART__DYNAMIC_HELP:
+        setDynamicHelp((DynamicHelp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -357,20 +308,17 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case EclipsePackage.PART__PART_ID:
-        setPartID(PART_ID_EDEFAULT);
-        return;
       case EclipsePackage.PART__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.PART__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case EclipsePackage.PART__ICON:
+        setIcon(ICON_EDEFAULT);
         return;
       case EclipsePackage.PART__ACTION_SETS:
         getActionSets().clear();
         return;
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
-        setContextualHelp((ContextualHelp)null);
+      case EclipsePackage.PART__DYNAMIC_HELP:
+        setDynamicHelp((DynamicHelp)null);
         return;
     }
     super.eUnset(featureID);
@@ -386,16 +334,14 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case EclipsePackage.PART__PART_ID:
-        return PART_ID_EDEFAULT == null ? partID != null : !PART_ID_EDEFAULT.equals(partID);
       case EclipsePackage.PART__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.PART__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.PART__ICON:
+        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.PART__ACTION_SETS:
         return actionSets != null && !actionSets.isEmpty();
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
-        return contextualHelp != null;
+      case EclipsePackage.PART__DYNAMIC_HELP:
+        return dynamicHelp != null;
     }
     return super.eIsSet(featureID);
   }
@@ -411,12 +357,10 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (partID: ");
-    result.append(partID);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
+    result.append(", icon: ");
+    result.append(icon);
     result.append(')');
     return result.toString();
   }

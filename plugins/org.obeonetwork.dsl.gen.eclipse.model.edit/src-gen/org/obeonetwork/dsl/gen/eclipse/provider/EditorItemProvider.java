@@ -61,50 +61,26 @@ public class EditorItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addEditorIDPropertyDescriptor(object);
-      addLanguagePropertyDescriptor(object);
+      addExtensionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Editor ID feature.
+   * This adds a property descriptor for the Extension feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addEditorIDPropertyDescriptor(Object object)
+  protected void addExtensionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Editor_editorID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Editor_editorID_feature", "_UI_Editor_type"),
-         EclipsePackage.Literals.EDITOR__EDITOR_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Language feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLanguagePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Editor_language_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Editor_language_feature", "_UI_Editor_type"),
-         EclipsePackage.Literals.EDITOR__LANGUAGE,
+         getString("_UI_Editor_extension_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Editor_extension_feature", "_UI_Editor_type"),
+         EclipsePackage.Literals.EDITOR__EXTENSION,
          true,
          false,
          false,
@@ -154,8 +130,7 @@ public class EditorItemProvider
 
     switch (notification.getFeatureID(Editor.class))
     {
-      case EclipsePackage.EDITOR__EDITOR_ID:
-      case EclipsePackage.EDITOR__LANGUAGE:
+      case EclipsePackage.EDITOR__EXTENSION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

@@ -23,15 +23,15 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Page;
+import org.obeonetwork.dsl.gen.eclipse.Marker;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Page} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Marker} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PageItemProvider
+public class MarkerItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class PageItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public PageItemProvider(AdapterFactory adapterFactory)
+  public MarkerItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -65,7 +65,8 @@ public class PageItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addPageIDPropertyDescriptor(object);
+      addMarkerIDPropertyDescriptor(object);
+      addIsPersistantPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -82,9 +83,9 @@ public class PageItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Page_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Page_name_feature", "_UI_Page_type"),
-         EclipsePackage.Literals.PAGE__NAME,
+         getString("_UI_Marker_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Marker_name_feature", "_UI_Marker_type"),
+         EclipsePackage.Literals.MARKER__NAME,
          true,
          false,
          false,
@@ -94,20 +95,20 @@ public class PageItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Page ID feature.
+   * This adds a property descriptor for the Marker ID feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPageIDPropertyDescriptor(Object object)
+  protected void addMarkerIDPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Page_pageID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Page_pageID_feature", "_UI_Page_type"),
-         EclipsePackage.Literals.PAGE__PAGE_ID,
+         getString("_UI_Marker_markerID_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Marker_markerID_feature", "_UI_Marker_type"),
+         EclipsePackage.Literals.MARKER__MARKER_ID,
          true,
          false,
          false,
@@ -117,7 +118,30 @@ public class PageItemProvider
   }
 
   /**
-   * This returns Page.gif.
+   * This adds a property descriptor for the Is Persistant feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIsPersistantPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Marker_isPersistant_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Marker_isPersistant_feature", "_UI_Marker_type"),
+         EclipsePackage.Literals.MARKER__IS_PERSISTANT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This returns Marker.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -125,7 +149,7 @@ public class PageItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Page"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Marker"));
   }
 
   /**
@@ -137,10 +161,10 @@ public class PageItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Page)object).getName();
+    String label = ((Marker)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Page_type") :
-      getString("_UI_Page_type") + " " + label;
+      getString("_UI_Marker_type") :
+      getString("_UI_Marker_type") + " " + label;
   }
 
   /**
@@ -155,10 +179,11 @@ public class PageItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Page.class))
+    switch (notification.getFeatureID(Marker.class))
     {
-      case EclipsePackage.PAGE__NAME:
-      case EclipsePackage.PAGE__PAGE_ID:
+      case EclipsePackage.MARKER__NAME:
+      case EclipsePackage.MARKER__MARKER_ID:
+      case EclipsePackage.MARKER__IS_PERSISTANT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

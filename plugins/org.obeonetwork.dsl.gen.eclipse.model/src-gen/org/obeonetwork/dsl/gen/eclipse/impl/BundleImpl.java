@@ -6,30 +6,27 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
+import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.Extension;
-import org.obeonetwork.dsl.gen.eclipse.Help;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
+import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
-import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
+import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
 /**
@@ -44,14 +41,16 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredServices <em>Required Services</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getWizards <em>Wizards</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDecorators <em>Decorators</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMarkers <em>Markers</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getEditors <em>Editors</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -143,36 +142,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<RequiredService> requiredServices;
 
   /**
-   * The cached value of the '{@link #getPartCategories() <em>Part Categories</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartCategories()
-   * @generated
-   * @ordered
-   */
-  protected EList<PartCategory> partCategories;
-
-  /**
-   * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPerspectives()
-   * @generated
-   * @ordered
-   */
-  protected EList<Perspective> perspectives;
-
-  /**
-   * The cached value of the '{@link #getHelps() <em>Helps</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHelps()
-   * @generated
-   * @ordered
-   */
-  protected EList<Help> helps;
-
-  /**
    * The cached value of the '{@link #getImportedPackageDeclarations() <em>Imported Package Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -221,6 +190,56 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<Extension> extensions;
+
+  /**
+   * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDecorators()
+   * @generated
+   * @ordered
+   */
+  protected EList<Decorator> decorators;
+
+  /**
+   * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMarkers()
+   * @generated
+   * @ordered
+   */
+  protected EList<Marker> markers;
+
+  /**
+   * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPerspectives()
+   * @generated
+   * @ordered
+   */
+  protected EList<Perspective> perspectives;
+
+  /**
+   * The cached value of the '{@link #getEditors() <em>Editors</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEditors()
+   * @generated
+   * @ordered
+   */
+  protected EList<Editor> editors;
+
+  /**
+   * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getViews()
+   * @generated
+   * @ordered
+   */
+  protected EList<View> views;
 
   /**
    * The cached value of the '{@link #getExportedPackages() <em>Exported Packages</em>}' reference list.
@@ -375,48 +394,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PartCategory> getPartCategories()
-  {
-    if (partCategories == null)
-    {
-      partCategories = new EObjectContainmentEList<PartCategory>(PartCategory.class, this, EclipsePackage.BUNDLE__PART_CATEGORIES);
-    }
-    return partCategories;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Perspective> getPerspectives()
-  {
-    if (perspectives == null)
-    {
-      perspectives = new EObjectContainmentEList<Perspective>(Perspective.class, this, EclipsePackage.BUNDLE__PERSPECTIVES);
-    }
-    return perspectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Help> getHelps()
-  {
-    if (helps == null)
-    {
-      helps = new EObjectContainmentEList<Help>(Help.class, this, EclipsePackage.BUNDLE__HELPS);
-    }
-    return helps;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ImportedPackageDeclaration> getImportedPackageDeclarations()
   {
     if (importedPackageDeclarations == null)
@@ -487,6 +464,76 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Decorator> getDecorators()
+  {
+    if (decorators == null)
+    {
+      decorators = new EObjectContainmentEList<Decorator>(Decorator.class, this, EclipsePackage.BUNDLE__DECORATORS);
+    }
+    return decorators;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Marker> getMarkers()
+  {
+    if (markers == null)
+    {
+      markers = new EObjectContainmentEList<Marker>(Marker.class, this, EclipsePackage.BUNDLE__MARKERS);
+    }
+    return markers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Perspective> getPerspectives()
+  {
+    if (perspectives == null)
+    {
+      perspectives = new EObjectContainmentEList<Perspective>(Perspective.class, this, EclipsePackage.BUNDLE__PERSPECTIVES);
+    }
+    return perspectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Editor> getEditors()
+  {
+    if (editors == null)
+    {
+      editors = new EObjectContainmentEList<Editor>(Editor.class, this, EclipsePackage.BUNDLE__EDITORS);
+    }
+    return editors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<View> getViews()
+  {
+    if (views == null)
+    {
+      views = new EObjectContainmentEList<View>(View.class, this, EclipsePackage.BUNDLE__VIEWS);
+    }
+    return views;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EPackage> getExportedPackages()
   {
     if (exportedPackages == null)
@@ -538,12 +585,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getProvidedServices()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
         return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return ((InternalEList<?>)getPartCategories()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-        return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__HELPS:
-        return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return ((InternalEList<?>)getImportedPackageDeclarations()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__NATURES:
@@ -554,6 +595,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__EXTENSIONS:
         return ((InternalEList<?>)getExtensions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__DECORATORS:
+        return ((InternalEList<?>)getDecorators()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__MARKERS:
+        return ((InternalEList<?>)getMarkers()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__EDITORS:
+        return ((InternalEList<?>)getEditors()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__VIEWS:
+        return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -578,12 +629,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getProvidedServices();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
         return getRequiredServices();
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return getPartCategories();
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-        return getPerspectives();
-      case EclipsePackage.BUNDLE__HELPS:
-        return getHelps();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return getImportedPackageDeclarations();
       case EclipsePackage.BUNDLE__NATURES:
@@ -594,6 +639,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getWizards();
       case EclipsePackage.BUNDLE__EXTENSIONS:
         return getExtensions();
+      case EclipsePackage.BUNDLE__DECORATORS:
+        return getDecorators();
+      case EclipsePackage.BUNDLE__MARKERS:
+        return getMarkers();
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return getPerspectives();
+      case EclipsePackage.BUNDLE__EDITORS:
+        return getEditors();
+      case EclipsePackage.BUNDLE__VIEWS:
+        return getViews();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return getExportedPackages();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
@@ -632,18 +687,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getRequiredServices().clear();
         getRequiredServices().addAll((Collection<? extends RequiredService>)newValue);
         return;
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        getPartCategories().clear();
-        getPartCategories().addAll((Collection<? extends PartCategory>)newValue);
-        return;
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-        getPerspectives().clear();
-        getPerspectives().addAll((Collection<? extends Perspective>)newValue);
-        return;
-      case EclipsePackage.BUNDLE__HELPS:
-        getHelps().clear();
-        getHelps().addAll((Collection<? extends Help>)newValue);
-        return;
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         getImportedPackageDeclarations().clear();
         getImportedPackageDeclarations().addAll((Collection<? extends ImportedPackageDeclaration>)newValue);
@@ -663,6 +706,26 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__EXTENSIONS:
         getExtensions().clear();
         getExtensions().addAll((Collection<? extends Extension>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__DECORATORS:
+        getDecorators().clear();
+        getDecorators().addAll((Collection<? extends Decorator>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__MARKERS:
+        getMarkers().clear();
+        getMarkers().addAll((Collection<? extends Marker>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        getPerspectives().clear();
+        getPerspectives().addAll((Collection<? extends Perspective>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__EDITORS:
+        getEditors().clear();
+        getEditors().addAll((Collection<? extends Editor>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__VIEWS:
+        getViews().clear();
+        getViews().addAll((Collection<? extends View>)newValue);
         return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
@@ -705,15 +768,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
         getRequiredServices().clear();
         return;
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        getPartCategories().clear();
-        return;
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-        getPerspectives().clear();
-        return;
-      case EclipsePackage.BUNDLE__HELPS:
-        getHelps().clear();
-        return;
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         getImportedPackageDeclarations().clear();
         return;
@@ -728,6 +782,21 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return;
       case EclipsePackage.BUNDLE__EXTENSIONS:
         getExtensions().clear();
+        return;
+      case EclipsePackage.BUNDLE__DECORATORS:
+        getDecorators().clear();
+        return;
+      case EclipsePackage.BUNDLE__MARKERS:
+        getMarkers().clear();
+        return;
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        getPerspectives().clear();
+        return;
+      case EclipsePackage.BUNDLE__EDITORS:
+        getEditors().clear();
+        return;
+      case EclipsePackage.BUNDLE__VIEWS:
+        getViews().clear();
         return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
@@ -762,12 +831,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return providedServices != null && !providedServices.isEmpty();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
         return requiredServices != null && !requiredServices.isEmpty();
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return partCategories != null && !partCategories.isEmpty();
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-        return perspectives != null && !perspectives.isEmpty();
-      case EclipsePackage.BUNDLE__HELPS:
-        return helps != null && !helps.isEmpty();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return importedPackageDeclarations != null && !importedPackageDeclarations.isEmpty();
       case EclipsePackage.BUNDLE__NATURES:
@@ -778,6 +841,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return wizards != null && !wizards.isEmpty();
       case EclipsePackage.BUNDLE__EXTENSIONS:
         return extensions != null && !extensions.isEmpty();
+      case EclipsePackage.BUNDLE__DECORATORS:
+        return decorators != null && !decorators.isEmpty();
+      case EclipsePackage.BUNDLE__MARKERS:
+        return markers != null && !markers.isEmpty();
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+        return perspectives != null && !perspectives.isEmpty();
+      case EclipsePackage.BUNDLE__EDITORS:
+        return editors != null && !editors.isEmpty();
+      case EclipsePackage.BUNDLE__VIEWS:
+        return views != null && !views.isEmpty();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return exportedPackages != null && !exportedPackages.isEmpty();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:

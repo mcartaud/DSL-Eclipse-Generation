@@ -68,105 +68,6 @@ public interface EclipseFactory extends EFactory
   ImportedPackageDeclaration createImportedPackageDeclaration();
 
   /**
-   * Returns a new object of class '<em>Action Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Set</em>'.
-   * @generated
-   */
-  ActionSet createActionSet();
-
-  /**
-   * Returns a new object of class '<em>Menu</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Menu</em>'.
-   * @generated
-   */
-  Menu createMenu();
-
-  /**
-   * Returns a new object of class '<em>Action</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action</em>'.
-   * @generated
-   */
-  Action createAction();
-
-  /**
-   * Returns a new object of class '<em>Part Category</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Part Category</em>'.
-   * @generated
-   */
-  PartCategory createPartCategory();
-
-  /**
-   * Returns a new object of class '<em>View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View</em>'.
-   * @generated
-   */
-  View createView();
-
-  /**
-   * Returns a new object of class '<em>Editor</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Editor</em>'.
-   * @generated
-   */
-  Editor createEditor();
-
-  /**
-   * Returns a new object of class '<em>Perspective</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Perspective</em>'.
-   * @generated
-   */
-  Perspective createPerspective();
-
-  /**
-   * Returns a new object of class '<em>Binding</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binding</em>'.
-   * @generated
-   */
-  Binding createBinding();
-
-  /**
-   * Returns a new object of class '<em>Help</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Help</em>'.
-   * @generated
-   */
-  Help createHelp();
-
-  /**
-   * Returns a new object of class '<em>Page</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Page</em>'.
-   * @generated
-   */
-  Page createPage();
-
-  /**
-   * Returns a new object of class '<em>Contextual Help</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contextual Help</em>'.
-   * @generated
-   */
-  ContextualHelp createContextualHelp();
-
-  /**
    * Returns a new object of class '<em>Provided Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -237,6 +138,96 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   Attribute createAttribute();
+
+  /**
+   * Returns a new object of class '<em>Decorator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Decorator</em>'.
+   * @generated
+   */
+  Decorator createDecorator();
+
+  /**
+   * Returns a new object of class '<em>Marker</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Marker</em>'.
+   * @generated
+   */
+  Marker createMarker();
+
+  /**
+   * Returns a new object of class '<em>Perspective</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Perspective</em>'.
+   * @generated
+   */
+  Perspective createPerspective();
+
+  /**
+   * Returns a new object of class '<em>Part Category</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Part Category</em>'.
+   * @generated
+   */
+  PartCategory createPartCategory();
+
+  /**
+   * Returns a new object of class '<em>View</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View</em>'.
+   * @generated
+   */
+  View createView();
+
+  /**
+   * Returns a new object of class '<em>Editor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Editor</em>'.
+   * @generated
+   */
+  Editor createEditor();
+
+  /**
+   * Returns a new object of class '<em>Action Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Set</em>'.
+   * @generated
+   */
+  ActionSet createActionSet();
+
+  /**
+   * Returns a new object of class '<em>Menu</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Menu</em>'.
+   * @generated
+   */
+  Menu createMenu();
+
+  /**
+   * Returns a new object of class '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action</em>'.
+   * @generated
+   */
+  Action createAction();
+
+  /**
+   * Returns a new object of class '<em>Dynamic Help</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dynamic Help</em>'.
+   * @generated
+   */
+  DynamicHelp createDynamicHelp();
 
   /**
    * Returns the package supported by this factory.

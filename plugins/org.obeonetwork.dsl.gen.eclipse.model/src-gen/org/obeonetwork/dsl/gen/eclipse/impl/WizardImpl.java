@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#isIsProject <em>Is Project</em>}</li>
  * </ul>
  * </p>
@@ -110,6 +111,26 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * @ordered
    */
   protected String category = CATEGORY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIcon()
+   * @generated
+   * @ordered
+   */
+  protected static final String ICON_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIcon()
+   * @generated
+   * @ordered
+   */
+  protected String icon = ICON_EDEFAULT;
 
   /**
    * The default value of the '{@link #isIsProject() <em>Is Project</em>}' attribute.
@@ -249,6 +270,29 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getIcon()
+  {
+    return icon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIcon(String newIcon)
+  {
+    String oldIcon = icon;
+    icon = newIcon;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__ICON, oldIcon, icon));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isIsProject()
   {
     return isProject;
@@ -285,6 +329,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return getDescription();
       case EclipsePackage.WIZARD__CATEGORY:
         return getCategory();
+      case EclipsePackage.WIZARD__ICON:
+        return getIcon();
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isIsProject();
     }
@@ -312,6 +358,9 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return;
       case EclipsePackage.WIZARD__CATEGORY:
         setCategory((String)newValue);
+        return;
+      case EclipsePackage.WIZARD__ICON:
+        setIcon((String)newValue);
         return;
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject((Boolean)newValue);
@@ -342,6 +391,9 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__CATEGORY:
         setCategory(CATEGORY_EDEFAULT);
         return;
+      case EclipsePackage.WIZARD__ICON:
+        setIcon(ICON_EDEFAULT);
+        return;
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject(IS_PROJECT_EDEFAULT);
         return;
@@ -367,6 +419,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case EclipsePackage.WIZARD__CATEGORY:
         return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
+      case EclipsePackage.WIZARD__ICON:
+        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isProject != IS_PROJECT_EDEFAULT;
     }
@@ -392,6 +446,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
     result.append(description);
     result.append(", category: ");
     result.append(category);
+    result.append(", icon: ");
+    result.append(icon);
     result.append(", isProject: ");
     result.append(isProject);
     result.append(')');

@@ -31,7 +31,8 @@ bin.includes = META-INF/,\
 
 [template private buildPropertiesWorkspace(aBundle : Bundle)]
 
-plugin.xml
+plugin.xml,\
+icons/
 [/template]
 
 [template private buildPropertiesOSGi(aBundle : Bundle)]
@@ -40,6 +41,7 @@ OSGI-INF/
 [/template]
 
 [template private binIncludes(aBundle : Bundle)]
-[if ((aBundle.eContents(Wizard)->size() > 0) or (aBundle.eContents(Nature)->size() > 0) or (aBundle.eContents(Builder)->size() > 0))],\[buildPropertiesWorkspace()/]
-[elseif (aBundle.providedServices->size() > 0)],\[buildPropertiesOSGi()/][/if]
+[if ((aBundle.eContents(Wizard)->size() > 0) or (aBundle.eContents(Nature)->size() > 0) or (aBundle.eContents(Builder)->size() > 0) 
+or aBundle.eContents(Perspective)->size() > 0 or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0
+)],\[buildPropertiesWorkspace()/][/if][if (aBundle.providedServices->size() > 0)],\[buildPropertiesOSGi()/][/if]
 [/template]

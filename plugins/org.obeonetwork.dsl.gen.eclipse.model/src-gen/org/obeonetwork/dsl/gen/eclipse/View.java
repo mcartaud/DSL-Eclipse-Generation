@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getViewID <em>View ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}</li>
@@ -25,31 +27,76 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface View extends Part
 {
+
   /**
-   * Returns the value of the '<em><b>View ID</b></em>' attribute.
+   * Returns the value of the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>View ID</em>' attribute isn't clear,
+   * If the meaning of the '<em>Category</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>View ID</em>' attribute.
-   * @see #setViewID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_ViewID()
+   * @return the value of the '<em>Category</em>' attribute.
+   * @see #setCategory(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Category()
    * @model unique="false"
    * @generated
    */
-  String getViewID();
+  String getCategory();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#getViewID <em>View ID</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>View ID</em>' attribute.
-   * @see #getViewID()
+   * @param value the new value of the '<em>Category</em>' attribute.
+   * @see #getCategory()
    * @generated
    */
-  void setViewID(String value);
+  void setCategory(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is Tree</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Tree</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Tree</em>' attribute.
+   * @see #setIsTree(boolean)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_IsTree()
+   * @model unique="false"
+   * @generated
+   */
+  boolean isIsTree();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Tree</em>' attribute.
+   * @see #isIsTree()
+   * @generated
+   */
+  void setIsTree(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Perspectives</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Perspective}.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Perspectives</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Perspectives</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Perspectives()
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews
+   * @model opposite="views"
+   * @generated
+   */
+  EList<Perspective> getPerspectives();
 
   /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
@@ -82,23 +129,4 @@ public interface View extends Part
    * @generated
    */
   EList<Menu> getMenus();
-
-  /**
-   * Returns the value of the '<em><b>Perspectives</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Perspective}.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Perspectives</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Perspectives</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Perspectives()
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews
-   * @model opposite="views"
-   * @generated
-   */
-  EList<Perspective> getPerspectives();
-
 } // View

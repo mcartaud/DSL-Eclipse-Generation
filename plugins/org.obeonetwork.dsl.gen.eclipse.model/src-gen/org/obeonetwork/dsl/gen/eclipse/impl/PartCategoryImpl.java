@@ -30,7 +30,6 @@ import org.obeonetwork.dsl.gen.eclipse.PartCategory;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getPartCategoryID <em>Part Category ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
@@ -58,26 +57,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getPartCategoryID() <em>Part Category ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartCategoryID()
-   * @generated
-   * @ordered
-   */
-  protected static final String PART_CATEGORY_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPartCategoryID() <em>Part Category ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartCategoryID()
-   * @generated
-   * @ordered
-   */
-  protected String partCategoryID = PART_CATEGORY_ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
@@ -138,29 +117,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPartCategoryID()
-  {
-    return partCategoryID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPartCategoryID(String newPartCategoryID)
-  {
-    String oldPartCategoryID = partCategoryID;
-    partCategoryID = newPartCategoryID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID, oldPartCategoryID, partCategoryID));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Part> getParts()
   {
     if (parts == null)
@@ -198,8 +154,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
     {
       case EclipsePackage.PART_CATEGORY__NAME:
         return getName();
-      case EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID:
-        return getPartCategoryID();
       case EclipsePackage.PART_CATEGORY__PARTS:
         return getParts();
     }
@@ -219,9 +173,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
     {
       case EclipsePackage.PART_CATEGORY__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID:
-        setPartCategoryID((String)newValue);
         return;
       case EclipsePackage.PART_CATEGORY__PARTS:
         getParts().clear();
@@ -244,9 +195,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
       case EclipsePackage.PART_CATEGORY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID:
-        setPartCategoryID(PART_CATEGORY_ID_EDEFAULT);
-        return;
       case EclipsePackage.PART_CATEGORY__PARTS:
         getParts().clear();
         return;
@@ -266,8 +214,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
     {
       case EclipsePackage.PART_CATEGORY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID:
-        return PART_CATEGORY_ID_EDEFAULT == null ? partCategoryID != null : !PART_CATEGORY_ID_EDEFAULT.equals(partCategoryID);
       case EclipsePackage.PART_CATEGORY__PARTS:
         return parts != null && !parts.isEmpty();
     }
@@ -287,8 +233,6 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", partCategoryID: ");
-    result.append(partCategoryID);
     result.append(')');
     return result.toString();
   }

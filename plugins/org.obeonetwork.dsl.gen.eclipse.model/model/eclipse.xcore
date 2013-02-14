@@ -46,94 +46,24 @@ class Bundle extends Project {
 	String vendor
 	contains ProvidedService[] providedServices
 	contains RequiredService[] requiredServices
-	contains PartCategory[] partCategories
-	contains Perspective[] perspectives
-	contains Help[] helps
 	contains ImportedPackageDeclaration[] importedPackageDeclarations
 	contains Nature[] natures
 	contains Builder[] builders
 	contains Wizard[] wizards
 	contains Extension[] extensions
+	contains Decorator[] decorators
+	contains Marker[] markers
+	contains Perspective[] perspectives
+	contains Editor[] editors
+	contains View[] views
 	refers EPackage[] exportedPackages
 	refers EPackage[] ownedPackages
  	refers derived EPackage[] allExportedPackages
 }
 
-
 class ImportedPackageDeclaration {
 	String packageName
 	String packageVersion
-}
-
-class ActionSet {
-	String name
-	contains Menu[] menus
-	contains Action[] actions
-}
-
-class Menu {
-	String name
-	contains Binding binding
-	contains Menu[] menus
-	contains Action[] actions
-}
-
-class Action {
-	String name
-	contains Binding binding
-}
-
-class PartCategory {
-	String name
-	String partCategoryID
-	contains Part[] parts
-}
-
-abstract class Part {
-	String partID
-	String name
-	String description
-	contains ActionSet[] actionSets
-	contains ContextualHelp contextualHelp
-}
-
-class View extends Part {
-	String viewID
-	contains Action[] actions
-	contains Menu[] menus
-	refers Perspective[] perspectives opposite views
-}
-
-class Editor extends Part {
-	String editorID
-	String language
-}
-
-class Perspective {
-	String name
-	String perspectiveID
-	contains ActionSet[] actionSets
-	refers View[] views opposite perspectives
-}
-
-class Binding {
-	String name
-	String key
-}
-
-class Help {
-	String name
-	contains Page[] pages
-}
-
-class Page {
-	String name
-	String pageID
-}
-
-class ContextualHelp {
-	String contextualHelpID
-	contains Page page
 }
 
 class ProvidedService {
@@ -169,6 +99,7 @@ class Wizard {
 	String title
 	String description
 	String category
+	String icon
 	boolean isProject
 }
 
@@ -189,10 +120,88 @@ class Attribute {
 	Type ^type
 }
 
+class Decorator {
+	String label
+	String icon
+	String name
+	boolean isLightweight
+	boolean isAdaptable
+	Location location
+}
+
+class Marker {
+	String name
+	String markerID
+	boolean isPersistant
+}
+
+class Perspective {
+	String name
+	String icon
+	contains ActionSet[] actionSets
+	refers View[] views opposite perspectives
+}
+
+abstract class Part {
+	String name
+	String icon
+	contains ActionSet[] actionSets
+	contains DynamicHelp dynamicHelp
+}
+
+class PartCategory {
+	String name
+	contains Part[] parts
+}
+
+class View extends Part {
+	String category
+	boolean isTree
+	contains Action[] actions
+	contains Menu[] menus
+	refers Perspective[] perspectives opposite views
+}
+
+class Editor extends Part {
+	String extension
+}
+
+class ActionSet {
+	String name
+	contains Menu[] menus
+	contains Action[] actions
+}
+
+class Menu {
+	String name
+	contains Menu[] menus
+	contains Action[] actions
+}
+
+class Action {
+	String name
+}
+
+class DynamicHelp {
+	String name
+	String description
+	String label
+	String title
+}
+
 enum Type {
 	string
 	^boolean
 	java
 	resource
 	identifier
+}
+
+enum Location {
+	BottomRight
+	BottomLeft
+	TopRight
+	TopLeft
+	Underlay
+	Blank
 }

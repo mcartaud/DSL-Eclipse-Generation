@@ -1,0 +1,66 @@
+[comment encoding = UTF-8 /]
+[module workbenchPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template public perspectivePlugin(aPerspective : Perspective)]
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="[aPerspective.name/]"
+            icon="[aPerspective.icon/]"
+            class="[aPerspective.ancestors(Bundle).genBundlePath()/].ui.perspectives.[aPerspective.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[aPerspective.ancestors(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().replaceAll(' ', '')/]">
+      </perspective>
+   </extension>
+
+[/template]
+
+[template public viewPlugin(aView : View)]
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="[aView.category/]"
+            id="[aView.name.replaceAll(' ', '')/]Category">
+      </category>
+      <view
+            name="[aView.name/]"
+            icon="[aView.icon/]"
+            category="[aView.name.replaceAll(' ', '')/]Category"
+            class="[aView.ancestors(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[aView.ancestors(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="[aView.ancestors(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts[
+            file="contexts.xml">
+      </contexts>
+   </extension>
+[/template]
+
+[template public editorPlugin(anEditor : Editor)]
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="[anEditor.name/]"
+            extensions="[anEditor.extension/]"
+            icon="[anEditor.icon/]"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="[anEditor.ancestors(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[anEditor.ancestors(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().replaceAll(' ', '')/]">
+      </editor>
+   </extension>
+[/template]

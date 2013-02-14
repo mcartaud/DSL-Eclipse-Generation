@@ -68,7 +68,7 @@ public class PerspectiveItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addPerspectiveIDPropertyDescriptor(object);
+      addIconPropertyDescriptor(object);
       addViewsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -98,20 +98,20 @@ public class PerspectiveItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Perspective ID feature.
+   * This adds a property descriptor for the Icon feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPerspectiveIDPropertyDescriptor(Object object)
+  protected void addIconPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Perspective_perspectiveID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Perspective_perspectiveID_feature", "_UI_Perspective_type"),
-         EclipsePackage.Literals.PERSPECTIVE__PERSPECTIVE_ID,
+         getString("_UI_Perspective_icon_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Perspective_icon_feature", "_UI_Perspective_type"),
+         EclipsePackage.Literals.PERSPECTIVE__ICON,
          true,
          false,
          false,
@@ -218,7 +218,7 @@ public class PerspectiveItemProvider
     switch (notification.getFeatureID(Perspective.class))
     {
       case EclipsePackage.PERSPECTIVE__NAME:
-      case EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID:
+      case EclipsePackage.PERSPECTIVE__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:

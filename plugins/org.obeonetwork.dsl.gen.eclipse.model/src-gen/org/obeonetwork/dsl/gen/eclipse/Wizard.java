@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}</li>
  * </ul>
  * </p>
@@ -129,6 +130,32 @@ public interface Wizard extends EObject
    * @generated
    */
   void setCategory(String value);
+
+  /**
+   * Returns the value of the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Icon</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Icon</em>' attribute.
+   * @see #setIcon(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_Icon()
+   * @model unique="false"
+   * @generated
+   */
+  String getIcon();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Icon</em>' attribute.
+   * @see #getIcon()
+   * @generated
+   */
+  void setIcon(String value);
 
   /**
    * Returns the value of the '<em><b>Is Project</b></em>' attribute.

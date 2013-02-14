@@ -470,40 +470,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__REQUIRED_SERVICES = PROJECT_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Part Categories</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__PART_CATEGORIES = PROJECT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Helps</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__HELPS = PROJECT_FEATURE_COUNT + 7;
-
-  /**
    * The feature id for the '<em><b>Imported Package Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 8;
+  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Natures</b></em>' containment reference list.
@@ -512,7 +485,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__NATURES = PROJECT_FEATURE_COUNT + 9;
+  int BUNDLE__NATURES = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Builders</b></em>' containment reference list.
@@ -521,7 +494,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__BUILDERS = PROJECT_FEATURE_COUNT + 10;
+  int BUNDLE__BUILDERS = PROJECT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Wizards</b></em>' containment reference list.
@@ -530,7 +503,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 11;
+  int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -539,7 +512,52 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXTENSIONS = PROJECT_FEATURE_COUNT + 12;
+  int BUNDLE__EXTENSIONS = PROJECT_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Decorators</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__DECORATORS = PROJECT_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__MARKERS = PROJECT_FEATURE_COUNT + 11;
+
+  /**
+   * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 12;
+
+  /**
+   * The feature id for the '<em><b>Editors</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__EDITORS = PROJECT_FEATURE_COUNT + 13;
+
+  /**
+   * The feature id for the '<em><b>Views</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__VIEWS = PROJECT_FEATURE_COUNT + 14;
 
   /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
@@ -548,7 +566,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 13;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 15;
 
   /**
    * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
@@ -557,7 +575,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 14;
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 16;
 
   /**
    * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
@@ -566,7 +584,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 15;
+  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 17;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -575,7 +593,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 16;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 18;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -633,747 +651,6 @@ public interface EclipsePackage extends EPackage
   int IMPORTED_PACKAGE_DECLARATION_OPERATION_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl <em>Action Set</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActionSet()
-   * @generated
-   */
-  int ACTION_SET = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_SET__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_SET__MENUS = 1;
-
-  /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_SET__ACTIONS = 2;
-
-  /**
-   * The number of structural features of the '<em>Action Set</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_SET_FEATURE_COUNT = 3;
-
-  /**
-   * The number of operations of the '<em>Action Set</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_SET_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
-   * @generated
-   */
-  int MENU = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU__BINDING = 1;
-
-  /**
-   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU__MENUS = 2;
-
-  /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU__ACTIONS = 3;
-
-  /**
-   * The number of structural features of the '<em>Menu</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU_FEATURE_COUNT = 4;
-
-  /**
-   * The number of operations of the '<em>Menu</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
-   * @generated
-   */
-  int ACTION = 8;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION__BINDING = 1;
-
-  /**
-   * The number of structural features of the '<em>Action</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_FEATURE_COUNT = 2;
-
-  /**
-   * The number of operations of the '<em>Action</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
-   * @generated
-   */
-  int PART_CATEGORY = 9;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Part Category ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__PART_CATEGORY_ID = 1;
-
-  /**
-   * The feature id for the '<em><b>Parts</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__PARTS = 2;
-
-  /**
-   * The number of structural features of the '<em>Part Category</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY_FEATURE_COUNT = 3;
-
-  /**
-   * The number of operations of the '<em>Part Category</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl <em>Part</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.PartImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
-   * @generated
-   */
-  int PART = 10;
-
-  /**
-   * The feature id for the '<em><b>Part ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__PART_ID = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__DESCRIPTION = 2;
-
-  /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__ACTION_SETS = 3;
-
-  /**
-   * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART__CONTEXTUAL_HELP = 4;
-
-  /**
-   * The number of structural features of the '<em>Part</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_FEATURE_COUNT = 5;
-
-  /**
-   * The number of operations of the '<em>Part</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
-   * @generated
-   */
-  int VIEW = 11;
-
-  /**
-   * The feature id for the '<em><b>Part ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__PART_ID = PART__PART_ID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__NAME = PART__NAME;
-
-  /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__DESCRIPTION = PART__DESCRIPTION;
-
-  /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__ACTION_SETS = PART__ACTION_SETS;
-
-  /**
-   * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__CONTEXTUAL_HELP = PART__CONTEXTUAL_HELP;
-
-  /**
-   * The feature id for the '<em><b>View ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__VIEW_ID = PART_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__ACTIONS = PART_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__MENUS = PART_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>View</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
-
-  /**
-   * The number of operations of the '<em>View</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
-   * @generated
-   */
-  int EDITOR = 12;
-
-  /**
-   * The feature id for the '<em><b>Part ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__PART_ID = PART__PART_ID;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__NAME = PART__NAME;
-
-  /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__DESCRIPTION = PART__DESCRIPTION;
-
-  /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__ACTION_SETS = PART__ACTION_SETS;
-
-  /**
-   * The feature id for the '<em><b>Contextual Help</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__CONTEXTUAL_HELP = PART__CONTEXTUAL_HELP;
-
-  /**
-   * The feature id for the '<em><b>Editor ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__EDITOR_ID = PART_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Language</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR__LANGUAGE = PART_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Editor</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
-
-  /**
-   * The number of operations of the '<em>Editor</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EDITOR_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
-   * @generated
-   */
-  int PERSPECTIVE = 13;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Perspective ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE__PERSPECTIVE_ID = 1;
-
-  /**
-   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE__ACTION_SETS = 2;
-
-  /**
-   * The feature id for the '<em><b>Views</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE__VIEWS = 3;
-
-  /**
-   * The number of structural features of the '<em>Perspective</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE_FEATURE_COUNT = 4;
-
-  /**
-   * The number of operations of the '<em>Perspective</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BindingImpl <em>Binding</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.BindingImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
-   * @generated
-   */
-  int BINDING = 14;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINDING__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Key</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINDING__KEY = 1;
-
-  /**
-   * The number of structural features of the '<em>Binding</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINDING_FEATURE_COUNT = 2;
-
-  /**
-   * The number of operations of the '<em>Binding</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINDING_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl <em>Help</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelp()
-   * @generated
-   */
-  int HELP = 15;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Pages</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP__PAGES = 1;
-
-  /**
-   * The number of structural features of the '<em>Help</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_FEATURE_COUNT = 2;
-
-  /**
-   * The number of operations of the '<em>Help</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PageImpl <em>Page</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.PageImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPage()
-   * @generated
-   */
-  int PAGE = 16;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAGE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Page ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAGE__PAGE_ID = 1;
-
-  /**
-   * The number of structural features of the '<em>Page</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAGE_FEATURE_COUNT = 2;
-
-  /**
-   * The number of operations of the '<em>Page</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAGE_OPERATION_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHelpImpl <em>Contextual Help</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ContextualHelpImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHelp()
-   * @generated
-   */
-  int CONTEXTUAL_HELP = 17;
-
-  /**
-   * The feature id for the '<em><b>Contextual Help ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXTUAL_HELP__CONTEXTUAL_HELP_ID = 0;
-
-  /**
-   * The feature id for the '<em><b>Page</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXTUAL_HELP__PAGE = 1;
-
-  /**
-   * The number of structural features of the '<em>Contextual Help</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXTUAL_HELP_FEATURE_COUNT = 2;
-
-  /**
-   * The number of operations of the '<em>Contextual Help</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXTUAL_HELP_OPERATION_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1381,7 +658,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProvidedService()
    * @generated
    */
-  int PROVIDED_SERVICE = 18;
+  int PROVIDED_SERVICE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1445,7 +722,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getRequiredService()
    * @generated
    */
-  int REQUIRED_SERVICE = 19;
+  int REQUIRED_SERVICE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1527,7 +804,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBuilder()
    * @generated
    */
-  int BUILDER = 20;
+  int BUILDER = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1573,7 +850,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNature()
    * @generated
    */
-  int NATURE = 21;
+  int NATURE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1637,7 +914,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getWizard()
    * @generated
    */
-  int WIZARD = 22;
+  int WIZARD = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1676,13 +953,22 @@ public interface EclipsePackage extends EPackage
   int WIZARD__CATEGORY = 3;
 
   /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIZARD__ICON = 4;
+
+  /**
    * The feature id for the '<em><b>Is Project</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WIZARD__IS_PROJECT = 4;
+  int WIZARD__IS_PROJECT = 5;
 
   /**
    * The number of structural features of the '<em>Wizard</em>' class.
@@ -1691,7 +977,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int WIZARD_FEATURE_COUNT = 5;
+  int WIZARD_FEATURE_COUNT = 6;
 
   /**
    * The number of operations of the '<em>Wizard</em>' class.
@@ -1710,7 +996,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProjectWizard()
    * @generated
    */
-  int PROJECT_WIZARD = 23;
+  int PROJECT_WIZARD = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1747,6 +1033,15 @@ public interface EclipsePackage extends EPackage
    * @ordered
    */
   int PROJECT_WIZARD__CATEGORY = WIZARD__CATEGORY;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT_WIZARD__ICON = WIZARD__ICON;
 
   /**
    * The feature id for the '<em><b>Is Project</b></em>' attribute.
@@ -1792,7 +1087,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtension()
    * @generated
    */
-  int EXTENSION = 24;
+  int EXTENSION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1847,7 +1142,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 25;
+  int ATTRIBUTE = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1904,6 +1199,710 @@ public interface EclipsePackage extends EPackage
   int ATTRIBUTE_OPERATION_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl <em>Decorator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDecorator()
+   * @generated
+   */
+  int DECORATOR = 14;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__ICON = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Is Lightweight</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__IS_LIGHTWEIGHT = 3;
+
+  /**
+   * The feature id for the '<em><b>Is Adaptable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__IS_ADAPTABLE = 4;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR__LOCATION = 5;
+
+  /**
+   * The number of structural features of the '<em>Decorator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR_FEATURE_COUNT = 6;
+
+  /**
+   * The number of operations of the '<em>Decorator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECORATOR_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MarkerImpl <em>Marker</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.MarkerImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMarker()
+   * @generated
+   */
+  int MARKER = 15;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Marker ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKER__MARKER_ID = 1;
+
+  /**
+   * The feature id for the '<em><b>Is Persistant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKER__IS_PERSISTANT = 2;
+
+  /**
+   * The number of structural features of the '<em>Marker</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKER_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Marker</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKER_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
+   * @generated
+   */
+  int PERSPECTIVE = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE__ICON = 1;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE__ACTION_SETS = 2;
+
+  /**
+   * The feature id for the '<em><b>Views</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE__VIEWS = 3;
+
+  /**
+   * The number of structural features of the '<em>Perspective</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Perspective</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSPECTIVE_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl <em>Part</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.PartImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
+   * @generated
+   */
+  int PART = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__ICON = 1;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__ACTION_SETS = 2;
+
+  /**
+   * The feature id for the '<em><b>Dynamic Help</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART__DYNAMIC_HELP = 3;
+
+  /**
+   * The number of structural features of the '<em>Part</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Part</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
+   * @generated
+   */
+  int PART_CATEGORY = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_CATEGORY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_CATEGORY__PARTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Part Category</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_CATEGORY_FEATURE_COUNT = 2;
+
+  /**
+   * The number of operations of the '<em>Part Category</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PART_CATEGORY_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
+   * @generated
+   */
+  int VIEW = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__NAME = PART__NAME;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ICON = PART__ICON;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ACTION_SETS = PART__ACTION_SETS;
+
+  /**
+   * The feature id for the '<em><b>Dynamic Help</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__DYNAMIC_HELP = PART__DYNAMIC_HELP;
+
+  /**
+   * The feature id for the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__CATEGORY = PART_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Is Tree</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__IS_TREE = PART_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ACTIONS = PART_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__MENUS = PART_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Perspectives</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>View</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
+
+  /**
+   * The number of operations of the '<em>View</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
+   * @generated
+   */
+  int EDITOR = 20;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__NAME = PART__NAME;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__ICON = PART__ICON;
+
+  /**
+   * The feature id for the '<em><b>Action Sets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__ACTION_SETS = PART__ACTION_SETS;
+
+  /**
+   * The feature id for the '<em><b>Dynamic Help</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__DYNAMIC_HELP = PART__DYNAMIC_HELP;
+
+  /**
+   * The feature id for the '<em><b>Extension</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR__EXTENSION = PART_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Editor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
+
+  /**
+   * The number of operations of the '<em>Editor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EDITOR_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl <em>Action Set</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActionSet()
+   * @generated
+   */
+  int ACTION_SET = 21;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_SET__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_SET__MENUS = 1;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_SET__ACTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Action Set</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_SET_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Action Set</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_SET_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
+   * @generated
+   */
+  int MENU = 22;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__MENUS = 1;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__ACTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
+   * @generated
+   */
+  int ACTION = 23;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_FEATURE_COUNT = 1;
+
+  /**
+   * The number of operations of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl <em>Dynamic Help</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
+   * @generated
+   */
+  int DYNAMIC_HELP = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__LABEL = 2;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__TITLE = 3;
+
+  /**
+   * The number of structural features of the '<em>Dynamic Help</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Dynamic Help</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP_OPERATION_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1911,7 +1910,18 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 26;
+  int TYPE = 25;
+
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.Location
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
+   * @generated
+   */
+  int LOCATION = 26;
 
 
   /**
@@ -2251,39 +2261,6 @@ public interface EclipsePackage extends EPackage
   EReference getBundle_RequiredServices();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Part Categories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories()
-   * @see #getBundle()
-   * @generated
-   */
-  EReference getBundle_PartCategories();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Perspectives</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives()
-   * @see #getBundle()
-   * @generated
-   */
-  EReference getBundle_Perspectives();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps <em>Helps</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Helps</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps()
-   * @see #getBundle()
-   * @generated
-   */
-  EReference getBundle_Helps();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportedPackageDeclarations <em>Imported Package Declarations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2337,6 +2314,61 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getBundle_Extensions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDecorators <em>Decorators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Decorators</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getDecorators()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Decorators();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMarkers <em>Markers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Markers</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getMarkers()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Markers();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Perspectives</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Perspectives();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getEditors <em>Editors</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Editors</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getEditors()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Editors();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getViews <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Views</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getViews()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Views();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}'.
@@ -2402,511 +2434,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EAttribute getImportedPackageDeclaration_PackageVersion();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet <em>Action Set</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action Set</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet
-   * @generated
-   */
-  EClass getActionSet();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getName()
-   * @see #getActionSet()
-   * @generated
-   */
-  EAttribute getActionSet_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getMenus()
-   * @see #getActionSet()
-   * @generated
-   */
-  EReference getActionSet_Menus();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getActions()
-   * @see #getActionSet()
-   * @generated
-   */
-  EReference getActionSet_Actions();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Menu <em>Menu</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Menu</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu
-   * @generated
-   */
-  EClass getMenu();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getName()
-   * @see #getMenu()
-   * @generated
-   */
-  EAttribute getMenu_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getBinding <em>Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Binding</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getBinding()
-   * @see #getMenu()
-   * @generated
-   */
-  EReference getMenu_Binding();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMenus()
-   * @see #getMenu()
-   * @generated
-   */
-  EReference getMenu_Menus();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getActions()
-   * @see #getMenu()
-   * @generated
-   */
-  EReference getMenu_Actions();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action
-   * @generated
-   */
-  EClass getAction();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getName()
-   * @see #getAction()
-   * @generated
-   */
-  EAttribute getAction_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.Action#getBinding <em>Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Binding</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getBinding()
-   * @see #getAction()
-   * @generated
-   */
-  EReference getAction_Binding();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory <em>Part Category</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Part Category</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory
-   * @generated
-   */
-  EClass getPartCategory();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getName()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EAttribute getPartCategory_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getPartCategoryID <em>Part Category ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Part Category ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getPartCategoryID()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EAttribute getPartCategory_PartCategoryID();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts <em>Parts</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parts</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EReference getPartCategory_Parts();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Part <em>Part</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Part</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part
-   * @generated
-   */
-  EClass getPart();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getPartID <em>Part ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Part ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getPartID()
-   * @see #getPart()
-   * @generated
-   */
-  EAttribute getPart_PartID();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getName()
-   * @see #getPart()
-   * @generated
-   */
-  EAttribute getPart_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getDescription()
-   * @see #getPart()
-   * @generated
-   */
-  EAttribute getPart_Description();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getActionSets()
-   * @see #getPart()
-   * @generated
-   */
-  EReference getPart_ActionSets();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp <em>Contextual Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Contextual Help</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp()
-   * @see #getPart()
-   * @generated
-   */
-  EReference getPart_ContextualHelp();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.View <em>View</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>View</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View
-   * @generated
-   */
-  EClass getView();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#getViewID <em>View ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>View ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getViewID()
-   * @see #getView()
-   * @generated
-   */
-  EAttribute getView_ViewID();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getActions()
-   * @see #getView()
-   * @generated
-   */
-  EReference getView_Actions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getMenus()
-   * @see #getView()
-   * @generated
-   */
-  EReference getView_Menus();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Perspectives</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getPerspectives()
-   * @see #getView()
-   * @generated
-   */
-  EReference getView_Perspectives();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Editor <em>Editor</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Editor</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor
-   * @generated
-   */
-  EClass getEditor();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getEditorID <em>Editor ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Editor ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getEditorID()
-   * @see #getEditor()
-   * @generated
-   */
-  EAttribute getEditor_EditorID();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage <em>Language</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Language</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getLanguage()
-   * @see #getEditor()
-   * @generated
-   */
-  EAttribute getEditor_Language();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Perspective <em>Perspective</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Perspective</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective
-   * @generated
-   */
-  EClass getPerspective();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getName()
-   * @see #getPerspective()
-   * @generated
-   */
-  EAttribute getPerspective_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getPerspectiveID <em>Perspective ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Perspective ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getPerspectiveID()
-   * @see #getPerspective()
-   * @generated
-   */
-  EAttribute getPerspective_PerspectiveID();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets <em>Action Sets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets()
-   * @see #getPerspective()
-   * @generated
-   */
-  EReference getPerspective_ActionSets();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Views</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews()
-   * @see #getPerspective()
-   * @generated
-   */
-  EReference getPerspective_Views();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Binding <em>Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Binding</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Binding
-   * @generated
-   */
-  EClass getBinding();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Binding#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Binding#getName()
-   * @see #getBinding()
-   * @generated
-   */
-  EAttribute getBinding_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Binding#getKey <em>Key</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Key</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Binding#getKey()
-   * @see #getBinding()
-   * @generated
-   */
-  EAttribute getBinding_Key();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Help <em>Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Help</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Help
-   * @generated
-   */
-  EClass getHelp();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Help#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Help#getName()
-   * @see #getHelp()
-   * @generated
-   */
-  EAttribute getHelp_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Help#getPages <em>Pages</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Pages</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Help#getPages()
-   * @see #getHelp()
-   * @generated
-   */
-  EReference getHelp_Pages();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Page <em>Page</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Page</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Page
-   * @generated
-   */
-  EClass getPage();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Page#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Page#getName()
-   * @see #getPage()
-   * @generated
-   */
-  EAttribute getPage_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Page#getPageID <em>Page ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Page ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Page#getPageID()
-   * @see #getPage()
-   * @generated
-   */
-  EAttribute getPage_PageID();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHelp <em>Contextual Help</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Contextual Help</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ContextualHelp
-   * @generated
-   */
-  EClass getContextualHelp();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHelp#getContextualHelpID <em>Contextual Help ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Contextual Help ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ContextualHelp#getContextualHelpID()
-   * @see #getContextualHelp()
-   * @generated
-   */
-  EAttribute getContextualHelp_ContextualHelpID();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHelp#getPage <em>Page</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Page</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ContextualHelp#getPage()
-   * @see #getContextualHelp()
-   * @generated
-   */
-  EReference getContextualHelp_Page();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
@@ -3179,6 +2706,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getWizard_Category();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon()
+   * @see #getWizard()
+   * @generated
+   */
+  EAttribute getWizard_Icon();
+
+  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3308,6 +2846,512 @@ public interface EclipsePackage extends EPackage
   EAttribute getAttribute_Type();
 
   /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Decorator <em>Decorator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Decorator</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator
+   * @generated
+   */
+  EClass getDecorator();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_Label();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_Icon();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getName()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsLightweight <em>Is Lightweight</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Lightweight</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#isIsLightweight()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_IsLightweight();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsAdaptable <em>Is Adaptable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Adaptable</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#isIsAdaptable()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_IsAdaptable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getLocation()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_Location();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Marker <em>Marker</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Marker</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Marker
+   * @generated
+   */
+  EClass getMarker();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Marker#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Marker#getName()
+   * @see #getMarker()
+   * @generated
+   */
+  EAttribute getMarker_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID <em>Marker ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Marker ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID()
+   * @see #getMarker()
+   * @generated
+   */
+  EAttribute getMarker_MarkerID();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Marker#isIsPersistant <em>Is Persistant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Persistant</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Marker#isIsPersistant()
+   * @see #getMarker()
+   * @generated
+   */
+  EAttribute getMarker_IsPersistant();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Perspective <em>Perspective</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Perspective</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective
+   * @generated
+   */
+  EClass getPerspective();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getName()
+   * @see #getPerspective()
+   * @generated
+   */
+  EAttribute getPerspective_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon()
+   * @see #getPerspective()
+   * @generated
+   */
+  EAttribute getPerspective_Icon();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets <em>Action Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets()
+   * @see #getPerspective()
+   * @generated
+   */
+  EReference getPerspective_ActionSets();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Views</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews()
+   * @see #getPerspective()
+   * @generated
+   */
+  EReference getPerspective_Views();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Part <em>Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Part</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part
+   * @generated
+   */
+  EClass getPart();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getName()
+   * @see #getPart()
+   * @generated
+   */
+  EAttribute getPart_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Part#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getIcon()
+   * @see #getPart()
+   * @generated
+   */
+  EAttribute getPart_Icon();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action Sets</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getActionSets()
+   * @see #getPart()
+   * @generated
+   */
+  EReference getPart_ActionSets();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDynamicHelp <em>Dynamic Help</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dynamic Help</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Part#getDynamicHelp()
+   * @see #getPart()
+   * @generated
+   */
+  EReference getPart_DynamicHelp();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory <em>Part Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Part Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory
+   * @generated
+   */
+  EClass getPartCategory();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getName()
+   * @see #getPartCategory()
+   * @generated
+   */
+  EAttribute getPartCategory_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts <em>Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parts</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts()
+   * @see #getPartCategory()
+   * @generated
+   */
+  EReference getPartCategory_Parts();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.View <em>View</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>View</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View
+   * @generated
+   */
+  EClass getView();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getCategory()
+   * @see #getView()
+   * @generated
+   */
+  EAttribute getView_Category();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Tree</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#isIsTree()
+   * @see #getView()
+   * @generated
+   */
+  EAttribute getView_IsTree();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Perspectives</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getPerspectives()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_Perspectives();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Editor <em>Editor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Editor</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Editor
+   * @generated
+   */
+  EClass getEditor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getExtension <em>Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Extension</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getExtension()
+   * @see #getEditor()
+   * @generated
+   */
+  EAttribute getEditor_Extension();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet <em>Action Set</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action Set</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet
+   * @generated
+   */
+  EClass getActionSet();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getName()
+   * @see #getActionSet()
+   * @generated
+   */
+  EAttribute getActionSet_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getMenus <em>Menus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Menus</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getMenus()
+   * @see #getActionSet()
+   * @generated
+   */
+  EReference getActionSet_Menus();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet#getActions()
+   * @see #getActionSet()
+   * @generated
+   */
+  EReference getActionSet_Actions();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Menu <em>Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Menu</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Menu
+   * @generated
+   */
+  EClass getMenu();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getName()
+   * @see #getMenu()
+   * @generated
+   */
+  EAttribute getMenu_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMenus <em>Menus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Menus</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMenus()
+   * @see #getMenu()
+   * @generated
+   */
+  EReference getMenu_Menus();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getActions()
+   * @see #getMenu()
+   * @generated
+   */
+  EReference getMenu_Actions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getActions()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_Actions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Menus</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getMenus()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_Menus();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Action
+   * @generated
+   */
+  EClass getAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Action#getName()
+   * @see #getAction()
+   * @generated
+   */
+  EAttribute getAction_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp <em>Dynamic Help</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dynamic Help</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp
+   * @generated
+   */
+  EClass getDynamicHelp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getName()
+   * @see #getDynamicHelp()
+   * @generated
+   */
+  EAttribute getDynamicHelp_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription()
+   * @see #getDynamicHelp()
+   * @generated
+   */
+  EAttribute getDynamicHelp_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel()
+   * @see #getDynamicHelp()
+   * @generated
+   */
+  EAttribute getDynamicHelp_Label();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle()
+   * @see #getDynamicHelp()
+   * @generated
+   */
+  EAttribute getDynamicHelp_Title();
+
+  /**
    * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3316,6 +3360,16 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EEnum getType();
+
+  /**
+   * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Location</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Location
+   * @generated
+   */
+  EEnum getLocation();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3600,30 +3654,6 @@ public interface EclipsePackage extends EPackage
     EReference BUNDLE__REQUIRED_SERVICES = eINSTANCE.getBundle_RequiredServices();
 
     /**
-     * The meta object literal for the '<em><b>Part Categories</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUNDLE__PART_CATEGORIES = eINSTANCE.getBundle_PartCategories();
-
-    /**
-     * The meta object literal for the '<em><b>Perspectives</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUNDLE__PERSPECTIVES = eINSTANCE.getBundle_Perspectives();
-
-    /**
-     * The meta object literal for the '<em><b>Helps</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUNDLE__HELPS = eINSTANCE.getBundle_Helps();
-
-    /**
      * The meta object literal for the '<em><b>Imported Package Declarations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3662,6 +3692,46 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference BUNDLE__EXTENSIONS = eINSTANCE.getBundle_Extensions();
+
+    /**
+     * The meta object literal for the '<em><b>Decorators</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__DECORATORS = eINSTANCE.getBundle_Decorators();
+
+    /**
+     * The meta object literal for the '<em><b>Markers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__MARKERS = eINSTANCE.getBundle_Markers();
+
+    /**
+     * The meta object literal for the '<em><b>Perspectives</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__PERSPECTIVES = eINSTANCE.getBundle_Perspectives();
+
+    /**
+     * The meta object literal for the '<em><b>Editors</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__EDITORS = eINSTANCE.getBundle_Editors();
+
+    /**
+     * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__VIEWS = eINSTANCE.getBundle_Views();
 
     /**
      * The meta object literal for the '<em><b>Exported Packages</b></em>' reference list feature.
@@ -3712,406 +3782,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EAttribute IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION = eINSTANCE.getImportedPackageDeclaration_PackageVersion();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl <em>Action Set</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActionSet()
-     * @generated
-     */
-    EClass ACTION_SET = eINSTANCE.getActionSet();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTION_SET__NAME = eINSTANCE.getActionSet_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION_SET__MENUS = eINSTANCE.getActionSet_Menus();
-
-    /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION_SET__ACTIONS = eINSTANCE.getActionSet_Actions();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
-     * @generated
-     */
-    EClass MENU = eINSTANCE.getMenu();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MENU__NAME = eINSTANCE.getMenu_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MENU__BINDING = eINSTANCE.getMenu_Binding();
-
-    /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MENU__MENUS = eINSTANCE.getMenu_Menus();
-
-    /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MENU__ACTIONS = eINSTANCE.getMenu_Actions();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
-     * @generated
-     */
-    EClass ACTION = eINSTANCE.getAction();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTION__BINDING = eINSTANCE.getAction_Binding();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
-     * @generated
-     */
-    EClass PART_CATEGORY = eINSTANCE.getPartCategory();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART_CATEGORY__NAME = eINSTANCE.getPartCategory_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Part Category ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART_CATEGORY__PART_CATEGORY_ID = eINSTANCE.getPartCategory_PartCategoryID();
-
-    /**
-     * The meta object literal for the '<em><b>Parts</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART_CATEGORY__PARTS = eINSTANCE.getPartCategory_Parts();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl <em>Part</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.PartImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
-     * @generated
-     */
-    EClass PART = eINSTANCE.getPart();
-
-    /**
-     * The meta object literal for the '<em><b>Part ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART__PART_ID = eINSTANCE.getPart_PartID();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART__NAME = eINSTANCE.getPart_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART__DESCRIPTION = eINSTANCE.getPart_Description();
-
-    /**
-     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART__ACTION_SETS = eINSTANCE.getPart_ActionSets();
-
-    /**
-     * The meta object literal for the '<em><b>Contextual Help</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART__CONTEXTUAL_HELP = eINSTANCE.getPart_ContextualHelp();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
-     * @generated
-     */
-    EClass VIEW = eINSTANCE.getView();
-
-    /**
-     * The meta object literal for the '<em><b>View ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VIEW__VIEW_ID = eINSTANCE.getView_ViewID();
-
-    /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
-
-    /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEW__MENUS = eINSTANCE.getView_Menus();
-
-    /**
-     * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEW__PERSPECTIVES = eINSTANCE.getView_Perspectives();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
-     * @generated
-     */
-    EClass EDITOR = eINSTANCE.getEditor();
-
-    /**
-     * The meta object literal for the '<em><b>Editor ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EDITOR__EDITOR_ID = eINSTANCE.getEditor_EditorID();
-
-    /**
-     * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EDITOR__LANGUAGE = eINSTANCE.getEditor_Language();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
-     * @generated
-     */
-    EClass PERSPECTIVE = eINSTANCE.getPerspective();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PERSPECTIVE__NAME = eINSTANCE.getPerspective_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Perspective ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PERSPECTIVE__PERSPECTIVE_ID = eINSTANCE.getPerspective_PerspectiveID();
-
-    /**
-     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PERSPECTIVE__ACTION_SETS = eINSTANCE.getPerspective_ActionSets();
-
-    /**
-     * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PERSPECTIVE__VIEWS = eINSTANCE.getPerspective_Views();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BindingImpl <em>Binding</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.BindingImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
-     * @generated
-     */
-    EClass BINDING = eINSTANCE.getBinding();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BINDING__NAME = eINSTANCE.getBinding_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BINDING__KEY = eINSTANCE.getBinding_Key();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl <em>Help</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelp()
-     * @generated
-     */
-    EClass HELP = eINSTANCE.getHelp();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute HELP__NAME = eINSTANCE.getHelp_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Pages</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference HELP__PAGES = eINSTANCE.getHelp_Pages();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PageImpl <em>Page</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.PageImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPage()
-     * @generated
-     */
-    EClass PAGE = eINSTANCE.getPage();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAGE__NAME = eINSTANCE.getPage_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Page ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAGE__PAGE_ID = eINSTANCE.getPage_PageID();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHelpImpl <em>Contextual Help</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ContextualHelpImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHelp()
-     * @generated
-     */
-    EClass CONTEXTUAL_HELP = eINSTANCE.getContextualHelp();
-
-    /**
-     * The meta object literal for the '<em><b>Contextual Help ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONTEXTUAL_HELP__CONTEXTUAL_HELP_ID = eINSTANCE.getContextualHelp_ContextualHelpID();
-
-    /**
-     * The meta object literal for the '<em><b>Page</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTEXTUAL_HELP__PAGE = eINSTANCE.getContextualHelp_Page();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -4324,6 +3994,14 @@ public interface EclipsePackage extends EPackage
     EAttribute WIZARD__CATEGORY = eINSTANCE.getWizard_Category();
 
     /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WIZARD__ICON = eINSTANCE.getWizard_Icon();
+
+    /**
      * The meta object literal for the '<em><b>Is Project</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4426,6 +4104,404 @@ public interface EclipsePackage extends EPackage
     EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl <em>Decorator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDecorator()
+     * @generated
+     */
+    EClass DECORATOR = eINSTANCE.getDecorator();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__LABEL = eINSTANCE.getDecorator_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__ICON = eINSTANCE.getDecorator_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__NAME = eINSTANCE.getDecorator_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Is Lightweight</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__IS_LIGHTWEIGHT = eINSTANCE.getDecorator_IsLightweight();
+
+    /**
+     * The meta object literal for the '<em><b>Is Adaptable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__IS_ADAPTABLE = eINSTANCE.getDecorator_IsAdaptable();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__LOCATION = eINSTANCE.getDecorator_Location();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MarkerImpl <em>Marker</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.MarkerImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMarker()
+     * @generated
+     */
+    EClass MARKER = eINSTANCE.getMarker();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MARKER__NAME = eINSTANCE.getMarker_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Marker ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MARKER__MARKER_ID = eINSTANCE.getMarker_MarkerID();
+
+    /**
+     * The meta object literal for the '<em><b>Is Persistant</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MARKER__IS_PERSISTANT = eINSTANCE.getMarker_IsPersistant();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
+     * @generated
+     */
+    EClass PERSPECTIVE = eINSTANCE.getPerspective();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSPECTIVE__NAME = eINSTANCE.getPerspective_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSPECTIVE__ICON = eINSTANCE.getPerspective_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSPECTIVE__ACTION_SETS = eINSTANCE.getPerspective_ActionSets();
+
+    /**
+     * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSPECTIVE__VIEWS = eINSTANCE.getPerspective_Views();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl <em>Part</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.PartImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
+     * @generated
+     */
+    EClass PART = eINSTANCE.getPart();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__NAME = eINSTANCE.getPart_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART__ICON = eINSTANCE.getPart_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>Action Sets</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART__ACTION_SETS = eINSTANCE.getPart_ActionSets();
+
+    /**
+     * The meta object literal for the '<em><b>Dynamic Help</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART__DYNAMIC_HELP = eINSTANCE.getPart_DynamicHelp();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
+     * @generated
+     */
+    EClass PART_CATEGORY = eINSTANCE.getPartCategory();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PART_CATEGORY__NAME = eINSTANCE.getPartCategory_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PART_CATEGORY__PARTS = eINSTANCE.getPartCategory_Parts();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
+     * @generated
+     */
+    EClass VIEW = eINSTANCE.getView();
+
+    /**
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW__CATEGORY = eINSTANCE.getView_Category();
+
+    /**
+     * The meta object literal for the '<em><b>Is Tree</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW__IS_TREE = eINSTANCE.getView_IsTree();
+
+    /**
+     * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__PERSPECTIVES = eINSTANCE.getView_Perspectives();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
+     * @generated
+     */
+    EClass EDITOR = eINSTANCE.getEditor();
+
+    /**
+     * The meta object literal for the '<em><b>Extension</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EDITOR__EXTENSION = eINSTANCE.getEditor_Extension();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl <em>Action Set</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActionSet()
+     * @generated
+     */
+    EClass ACTION_SET = eINSTANCE.getActionSet();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION_SET__NAME = eINSTANCE.getActionSet_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION_SET__MENUS = eINSTANCE.getActionSet_Menus();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION_SET__ACTIONS = eINSTANCE.getActionSet_Actions();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
+     * @generated
+     */
+    EClass MENU = eINSTANCE.getMenu();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MENU__NAME = eINSTANCE.getMenu_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU__MENUS = eINSTANCE.getMenu_Menus();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU__ACTIONS = eINSTANCE.getMenu_Actions();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
+
+    /**
+     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__MENUS = eINSTANCE.getView_Menus();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
+     * @generated
+     */
+    EClass ACTION = eINSTANCE.getAction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl <em>Dynamic Help</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
+     * @generated
+     */
+    EClass DYNAMIC_HELP = eINSTANCE.getDynamicHelp();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DYNAMIC_HELP__NAME = eINSTANCE.getDynamicHelp_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DYNAMIC_HELP__DESCRIPTION = eINSTANCE.getDynamicHelp_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DYNAMIC_HELP__LABEL = eINSTANCE.getDynamicHelp_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DYNAMIC_HELP__TITLE = eINSTANCE.getDynamicHelp_Title();
+
+    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4434,6 +4510,16 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EEnum TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.Location
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
+     * @generated
+     */
+    EEnum LOCATION = eINSTANCE.getLocation();
 
   }
 

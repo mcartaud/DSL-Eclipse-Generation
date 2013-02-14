@@ -68,7 +68,6 @@ public class PartCategoryItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addPartCategoryIDPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,29 +87,6 @@ public class PartCategoryItemProvider
          getString("_UI_PartCategory_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_PartCategory_name_feature", "_UI_PartCategory_type"),
          EclipsePackage.Literals.PART_CATEGORY__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Part Category ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addPartCategoryIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_PartCategory_partCategoryID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_PartCategory_partCategoryID_feature", "_UI_PartCategory_type"),
-         EclipsePackage.Literals.PART_CATEGORY__PART_CATEGORY_ID,
          true,
          false,
          false,
@@ -194,7 +170,6 @@ public class PartCategoryItemProvider
     switch (notification.getFeatureID(PartCategory.class))
     {
       case EclipsePackage.PART_CATEGORY__NAME:
-      case EclipsePackage.PART_CATEGORY__PART_CATEGORY_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PART_CATEGORY__PARTS:

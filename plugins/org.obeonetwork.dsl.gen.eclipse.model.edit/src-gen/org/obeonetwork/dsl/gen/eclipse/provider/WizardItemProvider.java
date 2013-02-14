@@ -68,6 +68,7 @@ public class WizardItemProvider
       addTitlePropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
       addCategoryPropertyDescriptor(object);
+      addIconPropertyDescriptor(object);
       addIsProjectPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -166,6 +167,29 @@ public class WizardItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Icon feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIconPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Wizard_icon_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_icon_feature", "_UI_Wizard_type"),
+         EclipsePackage.Literals.WIZARD__ICON,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This adds a property descriptor for the Is Project feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -233,6 +257,7 @@ public class WizardItemProvider
       case EclipsePackage.WIZARD__TITLE:
       case EclipsePackage.WIZARD__DESCRIPTION:
       case EclipsePackage.WIZARD__CATEGORY:
+      case EclipsePackage.WIZARD__ICON:
       case EclipsePackage.WIZARD__IS_PROJECT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

@@ -23,6 +23,9 @@ Contributors :
 [file (aBundle.pluginPropertiesFile(), false, 'UTF-8')]
 Bundle-Name = [aBundle.name/]
 Bundle-Provider = [aBundle.vendor/]
+
+Icon-Folder = icons/
+
 [for (aWizard : Wizard | aBundle.wizards)]
 [wizardInformation()/]
 [/for]

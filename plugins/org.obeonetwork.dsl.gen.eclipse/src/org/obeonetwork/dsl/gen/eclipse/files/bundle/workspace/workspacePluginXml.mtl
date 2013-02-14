@@ -1,26 +1,9 @@
 [comment encoding = UTF-8 /]
-[module pluginXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module workspacePluginXml('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private pluginXmlFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/plugin.xml
-[/template]
-
-[template public genPluginXmlFile(aBundle : Bundle)]
-[file (pluginXmlFile(), false, 'UTF-8')]
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
-[for (aNature : Nature | aBundle.natures)][naturePlugin()/][/for]
-[for (aBuilder : Builder | aBundle.builders)][builderPlugin()/][/for]
-[for (aNature : Nature | aBundle.natures)][toogleNature()/][/for]
-[for (aWizard : Wizard | aBundle.wizards)][wizard()/][/for]
-</plugin>
-[/file]
-[/template]
-
-[template private naturePlugin(aNature : Nature)]
+[template public naturePlugin(aNature : Nature)]
   <extension
       point="org.eclipse.core.resources.natures"
       id="[aNature.eContainer(Bundle).basePackage/].nature.[aNature.name.toLowerFirst()/]"
@@ -33,12 +16,14 @@
 [if ((aNature.builders)->size() > 0)]
       <builder
             id="[aNature.ancestors(Bundle).genBundlePath()/].builder.[aNature.builders.name.toLowerFirst()/]">
-      </builder>[/if]
+      </builder>
+[/if]
    </extension>
-[if (aNature.hasToogleNature)][/if]
+[if (aNature.hasToogleNature)][toogleNaturePlugin()/][/if]
+
 [/template]
 
-[template private builderPlugin(aBuilder : Builder)]
+[template public builderPlugin(aBuilder : Builder)]
    <extension
          id="[aBuilder.ancestors(Bundle).genBundlePath()/].builder.[aBuilder.name.toLowerFirst()/]"
          name="%Builder-Name"
@@ -50,15 +35,16 @@
          </run>
       </builder>
    </extension>
+
 [/template]
 
-[template private associatedNature(aBuilder : Builder)]
+[template public associatedNature(aBuilder : Builder)]
 [if ((aBuilder.natures)->size() > 0)]
 true[else]
 false[/if]
 [/template]
 
-[template private toogleNature(aNature : Nature)]
+[template public toogleNaturePlugin(aNature : Nature)]
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
@@ -77,7 +63,7 @@ false[/if]
    </extension>
 [/template]
 
-[template private wizard(aWizard : Wizard)]
+[template public wizardPlugin(aWizard : Wizard)]
    <extension
          point="org.eclipse.ui.newWizards">
       <category
@@ -86,7 +72,7 @@ false[/if]
       </category>
       <wizard
             name="%Wizard-Name"
-[comment            icon="icons/sample.gif" /]
+            icon="[aWizard.icon/]"
 [if (aWizard.isProject)]
 			project="true"
 [/if]
@@ -95,4 +81,51 @@ false[/if]
             id="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toLowerFirst()/]">
       </wizard>
    </extension>
+
+[/template]
+
+[template public decoratorPlugin(aDecorator : Decorator)]
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            lightweight="[aDecorator.isLightweight/]"
+            location="[aDecorator.location/]"
+            adaptable="[aDecorator.isAdaptable/]"
+            label="[aDecorator.label/]"
+            icon="[aDecorator.icon/]"
+            state="true"
+            id="[aDecorator.eContainer(Bundle).basePackage/].[aDecorator.name/]">
+         <enablement>
+            <and>
+               <objectClass
+                     name="org.eclipse.core.resources.IResource">
+               </objectClass>
+               <or>
+                  <objectClass
+                        name="org.eclipse.core.resources.IProject">
+                  </objectClass>
+                  <objectClass
+                        name="org.eclipse.core.resources.IFile">
+                  </objectClass>
+               </or>
+            </and>
+         </enablement>
+      </decorator>
+   </extension>
+
+[/template]
+
+[template public markersPlugin(aMarker : Marker)]
+   <extension
+         id="[aMarker.markerID/]"
+         name="[aMarker.name/]"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="[aMarker.isPersistant/]">
+      </persistent>
+   </extension>
+
 [/template]

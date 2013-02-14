@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Action;
-import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 
@@ -31,7 +30,6 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getActions <em>Actions</em>}</li>
  * </ul>
@@ -60,16 +58,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getBinding() <em>Binding</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBinding()
-   * @generated
-   * @ordered
-   */
-  protected Binding binding;
 
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
@@ -140,54 +128,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * <!-- end-user-doc -->
    * @generated
    */
-  public Binding getBinding()
-  {
-    return binding;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBinding(Binding newBinding, NotificationChain msgs)
-  {
-    Binding oldBinding = binding;
-    binding = newBinding;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__BINDING, oldBinding, newBinding);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBinding(Binding newBinding)
-  {
-    if (newBinding != binding)
-    {
-      NotificationChain msgs = null;
-      if (binding != null)
-        msgs = ((InternalEObject)binding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.MENU__BINDING, null, msgs);
-      if (newBinding != null)
-        msgs = ((InternalEObject)newBinding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.MENU__BINDING, null, msgs);
-      msgs = basicSetBinding(newBinding, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__BINDING, newBinding, newBinding));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Menu> getMenus()
   {
     if (menus == null)
@@ -221,8 +161,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
   {
     switch (featureID)
     {
-      case EclipsePackage.MENU__BINDING:
-        return basicSetBinding(null, msgs);
       case EclipsePackage.MENU__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.MENU__ACTIONS:
@@ -243,8 +181,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     {
       case EclipsePackage.MENU__NAME:
         return getName();
-      case EclipsePackage.MENU__BINDING:
-        return getBinding();
       case EclipsePackage.MENU__MENUS:
         return getMenus();
       case EclipsePackage.MENU__ACTIONS:
@@ -266,9 +202,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     {
       case EclipsePackage.MENU__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.MENU__BINDING:
-        setBinding((Binding)newValue);
         return;
       case EclipsePackage.MENU__MENUS:
         getMenus().clear();
@@ -295,9 +228,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
       case EclipsePackage.MENU__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.MENU__BINDING:
-        setBinding((Binding)null);
-        return;
       case EclipsePackage.MENU__MENUS:
         getMenus().clear();
         return;
@@ -320,8 +250,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     {
       case EclipsePackage.MENU__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.MENU__BINDING:
-        return binding != null;
       case EclipsePackage.MENU__MENUS:
         return menus != null && !menus.isEmpty();
       case EclipsePackage.MENU__ACTIONS:

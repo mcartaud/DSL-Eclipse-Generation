@@ -67,34 +67,10 @@ public class PartItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addPartIDPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
-      addDescriptionPropertyDescriptor(object);
+      addIconPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Part ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addPartIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Part_partID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Part_partID_feature", "_UI_Part_type"),
-         EclipsePackage.Literals.PART__PART_ID,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -121,20 +97,20 @@ public class PartItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Description feature.
+   * This adds a property descriptor for the Icon feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addDescriptionPropertyDescriptor(Object object)
+  protected void addIconPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Part_description_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Part_description_feature", "_UI_Part_type"),
-         EclipsePackage.Literals.PART__DESCRIPTION,
+         getString("_UI_Part_icon_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Part_icon_feature", "_UI_Part_type"),
+         EclipsePackage.Literals.PART__ICON,
          true,
          false,
          false,
@@ -158,7 +134,7 @@ public class PartItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.PART__ACTION_SETS);
-      childrenFeatures.add(EclipsePackage.Literals.PART__CONTEXTUAL_HELP);
+      childrenFeatures.add(EclipsePackage.Literals.PART__DYNAMIC_HELP);
     }
     return childrenFeatures;
   }
@@ -206,13 +182,12 @@ public class PartItemProvider
 
     switch (notification.getFeatureID(Part.class))
     {
-      case EclipsePackage.PART__PART_ID:
       case EclipsePackage.PART__NAME:
-      case EclipsePackage.PART__DESCRIPTION:
+      case EclipsePackage.PART__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PART__ACTION_SETS:
-      case EclipsePackage.PART__CONTEXTUAL_HELP:
+      case EclipsePackage.PART__DYNAMIC_HELP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -238,8 +213,8 @@ public class PartItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.PART__CONTEXTUAL_HELP,
-         EclipseFactory.eINSTANCE.createContextualHelp()));
+        (EclipsePackage.Literals.PART__DYNAMIC_HELP,
+         EclipseFactory.eINSTANCE.createDynamicHelp()));
   }
 
   /**

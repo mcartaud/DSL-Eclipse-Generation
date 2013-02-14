@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.ActionSet;
@@ -32,7 +32,7 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getPerspectiveID <em>Perspective ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getViews <em>Views</em>}</li>
  * </ul>
@@ -51,7 +51,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected static final String NAME_EDEFAULT = null;
-
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -61,27 +60,24 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
   /**
-   * The default value of the '{@link #getPerspectiveID() <em>Perspective ID</em>}' attribute.
+   * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPerspectiveID()
+   * @see #getIcon()
    * @generated
    * @ordered
    */
-  protected static final String PERSPECTIVE_ID_EDEFAULT = null;
-
+  protected static final String ICON_EDEFAULT = null;
   /**
-   * The cached value of the '{@link #getPerspectiveID() <em>Perspective ID</em>}' attribute.
+   * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPerspectiveID()
+   * @see #getIcon()
    * @generated
    * @ordered
    */
-  protected String perspectiveID = PERSPECTIVE_ID_EDEFAULT;
-
+  protected String icon = ICON_EDEFAULT;
   /**
    * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -91,7 +87,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected EList<ActionSet> actionSets;
-
   /**
    * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -151,9 +146,9 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPerspectiveID()
+  public String getIcon()
   {
-    return perspectiveID;
+    return icon;
   }
 
   /**
@@ -161,12 +156,12 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPerspectiveID(String newPerspectiveID)
+  public void setIcon(String newIcon)
   {
-    String oldPerspectiveID = perspectiveID;
-    perspectiveID = newPerspectiveID;
+    String oldIcon = icon;
+    icon = newIcon;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID, oldPerspectiveID, perspectiveID));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PERSPECTIVE__ICON, oldIcon, icon));
   }
 
   /**
@@ -244,8 +239,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
     {
       case EclipsePackage.PERSPECTIVE__NAME:
         return getName();
-      case EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID:
-        return getPerspectiveID();
+      case EclipsePackage.PERSPECTIVE__ICON:
+        return getIcon();
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return getActionSets();
       case EclipsePackage.PERSPECTIVE__VIEWS:
@@ -268,8 +263,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID:
-        setPerspectiveID((String)newValue);
+      case EclipsePackage.PERSPECTIVE__ICON:
+        setIcon((String)newValue);
         return;
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         getActionSets().clear();
@@ -296,8 +291,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID:
-        setPerspectiveID(PERSPECTIVE_ID_EDEFAULT);
+      case EclipsePackage.PERSPECTIVE__ICON:
+        setIcon(ICON_EDEFAULT);
         return;
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         getActionSets().clear();
@@ -321,8 +316,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
     {
       case EclipsePackage.PERSPECTIVE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.PERSPECTIVE__PERSPECTIVE_ID:
-        return PERSPECTIVE_ID_EDEFAULT == null ? perspectiveID != null : !PERSPECTIVE_ID_EDEFAULT.equals(perspectiveID);
+      case EclipsePackage.PERSPECTIVE__ICON:
+        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return actionSets != null && !actionSets.isEmpty();
       case EclipsePackage.PERSPECTIVE__VIEWS:
@@ -344,8 +339,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", perspectiveID: ");
-    result.append(perspectiveID);
+    result.append(", icon: ");
+    result.append(icon);
     result.append(')');
     return result.toString();
   }

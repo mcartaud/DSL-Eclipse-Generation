@@ -14,11 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getPartID <em>Part ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp <em>Contextual Help</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getDynamicHelp <em>Dynamic Help</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,32 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Part extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Part ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Part ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Part ID</em>' attribute.
-   * @see #setPartID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_PartID()
-   * @model unique="false"
-   * @generated
-   */
-  String getPartID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getPartID <em>Part ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Part ID</em>' attribute.
-   * @see #getPartID()
-   * @generated
-   */
-  void setPartID(String value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -81,30 +54,30 @@ public interface Part extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * Returns the value of the '<em><b>Icon</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * If the meaning of the '<em>Icon</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_Description()
+   * @return the value of the '<em>Icon</em>' attribute.
+   * @see #setIcon(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_Icon()
    * @model unique="false"
    * @generated
    */
-  String getDescription();
+  String getIcon();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getIcon <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
+   * @param value the new value of the '<em>Icon</em>' attribute.
+   * @see #getIcon()
    * @generated
    */
-  void setDescription(String value);
+  void setIcon(String value);
 
   /**
    * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
@@ -123,29 +96,29 @@ public interface Part extends EObject
   EList<ActionSet> getActionSets();
 
   /**
-   * Returns the value of the '<em><b>Contextual Help</b></em>' containment reference.
+   * Returns the value of the '<em><b>Dynamic Help</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Contextual Help</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Dynamic Help</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contextual Help</em>' containment reference.
-   * @see #setContextualHelp(ContextualHelp)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_ContextualHelp()
+   * @return the value of the '<em>Dynamic Help</em>' containment reference.
+   * @see #setDynamicHelp(DynamicHelp)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_DynamicHelp()
    * @model containment="true"
    * @generated
    */
-  ContextualHelp getContextualHelp();
+  DynamicHelp getDynamicHelp();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getContextualHelp <em>Contextual Help</em>}' containment reference.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Part#getDynamicHelp <em>Dynamic Help</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contextual Help</em>' containment reference.
-   * @see #getContextualHelp()
+   * @param value the new value of the '<em>Dynamic Help</em>' containment reference.
+   * @see #getDynamicHelp()
    * @generated
    */
-  void setContextualHelp(ContextualHelp value);
+  void setDynamicHelp(DynamicHelp value);
 
 } // Part

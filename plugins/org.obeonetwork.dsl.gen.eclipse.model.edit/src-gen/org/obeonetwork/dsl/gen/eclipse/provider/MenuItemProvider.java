@@ -109,7 +109,6 @@ public class MenuItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.MENU__BINDING);
       childrenFeatures.add(EclipsePackage.Literals.MENU__MENUS);
       childrenFeatures.add(EclipsePackage.Literals.MENU__ACTIONS);
     }
@@ -174,7 +173,6 @@ public class MenuItemProvider
       case EclipsePackage.MENU__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.MENU__BINDING:
       case EclipsePackage.MENU__MENUS:
       case EclipsePackage.MENU__ACTIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -194,11 +192,6 @@ public class MenuItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.MENU__BINDING,
-         EclipseFactory.eINSTANCE.createBinding()));
 
     newChildDescriptors.add
       (createChildParameter

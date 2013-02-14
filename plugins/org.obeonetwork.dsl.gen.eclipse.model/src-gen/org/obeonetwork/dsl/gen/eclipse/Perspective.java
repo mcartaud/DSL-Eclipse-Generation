@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getPerspectiveID <em>Perspective ID</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}</li>
  * </ul>
@@ -54,30 +54,30 @@ public interface Perspective extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Perspective ID</b></em>' attribute.
+   * Returns the value of the '<em><b>Icon</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Perspective ID</em>' attribute isn't clear,
+   * If the meaning of the '<em>Icon</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Perspective ID</em>' attribute.
-   * @see #setPerspectiveID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_PerspectiveID()
+   * @return the value of the '<em>Icon</em>' attribute.
+   * @see #setIcon(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Icon()
    * @model unique="false"
    * @generated
    */
-  String getPerspectiveID();
+  String getIcon();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getPerspectiveID <em>Perspective ID</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Perspective ID</em>' attribute.
-   * @see #getPerspectiveID()
+   * @param value the new value of the '<em>Icon</em>' attribute.
+   * @see #getIcon()
    * @generated
    */
-  void setPerspectiveID(String value);
+  void setIcon(String value);
 
   /**
    * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
@@ -101,7 +101,7 @@ public interface Perspective extends EObject
    * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Views</em>' reference list isn't clear,
+   * If the meaning of the '<em>Views</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->

@@ -228,14 +228,16 @@ public class BundleItemProvider
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PROVIDED_SERVICES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__REQUIRED_SERVICES);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PART_CATEGORIES);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELPS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__NATURES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BUILDERS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__WIZARDS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSIONS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DECORATORS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MARKERS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EDITORS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
     }
     return childrenFeatures;
   }
@@ -302,14 +304,16 @@ public class BundleItemProvider
         return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-      case EclipsePackage.BUNDLE__PERSPECTIVES:
-      case EclipsePackage.BUNDLE__HELPS:
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
       case EclipsePackage.BUNDLE__NATURES:
       case EclipsePackage.BUNDLE__BUILDERS:
       case EclipsePackage.BUNDLE__WIZARDS:
       case EclipsePackage.BUNDLE__EXTENSIONS:
+      case EclipsePackage.BUNDLE__DECORATORS:
+      case EclipsePackage.BUNDLE__MARKERS:
+      case EclipsePackage.BUNDLE__PERSPECTIVES:
+      case EclipsePackage.BUNDLE__EDITORS:
+      case EclipsePackage.BUNDLE__VIEWS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -340,21 +344,6 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__PART_CATEGORIES,
-         EclipseFactory.eINSTANCE.createPartCategory()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__PERSPECTIVES,
-         EclipseFactory.eINSTANCE.createPerspective()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__HELPS,
-         EclipseFactory.eINSTANCE.createHelp()));
-
-    newChildDescriptors.add
-      (createChildParameter
         (EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS,
          EclipseFactory.eINSTANCE.createImportedPackageDeclaration()));
 
@@ -382,6 +371,31 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__EXTENSIONS,
          EclipseFactory.eINSTANCE.createExtension()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__DECORATORS,
+         EclipseFactory.eINSTANCE.createDecorator()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__MARKERS,
+         EclipseFactory.eINSTANCE.createMarker()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__PERSPECTIVES,
+         EclipseFactory.eINSTANCE.createPerspective()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__EDITORS,
+         EclipseFactory.eINSTANCE.createEditor()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__VIEWS,
+         EclipseFactory.eINSTANCE.createView()));
   }
 
 }

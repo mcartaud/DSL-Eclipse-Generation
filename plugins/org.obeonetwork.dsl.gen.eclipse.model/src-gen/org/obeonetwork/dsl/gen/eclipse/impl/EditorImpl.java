@@ -18,8 +18,7 @@ import org.obeonetwork.dsl.gen.eclipse.Editor;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getEditorID <em>Editor ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getExtension <em>Extension</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,44 +27,24 @@ import org.obeonetwork.dsl.gen.eclipse.Editor;
 public class EditorImpl extends PartImpl implements Editor
 {
   /**
-   * The default value of the '{@link #getEditorID() <em>Editor ID</em>}' attribute.
+   * The default value of the '{@link #getExtension() <em>Extension</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEditorID()
+   * @see #getExtension()
    * @generated
    * @ordered
    */
-  protected static final String EDITOR_ID_EDEFAULT = null;
+  protected static final String EXTENSION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getEditorID() <em>Editor ID</em>}' attribute.
+   * The cached value of the '{@link #getExtension() <em>Extension</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEditorID()
+   * @see #getExtension()
    * @generated
    * @ordered
    */
-  protected String editorID = EDITOR_ID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLanguage()
-   * @generated
-   * @ordered
-   */
-  protected static final String LANGUAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLanguage()
-   * @generated
-   * @ordered
-   */
-  protected String language = LANGUAGE_EDEFAULT;
+  protected String extension = EXTENSION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -93,9 +72,9 @@ public class EditorImpl extends PartImpl implements Editor
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEditorID()
+  public String getExtension()
   {
-    return editorID;
+    return extension;
   }
 
   /**
@@ -103,35 +82,12 @@ public class EditorImpl extends PartImpl implements Editor
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEditorID(String newEditorID)
+  public void setExtension(String newExtension)
   {
-    String oldEditorID = editorID;
-    editorID = newEditorID;
+    String oldExtension = extension;
+    extension = newExtension;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__EDITOR_ID, oldEditorID, editorID));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLanguage()
-  {
-    return language;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLanguage(String newLanguage)
-  {
-    String oldLanguage = language;
-    language = newLanguage;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__LANGUAGE, oldLanguage, language));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__EXTENSION, oldExtension, extension));
   }
 
   /**
@@ -144,10 +100,8 @@ public class EditorImpl extends PartImpl implements Editor
   {
     switch (featureID)
     {
-      case EclipsePackage.EDITOR__EDITOR_ID:
-        return getEditorID();
-      case EclipsePackage.EDITOR__LANGUAGE:
-        return getLanguage();
+      case EclipsePackage.EDITOR__EXTENSION:
+        return getExtension();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -162,11 +116,8 @@ public class EditorImpl extends PartImpl implements Editor
   {
     switch (featureID)
     {
-      case EclipsePackage.EDITOR__EDITOR_ID:
-        setEditorID((String)newValue);
-        return;
-      case EclipsePackage.EDITOR__LANGUAGE:
-        setLanguage((String)newValue);
+      case EclipsePackage.EDITOR__EXTENSION:
+        setExtension((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -182,11 +133,8 @@ public class EditorImpl extends PartImpl implements Editor
   {
     switch (featureID)
     {
-      case EclipsePackage.EDITOR__EDITOR_ID:
-        setEditorID(EDITOR_ID_EDEFAULT);
-        return;
-      case EclipsePackage.EDITOR__LANGUAGE:
-        setLanguage(LANGUAGE_EDEFAULT);
+      case EclipsePackage.EDITOR__EXTENSION:
+        setExtension(EXTENSION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -202,10 +150,8 @@ public class EditorImpl extends PartImpl implements Editor
   {
     switch (featureID)
     {
-      case EclipsePackage.EDITOR__EDITOR_ID:
-        return EDITOR_ID_EDEFAULT == null ? editorID != null : !EDITOR_ID_EDEFAULT.equals(editorID);
-      case EclipsePackage.EDITOR__LANGUAGE:
-        return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
+      case EclipsePackage.EDITOR__EXTENSION:
+        return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
     }
     return super.eIsSet(featureID);
   }
@@ -221,10 +167,8 @@ public class EditorImpl extends PartImpl implements Editor
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (editorID: ");
-    result.append(editorID);
-    result.append(", language: ");
-    result.append(language);
+    result.append(" (extension: ");
+    result.append(extension);
     result.append(')');
     return result.toString();
   }
