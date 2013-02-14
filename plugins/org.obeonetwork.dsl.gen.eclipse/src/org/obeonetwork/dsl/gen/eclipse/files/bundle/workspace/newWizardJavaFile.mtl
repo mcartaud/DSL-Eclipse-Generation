@@ -9,7 +9,7 @@
 
 [template public gennewWizardJavaFile(aWizard : Wizard)]
 [file (newWizardJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
+package [aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -23,7 +23,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 [for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
-import [aWizard.ancestors(Bundle).projectID/].ui.nature.[aNature.name.toUpperFirst()/];
+import [aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.nature.[aNature.name.toUpperFirst()/];
 [/if][/for][if (aWizard.oclIsKindOf(ProjectWizard))]
 import org.eclipse.core.resources.IProject;
 [else]

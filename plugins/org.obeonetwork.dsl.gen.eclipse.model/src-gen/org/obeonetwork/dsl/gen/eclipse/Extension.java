@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Extension extends EObject
 {
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -93,4 +93,5 @@ public interface Extension extends EObject
    * @generated
    */
   EList<Attribute> getAttributes();
+
 } // Extension

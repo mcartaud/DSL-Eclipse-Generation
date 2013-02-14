@@ -65,7 +65,6 @@ public class ProvidedServiceItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addServiceIDPropertyDescriptor(object);
       addImplementationPropertyDescriptor(object);
       addInterfacePropertyDescriptor(object);
       addRequiredServicesPropertyDescriptor(object);
@@ -88,29 +87,6 @@ public class ProvidedServiceItemProvider
          getString("_UI_ProvidedService_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_name_feature", "_UI_ProvidedService_type"),
          EclipsePackage.Literals.PROVIDED_SERVICE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Service ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addServiceIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ProvidedService_serviceID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_serviceID_feature", "_UI_ProvidedService_type"),
-         EclipsePackage.Literals.PROVIDED_SERVICE__SERVICE_ID,
          true,
          false,
          false,
@@ -230,7 +206,6 @@ public class ProvidedServiceItemProvider
     switch (notification.getFeatureID(ProvidedService.class))
     {
       case EclipsePackage.PROVIDED_SERVICE__NAME:
-      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

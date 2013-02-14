@@ -9,13 +9,13 @@
 
 [template public genExtensionDescriptorJavaFile(anExtension : Extension)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).projectID/].registry;
+package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
- * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).projectID/].[anExtension.genExtensionName()/]Extension" extension point.
+ * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].[anExtension.genExtensionName()/]Extension" extension point.
  * 
  */
 public class [anExtension.genExtensionName()/]ExtensionDescriptor {

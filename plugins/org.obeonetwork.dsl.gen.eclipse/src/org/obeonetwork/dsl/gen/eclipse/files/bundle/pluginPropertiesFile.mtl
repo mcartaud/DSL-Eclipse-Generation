@@ -14,12 +14,12 @@ Contributors :
 [module pluginPropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private pluginPropertiesFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/plugin.properties
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/plugin.properties
 [/template]
 
 [template public genPluginPropertiesFile(aBundle : Bundle)]
 [file (aBundle.pluginPropertiesFile(), false, 'UTF-8')]
-Bundle-Name = [aBundle.projectName/]
+Bundle-Name = [aBundle.name/]
 Bundle-Provider = [aBundle.vendor/]
 [for (aWizard : Wizard | aBundle.wizards)]
 [wizardInformation()/]

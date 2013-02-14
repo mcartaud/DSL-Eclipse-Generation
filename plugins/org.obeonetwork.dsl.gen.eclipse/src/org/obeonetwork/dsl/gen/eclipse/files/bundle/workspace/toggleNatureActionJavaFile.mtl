@@ -9,7 +9,7 @@
 
 [template public genToggleNatureActionJavaFile(aNature : Nature)]
 [file (toggleNatureActionJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).projectID/].ui.nature;
+package [aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature;
 
 import java.util.Iterator;
 
@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import [aNature.ancestors(Bundle).projectID/].Activator;
+import [aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].Activator;
 
 public class Toggle[aNature.name.toUpperFirst()/]Action implements IObjectActionDelegate {
 

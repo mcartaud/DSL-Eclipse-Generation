@@ -65,7 +65,6 @@ public class RequiredServiceItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addServiceIDPropertyDescriptor(object);
       addLowerBoundPropertyDescriptor(object);
       addUpperBoundPropertyDescriptor(object);
       addInterfacePropertyDescriptor(object);
@@ -90,29 +89,6 @@ public class RequiredServiceItemProvider
          getString("_UI_RequiredService_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_name_feature", "_UI_RequiredService_type"),
          EclipsePackage.Literals.REQUIRED_SERVICE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Service ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addServiceIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_RequiredService_serviceID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_serviceID_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__SERVICE_ID,
          true,
          false,
          false,
@@ -278,7 +254,6 @@ public class RequiredServiceItemProvider
     switch (notification.getFeatureID(RequiredService.class))
     {
       case EclipsePackage.REQUIRED_SERVICE__NAME:
-      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
       case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

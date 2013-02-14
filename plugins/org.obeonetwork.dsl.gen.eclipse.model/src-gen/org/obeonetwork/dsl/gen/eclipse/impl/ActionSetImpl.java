@@ -31,7 +31,6 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl#getID <em>ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionSetImpl#getActions <em>Actions</em>}</li>
  * </ul>
@@ -60,26 +59,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getID()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getID()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
@@ -150,29 +129,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getID()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setID(String newID)
-  {
-    String oldID = id;
-    id = newID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION_SET__ID, oldID, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Menu> getMenus()
   {
     if (menus == null)
@@ -226,8 +182,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
     {
       case EclipsePackage.ACTION_SET__NAME:
         return getName();
-      case EclipsePackage.ACTION_SET__ID:
-        return getID();
       case EclipsePackage.ACTION_SET__MENUS:
         return getMenus();
       case EclipsePackage.ACTION_SET__ACTIONS:
@@ -249,9 +203,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
     {
       case EclipsePackage.ACTION_SET__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.ACTION_SET__ID:
-        setID((String)newValue);
         return;
       case EclipsePackage.ACTION_SET__MENUS:
         getMenus().clear();
@@ -278,9 +229,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
       case EclipsePackage.ACTION_SET__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.ACTION_SET__ID:
-        setID(ID_EDEFAULT);
-        return;
       case EclipsePackage.ACTION_SET__MENUS:
         getMenus().clear();
         return;
@@ -303,8 +251,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
     {
       case EclipsePackage.ACTION_SET__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.ACTION_SET__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case EclipsePackage.ACTION_SET__MENUS:
         return menus != null && !menus.isEmpty();
       case EclipsePackage.ACTION_SET__ACTIONS:
@@ -326,8 +272,6 @@ public class ActionSetImpl extends MinimalEObjectImpl.Container implements Actio
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", ID: ");
-    result.append(id);
     result.append(')');
     return result.toString();
   }

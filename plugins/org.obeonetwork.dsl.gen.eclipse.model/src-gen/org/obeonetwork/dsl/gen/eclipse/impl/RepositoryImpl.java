@@ -26,8 +26,8 @@ import org.obeonetwork.dsl.gen.eclipse.Repository;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryName <em>Category Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryLabel <em>Category Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryID <em>Category ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getBundles <em>Bundles</em>}</li>
@@ -38,26 +38,6 @@ import org.obeonetwork.dsl.gen.eclipse.Repository;
  */
 public class RepositoryImpl extends ProjectImpl implements Repository
 {
-  /**
-   * The default value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategoryName()
-   * @generated
-   * @ordered
-   */
-  protected static final String CATEGORY_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCategoryName() <em>Category Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategoryName()
-   * @generated
-   * @ordered
-   */
-  protected String categoryName = CATEGORY_NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getCategoryLabel() <em>Category Label</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -77,6 +57,26 @@ public class RepositoryImpl extends ProjectImpl implements Repository
    * @ordered
    */
   protected String categoryLabel = CATEGORY_LABEL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCategoryID()
+   * @generated
+   * @ordered
+   */
+  protected static final String CATEGORY_ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCategoryID() <em>Category ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCategoryID()
+   * @generated
+   * @ordered
+   */
+  protected String categoryID = CATEGORY_ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #getCategoryDescription() <em>Category Description</em>}' attribute.
@@ -144,29 +144,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCategoryName()
-  {
-    return categoryName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCategoryName(String newCategoryName)
-  {
-    String oldCategoryName = categoryName;
-    categoryName = newCategoryName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY__CATEGORY_NAME, oldCategoryName, categoryName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getCategoryLabel()
   {
     return categoryLabel;
@@ -183,6 +160,29 @@ public class RepositoryImpl extends ProjectImpl implements Repository
     categoryLabel = newCategoryLabel;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY__CATEGORY_LABEL, oldCategoryLabel, categoryLabel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getCategoryID()
+  {
+    return categoryID;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCategoryID(String newCategoryID)
+  {
+    String oldCategoryID = categoryID;
+    categoryID = newCategoryID;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY__CATEGORY_ID, oldCategoryID, categoryID));
   }
 
   /**
@@ -246,10 +246,10 @@ public class RepositoryImpl extends ProjectImpl implements Repository
   {
     switch (featureID)
     {
-      case EclipsePackage.REPOSITORY__CATEGORY_NAME:
-        return getCategoryName();
       case EclipsePackage.REPOSITORY__CATEGORY_LABEL:
         return getCategoryLabel();
+      case EclipsePackage.REPOSITORY__CATEGORY_ID:
+        return getCategoryID();
       case EclipsePackage.REPOSITORY__CATEGORY_DESCRIPTION:
         return getCategoryDescription();
       case EclipsePackage.REPOSITORY__FEATURES:
@@ -271,11 +271,11 @@ public class RepositoryImpl extends ProjectImpl implements Repository
   {
     switch (featureID)
     {
-      case EclipsePackage.REPOSITORY__CATEGORY_NAME:
-        setCategoryName((String)newValue);
-        return;
       case EclipsePackage.REPOSITORY__CATEGORY_LABEL:
         setCategoryLabel((String)newValue);
+        return;
+      case EclipsePackage.REPOSITORY__CATEGORY_ID:
+        setCategoryID((String)newValue);
         return;
       case EclipsePackage.REPOSITORY__CATEGORY_DESCRIPTION:
         setCategoryDescription((String)newValue);
@@ -302,11 +302,11 @@ public class RepositoryImpl extends ProjectImpl implements Repository
   {
     switch (featureID)
     {
-      case EclipsePackage.REPOSITORY__CATEGORY_NAME:
-        setCategoryName(CATEGORY_NAME_EDEFAULT);
-        return;
       case EclipsePackage.REPOSITORY__CATEGORY_LABEL:
         setCategoryLabel(CATEGORY_LABEL_EDEFAULT);
+        return;
+      case EclipsePackage.REPOSITORY__CATEGORY_ID:
+        setCategoryID(CATEGORY_ID_EDEFAULT);
         return;
       case EclipsePackage.REPOSITORY__CATEGORY_DESCRIPTION:
         setCategoryDescription(CATEGORY_DESCRIPTION_EDEFAULT);
@@ -331,10 +331,10 @@ public class RepositoryImpl extends ProjectImpl implements Repository
   {
     switch (featureID)
     {
-      case EclipsePackage.REPOSITORY__CATEGORY_NAME:
-        return CATEGORY_NAME_EDEFAULT == null ? categoryName != null : !CATEGORY_NAME_EDEFAULT.equals(categoryName);
       case EclipsePackage.REPOSITORY__CATEGORY_LABEL:
         return CATEGORY_LABEL_EDEFAULT == null ? categoryLabel != null : !CATEGORY_LABEL_EDEFAULT.equals(categoryLabel);
+      case EclipsePackage.REPOSITORY__CATEGORY_ID:
+        return CATEGORY_ID_EDEFAULT == null ? categoryID != null : !CATEGORY_ID_EDEFAULT.equals(categoryID);
       case EclipsePackage.REPOSITORY__CATEGORY_DESCRIPTION:
         return CATEGORY_DESCRIPTION_EDEFAULT == null ? categoryDescription != null : !CATEGORY_DESCRIPTION_EDEFAULT.equals(categoryDescription);
       case EclipsePackage.REPOSITORY__FEATURES:
@@ -356,10 +356,10 @@ public class RepositoryImpl extends ProjectImpl implements Repository
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (categoryName: ");
-    result.append(categoryName);
-    result.append(", categoryLabel: ");
+    result.append(" (categoryLabel: ");
     result.append(categoryLabel);
+    result.append(", categoryID: ");
+    result.append(categoryID);
     result.append(", categoryDescription: ");
     result.append(categoryDescription);
     result.append(')');

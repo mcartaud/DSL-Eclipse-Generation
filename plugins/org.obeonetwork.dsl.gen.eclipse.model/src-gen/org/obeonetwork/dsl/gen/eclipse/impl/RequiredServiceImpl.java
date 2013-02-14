@@ -22,7 +22,6 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getServiceID <em>Service ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getInterface <em>Interface</em>}</li>
@@ -54,26 +53,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getServiceID() <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getServiceID()
-   * @generated
-   * @ordered
-   */
-  protected static final String SERVICE_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getServiceID() <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getServiceID()
-   * @generated
-   * @ordered
-   */
-  protected String serviceID = SERVICE_ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
@@ -187,29 +166,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getServiceID()
-  {
-    return serviceID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setServiceID(String newServiceID)
-  {
-    String oldServiceID = serviceID;
-    serviceID = newServiceID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__SERVICE_ID, oldServiceID, serviceID));
   }
 
   /**
@@ -399,8 +355,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.REQUIRED_SERVICE__NAME:
         return getName();
-      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
-        return getServiceID();
       case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
         return getLowerBound();
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
@@ -430,9 +384,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.REQUIRED_SERVICE__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
-        setServiceID((String)newValue);
         return;
       case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
         setLowerBound((Integer)newValue);
@@ -466,9 +417,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
       case EclipsePackage.REQUIRED_SERVICE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
-        setServiceID(SERVICE_ID_EDEFAULT);
-        return;
       case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
         setLowerBound(LOWER_BOUND_EDEFAULT);
         return;
@@ -500,8 +448,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.REQUIRED_SERVICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.REQUIRED_SERVICE__SERVICE_ID:
-        return SERVICE_ID_EDEFAULT == null ? serviceID != null : !SERVICE_ID_EDEFAULT.equals(serviceID);
       case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
         return LOWER_BOUND_EDEFAULT == null ? lowerBound != null : !LOWER_BOUND_EDEFAULT.equals(lowerBound);
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
@@ -529,8 +475,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", serviceID: ");
-    result.append(serviceID);
     result.append(", lowerBound: ");
     result.append(lowerBound);
     result.append(", upperBound: ");

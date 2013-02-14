@@ -28,7 +28,6 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl#getServiceID <em>Service ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl#getInterface <em>Interface</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl#getRequiredServices <em>Required Services</em>}</li>
@@ -58,26 +57,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getServiceID() <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getServiceID()
-   * @generated
-   * @ordered
-   */
-  protected static final String SERVICE_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getServiceID() <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getServiceID()
-   * @generated
-   * @ordered
-   */
-  protected String serviceID = SERVICE_ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' reference.
@@ -151,29 +130,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROVIDED_SERVICE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getServiceID()
-  {
-    return serviceID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setServiceID(String newServiceID)
-  {
-    String oldServiceID = serviceID;
-    serviceID = newServiceID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROVIDED_SERVICE__SERVICE_ID, oldServiceID, serviceID));
   }
 
   /**
@@ -288,8 +244,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.PROVIDED_SERVICE__NAME:
         return getName();
-      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
-        return getServiceID();
       case EclipsePackage.PROVIDED_SERVICE__IMPLEMENTATION:
         if (resolve) return getImplementation();
         return basicGetImplementation();
@@ -315,9 +269,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.PROVIDED_SERVICE__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
-        setServiceID((String)newValue);
         return;
       case EclipsePackage.PROVIDED_SERVICE__IMPLEMENTATION:
         setImplementation((EClass)newValue);
@@ -346,9 +297,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
       case EclipsePackage.PROVIDED_SERVICE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
-        setServiceID(SERVICE_ID_EDEFAULT);
-        return;
       case EclipsePackage.PROVIDED_SERVICE__IMPLEMENTATION:
         setImplementation((EClass)null);
         return;
@@ -374,8 +322,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     {
       case EclipsePackage.PROVIDED_SERVICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.PROVIDED_SERVICE__SERVICE_ID:
-        return SERVICE_ID_EDEFAULT == null ? serviceID != null : !SERVICE_ID_EDEFAULT.equals(serviceID);
       case EclipsePackage.PROVIDED_SERVICE__IMPLEMENTATION:
         return implementation != null;
       case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
@@ -399,8 +345,6 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", serviceID: ");
-    result.append(serviceID);
     result.append(')');
     return result.toString();
   }

@@ -194,12 +194,12 @@
 
 [template private modulesLocation(anApplication : Application) post(trim())]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
-<module>plugins/[aBundle.projectID/]</module>
+<module>plugins/[aBundle.basePackage/].[aBundle.name/]</module>
 [/for]
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
-<module>features/[aFeature.projectID/]</module>
+<module>features/[aFeature.basePackage/].[aFeature.name/]</module>
 [/for]
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
-<module>repository/[aRepository.projectID/]</module>
+<module>repository/[aRepository.basePackage/].[aRepository.name/]</module>
 [/for]
 [/template]

@@ -12,8 +12,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryName <em>Category Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryLabel <em>Category Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryID <em>Category ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getBundles <em>Bundles</em>}</li>
@@ -26,32 +26,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Repository extends Project
 {
-  /**
-   * Returns the value of the '<em><b>Category Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Category Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Category Name</em>' attribute.
-   * @see #setCategoryName(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRepository_CategoryName()
-   * @model unique="false"
-   * @generated
-   */
-  String getCategoryName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryName <em>Category Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Category Name</em>' attribute.
-   * @see #getCategoryName()
-   * @generated
-   */
-  void setCategoryName(String value);
-
   /**
    * Returns the value of the '<em><b>Category Label</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -77,6 +51,32 @@ public interface Repository extends Project
    * @generated
    */
   void setCategoryLabel(String value);
+
+  /**
+   * Returns the value of the '<em><b>Category ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Category ID</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Category ID</em>' attribute.
+   * @see #setCategoryID(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRepository_CategoryID()
+   * @model unique="false"
+   * @generated
+   */
+  String getCategoryID();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryID <em>Category ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Category ID</em>' attribute.
+   * @see #getCategoryID()
+   * @generated
+   */
+  void setCategoryID(String value);
 
   /**
    * Returns the value of the '<em><b>Category Description</b></em>' attribute.

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVendor <em>Vendor</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasePackage <em>Base Package</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}</li>
@@ -117,32 +116,6 @@ public interface Bundle extends Project
    * @generated
    */
   void setVendor(String value);
-
-  /**
-   * Returns the value of the '<em><b>Base Package</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Base Package</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Base Package</em>' attribute.
-   * @see #setBasePackage(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_BasePackage()
-   * @model unique="false"
-   * @generated
-   */
-  String getBasePackage();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasePackage <em>Base Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Base Package</em>' attribute.
-   * @see #getBasePackage()
-   * @generated
-   */
-  void setBasePackage(String value);
 
   /**
    * Returns the value of the '<em><b>Provided Services</b></em>' containment reference list.

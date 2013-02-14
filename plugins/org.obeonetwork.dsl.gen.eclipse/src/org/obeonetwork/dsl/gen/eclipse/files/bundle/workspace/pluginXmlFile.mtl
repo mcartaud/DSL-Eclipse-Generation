@@ -3,7 +3,7 @@
 
 
 [template private pluginXmlFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/plugin.xml
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/plugin.xml
 [/template]
 
 [template public genPluginXmlFile(aBundle : Bundle)]
@@ -26,12 +26,12 @@
       name="%Nature-Name">
       <runtime>
          <run 
-			class="[aNature.ancestors(Bundle).projectID/].ui.nature.[aNature.name.toUpperFirst()/]">
+			class="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature.[aNature.name.toUpperFirst()/]">
          </run>
       </runtime>
 [if ((aNature.builders)->size() > 0)]
       <builder
-            id="[aNature.ancestors(Bundle).projectID/].builder.[aNature.builders.name.toLowerFirst()/]">
+            id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].builder.[aNature.builders.name.toLowerFirst()/]">
       </builder>[/if]
    </extension>
 [if (aNature.hasToogleNature)][/if]
@@ -39,13 +39,13 @@
 
 [template private builderPlugin(aBuilder : Builder)]
    <extension
-         id="[aBuilder.ancestors(Bundle).projectID/].builder.[aBuilder.name.toLowerFirst()/]"
+         id="[aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].builder.[aBuilder.name.toLowerFirst()/]"
          name="%Builder-Name"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="[associatedNature()/]">
          <run
-               class="[aBuilder.ancestors(Bundle).projectID/].ui.builder.[aBuilder.name.toUpperFirst()/]">
+               class="[aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].ui.builder.[aBuilder.name.toUpperFirst()/]">
          </run>
       </builder>
    </extension>
@@ -66,13 +66,13 @@ false
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="[aNature.ancestors(Bundle).projectID/].popupMenus.[aNature.name/]Contribution">
+            id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].popupMenus.[aNature.name/]Contribution">
          <action
                label="Add/Remove [aNature.name/] Nature"
-               class="[aNature.ancestors(Bundle).projectID/].ui.nature.Toggle[aNature.name.toUpperFirst()/]Action"
+               class="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature.Toggle[aNature.name.toUpperFirst()/]Action"
                menubarPath="additions"
                enablesFor="+"
-               id="[aNature.ancestors(Bundle).projectID/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
+               id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
          </action>
       </objectContribution>
    </extension>
@@ -83,7 +83,7 @@ false
          point="org.eclipse.ui.newWizards">
       <category
             name="%Category-Name"
-            id="[aWizard.eContainer(Bundle).projectID/].ui.category.[aWizard.name.toLowerFirst()/]">
+            id="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.category.[aWizard.name.toLowerFirst()/]">
       </category>
       <wizard
             name="%Wizard-Name"
@@ -91,9 +91,9 @@ false
 [if (aWizard.isProject)]
 			project="true"
 [/if]
-			category="[aWizard.eContainer(Bundle).projectID/].ui.category.[aWizard.name.toLowerFirst()/]"
-            class="[aWizard.ancestors(Bundle).projectID/].ui.wizards.[aWizard.name.toUpperFirst()/]"
-            id="[aWizard.ancestors(Bundle).projectID/].ui.wizards.[aWizard.name.toLowerFirst()/]">
+			category="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.category.[aWizard.name.toLowerFirst()/]"
+            class="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards.[aWizard.name.toUpperFirst()/]"
+            id="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards.[aWizard.name.toLowerFirst()/]">
       </wizard>
    </extension>
 [/template]

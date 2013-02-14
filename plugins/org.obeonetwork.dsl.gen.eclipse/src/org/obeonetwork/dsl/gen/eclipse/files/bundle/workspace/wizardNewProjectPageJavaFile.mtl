@@ -9,7 +9,7 @@
 
 [template public genWizardNewProjectPageJavaFile(aWizard : Wizard)]
 [file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
+package [aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards;
 
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 

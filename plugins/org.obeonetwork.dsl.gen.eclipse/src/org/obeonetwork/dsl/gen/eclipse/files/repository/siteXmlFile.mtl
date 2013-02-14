@@ -15,7 +15,7 @@ Contributors :
 
 
 [template private siteXmlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/site.xml
+[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/site.xml
 [/template]
 
 [template public genSiteXmlFile(aRepository : Repository)]

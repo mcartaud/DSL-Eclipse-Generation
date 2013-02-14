@@ -68,7 +68,6 @@ public class HelpItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addHelpIDPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,29 +87,6 @@ public class HelpItemProvider
          getString("_UI_Help_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Help_name_feature", "_UI_Help_type"),
          EclipsePackage.Literals.HELP__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Help ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addHelpIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Help_helpID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Help_helpID_feature", "_UI_Help_type"),
-         EclipsePackage.Literals.HELP__HELP_ID,
          true,
          false,
          false,
@@ -194,7 +170,6 @@ public class HelpItemProvider
     switch (notification.getFeatureID(Help.class))
     {
       case EclipsePackage.HELP__NAME:
-      case EclipsePackage.HELP__HELP_ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.HELP__PAGES:

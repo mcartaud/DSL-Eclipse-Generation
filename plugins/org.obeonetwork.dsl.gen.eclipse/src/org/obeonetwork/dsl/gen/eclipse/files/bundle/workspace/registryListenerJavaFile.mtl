@@ -9,7 +9,7 @@
 
 [template public genRegistryListenerJavaFile(anExtension : Extension)]
 [file (registryListenerJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).projectID/].registry;
+package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.Platform;
  */
 public class [anExtension.genExtensionName()/]RegistryListener implements IRegistryEventListener {
 	/** Name of the extension point to parse for extensions. */
-	public static final String [anExtension.staticExtensionName()/]_EXTENSION_POINT = "[anExtension.ancestors(Bundle).projectID/].[anExtension.genExtensionName()/]Extension"; //$NON-NLS-1$
+	public static final String [anExtension.staticExtensionName()/]_EXTENSION_POINT = "[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].[anExtension.genExtensionName()/]Extension"; //$NON-NLS-1$
 	
 	/** Name of the extension point's "[anExtension.genExtensionName()/]Extension" tag. */
 	private static final String [anExtension.staticExtensionName()/]_TAG_EXTENSION = "[anExtension.genExtensionName()/]Extension"; //$NON-NLS-1$

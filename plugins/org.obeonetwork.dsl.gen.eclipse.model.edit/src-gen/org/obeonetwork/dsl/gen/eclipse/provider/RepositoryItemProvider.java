@@ -61,36 +61,13 @@ public class RepositoryItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addCategoryNamePropertyDescriptor(object);
       addCategoryLabelPropertyDescriptor(object);
+      addCategoryIDPropertyDescriptor(object);
       addCategoryDescriptionPropertyDescriptor(object);
       addFeaturesPropertyDescriptor(object);
       addBundlesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Category Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addCategoryNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Repository_categoryName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Repository_categoryName_feature", "_UI_Repository_type"),
-         EclipsePackage.Literals.REPOSITORY__CATEGORY_NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -108,6 +85,29 @@ public class RepositoryItemProvider
          getString("_UI_Repository_categoryLabel_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Repository_categoryLabel_feature", "_UI_Repository_type"),
          EclipsePackage.Literals.REPOSITORY__CATEGORY_LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Category ID feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addCategoryIDPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Repository_categoryID_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Repository_categoryID_feature", "_UI_Repository_type"),
+         EclipsePackage.Literals.REPOSITORY__CATEGORY_ID,
          true,
          false,
          false,
@@ -206,7 +206,7 @@ public class RepositoryItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Repository)object).getProjectName();
+    String label = ((Repository)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Repository_type") :
       getString("_UI_Repository_type") + " " + label;
@@ -226,8 +226,8 @@ public class RepositoryItemProvider
 
     switch (notification.getFeatureID(Repository.class))
     {
-      case EclipsePackage.REPOSITORY__CATEGORY_NAME:
       case EclipsePackage.REPOSITORY__CATEGORY_LABEL:
+      case EclipsePackage.REPOSITORY__CATEGORY_ID:
       case EclipsePackage.REPOSITORY__CATEGORY_DESCRIPTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

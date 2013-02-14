@@ -14,14 +14,14 @@ Contributors :
 [module projectXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private projectXmlFile(aProject : Project)]
-[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.projectID/]/.project
+[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.basePackage/].[aProject.name/]/.project
 [/template]
 
 [template public genProjectXmlFile(aProject : Project)]
 [file (aProject.projectXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>[aProject.projectID/]</name>
+	<name>[aProject.basePackage/].[aProject.name/]</name>
 	<comment></comment>
 	<projects>
 	</projects>

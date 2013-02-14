@@ -9,7 +9,7 @@
 
 [template public genExtensionInterfaceJavaFile(anExtension : Extension)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).projectID/].registry;
+package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
 
 
 public interface I[anExtension.genExtensionName()/]Extension {

@@ -67,7 +67,6 @@ public class BundleItemProvider
       addVersionPropertyDescriptor(object);
       addRequiredEnvironmentPropertyDescriptor(object);
       addVendorPropertyDescriptor(object);
-      addBasePackagePropertyDescriptor(object);
       addExportedPackagesPropertyDescriptor(object);
       addOwnedPackagesPropertyDescriptor(object);
       addAllExportedPackagesPropertyDescriptor(object);
@@ -136,29 +135,6 @@ public class BundleItemProvider
          getString("_UI_Bundle_vendor_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Bundle_vendor_feature", "_UI_Bundle_type"),
          EclipsePackage.Literals.BUNDLE__VENDOR,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Base Package feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addBasePackagePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Bundle_basePackage_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_basePackage_feature", "_UI_Bundle_type"),
-         EclipsePackage.Literals.BUNDLE__BASE_PACKAGE,
          true,
          false,
          false,
@@ -299,7 +275,7 @@ public class BundleItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Bundle)object).getProjectName();
+    String label = ((Bundle)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Bundle_type") :
       getString("_UI_Bundle_type") + " " + label;
@@ -322,7 +298,6 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__VERSION:
       case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
       case EclipsePackage.BUNDLE__VENDOR:
-      case EclipsePackage.BUNDLE__BASE_PACKAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:

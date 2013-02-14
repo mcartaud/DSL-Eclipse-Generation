@@ -3,7 +3,7 @@
 
 
 [template private coreSettingsFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/.settings/org.eclipse.core.ressources.prefs
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/.settings/org.eclipse.core.ressources.prefs
 [/template]
 
 [template public genCoreSettingsFile(aBundle : Bundle)]

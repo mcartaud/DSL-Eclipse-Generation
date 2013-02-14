@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getServiceID <em>Service ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getInterface <em>Interface</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getRequiredServices <em>Required Services</em>}</li>
@@ -54,32 +53,6 @@ public interface ProvidedService extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Service ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Service ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Service ID</em>' attribute.
-   * @see #setServiceID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProvidedService_ServiceID()
-   * @model unique="false"
-   * @generated
-   */
-  String getServiceID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getServiceID <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Service ID</em>' attribute.
-   * @see #getServiceID()
-   * @generated
-   */
-  void setServiceID(String value);
 
   /**
    * Returns the value of the '<em><b>Implementation</b></em>' reference.

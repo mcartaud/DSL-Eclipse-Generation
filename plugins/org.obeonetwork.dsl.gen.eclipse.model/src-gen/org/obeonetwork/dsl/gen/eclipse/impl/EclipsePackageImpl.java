@@ -399,7 +399,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProject_ProjectID()
+  public EAttribute getProject_Name()
   {
     return (EAttribute)projectEClass.getEStructuralFeatures().get(0);
   }
@@ -409,7 +409,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProject_ProjectName()
+  public EAttribute getProject_BasePackage()
   {
     return (EAttribute)projectEClass.getEStructuralFeatures().get(1);
   }
@@ -429,7 +429,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_CategoryName()
+  public EAttribute getRepository_CategoryLabel()
   {
     return (EAttribute)repositoryEClass.getEStructuralFeatures().get(0);
   }
@@ -439,7 +439,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRepository_CategoryLabel()
+  public EAttribute getRepository_CategoryID()
   {
     return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
   }
@@ -529,7 +529,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_FeatureProvider()
+  public EAttribute getFeature_Label()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
   }
@@ -539,9 +539,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getFeature_FeatureProvider()
+  {
+    return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getFeature_Bundles()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(5);
+    return (EReference)featureEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -589,19 +599,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBundle_BasePackage()
-  {
-    return (EAttribute)bundleEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getBundle_ProvidedServices()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(4);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -611,7 +611,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_RequiredServices()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(5);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -621,7 +621,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_PartCategories()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(6);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -631,7 +631,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Perspectives()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(7);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -641,7 +641,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Helps()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(8);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -651,7 +651,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_ImportedPackageDeclarations()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(9);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -661,7 +661,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Natures()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(10);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -671,7 +671,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Builders()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(11);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -681,7 +681,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Wizards()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(12);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(11);
   }
 
   /**
@@ -691,7 +691,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_Extensions()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(13);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -701,7 +701,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_ExportedPackages()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(14);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -711,7 +711,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_OwnedPackages()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(15);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(14);
   }
 
   /**
@@ -721,7 +721,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getBundle_AllExportedPackages()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(16);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(15);
   }
 
   /**
@@ -779,19 +779,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActionSet_ID()
-  {
-    return (EAttribute)actionSetEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getActionSet_Menus()
   {
-    return (EReference)actionSetEClass.getEStructuralFeatures().get(2);
+    return (EReference)actionSetEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -801,7 +791,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getActionSet_Actions()
   {
-    return (EReference)actionSetEClass.getEStructuralFeatures().get(3);
+    return (EReference)actionSetEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1169,19 +1159,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getHelp_HelpID()
-  {
-    return (EAttribute)helpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getHelp_Pages()
   {
-    return (EReference)helpEClass.getEStructuralFeatures().get(2);
+    return (EReference)helpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1269,19 +1249,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProvidedService_ServiceID()
-  {
-    return (EAttribute)providedServiceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getProvidedService_Implementation()
   {
-    return (EReference)providedServiceEClass.getEStructuralFeatures().get(2);
+    return (EReference)providedServiceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1291,7 +1261,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getProvidedService_Interface()
   {
-    return (EReference)providedServiceEClass.getEStructuralFeatures().get(3);
+    return (EReference)providedServiceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1301,7 +1271,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getProvidedService_RequiredServices()
   {
-    return (EReference)providedServiceEClass.getEStructuralFeatures().get(4);
+    return (EReference)providedServiceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1329,7 +1299,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRequiredService_ServiceID()
+  public EAttribute getRequiredService_LowerBound()
   {
     return (EAttribute)requiredServiceEClass.getEStructuralFeatures().get(1);
   }
@@ -1339,7 +1309,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRequiredService_LowerBound()
+  public EAttribute getRequiredService_UpperBound()
   {
     return (EAttribute)requiredServiceEClass.getEStructuralFeatures().get(2);
   }
@@ -1349,19 +1319,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRequiredService_UpperBound()
-  {
-    return (EAttribute)requiredServiceEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRequiredService_Interface()
   {
-    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(4);
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1371,7 +1331,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getRequiredService_Implementation()
   {
-    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(5);
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1381,7 +1341,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EReference getRequiredService_BindedReference()
   {
-    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(6);
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1684,12 +1644,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEReference(applicationEClass, APPLICATION__PROJECTS);
 
     projectEClass = createEClass(PROJECT);
-    createEAttribute(projectEClass, PROJECT__PROJECT_ID);
-    createEAttribute(projectEClass, PROJECT__PROJECT_NAME);
+    createEAttribute(projectEClass, PROJECT__NAME);
+    createEAttribute(projectEClass, PROJECT__BASE_PACKAGE);
 
     repositoryEClass = createEClass(REPOSITORY);
-    createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_NAME);
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_LABEL);
+    createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_ID);
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_DESCRIPTION);
     createEReference(repositoryEClass, REPOSITORY__FEATURES);
     createEReference(repositoryEClass, REPOSITORY__BUNDLES);
@@ -1699,6 +1659,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(featureEClass, FEATURE__DESCRIPTION);
     createEAttribute(featureEClass, FEATURE__VERSION);
     createEAttribute(featureEClass, FEATURE__LICENSE);
+    createEAttribute(featureEClass, FEATURE__LABEL);
     createEAttribute(featureEClass, FEATURE__FEATURE_PROVIDER);
     createEReference(featureEClass, FEATURE__BUNDLES);
 
@@ -1706,7 +1667,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(bundleEClass, BUNDLE__VERSION);
     createEAttribute(bundleEClass, BUNDLE__REQUIRED_ENVIRONMENT);
     createEAttribute(bundleEClass, BUNDLE__VENDOR);
-    createEAttribute(bundleEClass, BUNDLE__BASE_PACKAGE);
     createEReference(bundleEClass, BUNDLE__PROVIDED_SERVICES);
     createEReference(bundleEClass, BUNDLE__REQUIRED_SERVICES);
     createEReference(bundleEClass, BUNDLE__PART_CATEGORIES);
@@ -1727,7 +1687,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     actionSetEClass = createEClass(ACTION_SET);
     createEAttribute(actionSetEClass, ACTION_SET__NAME);
-    createEAttribute(actionSetEClass, ACTION_SET__ID);
     createEReference(actionSetEClass, ACTION_SET__MENUS);
     createEReference(actionSetEClass, ACTION_SET__ACTIONS);
 
@@ -1775,7 +1734,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     helpEClass = createEClass(HELP);
     createEAttribute(helpEClass, HELP__NAME);
-    createEAttribute(helpEClass, HELP__HELP_ID);
     createEReference(helpEClass, HELP__PAGES);
 
     pageEClass = createEClass(PAGE);
@@ -1788,14 +1746,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     providedServiceEClass = createEClass(PROVIDED_SERVICE);
     createEAttribute(providedServiceEClass, PROVIDED_SERVICE__NAME);
-    createEAttribute(providedServiceEClass, PROVIDED_SERVICE__SERVICE_ID);
     createEReference(providedServiceEClass, PROVIDED_SERVICE__IMPLEMENTATION);
     createEReference(providedServiceEClass, PROVIDED_SERVICE__INTERFACE);
     createEReference(providedServiceEClass, PROVIDED_SERVICE__REQUIRED_SERVICES);
 
     requiredServiceEClass = createEClass(REQUIRED_SERVICE);
     createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__NAME);
-    createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__SERVICE_ID);
     createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__LOWER_BOUND);
     createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__UPPER_BOUND);
     createEReference(requiredServiceEClass, REQUIRED_SERVICE__INTERFACE);
@@ -1887,12 +1843,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEReference(getApplication_Projects(), this.getProject(), null, "projects", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProject_ProjectID(), theEcorePackage.getEString(), "projectID", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProject_ProjectName(), theEcorePackage.getEString(), "projectName", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProject_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProject_BasePackage(), theEcorePackage.getEString(), "basePackage", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRepository_CategoryName(), theEcorePackage.getEString(), "categoryName", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRepository_CategoryLabel(), theEcorePackage.getEString(), "categoryLabel", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRepository_CategoryID(), theEcorePackage.getEString(), "categoryID", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRepository_CategoryDescription(), theEcorePackage.getEString(), "categoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepository_Features(), this.getFeature(), null, "features", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1902,6 +1858,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getFeature_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_License(), theEcorePackage.getEString(), "license", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_Label(), theEcorePackage.getEString(), "label", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_FeatureProvider(), theEcorePackage.getEString(), "featureProvider", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1909,7 +1866,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getBundle_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBundle_RequiredEnvironment(), theEcorePackage.getEString(), "requiredEnvironment", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBundle_Vendor(), theEcorePackage.getEString(), "vendor", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBundle_BasePackage(), theEcorePackage.getEString(), "basePackage", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_PartCategories(), this.getPartCategory(), null, "partCategories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1930,7 +1886,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(actionSetEClass, ActionSet.class, "ActionSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActionSet_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ActionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getActionSet_ID(), theEcorePackage.getEString(), "ID", null, 0, 1, ActionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActionSet_Menus(), this.getMenu(), null, "menus", null, 0, -1, ActionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActionSet_Actions(), this.getAction(), null, "actions", null, 0, -1, ActionSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1978,7 +1933,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(helpEClass, Help.class, "Help", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHelp_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Help.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getHelp_HelpID(), theEcorePackage.getEString(), "helpID", null, 0, 1, Help.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getHelp_Pages(), this.getPage(), null, "pages", null, 0, -1, Help.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1991,14 +1945,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(providedServiceEClass, ProvidedService.class, "ProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProvidedService_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProvidedService_ServiceID(), theEcorePackage.getEString(), "serviceID", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProvidedService_Implementation(), theEcorePackage.getEClass(), null, "implementation", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProvidedService_Interface(), theEcorePackage.getEClass(), null, "interface", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProvidedService_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requiredServiceEClass, RequiredService.class, "RequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRequiredService_Name(), theEcorePackage.getEString(), "name", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRequiredService_ServiceID(), theEcorePackage.getEString(), "serviceID", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRequiredService_LowerBound(), theEcorePackage.getEIntegerObject(), "lowerBound", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRequiredService_UpperBound(), theEcorePackage.getEIntegerObject(), "upperBound", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRequiredService_Interface(), theEcorePackage.getEClass(), null, "interface", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

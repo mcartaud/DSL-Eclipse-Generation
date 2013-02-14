@@ -64,27 +64,27 @@ public class ProjectItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addProjectIDPropertyDescriptor(object);
-      addProjectNamePropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
+      addBasePackagePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
 
   /**
-   * This adds a property descriptor for the Project ID feature.
+   * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addProjectIDPropertyDescriptor(Object object)
+  protected void addNamePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Project_projectID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Project_projectID_feature", "_UI_Project_type"),
-         EclipsePackage.Literals.PROJECT__PROJECT_ID,
+         getString("_UI_Project_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Project_name_feature", "_UI_Project_type"),
+         EclipsePackage.Literals.PROJECT__NAME,
          true,
          false,
          false,
@@ -94,20 +94,20 @@ public class ProjectItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Project Name feature.
+   * This adds a property descriptor for the Base Package feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addProjectNamePropertyDescriptor(Object object)
+  protected void addBasePackagePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Project_projectName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Project_projectName_feature", "_UI_Project_type"),
-         EclipsePackage.Literals.PROJECT__PROJECT_NAME,
+         getString("_UI_Project_basePackage_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Project_basePackage_feature", "_UI_Project_type"),
+         EclipsePackage.Literals.PROJECT__BASE_PACKAGE,
          true,
          false,
          false,
@@ -125,7 +125,7 @@ public class ProjectItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Project)object).getProjectName();
+    String label = ((Project)object).getName();
     return label == null || label.length() == 0 ?
       getString("_UI_Project_type") :
       getString("_UI_Project_type") + " " + label;
@@ -145,8 +145,8 @@ public class ProjectItemProvider
 
     switch (notification.getFeatureID(Project.class))
     {
-      case EclipsePackage.PROJECT__PROJECT_ID:
-      case EclipsePackage.PROJECT__PROJECT_NAME:
+      case EclipsePackage.PROJECT__NAME:
+      case EclipsePackage.PROJECT__BASE_PACKAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EReference;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getServiceID <em>Service ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface <em>Interface</em>}</li>
@@ -55,32 +54,6 @@ public interface RequiredService extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Service ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Service ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Service ID</em>' attribute.
-   * @see #setServiceID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_ServiceID()
-   * @model unique="false"
-   * @generated
-   */
-  String getServiceID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getServiceID <em>Service ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Service ID</em>' attribute.
-   * @see #getServiceID()
-   * @generated
-   */
-  void setServiceID(String value);
 
   /**
    * Returns the value of the '<em><b>Lower Bound</b></em>' attribute.

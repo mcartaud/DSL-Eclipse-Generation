@@ -19,8 +19,8 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl#getProjectID <em>Project ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl#getBasePackage <em>Base Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,44 +29,44 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
 public abstract class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 {
   /**
-   * The default value of the '{@link #getProjectID() <em>Project ID</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectID()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String PROJECT_ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getProjectID() <em>Project ID</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectID()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String projectID = PROJECT_ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+   * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectName()
+   * @see #getBasePackage()
    * @generated
    * @ordered
    */
-  protected static final String PROJECT_NAME_EDEFAULT = null;
+  protected static final String BASE_PACKAGE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+   * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectName()
+   * @see #getBasePackage()
    * @generated
    * @ordered
    */
-  protected String projectName = PROJECT_NAME_EDEFAULT;
+  protected String basePackage = BASE_PACKAGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -94,9 +94,9 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getProjectID()
+  public String getName()
   {
-    return projectID;
+    return name;
   }
 
   /**
@@ -104,12 +104,12 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProjectID(String newProjectID)
+  public void setName(String newName)
   {
-    String oldProjectID = projectID;
-    projectID = newProjectID;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__PROJECT_ID, oldProjectID, projectID));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__NAME, oldName, name));
   }
 
   /**
@@ -117,9 +117,9 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getProjectName()
+  public String getBasePackage()
   {
-    return projectName;
+    return basePackage;
   }
 
   /**
@@ -127,12 +127,12 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProjectName(String newProjectName)
+  public void setBasePackage(String newBasePackage)
   {
-    String oldProjectName = projectName;
-    projectName = newProjectName;
+    String oldBasePackage = basePackage;
+    basePackage = newBasePackage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__PROJECT_NAME, oldProjectName, projectName));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__BASE_PACKAGE, oldBasePackage, basePackage));
   }
 
   /**
@@ -145,10 +145,10 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case EclipsePackage.PROJECT__PROJECT_ID:
-        return getProjectID();
-      case EclipsePackage.PROJECT__PROJECT_NAME:
-        return getProjectName();
+      case EclipsePackage.PROJECT__NAME:
+        return getName();
+      case EclipsePackage.PROJECT__BASE_PACKAGE:
+        return getBasePackage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +163,11 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case EclipsePackage.PROJECT__PROJECT_ID:
-        setProjectID((String)newValue);
+      case EclipsePackage.PROJECT__NAME:
+        setName((String)newValue);
         return;
-      case EclipsePackage.PROJECT__PROJECT_NAME:
-        setProjectName((String)newValue);
+      case EclipsePackage.PROJECT__BASE_PACKAGE:
+        setBasePackage((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +183,11 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case EclipsePackage.PROJECT__PROJECT_ID:
-        setProjectID(PROJECT_ID_EDEFAULT);
+      case EclipsePackage.PROJECT__NAME:
+        setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.PROJECT__PROJECT_NAME:
-        setProjectName(PROJECT_NAME_EDEFAULT);
+      case EclipsePackage.PROJECT__BASE_PACKAGE:
+        setBasePackage(BASE_PACKAGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -203,10 +203,10 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case EclipsePackage.PROJECT__PROJECT_ID:
-        return PROJECT_ID_EDEFAULT == null ? projectID != null : !PROJECT_ID_EDEFAULT.equals(projectID);
-      case EclipsePackage.PROJECT__PROJECT_NAME:
-        return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+      case EclipsePackage.PROJECT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EclipsePackage.PROJECT__BASE_PACKAGE:
+        return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
     }
     return super.eIsSet(featureID);
   }
@@ -222,10 +222,10 @@ public abstract class ProjectImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (projectID: ");
-    result.append(projectID);
-    result.append(", projectName: ");
-    result.append(projectName);
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", basePackage: ");
+    result.append(basePackage);
     result.append(')');
     return result.toString();
   }

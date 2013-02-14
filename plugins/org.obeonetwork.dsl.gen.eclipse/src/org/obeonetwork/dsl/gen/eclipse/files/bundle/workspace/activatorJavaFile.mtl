@@ -9,7 +9,7 @@
 
 [template public genActivatorJavaFile(aBundle : Bundle)]
 [file (activatorJavafile(), false, 'UTF-8')]
-package [aBundle.projectID/];
+package [aBundle.basePackage/].[aBundle.name/];
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -17,8 +17,8 @@ import org.osgi.framework.BundleContext;
 [if (aBundle.extensions->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;[/if]
 [for (anExtension : Extension | aBundle.extensions)]
-import [aBundle.projectID/].registry.[anExtension.genExtensionName()/]ExtensionRegistry;
-import [aBundle.projectID/].registry.[anExtension.genExtensionName()/]RegistryListener;
+import [aBundle.basePackage/].[aBundle.name/].registry.[anExtension.genExtensionName()/]ExtensionRegistry;
+import [aBundle.basePackage/].[aBundle.name/].registry.[anExtension.genExtensionName()/]RegistryListener;
 [/for]
 /**
  * The activator class controls the plug-in life cycle
@@ -26,7 +26,7 @@ import [aBundle.projectID/].registry.[anExtension.genExtensionName()/]RegistryLi
 public class Activator extends AbstractUIPlugin {
 
 	/** The plug-in ID */
-	public static final String PLUGIN_ID = "[aBundle.projectID/]"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "[aBundle.basePackage/].[aBundle.name/]"; //$NON-NLS-1$
 
 	/** The shared instance */
 	private static Activator plugin;

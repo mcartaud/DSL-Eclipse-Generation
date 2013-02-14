@@ -9,7 +9,7 @@
 
 [template public genBuilderJavaFile(aBuilder : Builder)]
 [file (builderJavaFile(), false, 'UTF-8')]
-package [aBuilder.ancestors(Bundle).projectID/].ui.builder;
+package [aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].ui.builder;
 
 import java.util.Map;
 
@@ -23,7 +23,7 @@ public class [aBuilder.name.toUpperFirst()/] extends IncrementalProjectBuilder {
 	/**
 	 * The ID of the builder.
 	 */
-	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).projectID/].[aBuilder.name.toLowerFirst()/]";
+	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].[aBuilder.name.toLowerFirst()/]";
 
 	/**
 	 * {@inheritDoc}

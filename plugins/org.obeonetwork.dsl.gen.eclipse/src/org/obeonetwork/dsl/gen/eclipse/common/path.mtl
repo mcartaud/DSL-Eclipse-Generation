@@ -39,5 +39,5 @@ anExtension.name.substituteAll(' ', '_').toUpper()
 /]
 
 [template public genBundlePath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/src/[aBundle.basePackage.substituteAll('.', '/')/]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/src/[aBundle.basePackage.substituteAll('.', '/')/]
 [/template]

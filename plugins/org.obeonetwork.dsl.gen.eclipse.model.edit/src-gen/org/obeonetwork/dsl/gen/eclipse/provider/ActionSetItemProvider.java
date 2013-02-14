@@ -68,7 +68,6 @@ public class ActionSetItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addIDPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,29 +87,6 @@ public class ActionSetItemProvider
          getString("_UI_ActionSet_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_ActionSet_name_feature", "_UI_ActionSet_type"),
          EclipsePackage.Literals.ACTION_SET__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_ActionSet_ID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_ActionSet_ID_feature", "_UI_ActionSet_type"),
-         EclipsePackage.Literals.ACTION_SET__ID,
          true,
          false,
          false,
@@ -195,7 +171,6 @@ public class ActionSetItemProvider
     switch (notification.getFeatureID(ActionSet.class))
     {
       case EclipsePackage.ACTION_SET__NAME:
-      case EclipsePackage.ACTION_SET__ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.ACTION_SET__MENUS:

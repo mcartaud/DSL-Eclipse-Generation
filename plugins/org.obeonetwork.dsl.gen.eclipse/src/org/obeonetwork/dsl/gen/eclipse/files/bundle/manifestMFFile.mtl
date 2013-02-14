@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private manifestMFFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/META-INF/MANIFEST.MF
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/META-INF/MANIFEST.MF
 [/template]
 
 [template public genManifestMFFile(aBundle : Bundle)]
@@ -24,7 +24,7 @@ Contributors :
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: [aBundle.projectID/];singleton:=true
+Bundle-SymbolicName: [aBundle.basePackage/].[aBundle.name/];singleton:=true
 Bundle-Version: [aBundle.bundleVersion()/]
 Bundle-Vendor: %Provider-Name
 Bundle-ClassPath: .

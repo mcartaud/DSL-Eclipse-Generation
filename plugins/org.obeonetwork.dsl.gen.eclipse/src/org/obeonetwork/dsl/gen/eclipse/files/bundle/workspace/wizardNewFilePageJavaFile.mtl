@@ -9,7 +9,7 @@
 
 [template public genWizardNewFilePageJavaFile(aWizard : Wizard)]
 [file (wizardNewFilePageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).projectID/].ui.wizards;
+package [aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;

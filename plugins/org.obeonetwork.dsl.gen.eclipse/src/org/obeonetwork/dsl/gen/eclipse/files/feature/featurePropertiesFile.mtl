@@ -14,12 +14,12 @@ Contributors :
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private featurePropertiesFile(aFeature : Feature)]
-[aFeature.eContainer(Application).name/]/features/[aFeature.projectID/]/feature.properties
+[aFeature.eContainer(Application).name/]/features/[aFeature.basePackage/].[aFeature.name/]/feature.properties
 [/template]
 
 [template public genFeaturePropertiesFile(aFeature : Feature)]
 [file (aFeature.featurePropertiesFile(), false, 'UTF-8')]
-Feature-Name = [aFeature.projectName/]
+Feature-Label = [aFeature.label/]
 Feature-Provider = [aFeature.featureProvider/] 
 [/file]
 [/template]

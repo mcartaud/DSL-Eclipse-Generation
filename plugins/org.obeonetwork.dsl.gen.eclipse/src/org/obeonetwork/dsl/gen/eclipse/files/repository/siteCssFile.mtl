@@ -14,7 +14,7 @@ Contributors :
 [module siteCssFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private siteCssFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/web/site.css
+[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/web/site.css
 [/template]
 
 [template public genSiteCssFile(aRepository : Repository)]

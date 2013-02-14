@@ -42,7 +42,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBasePackage <em>Base Package</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
@@ -122,26 +121,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected String vendor = VENDOR_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBasePackage()
-   * @generated
-   * @ordered
-   */
-  protected static final String BASE_PACKAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBasePackage()
-   * @generated
-   * @ordered
-   */
-  protected String basePackage = BASE_PACKAGE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getProvidedServices() <em>Provided Services</em>}' containment reference list.
@@ -361,29 +340,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
     vendor = newVendor;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__VENDOR, oldVendor, vendor));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getBasePackage()
-  {
-    return basePackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBasePackage(String newBasePackage)
-  {
-    String oldBasePackage = basePackage;
-    basePackage = newBasePackage;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__BASE_PACKAGE, oldBasePackage, basePackage));
   }
 
   /**
@@ -618,8 +574,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getRequiredEnvironment();
       case EclipsePackage.BUNDLE__VENDOR:
         return getVendor();
-      case EclipsePackage.BUNDLE__BASE_PACKAGE:
-        return getBasePackage();
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         return getProvidedServices();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
@@ -669,9 +623,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return;
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor((String)newValue);
-        return;
-      case EclipsePackage.BUNDLE__BASE_PACKAGE:
-        setBasePackage((String)newValue);
         return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         getProvidedServices().clear();
@@ -748,9 +699,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor(VENDOR_EDEFAULT);
         return;
-      case EclipsePackage.BUNDLE__BASE_PACKAGE:
-        setBasePackage(BASE_PACKAGE_EDEFAULT);
-        return;
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         getProvidedServices().clear();
         return;
@@ -810,8 +758,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
       case EclipsePackage.BUNDLE__VENDOR:
         return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
-      case EclipsePackage.BUNDLE__BASE_PACKAGE:
-        return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
       case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
         return providedServices != null && !providedServices.isEmpty();
       case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
@@ -859,8 +805,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
     result.append(requiredEnvironment);
     result.append(", vendor: ");
     result.append(vendor);
-    result.append(", basePackage: ");
-    result.append(basePackage);
     result.append(')');
     return result.toString();
   }

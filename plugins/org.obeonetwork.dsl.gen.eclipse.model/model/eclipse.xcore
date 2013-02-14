@@ -18,13 +18,13 @@ class Application {
 }
 
 abstract class Project {
-	String projectID
-	String projectName
+	String name
+	String basePackage
 }
 
 class Repository extends Project {
-	String categoryName
 	String categoryLabel
+	String categoryID
 	String categoryDescription
 	refers Feature[] features
 	refers Bundle[] bundles
@@ -35,6 +35,7 @@ class Feature extends Project {
 	String description
 	String version
 	String license
+	String label
 	String featureProvider
 	refers Bundle[] bundles
 }
@@ -43,7 +44,6 @@ class Bundle extends Project {
 	String version
 	String requiredEnvironment
 	String vendor
-	String basePackage
 	contains ProvidedService[] providedServices
 	contains RequiredService[] requiredServices
 	contains PartCategory[] partCategories
@@ -67,7 +67,6 @@ class ImportedPackageDeclaration {
 
 class ActionSet {
 	String name
-	String ID
 	contains Menu[] menus
 	contains Action[] actions
 }
@@ -124,7 +123,6 @@ class Binding {
 
 class Help {
 	String name
-	String helpID
 	contains Page[] pages
 }
 
@@ -140,7 +138,6 @@ class ContextualHelp {
 
 class ProvidedService {
 	String name
-	String serviceID
 	refers EClass implementation
 	refers EClass ^interface
 	refers RequiredService[] requiredServices
@@ -148,7 +145,6 @@ class ProvidedService {
 
 class RequiredService {
 	String name
-	String serviceID
 	Integer lowerBound
 	Integer upperBound
 	refers EClass ^interface

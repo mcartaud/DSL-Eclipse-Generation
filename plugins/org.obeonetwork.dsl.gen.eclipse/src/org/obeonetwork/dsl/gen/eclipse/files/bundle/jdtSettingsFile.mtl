@@ -14,7 +14,7 @@ Contributors :
 [module jdtSettingsFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private jdtSettingsFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.projectID/]/.settings/org.eclipse.jdt.core.prefs
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/.settings/org.eclipse.jdt.core.prefs
 [/template]
 
 [template public genJdtSettingsFile(aBundle : Bundle)]

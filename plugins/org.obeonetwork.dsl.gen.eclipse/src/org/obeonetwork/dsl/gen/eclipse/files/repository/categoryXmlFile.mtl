@@ -14,7 +14,7 @@ Contributors :
 [module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [template private categoryXmlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.projectID/]/category.xml
+[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/category.xml
 [/template]
 
 [template public genCategoryXmlFile(aRepository : Repository)]
@@ -22,11 +22,11 @@ Contributors :
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 [for (aFeature : Feature | aRepository.features)]
-   <feature url="features/[aRepository.projectID/]_[aFeature.version/].jar" id="[aRepository.projectID/]" version="[aFeature.version/]">
-      <category name="[aRepository.categoryName/]"/>
+   <feature url="features/[aRepository.basePackage/].[aFeature.name/]_[aFeature.version/].jar" id="[aRepository.basePackage/].[aFeature.name/]" version="[aFeature.version/]">
+      <category name="[aRepository.categoryID/]"/>
    </feature>
 [/for]
-   <category-def name="[aRepository.categoryName/]" label="[aRepository.categoryLabel/]">
+   <category-def name="[aRepository.categoryID/]" label="[aRepository.categoryLabel/]">
       <description>
          [aRepository.categoryDescription/]
       </description>

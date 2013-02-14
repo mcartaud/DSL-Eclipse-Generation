@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getProjectID <em>Project ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage <em>Base Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,55 +24,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface Project extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Project ID</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Project ID</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Project ID</em>' attribute.
-   * @see #setProjectID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_ProjectID()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_Name()
    * @model unique="false"
    * @generated
    */
-  String getProjectID();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getProjectID <em>Project ID</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Project ID</em>' attribute.
-   * @see #getProjectID()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setProjectID(String value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Project Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Base Package</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Project Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Base Package</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Project Name</em>' attribute.
-   * @see #setProjectName(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_ProjectName()
+   * @return the value of the '<em>Base Package</em>' attribute.
+   * @see #setBasePackage(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_BasePackage()
    * @model unique="false"
    * @generated
    */
-  String getProjectName();
+  String getBasePackage();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getProjectName <em>Project Name</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage <em>Base Package</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Project Name</em>' attribute.
-   * @see #getProjectName()
+   * @param value the new value of the '<em>Base Package</em>' attribute.
+   * @see #getBasePackage()
    * @generated
    */
-  void setProjectName(String value);
+  void setBasePackage(String value);
 
 } // Project

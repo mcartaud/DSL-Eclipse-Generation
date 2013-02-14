@@ -4,16 +4,16 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionExsdFile(anExtension : Extension)]
-[anExtension.eContainer(Application).name/]/plugins/[anExtension.eContainer(Bundle).projectID/]/schema/[anExtension.genExtensionName()/]Extension.exsd
+[anExtension.eContainer(Bundle).genBundlePath()/]/schema/[anExtension.genExtensionName()/]Extension.exsd
 [/template]
 
 [template public genExtensionExsdFile(anExtension : Extension)]
 [file (extensionExsdFile(), false, 'UTF-8')]
 <!-- Schema file written by PDE -->
-<schema targetNamespace="[anExtension.ancestors(Bundle).projectID/]" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/]" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="[anExtension.ancestors(Bundle).projectID/]" id="[anExtension.ancestors(Bundle).projectID/].[anExtension.genExtensionName()/]Extension" name="[anExtension.genExtensionName()/]Extension"/>
+         <meta.schema plugin="[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/]" id="[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].[anExtension.genExtensionName()/]Extension" name="[anExtension.genExtensionName()/]Extension"/>
       </appinfo>
       <documentation>
          ['['/]Enter description of this extension point.]
@@ -52,7 +52,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":[anExtension.ancestors(Bundle).projectID/].I[anExtension.genExtensionName()/]Extension"/>
+                  <meta.attribute kind="java" basedOn=":[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].I[anExtension.genExtensionName()/]Extension"/>
                </appinfo>
             </annotation>
          </attribute>
