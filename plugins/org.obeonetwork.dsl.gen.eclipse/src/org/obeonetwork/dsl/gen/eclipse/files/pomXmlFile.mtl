@@ -1,8 +1,10 @@
 [comment encoding = UTF-8 /]
 [module pomXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
 [template private pomXmlFile(aProject : Project)]
-[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.basePackage/].[aProject.name/]/pom.xml
+[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.genBundlePath()/]/pom.xml
 [/template]
 
 [template public genPomXmlFile(aProject : Project)]
@@ -34,7 +36,7 @@
 
 
 [template private pomRepository(aRepository : Repository)]
-<artifactId>[aRepository.basePackage/].[aRepository.name/]</artifactId>
+<artifactId>[aRepository.genBundlePath()/]</artifactId>
 <packaging>eclipse-repository</packaging>
 
 <name>[aRepository.name/]</name>
@@ -74,7 +76,7 @@
 [/template]
 
 [template private pomFeature(aFeature : Feature)]
-<artifactId>[aFeature.basePackage/].[aFeature.name/]</artifactId>
+<artifactId>[aFeature.genBundlePath()/]</artifactId>
 <version>[aFeature.version/]-SNAPSHOT</version>
 <packaging>eclipse-feature</packaging>
 
@@ -83,7 +85,7 @@
 
 
 [template private pomBundle(aBundle : Bundle)]
-<artifactId>[aBundle.basePackage/].[aBundle.name/]</artifactId>
+<artifactId>[aBundle.genBundlePath()/]</artifactId>
 <version>[aBundle.version/]-SNAPSHOT</version>
 <packaging>eclipse-plugin</packaging>
 

@@ -13,18 +13,19 @@ Contributors :
 /]
 [module featureXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private featureXmlFile(aFeature : Feature)]
-[aFeature.eContainer(Application).name/]/features/[aFeature.basePackage/].[aFeature.name/]/feature.xml
+[aFeature.eContainer(Application).name/]/features/[aFeature.genBundlePath()/]/feature.xml
 [/template]
 
 [template public genFeatureXmlFile(aFeature : Feature)]
 [file (aFeature.featureXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="[aFeature.basePackage/].[aFeature.name/]"
+      id="[aFeature.genBundlePath()/]"
       label="%Feature-Label"
-      version="[aFeature.oclAsType(Feature).version/]"
+      version="[aFeature.featureVersion()/]"
 	  provider-name="%Feature-Provider">
 
    <description url="http://www.example.com/description">
@@ -41,7 +42,7 @@ Contributors :
 
 [for (aBundle : Bundle | aFeature.bundles)]
    <plugin
-         id="[aBundle.basePackage/].[aBundle.name/]"
+         id="[aBundle.genBundlePath()/]"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -49,4 +50,8 @@ Contributors :
 [/for]
 </feature>
 [/file]
+[/template]
+
+[template private featureVersion(aFeature : Feature)]
+[if (aFeature.version->size() > 0)][aFeature.version/][else]1.0.0.qualifier[/if]
 [/template]

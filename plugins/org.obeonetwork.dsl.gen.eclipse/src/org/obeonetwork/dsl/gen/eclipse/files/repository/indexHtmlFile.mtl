@@ -13,15 +13,17 @@ Contributors :
 /]
 [module indexHtmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
 [template private indexHtemlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/index.html
+[aRepository.eContainer(Application).name/]/repository/[aRepository.genBundlePath()/]/index.html
 [/template]
 
 [template public genIndexHtmlFile(aRepository : Repository)]
 [file (aRepository.indexHtemlFile(), false, 'UTF-8')]
 <html>
 <head>
-<title>[aRepository.basePackage/].[aRepository.name/]</title>
+<title>[aRepository.genBundlePath()/]</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>@import url("web/site.css");</style>
 <script type="text/javascript">

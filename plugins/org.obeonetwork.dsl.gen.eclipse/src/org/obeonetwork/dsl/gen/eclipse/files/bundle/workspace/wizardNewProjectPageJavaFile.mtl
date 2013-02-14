@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private wizardNewProjectPageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundlePath()/]/ui/wizards/[aWizard.name.toUpperFirst()/]ProjectPage.java
+[aWizard.eContainer(Bundle).genBundleQualifiedPath()/]/ui/wizards/[aWizard.name.toUpperFirst()/]ProjectPage.java
 [/template]
 
 [template public genWizardNewProjectPageJavaFile(aWizard : Wizard)]
 [file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards;
+package [aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards;
 
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 

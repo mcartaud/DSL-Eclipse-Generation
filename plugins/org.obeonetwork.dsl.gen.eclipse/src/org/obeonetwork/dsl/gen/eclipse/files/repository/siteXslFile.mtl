@@ -13,9 +13,10 @@ Contributors :
 /]
 [module siteXslFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private siteXlsFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/web/site.xls
+[aRepository.eContainer(Application).name/]/repository/[aRepository.genBundlePath()/]/web/site.xls
 [/template]
 
 [template public genSiteXlsFile(aRepository : Repository)]
@@ -27,11 +28,11 @@ Contributors :
 <xsl:for-each select="site">
 	<html>
 	<head>
-	<title>[aRepository.basePackage/].[aRepository.name/]</title>
+	<title>[aRepository.genBundlePath()/]</title>
 	<style>@import url("web/site.css");</style>
 	</head>
 	<body>
-	<h1 class="title">[aRepository.basePackage/].[aRepository.name/]</h1>
+	<h1 class="title">[aRepository.genBundlePath()/]</h1>
 	<p class="bodyText"><xsl:value-of select="description"/></p>
 	<table width="100%" border="0" cellspacing="1" cellpadding="2">
 	<xsl:for-each select="category-def">

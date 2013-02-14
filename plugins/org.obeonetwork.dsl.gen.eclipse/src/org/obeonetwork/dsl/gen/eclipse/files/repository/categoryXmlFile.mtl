@@ -13,8 +13,10 @@ Contributors :
 /]
 [module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
 [template private categoryXmlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.basePackage/].[aRepository.name/]/category.xml
+[aRepository.eContainer(Application).name/]/repository/[aRepository.genBundlePath()/]/category.xml
 [/template]
 
 [template public genCategoryXmlFile(aRepository : Repository)]
@@ -22,7 +24,7 @@ Contributors :
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 [for (aFeature : Feature | aRepository.features)]
-   <feature url="features/[aRepository.basePackage/].[aFeature.name/]_[aFeature.version/].jar" id="[aRepository.basePackage/].[aFeature.name/]" version="[aFeature.version/]">
+   <feature url="features/[aFeature.genBundlePath()/]_[aFeature.version/].jar" id="[aFeature.genBundlePath()/]" version="[aFeature.version/]">
       <category name="[aRepository.categoryID/]"/>
    </feature>
 [/for]

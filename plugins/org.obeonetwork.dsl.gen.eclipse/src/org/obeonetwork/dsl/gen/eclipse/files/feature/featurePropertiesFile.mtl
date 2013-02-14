@@ -13,8 +13,10 @@ Contributors :
 /]
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
 [template private featurePropertiesFile(aFeature : Feature)]
-[aFeature.eContainer(Application).name/]/features/[aFeature.basePackage/].[aFeature.name/]/feature.properties
+[aFeature.eContainer(Application).name/]/features/[aFeature.genBundlePath()/]/feature.properties
 [/template]
 
 [template public genFeaturePropertiesFile(aFeature : Feature)]

@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionRegistryJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundlePath()/]/registry/[anExtension.genExtensionName()/]ExtensionRegistry.java
+[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtension.genExtensionName()/]ExtensionRegistry.java
 [/template]
 
 [template public genExtensionRegistryJavaFile(anExtension : Extension)]
 [file (extensionRegistryJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
+package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
 
 import java.util.ArrayList;
 import java.util.List;

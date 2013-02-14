@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module pomParentXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private pomParentXmlFile(anApplication : Application)]
 [anApplication.name/]/pom.xml
@@ -194,12 +195,12 @@
 
 [template private modulesLocation(anApplication : Application) post(trim())]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
-<module>plugins/[aBundle.basePackage/].[aBundle.name/]</module>
+<module>plugins/[aBundle.genBundlePath()/]</module>
 [/for]
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
-<module>features/[aFeature.basePackage/].[aFeature.name/]</module>
+<module>features/[aFeature.genBundlePath()/]</module>
 [/for]
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
-<module>repository/[aRepository.basePackage/].[aRepository.name/]</module>
+<module>repository/[aRepository.genBundlePath()/]</module>
 [/for]
 [/template]

@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private natureJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundlePath()/]/ui/nature/[aNature.name.toUpperFirst()/].java
+[aNature.eContainer(Bundle).genBundleQualifiedPath()/]/ui/nature/[aNature.name.toUpperFirst()/].java
 [/template]
 
 [template public genNatureJavaFile(aNature : Nature)]
 [file (natureJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature;
+package [aNature.ancestors(Bundle).genBundlePath()/].ui.nature;
 
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
@@ -17,7 +17,7 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 [for (aBuilder : Builder | aNature.builders)]
-import [aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].ui.builder.[aNature.builders.name.toUpperFirst()/];
+import [aBuilder.ancestors(Bundle).genBundlePath()/].ui.builder.[aNature.builders.name.toUpperFirst()/];
 [/for]
 
 public class [aNature.name.toUpperFirst()/] implements IProjectNature {
@@ -25,7 +25,7 @@ public class [aNature.name.toUpperFirst()/] implements IProjectNature {
 	/**
 	 * ID of this project nature
 	 */
-	public static final String NATURE_ID = "[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].[aNature.name.toLowerFirst()/]";
+	public static final String NATURE_ID = "[aNature.ancestors(Bundle).genBundlePath()/].[aNature.name.toLowerFirst()/]";
 
 	private IProject project;
 

@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private providedServiceXmlFile(aProvidedService : ProvidedService)]
-[aProvidedService.eContainer(Bundle).eContainer(Application).name/]/plugins/[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.eContainer(Bundle).name/]/OSGI-INF/[aProvidedService.name.replaceAll(' ', '')/].xml
+[aProvidedService.eContainer(Bundle).eContainer(Application).name/]/plugins/[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.eContainer(Bundle).name.toLowerFirst()/]/OSGI-INF/[aProvidedService.name.replaceAll(' ', '')/].xml
 [/template]
 
 [template public genProvidedServiceXmlFile(aProvidedService : ProvidedService)]

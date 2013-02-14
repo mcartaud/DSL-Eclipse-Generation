@@ -38,6 +38,10 @@ aRequiredService.interface.ancestors(EPackage)->reverse().name
 anExtension.name.substituteAll(' ', '_').toUpper()
 /]
 
-[template public genBundlePath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/src/[aBundle.basePackage.substituteAll('.', '/')/]
+[template public genBundleQualifiedPath(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/src/[aBundle.basePackage.substituteAll('.', '/')/]
+[/template]
+
+[template public genBundlePath(aProject : Project)]
+[aProject.basePackage/].[aProject.name.toLowerFirst()/]
 [/template]

@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private toggleNatureActionJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundlePath()/]/ui/nature/Toggle[aNature.name.toUpperFirst()/]Action.java
+[aNature.eContainer(Bundle).genBundleQualifiedPath()/]/ui/nature/Toggle[aNature.name.toUpperFirst()/]Action.java
 [/template]
 
 [template public genToggleNatureActionJavaFile(aNature : Nature)]
 [file (toggleNatureActionJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature;
+package [aNature.ancestors(Bundle).genBundlePath()/].ui.nature;
 
 import java.util.Iterator;
 
@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import [aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].Activator;
+import [aNature.ancestors(Bundle).genBundlePath()/].Activator;
 
 public class Toggle[aNature.name.toUpperFirst()/]Action implements IObjectActionDelegate {
 

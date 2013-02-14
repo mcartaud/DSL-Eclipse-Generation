@@ -4,18 +4,18 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionDescriptorJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundlePath()/]/registry/[anExtension.genExtensionName()/]ExtensionDescriptor.java
+[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtension.genExtensionName()/]ExtensionDescriptor.java
 [/template]
 
 [template public genExtensionDescriptorJavaFile(anExtension : Extension)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
+package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
- * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].[anExtension.genExtensionName()/]Extension" extension point.
+ * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).genBundlePath()/].[anExtension.genExtensionName()/]Extension" extension point.
  * 
  */
 public class [anExtension.genExtensionName()/]ExtensionDescriptor {

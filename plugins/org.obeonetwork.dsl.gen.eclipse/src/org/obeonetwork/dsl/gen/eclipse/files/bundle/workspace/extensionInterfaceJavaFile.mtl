@@ -4,12 +4,12 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionInterfaceJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundlePath()/]/registry/I[anExtension.genExtensionName()/]Extension.java
+[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/I[anExtension.genExtensionName()/]Extension.java
 [/template]
 
 [template public genExtensionInterfaceJavaFile(anExtension : Extension)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).basePackage/].[anExtension.ancestors(Bundle).name/].registry;
+package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
 
 
 public interface I[anExtension.genExtensionName()/]Extension {

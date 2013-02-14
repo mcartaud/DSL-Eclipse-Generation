@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module coreSettingsFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private coreSettingsFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/.settings/org.eclipse.core.ressources.prefs
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/.settings/org.eclipse.core.ressources.prefs
 [/template]
 
 [template public genCoreSettingsFile(aBundle : Bundle)]

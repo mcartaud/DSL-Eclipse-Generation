@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module pluginXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private pluginXmlFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name/]/plugin.xml
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/plugin.xml
 [/template]
 
 [template public genPluginXmlFile(aBundle : Bundle)]
@@ -26,12 +27,12 @@
       name="%Nature-Name">
       <runtime>
          <run 
-			class="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature.[aNature.name.toUpperFirst()/]">
+			class="[aNature.ancestors(Bundle).genBundlePath()/].ui.nature.[aNature.name.toUpperFirst()/]">
          </run>
       </runtime>
 [if ((aNature.builders)->size() > 0)]
       <builder
-            id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].builder.[aNature.builders.name.toLowerFirst()/]">
+            id="[aNature.ancestors(Bundle).genBundlePath()/].builder.[aNature.builders.name.toLowerFirst()/]">
       </builder>[/if]
    </extension>
 [if (aNature.hasToogleNature)][/if]
@@ -39,13 +40,13 @@
 
 [template private builderPlugin(aBuilder : Builder)]
    <extension
-         id="[aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].builder.[aBuilder.name.toLowerFirst()/]"
+         id="[aBuilder.ancestors(Bundle).genBundlePath()/].builder.[aBuilder.name.toLowerFirst()/]"
          name="%Builder-Name"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="[associatedNature()/]">
          <run
-               class="[aBuilder.ancestors(Bundle).basePackage/].[aBuilder.ancestors(Bundle).name/].ui.builder.[aBuilder.name.toUpperFirst()/]">
+               class="[aBuilder.ancestors(Bundle).genBundlePath()/].ui.builder.[aBuilder.name.toUpperFirst()/]">
          </run>
       </builder>
    </extension>
@@ -53,10 +54,8 @@
 
 [template private associatedNature(aBuilder : Builder)]
 [if ((aBuilder.natures)->size() > 0)]
-true
-[else]
-false
-[/if]
+true[else]
+false[/if]
 [/template]
 
 [template private toogleNature(aNature : Nature)]
@@ -66,13 +65,13 @@ false
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].popupMenus.[aNature.name/]Contribution">
+            id="[aNature.ancestors(Bundle).genBundlePath()/].popupMenus.[aNature.name/]Contribution">
          <action
                label="Add/Remove [aNature.name/] Nature"
-               class="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].ui.nature.Toggle[aNature.name.toUpperFirst()/]Action"
+               class="[aNature.ancestors(Bundle).genBundlePath()/].ui.nature.Toggle[aNature.name.toUpperFirst()/]Action"
                menubarPath="additions"
                enablesFor="+"
-               id="[aNature.ancestors(Bundle).basePackage/].[aNature.ancestors(Bundle).name/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
+               id="[aNature.ancestors(Bundle).genBundlePath()/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
          </action>
       </objectContribution>
    </extension>
@@ -83,7 +82,7 @@ false
          point="org.eclipse.ui.newWizards">
       <category
             name="%Category-Name"
-            id="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.category.[aWizard.name.toLowerFirst()/]">
+            id="[aWizard.ancestors(Bundle).genBundlePath()/].ui.category.[aWizard.name.toLowerFirst()/]">
       </category>
       <wizard
             name="%Wizard-Name"
@@ -91,9 +90,9 @@ false
 [if (aWizard.isProject)]
 			project="true"
 [/if]
-			category="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.category.[aWizard.name.toLowerFirst()/]"
-            class="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards.[aWizard.name.toUpperFirst()/]"
-            id="[aWizard.ancestors(Bundle).basePackage/].[aWizard.ancestors(Bundle).name/].ui.wizards.[aWizard.name.toLowerFirst()/]">
+			category="[aWizard.ancestors(Bundle).genBundlePath()/].ui.category.[aWizard.name.toLowerFirst()/]"
+            class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst()/]"
+            id="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toLowerFirst()/]">
       </wizard>
    </extension>
 [/template]
