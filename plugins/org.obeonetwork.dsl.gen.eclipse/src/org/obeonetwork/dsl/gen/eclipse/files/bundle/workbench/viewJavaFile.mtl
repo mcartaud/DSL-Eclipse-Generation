@@ -125,19 +125,19 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 
 	private void fillLocalPullDown(IMenuManager manager) {
 [for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 		manager.add(new Separator());
 [/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 		manager.add(new Separator());
 [/for]
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
 [for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 [/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 [/for][if (aView.isTree)]
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
@@ -148,28 +148,42 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	
 	private void fillLocalToolBar(IToolBarManager manager) {
 [for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 [/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toUpperFirst()/]);
+		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 [/for][if (aView.isTree)]
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 [/if]
 	}
 
+	/*
+	 * We will set up a dummy model to initialize the actions
+	 */
 	private void makeActions() {
 [for (anAction : Action | aView.actions)]
 		[anAction.name.replaceAll(' ', '').toLowerFirst()/] = new Action() {
 			public void run() {
-				showMessage("Action 1 executed");
+				showMessage("[anAction.name/] executed");
 			}
 		};
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setText("Action 1");
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setToolTipText("Action 1 tooltip");
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setText("[anAction.name/]");
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setToolTipText("[anAction.name/] tooltip");
 		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-	}
 [/for]
+[for (anAction : Action | aView.actionSets.actions)]
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/] = new Action() {
+			public void run() {
+				showMessage("[anAction.name/] executed");
+			}
+		};
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setText("[anAction.name/]");
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setToolTipText("[anAction.name/] tooltip");
+		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+[/for]
+	}
 
 
 	private void showMessage(String message) {
@@ -196,8 +210,12 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 		}
 		public void dispose() {
 		}
+
+	/*
+	 * We will set up a dummy model to initialize the view.
+	 */
 		public Object['['/]] getElements(Object parent) {
-			return null;
+			return new String['['/]] { "One", "Two", "Three" };
 		}
 	}
 	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
@@ -301,6 +319,24 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
  * expose its hierarchy.
  */
 		private void initialize() {
+			TreeObject to1 = new TreeObject("Leaf 1");
+			TreeObject to2 = new TreeObject("Leaf 2");
+			TreeObject to3 = new TreeObject("Leaf 3");
+			TreeParent p1 = new TreeParent("Parent 1");
+			p1.addChild(to1);
+			p1.addChild(to2);
+			p1.addChild(to3);
+			
+			TreeObject to4 = new TreeObject("Leaf 4");
+			TreeParent p2 = new TreeParent("Parent 2");
+			p2.addChild(to4);
+			
+			TreeParent root = new TreeParent("Root");
+			root.addChild(p1);
+			root.addChild(p2);
+			
+			invisibleRoot = new TreeParent("");
+			invisibleRoot.addChild(root);
 		}
 	}
 	class ViewLabelProvider extends LabelProvider {
@@ -317,5 +353,3 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	}
 
 [/template]
-
-

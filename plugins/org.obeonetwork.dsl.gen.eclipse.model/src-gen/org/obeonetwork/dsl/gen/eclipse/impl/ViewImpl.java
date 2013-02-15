@@ -6,14 +6,20 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.obeonetwork.dsl.gen.eclipse.Action;
+import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
@@ -47,6 +53,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected static final String CATEGORY_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -56,6 +63,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected String category = CATEGORY_EDEFAULT;
+
   /**
    * The default value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -65,6 +73,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected static final boolean IS_TREE_EDEFAULT = false;
+
   /**
    * The cached value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -74,6 +83,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected boolean isTree = IS_TREE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -83,6 +93,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected EList<Action> actions;
+
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -92,6 +103,7 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected EList<Menu> menus;
+
   /**
    * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -174,20 +186,6 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Perspective> getPerspectives()
-  {
-    if (perspectives == null)
-    {
-      perspectives = new EObjectWithInverseResolvingEList.ManyInverse<Perspective>(Perspective.class, this, EclipsePackage.VIEW__PERSPECTIVES, EclipsePackage.PERSPECTIVE__VIEWS);
-    }
-    return perspectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Action> getActions()
   {
     if (actions == null)
@@ -209,6 +207,20 @@ public class ViewImpl extends PartImpl implements View
       menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.VIEW__MENUS);
     }
     return menus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Perspective> getPerspectives()
+  {
+    if (perspectives == null)
+    {
+      perspectives = new EObjectWithInverseResolvingEList.ManyInverse<Perspective>(Perspective.class, this, EclipsePackage.VIEW__PERSPECTIVES, EclipsePackage.PERSPECTIVE__VIEWS);
+    }
+    return perspectives;
   }
 
   /**

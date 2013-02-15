@@ -649,6 +649,56 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.HelpContents} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HelpContentsItemProvider helpContentsItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.HelpContents}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHelpContentsAdapter()
+  {
+    if (helpContentsItemProvider == null)
+    {
+      helpContentsItemProvider = new HelpContentsItemProvider(this);
+    }
+
+    return helpContentsItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.HelpPage} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected HelpPageItemProvider helpPageItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.HelpPage}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createHelpPageAdapter()
+  {
+    if (helpPageItemProvider == null)
+    {
+      helpPageItemProvider = new HelpPageItemProvider(this);
+    }
+
+    return helpPageItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -781,7 +831,9 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (actionSetItemProvider != null) actionSetItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();
     if (actionItemProvider != null) actionItemProvider.dispose();
+    if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
     if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
+    if (helpPageItemProvider != null) helpPageItemProvider.dispose();
   }
 
 }

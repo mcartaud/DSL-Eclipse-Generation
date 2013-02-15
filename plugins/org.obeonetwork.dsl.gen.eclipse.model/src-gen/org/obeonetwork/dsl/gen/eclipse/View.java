@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface View extends Part
 {
-
   /**
    * Returns the value of the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -80,24 +79,6 @@ public interface View extends Part
   void setIsTree(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Perspectives</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Perspective}.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Perspectives</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Perspectives</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Perspectives()
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews
-   * @model opposite="views"
-   * @generated
-   */
-  EList<Perspective> getPerspectives();
-
-  /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
    * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
    * <!-- begin-user-doc -->
@@ -128,4 +109,23 @@ public interface View extends Part
    * @generated
    */
   EList<Menu> getMenus();
+
+  /**
+   * Returns the value of the '<em><b>Perspectives</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Perspective}.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Perspectives</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Perspectives</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Perspectives()
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getViews
+   * @model opposite="views"
+   * @generated
+   */
+  EList<Perspective> getPerspectives();
+
 } // View

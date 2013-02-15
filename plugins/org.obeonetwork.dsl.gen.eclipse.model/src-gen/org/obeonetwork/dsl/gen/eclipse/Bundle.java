@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getEditors <em>Editors</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getViews <em>Views</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -310,6 +311,22 @@ public interface Bundle extends Project
    * @generated
    */
   EList<View> getViews();
+
+  /**
+   * Returns the value of the '<em><b>Helps</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Help}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Helps</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Helps</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Helps()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Help> getHelps();
 
   /**
    * Returns the value of the '<em><b>Exported Packages</b></em>' reference list.

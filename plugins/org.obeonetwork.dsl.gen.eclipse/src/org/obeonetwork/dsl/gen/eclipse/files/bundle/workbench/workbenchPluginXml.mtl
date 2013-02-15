@@ -9,8 +9,8 @@
       <perspective
             name="[aPerspective.name/]"
             icon="[aPerspective.icon/]"
-            class="[aPerspective.ancestors(Bundle).genBundlePath()/].ui.perspectives.[aPerspective.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[aPerspective.ancestors(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().replaceAll(' ', '')/]">
+            class="[aPerspective.eContainer(Bundle).genBundlePath()/].ui.perspectives.[aPerspective.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().replaceAll(' ', '')/]">
       </perspective>
    </extension>
 
@@ -27,28 +27,34 @@
             name="[aView.name/]"
             icon="[aView.icon/]"
             category="[aView.name.replaceAll(' ', '')/]Category"
-            class="[aView.ancestors(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[aView.ancestors(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
+            class="[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
       </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
-      <perspectiveExtension
-            targetID="org.eclipse.jdt.ui.JavaPerspective">
+[if (aView.perspectives->size() > 0)]
+   <perspectiveExtension
+         targetID="[aView.eContainer(Bundle).genBundlePath()/].perspectives.[aView.perspectives.name.toLowerFirst().replaceAll(' ', '')/]">
+[/if]
          <view
                ratio="0.5"
                relative="org.eclipse.ui.views.TaskList"
                relationship="right"
-               id="[aView.ancestors(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
+               id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().replaceAll(' ', '')/]">
          </view>
+[if (aView.perspectives->size() > 0)]
       </perspectiveExtension>
+[/if]
    </extension>
+[for (aDynamicHelp : DynamicHelp | aView.dynamicHelp)]
    <extension
          point="org.eclipse.help.contexts">
       <contexts
-            file="contexts.xml">
+            file="[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]Contexts.xml">
       </contexts>
    </extension>
+[/for]
 [/template]
 
 [template public editorPlugin(anEditor : Editor)]
@@ -59,8 +65,8 @@
             extensions="[anEditor.extension/]"
             icon="[anEditor.icon/]"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="[anEditor.ancestors(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[anEditor.ancestors(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().replaceAll(' ', '')/]">
+            class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
+            id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().replaceAll(' ', '')/]">
       </editor>
    </extension>
 [/template]

@@ -246,10 +246,34 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsePackage.HELP:
+      {
+        Help help = (Help)theEObject;
+        T result = caseHelp(help);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.HELP_CONTENTS:
+      {
+        HelpContents helpContents = (HelpContents)theEObject;
+        T result = caseHelpContents(helpContents);
+        if (result == null) result = caseHelp(helpContents);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsePackage.DYNAMIC_HELP:
       {
         DynamicHelp dynamicHelp = (DynamicHelp)theEObject;
         T result = caseDynamicHelp(dynamicHelp);
+        if (result == null) result = caseHelp(dynamicHelp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.HELP_PAGE:
+      {
+        HelpPage helpPage = (HelpPage)theEObject;
+        T result = caseHelpPage(helpPage);
+        if (result == null) result = caseHelp(helpPage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -653,6 +677,54 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDynamicHelp(DynamicHelp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Help</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Help</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHelp(Help object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Help Contents</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Help Contents</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHelpContents(HelpContents object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Help Page</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Help Page</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHelpPage(HelpPage object)
   {
     return null;
   }

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.ActionSet;
@@ -51,6 +51,7 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected static final String NAME_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -60,6 +61,7 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -69,6 +71,7 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected static final String ICON_EDEFAULT = null;
+
   /**
    * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -78,6 +81,7 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected String icon = ICON_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -87,6 +91,7 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected EList<ActionSet> actionSets;
+
   /**
    * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
    * <!-- begin-user-doc -->

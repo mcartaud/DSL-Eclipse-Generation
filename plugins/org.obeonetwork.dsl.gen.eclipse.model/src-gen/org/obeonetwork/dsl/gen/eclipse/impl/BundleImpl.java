@@ -6,20 +6,26 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.Extension;
+import org.obeonetwork.dsl.gen.eclipse.Help;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
@@ -51,6 +57,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getEditors <em>Editors</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -240,6 +247,16 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<View> views;
+
+  /**
+   * The cached value of the '{@link #getHelps() <em>Helps</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHelps()
+   * @generated
+   * @ordered
+   */
+  protected EList<Help> helps;
 
   /**
    * The cached value of the '{@link #getExportedPackages() <em>Exported Packages</em>}' reference list.
@@ -534,6 +551,20 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Help> getHelps()
+  {
+    if (helps == null)
+    {
+      helps = new EObjectContainmentEList<Help>(Help.class, this, EclipsePackage.BUNDLE__HELPS);
+    }
+    return helps;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EPackage> getExportedPackages()
   {
     if (exportedPackages == null)
@@ -605,6 +636,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getEditors()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__VIEWS:
         return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__HELPS:
+        return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -649,6 +682,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getEditors();
       case EclipsePackage.BUNDLE__VIEWS:
         return getViews();
+      case EclipsePackage.BUNDLE__HELPS:
+        return getHelps();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return getExportedPackages();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
@@ -727,6 +762,10 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getViews().clear();
         getViews().addAll((Collection<? extends View>)newValue);
         return;
+      case EclipsePackage.BUNDLE__HELPS:
+        getHelps().clear();
+        getHelps().addAll((Collection<? extends Help>)newValue);
+        return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
         getExportedPackages().addAll((Collection<? extends EPackage>)newValue);
@@ -798,6 +837,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VIEWS:
         getViews().clear();
         return;
+      case EclipsePackage.BUNDLE__HELPS:
+        getHelps().clear();
+        return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
         return;
@@ -851,6 +893,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return editors != null && !editors.isEmpty();
       case EclipsePackage.BUNDLE__VIEWS:
         return views != null && !views.isEmpty();
+      case EclipsePackage.BUNDLE__HELPS:
+        return helps != null && !helps.isEmpty();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return exportedPackages != null && !exportedPackages.isEmpty();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:

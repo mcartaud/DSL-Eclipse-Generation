@@ -87,7 +87,9 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.ACTION_SET: return createActionSet();
       case EclipsePackage.MENU: return createMenu();
       case EclipsePackage.ACTION: return createAction();
+      case EclipsePackage.HELP_CONTENTS: return createHelpContents();
       case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
+      case EclipsePackage.HELP_PAGE: return createHelpPage();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -382,6 +384,28 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     DynamicHelpImpl dynamicHelp = new DynamicHelpImpl();
     return dynamicHelp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HelpContents createHelpContents()
+  {
+    HelpContentsImpl helpContents = new HelpContentsImpl();
+    return helpContents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HelpPage createHelpPage()
+  {
+    HelpPageImpl helpPage = new HelpPageImpl();
+    return helpPage;
   }
 
   /**

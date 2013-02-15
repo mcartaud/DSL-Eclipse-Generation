@@ -23,7 +23,24 @@
 [/for][for (aPerspective : Perspective | aBundle.perspectives)][perspectivePlugin()/]
 [/for][for (aView : View | aBundle.views)][viewPlugin()/]
 [/for][for (anEditor : Editor | aBundle.editors)][editorPlugin()/]
+[/for][for (anHelp : Help | aBundle.helps)][if (not(anHelp.oclIsKindOf(DynamicHelp)))][helpPlugin()/][/if]
 [/for]
 </plugin>
 [/file]
+[/template]
+
+[template private helpPlugin(anHelp : Help)]
+   <extension
+         point="org.eclipse.help.toc">
+[for (anHelpContents : HelpContents | anHelp.current(HelpContents))]
+      <toc
+            file="[anHelpContents.label.toLowerFirst().substituteAll(' ', '')/]MainToc.xml">
+      </toc>
+[/for][for (anHelpPage : HelpPage | anHelp.current(HelpPage))]
+      <toc
+            file="[anHelpPage.label.toLowerFirst().substituteAll(' ', '')/]Toc.xml"
+            primary="true">
+      </toc>
+[/for]
+   </extension>
 [/template]

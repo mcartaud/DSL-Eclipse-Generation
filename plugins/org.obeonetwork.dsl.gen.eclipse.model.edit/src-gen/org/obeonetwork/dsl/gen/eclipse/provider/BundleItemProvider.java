@@ -238,6 +238,7 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EDITORS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELPS);
     }
     return childrenFeatures;
   }
@@ -314,6 +315,7 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__PERSPECTIVES:
       case EclipsePackage.BUNDLE__EDITORS:
       case EclipsePackage.BUNDLE__VIEWS:
+      case EclipsePackage.BUNDLE__HELPS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -396,6 +398,21 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__VIEWS,
          EclipseFactory.eINSTANCE.createView()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__HELPS,
+         EclipseFactory.eINSTANCE.createHelpContents()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__HELPS,
+         EclipseFactory.eINSTANCE.createDynamicHelp()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__HELPS,
+         EclipseFactory.eINSTANCE.createHelpPage()));
   }
 
 }

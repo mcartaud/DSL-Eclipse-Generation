@@ -23,17 +23,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.HelpPage;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.HelpPage} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DynamicHelpItemProvider
+public class HelpPageItemProvider
   extends HelpItemProvider
   implements
     IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class DynamicHelpItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public DynamicHelpItemProvider(AdapterFactory adapterFactory)
+  public HelpPageItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -84,7 +84,7 @@ public class DynamicHelpItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.DYNAMIC_HELP__HELP_PAGE);
+      childrenFeatures.add(EclipsePackage.Literals.HELP_PAGE__HELP_PAGES);
     }
     return childrenFeatures;
   }
@@ -104,7 +104,7 @@ public class DynamicHelpItemProvider
   }
 
   /**
-   * This returns DynamicHelp.gif.
+   * This returns HelpPage.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -112,7 +112,7 @@ public class DynamicHelpItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/DynamicHelp"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/HelpPage"));
   }
 
   /**
@@ -124,10 +124,10 @@ public class DynamicHelpItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((DynamicHelp)object).getDescription();
+    String label = ((HelpPage)object).getDescription();
     return label == null || label.length() == 0 ?
-      getString("_UI_DynamicHelp_type") :
-      getString("_UI_DynamicHelp_type") + " " + label;
+      getString("_UI_HelpPage_type") :
+      getString("_UI_HelpPage_type") + " " + label;
   }
 
   /**
@@ -142,9 +142,9 @@ public class DynamicHelpItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(DynamicHelp.class))
+    switch (notification.getFeatureID(HelpPage.class))
     {
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
+      case EclipsePackage.HELP_PAGE__HELP_PAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -165,7 +165,7 @@ public class DynamicHelpItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.DYNAMIC_HELP__HELP_PAGE,
+        (EclipsePackage.Literals.HELP_PAGE__HELP_PAGES,
          EclipseFactory.eINSTANCE.createHelpPage()));
   }
 

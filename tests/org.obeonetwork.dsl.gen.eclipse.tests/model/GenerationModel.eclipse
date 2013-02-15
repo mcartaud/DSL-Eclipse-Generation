@@ -37,7 +37,9 @@
   </projects>
   <projects xsi:type="eclipse:Bundle" name="eclipse" basePackage="org.obeonetwork.dsl.gen" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
     <perspectives name="perspTropCool" views="//@projects.5/@views.0 //@projects.5/@views.1"/>
+    <editors name="superEdit" extension="java"/>
     <views name="vueBasic" category="vision" perspectives="//@projects.5/@perspectives.0">
+      <dynamicHelp name="aide pour la vue" description="ceci permet de donner de l'aide" label="view help"/>
       <actions name="clique"/>
     </views>
     <views name="vueTree" category="treeCat" isTree="true" perspectives="//@projects.5/@perspectives.0">

@@ -560,13 +560,22 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__VIEWS = PROJECT_FEATURE_COUNT + 14;
 
   /**
+   * The feature id for the '<em><b>Helps</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUNDLE__HELPS = PROJECT_FEATURE_COUNT + 15;
+
+  /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 15;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 16;
 
   /**
    * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
@@ -575,7 +584,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 16;
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 17;
 
   /**
    * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
@@ -584,7 +593,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 17;
+  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 18;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -593,7 +602,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 18;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 19;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -1846,16 +1855,17 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
    * @generated
    */
-  int DYNAMIC_HELP = 24;
+  int DYNAMIC_HELP = 26;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl <em>Help</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelp()
    * @generated
-   * @ordered
    */
-  int DYNAMIC_HELP__NAME = 0;
+  int HELP = 24;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1864,7 +1874,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP__DESCRIPTION = 1;
+  int HELP__DESCRIPTION = 0;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1873,7 +1883,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP__LABEL = 2;
+  int HELP__LABEL = 1;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1882,7 +1892,125 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP__TITLE = 3;
+  int HELP__TITLE = 2;
+
+  /**
+   * The number of structural features of the '<em>Help</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_FEATURE_COUNT = 3;
+
+  /**
+   * The number of operations of the '<em>Help</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
+   * @generated
+   */
+  int HELP_CONTENTS = 25;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__DESCRIPTION = HELP__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__LABEL = HELP__LABEL;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__TITLE = HELP__TITLE;
+
+  /**
+   * The feature id for the '<em><b>Help Pages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__HELP_PAGES = HELP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Help Contents</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS_FEATURE_COUNT = HELP_FEATURE_COUNT + 1;
+
+  /**
+   * The number of operations of the '<em>Help Contents</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS_OPERATION_COUNT = HELP_OPERATION_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__DESCRIPTION = HELP__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__LABEL = HELP__LABEL;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__TITLE = HELP__TITLE;
+
+  /**
+   * The feature id for the '<em><b>Help Page</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__HELP_PAGE = HELP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Dynamic Help</em>' class.
@@ -1891,7 +2019,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP_FEATURE_COUNT = 4;
+  int DYNAMIC_HELP_FEATURE_COUNT = HELP_FEATURE_COUNT + 1;
 
   /**
    * The number of operations of the '<em>Dynamic Help</em>' class.
@@ -1900,7 +2028,71 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP_OPERATION_COUNT = 0;
+  int DYNAMIC_HELP_OPERATION_COUNT = HELP_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl <em>Help Page</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
+   * @generated
+   */
+  int HELP_PAGE = 27;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__DESCRIPTION = HELP__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__LABEL = HELP__LABEL;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__TITLE = HELP__TITLE;
+
+  /**
+   * The feature id for the '<em><b>Help Pages</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__HELP_PAGES = HELP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Help Page</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE_FEATURE_COUNT = HELP_FEATURE_COUNT + 1;
+
+  /**
+   * The number of operations of the '<em>Help Page</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE_OPERATION_COUNT = HELP_OPERATION_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -1910,8 +2102,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 25;
-
+  int TYPE = 28;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -1921,7 +2112,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
    * @generated
    */
-  int LOCATION = 26;
+  int LOCATION = 29;
 
 
   /**
@@ -2369,6 +2560,17 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getBundle_Views();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps <em>Helps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Helps</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getHelps()
+   * @see #getBundle()
+   * @generated
+   */
+  EReference getBundle_Helps();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}'.
@@ -3137,6 +3339,28 @@ public interface EclipsePackage extends EPackage
   EAttribute getView_IsTree();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getActions()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_Actions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Menus</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getMenus()
+   * @see #getView()
+   * @generated
+   */
+  EReference getView_Menus();
+
+  /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3255,28 +3479,6 @@ public interface EclipsePackage extends EPackage
   EReference getMenu_Actions();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getActions()
-   * @see #getView()
-   * @generated
-   */
-  EReference getView_Actions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getMenus()
-   * @see #getView()
-   * @generated
-   */
-  EReference getView_Menus();
-
-  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3308,48 +3510,100 @@ public interface EclipsePackage extends EPackage
   EClass getDynamicHelp();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPage <em>Help Page</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getName()
+   * @return the meta object for the containment reference '<em>Help Page</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPage()
    * @see #getDynamicHelp()
    * @generated
    */
-  EAttribute getDynamicHelp_Name();
+  EReference getDynamicHelp_HelpPage();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription <em>Description</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Help <em>Help</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Help</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Help
+   * @generated
+   */
+  EClass getHelp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Help#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription()
-   * @see #getDynamicHelp()
+   * @see org.obeonetwork.dsl.gen.eclipse.Help#getDescription()
+   * @see #getHelp()
    * @generated
    */
-  EAttribute getDynamicHelp_Description();
+  EAttribute getHelp_Description();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel <em>Label</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Help#getLabel <em>Label</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Label</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel()
-   * @see #getDynamicHelp()
+   * @see org.obeonetwork.dsl.gen.eclipse.Help#getLabel()
+   * @see #getHelp()
    * @generated
    */
-  EAttribute getDynamicHelp_Label();
+  EAttribute getHelp_Label();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle <em>Title</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Help#getTitle <em>Title</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Title</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle()
-   * @see #getDynamicHelp()
+   * @see org.obeonetwork.dsl.gen.eclipse.Help#getTitle()
+   * @see #getHelp()
    * @generated
    */
-  EAttribute getDynamicHelp_Title();
+  EAttribute getHelp_Title();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Help Contents</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents
+   * @generated
+   */
+  EClass getHelpContents();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getHelpPages <em>Help Pages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Help Pages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents#getHelpPages()
+   * @see #getHelpContents()
+   * @generated
+   */
+  EReference getHelpContents_HelpPages();
+
+  /**
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage <em>Help Page</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Help Page</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage
+   * @generated
+   */
+  EClass getHelpPage();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getHelpPages <em>Help Pages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Help Pages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage#getHelpPages()
+   * @see #getHelpPage()
+   * @generated
+   */
+  EReference getHelpPage_HelpPages();
 
   /**
    * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
@@ -3732,6 +3986,14 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference BUNDLE__VIEWS = eINSTANCE.getBundle_Views();
+
+    /**
+     * The meta object literal for the '<em><b>Helps</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUNDLE__HELPS = eINSTANCE.getBundle_Helps();
 
     /**
      * The meta object literal for the '<em><b>Exported Packages</b></em>' reference list feature.
@@ -4332,6 +4594,22 @@ public interface EclipsePackage extends EPackage
     EAttribute VIEW__IS_TREE = eINSTANCE.getView_IsTree();
 
     /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
+
+    /**
+     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEW__MENUS = eINSTANCE.getView_Menus();
+
+    /**
      * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4426,22 +4704,6 @@ public interface EclipsePackage extends EPackage
     EReference MENU__ACTIONS = eINSTANCE.getMenu_Actions();
 
     /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
-
-    /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEW__MENUS = eINSTANCE.getView_Menus();
-
-    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4470,12 +4732,22 @@ public interface EclipsePackage extends EPackage
     EClass DYNAMIC_HELP = eINSTANCE.getDynamicHelp();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Help Page</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DYNAMIC_HELP__NAME = eINSTANCE.getDynamicHelp_Name();
+    EReference DYNAMIC_HELP__HELP_PAGE = eINSTANCE.getDynamicHelp_HelpPage();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl <em>Help</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelp()
+     * @generated
+     */
+    EClass HELP = eINSTANCE.getHelp();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4483,7 +4755,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DYNAMIC_HELP__DESCRIPTION = eINSTANCE.getDynamicHelp_Description();
+    EAttribute HELP__DESCRIPTION = eINSTANCE.getHelp_Description();
 
     /**
      * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -4491,7 +4763,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DYNAMIC_HELP__LABEL = eINSTANCE.getDynamicHelp_Label();
+    EAttribute HELP__LABEL = eINSTANCE.getHelp_Label();
 
     /**
      * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
@@ -4499,7 +4771,43 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DYNAMIC_HELP__TITLE = eINSTANCE.getDynamicHelp_Title();
+    EAttribute HELP__TITLE = eINSTANCE.getHelp_Title();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
+     * @generated
+     */
+    EClass HELP_CONTENTS = eINSTANCE.getHelpContents();
+
+    /**
+     * The meta object literal for the '<em><b>Help Pages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HELP_CONTENTS__HELP_PAGES = eINSTANCE.getHelpContents_HelpPages();
+
+    /**
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl <em>Help Page</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
+     * @generated
+     */
+    EClass HELP_PAGE = eINSTANCE.getHelpPage();
+
+    /**
+     * The meta object literal for the '<em><b>Help Pages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HELP_PAGE__HELP_PAGES = eINSTANCE.getHelpPage_HelpPages();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
