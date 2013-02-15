@@ -34,6 +34,9 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::wizardNewProjectPageJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::wizardNewFilePageJavaFile /]
 
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perpectiveJavaFile /]
+
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::buildPropertiesFeatureFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::featurePropertiesFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::featureXmlFile /]
@@ -68,7 +71,14 @@ Contributors :
 [for (aBuilder : Builder | aBundle.builders)]
 [aBuilder.genBuilderJavaFile()/]
 [/for]
-[if (aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.wizards->size() > 0 or aBundle.decorators->size() > 0)]
+[for (aView : View | aBundle.views)]
+[aView.genViewJavaFile()/]
+[/for]
+[for (aPerspective : Perspective | aBundle.perspectives)]
+[aPerspective.genPerspectiveJavaFile()/]
+[/for]
+[if (aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.wizards->size() > 0 or aBundle.decorators->size() > 0 or aBundle.views->size() > 0 
+or aBundle.perspectives->size() > 0)]
 [aBundle.genPluginXmlFile()/ ]
 [aBundle.genActivatorJavaFile()/]
 [/if]

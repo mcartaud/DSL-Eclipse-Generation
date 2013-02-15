@@ -35,7 +35,17 @@
     <ownedPackages href="editor.ecore#/"/>
     <ownedPackages href="edit.ecore#//impl"/>
   </projects>
-  <projects xsi:type="eclipse:Bundle" name="eclipse" basePackage="org.obeonetwork.dsl.gen.eclipse" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud"/>
+  <projects xsi:type="eclipse:Bundle" name="eclipse" basePackage="org.obeonetwork.dsl.gen" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
+    <perspectives name="perspTropCool" views="//@projects.5/@views.0 //@projects.5/@views.1"/>
+    <views name="vueBasic" category="vision" perspectives="//@projects.5/@perspectives.0">
+      <actions name="clique"/>
+    </views>
+    <views name="vueTree" category="treeCat" isTree="true" perspectives="//@projects.5/@perspectives.0">
+      <actionSets>
+        <actions name="clack"/>
+      </actionSets>
+    </views>
+  </projects>
   <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen.tests" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
     <natures name="nature" langageName="" builders="//@projects.6/@builders.0"/>
     <builders name="builder" natures="//@projects.6/@natures.0"/>

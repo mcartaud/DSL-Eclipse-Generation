@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module editorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private editorJavaFile(anEditor : Editor)]
+[anEditor.eContainer(Bundle).genBundleQualifiedPath()/]/ui/editors/[anEditor.name.replaceAll(' ', '').toUpperFirst()/].java
+[/template]
+
+[template public genEditorJavaFile(anEditor : Editor)]
+[file (editorJavaFile(), false, 'UTF-8')]
+
+[/file]
+[/template]

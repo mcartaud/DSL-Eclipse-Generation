@@ -45,7 +45,7 @@
    </extension>
    <extension
          point="org.eclipse.help.contexts">
-      <contexts[
+      <contexts
             file="contexts.xml">
       </contexts>
    </extension>

@@ -39,7 +39,7 @@ anExtension.name.substituteAll(' ', '_').toUpper()
 /]
 
 [template public genBundleQualifiedPath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/src/[aBundle.basePackage.substituteAll('.', '/')/]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name.toLowerFirst()/]/src/[aBundle.basePackage.substituteAll('.', '/')/][if (aBundle.basePackage.endsWith(aBundle.name.toLowerFirst()))][else]/[aBundle.name.toLowerFirst()/][/if]
 [/template]
 
 [template public genBundlePath(aProject : Project)]
