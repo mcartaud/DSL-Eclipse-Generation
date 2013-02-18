@@ -47,14 +47,14 @@
       </perspectiveExtension>
 [/if]
    </extension>
-[for (aDynamicHelp : DynamicHelp | aView.dynamicHelp)]
+[if (aView.dynamicHelp->size()> 0)][for (aDynamicHelp : DynamicHelp | aView.dynamicHelp)]
    <extension
          point="org.eclipse.help.contexts">
       <contexts
-            file="[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]Contexts.xml">
+            file="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml">
       </contexts>
    </extension>
-[/for]
+[/for][/if]
 [/template]
 
 [template public editorPlugin(anEditor : Editor)]

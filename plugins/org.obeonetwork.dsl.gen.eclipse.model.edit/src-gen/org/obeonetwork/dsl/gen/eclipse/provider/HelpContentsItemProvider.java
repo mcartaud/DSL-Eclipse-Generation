@@ -9,14 +9,19 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
@@ -30,7 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.HelpContents;
  * @generated
  */
 public class HelpContentsItemProvider
-  extends HelpItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -62,8 +67,80 @@ public class HelpContentsItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addDescriptionPropertyDescriptor(object);
+      addLabelPropertyDescriptor(object);
+      addTitlePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Description feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HelpContents_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HelpContents_description_feature", "_UI_HelpContents_type"),
+         EclipsePackage.Literals.HELP_CONTENTS__DESCRIPTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Label feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addLabelPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HelpContents_label_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HelpContents_label_feature", "_UI_HelpContents_type"),
+         EclipsePackage.Literals.HELP_CONTENTS__LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Title feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTitlePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HelpContents_title_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HelpContents_title_feature", "_UI_HelpContents_type"),
+         EclipsePackage.Literals.HELP_CONTENTS__TITLE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -140,6 +217,11 @@ public class HelpContentsItemProvider
 
     switch (notification.getFeatureID(HelpContents.class))
     {
+      case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
+      case EclipsePackage.HELP_CONTENTS__LABEL:
+      case EclipsePackage.HELP_CONTENTS__TITLE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -163,6 +245,18 @@ public class HelpContentsItemProvider
       (createChildParameter
         (EclipsePackage.Literals.HELP_CONTENTS__HELP_PAGES,
          EclipseFactory.eINSTANCE.createHelpPage()));
+  }
+
+  /**
+   * Return the resource locator for this item provider's resources.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResourceLocator getResourceLocator()
+  {
+    return EclipseEditPlugin.INSTANCE;
   }
 
 }

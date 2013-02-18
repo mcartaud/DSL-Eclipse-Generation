@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,7 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * @generated
  */
 public class DynamicHelpItemProvider
-  extends HelpItemProvider
+  extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -66,8 +67,80 @@ public class DynamicHelpItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addDescriptionPropertyDescriptor(object);
+      addLabelPropertyDescriptor(object);
+      addTitlePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Description feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addDescriptionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_description_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__DESCRIPTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Label feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addLabelPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_label_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_label_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__LABEL,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Title feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTitlePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_DynamicHelp_title_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_title_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__TITLE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
   }
 
   /**
@@ -144,6 +217,11 @@ public class DynamicHelpItemProvider
 
     switch (notification.getFeatureID(DynamicHelp.class))
     {
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -167,6 +245,18 @@ public class DynamicHelpItemProvider
       (createChildParameter
         (EclipsePackage.Literals.DYNAMIC_HELP__HELP_PAGE,
          EclipseFactory.eINSTANCE.createHelpPage()));
+  }
+
+  /**
+   * Return the resource locator for this item provider's resources.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ResourceLocator getResourceLocator()
+  {
+    return EclipseEditPlugin.INSTANCE;
   }
 
 }

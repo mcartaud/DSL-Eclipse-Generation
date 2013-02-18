@@ -195,24 +195,19 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createActionAdapter();
       }
       @Override
-      public Adapter caseHelp(Help object)
-      {
-        return createHelpAdapter();
-      }
-      @Override
       public Adapter caseHelpContents(HelpContents object)
       {
         return createHelpContentsAdapter();
       }
       @Override
-      public Adapter caseDynamicHelp(DynamicHelp object)
-      {
-        return createDynamicHelpAdapter();
-      }
-      @Override
       public Adapter caseHelpPage(HelpPage object)
       {
         return createHelpPageAdapter();
+      }
+      @Override
+      public Adapter caseDynamicHelp(DynamicHelp object)
+      {
+        return createDynamicHelpAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -597,36 +592,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp <em>Dynamic Help</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp
-   * @generated
-   */
-  public Adapter createDynamicHelpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Help <em>Help</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.Help
-   * @generated
-   */
-  public Adapter createHelpAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -652,6 +617,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHelpPageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp <em>Dynamic Help</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp
+   * @generated
+   */
+  public Adapter createDynamicHelpAdapter()
   {
     return null;
   }

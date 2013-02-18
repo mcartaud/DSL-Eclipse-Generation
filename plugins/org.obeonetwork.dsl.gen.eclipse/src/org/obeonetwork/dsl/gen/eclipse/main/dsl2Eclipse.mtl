@@ -17,6 +17,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
 
+
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::buildPropertiesBundleFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::classPathXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::jdtSettingsFile /]
@@ -25,6 +26,12 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::pluginPropertiesFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::providedServiceXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::pluginXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::dynamicHelpContextXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpContentsXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageHtmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::dynamicHelpPageHtmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::mainHelpPageHtmlFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::activatorJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::builderJavaFile /]
@@ -37,14 +44,12 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perpectiveJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorJavaFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::dynamicHelpContextXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::helpContentsXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::helpPageHtmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::helpPageXmlFile /]
+
 
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::buildPropertiesFeatureFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::featurePropertiesFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::featureXmlFile /]
+
 
 [import org::obeonetwork::dsl::gen::eclipse::files::repository::indexHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::repository::categoryXmlFile /]
@@ -73,6 +78,14 @@ Contributors :
 [aNature.genToggleNatureActionJavaFile()/]
 [/if]
 [/for]
+[for (anHelpContents : HelpContents | aBundle.helpContents)]
+[anHelpContents.genHelpContentsXmlFile()/]
+[anHelpContents.genHelpPageXmlFile()/]
+[anHelpContents.genMainHelpPageHtmlFile()/]
+[for (anHelpPage : HelpPage | anHelpContents.helpPages)]
+[anHelpPage.genHelpPageHtmlFile()/]
+[/for]
+[/for]
 [for (aBuilder : Builder | aBundle.builders)]
 [aBuilder.genBuilderJavaFile()/]
 [/for]
@@ -80,7 +93,7 @@ Contributors :
 [aView.genViewJavaFile()/]
 [if (aView.dynamicHelp->size() > 0)]
 [aView.dynamicHelp.genDynamicHelpContextXmlFile()/]
-[aView.dynamicHelp.genHelpPageHtmlFile()/]
+[aView.dynamicHelp.genDynamicHelpPageHtmlFile()/]
 [/if]
 [/for]
 [for (aPerspective : Perspective | aBundle.perspectives)]
@@ -90,7 +103,7 @@ Contributors :
 [anEditor.genEditorJavaFile()/]
 [/for]
 [if (aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.wizards->size() > 0 or aBundle.decorators->size() > 0 or aBundle.views->size() > 0 
-or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0)]
+or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.helpContents->size() > 0)]
 [aBundle.genPluginXmlFile()/ ]
 [aBundle.genActivatorJavaFile()/]
 [/if]
@@ -103,6 +116,7 @@ or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0)]
 [/if]
 [/for]
 [/for]
+
 
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 [aFeature.genBuildPropertiesFile()/]

@@ -238,7 +238,10 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EDITORS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELPS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTIONS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENUS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTION_SETS);
     }
     return childrenFeatures;
   }
@@ -315,7 +318,10 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__PERSPECTIVES:
       case EclipsePackage.BUNDLE__EDITORS:
       case EclipsePackage.BUNDLE__VIEWS:
-      case EclipsePackage.BUNDLE__HELPS:
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+      case EclipsePackage.BUNDLE__ACTIONS:
+      case EclipsePackage.BUNDLE__MENUS:
+      case EclipsePackage.BUNDLE__ACTION_SETS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -401,18 +407,23 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__HELPS,
+        (EclipsePackage.Literals.BUNDLE__HELP_CONTENTS,
          EclipseFactory.eINSTANCE.createHelpContents()));
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__HELPS,
-         EclipseFactory.eINSTANCE.createDynamicHelp()));
+        (EclipsePackage.Literals.BUNDLE__ACTIONS,
+         EclipseFactory.eINSTANCE.createAction()));
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__HELPS,
-         EclipseFactory.eINSTANCE.createHelpPage()));
+        (EclipsePackage.Literals.BUNDLE__MENUS,
+         EclipseFactory.eINSTANCE.createMenu()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__ACTION_SETS,
+         EclipseFactory.eINSTANCE.createActionSet()));
   }
 
 }

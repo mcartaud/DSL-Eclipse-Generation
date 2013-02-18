@@ -19,15 +19,18 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.obeonetwork.dsl.gen.eclipse.Action;
+import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.Extension;
-import org.obeonetwork.dsl.gen.eclipse.Help;
+import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
+import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
@@ -57,7 +60,10 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getEditors <em>Editors</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelps <em>Helps</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenus <em>Menus</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -249,14 +255,44 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<View> views;
 
   /**
-   * The cached value of the '{@link #getHelps() <em>Helps</em>}' containment reference list.
+   * The cached value of the '{@link #getHelpContents() <em>Help Contents</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getHelps()
+   * @see #getHelpContents()
    * @generated
    * @ordered
    */
-  protected EList<Help> helps;
+  protected EList<HelpContents> helpContents;
+
+  /**
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Action> actions;
+
+  /**
+   * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMenus()
+   * @generated
+   * @ordered
+   */
+  protected EList<Menu> menus;
+
+  /**
+   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActionSets()
+   * @generated
+   * @ordered
+   */
+  protected EList<ActionSet> actionSets;
 
   /**
    * The cached value of the '{@link #getExportedPackages() <em>Exported Packages</em>}' reference list.
@@ -551,13 +587,55 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Help> getHelps()
+  public EList<HelpContents> getHelpContents()
   {
-    if (helps == null)
+    if (helpContents == null)
     {
-      helps = new EObjectContainmentEList<Help>(Help.class, this, EclipsePackage.BUNDLE__HELPS);
+      helpContents = new EObjectContainmentEList<HelpContents>(HelpContents.class, this, EclipsePackage.BUNDLE__HELP_CONTENTS);
     }
-    return helps;
+    return helpContents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Action> getActions()
+  {
+    if (actions == null)
+    {
+      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.BUNDLE__ACTIONS);
+    }
+    return actions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Menu> getMenus()
+  {
+    if (menus == null)
+    {
+      menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.BUNDLE__MENUS);
+    }
+    return menus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ActionSet> getActionSets()
+  {
+    if (actionSets == null)
+    {
+      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.BUNDLE__ACTION_SETS);
+    }
+    return actionSets;
   }
 
   /**
@@ -636,8 +714,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getEditors()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__VIEWS:
         return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__HELPS:
-        return ((InternalEList<?>)getHelps()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+        return ((InternalEList<?>)getHelpContents()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__MENUS:
+        return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__ACTION_SETS:
+        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -682,8 +766,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getEditors();
       case EclipsePackage.BUNDLE__VIEWS:
         return getViews();
-      case EclipsePackage.BUNDLE__HELPS:
-        return getHelps();
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+        return getHelpContents();
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return getActions();
+      case EclipsePackage.BUNDLE__MENUS:
+        return getMenus();
+      case EclipsePackage.BUNDLE__ACTION_SETS:
+        return getActionSets();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return getExportedPackages();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
@@ -762,9 +852,21 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getViews().clear();
         getViews().addAll((Collection<? extends View>)newValue);
         return;
-      case EclipsePackage.BUNDLE__HELPS:
-        getHelps().clear();
-        getHelps().addAll((Collection<? extends Help>)newValue);
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+        getHelpContents().clear();
+        getHelpContents().addAll((Collection<? extends HelpContents>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__ACTIONS:
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__MENUS:
+        getMenus().clear();
+        getMenus().addAll((Collection<? extends Menu>)newValue);
+        return;
+      case EclipsePackage.BUNDLE__ACTION_SETS:
+        getActionSets().clear();
+        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
         return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
@@ -837,8 +939,17 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VIEWS:
         getViews().clear();
         return;
-      case EclipsePackage.BUNDLE__HELPS:
-        getHelps().clear();
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+        getHelpContents().clear();
+        return;
+      case EclipsePackage.BUNDLE__ACTIONS:
+        getActions().clear();
+        return;
+      case EclipsePackage.BUNDLE__MENUS:
+        getMenus().clear();
+        return;
+      case EclipsePackage.BUNDLE__ACTION_SETS:
+        getActionSets().clear();
         return;
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         getExportedPackages().clear();
@@ -893,8 +1004,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return editors != null && !editors.isEmpty();
       case EclipsePackage.BUNDLE__VIEWS:
         return views != null && !views.isEmpty();
-      case EclipsePackage.BUNDLE__HELPS:
-        return helps != null && !helps.isEmpty();
+      case EclipsePackage.BUNDLE__HELP_CONTENTS:
+        return helpContents != null && !helpContents.isEmpty();
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return actions != null && !actions.isEmpty();
+      case EclipsePackage.BUNDLE__MENUS:
+        return menus != null && !menus.isEmpty();
+      case EclipsePackage.BUNDLE__ACTION_SETS:
+        return actionSets != null && !actionSets.isEmpty();
       case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
         return exportedPackages != null && !exportedPackages.isEmpty();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:

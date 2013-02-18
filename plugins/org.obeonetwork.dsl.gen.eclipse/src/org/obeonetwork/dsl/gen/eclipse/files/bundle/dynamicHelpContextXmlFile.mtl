@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private dynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
-[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/[aDynamicHelp.label.toLowerFirst().substituteAll(' ', '')/]Contexts.xml
+[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml
 [/template]
 
 [template public genDynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
@@ -12,7 +12,7 @@
 <contexts>
 	<context id="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]" title="[aDynamicHelp.title/]">
 		<description>[aDynamicHelp.description/]</description>
-		<topic href="html/[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]Contexts.htm" label="[aDynamicHelp.label/]">
+		<topic href="contexts/[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].html" label="[aDynamicHelp.label/]">
 			<enablement>
 				<with variable="platform">
 	            	<test property="org.eclipse.core.runtime.isBundleInstalled" args="org.eclipse.platform.doc.isv"/>

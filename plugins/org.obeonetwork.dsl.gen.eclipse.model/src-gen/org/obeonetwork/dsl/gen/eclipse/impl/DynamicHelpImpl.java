@@ -3,11 +3,11 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -22,14 +22,77 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getHelpPage <em>Help Page</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
+public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements DynamicHelp
 {
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected static final String LABEL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLabel()
+   * @generated
+   * @ordered
+   */
+  protected String label = LABEL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTitle()
+   * @generated
+   * @ordered
+   */
+  protected static final String TITLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTitle()
+   * @generated
+   * @ordered
+   */
+  protected String title = TITLE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getHelpPage() <em>Help Page</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +122,75 @@ public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
   protected EClass eStaticClass()
   {
     return EclipsePackage.Literals.DYNAMIC_HELP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLabel()
+  {
+    return label;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLabel(String newLabel)
+  {
+    String oldLabel = label;
+    label = newLabel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__LABEL, oldLabel, label));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTitle()
+  {
+    return title;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTitle(String newTitle)
+  {
+    String oldTitle = title;
+    title = newTitle;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__TITLE, oldTitle, title));
   }
 
   /**
@@ -135,6 +267,12 @@ public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
   {
     switch (featureID)
     {
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+        return getDescription();
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+        return getLabel();
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
+        return getTitle();
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
         return getHelpPage();
     }
@@ -151,6 +289,15 @@ public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
   {
     switch (featureID)
     {
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+        setLabel((String)newValue);
+        return;
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
+        setTitle((String)newValue);
+        return;
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
         setHelpPage((HelpPage)newValue);
         return;
@@ -168,6 +315,15 @@ public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
   {
     switch (featureID)
     {
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+        setLabel(LABEL_EDEFAULT);
+        return;
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
+        setTitle(TITLE_EDEFAULT);
+        return;
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
         setHelpPage((HelpPage)null);
         return;
@@ -185,10 +341,37 @@ public class DynamicHelpImpl extends HelpImpl implements DynamicHelp
   {
     switch (featureID)
     {
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.DYNAMIC_HELP__LABEL:
+        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+      case EclipsePackage.DYNAMIC_HELP__TITLE:
+        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
         return helpPage != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (description: ");
+    result.append(description);
+    result.append(", label: ");
+    result.append(label);
+    result.append(", title: ");
+    result.append(title);
+    result.append(')');
+    return result.toString();
   }
 
 } //DynamicHelpImpl

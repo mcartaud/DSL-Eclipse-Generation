@@ -221,15 +221,6 @@ public interface EclipseFactory extends EFactory
   Action createAction();
 
   /**
-   * Returns a new object of class '<em>Dynamic Help</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dynamic Help</em>'.
-   * @generated
-   */
-  DynamicHelp createDynamicHelp();
-
-  /**
    * Returns a new object of class '<em>Help Contents</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -246,6 +237,15 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   HelpPage createHelpPage();
+
+  /**
+   * Returns a new object of class '<em>Dynamic Help</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dynamic Help</em>'.
+   * @generated
+   */
+  DynamicHelp createDynamicHelp();
 
   /**
    * Returns the package supported by this factory.

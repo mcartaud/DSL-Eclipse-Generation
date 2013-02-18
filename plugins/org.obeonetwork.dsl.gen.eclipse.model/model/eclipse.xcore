@@ -56,7 +56,10 @@ class Bundle extends Project {
 	contains Perspective[] perspectives
 	contains Editor[] editors
 	contains View[] views
-	contains Help[] helps
+	contains HelpContents[] helpContents
+	contains Action[] actions
+	contains Menu[] menus
+	contains ActionSet[] actionSets
 	refers EPackage[] exportedPackages
 	refers EPackage[] ownedPackages
  	refers derived EPackage[] allExportedPackages
@@ -183,22 +186,25 @@ class Action {
 	String name
 }
 
-abstract class Help {
+class HelpContents {
 	String description
 	String label
 	String title
-}
-
-class HelpContents extends Help  {
 	contains HelpPage[] helpPages
 }
 
-class DynamicHelp extends Help {
+class HelpPage {
+	String description
+	String label
+	String title
+	contains HelpPage[] helpPages
+}
+
+class DynamicHelp {
+	String description
+	String label
+	String title
 	contains HelpPage helpPage
-}
-
-class HelpPage extends Help {
-	contains HelpPage[] helpPages
 }
 
 enum Type {

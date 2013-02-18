@@ -624,31 +624,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected DynamicHelpItemProvider dynamicHelpItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createDynamicHelpAdapter()
-  {
-    if (dynamicHelpItemProvider == null)
-    {
-      dynamicHelpItemProvider = new DynamicHelpItemProvider(this);
-    }
-
-    return dynamicHelpItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.HelpContents} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -696,6 +671,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     }
 
     return helpPageItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected DynamicHelpItemProvider dynamicHelpItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createDynamicHelpAdapter()
+  {
+    if (dynamicHelpItemProvider == null)
+    {
+      dynamicHelpItemProvider = new DynamicHelpItemProvider(this);
+    }
+
+    return dynamicHelpItemProvider;
   }
 
   /**
@@ -832,8 +832,8 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (menuItemProvider != null) menuItemProvider.dispose();
     if (actionItemProvider != null) actionItemProvider.dispose();
     if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
-    if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
     if (helpPageItemProvider != null) helpPageItemProvider.dispose();
+    if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
   }
 
 }

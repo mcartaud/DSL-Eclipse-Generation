@@ -1,0 +1,26 @@
+[comment encoding = UTF-8 /]
+[module dynamicHelpPageHtmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private dynamicHelpPageHtmlFile(aDynamicHelp : DynamicHelp)]
+[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/contexts/[aDynamicHelp.label.toLowerFirst().substituteAll(' ', '')/].html
+[/template]
+
+[template public genDynamicHelpPageHtmlFile(aDynamicHelp : DynamicHelp)]
+[file (dynamicHelpPageHtmlFile(), false, 'UTF-8')]
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>[aDynamicHelp.title/]</title>
+</head>
+
+<body>
+<h1>[aDynamicHelp.label/]</h1>
+Please enter your text here.
+</body>
+</html>
+[/file]
+[/template]

@@ -30,7 +30,7 @@ Bundle-Vendor: %Provider-Name
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-[if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0)]Bundle-Activator: [aBundle.basePackage/].Activator
+[if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0)]Bundle-Activator: [aBundle.genBundlePath()/].Activator
 [/if][if (aBundle.requiredEnvironment->size() > 0)]Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
 [/if][if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0)][importDeclaration()/]
 [/if][if (aBundle.allExportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
