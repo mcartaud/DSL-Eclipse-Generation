@@ -158,6 +158,7 @@ public class PerspectiveItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__ACTION_SETS);
+      childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__WIZARDS);
     }
     return childrenFeatures;
   }
@@ -222,6 +223,7 @@ public class PerspectiveItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -244,6 +246,16 @@ public class PerspectiveItemProvider
       (createChildParameter
         (EclipsePackage.Literals.PERSPECTIVE__ACTION_SETS,
          EclipseFactory.eINSTANCE.createActionSet()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PERSPECTIVE__WIZARDS,
+         EclipseFactory.eINSTANCE.createWizard()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PERSPECTIVE__WIZARDS,
+         EclipseFactory.eINSTANCE.createProjectWizard()));
   }
 
   /**

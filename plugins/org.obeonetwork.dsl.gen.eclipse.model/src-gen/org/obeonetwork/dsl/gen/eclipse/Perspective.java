@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getWizards <em>Wizards</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
@@ -94,6 +95,22 @@ public interface Perspective extends EObject
    * @generated
    */
   EList<ActionSet> getActionSets();
+
+  /**
+   * Returns the value of the '<em><b>Wizards</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Wizard}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Wizards</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Wizards</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Wizards()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Wizard> getWizards();
 
   /**
    * Returns the value of the '<em><b>Views</b></em>' reference list.

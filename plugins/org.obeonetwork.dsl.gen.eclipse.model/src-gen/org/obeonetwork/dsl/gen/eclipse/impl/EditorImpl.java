@@ -2,12 +2,22 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 
@@ -19,6 +29,7 @@ import org.obeonetwork.dsl.gen.eclipse.Editor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getExtension <em>Extension</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +56,16 @@ public class EditorImpl extends PartImpl implements Editor
    * @ordered
    */
   protected String extension = EXTENSION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Action> actions;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,6 +116,36 @@ public class EditorImpl extends PartImpl implements Editor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Action> getActions()
+  {
+    if (actions == null)
+    {
+      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.EDITOR__ACTIONS);
+    }
+    return actions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.EDITOR__ACTIONS:
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -102,6 +153,8 @@ public class EditorImpl extends PartImpl implements Editor
     {
       case EclipsePackage.EDITOR__EXTENSION:
         return getExtension();
+      case EclipsePackage.EDITOR__ACTIONS:
+        return getActions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -111,6 +164,7 @@ public class EditorImpl extends PartImpl implements Editor
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -118,6 +172,10 @@ public class EditorImpl extends PartImpl implements Editor
     {
       case EclipsePackage.EDITOR__EXTENSION:
         setExtension((String)newValue);
+        return;
+      case EclipsePackage.EDITOR__ACTIONS:
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,6 +194,9 @@ public class EditorImpl extends PartImpl implements Editor
       case EclipsePackage.EDITOR__EXTENSION:
         setExtension(EXTENSION_EDEFAULT);
         return;
+      case EclipsePackage.EDITOR__ACTIONS:
+        getActions().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -152,6 +213,8 @@ public class EditorImpl extends PartImpl implements Editor
     {
       case EclipsePackage.EDITOR__EXTENSION:
         return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
+      case EclipsePackage.EDITOR__ACTIONS:
+        return actions != null && !actions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

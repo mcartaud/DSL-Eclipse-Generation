@@ -57,9 +57,13 @@ class Bundle extends Project {
 	contains Editor[] editors
 	contains View[] views
 	contains HelpContents[] helpContents
-	contains Action[] actions
+	contains Command[] commands
 	contains Menu[] menus
 	contains ActionSet[] actionSets
+	contains PartCategory[] partCategories
+	contains Context[] contexts
+	contains Category[] categories
+	contains Binding[] bindings
 	refers EPackage[] exportedPackages
 	refers EPackage[] ownedPackages
  	refers derived EPackage[] allExportedPackages
@@ -102,9 +106,9 @@ class Wizard {
 	String name
 	String title
 	String description
-	String category
 	String icon
 	boolean isProject
+	refers Category[] categories opposite wizards
 }
 
 class ProjectWizard extends Wizard {
@@ -139,35 +143,49 @@ class Marker {
 	boolean isPersistant
 }
 
+class Context {
+	
+}
+
 class Perspective {
 	String name
 	String icon
 	contains ActionSet[] actionSets
+	contains Wizard[] wizards
 	refers View[] views opposite perspectives
+}
+
+class Category {
+	String name
+	refers Command[] commands opposite categories
+	refers View[] views opposite categories
+	refers Wizard[] wizards opposite categories
 }
 
 abstract class Part {
 	String name
 	String icon
-	contains ActionSet[] actionSets
+//	refers ActionSet[] actionSets
 	contains DynamicHelp dynamicHelp
 }
 
 class PartCategory {
 	String name
 	contains Part[] parts
+	contains ActionSet[] actionSets
 }
 
 class View extends Part {
-	String category
 	boolean isTree
 	contains Action[] actions
 	contains Menu[] menus
 	refers Perspective[] perspectives opposite views
+	refers Category[] categories opposite views
 }
 
 class Editor extends Part {
 	String extension
+	contains Action[] actions
 }
 
 class ActionSet {
@@ -178,12 +196,23 @@ class ActionSet {
 
 class Menu {
 	String name
-	contains Menu[] menus
-	contains Action[] actions
+	String mnecmonic
+	refers Command command opposite menu
+}
+
+class Command {
+	String name
+	refers Action action opposite command
+	refers Menu menu opposite command
+	refers Category[] categories opposite commands
+	refers Binding binding opposite command
 }
 
 class Action {
 	String name
+	String tooltip
+	String icons
+	refers Command command opposite action
 }
 
 class HelpContents {
@@ -204,7 +233,12 @@ class DynamicHelp {
 	String description
 	String label
 	String title
-	contains HelpPage helpPage
+	refers HelpPage[] helpPages
+}
+
+class Binding {
+	String keySequence
+	refers Command command opposite binding
 }
 
 enum Type {

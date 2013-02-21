@@ -188,10 +188,24 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsePackage.CONTEXT:
+      {
+        Context context = (Context)theEObject;
+        T result = caseContext(context);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsePackage.PERSPECTIVE:
       {
         Perspective perspective = (Perspective)theEObject;
         T result = casePerspective(perspective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.CATEGORY:
+      {
+        Category category = (Category)theEObject;
+        T result = caseCategory(category);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,6 +253,13 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsePackage.COMMAND:
+      {
+        Command command = (Command)theEObject;
+        T result = caseCommand(command);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsePackage.ACTION:
       {
         Action action = (Action)theEObject;
@@ -264,6 +285,13 @@ public class EclipseSwitch<T> extends Switch<T>
       {
         DynamicHelp dynamicHelp = (DynamicHelp)theEObject;
         T result = caseDynamicHelp(dynamicHelp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.BINDING:
+      {
+        Binding binding = (Binding)theEObject;
+        T result = caseBinding(binding);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -528,6 +556,22 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContext(Context object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Perspective</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -539,6 +583,22 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePerspective(Perspective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCategory(Category object)
   {
     return null;
   }
@@ -640,6 +700,22 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommand(Command object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -699,6 +775,22 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDynamicHelp(DynamicHelp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Binding</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binding</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinding(Binding object)
   {
     return null;
   }

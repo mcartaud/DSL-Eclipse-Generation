@@ -30,9 +30,13 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getEditors <em>Editors</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelpContents <em>Help Contents</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages <em>All Exported Packages</em>}</li>
@@ -332,20 +336,20 @@ public interface Bundle extends Project
   EList<HelpContents> getHelpContents();
 
   /**
-   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
+   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Command}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actions</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Actions()
+   * @return the value of the '<em>Commands</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Commands()
    * @model containment="true"
    * @generated
    */
-  EList<Action> getActions();
+  EList<Command> getCommands();
 
   /**
    * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
@@ -378,6 +382,70 @@ public interface Bundle extends Project
    * @generated
    */
   EList<ActionSet> getActionSets();
+
+  /**
+   * Returns the value of the '<em><b>Part Categories</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.PartCategory}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Part Categories</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Part Categories</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_PartCategories()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PartCategory> getPartCategories();
+
+  /**
+   * Returns the value of the '<em><b>Contexts</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Context}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Contexts</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Contexts</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Contexts()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Context> getContexts();
+
+  /**
+   * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Categories</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Categories</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Categories()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Category> getCategories();
+
+  /**
+   * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Binding}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bindings</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Bindings()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Binding> getBindings();
 
   /**
    * Returns the value of the '<em><b>Exported Packages</b></em>' reference list.

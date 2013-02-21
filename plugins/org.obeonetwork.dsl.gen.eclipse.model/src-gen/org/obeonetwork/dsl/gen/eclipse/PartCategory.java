@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts <em>Parts</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getActionSets <em>Action Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,5 +67,21 @@ public interface PartCategory extends EObject
    * @generated
    */
   EList<Part> getParts();
+
+  /**
+   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Action Sets</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPartCategory_ActionSets()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ActionSet> getActionSets();
 
 } // PartCategory

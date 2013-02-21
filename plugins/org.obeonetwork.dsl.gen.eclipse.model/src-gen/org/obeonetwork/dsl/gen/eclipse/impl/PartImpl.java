@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
@@ -32,7 +31,6 @@ import org.obeonetwork.dsl.gen.eclipse.Part;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartImpl#getDynamicHelp <em>Dynamic Help</em>}</li>
  * </ul>
  * </p>
@@ -80,16 +78,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * @ordered
    */
   protected String icon = ICON_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionSets()
-   * @generated
-   * @ordered
-   */
-  protected EList<ActionSet> actionSets;
 
   /**
    * The cached value of the '{@link #getDynamicHelp() <em>Dynamic Help</em>}' containment reference.
@@ -173,20 +161,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ActionSet> getActionSets()
-  {
-    if (actionSets == null)
-    {
-      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.PART__ACTION_SETS);
-    }
-    return actionSets;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DynamicHelp getDynamicHelp()
   {
     return dynamicHelp;
@@ -240,8 +214,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case EclipsePackage.PART__ACTION_SETS:
-        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
       case EclipsePackage.PART__DYNAMIC_HELP:
         return basicSetDynamicHelp(null, msgs);
     }
@@ -262,8 +234,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
         return getName();
       case EclipsePackage.PART__ICON:
         return getIcon();
-      case EclipsePackage.PART__ACTION_SETS:
-        return getActionSets();
       case EclipsePackage.PART__DYNAMIC_HELP:
         return getDynamicHelp();
     }
@@ -286,10 +256,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
         return;
       case EclipsePackage.PART__ICON:
         setIcon((String)newValue);
-        return;
-      case EclipsePackage.PART__ACTION_SETS:
-        getActionSets().clear();
-        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
         return;
       case EclipsePackage.PART__DYNAMIC_HELP:
         setDynamicHelp((DynamicHelp)newValue);
@@ -314,9 +280,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
       case EclipsePackage.PART__ICON:
         setIcon(ICON_EDEFAULT);
         return;
-      case EclipsePackage.PART__ACTION_SETS:
-        getActionSets().clear();
-        return;
       case EclipsePackage.PART__DYNAMIC_HELP:
         setDynamicHelp((DynamicHelp)null);
         return;
@@ -338,8 +301,6 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.PART__ICON:
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
-      case EclipsePackage.PART__ACTION_SETS:
-        return actionSets != null && !actionSets.isEmpty();
       case EclipsePackage.PART__DYNAMIC_HELP:
         return dynamicHelp != null;
     }

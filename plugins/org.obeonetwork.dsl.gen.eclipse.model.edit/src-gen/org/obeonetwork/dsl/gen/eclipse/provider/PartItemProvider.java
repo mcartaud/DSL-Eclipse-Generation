@@ -133,7 +133,6 @@ public class PartItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.PART__ACTION_SETS);
       childrenFeatures.add(EclipsePackage.Literals.PART__DYNAMIC_HELP);
     }
     return childrenFeatures;
@@ -186,7 +185,6 @@ public class PartItemProvider
       case EclipsePackage.PART__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.PART__ACTION_SETS:
       case EclipsePackage.PART__DYNAMIC_HELP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -205,11 +203,6 @@ public class PartItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.PART__ACTION_SETS,
-         EclipseFactory.eINSTANCE.createActionSet()));
 
     newChildDescriptors.add
       (createChildParameter

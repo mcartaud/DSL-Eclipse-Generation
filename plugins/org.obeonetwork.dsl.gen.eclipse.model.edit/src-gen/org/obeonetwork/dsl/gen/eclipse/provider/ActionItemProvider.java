@@ -65,6 +65,9 @@ public class ActionItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addTooltipPropertyDescriptor(object);
+      addIconsPropertyDescriptor(object);
+      addCommandPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -88,6 +91,75 @@ public class ActionItemProvider
          false,
          false,
          ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Tooltip feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTooltipPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Action_tooltip_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Action_tooltip_feature", "_UI_Action_type"),
+         EclipsePackage.Literals.ACTION__TOOLTIP,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Icons feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIconsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Action_icons_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Action_icons_feature", "_UI_Action_type"),
+         EclipsePackage.Literals.ACTION__ICONS,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Command feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addCommandPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Action_command_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Action_command_feature", "_UI_Action_type"),
+         EclipsePackage.Literals.ACTION__COMMAND,
+         true,
+         false,
+         true,
+         null,
          null,
          null));
   }
@@ -134,6 +206,8 @@ public class ActionItemProvider
     switch (notification.getFeatureID(Action.class))
     {
       case EclipsePackage.ACTION__NAME:
+      case EclipsePackage.ACTION__TOOLTIP:
+      case EclipsePackage.ACTION__ICONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

@@ -51,8 +51,6 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	private TableViewer viewer;
 [/if][for (anAction : Action | aView.actions)]
 	private Action [anAction.name.replaceAll(' ', '').toLowerFirst()/];
-[/for][for (anAction : Action | aView.actionSets.actions)]
-	private Action [anAction.name.replaceAll(' ', '').toLowerFirst()/];
 [/for]
 
 	/*
@@ -98,7 +96,9 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].viewer");
+[if (aView.dynamicHelp->size() > 0)]
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].[aView.dynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]");
+[/if]
 		makeActions();
 		hookContextMenu();
 		contributeToActionBars();
@@ -127,18 +127,14 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 [for (anAction : Action | aView.actions)]
 		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
 		manager.add(new Separator());
-[/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-		manager.add(new Separator());
 [/for]
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
 [for (anAction : Action | aView.actions)]
 		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for][if (aView.isTree)]
+[/for]
+[if (aView.isTree)]
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 [/if]
@@ -149,9 +145,8 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	private void fillLocalToolBar(IToolBarManager manager) {
 [for (anAction : Action | aView.actions)]
 		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for][for (anAction : Action | aView.actionSets.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for][if (aView.isTree)]
+[/for]
+[if (aView.isTree)]
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 [/if]
@@ -162,17 +157,6 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	 */
 	private void makeActions() {
 [for (anAction : Action | aView.actions)]
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/] = new Action() {
-			public void run() {
-				showMessage("[anAction.name/] executed");
-			}
-		};
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setText("[anAction.name/]");
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setToolTipText("[anAction.name/] tooltip");
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-[/for]
-[for (anAction : Action | aView.actionSets.actions)]
 		[anAction.name.replaceAll(' ', '').toLowerFirst()/] = new Action() {
 			public void run() {
 				showMessage("[anAction.name/] executed");

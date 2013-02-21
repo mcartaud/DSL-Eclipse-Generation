@@ -80,16 +80,20 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.ATTRIBUTE: return createAttribute();
       case EclipsePackage.DECORATOR: return createDecorator();
       case EclipsePackage.MARKER: return createMarker();
+      case EclipsePackage.CONTEXT: return createContext();
       case EclipsePackage.PERSPECTIVE: return createPerspective();
+      case EclipsePackage.CATEGORY: return createCategory();
       case EclipsePackage.PART_CATEGORY: return createPartCategory();
       case EclipsePackage.VIEW: return createView();
       case EclipsePackage.EDITOR: return createEditor();
       case EclipsePackage.ACTION_SET: return createActionSet();
       case EclipsePackage.MENU: return createMenu();
+      case EclipsePackage.COMMAND: return createCommand();
       case EclipsePackage.ACTION: return createAction();
       case EclipsePackage.HELP_CONTENTS: return createHelpContents();
       case EclipsePackage.HELP_PAGE: return createHelpPage();
       case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
+      case EclipsePackage.BINDING: return createBinding();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -303,10 +307,32 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Context createContext()
+  {
+    ContextImpl context = new ContextImpl();
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Perspective createPerspective()
   {
     PerspectiveImpl perspective = new PerspectiveImpl();
     return perspective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Category createCategory()
+  {
+    CategoryImpl category = new CategoryImpl();
+    return category;
   }
 
   /**
@@ -369,6 +395,17 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Command createCommand()
+  {
+    CommandImpl command = new CommandImpl();
+    return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Action createAction()
   {
     ActionImpl action = new ActionImpl();
@@ -406,6 +443,17 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     DynamicHelpImpl dynamicHelp = new DynamicHelpImpl();
     return dynamicHelp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Binding createBinding()
+  {
+    BindingImpl binding = new BindingImpl();
+    return binding;
   }
 
   /**

@@ -155,9 +155,19 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createMarkerAdapter();
       }
       @Override
+      public Adapter caseContext(Context object)
+      {
+        return createContextAdapter();
+      }
+      @Override
       public Adapter casePerspective(Perspective object)
       {
         return createPerspectiveAdapter();
+      }
+      @Override
+      public Adapter caseCategory(Category object)
+      {
+        return createCategoryAdapter();
       }
       @Override
       public Adapter casePart(Part object)
@@ -190,6 +200,11 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createMenuAdapter();
       }
       @Override
+      public Adapter caseCommand(Command object)
+      {
+        return createCommandAdapter();
+      }
+      @Override
       public Adapter caseAction(Action object)
       {
         return createActionAdapter();
@@ -208,6 +223,11 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDynamicHelp(DynamicHelp object)
       {
         return createDynamicHelpAdapter();
+      }
+      @Override
+      public Adapter caseBinding(Binding object)
+      {
+        return createBindingAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -472,6 +492,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Context <em>Context</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Context
+   * @generated
+   */
+  public Adapter createContextAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Perspective <em>Perspective</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -482,6 +517,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPerspectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Category <em>Category</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Category
+   * @generated
+   */
+  public Adapter createCategoryAdapter()
   {
     return null;
   }
@@ -577,6 +627,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Command <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Command
+   * @generated
+   */
+  public Adapter createCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -632,6 +697,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDynamicHelpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Binding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.Binding
+   * @generated
+   */
+  public Adapter createBindingAdapter()
   {
     return null;
   }

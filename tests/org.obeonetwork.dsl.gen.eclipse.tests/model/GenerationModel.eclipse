@@ -36,25 +36,18 @@
     <ownedPackages href="edit.ecore#//impl"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="eclipse" basePackage="org.obeonetwork.dsl.gen" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
-    <perspectives name="perspTropCool" views="//@projects.5/@views.0 //@projects.5/@views.1"/>
+    <perspectives name="perspTropCool" icon="" views="//@projects.5/@views.0 //@projects.5/@views.1"/>
     <editors name="superEdit" extension="java"/>
-    <views name="vueBasic" category="vision" perspectives="//@projects.5/@perspectives.0">
-      <dynamicHelp description="ceci permet de donner de l'aide" label="view help" title="gros titre">
-        <helpPage description="page d'aide dynamique" label="dynamHelpMain" title="dHelp"/>
-      </dynamicHelp>
+    <views name="vueBasic" perspectives="//@projects.5/@perspectives.0">
       <actions name="clique"/>
     </views>
-    <views name="vueTree" category="treeCat" isTree="true" perspectives="//@projects.5/@perspectives.0">
-      <actionSets>
-        <actions name="clack"/>
-      </actionSets>
-    </views>
+    <views name="vueTree" isTree="true" perspectives="//@projects.5/@perspectives.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
     <natures name="nature" langageName="" builders="//@projects.6/@builders.0"/>
     <builders name="builder" natures="//@projects.6/@natures.0"/>
-    <wizards name="fileWizard" title="file" description="super fileWizard" category="file"/>
-    <wizards xsi:type="eclipse:ProjectWizard" name="catego1" title="super" description="plein de chose" category="cat1" isProject="true" natures="//@projects.6/@natures.0"/>
+    <wizards name="fileWizard" title="file" description="super fileWizard"/>
+    <wizards xsi:type="eclipse:ProjectWizard" name="catego1" title="super" description="plein de chose" isProject="true" natures="//@projects.6/@natures.0"/>
     <helpContents description="sommaire" label="pageTitre" title="titrePage">
       <helpPages description="premiere page" label="page1" title="1page">
         <helpPages description="souspage 1" label="page11" title="11page">
@@ -64,5 +57,25 @@
       <helpPages description="deuxieme page" label="page2" title="2page"/>
       <helpPages description="troisieme page" label="page3" title="3page"/>
     </helpContents>
+    <commands name="plop"/>
+  </projects>
+  <projects xsi:type="eclipse:Bundle" name="workspace" basePackage="org.obeonetwork.test">
+    <perspectives name="perpect" icon="" views="//@projects.7/@views.0 //@projects.7/@views.1">
+      <actionSets name="actionset1">
+        <menus name="menu1" command="//@projects.7/@commands.0"/>
+        <actions name="action1" command="//@projects.7/@commands.0"/>
+        <actions name="action2" command="//@projects.7/@commands.1"/>
+      </actionSets>
+      <wizards name="wizardFile"/>
+    </perspectives>
+    <views name="vue1" perspectives="//@projects.7/@perspectives.0" categories="//@projects.7/@categories.0">
+      <actions name="action25"/>
+    </views>
+    <views name="vue2" perspectives="//@projects.7/@perspectives.0"/>
+    <commands name="action1" action="//@projects.7/@perspectives.0/@actionSets.0/@actions.0" menu="//@projects.7/@perspectives.0/@actionSets.0/@menus.0" categories="//@projects.7/@categories.0" binding="//@projects.7/@bindings.1"/>
+    <commands name="action2" action="//@projects.7/@perspectives.0/@actionSets.0/@actions.1" categories="//@projects.7/@categories.0" binding="//@projects.7/@bindings.0"/>
+    <categories name="cart1" commands="//@projects.7/@commands.0 //@projects.7/@commands.1" views="//@projects.7/@views.0"/>
+    <bindings keySequence="po" command="//@projects.7/@commands.1"/>
+    <bindings keySequence="p" command="//@projects.7/@commands.0"/>
   </projects>
 </eclipse:Application>

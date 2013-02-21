@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Action;
+import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
@@ -31,11 +32,11 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getPerspectives <em>Perspectives</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,26 +44,6 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  */
 public class ViewImpl extends PartImpl implements View
 {
-  /**
-   * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategory()
-   * @generated
-   * @ordered
-   */
-  protected static final String CATEGORY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategory()
-   * @generated
-   * @ordered
-   */
-  protected String category = CATEGORY_EDEFAULT;
-
   /**
    * The default value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -114,6 +95,16 @@ public class ViewImpl extends PartImpl implements View
   protected EList<Perspective> perspectives;
 
   /**
+   * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCategories()
+   * @generated
+   * @ordered
+   */
+  protected EList<Category> categories;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -132,29 +123,6 @@ public class ViewImpl extends PartImpl implements View
   protected EClass eStaticClass()
   {
     return EclipsePackage.Literals.VIEW;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getCategory()
-  {
-    return category;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCategory(String newCategory)
-  {
-    String oldCategory = category;
-    category = newCategory;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__CATEGORY, oldCategory, category));
   }
 
   /**
@@ -227,6 +195,20 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Category> getCategories()
+  {
+    if (categories == null)
+    {
+      categories = new EObjectWithInverseResolvingEList.ManyInverse<Category>(Category.class, this, EclipsePackage.VIEW__CATEGORIES, EclipsePackage.CATEGORY__VIEWS);
+    }
+    return categories;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -235,6 +217,8 @@ public class ViewImpl extends PartImpl implements View
     {
       case EclipsePackage.VIEW__PERSPECTIVES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getPerspectives()).basicAdd(otherEnd, msgs);
+      case EclipsePackage.VIEW__CATEGORIES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -255,6 +239,8 @@ public class ViewImpl extends PartImpl implements View
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.VIEW__PERSPECTIVES:
         return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.VIEW__CATEGORIES:
+        return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -269,8 +255,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__CATEGORY:
-        return getCategory();
       case EclipsePackage.VIEW__IS_TREE:
         return isIsTree();
       case EclipsePackage.VIEW__ACTIONS:
@@ -279,6 +263,8 @@ public class ViewImpl extends PartImpl implements View
         return getMenus();
       case EclipsePackage.VIEW__PERSPECTIVES:
         return getPerspectives();
+      case EclipsePackage.VIEW__CATEGORIES:
+        return getCategories();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -294,9 +280,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__CATEGORY:
-        setCategory((String)newValue);
-        return;
       case EclipsePackage.VIEW__IS_TREE:
         setIsTree((Boolean)newValue);
         return;
@@ -312,6 +295,10 @@ public class ViewImpl extends PartImpl implements View
         getPerspectives().clear();
         getPerspectives().addAll((Collection<? extends Perspective>)newValue);
         return;
+      case EclipsePackage.VIEW__CATEGORIES:
+        getCategories().clear();
+        getCategories().addAll((Collection<? extends Category>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -326,9 +313,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__CATEGORY:
-        setCategory(CATEGORY_EDEFAULT);
-        return;
       case EclipsePackage.VIEW__IS_TREE:
         setIsTree(IS_TREE_EDEFAULT);
         return;
@@ -340,6 +324,9 @@ public class ViewImpl extends PartImpl implements View
         return;
       case EclipsePackage.VIEW__PERSPECTIVES:
         getPerspectives().clear();
+        return;
+      case EclipsePackage.VIEW__CATEGORIES:
+        getCategories().clear();
         return;
     }
     super.eUnset(featureID);
@@ -355,8 +342,6 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__CATEGORY:
-        return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
       case EclipsePackage.VIEW__IS_TREE:
         return isTree != IS_TREE_EDEFAULT;
       case EclipsePackage.VIEW__ACTIONS:
@@ -365,6 +350,8 @@ public class ViewImpl extends PartImpl implements View
         return menus != null && !menus.isEmpty();
       case EclipsePackage.VIEW__PERSPECTIVES:
         return perspectives != null && !perspectives.isEmpty();
+      case EclipsePackage.VIEW__CATEGORIES:
+        return categories != null && !categories.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -380,9 +367,7 @@ public class ViewImpl extends PartImpl implements View
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (category: ");
-    result.append(category);
-    result.append(", isTree: ");
+    result.append(" (isTree: ");
     result.append(isTree);
     result.append(')');
     return result.toString();

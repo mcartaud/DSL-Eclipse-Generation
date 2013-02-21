@@ -239,9 +239,13 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EDITORS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTIONS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENUS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTION_SETS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PART_CATEGORIES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BINDINGS);
     }
     return childrenFeatures;
   }
@@ -319,9 +323,13 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__EDITORS:
       case EclipsePackage.BUNDLE__VIEWS:
       case EclipsePackage.BUNDLE__HELP_CONTENTS:
-      case EclipsePackage.BUNDLE__ACTIONS:
+      case EclipsePackage.BUNDLE__COMMANDS:
       case EclipsePackage.BUNDLE__MENUS:
       case EclipsePackage.BUNDLE__ACTION_SETS:
+      case EclipsePackage.BUNDLE__PART_CATEGORIES:
+      case EclipsePackage.BUNDLE__CONTEXTS:
+      case EclipsePackage.BUNDLE__CATEGORIES:
+      case EclipsePackage.BUNDLE__BINDINGS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -412,8 +420,8 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__ACTIONS,
-         EclipseFactory.eINSTANCE.createAction()));
+        (EclipsePackage.Literals.BUNDLE__COMMANDS,
+         EclipseFactory.eINSTANCE.createCommand()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -424,6 +432,26 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__ACTION_SETS,
          EclipseFactory.eINSTANCE.createActionSet()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__PART_CATEGORIES,
+         EclipseFactory.eINSTANCE.createPartCategory()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__CONTEXTS,
+         EclipseFactory.eINSTANCE.createContext()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__CATEGORIES,
+         EclipseFactory.eINSTANCE.createCategory()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.BUNDLE__BINDINGS,
+         EclipseFactory.eINSTANCE.createBinding()));
   }
 
 }

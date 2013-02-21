@@ -2,13 +2,23 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
@@ -22,9 +32,9 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#isIsProject <em>Is Project</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,26 +103,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategory()
-   * @generated
-   * @ordered
-   */
-  protected static final String CATEGORY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCategory()
-   * @generated
-   * @ordered
-   */
-  protected String category = CATEGORY_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -151,6 +141,16 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * @ordered
    */
   protected boolean isProject = IS_PROJECT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCategories()
+   * @generated
+   * @ordered
+   */
+  protected EList<Category> categories;
 
   /**
    * <!-- begin-user-doc -->
@@ -247,29 +247,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCategory()
-  {
-    return category;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCategory(String newCategory)
-  {
-    String oldCategory = category;
-    category = newCategory;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__CATEGORY, oldCategory, category));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getIcon()
   {
     return icon;
@@ -316,6 +293,53 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Category> getCategories()
+  {
+    if (categories == null)
+    {
+      categories = new EObjectWithInverseResolvingEList.ManyInverse<Category>(Category.class, this, EclipsePackage.WIZARD__CATEGORIES, EclipsePackage.CATEGORY__WIZARDS);
+    }
+    return categories;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.WIZARD__CATEGORIES:
+        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EclipsePackage.WIZARD__CATEGORIES:
+        return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -327,12 +351,12 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return getTitle();
       case EclipsePackage.WIZARD__DESCRIPTION:
         return getDescription();
-      case EclipsePackage.WIZARD__CATEGORY:
-        return getCategory();
       case EclipsePackage.WIZARD__ICON:
         return getIcon();
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isIsProject();
+      case EclipsePackage.WIZARD__CATEGORIES:
+        return getCategories();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -342,6 +366,7 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -356,14 +381,15 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case EclipsePackage.WIZARD__CATEGORY:
-        setCategory((String)newValue);
-        return;
       case EclipsePackage.WIZARD__ICON:
         setIcon((String)newValue);
         return;
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject((Boolean)newValue);
+        return;
+      case EclipsePackage.WIZARD__CATEGORIES:
+        getCategories().clear();
+        getCategories().addAll((Collection<? extends Category>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -388,14 +414,14 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.WIZARD__CATEGORY:
-        setCategory(CATEGORY_EDEFAULT);
-        return;
       case EclipsePackage.WIZARD__ICON:
         setIcon(ICON_EDEFAULT);
         return;
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject(IS_PROJECT_EDEFAULT);
+        return;
+      case EclipsePackage.WIZARD__CATEGORIES:
+        getCategories().clear();
         return;
     }
     super.eUnset(featureID);
@@ -417,12 +443,12 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.WIZARD__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case EclipsePackage.WIZARD__CATEGORY:
-        return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
       case EclipsePackage.WIZARD__ICON:
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isProject != IS_PROJECT_EDEFAULT;
+      case EclipsePackage.WIZARD__CATEGORIES:
+        return categories != null && !categories.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -444,8 +470,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
     result.append(title);
     result.append(", description: ");
     result.append(description);
-    result.append(", category: ");
-    result.append(category);
     result.append(", icon: ");
     result.append(icon);
     result.append(", isProject: ");

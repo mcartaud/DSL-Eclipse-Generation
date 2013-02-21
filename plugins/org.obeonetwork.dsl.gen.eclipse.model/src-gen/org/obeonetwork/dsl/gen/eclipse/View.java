@@ -12,11 +12,11 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,32 +26,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface View extends Part
 {
-  /**
-   * Returns the value of the '<em><b>Category</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Category</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Category</em>' attribute.
-   * @see #setCategory(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Category()
-   * @model unique="false"
-   * @generated
-   */
-  String getCategory();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Category</em>' attribute.
-   * @see #getCategory()
-   * @generated
-   */
-  void setCategory(String value);
-
   /**
    * Returns the value of the '<em><b>Is Tree</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -127,5 +101,23 @@ public interface View extends Part
    * @generated
    */
   EList<Perspective> getPerspectives();
+
+  /**
+   * Returns the value of the '<em><b>Categories</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Category#getViews <em>Views</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Categories</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Categories</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Categories()
+   * @see org.obeonetwork.dsl.gen.eclipse.Category#getViews
+   * @model opposite="views"
+   * @generated
+   */
+  EList<Category> getCategories();
 
 } // View

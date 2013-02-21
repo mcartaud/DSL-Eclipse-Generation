@@ -449,6 +449,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Context} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ContextItemProvider contextItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Context}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createContextAdapter()
+  {
+    if (contextItemProvider == null)
+    {
+      contextItemProvider = new ContextItemProvider(this);
+    }
+
+    return contextItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Perspective} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -471,6 +496,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     }
 
     return perspectiveItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Category} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CategoryItemProvider categoryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCategoryAdapter()
+  {
+    if (categoryItemProvider == null)
+    {
+      categoryItemProvider = new CategoryItemProvider(this);
+    }
+
+    return categoryItemProvider;
   }
 
   /**
@@ -599,6 +649,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Command} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CommandItemProvider commandItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Command}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCommandAdapter()
+  {
+    if (commandItemProvider == null)
+    {
+      commandItemProvider = new CommandItemProvider(this);
+    }
+
+    return commandItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Action} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -696,6 +771,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     }
 
     return dynamicHelpItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Binding} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected BindingItemProvider bindingItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Binding}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createBindingAdapter()
+  {
+    if (bindingItemProvider == null)
+    {
+      bindingItemProvider = new BindingItemProvider(this);
+    }
+
+    return bindingItemProvider;
   }
 
   /**
@@ -824,16 +924,20 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (attributeItemProvider != null) attributeItemProvider.dispose();
     if (decoratorItemProvider != null) decoratorItemProvider.dispose();
     if (markerItemProvider != null) markerItemProvider.dispose();
+    if (contextItemProvider != null) contextItemProvider.dispose();
     if (perspectiveItemProvider != null) perspectiveItemProvider.dispose();
+    if (categoryItemProvider != null) categoryItemProvider.dispose();
     if (partCategoryItemProvider != null) partCategoryItemProvider.dispose();
     if (viewItemProvider != null) viewItemProvider.dispose();
     if (editorItemProvider != null) editorItemProvider.dispose();
     if (actionSetItemProvider != null) actionSetItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();
+    if (commandItemProvider != null) commandItemProvider.dispose();
     if (actionItemProvider != null) actionItemProvider.dispose();
     if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
     if (helpPageItemProvider != null) helpPageItemProvider.dispose();
     if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
+    if (bindingItemProvider != null) bindingItemProvider.dispose();
   }
 
 }

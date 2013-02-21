@@ -110,6 +110,7 @@ public class PartCategoryItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__PARTS);
+      childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__ACTION_SETS);
     }
     return childrenFeatures;
   }
@@ -173,6 +174,7 @@ public class PartCategoryItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PART_CATEGORY__PARTS:
+      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -200,6 +202,11 @@ public class PartCategoryItemProvider
       (createChildParameter
         (EclipsePackage.Literals.PART_CATEGORY__PARTS,
          EclipseFactory.eINSTANCE.createEditor()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PART_CATEGORY__ACTION_SETS,
+         EclipseFactory.eINSTANCE.createActionSet()));
   }
 
   /**

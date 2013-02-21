@@ -3,9 +3,50 @@
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template public naturePlugin(aNature : Nature)]
-  <extension
-      point="org.eclipse.core.resources.natures"
+
+[template public genWorkspacePluginXml(aBundle : Bundle)]
+[if (aBundle.natures->size() > 0)]
+   <extension
+        point="org.eclipse.core.resources.natures"
+[for (aNature : Nature | aBundle.natures)][aNature.natureTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.natures.hasToogleNature->size() > 0)]
+   <extension
+         point="org.eclipse.ui.popupMenus">
+[for (aNature : Nature | aBundle.natures)][if (aNature.hasToogleNature)][aNature.toogleNatureTemplate()/][/if]
+[/for]
+   </extension>
+[/if][if (aBundle.builders->size() > 0)]
+   <extension
+        point="org.eclipse.core.resources.builders"
+[for (aBuilder : Builder | aBundle.builders)][aBuilder.builderTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.eAllContents(Wizard)->size() > 0)]
+   <extension
+         point="org.eclipse.ui.newWizards">
+[for (aWizard : Wizard | aBundle.eAllContents(Wizard))][aWizard.wizardTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.decorators->size() > 0)]
+   <extension
+         point="org.eclipse.ui.decorators">
+[for (aDecorator : Decorator | aBundle.decorators)][aDecorator.decoratorTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.markers->size() > 0)]
+   <extension
+         point="org.eclipse.core.resources.markers"
+[for (aMarker : Marker | aBundle.markers)][aMarker.markersTemplate()/]
+[/for]
+   </extension>
+[/if]
+[/template]
+
+
+
+[template private natureTemplate(aNature : Nature)]
       id="[aNature.eContainer(Bundle).basePackage/].nature.[aNature.name.toLowerFirst()/]"
       name="%Nature-Name">
       <runtime>
@@ -18,35 +59,26 @@
             id="[aNature.ancestors(Bundle).genBundlePath()/].builder.[aNature.builders.name.toLowerFirst()/]">
       </builder>
 [/if]
-   </extension>
-[if (aNature.hasToogleNature)][toogleNaturePlugin()/][/if]
-
 [/template]
 
-[template public builderPlugin(aBuilder : Builder)]
-   <extension
+[template private builderTemplate(aBuilder : Builder)]
          id="[aBuilder.ancestors(Bundle).genBundlePath()/].builder.[aBuilder.name.toLowerFirst()/]"
-         name="%Builder-Name"
-         point="org.eclipse.core.resources.builders">
+         name="%Builder-Name">
       <builder
             hasNature="[associatedNature()/]">
          <run
                class="[aBuilder.ancestors(Bundle).genBundlePath()/].ui.builder.[aBuilder.name.toUpperFirst()/]">
          </run>
       </builder>
-   </extension>
-
 [/template]
 
-[template public associatedNature(aBuilder : Builder)]
+[template private associatedNature(aBuilder : Builder)]
 [if ((aBuilder.natures)->size() > 0)]
 true[else]
 false[/if]
 [/template]
 
-[template public toogleNaturePlugin(aNature : Nature)]
-   <extension
-         point="org.eclipse.ui.popupMenus">
+[template private toogleNatureTemplate(aNature : Nature)]
       <objectContribution
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
@@ -60,15 +92,12 @@ false[/if]
                id="[aNature.ancestors(Bundle).genBundlePath()/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
          </action>
       </objectContribution>
-   </extension>
 [/template]
 
-[template public wizardPlugin(aWizard : Wizard)]
-   <extension
-         point="org.eclipse.ui.newWizards">
+[template private wizardTemplate(aWizard : Wizard)]
       <category
             name="%Category-Name"
-            id="[aWizard.ancestors(Bundle).genBundlePath()/].ui.category.[aWizard.name.toLowerFirst()/]">
+            id="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]">
       </category>
       <wizard
             name="%Wizard-Name"
@@ -76,17 +105,13 @@ false[/if]
 [if (aWizard.isProject)]
 			project="true"
 [/if]
-			category="[aWizard.ancestors(Bundle).genBundlePath()/].ui.category.[aWizard.name.toLowerFirst()/]"
+			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]"
             class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst()/]"
-            id="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toLowerFirst()/]">
+            id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst()/]">
       </wizard>
-   </extension>
-
 [/template]
 
-[template public decoratorPlugin(aDecorator : Decorator)]
-   <extension
-         point="org.eclipse.ui.decorators">
+[template private decoratorTemplate(aDecorator : Decorator)]
       <decorator
             lightweight="[aDecorator.isLightweight/]"
             location="[aDecorator.location/]"
@@ -111,21 +136,15 @@ false[/if]
             </and>
          </enablement>
       </decorator>
-   </extension>
-
 [/template]
 
-[template public markersPlugin(aMarker : Marker)]
-   <extension
+[template private markersTemplate(aMarker : Marker)]
          id="[aMarker.markerID/]"
-         name="[aMarker.name/]"
-         point="org.eclipse.core.resources.markers">
+         name="[aMarker.name/]">
       <super
             type="org.eclipse.core.resources.problemmarker">
       </super>
       <persistent
             value="[aMarker.isPersistant/]">
       </persistent>
-   </extension>
-
 [/template]

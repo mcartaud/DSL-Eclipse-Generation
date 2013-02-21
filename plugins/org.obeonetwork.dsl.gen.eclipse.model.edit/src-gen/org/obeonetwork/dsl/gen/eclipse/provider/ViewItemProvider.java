@@ -64,34 +64,11 @@ public class ViewItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addCategoryPropertyDescriptor(object);
       addIsTreePropertyDescriptor(object);
       addPerspectivesPropertyDescriptor(object);
+      addCategoriesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Category feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addCategoryPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_View_category_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_View_category_feature", "_UI_View_type"),
-         EclipsePackage.Literals.VIEW__CATEGORY,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -132,6 +109,29 @@ public class ViewItemProvider
          getString("_UI_View_perspectives_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_View_perspectives_feature", "_UI_View_type"),
          EclipsePackage.Literals.VIEW__PERSPECTIVES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Categories feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addCategoriesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_View_categories_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_categories_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__CATEGORIES,
          true,
          false,
          true,
@@ -215,7 +215,6 @@ public class ViewItemProvider
 
     switch (notification.getFeatureID(View.class))
     {
-      case EclipsePackage.VIEW__CATEGORY:
       case EclipsePackage.VIEW__IS_TREE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

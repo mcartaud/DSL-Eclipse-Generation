@@ -2,6 +2,8 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle <em>Title</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPage <em>Help Page</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPages <em>Help Pages</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,29 +106,19 @@ public interface DynamicHelp extends EObject
   void setTitle(String value);
 
   /**
-   * Returns the value of the '<em><b>Help Page</b></em>' containment reference.
+   * Returns the value of the '<em><b>Help Pages</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.HelpPage}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Help Page</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Help Pages</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Help Page</em>' containment reference.
-   * @see #setHelpPage(HelpPage)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDynamicHelp_HelpPage()
-   * @model containment="true"
+   * @return the value of the '<em>Help Pages</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDynamicHelp_HelpPages()
+   * @model
    * @generated
    */
-  HelpPage getHelpPage();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPage <em>Help Page</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Help Page</em>' containment reference.
-   * @see #getHelpPage()
-   * @generated
-   */
-  void setHelpPage(HelpPage value);
+  EList<HelpPage> getHelpPages();
 
 } // DynamicHelp

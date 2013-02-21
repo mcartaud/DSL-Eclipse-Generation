@@ -54,21 +54,22 @@ Bundle-Localization: plugin
 [if (aBundle.exportedPackages->size() > 0)][for (aBundle : Bundle | aBundle) separator(',')][aBundle.bundleExportedPackages()/][/for][/if][if (aBundle.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.providedServices) separator(',')][aProvidedService.genInterfacePath()/][/for][/if][/for]
 [/template]
 
-[template private importRequired(aBundle : Bundle)]
- org.eclipse.ui;bundle-version="3.7.0",
- org.eclipse.core.runtime;bundle-version="3.7.0"[if (aBundle.wizards->size() > 0)],
- org.eclipse.jface;bundle-version="3.7.0",
- org.eclipse.core.resources;bundle-version="3.7.101",
- org.eclipse.ui.ide;bundle-version="3.7.0"[/if][if (aBundle.editors->size() > 0)],
- org.eclipse.jface.text,
- org.eclipse.ui.editors[/if][if (aBundle.perspectives->size() > 0)],
- org.eclipse.ui.console,
- org.eclipse.jdt.ui
-[/if]
-[/template]
-
 [template private importDeclaration(aBundle : Bundle)]
 Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
 separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0 
-or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0)][importRequired()/][/if]
+or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0
+or aBundle.actionSets.actions->size() > 0 or aBundle.editors.actions->size() > 0)][importRequired()/][/if]
+[/template]
+
+[template private importRequired(aBundle : Bundle)]
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0"[if (aBundle.eAllContents(Wizard)->size() > 0)],
+ org.eclipse.jface;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.ui.ide;bundle-version="3.7.0"[/if][if (aBundle.eAllContents(Editor)->size() > 0)],
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors[/if][if (aBundle.eAllContents(Perspective)->size() > 0)],
+ org.eclipse.ui.console,
+ org.eclipse.jdt.ui
+[/if]
 [/template]

@@ -2,14 +2,18 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -25,7 +29,7 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getHelpPage <em>Help Page</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getHelpPages <em>Help Pages</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,14 +98,14 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
   protected String title = TITLE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getHelpPage() <em>Help Page</em>}' containment reference.
+   * The cached value of the '{@link #getHelpPages() <em>Help Pages</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getHelpPage()
+   * @see #getHelpPages()
    * @generated
    * @ordered
    */
-  protected HelpPage helpPage;
+  protected EList<HelpPage> helpPages;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,63 +202,13 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
    * <!-- end-user-doc -->
    * @generated
    */
-  public HelpPage getHelpPage()
+  public EList<HelpPage> getHelpPages()
   {
-    return helpPage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetHelpPage(HelpPage newHelpPage, NotificationChain msgs)
-  {
-    HelpPage oldHelpPage = helpPage;
-    helpPage = newHelpPage;
-    if (eNotificationRequired())
+    if (helpPages == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__HELP_PAGE, oldHelpPage, newHelpPage);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      helpPages = new EObjectResolvingEList<HelpPage>(HelpPage.class, this, EclipsePackage.DYNAMIC_HELP__HELP_PAGES);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHelpPage(HelpPage newHelpPage)
-  {
-    if (newHelpPage != helpPage)
-    {
-      NotificationChain msgs = null;
-      if (helpPage != null)
-        msgs = ((InternalEObject)helpPage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.DYNAMIC_HELP__HELP_PAGE, null, msgs);
-      if (newHelpPage != null)
-        msgs = ((InternalEObject)newHelpPage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.DYNAMIC_HELP__HELP_PAGE, null, msgs);
-      msgs = basicSetHelpPage(newHelpPage, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__HELP_PAGE, newHelpPage, newHelpPage));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
-        return basicSetHelpPage(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return helpPages;
   }
 
   /**
@@ -273,8 +227,8 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
         return getLabel();
       case EclipsePackage.DYNAMIC_HELP__TITLE:
         return getTitle();
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
-        return getHelpPage();
+      case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+        return getHelpPages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -284,6 +238,7 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -298,8 +253,9 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
       case EclipsePackage.DYNAMIC_HELP__TITLE:
         setTitle((String)newValue);
         return;
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
-        setHelpPage((HelpPage)newValue);
+      case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+        getHelpPages().clear();
+        getHelpPages().addAll((Collection<? extends HelpPage>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -324,8 +280,8 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
       case EclipsePackage.DYNAMIC_HELP__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
-        setHelpPage((HelpPage)null);
+      case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+        getHelpPages().clear();
         return;
     }
     super.eUnset(featureID);
@@ -347,8 +303,8 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case EclipsePackage.DYNAMIC_HELP__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-      case EclipsePackage.DYNAMIC_HELP__HELP_PAGE:
-        return helpPage != null;
+      case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+        return helpPages != null && !helpPages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

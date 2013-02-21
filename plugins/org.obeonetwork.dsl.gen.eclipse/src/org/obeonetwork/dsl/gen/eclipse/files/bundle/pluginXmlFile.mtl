@@ -15,35 +15,9 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-[for (aNature : Nature | aBundle.natures)][aNature.naturePlugin()/]
-[/for][for (aBuilder : Builder | aBundle.builders)][aBuilder.builderPlugin()/]
-[/for][for (aWizard : Wizard | aBundle.wizards)][aWizard.wizardPlugin()/]
-[/for][for (aDecorator : Decorator | aBundle.decorators)][aDecorator.decoratorPlugin()/]
-[/for][for (aMarker : Marker | aBundle.markers)][aMarker.markersPlugin()/]
-[/for][for (aPerspective : Perspective | aBundle.perspectives)][aPerspective.perspectivePlugin()/]
-[/for][for (aView : View | aBundle.views)][aView.viewPlugin()/]
-[/for][for (anEditor : Editor | aBundle.editors)][anEditor.editorPlugin()/]
-[/for][for (anHelpContent : HelpContents | aBundle.helpContents)][anHelpContent.helpTemplate()/]
-[/for]
+[aBundle.genWorkspacePluginXml()/]
+[aBundle.genWorkbenchPluginXml()/]
+
 </plugin>
 [/file]
-[/template]
-
-[template private helpTemplate(anHelpContent : HelpContents)]
-   <extension
-         point="org.eclipse.help.toc">
-      <toc
-            file="[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/]Toc.xml"
-            primary="true">
-      </toc>
-[if (anHelpContent.helpPages->size() > 0)]
-[anHelpContent.helpPlugin()/]
-[/if]
-   </extension>
-[/template]
-
-[template private helpPlugin(anHelpContent : HelpContents)]
-      <toc
-            file="[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/].xml">
-      </toc>
 [/template]

@@ -158,6 +158,15 @@ public interface EclipseFactory extends EFactory
   Marker createMarker();
 
   /**
+   * Returns a new object of class '<em>Context</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context</em>'.
+   * @generated
+   */
+  Context createContext();
+
+  /**
    * Returns a new object of class '<em>Perspective</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -165,6 +174,15 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   Perspective createPerspective();
+
+  /**
+   * Returns a new object of class '<em>Category</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Category</em>'.
+   * @generated
+   */
+  Category createCategory();
 
   /**
    * Returns a new object of class '<em>Part Category</em>'.
@@ -212,6 +230,15 @@ public interface EclipseFactory extends EFactory
   Menu createMenu();
 
   /**
+   * Returns a new object of class '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command</em>'.
+   * @generated
+   */
+  Command createCommand();
+
+  /**
    * Returns a new object of class '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -246,6 +273,15 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   DynamicHelp createDynamicHelp();
+
+  /**
+   * Returns a new object of class '<em>Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binding</em>'.
+   * @generated
+   */
+  Binding createBinding();
 
   /**
    * Returns the package supported by this factory.

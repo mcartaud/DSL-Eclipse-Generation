@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.gen.eclipse.ActionSet;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
+import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getWizards <em>Wizards</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
@@ -91,6 +93,16 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected EList<ActionSet> actionSets;
+
+  /**
+   * The cached value of the '{@link #getWizards() <em>Wizards</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWizards()
+   * @generated
+   * @ordered
+   */
+  protected EList<Wizard> wizards;
 
   /**
    * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
@@ -188,6 +200,20 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Wizard> getWizards()
+  {
+    if (wizards == null)
+    {
+      wizards = new EObjectContainmentEList<Wizard>(Wizard.class, this, EclipsePackage.PERSPECTIVE__WIZARDS);
+    }
+    return wizards;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<View> getViews()
   {
     if (views == null)
@@ -226,6 +252,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
     {
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
+        return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
     }
@@ -248,6 +276,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return getIcon();
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return getActionSets();
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
+        return getWizards();
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return getViews();
     }
@@ -274,6 +304,10 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         getActionSets().clear();
         getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+        return;
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
+        getWizards().clear();
+        getWizards().addAll((Collection<? extends Wizard>)newValue);
         return;
       case EclipsePackage.PERSPECTIVE__VIEWS:
         getViews().clear();
@@ -302,6 +336,9 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         getActionSets().clear();
         return;
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
+        getWizards().clear();
+        return;
       case EclipsePackage.PERSPECTIVE__VIEWS:
         getViews().clear();
         return;
@@ -325,6 +362,8 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.PERSPECTIVE__ACTION_SETS:
         return actionSets != null && !actionSets.isEmpty();
+      case EclipsePackage.PERSPECTIVE__WIZARDS:
+        return wizards != null && !wizards.isEmpty();
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return views != null && !views.isEmpty();
     }

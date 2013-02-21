@@ -2,6 +2,8 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,32 +108,6 @@ public interface Wizard extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Category</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Category</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Category</em>' attribute.
-   * @see #setCategory(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_Category()
-   * @model unique="false"
-   * @generated
-   */
-  String getCategory();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Category</em>' attribute.
-   * @see #getCategory()
-   * @generated
-   */
-  void setCategory(String value);
-
-  /**
    * Returns the value of the '<em><b>Icon</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -182,5 +158,23 @@ public interface Wizard extends EObject
    * @generated
    */
   void setIsProject(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Categories</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Category#getWizards <em>Wizards</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Categories</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Categories</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_Categories()
+   * @see org.obeonetwork.dsl.gen.eclipse.Category#getWizards
+   * @model opposite="wizards"
+   * @generated
+   */
+  EList<Category> getCategories();
 
 } // Wizard

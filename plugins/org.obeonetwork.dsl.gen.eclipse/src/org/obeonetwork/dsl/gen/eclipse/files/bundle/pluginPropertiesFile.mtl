@@ -43,9 +43,6 @@ Icon-Folder = icons/
 # User information for the wizard [aWizard.name.toUpperFirst()/]
 Wizard-Name = [aWizard.name/]
 Wizard-Description = [aWizard.description/]
-[if (aWizard.category->size() > 0)]
-Category-Name = [aWizard.category/]
-[/if]
 [/template]
 
 [template private natureInformation(aNature : Nature)]

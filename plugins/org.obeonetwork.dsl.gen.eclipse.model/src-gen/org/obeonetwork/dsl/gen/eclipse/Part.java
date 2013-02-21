@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getActionSets <em>Action Sets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Part#getDynamicHelp <em>Dynamic Help</em>}</li>
  * </ul>
  * </p>
@@ -78,22 +77,6 @@ public interface Part extends EObject
    * @generated
    */
   void setIcon(String value);
-
-  /**
-   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Sets</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPart_ActionSets()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ActionSet> getActionSets();
 
   /**
    * Returns the value of the '<em><b>Dynamic Help</b></em>' containment reference.
