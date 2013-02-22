@@ -26,6 +26,8 @@
 [/if][if (aBundle.eAllContents(Wizard)->size() > 0)]
    <extension
          point="org.eclipse.ui.newWizards">
+[for (aWizard : Wizard | aBundle.eAllContents(Wizard))][if (aWizard.categories->size() > 0)][aWizard.wizardCategory()/][/if]
+[/for]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))][aWizard.wizardTemplate()/]
 [/for]
    </extension>
@@ -94,18 +96,22 @@ false[/if]
       </objectContribution>
 [/template]
 
-[template private wizardTemplate(aWizard : Wizard)]
+[template private wizardCategory(aWizard : Wizard)]
       <category
             name="%Category-Name"
             id="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]">
       </category>
+[/template]
+
+[template private wizardTemplate(aWizard : Wizard)]
       <wizard
             name="%Wizard-Name"
             icon="[aWizard.icon/]"
 [if (aWizard.isProject)]
 			project="true"
-[/if]
+[/if][if (aWizard.categories->size() > 0)]
 			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]"
+[/if]
             class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst()/]"
             id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst()/]">
       </wizard>

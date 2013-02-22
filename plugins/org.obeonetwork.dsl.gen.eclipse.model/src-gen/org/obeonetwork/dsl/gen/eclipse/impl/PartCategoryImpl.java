@@ -18,8 +18,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.ActionSet;
+import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Part;
 import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 
@@ -32,7 +33,8 @@ import org.obeonetwork.dsl.gen.eclipse.PartCategory;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getParts <em>Parts</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getMenus <em>Menus</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,14 +73,24 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
   protected EList<Part> parts;
 
   /**
-   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActionSets()
+   * @see #getMenus()
    * @generated
    * @ordered
    */
-  protected EList<ActionSet> actionSets;
+  protected EList<Menu> menus;
+
+  /**
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Action> actions;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,13 +155,27 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ActionSet> getActionSets()
+  public EList<Menu> getMenus()
   {
-    if (actionSets == null)
+    if (menus == null)
     {
-      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.PART_CATEGORY__ACTION_SETS);
+      menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.PART_CATEGORY__MENUS);
     }
-    return actionSets;
+    return menus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Action> getActions()
+  {
+    if (actions == null)
+    {
+      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.PART_CATEGORY__ACTIONS);
+    }
+    return actions;
   }
 
   /**
@@ -164,8 +190,10 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
     {
       case EclipsePackage.PART_CATEGORY__PARTS:
         return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
-        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.PART_CATEGORY__MENUS:
+        return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,8 +212,10 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
         return getName();
       case EclipsePackage.PART_CATEGORY__PARTS:
         return getParts();
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
-        return getActionSets();
+      case EclipsePackage.PART_CATEGORY__MENUS:
+        return getMenus();
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
+        return getActions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -208,9 +238,13 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
         getParts().clear();
         getParts().addAll((Collection<? extends Part>)newValue);
         return;
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
-        getActionSets().clear();
-        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+      case EclipsePackage.PART_CATEGORY__MENUS:
+        getMenus().clear();
+        getMenus().addAll((Collection<? extends Menu>)newValue);
+        return;
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -232,8 +266,11 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
       case EclipsePackage.PART_CATEGORY__PARTS:
         getParts().clear();
         return;
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
-        getActionSets().clear();
+      case EclipsePackage.PART_CATEGORY__MENUS:
+        getMenus().clear();
+        return;
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
+        getActions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -253,8 +290,10 @@ public class PartCategoryImpl extends MinimalEObjectImpl.Container implements Pa
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.PART_CATEGORY__PARTS:
         return parts != null && !parts.isEmpty();
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
-        return actionSets != null && !actionSets.isEmpty();
+      case EclipsePackage.PART_CATEGORY__MENUS:
+        return menus != null && !menus.isEmpty();
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
+        return actions != null && !actions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

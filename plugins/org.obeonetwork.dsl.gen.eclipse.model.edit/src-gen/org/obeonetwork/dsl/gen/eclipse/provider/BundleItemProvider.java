@@ -241,7 +241,7 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENUS);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTION_SETS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTIONS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PART_CATEGORIES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
@@ -325,7 +325,7 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__HELP_CONTENTS:
       case EclipsePackage.BUNDLE__COMMANDS:
       case EclipsePackage.BUNDLE__MENUS:
-      case EclipsePackage.BUNDLE__ACTION_SETS:
+      case EclipsePackage.BUNDLE__ACTIONS:
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
       case EclipsePackage.BUNDLE__CONTEXTS:
       case EclipsePackage.BUNDLE__CATEGORIES:
@@ -430,8 +430,8 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__ACTION_SETS,
-         EclipseFactory.eINSTANCE.createActionSet()));
+        (EclipsePackage.Literals.BUNDLE__ACTIONS,
+         EclipseFactory.eINSTANCE.createAction()));
 
     newChildDescriptors.add
       (createChildParameter

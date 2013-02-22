@@ -190,11 +190,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createEditorAdapter();
       }
       @Override
-      public Adapter caseActionSet(ActionSet object)
-      {
-        return createActionSetAdapter();
-      }
-      @Override
       public Adapter caseMenu(Menu object)
       {
         return createMenuAdapter();
@@ -592,21 +587,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEditorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ActionSet <em>Action Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.ActionSet
-   * @generated
-   */
-  public Adapter createActionSetAdapter()
   {
     return null;
   }

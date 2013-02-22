@@ -2,196 +2,78 @@
 [module workbenchPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::menuPluginXml /]
+
 
 
 [template public genWorkbenchPluginXml(aBundle : Bundle)]
-[if (aBundle.perspectives->size() > 0)]
+[if (aBundle.commands->size() > 0)]
+   <extension
+         point="org.eclipse.ui.commands">
+[for (aCategory : Category | aBundle.categories)][if (aCategory.commands->size() > 0)][aCategory.commandCategory()/]
+[/if][/for]
+[for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.eAllContents(Action)->size() > 0)]
+   <extension
+         point="org.eclipse.ui.handlers">
+[for (anAction : Action | aBundle.eAllContents(Action))][anAction.handlerTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.bindings->size() > 0)]
+   <extension
+         point="org.eclipse.ui.bindings">
+[for (aBinding : Binding | aBundle.bindings)][aBinding.bindingTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.eAllContents(View)->size() > 0)]
+   <extension 
+         point="org.eclipse.ui.views">
+[for (aCategory : Category | aBundle.categories)][if (aCategory.views->size() > 0)]
+[aCategory.commandCategory()/]
+[/if][/for]
+[for (aView : View | aBundle.eAllContents(View))][aView.viewTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.editors->size() > 0)]
+   <extension
+         point = "org.eclipse.ui.editors">
+[for (anEditor : Editor | aBundle.editors)][anEditor.editorTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.menus->size() > 0 or aBundle.perspectives.menus->size() > 0)]
+[aBundle.menuTemplate()/]
+[/if][if (aBundle.perspectives->size() > 0)]
    <extension
          point="org.eclipse.ui.perspectives">
 [for (aPerspective : Perspective | aBundle.perspectives)][aPerspective.perspectiveTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.perspectives->size() > 0)]
-   <extension 
-		 point="org.eclipse.ui.perspectiveExtensions">
+[/if][if (aBundle.perspectives.actions->size() > 0 or aBundle.perspectives.menus->size() > 0 or aBundle.perspectives.views->size() > 0 or aBundle.perspectives.wizards->size() > 0)]
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
 [for (aPerspective : Perspective | aBundle.perspectives)][aPerspective.perspectiveExtensionTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.views->size() > 0)]
+[/if][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).actions->size() > 0)]
    <extension
-         point="org.eclipse.ui.views">
-[for (aView : View | aBundle.views)][aView.viewTemplate()/]
+         point = "org.eclipse.core.expressions.definitions">
+[for (anAction : Action | aBundle.eAllContents(Editor).eAllContents(Action))][anAction.editorActionDefinition()/]
 [/for]
-   </extension>
-[/if][if (aBundle.views.actions->size() > 0)]
-   <extension
-         point="org.eclipse.ui.viewActions">
-[for (aView : View | aBundle.views)][if (aView.actions->size() > 0)][aView.viewActionTemplate()/][/if]
-[/for]
-   </extension>
-[/if][for (aView : View | aBundle.views)][if (aView.dynamicHelp->size() > 0)]
-	<extension
-         point="org.eclipse.help.contexts">
-[for (aDynamicHelp : DynamicHelp | aView.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
-[/for]
-   </extension>
-[/if][/for][for (anEditor : Editor | aBundle.editors)][if (anEditor.dynamicHelp->size() > 0)]
-	<extension
-         point="org.eclipse.help.contexts">
-[for (aDynamicHelp : DynamicHelp | anEditor.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
-[/for]
-   </extension>
-[/if][/for][if (aBundle.views.menus->size() > 0)]
-   <extension
-         point="org.eclipse.ui.menus">
-[for (aMenu : Menu | aBundle.views.menus)][aMenu.menuTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.editors->size() > 0)]
-   <extension
-         point="org.eclipse.ui.editors">
-[for (anEditor : Editor | aBundle.editors)][anEditor.editorTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.editors.actions->size() > 0)]
-   <extension
-         point="org.eclipse.ui.editorActions">
-[for (anEditor : Editor | aBundle.editors)][if (anEditor.actions->size() > 0)][anEditor.editorActionTemplate()/][/if]
-[/for]
-   </extension>
-[/if][if (aBundle.eAllContents(ActionSet)->size() > 0)]
-   <extension 
-		 point="org.eclipse.ui.actionSets">
-[for (anActionSet : ActionSet | aBundle.eAllContents(ActionSet))][anActionSet.actionSetTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.partCategories.parts->size() > 0)]
-   <extension
-		 point="org.eclipse.ui.actionSetPartAssociations">
-[for (aPartCategory : PartCategory | aBundle.partCategories)][aPartCategory.actionSetPartAssociationsTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.commands->size() > 0)]
-   <extension
-         point="org.eclipse.ui.bindings">
-[for (aCommand : Command | aBundle.commands)][aCommand.bindingTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.helpContents->size() > 0)]
-   <extension
-         point="org.eclipse.help.toc">
-[for (anHelpContent : HelpContents | aBundle.helpContents)][anHelpContent.helpTemplate()/]
-[/for]
-   </extension>
-[/if][if (aBundle.commands->size() > 0)]
-   <extension
-         point="org.eclipse.ui.commands">
-[for (aCategory : Category | aBundle.categories)][aCategory.categoryTemplate()/]
-[/for]
-[for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
-[/for]
-
    </extension>
 [/if]
 [/template]
 
 
-
-[template private categoryTemplate(aCategory : Category)]
-      <category
-            name="[aCategory.name/]"
-            id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
-      </category>
-[/template]
-
-[template private contextTemplate(aContext : Context)]
-	  <context
-		 name="%context.editingText.name"
-		 description="%context.editingText.description"
-		 id="org.eclipse.ui.textEditorScope"
-		 parentId="org.eclipse.ui.contexts.window">
-	  </context>
-[/template]
-
-[template private helpTemplate(anHelpContent : HelpContents)]
-      <toc
-            file="[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/]Toc.xml"
-            primary="true">
-      </toc>
-[if (anHelpContent.helpPages->size() > 0)]
-      <toc
-            file="[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/].xml">
-      </toc>
-[/if]
-[/template]
-
-[template private dynamicHelpTemplate(aDynamicHelp : DynamicHelp)]
-      <contexts
-            file="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml">
-      </contexts>
-[/template]
-
-[template private actionSetPartAssociationsTemplate(aPartCategory : PartCategory)]
-	<actionSetPartAssociation 
-		targetID="[aPartCategory.eContainer(Bundle).genBundlePath()/].actionset.[aPartCategory.name.toLowerFirst().substituteAll(' ', '')/]">
-[for (anActionSet : ActionSet | aPartCategory.actionSets)]
-		<part id="[aPartCategory.eContainer(Bundle).genBundlePath()/].actionset.[anActionSet.name.toLowerFirst().substituteAll(' ', '')/]"/>
-[/for]
-	</actionSetPartAssociation>
-[/template]
-
-[template private actionSetTemplate(anActionSet : ActionSet)]
-	   <actionSet id="[anActionSet.eContainer(Bundle).genBundlePath()/].actionset.[anActionSet.name.toLowerFirst().substituteAll(' ', '')/]"
-		   label="[anActionSet.name/]"
-		   visible="true">
-[for (aMenu : Menu | anActionSet.menus)]
-		   <menu id="[anActionSet.eContainer(Bundle).genBundlePath()/].menu.[anActionSet.menus.name.toLowerFirst().substituteAll(' ', '')/]"
-			   label="[aMenu.name/]"
-			   path="window/additions"> 
-			   <separator name="[aMenu.name.substituteAll(' ', '').toLowerFirst()/]Separator"/>
-		   </menu>
-[/for]
-[for (anAction : Action | anActionSet.menus.command.action)]
-[anAction.actionSetAction()/]
-[/for]
-	   </actionSet>
-[/template]
-
-[template private actionSetAction(anAction : Action)]
-		   <action id="[anAction.eContainer(Bundle).genBundlePath()/].action.[anAction.name.toLowerFirst().substituteAll(' ', '')/]"
-			   menubarPath="window/[anAction.eContainer(Bundle).genBundlePath()/].menu.[anAction.command.menu.name.toLowerFirst().substituteAll(' ', '')/]/[anAction.command.menu.name.substituteAll(' ', '').toLowerFirst()/]Separator"
-			   toolbarPath="readme"
-			   label="[anAction.name/]"
-			   icon="[anAction.icons/]"
-			   class="[anAction.eContainer(Bundle).genBundlePath()/].ui.actions.[anAction.name.toUpperFirst().substituteAll(' ', '')/]"
-			   definitionId="[anAction.eContainer(Bundle).genBundlePath()/].command.[anAction.command.name.toLowerFirst().substituteAll(' ', '')/]">
-		   </action>
-[/template]
-
-[template private bindingTemplate(aCommand : Command)]
-      <key
-            commandId="[aCommand.eContainer(Bundle).genBundlePath()/].command.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="[aCommand.binding.keySequence/]"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
-[/template]
-
-[template private commandTemplate(aCommand : Command)]
-      <command
-[for (aCategory : Category | aCommand.categories)]
-            categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]"
-[/for]
-            id="[aCommand.eContainer(Bundle).genBundlePath()/].command.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-            description="description"
-            name="[aCommand.name/]">
-      </command>
-[/template]
 
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
             name="[aPerspective.name/]"
             icon="[aPerspective.icon/]"
+[if (aPerspective._context->size() > 0)]
+			contextId="[aPerspective.eContainer(Bundle).genBundlePath()/].context.[aPerspective._context.name.toLowerFirst().substituteAll(' ', '')/]"
+[/if]
             class="[aPerspective.eContainer(Bundle).genBundlePath()/].ui.perspectives.[aPerspective.name.toUpperFirst().replaceAll(' ', '')/]"
             id="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().substituteAll(' ', '')/]">
       </perspective>
@@ -200,93 +82,83 @@
 [template private perspectiveExtensionTemplate(aPerspective : Perspective)]
   	  <perspectiveExtension 
 			targetID="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().substituteAll(' ', '')/]">
-[for (anActionSet : ActionSet | aPerspective.actionSets)]
-			<actionSet id="[anActionSet.eContainer(Bundle).genBundlePath()/].actionset.[anActionSet.name.toLowerFirst().substituteAll(' ', '')/]"/>
-[/for]
-[for (aView : View | aPerspective.views)]
-    			<view id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]" 
-        			relative="org.eclipse.debug.ui.ExpressionView" 
-    				relationship="stack"/>	
-[/for]     
     		<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
-[for (aWizard : Wizard | aPerspective.wizards)]
-        	<newWizardShortcut id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst()/]"/> 
+[for (aView : View | aPerspective.views)]
+    		<view id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]" 
+        		relative="org.eclipse.debug.ui.ExpressionView" 
+    			relationship="stack"/>	
 [/for]
-  	  </perspectiveExtension> 
+ 	  </perspectiveExtension>
+[/template]
+
+[template private commandTemplate(aCommand : Command)]
+      <command
+            name="[aCommand.name/]"
+[if (aCommand.categories->size() > 0)]
+            categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCommand.categories.name.toLowerFirst().substituteAll(' ', '')/]"
+[/if]
+            id="[aCommand.eContainer(Bundle).genBundlePath()/].handlers.[aCommand.action.name.substituteAll(' ', '').toLowerFirst()/]">
+      </command>
+[/template]
+
+[template private commandCategory(aCategory : Category)]
+      <category
+            name="[aCategory.name/]"
+            id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
+      </category>
+[/template]
+
+[template private handlerTemplate(anAction : Action)]
+      <handler
+            commandId="[anAction.eContainer(Bundle).genBundlePath()/].handlers.[anAction.name.toLowerFirst().substituteAll(' ', '')/]"
+            class="[anAction.eContainer(Bundle).genBundlePath()/].ui.handlers.[anAction.name.toUpperFirst().substituteAll(' ', '')/]">
+      </handler>
+[/template]
+
+[template private bindingTemplate(aBinding : Binding)]
+      <key
+            commandId="[aBinding.eContainer(Bundle).genBundlePath()/].handlers.[aBinding.command.action.name.toLowerFirst().substituteAll(' ', '')/]"
+[if (aBinding.command._context->size() > 0)]
+            contextId="[aBinding.eContainer(Bundle).genBundlePath()/].contexts.[aBinding.command._context.name.toLowerFirst().substituteAll(' ', '')/]"
+[/if]
+            sequence="[aBinding.bindingKey()/]"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+[/template]
+
+[template private bindingKey(aBinding : Binding)]
+[if (aBinding.keySequence.toLower().contains('ctrl'))]
+[aBinding.keySequence.toLower().replace('ctrl', 'M1')/]
+[else]
+[aBinding.keySequence/]
+[/if]
 [/template]
 
 [template private viewTemplate(aView : View)]
-[for (aCategory : Category | aView.categories)][aCategory.categoryTemplate()/]
-[/for]
       <view
-            name="[aView.name/]"
-            icon="[aView.icon/]"
 [for (aCategory : Category | aView.categories)]
             category="[aView.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]"
 [/for]
             class="[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]">
+            id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]"
+            icon="icons/XYZ.gif"
+			name="%contributions.view.name">
       </view>
-[/template]
-
-[template private viewActionTemplate(aView : View)]
-      <viewContribution 
-         id="[aView.eContainer(Bundle).genBundlePath()/].viewcontribution.[aView.name.toLowerFirst().substituteAll(' ', '')/]" 
-         targetID="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]"> 
-[for (anAction : Action | aView.actions)]       
-	   <action id="[anAction.eContainer(Bundle).genBundlePath()/].actions.[anAction.name.substituteAll(' ', '').toLowerFirst()/]" 
-              label="[anAction.name/]" 
-	     	  menubarPath="additions"
-              toolbarPath="additions" 
-			  tooltip="[anAction.tooltip/]"
-              icon="[anAction.icons/]"  
-[if (anAction.command->size() > 0)]
-			  definitionId="[anAction.eContainer(Bundle).genBundlePath()/].commands.[anAction.command.name.substituteAll(' ', '').toLowerFirst()/]"
-[/if]
-              class="[anAction.eContainer(Bundle).genBundlePath()/].ui.views.[anAction.name.substituteAll(' ', '').toUpperFirst()/]" >  
-	   </action>
-[/for]
-      </viewContribution>
 [/template]
 
 [template private editorTemplate(anEditor : Editor)]
       <editor
-            name="[anEditor.name/]"
-            extensions="[anEditor.extension/]"
-            icon="[anEditor.icon/]"
-            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]">
+            icon="icons/editor.gif"
+            id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]"
+            name="%contributions.editor.name">
       </editor>
 [/template]
 
-[template private editorActionTemplate(anEditor : Editor)]
-      <editorContribution 
-         id="[anEditor.eContainer(Bundle).genBundlePath()/].editorcontribution.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]" 
-         targetID="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]">        
-[for (anAction : Action | anEditor.actions)]
-	   <action id="[anEditor.eContainer(Bundle).genBundlePath()/].editoractions.[anAction.name.toLowerFirst().substituteAll(' ', '')/]" 
-              label="[anAction.name/]" 
-              icon="[anAction.icons/]" 
-              class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
-[if (anAction.command->size() > 0)]
-			  definitionId="[anAction.eContainer(Bundle).genBundlePath()/].commands.[anAction.name.substituteAll(' ', '').toLowerFirst()/]"
-[/if]
-              /> 
-[/for]
-      </editorContribution>
-[/template]
-
-[template private menuTemplate(aMenu : Menu)]
-      <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-         <menu
-               label="[aMenu.name/]"
-               id="[aMenu.eContainer(Bundle).genBundlePath()/].menu.[aMenu.name.substituteAll(' ', '').toLowerFirst()/]">
-            <command
-                  commandId="[aMenu.eContainer(Bundle).genBundlePath()/].command.[aMenu.command.name.toLowerFirst().substituteAll(' ', '')/]"
-                  mnemonic="[aMenu.mnecmonic/]">
-            </command>
-         </menu>
-      </menuContribution>
+[template private editorActionDefinition(anAction : Action)]
+      <definition id="[anAction.eContainer(Bundle).genBundlePath()/].definitions.[anAction.name.substituteAll(' ', '').toLowerFirst()/]">    
+         <with variable="activeEditorId">
+            <equals value="[anAction.eContainer(Bundle).genBundlePath()/].editors.[anAction.eContainer(Editor).name.toLowerFirst().substituteAll(' ', '')/]"/>
+         </with>
+      </definition>
 [/template]

@@ -599,31 +599,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ActionSet} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ActionSetItemProvider actionSetItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createActionSetAdapter()
-  {
-    if (actionSetItemProvider == null)
-    {
-      actionSetItemProvider = new ActionSetItemProvider(this);
-    }
-
-    return actionSetItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Menu} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -930,7 +905,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (partCategoryItemProvider != null) partCategoryItemProvider.dispose();
     if (viewItemProvider != null) viewItemProvider.dispose();
     if (editorItemProvider != null) editorItemProvider.dispose();
-    if (actionSetItemProvider != null) actionSetItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();
     if (commandItemProvider != null) commandItemProvider.dispose();
     if (actionItemProvider != null) actionItemProvider.dispose();

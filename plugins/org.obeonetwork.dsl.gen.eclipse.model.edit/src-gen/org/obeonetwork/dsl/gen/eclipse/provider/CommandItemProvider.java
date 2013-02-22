@@ -69,6 +69,7 @@ public class CommandItemProvider
       addMenuPropertyDescriptor(object);
       addCategoriesPropertyDescriptor(object);
       addBindingPropertyDescriptor(object);
+      addContextPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -180,6 +181,29 @@ public class CommandItemProvider
          getString("_UI_Command_binding_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Command_binding_feature", "_UI_Command_type"),
          EclipsePackage.Literals.COMMAND__BINDING,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Context feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addContextPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Command_context_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Command_context_feature", "_UI_Command_type"),
+         EclipsePackage.Literals.COMMAND__CONTEXT,
          true,
          false,
          true,

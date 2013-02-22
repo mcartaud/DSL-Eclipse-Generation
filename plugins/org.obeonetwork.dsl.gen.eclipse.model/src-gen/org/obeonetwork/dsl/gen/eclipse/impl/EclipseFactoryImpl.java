@@ -86,7 +86,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.PART_CATEGORY: return createPartCategory();
       case EclipsePackage.VIEW: return createView();
       case EclipsePackage.EDITOR: return createEditor();
-      case EclipsePackage.ACTION_SET: return createActionSet();
       case EclipsePackage.MENU: return createMenu();
       case EclipsePackage.COMMAND: return createCommand();
       case EclipsePackage.ACTION: return createAction();
@@ -366,17 +365,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     EditorImpl editor = new EditorImpl();
     return editor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ActionSet createActionSet()
-  {
-    ActionSetImpl actionSet = new ActionSetImpl();
-    return actionSet;
   }
 
   /**

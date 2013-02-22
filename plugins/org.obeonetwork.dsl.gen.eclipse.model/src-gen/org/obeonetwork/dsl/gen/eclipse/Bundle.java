@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus <em>Menus</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
@@ -368,20 +368,20 @@ public interface Bundle extends Project
   EList<Menu> getMenus();
 
   /**
-   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Sets</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ActionSets()
+   * @return the value of the '<em>Actions</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Actions()
    * @model containment="true"
    * @generated
    */
-  EList<ActionSet> getActionSets();
+  EList<Action> getActions();
 
   /**
    * Returns the value of the '<em><b>Part Categories</b></em>' containment reference list.

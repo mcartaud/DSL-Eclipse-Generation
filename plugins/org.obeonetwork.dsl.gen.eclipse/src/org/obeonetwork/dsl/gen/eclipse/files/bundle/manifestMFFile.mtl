@@ -23,6 +23,7 @@ Contributors :
 [file (aBundle.manifestMFFile(), false, 'UTF-8')]
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: [aBundle.genBundlePath()/];singleton:=true
 Bundle-Version: [aBundle.bundleVersion()/]
@@ -58,7 +59,7 @@ Bundle-Localization: plugin
 Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
 separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0
-or aBundle.actionSets.actions->size() > 0 or aBundle.editors.actions->size() > 0)][importRequired()/][/if]
+or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0)][importRequired()/][/if]
 [/template]
 
 [template private importRequired(aBundle : Bundle)]

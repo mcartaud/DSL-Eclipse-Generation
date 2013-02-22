@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,6 +23,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 
@@ -66,7 +68,9 @@ public class MenuItemProvider
 
       addNamePropertyDescriptor(object);
       addMnecmonicPropertyDescriptor(object);
-      addCommandPropertyDescriptor(object);
+      addMenuContributionPropertyDescriptor(object);
+      addToolbarContributionPropertyDescriptor(object);
+      addCommandsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -118,26 +122,105 @@ public class MenuItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Command feature.
+   * This adds a property descriptor for the Menu Contribution feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addCommandPropertyDescriptor(Object object)
+  protected void addMenuContributionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Menu_command_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Menu_command_feature", "_UI_Menu_type"),
-         EclipsePackage.Literals.MENU__COMMAND,
+         getString("_UI_Menu_menuContribution_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Menu_menuContribution_feature", "_UI_Menu_type"),
+         EclipsePackage.Literals.MENU__MENU_CONTRIBUTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Toolbar Contribution feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addToolbarContributionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Menu_toolbarContribution_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Menu_toolbarContribution_feature", "_UI_Menu_type"),
+         EclipsePackage.Literals.MENU__TOOLBAR_CONTRIBUTION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Commands feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addCommandsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Menu_commands_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Menu_commands_feature", "_UI_Menu_type"),
+         EclipsePackage.Literals.MENU__COMMANDS,
          true,
          false,
          true,
          null,
          null,
          null));
+  }
+
+  /**
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(EclipsePackage.Literals.MENU__MENUS);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
   }
 
   /**
@@ -183,7 +266,12 @@ public class MenuItemProvider
     {
       case EclipsePackage.MENU__NAME:
       case EclipsePackage.MENU__MNECMONIC:
+      case EclipsePackage.MENU__MENU_CONTRIBUTION:
+      case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case EclipsePackage.MENU__MENUS:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -200,6 +288,11 @@ public class MenuItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.MENU__MENUS,
+         EclipseFactory.eINSTANCE.createMenu()));
   }
 
   /**

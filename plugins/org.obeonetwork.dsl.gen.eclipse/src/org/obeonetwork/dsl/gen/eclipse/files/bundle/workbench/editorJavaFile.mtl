@@ -23,10 +23,6 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 
 
 	private TableEditor tableEditor;
-[for (anAction : Action | anEditor.actions)]
-	private Action [anAction.name.replaceAll(' ', '').toLowerFirst()/];
-[/for]
-
 
 	public [anEditor.name.replaceAll(' ', '').toUpperFirst()/]() {
 		super();

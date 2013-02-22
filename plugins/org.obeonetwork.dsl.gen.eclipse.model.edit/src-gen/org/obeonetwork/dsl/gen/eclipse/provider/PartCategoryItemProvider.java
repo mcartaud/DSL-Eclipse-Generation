@@ -110,7 +110,8 @@ public class PartCategoryItemProvider
     {
       super.getChildrenFeatures(object);
       childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__PARTS);
-      childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__ACTION_SETS);
+      childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__MENUS);
+      childrenFeatures.add(EclipsePackage.Literals.PART_CATEGORY__ACTIONS);
     }
     return childrenFeatures;
   }
@@ -174,7 +175,8 @@ public class PartCategoryItemProvider
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.PART_CATEGORY__PARTS:
-      case EclipsePackage.PART_CATEGORY__ACTION_SETS:
+      case EclipsePackage.PART_CATEGORY__MENUS:
+      case EclipsePackage.PART_CATEGORY__ACTIONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -205,8 +207,13 @@ public class PartCategoryItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.PART_CATEGORY__ACTION_SETS,
-         EclipseFactory.eINSTANCE.createActionSet()));
+        (EclipsePackage.Literals.PART_CATEGORY__MENUS,
+         EclipseFactory.eINSTANCE.createMenu()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PART_CATEGORY__ACTIONS,
+         EclipseFactory.eINSTANCE.createAction()));
   }
 
   /**

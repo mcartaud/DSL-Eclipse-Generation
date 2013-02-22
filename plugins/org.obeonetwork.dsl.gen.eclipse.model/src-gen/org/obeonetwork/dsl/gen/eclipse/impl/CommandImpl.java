@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
+import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 
@@ -37,6 +38,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @ordered
    */
   protected Binding binding;
+
+  /**
+   * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContext()
+   * @generated
+   * @ordered
+   */
+  protected Context context;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,9 +286,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       NotificationChain msgs = null;
       if (menu != null)
-        msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMAND, Menu.class, msgs);
+        msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
       if (newMenu != null)
-        msgs = ((InternalEObject)newMenu).eInverseAdd(this, EclipsePackage.MENU__COMMAND, Menu.class, msgs);
+        msgs = ((InternalEObject)newMenu).eInverseAdd(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
       msgs = basicSetMenu(newMenu, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -371,6 +383,74 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
+  public Context getContext()
+  {
+    if (context != null && context.eIsProxy())
+    {
+      InternalEObject oldContext = (InternalEObject)context;
+      context = (Context)eResolveProxy(oldContext);
+      if (context != oldContext)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__CONTEXT, oldContext, context));
+      }
+    }
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Context basicGetContext()
+  {
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContext(Context newContext, NotificationChain msgs)
+  {
+    Context oldContext = context;
+    context = newContext;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__CONTEXT, oldContext, newContext);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContext(Context newContext)
+  {
+    if (newContext != context)
+    {
+      NotificationChain msgs = null;
+      if (context != null)
+        msgs = ((InternalEObject)context).eInverseRemove(this, EclipsePackage.CONTEXT__COMMANDS, Context.class, msgs);
+      if (newContext != null)
+        msgs = ((InternalEObject)newContext).eInverseAdd(this, EclipsePackage.CONTEXT__COMMANDS, Context.class, msgs);
+      msgs = basicSetContext(newContext, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__CONTEXT, newContext, newContext));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
@@ -383,7 +463,7 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return basicSetAction((Action)otherEnd, msgs);
       case EclipsePackage.COMMAND__MENU:
         if (menu != null)
-          msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMAND, Menu.class, msgs);
+          msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
         return basicSetMenu((Menu)otherEnd, msgs);
       case EclipsePackage.COMMAND__CATEGORIES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
@@ -391,6 +471,10 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         if (binding != null)
           msgs = ((InternalEObject)binding).eInverseRemove(this, EclipsePackage.BINDING__COMMAND, Binding.class, msgs);
         return basicSetBinding((Binding)otherEnd, msgs);
+      case EclipsePackage.COMMAND__CONTEXT:
+        if (context != null)
+          msgs = ((InternalEObject)context).eInverseRemove(this, EclipsePackage.CONTEXT__COMMANDS, Context.class, msgs);
+        return basicSetContext((Context)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -413,6 +497,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
       case EclipsePackage.COMMAND__BINDING:
         return basicSetBinding(null, msgs);
+      case EclipsePackage.COMMAND__CONTEXT:
+        return basicSetContext(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -440,6 +526,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__BINDING:
         if (resolve) return getBinding();
         return basicGetBinding();
+      case EclipsePackage.COMMAND__CONTEXT:
+        if (resolve) return getContext();
+        return basicGetContext();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -471,6 +560,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__BINDING:
         setBinding((Binding)newValue);
         return;
+      case EclipsePackage.COMMAND__CONTEXT:
+        setContext((Context)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -500,6 +592,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__BINDING:
         setBinding((Binding)null);
         return;
+      case EclipsePackage.COMMAND__CONTEXT:
+        setContext((Context)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -524,6 +619,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return categories != null && !categories.isEmpty();
       case EclipsePackage.COMMAND__BINDING:
         return binding != null;
+      case EclipsePackage.COMMAND__CONTEXT:
+        return context != null;
     }
     return super.eIsSet(featureID);
   }

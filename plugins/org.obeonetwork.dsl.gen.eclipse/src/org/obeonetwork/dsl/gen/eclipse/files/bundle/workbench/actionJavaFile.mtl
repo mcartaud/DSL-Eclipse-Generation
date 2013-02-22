@@ -4,30 +4,27 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private actionJavaFile(anAction : Action)]
-[anAction.eContainer(Bundle).genBundleQualifiedPath()/]/ui/actions/[anAction.name.replaceAll(' ', '').toUpperFirst()/].java
+[anAction.eContainer(Bundle).genBundleQualifiedPath()/]/ui/handlers/[anAction.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
 [template public genActionJavaFile(anAction : Action)]
 [file (actionJavaFile(), false, 'UTF-8')]
-package [anAction.eContainer(Bundle).genBundlePath()/].ui.actions;
+package [anAction.eContainer(Bundle).genBundlePath()/].ui.handlers;
 
-import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 /**
- * Our sample action implements workbench action delegate.
- * The action proxy will be created by the workbench and
- * shown in the UI. When the user tries to use the action,
- * this delegate will be created and execution will be 
- * delegated to it.
- * @see IWorkbenchWindowActionDelegate
+ * Our sample handler extends AbstractHandler, an IHandler base class.
+ * @see org.eclipse.core.commands.IHandler
+ * @see org.eclipse.core.commands.AbstractHandler
  */
-public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] implements IWorkbenchWindowActionDelegate {
+public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] extends AbstractHandler {
 	
-	private IWorkbenchWindow window;
 	/**
 	 * The constructor.
 	 */
@@ -35,43 +32,16 @@ public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] implements IWor
 	}
 
 	/**
-	 * The action has been activated. The argument of the
-	 * method represents the 'real' action sitting
-	 * in the workbench UI.
-	 * @see IWorkbenchWindowActionDelegate#run
+	 * the command has been executed, so extract extract the needed information
+	 * from the application context.
 	 */
-	public void run(IAction action) {
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
-			window.getShell(),
-			"[anAction.name/]",
-			"[anAction.name/]Sample");
-	}
-
-	/**
-	 * Selection in the workbench has been changed. We 
-	 * can change the state of the 'real' action here
-	 * if we want, but this can only happen after 
-	 * the delegate has been created.
-	 * @see IWorkbenchWindowActionDelegate#selectionChanged
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-	}
-
-	/**
-	 * We can use this method to dispose of any system
-	 * resources we previously allocated.
-	 * @see IWorkbenchWindowActionDelegate#dispose
-	 */
-	public void dispose() {
-	}
-
-	/**
-	 * We will cache window object in order to
-	 * be able to provide parent shell for the message dialog.
-	 * @see IWorkbenchWindowActionDelegate#init
-	 */
-	public void init(IWorkbenchWindow window) {
-		this.window = window;
+				window.getShell(),
+				"[anAction.eContainer(Bundle).name.toUpperFirst()/]",
+				"Running [anAction.name/]!");
+		return null;
 	}
 }
 [/file]

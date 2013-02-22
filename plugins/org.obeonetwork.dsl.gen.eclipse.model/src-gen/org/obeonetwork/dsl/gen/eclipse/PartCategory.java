@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts <em>Parts</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getMenus <em>Menus</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,19 +70,35 @@ public interface PartCategory extends EObject
   EList<Part> getParts();
 
   /**
-   * Returns the value of the '<em><b>Action Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ActionSet}.
+   * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action Sets</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Sets</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPartCategory_ActionSets()
+   * @return the value of the '<em>Menus</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPartCategory_Menus()
    * @model containment="true"
    * @generated
    */
-  EList<ActionSet> getActionSets();
+  EList<Menu> getMenus();
+
+  /**
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Actions</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPartCategory_Actions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Action> getActions();
 
 } // PartCategory

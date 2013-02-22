@@ -12,18 +12,25 @@
 package [aView.eContainer(Bundle).genBundlePath()/].ui.views;
 
 
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.*;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.jface.action.*;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.*;
-import org.eclipse.swt.widgets.Menu;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
-[if (aView.isTree)]import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.ViewPart;
+[if (aView.isTree)]import java.util.ArrayList;
 
-import java.util.ArrayList;[/if]
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.ui.part.DrillDownAdapter;
+[else]import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.TableViewer;
+[/if]
 
 /**
  * <p>
@@ -49,10 +56,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	private DrillDownAdapter drillDownAdapter;
 [else]
 	private TableViewer viewer;
-[/if][for (anAction : Action | aView.actions)]
-	private Action [anAction.name.replaceAll(' ', '').toLowerFirst()/];
-[/for]
-
+[/if]
 	/*
 	 * The content provider class is responsible for
 	 * providing objects to the view. It can wrap
@@ -99,83 +103,8 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 [if (aView.dynamicHelp->size() > 0)]
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].[aView.dynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]");
 [/if]
-		makeActions();
-		hookContextMenu();
-		contributeToActionBars();
 	}
 
-	private void hookContextMenu() {
-		MenuManager menuMgr = new MenuManager("#PopupMenu");
-		menuMgr.setRemoveAllWhenShown(true);
-		menuMgr.addMenuListener(new IMenuListener() {
-			public void menuAboutToShow(IMenuManager manager) {
-				[aView.name.replaceAll(' ', '').toUpperFirst()/].this.fillContextMenu(manager);
-			}
-		});
-		Menu menu = menuMgr.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(menuMgr, viewer);
-	}
-
-	private void contributeToActionBars() {
-		IActionBars bars = getViewSite().getActionBars();
-		fillLocalPullDown(bars.getMenuManager());
-		fillLocalToolBar(bars.getToolBarManager());
-	}
-
-	private void fillLocalPullDown(IMenuManager manager) {
-[for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-		manager.add(new Separator());
-[/for]
-	}
-
-	private void fillContextMenu(IMenuManager manager) {
-[for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for]
-[if (aView.isTree)]
-		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
-[/if]
-		// Other plug-ins can contribute there actions here
-		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-	}
-	
-	private void fillLocalToolBar(IToolBarManager manager) {
-[for (anAction : Action | aView.actions)]
-		manager.add([anAction.name.replaceAll(' ', '').toLowerFirst()/]);
-[/for]
-[if (aView.isTree)]
-		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
-[/if]
-	}
-
-	/*
-	 * We will set up a dummy model to initialize the actions
-	 */
-	private void makeActions() {
-[for (anAction : Action | aView.actions)]
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/] = new Action() {
-			public void run() {
-				showMessage("[anAction.name/] executed");
-			}
-		};
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setText("[anAction.name/]");
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setToolTipText("[anAction.name/] tooltip");
-		[anAction.name.replaceAll(' ', '').toLowerFirst()/].setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-[/for]
-	}
-
-
-	private void showMessage(String message) {
-		MessageDialog.openInformation(
-			viewer.getControl().getShell(),
-			"[aView.name/]",
-			message);
-	}
 
 	/**
 	 * Passing the focus request to the viewer's control.

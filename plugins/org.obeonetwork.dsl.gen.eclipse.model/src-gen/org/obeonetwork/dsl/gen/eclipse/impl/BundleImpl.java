@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.ActionSet;
+import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
@@ -67,7 +67,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenus <em>Menus</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActionSets <em>Action Sets</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
@@ -293,14 +293,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<Menu> menus;
 
   /**
-   * The cached value of the '{@link #getActionSets() <em>Action Sets</em>}' containment reference list.
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActionSets()
+   * @see #getActions()
    * @generated
    * @ordered
    */
-  protected EList<ActionSet> actionSets;
+  protected EList<Action> actions;
 
   /**
    * The cached value of the '{@link #getPartCategories() <em>Part Categories</em>}' containment reference list.
@@ -677,13 +677,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ActionSet> getActionSets()
+  public EList<Action> getActions()
   {
-    if (actionSets == null)
+    if (actions == null)
     {
-      actionSets = new EObjectContainmentEList<ActionSet>(ActionSet.class, this, EclipsePackage.BUNDLE__ACTION_SETS);
+      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.BUNDLE__ACTIONS);
     }
-    return actionSets;
+    return actions;
   }
 
   /**
@@ -824,8 +824,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__ACTION_SETS:
-        return ((InternalEList<?>)getActionSets()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return ((InternalEList<?>)getPartCategories()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__CONTEXTS:
@@ -884,8 +884,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getCommands();
       case EclipsePackage.BUNDLE__MENUS:
         return getMenus();
-      case EclipsePackage.BUNDLE__ACTION_SETS:
-        return getActionSets();
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return getActions();
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return getPartCategories();
       case EclipsePackage.BUNDLE__CONTEXTS:
@@ -984,9 +984,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getMenus().clear();
         getMenus().addAll((Collection<? extends Menu>)newValue);
         return;
-      case EclipsePackage.BUNDLE__ACTION_SETS:
-        getActionSets().clear();
-        getActionSets().addAll((Collection<? extends ActionSet>)newValue);
+      case EclipsePackage.BUNDLE__ACTIONS:
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
         return;
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         getPartCategories().clear();
@@ -1084,8 +1084,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__MENUS:
         getMenus().clear();
         return;
-      case EclipsePackage.BUNDLE__ACTION_SETS:
-        getActionSets().clear();
+      case EclipsePackage.BUNDLE__ACTIONS:
+        getActions().clear();
         return;
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         getPartCategories().clear();
@@ -1158,8 +1158,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return commands != null && !commands.isEmpty();
       case EclipsePackage.BUNDLE__MENUS:
         return menus != null && !menus.isEmpty();
-      case EclipsePackage.BUNDLE__ACTION_SETS:
-        return actionSets != null && !actionSets.isEmpty();
+      case EclipsePackage.BUNDLE__ACTIONS:
+        return actions != null && !actions.isEmpty();
       case EclipsePackage.BUNDLE__PART_CATEGORIES:
         return partCategories != null && !partCategories.isEmpty();
       case EclipsePackage.BUNDLE__CONTEXTS:

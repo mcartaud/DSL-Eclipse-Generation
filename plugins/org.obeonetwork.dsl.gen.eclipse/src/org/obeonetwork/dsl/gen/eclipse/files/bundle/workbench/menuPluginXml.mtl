@@ -1,0 +1,123 @@
+[comment encoding = UTF-8 /]
+[module menuPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+
+[template public menuTemplate(aBundle : Bundle)]
+   <extension
+         point="org.eclipse.ui.menus">
+[for (aMenu : Menu | aBundle.eAllContents(Menu))]
+[if (aMenu.menuContribution and not(aMenu.eContainer().oclIsKindOf(View)))]
+[aMenu.menuContribution()/]
+[/if][if (aMenu.toolbarContribution and not(aMenu.eContainer().oclIsKindOf(View)))]
+[aMenu.toolbarContribution()/]
+[/if][if (aMenu.menuContribution and (aMenu.eContainer().oclIsKindOf(View)))]
+[aMenu.viewMenuContribution()/]
+[/if][if (aMenu.toolbarContribution and (aMenu.eContainer().oclIsKindOf(View)))]
+[aMenu.viewToolbarContribution()/]
+[/if]
+[/for]
+   </extension>
+[/template]
+
+[template private menuContribution(aMenu : Menu)]
+[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+[/if]
+[aMenu.genMenuContribution()/]
+[for (aSubMenu : Menu | aMenu.menus)]
+[aSubMenu.genMenuContribution()/]
+[/for][if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+      </menuContribution>
+[/if]
+[/template]
+
+[template private toolbarContribution(aMenu : Menu)]
+[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+[/if]
+[aMenu.genToolbarContribution()/]
+[for (aSubMenu : Menu | aMenu.menus)]
+[aSubMenu.genToolbarContribution()/]
+[/for][if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+      </menuContribution>
+[/if]
+[/template]
+
+[template private viewMenuContribution(aMenu : Menu)]
+      <menuContribution
+            locationURI="menu:[aMenu.eContainer(Bundle).genBundlePath()/].views.[aMenu.eContainer(View).name.toLowerFirst().substituteAll(' ', '')/]?after=additions">
+[for (aCommand : Command | aMenu.commands)]
+[aCommand.genMenuCommand()/]
+[/for]
+      </menuContribution>
+[/template]
+
+[template private viewToolbarContribution(aMenu : Menu)]
+      <menuContribution
+            locationURI="toolbar:[aMenu.eContainer(Bundle).genBundlePath()/].views.[aMenu.eContainer(View).name.toLowerFirst().substituteAll(' ', '')/]?after=additions">
+[for (aCommand : Command | aMenu.commands)]
+[aCommand.genToolbarCommand()/]
+[/for]
+      </menuContribution>
+[/template]
+
+[template private genMenuContribution(aMenu : Menu)]
+[for (aMenu)]
+         <menu
+               label="[aMenu.name/]"
+               mnemonic="M"
+               id="[aMenu.eContainer(Bundle).genBundlePath()/].menus.[aMenu.name.toLowerFirst().substituteAll(' ', '')/]">
+[for (aCommand : Command | aMenu.commands)]
+[aCommand.genMenuCommand()/]
+[/for]
+         </menu>
+[/for]
+[/template]
+
+[template private genToolbarContribution(aMenu : Menu)]
+[for (aMenu)]
+         <toolbar
+               id="[aMenu.eContainer(Bundle).genBundlePath()/].toolbars.[aMenu.name.toLowerFirst().substituteAll(' ', '')/]">
+[for (aCommand : Command | aMenu.commands)]
+[aCommand.genToolbarCommand()/]
+[/for]
+         </toolbar>
+[/for]
+[/template]
+
+[template private genToolbarCommand(aCommand : Command)]
+            <command
+                  commandId="[aCommand.eContainer(Bundle).genBundlePath()/].handlers.[aCommand.action.name.toLowerFirst().substituteAll(' ', '')/]"
+                  icon="icons/sample.gif"
+                  tooltip="[aCommand.action.tooltip/]"
+				  mnemonic="S"
+                  id="[aCommand.eContainer(Bundle).genBundlePath()/].toolbars.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
+[for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
+[anAction.activateEditorAction()/]
+[/if][/for]
+            </command>
+[/template]
+
+[template private genMenuCommand(aCommand : Command)]
+            <command
+                  commandId="[aCommand.eContainer(Bundle).genBundlePath()/].handlers.[aCommand.action.name.toLowerFirst().substituteAll(' ', '')/]"
+                  icon="icons/sample.gif"
+                  tooltip="[aCommand.action.tooltip/]"
+				  mnemonic="S"
+                  id="[aCommand.eContainer(Bundle).genBundlePath()/].menus.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
+[for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
+[anAction.activateEditorAction()/]
+[/if][/for]
+            </command>
+[/template]
+
+[template private activateEditorAction(anAction : Action)]
+			<visibleWhen
+					checkEnabled="true">
+     				<reference definitionId="[anAction.eContainer(Bundle).genBundlePath()/].definitions.[anAction.name.substituteAll(' ', '').toLowerFirst()/]"/>
+			</visibleWhen>
+[/template]

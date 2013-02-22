@@ -27,6 +27,7 @@ Bundle-Provider = [aBundle.vendor/]
 Icon-Folder = icons/
 
 [for (aWizard : Wizard | aBundle.wizards)]
+Icon-Folder = icons/wizards
 [wizardInformation()/]
 [/for]
 [for (aNature : Nature | aBundle.natures)]
@@ -34,7 +35,7 @@ Icon-Folder = icons/
 [/for]
 [for (aBuilder : Builder | aBundle.builders)]
 [builderInformation()/]
-[/for] 
+[/for]
 [/file]
 [/template]
 
@@ -57,3 +58,6 @@ Nature-Name = [aNature.name/]
 Builder-Name = [aBuilder.name/]
 [/template]
 
+[template public viewInformation(aView : View)]
+
+[/template]

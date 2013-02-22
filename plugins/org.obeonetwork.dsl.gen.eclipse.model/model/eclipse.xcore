@@ -59,7 +59,7 @@ class Bundle extends Project {
 	contains HelpContents[] helpContents
 	contains Command[] commands
 	contains Menu[] menus
-	contains ActionSet[] actionSets
+	contains Action[] actions
 	contains PartCategory[] partCategories
 	contains Context[] contexts
 	contains Category[] categories
@@ -144,14 +144,19 @@ class Marker {
 }
 
 class Context {
-	
+	String name
+	contains Context[] contexts
+	refers Perspective perspective opposite context
+	refers Command[] commands opposite context
 }
 
 class Perspective {
 	String name
 	String icon
-	contains ActionSet[] actionSets
+	contains Action[] actions
+	contains Menu[] menus
 	contains Wizard[] wizards
+	refers Context context opposite perspective
 	refers View[] views opposite perspectives
 }
 
@@ -165,14 +170,14 @@ class Category {
 abstract class Part {
 	String name
 	String icon
-//	refers ActionSet[] actionSets
 	contains DynamicHelp dynamicHelp
 }
 
 class PartCategory {
 	String name
 	contains Part[] parts
-	contains ActionSet[] actionSets
+	contains Menu[] menus
+	contains Action[] actions
 }
 
 class View extends Part {
@@ -185,27 +190,27 @@ class View extends Part {
 
 class Editor extends Part {
 	String extension
+	boolean dynamicMenu
 	contains Action[] actions
-}
-
-class ActionSet {
-	String name
 	contains Menu[] menus
-	contains Action[] actions
 }
 
 class Menu {
 	String name
 	String mnecmonic
-	refers Command command opposite menu
+	boolean menuContribution
+	boolean toolbarContribution
+	contains Menu[] menus
+	refers Command[] commands opposite menu
 }
 
 class Command {
 	String name
 	refers Action action opposite command
-	refers Menu menu opposite command
+	refers Menu menu opposite commands
 	refers Category[] categories opposite commands
 	refers Binding binding opposite command
+	refers Context context opposite commands
 }
 
 class Action {

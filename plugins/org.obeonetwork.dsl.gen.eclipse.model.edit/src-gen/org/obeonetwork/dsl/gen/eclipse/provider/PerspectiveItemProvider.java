@@ -69,6 +69,7 @@ public class PerspectiveItemProvider
 
       addNamePropertyDescriptor(object);
       addIconPropertyDescriptor(object);
+      addContextPropertyDescriptor(object);
       addViewsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -121,6 +122,29 @@ public class PerspectiveItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Context feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addContextPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Perspective_context_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Perspective_context_feature", "_UI_Perspective_type"),
+         EclipsePackage.Literals.PERSPECTIVE__CONTEXT,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This adds a property descriptor for the Views feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,7 +181,8 @@ public class PerspectiveItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__ACTION_SETS);
+      childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__ACTIONS);
+      childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__MENUS);
       childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__WIZARDS);
     }
     return childrenFeatures;
@@ -222,7 +247,8 @@ public class PerspectiveItemProvider
       case EclipsePackage.PERSPECTIVE__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.PERSPECTIVE__ACTION_SETS:
+      case EclipsePackage.PERSPECTIVE__ACTIONS:
+      case EclipsePackage.PERSPECTIVE__MENUS:
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -244,8 +270,13 @@ public class PerspectiveItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.PERSPECTIVE__ACTION_SETS,
-         EclipseFactory.eINSTANCE.createActionSet()));
+        (EclipsePackage.Literals.PERSPECTIVE__ACTIONS,
+         EclipseFactory.eINSTANCE.createAction()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.PERSPECTIVE__MENUS,
+         EclipseFactory.eINSTANCE.createMenu()));
 
     newChildDescriptors.add
       (createChildParameter
