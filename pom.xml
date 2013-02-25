@@ -31,6 +31,7 @@
     <module>plugins/org.obeonetwork.dsl.gen.eclipse.model</module>
     <module>plugins/org.obeonetwork.dsl.gen.eclipse.model.edit</module>
     <module>plugins/org.obeonetwork.dsl.gen.eclipse.model.editor</module>
+    <module>plugins/org.obeonetwork.dsl.gen.eclipse.ui</module>
     <module>plugins/org.obeonetwork.dsl.gen.eclipse</module>
     <module>features/org.obeonetwork.dsl.gen.eclipse.feature</module>
     <module>repository/org.obeonetwork.dsl.gen.eclipse.repository</module>
