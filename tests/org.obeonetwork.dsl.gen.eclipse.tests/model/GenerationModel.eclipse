@@ -57,30 +57,36 @@
       <helpPages description="deuxieme page" label="page2" title="2page"/>
       <helpPages description="troisieme page" label="page3" title="3page"/>
     </helpContents>
-    <commands name="plop"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="workspace" basePackage="org.obeonetwork.test">
-    <perspectives name="perspective12" views="//@projects.7/@views.0">
-      <actions name="action1" tooltip="premiere action" command="//@projects.7/@commands.0"/>
-      <actions name="action2" tooltip="deuxieme action" command="//@projects.7/@commands.1"/>
-      <menus name="menu1" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.0 //@projects.7/@commands.1"/>
-      <wizards name="wizard1" description="nouveau wizard"/>
+    <perspectives name="perspective12" views="//@projects.7/@views.0 //@projects.7/@views.1">
+      <actions name="action1" tooltip="premiere action" command="//@projects.7/@commands.1"/>
+      <actions name="action2" tooltip="deuxieme action" command="//@projects.7/@commands.2"/>
+      <menus name="menu1" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.1 //@projects.7/@commands.2"/>
+      <wizards name="wizard1" description="nouveau wizard" isProject="true" category="//@projects.7/@categories.0"/>
     </perspectives>
     <editors name="editeurDeTruc" extension="">
-      <actions name="actioEdit" command="//@projects.7/@commands.2"/>
-      <actions name="aditoracction2" command="//@projects.7/@commands.4"/>
-      <menus name="menuedit" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.2 //@projects.7/@commands.4"/>
+      <actions name="actioEdit" command="//@projects.7/@commands.3"/>
+      <actions name="aditoracction2" command="//@projects.7/@commands.5"/>
+      <menus name="menuedit" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.3 //@projects.7/@commands.5"/>
     </editors>
-    <views name="vue1" icon="" perspectives="//@projects.7/@perspectives.0">
-      <actions name="actionvue" tooltip="" command="//@projects.7/@commands.3"/>
-      <menus name="menuvue" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.3"/>
+    <views name="vue1" icon="" isVisible="true" perspectives="//@projects.7/@perspectives.0" category="//@projects.7/@categories.1">
+      <actions name="actionvue" tooltip="" command="//@projects.7/@commands.4"/>
+      <menus name="menuvue" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.4"/>
     </views>
-    <commands name="command1" action="//@projects.7/@perspectives.0/@actions.0" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.1"/>
-    <commands name="command2" action="//@projects.7/@perspectives.0/@actions.1" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.0"/>
-    <commands name="command5" action="//@projects.7/@editors.0/@actions.0" menu="//@projects.7/@editors.0/@menus.0"/>
-    <commands name="command6" action="//@projects.7/@views.0/@actions.0" menu="//@projects.7/@views.0/@menus.0"/>
-    <commands name="coimmand7" action="//@projects.7/@editors.0/@actions.1" menu="//@projects.7/@editors.0/@menus.0"/>
-    <bindings keySequence="v" command="//@projects.7/@commands.1"/>
-    <bindings keySequence="p" command="//@projects.7/@commands.0"/>
+    <views name="vue2" isTree="true" isVisible="true" perspectives="//@projects.7/@perspectives.0" category="//@projects.7/@categories.1">
+      <actions name="double clique" command="//@projects.7/@commands.0"/>
+      <menus toolbarContribution="true" commands="//@projects.7/@commands.0"/>
+    </views>
+    <commands name="command3" action="//@projects.7/@views.1/@actions.0" menu="//@projects.7/@views.1/@menus.0"/>
+    <commands name="Command 1" action="//@projects.7/@perspectives.0/@actions.0" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.1"/>
+    <commands name="Command 2" action="//@projects.7/@perspectives.0/@actions.1" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.0"/>
+    <commands name="Command 5" action="//@projects.7/@editors.0/@actions.0" menu="//@projects.7/@editors.0/@menus.0"/>
+    <commands name="Command 6" action="//@projects.7/@views.0/@actions.0" menu="//@projects.7/@views.0/@menus.0"/>
+    <commands name="Command 7" action="//@projects.7/@editors.0/@actions.1" menu="//@projects.7/@editors.0/@menus.0"/>
+    <categories name="wizardCatego" wizards="//@projects.7/@perspectives.0/@wizards.0"/>
+    <categories name="view catego" views="//@projects.7/@views.0 //@projects.7/@views.1"/>
+    <bindings keySequence="ctrl+1" command="//@projects.7/@commands.2"/>
+    <bindings keySequence="p" command="//@projects.7/@commands.1"/>
   </projects>
 </eclipse:Application>
