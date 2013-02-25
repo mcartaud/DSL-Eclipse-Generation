@@ -2,21 +2,14 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
@@ -36,7 +29,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMenu <em>Menu</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getContext <em>Context</em>}</li>
  * </ul>
@@ -87,14 +80,14 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   protected Menu menu;
 
   /**
-   * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+   * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCategories()
+   * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected EList<Category> categories;
+  protected Category category;
 
   /**
    * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference.
@@ -301,13 +294,67 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Category> getCategories()
+  public Category getCategory()
   {
-    if (categories == null)
+    if (category != null && category.eIsProxy())
     {
-      categories = new EObjectWithInverseResolvingEList.ManyInverse<Category>(Category.class, this, EclipsePackage.COMMAND__CATEGORIES, EclipsePackage.CATEGORY__COMMANDS);
+      InternalEObject oldCategory = (InternalEObject)category;
+      category = (Category)eResolveProxy(oldCategory);
+      if (category != oldCategory)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__CATEGORY, oldCategory, category));
+      }
     }
-    return categories;
+    return category;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Category basicGetCategory()
+  {
+    return category;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCategory(Category newCategory, NotificationChain msgs)
+  {
+    Category oldCategory = category;
+    category = newCategory;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__CATEGORY, oldCategory, newCategory);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCategory(Category newCategory)
+  {
+    if (newCategory != category)
+    {
+      NotificationChain msgs = null;
+      if (category != null)
+        msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__COMMANDS, Category.class, msgs);
+      if (newCategory != null)
+        msgs = ((InternalEObject)newCategory).eInverseAdd(this, EclipsePackage.CATEGORY__COMMANDS, Category.class, msgs);
+      msgs = basicSetCategory(newCategory, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__CATEGORY, newCategory, newCategory));
   }
 
   /**
@@ -451,7 +498,6 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -465,8 +511,10 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         if (menu != null)
           msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
         return basicSetMenu((Menu)otherEnd, msgs);
-      case EclipsePackage.COMMAND__CATEGORIES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
+      case EclipsePackage.COMMAND__CATEGORY:
+        if (category != null)
+          msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__COMMANDS, Category.class, msgs);
+        return basicSetCategory((Category)otherEnd, msgs);
       case EclipsePackage.COMMAND__BINDING:
         if (binding != null)
           msgs = ((InternalEObject)binding).eInverseRemove(this, EclipsePackage.BINDING__COMMAND, Binding.class, msgs);
@@ -493,8 +541,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return basicSetAction(null, msgs);
       case EclipsePackage.COMMAND__MENU:
         return basicSetMenu(null, msgs);
-      case EclipsePackage.COMMAND__CATEGORIES:
-        return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.COMMAND__CATEGORY:
+        return basicSetCategory(null, msgs);
       case EclipsePackage.COMMAND__BINDING:
         return basicSetBinding(null, msgs);
       case EclipsePackage.COMMAND__CONTEXT:
@@ -521,8 +569,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__MENU:
         if (resolve) return getMenu();
         return basicGetMenu();
-      case EclipsePackage.COMMAND__CATEGORIES:
-        return getCategories();
+      case EclipsePackage.COMMAND__CATEGORY:
+        if (resolve) return getCategory();
+        return basicGetCategory();
       case EclipsePackage.COMMAND__BINDING:
         if (resolve) return getBinding();
         return basicGetBinding();
@@ -538,7 +587,6 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -553,9 +601,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__MENU:
         setMenu((Menu)newValue);
         return;
-      case EclipsePackage.COMMAND__CATEGORIES:
-        getCategories().clear();
-        getCategories().addAll((Collection<? extends Category>)newValue);
+      case EclipsePackage.COMMAND__CATEGORY:
+        setCategory((Category)newValue);
         return;
       case EclipsePackage.COMMAND__BINDING:
         setBinding((Binding)newValue);
@@ -586,8 +633,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__MENU:
         setMenu((Menu)null);
         return;
-      case EclipsePackage.COMMAND__CATEGORIES:
-        getCategories().clear();
+      case EclipsePackage.COMMAND__CATEGORY:
+        setCategory((Category)null);
         return;
       case EclipsePackage.COMMAND__BINDING:
         setBinding((Binding)null);
@@ -615,8 +662,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return action != null;
       case EclipsePackage.COMMAND__MENU:
         return menu != null;
-      case EclipsePackage.COMMAND__CATEGORIES:
-        return categories != null && !categories.isEmpty();
+      case EclipsePackage.COMMAND__CATEGORY:
+        return category != null;
       case EclipsePackage.COMMAND__BINDING:
         return binding != null;
       case EclipsePackage.COMMAND__CONTEXT:

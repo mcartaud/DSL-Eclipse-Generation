@@ -26,7 +26,7 @@
 [/if][if (aBundle.eAllContents(Wizard)->size() > 0)]
    <extension
          point="org.eclipse.ui.newWizards">
-[for (aWizard : Wizard | aBundle.eAllContents(Wizard))][if (aWizard.categories->size() > 0)][aWizard.wizardCategory()/][/if]
+[for (aWizard : Wizard | aBundle.eAllContents(Wizard))][if (aWizard.category->size() > 0)][aWizard.wizardCategory()/][/if]
 [/for]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))][aWizard.wizardTemplate()/]
 [/for]
@@ -50,7 +50,7 @@
 
 [template private natureTemplate(aNature : Nature)]
       id="[aNature.eContainer(Bundle).basePackage/].nature.[aNature.name.toLowerFirst()/]"
-      name="%Nature-Name">
+      name="%[aNature.name.toUpperFirst()/]-Nature-Name">
       <runtime>
          <run 
 			class="[aNature.ancestors(Bundle).genBundlePath()/].ui.nature.[aNature.name.toUpperFirst()/]">
@@ -65,7 +65,7 @@
 
 [template private builderTemplate(aBuilder : Builder)]
          id="[aBuilder.ancestors(Bundle).genBundlePath()/].builder.[aBuilder.name.toLowerFirst()/]"
-         name="%Builder-Name">
+         name="%[aBuilder.name.toUpperFirst()/]-Builder-Name">
       <builder
             hasNature="[associatedNature()/]">
          <run
@@ -98,22 +98,22 @@ false[/if]
 
 [template private wizardCategory(aWizard : Wizard)]
       <category
-            name="%Category-Name"
+            name="%[aWizard.name.toUpperFirst()/]-WizardCategory-Name"
             id="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]">
       </category>
 [/template]
 
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
-            name="%Wizard-Name"
+            name="%[aWizard.name.toUpperFirst()/]-Wizard-Name"
             icon="[aWizard.icon/]"
 [if (aWizard.isProject)]
 			project="true"
-[/if][if (aWizard.categories->size() > 0)]
-			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]"
+[/if][if (aWizard.category->size() > 0)]
+			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
-            class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst()/]"
-            id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst()/]">
+            class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst().substituteAll(' ', '')/]"
+            id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]">
       </wizard>
 [/template]
 

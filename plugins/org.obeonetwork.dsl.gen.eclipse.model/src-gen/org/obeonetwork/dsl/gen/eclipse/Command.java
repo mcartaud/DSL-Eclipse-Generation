@@ -2,8 +2,6 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getContext <em>Context</em>}</li>
  * </ul>
@@ -112,22 +110,32 @@ public interface Command extends EObject
   void setMenu(Menu value);
 
   /**
-   * Returns the value of the '<em><b>Categories</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * Returns the value of the '<em><b>Category</b></em>' reference.
    * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Category#getCommands <em>Commands</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Categories</em>' reference list isn't clear,
+   * If the meaning of the '<em>Category</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Categories</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Categories()
+   * @return the value of the '<em>Category</em>' reference.
+   * @see #setCategory(Category)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Category()
    * @see org.obeonetwork.dsl.gen.eclipse.Category#getCommands
    * @model opposite="commands"
    * @generated
    */
-  EList<Category> getCategories();
+  Category getCategory();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Category</em>' reference.
+   * @see #getCategory()
+   * @generated
+   */
+  void setCategory(Category value);
 
   /**
    * Returns the value of the '<em><b>Binding</b></em>' reference.

@@ -145,7 +145,7 @@ public class CategoryImpl extends MinimalEObjectImpl.Container implements Catego
   {
     if (commands == null)
     {
-      commands = new EObjectWithInverseResolvingEList.ManyInverse<Command>(Command.class, this, EclipsePackage.CATEGORY__COMMANDS, EclipsePackage.COMMAND__CATEGORIES);
+      commands = new EObjectWithInverseResolvingEList<Command>(Command.class, this, EclipsePackage.CATEGORY__COMMANDS, EclipsePackage.COMMAND__CATEGORY);
     }
     return commands;
   }
@@ -159,7 +159,7 @@ public class CategoryImpl extends MinimalEObjectImpl.Container implements Catego
   {
     if (views == null)
     {
-      views = new EObjectWithInverseResolvingEList.ManyInverse<View>(View.class, this, EclipsePackage.CATEGORY__VIEWS, EclipsePackage.VIEW__CATEGORIES);
+      views = new EObjectWithInverseResolvingEList<View>(View.class, this, EclipsePackage.CATEGORY__VIEWS, EclipsePackage.VIEW__CATEGORY);
     }
     return views;
   }
@@ -173,7 +173,7 @@ public class CategoryImpl extends MinimalEObjectImpl.Container implements Catego
   {
     if (wizards == null)
     {
-      wizards = new EObjectWithInverseResolvingEList.ManyInverse<Wizard>(Wizard.class, this, EclipsePackage.CATEGORY__WIZARDS, EclipsePackage.WIZARD__CATEGORIES);
+      wizards = new EObjectWithInverseResolvingEList<Wizard>(Wizard.class, this, EclipsePackage.CATEGORY__WIZARDS, EclipsePackage.WIZARD__CATEGORY);
     }
     return wizards;
   }

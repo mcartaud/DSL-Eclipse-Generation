@@ -67,7 +67,7 @@ public class CommandItemProvider
       addNamePropertyDescriptor(object);
       addActionPropertyDescriptor(object);
       addMenuPropertyDescriptor(object);
-      addCategoriesPropertyDescriptor(object);
+      addCategoryPropertyDescriptor(object);
       addBindingPropertyDescriptor(object);
       addContextPropertyDescriptor(object);
     }
@@ -144,20 +144,20 @@ public class CommandItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Categories feature.
+   * This adds a property descriptor for the Category feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addCategoriesPropertyDescriptor(Object object)
+  protected void addCategoryPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Command_categories_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Command_categories_feature", "_UI_Command_type"),
-         EclipsePackage.Literals.COMMAND__CATEGORIES,
+         getString("_UI_Command_category_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Command_category_feature", "_UI_Command_type"),
+         EclipsePackage.Literals.COMMAND__CATEGORY,
          true,
          false,
          true,

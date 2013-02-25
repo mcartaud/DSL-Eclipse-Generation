@@ -43,7 +43,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::actionJavaFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perpectiveJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perspectiveJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorJavaFile /]
 
 

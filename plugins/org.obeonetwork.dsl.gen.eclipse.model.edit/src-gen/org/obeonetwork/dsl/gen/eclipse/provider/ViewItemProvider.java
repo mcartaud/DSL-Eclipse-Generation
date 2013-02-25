@@ -65,8 +65,9 @@ public class ViewItemProvider
       super.getPropertyDescriptors(object);
 
       addIsTreePropertyDescriptor(object);
+      addIsVisiblePropertyDescriptor(object);
       addPerspectivesPropertyDescriptor(object);
-      addCategoriesPropertyDescriptor(object);
+      addCategoryPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -86,6 +87,29 @@ public class ViewItemProvider
          getString("_UI_View_isTree_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_View_isTree_feature", "_UI_View_type"),
          EclipsePackage.Literals.VIEW__IS_TREE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Is Visible feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIsVisiblePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_View_isVisible_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_isVisible_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__IS_VISIBLE,
          true,
          false,
          false,
@@ -118,20 +142,20 @@ public class ViewItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Categories feature.
+   * This adds a property descriptor for the Category feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addCategoriesPropertyDescriptor(Object object)
+  protected void addCategoryPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_View_categories_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_View_categories_feature", "_UI_View_type"),
-         EclipsePackage.Literals.VIEW__CATEGORIES,
+         getString("_UI_View_category_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_View_category_feature", "_UI_View_type"),
+         EclipsePackage.Literals.VIEW__CATEGORY,
          true,
          false,
          true,
@@ -216,6 +240,7 @@ public class ViewItemProvider
     switch (notification.getFeatureID(View.class))
     {
       case EclipsePackage.VIEW__IS_TREE:
+      case EclipsePackage.VIEW__IS_VISIBLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.VIEW__ACTIONS:

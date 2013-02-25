@@ -1034,13 +1034,13 @@ public interface EclipsePackage extends EPackage
   int WIZARD__IS_PROJECT = 4;
 
   /**
-   * The feature id for the '<em><b>Categories</b></em>' reference list.
+   * The feature id for the '<em><b>Category</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WIZARD__CATEGORIES = 5;
+  int WIZARD__CATEGORY = 5;
 
   /**
    * The number of structural features of the '<em>Wizard</em>' class.
@@ -1116,13 +1116,13 @@ public interface EclipsePackage extends EPackage
   int PROJECT_WIZARD__IS_PROJECT = WIZARD__IS_PROJECT;
 
   /**
-   * The feature id for the '<em><b>Categories</b></em>' reference list.
+   * The feature id for the '<em><b>Category</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT_WIZARD__CATEGORIES = WIZARD__CATEGORIES;
+  int PROJECT_WIZARD__CATEGORY = WIZARD__CATEGORY;
 
   /**
    * The feature id for the '<em><b>Natures</b></em>' reference list.
@@ -1792,13 +1792,22 @@ public interface EclipsePackage extends EPackage
   int VIEW__IS_TREE = PART_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Is Visible</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__IS_VISIBLE = PART_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW__ACTIONS = PART_FEATURE_COUNT + 1;
+  int VIEW__ACTIONS = PART_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -1807,7 +1816,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW__MENUS = PART_FEATURE_COUNT + 2;
+  int VIEW__MENUS = PART_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Perspectives</b></em>' reference list.
@@ -1816,16 +1825,16 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 3;
+  int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Categories</b></em>' reference list.
+   * The feature id for the '<em><b>Category</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW__CATEGORIES = PART_FEATURE_COUNT + 4;
+  int VIEW__CATEGORY = PART_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>View</em>' class.
@@ -1834,7 +1843,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
+  int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 6;
 
   /**
    * The number of operations of the '<em>View</em>' class.
@@ -1983,22 +1992,13 @@ public interface EclipsePackage extends EPackage
   int MENU__TOOLBAR_CONTRIBUTION = 3;
 
   /**
-   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MENU__MENUS = 4;
-
-  /**
    * The feature id for the '<em><b>Commands</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MENU__COMMANDS = 5;
+  int MENU__COMMANDS = 4;
 
   /**
    * The number of structural features of the '<em>Menu</em>' class.
@@ -2007,7 +2007,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MENU_FEATURE_COUNT = 6;
+  int MENU_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Menu</em>' class.
@@ -2056,13 +2056,13 @@ public interface EclipsePackage extends EPackage
   int COMMAND__MENU = 2;
 
   /**
-   * The feature id for the '<em><b>Categories</b></em>' reference list.
+   * The feature id for the '<em><b>Category</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__CATEGORIES = 3;
+  int COMMAND__CATEGORY = 3;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -3304,15 +3304,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getWizard_IsProject();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategories <em>Categories</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Categories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getCategories()
+   * @return the meta object for the reference '<em>Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory()
    * @see #getWizard()
    * @generated
    */
-  EReference getWizard_Categories();
+  EReference getWizard_Category();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProjectWizard <em>Project Wizard</em>}'.
@@ -3865,6 +3865,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getView_IsTree();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Visible</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#isIsVisible()
+   * @see #getView()
+   * @generated
+   */
+  EAttribute getView_IsVisible();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3898,15 +3909,15 @@ public interface EclipsePackage extends EPackage
   EReference getView_Perspectives();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategories <em>Categories</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Categories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getCategories()
+   * @return the meta object for the reference '<em>Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getCategory()
    * @see #getView()
    * @generated
    */
-  EReference getView_Categories();
+  EReference getView_Category();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Editor <em>Editor</em>}'.
@@ -4017,17 +4028,6 @@ public interface EclipsePackage extends EPackage
   EAttribute getMenu_ToolbarContribution();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMenus()
-   * @see #getMenu()
-   * @generated
-   */
-  EReference getMenu_Menus();
-
-  /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getCommands <em>Commands</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4082,15 +4082,15 @@ public interface EclipsePackage extends EPackage
   EReference getCommand_Menu();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategories <em>Categories</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Categories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Command#getCategories()
+   * @return the meta object for the reference '<em>Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Command#getCategory()
    * @see #getCommand()
    * @generated
    */
-  EReference getCommand_Categories();
+  EReference getCommand_Category();
 
   /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getBinding <em>Binding</em>}'.
@@ -5077,12 +5077,12 @@ public interface EclipsePackage extends EPackage
     EAttribute WIZARD__IS_PROJECT = eINSTANCE.getWizard_IsProject();
 
     /**
-     * The meta object literal for the '<em><b>Categories</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Category</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference WIZARD__CATEGORIES = eINSTANCE.getWizard_Categories();
+    EReference WIZARD__CATEGORY = eINSTANCE.getWizard_Category();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectWizardImpl <em>Project Wizard</em>}' class.
@@ -5515,6 +5515,14 @@ public interface EclipsePackage extends EPackage
     EAttribute VIEW__IS_TREE = eINSTANCE.getView_IsTree();
 
     /**
+     * The meta object literal for the '<em><b>Is Visible</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW__IS_VISIBLE = eINSTANCE.getView_IsVisible();
+
+    /**
      * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5539,12 +5547,12 @@ public interface EclipsePackage extends EPackage
     EReference VIEW__PERSPECTIVES = eINSTANCE.getView_Perspectives();
 
     /**
-     * The meta object literal for the '<em><b>Categories</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Category</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VIEW__CATEGORIES = eINSTANCE.getView_Categories();
+    EReference VIEW__CATEGORY = eINSTANCE.getView_Category();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
@@ -5631,14 +5639,6 @@ public interface EclipsePackage extends EPackage
     EAttribute MENU__TOOLBAR_CONTRIBUTION = eINSTANCE.getMenu_ToolbarContribution();
 
     /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MENU__MENUS = eINSTANCE.getMenu_Menus();
-
-    /**
      * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5681,12 +5681,12 @@ public interface EclipsePackage extends EPackage
     EReference COMMAND__MENU = eINSTANCE.getCommand_Menu();
 
     /**
-     * The meta object literal for the '<em><b>Categories</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Category</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMMAND__CATEGORIES = eINSTANCE.getCommand_Categories();
+    EReference COMMAND__CATEGORY = eINSTANCE.getCommand_Category();
 
     /**
      * The meta object literal for the '<em><b>Binding</b></em>' reference feature.

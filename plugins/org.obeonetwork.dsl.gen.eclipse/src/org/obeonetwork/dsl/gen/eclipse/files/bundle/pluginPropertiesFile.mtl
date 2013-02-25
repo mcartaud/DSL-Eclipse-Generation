@@ -24,40 +24,79 @@ Contributors :
 Bundle-Name = [aBundle.name/]
 Bundle-Provider = [aBundle.vendor/]
 
-Icon-Folder = icons/
-
-[for (aWizard : Wizard | aBundle.wizards)]
-Icon-Folder = icons/wizards
-[wizardInformation()/]
-[/for]
-[for (aNature : Nature | aBundle.natures)]
-[natureInformation()/]
-[/for]
-[for (aBuilder : Builder | aBundle.builders)]
-[builderInformation()/]
-[/for]
+[if (aBundle.eAllContents(Wizard)->size() > 0)]
+[aBundle.wizardInformation()/]
+[/if]
+[if (aBundle.natures->size() > 0)]
+[aBundle.natureInformation()/]
+[/if]
+[if (aBundle.builders->size() > 0)]
+[aBundle.builderInformation()/]
+[/if]
+[if (aBundle.eAllContents(View)->size() > 0)]
+[aBundle.viewInformation()/]
+[/if]
+[if (aBundle.editors->size() > 0)]
+[aBundle.editorInformation()/]
+[/if]
 [/file]
 [/template]
 
-[template private wizardInformation(aWizard : Wizard)]
+[template private wizardInformation(aBundle : Bundle)]
 
-# User information for the wizard [aWizard.name.toUpperFirst()/]
-Wizard-Name = [aWizard.name/]
-Wizard-Description = [aWizard.description/]
+# User information for the wizards
+[for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
+[aWizard.name.toUpperFirst()/]-Wizard-Name = [aWizard.name/]
+[aWizard.name.toUpperFirst()/]-Wizard-Description = [aWizard.description/]
+[if (aWizard.category->size() > 0)]
+[aWizard.name.toUpperFirst()/]-WizardCategory-Name = [aWizard.category.name/]
+
+[/if][/for]
 [/template]
 
-[template private natureInformation(aNature : Nature)]
+[template private natureInformation(aBundle : Bundle)]
 
-# User information for the nature [aNature.name.toUpperFirst()/]
-Nature-Name = [aNature.name/]
+# User information for the natures
+[for (aNature : Nature | aBundle.natures)]
+[aNature.name.toUpperFirst()/]-Nature-Name = [aNature.name/]
+
+[/for]
 [/template]
 
-[template private builderInformation(aBuilder : Builder)]
+[template private builderInformation(aBundle : Bundle)]
 
-# User information for the builder [aBuilder.name.toUpperFirst()/]
-Builder-Name = [aBuilder.name/]
+# User information for the builders
+[for (aBuilder : Builder | aBundle.builders)]
+[aBuilder.name.toUpperFirst()/]-Builder-Name = [aBuilder.name/]
+
+[/for]
 [/template]
 
-[template public viewInformation(aView : View)]
+[template private viewInformation(aBundle : Bundle)]
 
+#User information for the views
+[for (aView : View | aBundle.views)]
+[aView.name.toUpperFirst()/]-View-Name = [aView.name/]
+[if (aView.category->size() > 0)]
+[aView.name.toUpperFirst()/]-ViewCategory-Name = [aView.category.name/]
+
+[/if][/for]
+[/template]
+
+[template private editorInformation(aBundle : Bundle)]
+
+#User information for the editors
+[for (anEditor : Editor | aBundle.editors)]
+[anEditor.name.toUpperFirst()/]-Editor-Name = [anEditor.name/]
+
+[/for]
+[/template]
+
+[template public commandInformation(aBundle : Bundle)]
+
+#User information for the commands
+[for (aCommand : Command | aBundle.commands)]
+[aCommand.name.toUpperFirst()/]-CommandCategory-Name = [aCommand.name/]
+
+[/for]
 [/template]

@@ -2,8 +2,6 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#isIsProject <em>Is Project</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,21 +158,31 @@ public interface Wizard extends EObject
   void setIsProject(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Categories</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * Returns the value of the '<em><b>Category</b></em>' reference.
    * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Category#getWizards <em>Wizards</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Categories</em>' reference list isn't clear,
+   * If the meaning of the '<em>Category</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Categories</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_Categories()
+   * @return the value of the '<em>Category</em>' reference.
+   * @see #setCategory(Category)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getWizard_Category()
    * @see org.obeonetwork.dsl.gen.eclipse.Category#getWizards
    * @model opposite="wizards"
    * @generated
    */
-  EList<Category> getCategories();
+  Category getCategory();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Wizard#getCategory <em>Category</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Category</em>' reference.
+   * @see #getCategory()
+   * @generated
+   */
+  void setCategory(Category value);
 
 } // Wizard

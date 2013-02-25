@@ -13,10 +13,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,32 @@ public interface View extends Part
    * @generated
    */
   void setIsTree(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Visible</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Visible</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Visible</em>' attribute.
+   * @see #setIsVisible(boolean)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_IsVisible()
+   * @model unique="false"
+   * @generated
+   */
+  boolean isIsVisible();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Visible</em>' attribute.
+   * @see #isIsVisible()
+   * @generated
+   */
+  void setIsVisible(boolean value);
 
   /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
@@ -103,21 +130,31 @@ public interface View extends Part
   EList<Perspective> getPerspectives();
 
   /**
-   * Returns the value of the '<em><b>Categories</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Category}.
+   * Returns the value of the '<em><b>Category</b></em>' reference.
    * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Category#getViews <em>Views</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Categories</em>' reference list isn't clear,
+   * If the meaning of the '<em>Category</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Categories</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Categories()
+   * @return the value of the '<em>Category</em>' reference.
+   * @see #setCategory(Category)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Category()
    * @see org.obeonetwork.dsl.gen.eclipse.Category#getViews
    * @model opposite="views"
    * @generated
    */
-  EList<Category> getCategories();
+  Category getCategory();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Category</em>' reference.
+   * @see #getCategory()
+   * @generated
+   */
+  void setCategory(Category value);
 
 } // View

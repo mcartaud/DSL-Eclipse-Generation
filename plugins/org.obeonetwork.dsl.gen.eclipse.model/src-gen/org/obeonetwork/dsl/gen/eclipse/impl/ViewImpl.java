@@ -33,10 +33,11 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsTree <em>Is Tree</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsVisible <em>Is Visible</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getPerspectives <em>Perspectives</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +64,26 @@ public class ViewImpl extends PartImpl implements View
    * @ordered
    */
   protected boolean isTree = IS_TREE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsVisible() <em>Is Visible</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsVisible()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_VISIBLE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsVisible() <em>Is Visible</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsVisible()
+   * @generated
+   * @ordered
+   */
+  protected boolean isVisible = IS_VISIBLE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -95,14 +116,14 @@ public class ViewImpl extends PartImpl implements View
   protected EList<Perspective> perspectives;
 
   /**
-   * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+   * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCategories()
+   * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected EList<Category> categories;
+  protected Category category;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,6 +174,29 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isIsVisible()
+  {
+    return isVisible;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsVisible(boolean newIsVisible)
+  {
+    boolean oldIsVisible = isVisible;
+    isVisible = newIsVisible;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__IS_VISIBLE, oldIsVisible, isVisible));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Action> getActions()
   {
     if (actions == null)
@@ -195,13 +239,67 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Category> getCategories()
+  public Category getCategory()
   {
-    if (categories == null)
+    if (category != null && category.eIsProxy())
     {
-      categories = new EObjectWithInverseResolvingEList.ManyInverse<Category>(Category.class, this, EclipsePackage.VIEW__CATEGORIES, EclipsePackage.CATEGORY__VIEWS);
+      InternalEObject oldCategory = (InternalEObject)category;
+      category = (Category)eResolveProxy(oldCategory);
+      if (category != oldCategory)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.VIEW__CATEGORY, oldCategory, category));
+      }
     }
-    return categories;
+    return category;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Category basicGetCategory()
+  {
+    return category;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCategory(Category newCategory, NotificationChain msgs)
+  {
+    Category oldCategory = category;
+    category = newCategory;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__CATEGORY, oldCategory, newCategory);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCategory(Category newCategory)
+  {
+    if (newCategory != category)
+    {
+      NotificationChain msgs = null;
+      if (category != null)
+        msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__VIEWS, Category.class, msgs);
+      if (newCategory != null)
+        msgs = ((InternalEObject)newCategory).eInverseAdd(this, EclipsePackage.CATEGORY__VIEWS, Category.class, msgs);
+      msgs = basicSetCategory(newCategory, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__CATEGORY, newCategory, newCategory));
   }
 
   /**
@@ -217,8 +315,10 @@ public class ViewImpl extends PartImpl implements View
     {
       case EclipsePackage.VIEW__PERSPECTIVES:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getPerspectives()).basicAdd(otherEnd, msgs);
-      case EclipsePackage.VIEW__CATEGORIES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
+      case EclipsePackage.VIEW__CATEGORY:
+        if (category != null)
+          msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__VIEWS, Category.class, msgs);
+        return basicSetCategory((Category)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -239,8 +339,8 @@ public class ViewImpl extends PartImpl implements View
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.VIEW__PERSPECTIVES:
         return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.VIEW__CATEGORIES:
-        return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.VIEW__CATEGORY:
+        return basicSetCategory(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -257,14 +357,17 @@ public class ViewImpl extends PartImpl implements View
     {
       case EclipsePackage.VIEW__IS_TREE:
         return isIsTree();
+      case EclipsePackage.VIEW__IS_VISIBLE:
+        return isIsVisible();
       case EclipsePackage.VIEW__ACTIONS:
         return getActions();
       case EclipsePackage.VIEW__MENUS:
         return getMenus();
       case EclipsePackage.VIEW__PERSPECTIVES:
         return getPerspectives();
-      case EclipsePackage.VIEW__CATEGORIES:
-        return getCategories();
+      case EclipsePackage.VIEW__CATEGORY:
+        if (resolve) return getCategory();
+        return basicGetCategory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -283,6 +386,9 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__IS_TREE:
         setIsTree((Boolean)newValue);
         return;
+      case EclipsePackage.VIEW__IS_VISIBLE:
+        setIsVisible((Boolean)newValue);
+        return;
       case EclipsePackage.VIEW__ACTIONS:
         getActions().clear();
         getActions().addAll((Collection<? extends Action>)newValue);
@@ -295,9 +401,8 @@ public class ViewImpl extends PartImpl implements View
         getPerspectives().clear();
         getPerspectives().addAll((Collection<? extends Perspective>)newValue);
         return;
-      case EclipsePackage.VIEW__CATEGORIES:
-        getCategories().clear();
-        getCategories().addAll((Collection<? extends Category>)newValue);
+      case EclipsePackage.VIEW__CATEGORY:
+        setCategory((Category)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -316,6 +421,9 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__IS_TREE:
         setIsTree(IS_TREE_EDEFAULT);
         return;
+      case EclipsePackage.VIEW__IS_VISIBLE:
+        setIsVisible(IS_VISIBLE_EDEFAULT);
+        return;
       case EclipsePackage.VIEW__ACTIONS:
         getActions().clear();
         return;
@@ -325,8 +433,8 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__PERSPECTIVES:
         getPerspectives().clear();
         return;
-      case EclipsePackage.VIEW__CATEGORIES:
-        getCategories().clear();
+      case EclipsePackage.VIEW__CATEGORY:
+        setCategory((Category)null);
         return;
     }
     super.eUnset(featureID);
@@ -344,14 +452,16 @@ public class ViewImpl extends PartImpl implements View
     {
       case EclipsePackage.VIEW__IS_TREE:
         return isTree != IS_TREE_EDEFAULT;
+      case EclipsePackage.VIEW__IS_VISIBLE:
+        return isVisible != IS_VISIBLE_EDEFAULT;
       case EclipsePackage.VIEW__ACTIONS:
         return actions != null && !actions.isEmpty();
       case EclipsePackage.VIEW__MENUS:
         return menus != null && !menus.isEmpty();
       case EclipsePackage.VIEW__PERSPECTIVES:
         return perspectives != null && !perspectives.isEmpty();
-      case EclipsePackage.VIEW__CATEGORIES:
-        return categories != null && !categories.isEmpty();
+      case EclipsePackage.VIEW__CATEGORY:
+        return category != null;
     }
     return super.eIsSet(featureID);
   }
@@ -369,6 +479,8 @@ public class ViewImpl extends PartImpl implements View
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (isTree: ");
     result.append(isTree);
+    result.append(", isVisible: ");
+    result.append(isVisible);
     result.append(')');
     return result.toString();
   }

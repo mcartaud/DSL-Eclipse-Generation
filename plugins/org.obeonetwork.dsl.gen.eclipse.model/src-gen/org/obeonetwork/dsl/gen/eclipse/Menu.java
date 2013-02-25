@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnecmonic <em>Mnecmonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#isMenuContribution <em>Menu Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#isToolbarContribution <em>Toolbar Contribution</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getCommands <em>Commands</em>}</li>
  * </ul>
  * </p>
@@ -132,22 +131,6 @@ public interface Menu extends EObject
    * @generated
    */
   void setToolbarContribution(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Menus</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenu_Menus()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Menu> getMenus();
 
   /**
    * Returns the value of the '<em><b>Commands</b></em>' reference list.

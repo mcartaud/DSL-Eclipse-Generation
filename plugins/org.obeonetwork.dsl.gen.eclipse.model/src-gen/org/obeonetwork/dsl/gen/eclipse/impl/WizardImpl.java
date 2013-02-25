@@ -2,21 +2,14 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -34,7 +27,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#isIsProject <em>Is Project</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategories <em>Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.WizardImpl#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,14 +136,14 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
   protected boolean isProject = IS_PROJECT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
+   * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCategories()
+   * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected EList<Category> categories;
+  protected Category category;
 
   /**
    * <!-- begin-user-doc -->
@@ -293,13 +286,19 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Category> getCategories()
+  public Category getCategory()
   {
-    if (categories == null)
+    if (category != null && category.eIsProxy())
     {
-      categories = new EObjectWithInverseResolvingEList.ManyInverse<Category>(Category.class, this, EclipsePackage.WIZARD__CATEGORIES, EclipsePackage.CATEGORY__WIZARDS);
+      InternalEObject oldCategory = (InternalEObject)category;
+      category = (Category)eResolveProxy(oldCategory);
+      if (category != oldCategory)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.WIZARD__CATEGORY, oldCategory, category));
+      }
     }
-    return categories;
+    return category;
   }
 
   /**
@@ -307,14 +306,63 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
+  public Category basicGetCategory()
+  {
+    return category;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCategory(Category newCategory, NotificationChain msgs)
+  {
+    Category oldCategory = category;
+    category = newCategory;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__CATEGORY, oldCategory, newCategory);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCategory(Category newCategory)
+  {
+    if (newCategory != category)
+    {
+      NotificationChain msgs = null;
+      if (category != null)
+        msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__WIZARDS, Category.class, msgs);
+      if (newCategory != null)
+        msgs = ((InternalEObject)newCategory).eInverseAdd(this, EclipsePackage.CATEGORY__WIZARDS, Category.class, msgs);
+      msgs = basicSetCategory(newCategory, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.WIZARD__CATEGORY, newCategory, newCategory));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case EclipsePackage.WIZARD__CATEGORIES:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
+      case EclipsePackage.WIZARD__CATEGORY:
+        if (category != null)
+          msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__WIZARDS, Category.class, msgs);
+        return basicSetCategory((Category)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
   }
@@ -329,8 +377,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
   {
     switch (featureID)
     {
-      case EclipsePackage.WIZARD__CATEGORIES:
-        return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.WIZARD__CATEGORY:
+        return basicSetCategory(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -355,8 +403,9 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return getIcon();
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isIsProject();
-      case EclipsePackage.WIZARD__CATEGORIES:
-        return getCategories();
+      case EclipsePackage.WIZARD__CATEGORY:
+        if (resolve) return getCategory();
+        return basicGetCategory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -366,7 +415,6 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -387,9 +435,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject((Boolean)newValue);
         return;
-      case EclipsePackage.WIZARD__CATEGORIES:
-        getCategories().clear();
-        getCategories().addAll((Collection<? extends Category>)newValue);
+      case EclipsePackage.WIZARD__CATEGORY:
+        setCategory((Category)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -420,8 +467,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
       case EclipsePackage.WIZARD__IS_PROJECT:
         setIsProject(IS_PROJECT_EDEFAULT);
         return;
-      case EclipsePackage.WIZARD__CATEGORIES:
-        getCategories().clear();
+      case EclipsePackage.WIZARD__CATEGORY:
+        setCategory((Category)null);
         return;
     }
     super.eUnset(featureID);
@@ -447,8 +494,8 @@ public class WizardImpl extends MinimalEObjectImpl.Container implements Wizard
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.WIZARD__IS_PROJECT:
         return isProject != IS_PROJECT_EDEFAULT;
-      case EclipsePackage.WIZARD__CATEGORIES:
-        return categories != null && !categories.isEmpty();
+      case EclipsePackage.WIZARD__CATEGORY:
+        return category != null;
     }
     return super.eIsSet(featureID);
   }

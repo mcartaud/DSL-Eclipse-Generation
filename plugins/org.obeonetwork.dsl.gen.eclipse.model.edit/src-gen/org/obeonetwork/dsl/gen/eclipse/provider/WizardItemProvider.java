@@ -69,7 +69,7 @@ public class WizardItemProvider
       addDescriptionPropertyDescriptor(object);
       addIconPropertyDescriptor(object);
       addIsProjectPropertyDescriptor(object);
-      addCategoriesPropertyDescriptor(object);
+      addCategoryPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -190,20 +190,20 @@ public class WizardItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Categories feature.
+   * This adds a property descriptor for the Category feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addCategoriesPropertyDescriptor(Object object)
+  protected void addCategoryPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Wizard_categories_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_categories_feature", "_UI_Wizard_type"),
-         EclipsePackage.Literals.WIZARD__CATEGORIES,
+         getString("_UI_Wizard_category_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Wizard_category_feature", "_UI_Wizard_type"),
+         EclipsePackage.Literals.WIZARD__CATEGORY,
          true,
          false,
          true,

@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module perpectiveJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module perspectiveJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
@@ -51,12 +51,12 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 
 		IFolderLayout bottomFolder = layout.createFolder(
 				"bottom", IPageLayout.BOTTOM, threeQuarter, editorArea); //$NON-NLS-1$
-[for (aView : View | aPerspective.views)]
-		bottomFolder.addView("[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
-[/for]
 		bottomFolder.addView(IPageLayout.ID_PROBLEM_VIEW);
 		bottomFolder.addPlaceholder(IConsoleConstants.ID_CONSOLE_VIEW);
 		bottomFolder.addPlaceholder(IProgressConstants.PROGRESS_VIEW_ID);
+[for (aView : View | aPerspective.views)][if (not(aView.isVisible))]
+		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
+[/if][/for]
 
 		layout.addView(IPageLayout.ID_OUTLINE, IPageLayout.RIGHT, threeQuarter, editorArea);
 
@@ -73,11 +73,6 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 		// views - workbench
 		layout.addShowViewShortcut(IPageLayout.ID_OUTLINE);
 		layout.addShowViewShortcut(IPageLayout.ID_PROBLEM_VIEW);
-
-		// actions - creation wizard
-[for (aWizard : Wizard | aPerspective.wizards)]
-		layout.addNewWizardShortcut("[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
-[/for]
 
 	}
 

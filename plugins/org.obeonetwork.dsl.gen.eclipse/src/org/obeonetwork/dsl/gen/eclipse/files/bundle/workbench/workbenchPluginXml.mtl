@@ -10,12 +10,12 @@
 [if (aBundle.commands->size() > 0)]
    <extension
          point="org.eclipse.ui.commands">
-[for (aCategory : Category | aBundle.categories)][if (aCategory.commands->size() > 0)][aCategory.commandCategory()/]
-[/if][/for]
+[if (aBundle.commands.category->size() > 0)][for (aCategory : Category | aBundle.categories)][aCategory.commandCategory()/]
+[/for][/if]
 [for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.eAllContents(Action)->size() > 0)]
+[/if][if (aBundle.actions->size() > 0 or aBundle.perspectives.actions->size() > 0)]
    <extension
          point="org.eclipse.ui.handlers">
 [for (anAction : Action | aBundle.eAllContents(Action))][anAction.handlerTemplate()/]
@@ -83,10 +83,14 @@
   	  <perspectiveExtension 
 			targetID="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().substituteAll(' ', '')/]">
     		<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
-[for (aView : View | aPerspective.views)]
+[for (aView : View | aPerspective.views)][if (aView.isVisible)]
     		<view id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]" 
-        		relative="org.eclipse.debug.ui.ExpressionView" 
+        		relative="org.eclipse.ui.console.ConsoleView" 
     			relationship="stack"/>	
+[/if][/for][for (aWizard : Wizard | aPerspective.wizards)]
+      		<newWizardShortcut
+            		id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]">
+      		</newWizardShortcut>	
 [/for]
  	  </perspectiveExtension>
 [/template]
@@ -94,30 +98,36 @@
 [template private commandTemplate(aCommand : Command)]
       <command
             name="[aCommand.name/]"
-[if (aCommand.categories->size() > 0)]
-            categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCommand.categories.name.toLowerFirst().substituteAll(' ', '')/]"
+[if (aCommand.category->size() > 0)]
+            categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCommand.category.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
-            id="[aCommand.eContainer(Bundle).genBundlePath()/].handlers.[aCommand.action.name.substituteAll(' ', '').toLowerFirst()/]">
+            id="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.substituteAll(' ', '').toLowerFirst()/]">
       </command>
 [/template]
 
 [template private commandCategory(aCategory : Category)]
       <category
-            name="[aCategory.name/]"
+            name="%[aCategory.categoryName()/]"
             id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
       </category>
 [/template]
 
+[template private categoryName(aCategory : Category)]
+[if (aCategory.views->size() > 0)]
+[aCategory.views.name.toUpperFirst()/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
+[aCategory.commands.name.toUpperFirst()/]-CommandCategory-Name[/if]
+[/template]
+
 [template private handlerTemplate(anAction : Action)]
       <handler
-            commandId="[anAction.eContainer(Bundle).genBundlePath()/].handlers.[anAction.name.toLowerFirst().substituteAll(' ', '')/]"
+            commandId="[anAction.eContainer(Bundle).genBundlePath()/].commands.[anAction.command.name.toLowerFirst().substituteAll(' ', '')/]"
             class="[anAction.eContainer(Bundle).genBundlePath()/].ui.handlers.[anAction.name.toUpperFirst().substituteAll(' ', '')/]">
       </handler>
 [/template]
 
 [template private bindingTemplate(aBinding : Binding)]
       <key
-            commandId="[aBinding.eContainer(Bundle).genBundlePath()/].handlers.[aBinding.command.action.name.toLowerFirst().substituteAll(' ', '')/]"
+            commandId="[aBinding.eContainer(Bundle).genBundlePath()/].commands.[aBinding.command.name.toLowerFirst().substituteAll(' ', '')/]"
 [if (aBinding.command._context->size() > 0)]
             contextId="[aBinding.eContainer(Bundle).genBundlePath()/].contexts.[aBinding.command._context.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
@@ -128,21 +138,18 @@
 
 [template private bindingKey(aBinding : Binding)]
 [if (aBinding.keySequence.toLower().contains('ctrl'))]
-[aBinding.keySequence.toLower().replace('ctrl', 'M1')/]
-[else]
-[aBinding.keySequence/]
-[/if]
+[aBinding.keySequence.toLower().replace('ctrl', 'M1')/][else][aBinding.keySequence/][/if]
 [/template]
 
 [template private viewTemplate(aView : View)]
       <view
-[for (aCategory : Category | aView.categories)]
-            category="[aView.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]"
-[/for]
+[if (aView.category->size() > 0)]
+            category="[aView.eContainer(Bundle).genBundlePath()/].category.[aView.category.name.toLowerFirst().substituteAll(' ', '')/]"
+[/if]
             class="[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
             id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]"
             icon="icons/XYZ.gif"
-			name="%contributions.view.name">
+			name="%[aView.name.toUpperFirst()/]-View-Name">
       </view>
 [/template]
 
@@ -151,7 +158,7 @@
             class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
             icon="icons/editor.gif"
             id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]"
-            name="%contributions.editor.name">
+            name="%[anEditor.name.toUpperFirst()/]-Editor-Name">
       </editor>
 [/template]
 

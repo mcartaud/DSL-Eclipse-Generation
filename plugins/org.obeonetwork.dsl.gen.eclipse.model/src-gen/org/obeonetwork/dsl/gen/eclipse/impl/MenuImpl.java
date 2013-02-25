@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,7 +33,6 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getMnecmonic <em>Mnecmonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#isMenuContribution <em>Menu Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#isToolbarContribution <em>Toolbar Contribution</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  * </p>
@@ -122,16 +120,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * @ordered
    */
   protected boolean toolbarContribution = TOOLBAR_CONTRIBUTION_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMenus()
-   * @generated
-   * @ordered
-   */
-  protected EList<Menu> menus;
 
   /**
    * The cached value of the '{@link #getCommands() <em>Commands</em>}' reference list.
@@ -261,20 +249,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Menu> getMenus()
-  {
-    if (menus == null)
-    {
-      menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.MENU__MENUS);
-    }
-    return menus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Command> getCommands()
   {
     if (commands == null)
@@ -311,8 +285,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
   {
     switch (featureID)
     {
-      case EclipsePackage.MENU__MENUS:
-        return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.MENU__COMMANDS:
         return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
@@ -337,8 +309,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
         return isMenuContribution();
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         return isToolbarContribution();
-      case EclipsePackage.MENU__MENUS:
-        return getMenus();
       case EclipsePackage.MENU__COMMANDS:
         return getCommands();
     }
@@ -367,10 +337,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
         return;
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         setToolbarContribution((Boolean)newValue);
-        return;
-      case EclipsePackage.MENU__MENUS:
-        getMenus().clear();
-        getMenus().addAll((Collection<? extends Menu>)newValue);
         return;
       case EclipsePackage.MENU__COMMANDS:
         getCommands().clear();
@@ -402,9 +368,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         setToolbarContribution(TOOLBAR_CONTRIBUTION_EDEFAULT);
         return;
-      case EclipsePackage.MENU__MENUS:
-        getMenus().clear();
-        return;
       case EclipsePackage.MENU__COMMANDS:
         getCommands().clear();
         return;
@@ -430,8 +393,6 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
         return menuContribution != MENU_CONTRIBUTION_EDEFAULT;
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         return toolbarContribution != TOOLBAR_CONTRIBUTION_EDEFAULT;
-      case EclipsePackage.MENU__MENUS:
-        return menus != null && !menus.isEmpty();
       case EclipsePackage.MENU__COMMANDS:
         return commands != null && !commands.isEmpty();
     }

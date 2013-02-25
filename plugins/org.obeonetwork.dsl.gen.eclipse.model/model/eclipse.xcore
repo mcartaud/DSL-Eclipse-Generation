@@ -108,7 +108,7 @@ class Wizard {
 	String description
 	String icon
 	boolean isProject
-	refers Category[] categories opposite wizards
+	refers Category category opposite wizards
 }
 
 class ProjectWizard extends Wizard {
@@ -162,9 +162,9 @@ class Perspective {
 
 class Category {
 	String name
-	refers Command[] commands opposite categories
-	refers View[] views opposite categories
-	refers Wizard[] wizards opposite categories
+	refers Command[] commands opposite category
+	refers View[] views opposite category
+	refers Wizard[] wizards opposite category
 }
 
 abstract class Part {
@@ -182,10 +182,11 @@ class PartCategory {
 
 class View extends Part {
 	boolean isTree
+	boolean isVisible
 	contains Action[] actions
 	contains Menu[] menus
 	refers Perspective[] perspectives opposite views
-	refers Category[] categories opposite views
+	refers Category category opposite views
 }
 
 class Editor extends Part {
@@ -200,7 +201,6 @@ class Menu {
 	String mnecmonic
 	boolean menuContribution
 	boolean toolbarContribution
-	contains Menu[] menus
 	refers Command[] commands opposite menu
 }
 
@@ -208,7 +208,7 @@ class Command {
 	String name
 	refers Action action opposite command
 	refers Menu menu opposite commands
-	refers Category[] categories opposite commands
+	refers Category category opposite commands
 	refers Binding binding opposite command
 	refers Context context opposite commands
 }
