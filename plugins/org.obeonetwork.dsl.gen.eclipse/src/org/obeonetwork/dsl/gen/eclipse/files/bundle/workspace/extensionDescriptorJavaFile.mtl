@@ -3,33 +3,33 @@
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private extensionDescriptorJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtension.genExtensionName()/]ExtensionDescriptor.java
+[template private extensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtensionPoint.genExtensionName()/]ExtensionDescriptor.java
 [/template]
 
-[template public genExtensionDescriptorJavaFile(anExtension : Extension)]
+[template public genExtensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundlePath()/].registry;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
- * Describes a extension as contributed to the "[anExtension.ancestors(Bundle).genBundlePath()/].[anExtension.genExtensionName()/]Extension" extension point.
+ * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundlePath()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
  * 
  */
-public class [anExtension.genExtensionName()/]ExtensionDescriptor {
-	/** Name of the [anExtension.name/] extension point's tag "extension" attribute. */
-	public static final String [anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION = "extension"; //$NON-NLS-1$
+public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
+	/** Name of the [anExtensionPoint.name/] extension point's tag "extension" attribute. */
+	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION = "extension"; //$NON-NLS-1$
 
 	/** Configuration element of this descriptor. */
 	private final IConfigurationElement element;
 
-	/** Qualified class name of the [anExtension.name/] extension. This will be used as an id to remove contributions. */
+	/** Qualified class name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions. */
 	private final String extensionClassName;
 
 	/** We only need to create the instance once, this will keep reference to it. */
-	private I[anExtension.genExtensionName()/]Extension extension;
+	private I[anExtensionPoint.genExtensionName()/]Extension extension;
 
 	/**
 	 * Instantiates a descriptor with all information.
@@ -37,9 +37,9 @@ public class [anExtension.genExtensionName()/]ExtensionDescriptor {
 	 * @param configuration
 	 *            Configuration element from which to create this descriptor.
 	 */
-	public [anExtension.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
+	public [anExtensionPoint.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
 		element = configuration;
-		extensionClassName = configuration.getAttribute([anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+		extensionClassName = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
 	}
 
 	/**
@@ -52,15 +52,15 @@ public class [anExtension.genExtensionName()/]ExtensionDescriptor {
 	}
 
 	/**
-	 * Creates an instance of this descriptor's {@link I[anExtension.genExtensionName()/]Extension}.
+	 * Creates an instance of this descriptor's {@link I[anExtensionPoint.genExtensionName()/]Extension}.
 	 * 
-	 * @return A new instance of this descriptor's {@link I[anExtension.genExtensionName()/]Extension}.
+	 * @return A new instance of this descriptor's {@link I[anExtensionPoint.genExtensionName()/]Extension}.
 	 */
-	public I[anExtension.genExtensionName()/]Extension get[anExtension.genExtensionName()/]Extension() {
+	public I[anExtensionPoint.genExtensionName()/]Extension get[anExtensionPoint.genExtensionName()/]Extension() {
 		if (extension == null) {
 			try {
-				extension = (I[anExtension.genExtensionName()/]Extension)element
-						.createExecutableExtension([anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+				extension = (I[anExtensionPoint.genExtensionName()/]Extension)element
+						.createExecutableExtension([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
 			} catch (CoreException e) {
 				// FIXME log this!
 			}

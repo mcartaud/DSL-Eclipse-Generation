@@ -160,10 +160,10 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclipsePackage.EXTENSION:
+      case EclipsePackage.EXTENSION_POINT:
       {
-        Extension extension = (Extension)theEObject;
-        T result = caseExtension(extension);
+        ExtensionPoint extensionPoint = (ExtensionPoint)theEObject;
+        T result = caseExtensionPoint(extensionPoint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -213,13 +213,6 @@ public class EclipseSwitch<T> extends Switch<T>
       {
         Part part = (Part)theEObject;
         T result = casePart(part);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EclipsePackage.PART_CATEGORY:
-      {
-        PartCategory partCategory = (PartCategory)theEObject;
-        T result = casePartCategory(partCategory);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -485,17 +478,17 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Extension</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Extension Point</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Extension</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Extension Point</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExtension(Extension object)
+  public T caseExtensionPoint(ExtensionPoint object)
   {
     return null;
   }
@@ -608,22 +601,6 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePart(Part object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Part Category</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Part Category</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePartCategory(PartCategory object)
   {
     return null;
   }

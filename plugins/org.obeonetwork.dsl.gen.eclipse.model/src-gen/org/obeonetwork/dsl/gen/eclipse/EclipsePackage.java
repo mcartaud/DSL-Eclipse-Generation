@@ -506,13 +506,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 8;
 
   /**
-   * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Extension Points</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__EXTENSIONS = PROJECT_FEATURE_COUNT + 9;
+  int BUNDLE__EXTENSION_POINTS = PROJECT_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Decorators</b></em>' containment reference list.
@@ -596,22 +596,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__ACTIONS = PROJECT_FEATURE_COUNT + 18;
 
   /**
-   * The feature id for the '<em><b>Part Categories</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__PART_CATEGORIES = PROJECT_FEATURE_COUNT + 19;
-
-  /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 20;
+  int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 19;
 
   /**
    * The feature id for the '<em><b>Categories</b></em>' containment reference list.
@@ -620,7 +611,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 21;
+  int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 20;
 
   /**
    * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -629,7 +620,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 22;
+  int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 21;
 
   /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
@@ -638,7 +629,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 23;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 22;
 
   /**
    * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
@@ -647,7 +638,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 24;
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 23;
 
   /**
    * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
@@ -656,7 +647,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 25;
+  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 24;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -665,7 +656,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 26;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 25;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -1152,14 +1143,14 @@ public interface EclipsePackage extends EPackage
   int PROJECT_WIZARD_OPERATION_COUNT = WIZARD_OPERATION_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl <em>Extension</em>}' class.
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl <em>Extension Point</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtension()
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION = 12;
+  int EXTENSION_POINT = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1168,7 +1159,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTENSION__NAME = 0;
+  int EXTENSION_POINT__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -1177,7 +1168,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTENSION__REQUIRED = 1;
+  int EXTENSION_POINT__REQUIRED = 1;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1186,25 +1177,25 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTENSION__ATTRIBUTES = 2;
+  int EXTENSION_POINT__ATTRIBUTES = 2;
 
   /**
-   * The number of structural features of the '<em>Extension</em>' class.
+   * The number of structural features of the '<em>Extension Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTENSION_FEATURE_COUNT = 3;
+  int EXTENSION_POINT_FEATURE_COUNT = 3;
 
   /**
-   * The number of operations of the '<em>Extension</em>' class.
+   * The number of operations of the '<em>Extension Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTENSION_OPERATION_COUNT = 0;
+  int EXTENSION_POINT_OPERATION_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -1682,70 +1673,6 @@ public interface EclipsePackage extends EPackage
   int PART_OPERATION_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
-   * @generated
-   */
-  int PART_CATEGORY = 20;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Parts</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__PARTS = 1;
-
-  /**
-   * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__MENUS = 2;
-
-  /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY__ACTIONS = 3;
-
-  /**
-   * The number of structural features of the '<em>Part Category</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY_FEATURE_COUNT = 4;
-
-  /**
-   * The number of operations of the '<em>Part Category</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PART_CATEGORY_OPERATION_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1753,7 +1680,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
    * @generated
    */
-  int VIEW = 21;
+  int VIEW = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1862,7 +1789,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
    * @generated
    */
-  int EDITOR = 22;
+  int EDITOR = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1953,7 +1880,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
    * @generated
    */
-  int MENU = 23;
+  int MENU = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2026,7 +1953,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 24;
+  int COMMAND = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2108,7 +2035,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
    * @generated
    */
-  int ACTION = 25;
+  int ACTION = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2172,7 +2099,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
    * @generated
    */
-  int HELP_CONTENTS = 26;
+  int HELP_CONTENTS = 25;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2236,7 +2163,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
    * @generated
    */
-  int HELP_PAGE = 27;
+  int HELP_PAGE = 26;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2300,7 +2227,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
    * @generated
    */
-  int DYNAMIC_HELP = 28;
+  int DYNAMIC_HELP = 27;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2364,7 +2291,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 29;
+  int BINDING = 28;
 
   /**
    * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -2410,7 +2337,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 30;
+  int TYPE = 29;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2420,7 +2347,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
    * @generated
    */
-  int LOCATION = 31;
+  int LOCATION = 30;
 
 
   /**
@@ -2804,15 +2731,15 @@ public interface EclipsePackage extends EPackage
   EReference getBundle_Wizards();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions <em>Extensions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPoints <em>Extension Points</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Extensions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions()
+   * @return the meta object for the containment reference list '<em>Extension Points</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPoints()
    * @see #getBundle()
    * @generated
    */
-  EReference getBundle_Extensions();
+  EReference getBundle_ExtensionPoints();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDecorators <em>Decorators</em>}'.
@@ -2912,17 +2839,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getBundle_Actions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Part Categories</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories()
-   * @see #getBundle()
-   * @generated
-   */
-  EReference getBundle_PartCategories();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}'.
@@ -3336,47 +3252,47 @@ public interface EclipsePackage extends EPackage
   EReference getProjectWizard_Natures();
 
   /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Extension <em>Extension</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint <em>Extension Point</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Extension</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Extension
+   * @return the meta object for class '<em>Extension Point</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint
    * @generated
    */
-  EClass getExtension();
+  EClass getExtensionPoint();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Extension#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Extension#getName()
-   * @see #getExtension()
+   * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getName()
+   * @see #getExtensionPoint()
    * @generated
    */
-  EAttribute getExtension_Name();
+  EAttribute getExtensionPoint_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Extension#isRequired <em>Required</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#isRequired <em>Required</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Required</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Extension#isRequired()
-   * @see #getExtension()
+   * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#isRequired()
+   * @see #getExtensionPoint()
    * @generated
    */
-  EAttribute getExtension_Required();
+  EAttribute getExtensionPoint_Required();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Extension#getAttributes <em>Attributes</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getAttributes <em>Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Attributes</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Extension#getAttributes()
-   * @see #getExtension()
+   * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getAttributes()
+   * @see #getExtensionPoint()
    * @generated
    */
-  EReference getExtension_Attributes();
+  EReference getExtensionPoint_Attributes();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Attribute <em>Attribute</em>}'.
@@ -3788,60 +3704,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getPart_DynamicHelp();
-
-  /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory <em>Part Category</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Part Category</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory
-   * @generated
-   */
-  EClass getPartCategory();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getName()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EAttribute getPartCategory_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts <em>Parts</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parts</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getParts()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EReference getPartCategory_Parts();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getMenus <em>Menus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Menus</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getMenus()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EReference getPartCategory_Menus();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory#getActions <em>Actions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory#getActions()
-   * @see #getPartCategory()
-   * @generated
-   */
-  EReference getPartCategory_Actions();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.View <em>View</em>}'.
@@ -4697,12 +4559,12 @@ public interface EclipsePackage extends EPackage
     EReference BUNDLE__WIZARDS = eINSTANCE.getBundle_Wizards();
 
     /**
-     * The meta object literal for the '<em><b>Extensions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Extension Points</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUNDLE__EXTENSIONS = eINSTANCE.getBundle_Extensions();
+    EReference BUNDLE__EXTENSION_POINTS = eINSTANCE.getBundle_ExtensionPoints();
 
     /**
      * The meta object literal for the '<em><b>Decorators</b></em>' containment reference list feature.
@@ -4775,14 +4637,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference BUNDLE__ACTIONS = eINSTANCE.getBundle_Actions();
-
-    /**
-     * The meta object literal for the '<em><b>Part Categories</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUNDLE__PART_CATEGORIES = eINSTANCE.getBundle_PartCategories();
 
     /**
      * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
@@ -5103,14 +4957,14 @@ public interface EclipsePackage extends EPackage
     EReference PROJECT_WIZARD__NATURES = eINSTANCE.getProjectWizard_Natures();
 
     /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl <em>Extension</em>}' class.
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl <em>Extension Point</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtension()
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtensionPoint()
      * @generated
      */
-    EClass EXTENSION = eINSTANCE.getExtension();
+    EClass EXTENSION_POINT = eINSTANCE.getExtensionPoint();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5118,7 +4972,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTENSION__NAME = eINSTANCE.getExtension_Name();
+    EAttribute EXTENSION_POINT__NAME = eINSTANCE.getExtensionPoint_Name();
 
     /**
      * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
@@ -5126,7 +4980,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTENSION__REQUIRED = eINSTANCE.getExtension_Required();
+    EAttribute EXTENSION_POINT__REQUIRED = eINSTANCE.getExtensionPoint_Required();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -5134,7 +4988,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXTENSION__ATTRIBUTES = eINSTANCE.getExtension_Attributes();
+    EReference EXTENSION_POINT__ATTRIBUTES = eINSTANCE.getExtensionPoint_Attributes();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -5453,48 +5307,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference PART__DYNAMIC_HELP = eINSTANCE.getPart_DynamicHelp();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl <em>Part Category</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.PartCategoryImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPartCategory()
-     * @generated
-     */
-    EClass PART_CATEGORY = eINSTANCE.getPartCategory();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PART_CATEGORY__NAME = eINSTANCE.getPartCategory_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parts</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART_CATEGORY__PARTS = eINSTANCE.getPartCategory_Parts();
-
-    /**
-     * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART_CATEGORY__MENUS = eINSTANCE.getPartCategory_Menus();
-
-    /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PART_CATEGORY__ACTIONS = eINSTANCE.getPartCategory_Actions();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl <em>View</em>}' class.

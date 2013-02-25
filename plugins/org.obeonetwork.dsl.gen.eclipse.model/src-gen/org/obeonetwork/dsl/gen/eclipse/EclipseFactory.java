@@ -122,13 +122,13 @@ public interface EclipseFactory extends EFactory
   ProjectWizard createProjectWizard();
 
   /**
-   * Returns a new object of class '<em>Extension</em>'.
+   * Returns a new object of class '<em>Extension Point</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Extension</em>'.
+   * @return a new object of class '<em>Extension Point</em>'.
    * @generated
    */
-  Extension createExtension();
+  ExtensionPoint createExtensionPoint();
 
   /**
    * Returns a new object of class '<em>Attribute</em>'.
@@ -183,15 +183,6 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   Category createCategory();
-
-  /**
-   * Returns a new object of class '<em>Part Category</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Part Category</em>'.
-   * @generated
-   */
-  PartCategory createPartCategory();
 
   /**
    * Returns a new object of class '<em>View</em>'.

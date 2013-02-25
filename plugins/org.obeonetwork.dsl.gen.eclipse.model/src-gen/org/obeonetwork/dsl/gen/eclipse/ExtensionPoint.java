@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Extension</b></em>'.
+ * A representation of the model object '<em><b>Extension Point</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Extension#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Extension#isRequired <em>Required</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Extension#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#isRequired <em>Required</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtension()
+ * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPoint()
  * @model
  * @generated
  */
-public interface Extension extends EObject
+public interface ExtensionPoint extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface Extension extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtension_Name()
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPoint_Name()
    * @model unique="false"
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Extension#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -62,14 +62,14 @@ public interface Extension extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Required</em>' attribute.
    * @see #setRequired(boolean)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtension_Required()
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPoint_Required()
    * @model unique="false"
    * @generated
    */
   boolean isRequired();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Extension#isRequired <em>Required</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint#isRequired <em>Required</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Required</em>' attribute.
@@ -88,10 +88,10 @@ public interface Extension extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtension_Attributes()
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPoint_Attributes()
    * @model containment="true"
    * @generated
    */
   EList<Attribute> getAttributes();
 
-} // Extension
+} // ExtensionPoint

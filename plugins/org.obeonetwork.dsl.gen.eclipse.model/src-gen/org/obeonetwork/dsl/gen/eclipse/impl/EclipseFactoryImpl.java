@@ -76,14 +76,13 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.NATURE: return createNature();
       case EclipsePackage.WIZARD: return createWizard();
       case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
-      case EclipsePackage.EXTENSION: return createExtension();
+      case EclipsePackage.EXTENSION_POINT: return createExtensionPoint();
       case EclipsePackage.ATTRIBUTE: return createAttribute();
       case EclipsePackage.DECORATOR: return createDecorator();
       case EclipsePackage.MARKER: return createMarker();
       case EclipsePackage.CONTEXT: return createContext();
       case EclipsePackage.PERSPECTIVE: return createPerspective();
       case EclipsePackage.CATEGORY: return createCategory();
-      case EclipsePackage.PART_CATEGORY: return createPartCategory();
       case EclipsePackage.VIEW: return createView();
       case EclipsePackage.EDITOR: return createEditor();
       case EclipsePackage.MENU: return createMenu();
@@ -262,10 +261,10 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Extension createExtension()
+  public ExtensionPoint createExtensionPoint()
   {
-    ExtensionImpl extension = new ExtensionImpl();
-    return extension;
+    ExtensionPointImpl extensionPoint = new ExtensionPointImpl();
+    return extensionPoint;
   }
 
   /**
@@ -332,17 +331,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     CategoryImpl category = new CategoryImpl();
     return category;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PartCategory createPartCategory()
-  {
-    PartCategoryImpl partCategory = new PartCategoryImpl();
-    return partCategory;
   }
 
   /**

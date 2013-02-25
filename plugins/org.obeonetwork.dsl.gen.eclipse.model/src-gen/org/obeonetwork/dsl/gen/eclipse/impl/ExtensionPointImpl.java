@@ -20,24 +20,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Extension;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extension</b></em>'.
+ * An implementation of the model object '<em><b>Extension Point</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl#isRequired <em>Required</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExtensionImpl extends MinimalEObjectImpl.Container implements Extension
+public class ExtensionPointImpl extends MinimalEObjectImpl.Container implements ExtensionPoint
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -94,7 +94,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExtensionImpl()
+  protected ExtensionPointImpl()
   {
     super();
   }
@@ -107,7 +107,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   @Override
   protected EClass eStaticClass()
   {
-    return EclipsePackage.Literals.EXTENSION;
+    return EclipsePackage.Literals.EXTENSION_POINT;
   }
 
   /**
@@ -130,7 +130,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__NAME, oldName, name));
   }
 
   /**
@@ -153,7 +153,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     boolean oldRequired = required;
     required = newRequired;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION__REQUIRED, oldRequired, required));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__REQUIRED, oldRequired, required));
   }
 
   /**
@@ -165,7 +165,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     if (attributes == null)
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION__ATTRIBUTES);
+      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION_POINT__ATTRIBUTES);
     }
     return attributes;
   }
@@ -180,7 +180,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     switch (featureID)
     {
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -196,11 +196,11 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     switch (featureID)
     {
-      case EclipsePackage.EXTENSION__NAME:
+      case EclipsePackage.EXTENSION_POINT__NAME:
         return getName();
-      case EclipsePackage.EXTENSION__REQUIRED:
+      case EclipsePackage.EXTENSION_POINT__REQUIRED:
         return isRequired();
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -217,13 +217,13 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     switch (featureID)
     {
-      case EclipsePackage.EXTENSION__NAME:
+      case EclipsePackage.EXTENSION_POINT__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.EXTENSION__REQUIRED:
+      case EclipsePackage.EXTENSION_POINT__REQUIRED:
         setRequired((Boolean)newValue);
         return;
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
@@ -241,13 +241,13 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     switch (featureID)
     {
-      case EclipsePackage.EXTENSION__NAME:
+      case EclipsePackage.EXTENSION_POINT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.EXTENSION__REQUIRED:
+      case EclipsePackage.EXTENSION_POINT__REQUIRED:
         setRequired(REQUIRED_EDEFAULT);
         return;
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         getAttributes().clear();
         return;
     }
@@ -264,11 +264,11 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   {
     switch (featureID)
     {
-      case EclipsePackage.EXTENSION__NAME:
+      case EclipsePackage.EXTENSION_POINT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.EXTENSION__REQUIRED:
+      case EclipsePackage.EXTENSION_POINT__REQUIRED:
         return required != REQUIRED_EDEFAULT;
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -293,4 +293,4 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     return result.toString();
   }
 
-} //ExtensionImpl
+} //ExtensionPointImpl

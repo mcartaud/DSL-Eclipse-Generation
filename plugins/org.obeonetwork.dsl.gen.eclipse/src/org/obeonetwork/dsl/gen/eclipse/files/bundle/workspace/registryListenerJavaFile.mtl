@@ -3,13 +3,13 @@
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private registryListenerJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtension.genExtensionName()/]RegistryListener.java
+[template private registryListenerJavaFile(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtensionPoint.genExtensionName()/]RegistryListener.java
 [/template]
 
-[template public genRegistryListenerJavaFile(anExtension : Extension)]
+[template public genRegistryListenerJavaFile(anExtensionPoint : ExtensionPoint)]
 [file (registryListenerJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundlePath()/].registry;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -19,16 +19,16 @@ import org.eclipse.core.runtime.IRegistryEventListener;
 import org.eclipse.core.runtime.Platform;
 
 /**
- * This listener will allow us to be aware of contribution changes against the [anExtension.name/]
+ * This listener will allow us to be aware of contribution changes against the [anExtensionPoint.name/]
  * extension point.
  * 
  */
-public class [anExtension.genExtensionName()/]RegistryListener implements IRegistryEventListener {
+public class [anExtensionPoint.genExtensionName()/]RegistryListener implements IRegistryEventListener {
 	/** Name of the extension point to parse for extensions. */
-	public static final String [anExtension.staticExtensionName()/]_EXTENSION_POINT = "[anExtension.ancestors(Bundle).genBundlePath()/].[anExtension.genExtensionName()/]Extension"; //$NON-NLS-1$
+	public static final String [anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT = "[anExtensionPoint.ancestors(Bundle).genBundlePath()/].[anExtensionPoint.genExtensionName()/]Extension"; //$NON-NLS-1$
 	
-	/** Name of the extension point's "[anExtension.genExtensionName()/]Extension" tag. */
-	private static final String [anExtension.staticExtensionName()/]_TAG_EXTENSION = "[anExtension.genExtensionName()/]Extension"; //$NON-NLS-1$
+	/** Name of the extension point's "[anExtensionPoint.genExtensionName()/]Extension" tag. */
+	private static final String [anExtensionPoint.staticExtensionName()/]_TAG_EXTENSION = "[anExtensionPoint.genExtensionName()/]Extension"; //$NON-NLS-1$
 	
 	/**
 	 * {@inheritDoc}
@@ -57,7 +57,7 @@ public class [anExtension.genExtensionName()/]RegistryListener implements IRegis
 	public void parseInitialContributions() {
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 
-		for (IExtension extension : registry.getExtensionPoint([anExtension.staticExtensionName()/]_EXTENSION_POINT).getExtensions()) {
+		for (IExtension extension : registry.getExtensionPoint([anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT).getExtensions()) {
 			parseExtension(extension);
 		}
 	}
@@ -71,10 +71,10 @@ public class [anExtension.genExtensionName()/]RegistryListener implements IRegis
 		for (IExtension extension : extensions) {
 			final IConfigurationElement['['/]] configElements = extension.getConfigurationElements();
 			for (IConfigurationElement elem : configElements) {
-				if ([anExtension.staticExtensionName()/]_TAG_EXTENSION.equals(elem.getName())) {
+				if ([anExtensionPoint.staticExtensionName()/]_TAG_EXTENSION.equals(elem.getName())) {
 					final String extensionClassName = elem
-							.getAttribute([anExtension.genExtensionName()/]ExtensionDescriptor.[anExtension.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
-					[anExtension.genExtensionName()/]ExtensionRegistry.removeExtension(extensionClassName);
+							.getAttribute([anExtensionPoint.genExtensionName()/]ExtensionDescriptor.[anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+					[anExtensionPoint.genExtensionName()/]ExtensionRegistry.removeExtension(extensionClassName);
 				}
 			}
 		}
@@ -98,8 +98,8 @@ public class [anExtension.genExtensionName()/]RegistryListener implements IRegis
 	private void parseExtension(IExtension extension) {
 		final IConfigurationElement['['/]] configElements = extension.getConfigurationElements();
 		for (IConfigurationElement elem : configElements) {
-			if ([anExtension.staticExtensionName()/]_TAG_EXTENSION.equals(elem.getName())) {
-				[anExtension.genExtensionName()/]ExtensionRegistry.addExtension(new [anExtension.genExtensionName()/]ExtensionDescriptor(elem));
+			if ([anExtensionPoint.staticExtensionName()/]_TAG_EXTENSION.equals(elem.getName())) {
+				[anExtensionPoint.genExtensionName()/]ExtensionRegistry.addExtension(new [anExtensionPoint.genExtensionName()/]ExtensionDescriptor(elem));
 			}
 		}
 	}

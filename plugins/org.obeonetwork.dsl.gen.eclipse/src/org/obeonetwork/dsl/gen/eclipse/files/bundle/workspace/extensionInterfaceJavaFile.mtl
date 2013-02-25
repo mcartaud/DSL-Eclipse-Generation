@@ -3,16 +3,16 @@
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private extensionInterfaceJavaFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/registry/I[anExtension.genExtensionName()/]Extension.java
+[template private extensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/registry/I[anExtensionPoint.genExtensionName()/]Extension.java
 [/template]
 
-[template public genExtensionInterfaceJavaFile(anExtension : Extension)]
+[template public genExtensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtension.ancestors(Bundle).genBundlePath()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundlePath()/].registry;
 
 
-public interface I[anExtension.genExtensionName()/]Extension {
+public interface I[anExtensionPoint.genExtensionName()/]Extension {
 	
 	String getName();
 

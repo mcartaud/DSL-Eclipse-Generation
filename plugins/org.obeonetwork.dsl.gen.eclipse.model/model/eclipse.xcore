@@ -50,7 +50,7 @@ class Bundle extends Project {
 	contains Nature[] natures
 	contains Builder[] builders
 	contains Wizard[] wizards
-	contains Extension[] extensions
+	contains ExtensionPoint[] extensionPoints
 	contains Decorator[] decorators
 	contains Marker[] markers
 	contains Perspective[] perspectives
@@ -60,7 +60,7 @@ class Bundle extends Project {
 	contains Command[] commands
 	contains Menu[] menus
 	contains Action[] actions
-	contains PartCategory[] partCategories
+//	contains PartCategory[] partCategories
 	contains Context[] contexts
 	contains Category[] categories
 	contains Binding[] bindings
@@ -115,7 +115,7 @@ class ProjectWizard extends Wizard {
 	refers Nature[] natures
 }
 
-class Extension {
+class ExtensionPoint {
 	String name
 	boolean required
 	contains Attribute[] attributes
@@ -173,12 +173,12 @@ abstract class Part {
 	contains DynamicHelp dynamicHelp
 }
 
-class PartCategory {
-	String name
-	contains Part[] parts
-	contains Menu[] menus
-	contains Action[] actions
-}
+//class PartCategory {
+//	String name
+//	contains Part[] parts
+//	contains Menu[] menus
+//	contains Action[] actions
+//}
 
 class View extends Part {
 	boolean isTree

@@ -26,15 +26,15 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Extension;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Extension} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtensionItemProvider
+public class ExtensionPointItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -49,7 +49,7 @@ public class ExtensionItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExtensionItemProvider(AdapterFactory adapterFactory)
+  public ExtensionPointItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -85,9 +85,9 @@ public class ExtensionItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Extension_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Extension_name_feature", "_UI_Extension_type"),
-         EclipsePackage.Literals.EXTENSION__NAME,
+         getString("_UI_ExtensionPoint_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_name_feature", "_UI_ExtensionPoint_type"),
+         EclipsePackage.Literals.EXTENSION_POINT__NAME,
          true,
          false,
          false,
@@ -108,9 +108,9 @@ public class ExtensionItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Extension_required_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Extension_required_feature", "_UI_Extension_type"),
-         EclipsePackage.Literals.EXTENSION__REQUIRED,
+         getString("_UI_ExtensionPoint_required_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_required_feature", "_UI_ExtensionPoint_type"),
+         EclipsePackage.Literals.EXTENSION_POINT__REQUIRED,
          true,
          false,
          false,
@@ -133,7 +133,7 @@ public class ExtensionItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.EXTENSION__ATTRIBUTES);
+      childrenFeatures.add(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES);
     }
     return childrenFeatures;
   }
@@ -153,7 +153,7 @@ public class ExtensionItemProvider
   }
 
   /**
-   * This returns Extension.gif.
+   * This returns ExtensionPoint.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -161,7 +161,7 @@ public class ExtensionItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Extension"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionPoint"));
   }
 
   /**
@@ -173,10 +173,10 @@ public class ExtensionItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Extension)object).getName();
+    String label = ((ExtensionPoint)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Extension_type") :
-      getString("_UI_Extension_type") + " " + label;
+      getString("_UI_ExtensionPoint_type") :
+      getString("_UI_ExtensionPoint_type") + " " + label;
   }
 
   /**
@@ -191,13 +191,13 @@ public class ExtensionItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Extension.class))
+    switch (notification.getFeatureID(ExtensionPoint.class))
     {
-      case EclipsePackage.EXTENSION__NAME:
-      case EclipsePackage.EXTENSION__REQUIRED:
+      case EclipsePackage.EXTENSION_POINT__NAME:
+      case EclipsePackage.EXTENSION_POINT__REQUIRED:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.EXTENSION__ATTRIBUTES:
+      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
@@ -218,7 +218,7 @@ public class ExtensionItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.EXTENSION__ATTRIBUTES,
+        (EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES,
          EclipseFactory.eINSTANCE.createAttribute()));
   }
 

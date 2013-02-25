@@ -3,17 +3,17 @@
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
-[template private extensionExsdFile(anExtension : Extension)]
-[anExtension.eContainer(Bundle).genBundleQualifiedPath()/]/schema/[anExtension.genExtensionName()/]Extension.exsd
+[template private extensionExsdFile(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/schema/[anExtensionPoint.genExtensionName()/]Extension.exsd
 [/template]
 
-[template public genExtensionExsdFile(anExtension : Extension)]
+[template public genExtensionExsdFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionExsdFile(), false, 'UTF-8')]
 <!-- Schema file written by PDE -->
-<schema targetNamespace="[anExtension.ancestors(Bundle).genBundlePath()/]" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="[anExtensionPoint.ancestors(Bundle).genBundlePath()/]" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="[anExtension.ancestors(Bundle).genBundlePath()/]" id="[anExtension.ancestors(Bundle).genBundlePath()/].[anExtension.genExtensionName()/]Extension" name="[anExtension.genExtensionName()/]Extension"/>
+         <meta.schema plugin="[anExtensionPoint.ancestors(Bundle).genBundlePath()/]" id="[anExtensionPoint.ancestors(Bundle).genBundlePath()/].[anExtensionPoint.genExtensionName()/]Extension" name="[anExtensionPoint.genExtensionName()/]Extension"/>
       </appinfo>
       <documentation>
          ['['/]Enter description of this extension point.]
@@ -28,9 +28,9 @@
       </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
-            <element ref="[anExtension.genExtensionName()/]Extension"/>
+            <element ref="[anExtensionPoint.genExtensionName()/]Extension"/>
          </sequence>  
-[for (anAttribute : Attribute | anExtension.attributes)]
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
          <attribute name="[anAttribute.name/]" type="[anAttribute.type/] [if (anAttribute.required)]use="required"[/if]">
             <annotation>
                <documentation>
@@ -44,15 +44,15 @@
       </complexType>
    </element>
 
-   <element name="[anExtension.genExtensionName()/]Extension">
+   <element name="[anExtensionPoint.genExtensionName()/]Extension">
       <complexType>
-         <attribute name="extension" type="[anExtension.attributes.type/]" [if (anExtension.required)]use="required"[/if]">
+         <attribute name="extension" type="[anExtensionPoint.attributes.type/]" [if (anExtensionPoint.required)]use="required"[/if]">
             <annotation>
                <documentation>
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":[anExtension.ancestors(Bundle).genBundlePath()/].I[anExtension.genExtensionName()/]Extension"/>
+                  <meta.attribute kind="java" basedOn=":[anExtensionPoint.ancestors(Bundle).genBundlePath()/].I[anExtensionPoint.genExtensionName()/]Extension"/>
                </appinfo>
             </annotation>
          </attribute>

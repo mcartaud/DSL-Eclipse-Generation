@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDecorators <em>Decorators</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}</li>
@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActions <em>Actions</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
@@ -224,20 +223,20 @@ public interface Bundle extends Project
   EList<Wizard> getWizards();
 
   /**
-   * Returns the value of the '<em><b>Extensions</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Extension}.
+   * Returns the value of the '<em><b>Extension Points</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Extensions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Extension Points</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extensions</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Extensions()
+   * @return the value of the '<em>Extension Points</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ExtensionPoints()
    * @model containment="true"
    * @generated
    */
-  EList<Extension> getExtensions();
+  EList<ExtensionPoint> getExtensionPoints();
 
   /**
    * Returns the value of the '<em><b>Decorators</b></em>' containment reference list.
@@ -382,22 +381,6 @@ public interface Bundle extends Project
    * @generated
    */
   EList<Action> getActions();
-
-  /**
-   * Returns the value of the '<em><b>Part Categories</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.PartCategory}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Part Categories</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Part Categories</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_PartCategories()
-   * @model containment="true"
-   * @generated
-   */
-  EList<PartCategory> getPartCategories();
 
   /**
    * Returns the value of the '<em><b>Contexts</b></em>' containment reference list.

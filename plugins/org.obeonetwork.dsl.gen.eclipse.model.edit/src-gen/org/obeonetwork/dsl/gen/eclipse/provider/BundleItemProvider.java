@@ -232,7 +232,7 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__NATURES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BUILDERS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__WIZARDS);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSIONS);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSION_POINTS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DECORATORS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MARKERS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
@@ -242,7 +242,6 @@ public class BundleItemProvider
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENUS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__ACTIONS);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PART_CATEGORIES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BINDINGS);
@@ -316,7 +315,7 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__NATURES:
       case EclipsePackage.BUNDLE__BUILDERS:
       case EclipsePackage.BUNDLE__WIZARDS:
-      case EclipsePackage.BUNDLE__EXTENSIONS:
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
       case EclipsePackage.BUNDLE__DECORATORS:
       case EclipsePackage.BUNDLE__MARKERS:
       case EclipsePackage.BUNDLE__PERSPECTIVES:
@@ -326,7 +325,6 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__COMMANDS:
       case EclipsePackage.BUNDLE__MENUS:
       case EclipsePackage.BUNDLE__ACTIONS:
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
       case EclipsePackage.BUNDLE__CONTEXTS:
       case EclipsePackage.BUNDLE__CATEGORIES:
       case EclipsePackage.BUNDLE__BINDINGS:
@@ -385,8 +383,8 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__EXTENSIONS,
-         EclipseFactory.eINSTANCE.createExtension()));
+        (EclipsePackage.Literals.BUNDLE__EXTENSION_POINTS,
+         EclipseFactory.eINSTANCE.createExtensionPoint()));
 
     newChildDescriptors.add
       (createChildParameter
@@ -432,11 +430,6 @@ public class BundleItemProvider
       (createChildParameter
         (EclipsePackage.Literals.BUNDLE__ACTIONS,
          EclipseFactory.eINSTANCE.createAction()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__PART_CATEGORIES,
-         EclipseFactory.eINSTANCE.createPartCategory()));
 
     newChildDescriptors.add
       (createChildParameter

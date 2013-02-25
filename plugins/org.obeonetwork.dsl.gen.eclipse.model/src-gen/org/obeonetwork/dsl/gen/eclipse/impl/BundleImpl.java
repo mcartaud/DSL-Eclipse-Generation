@@ -29,13 +29,12 @@ import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
-import org.obeonetwork.dsl.gen.eclipse.Extension;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
-import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
@@ -58,7 +57,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDecorators <em>Decorators</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
@@ -68,7 +67,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActions <em>Actions</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPartCategories <em>Part Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
@@ -203,14 +201,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<Wizard> wizards;
 
   /**
-   * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference list.
+   * The cached value of the '{@link #getExtensionPoints() <em>Extension Points</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExtensions()
+   * @see #getExtensionPoints()
    * @generated
    * @ordered
    */
-  protected EList<Extension> extensions;
+  protected EList<ExtensionPoint> extensionPoints;
 
   /**
    * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' containment reference list.
@@ -301,16 +299,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * @ordered
    */
   protected EList<Action> actions;
-
-  /**
-   * The cached value of the '{@link #getPartCategories() <em>Part Categories</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPartCategories()
-   * @generated
-   * @ordered
-   */
-  protected EList<PartCategory> partCategories;
 
   /**
    * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
@@ -551,13 +539,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Extension> getExtensions()
+  public EList<ExtensionPoint> getExtensionPoints()
   {
-    if (extensions == null)
+    if (extensionPoints == null)
     {
-      extensions = new EObjectContainmentEList<Extension>(Extension.class, this, EclipsePackage.BUNDLE__EXTENSIONS);
+      extensionPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, EclipsePackage.BUNDLE__EXTENSION_POINTS);
     }
-    return extensions;
+    return extensionPoints;
   }
 
   /**
@@ -691,20 +679,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PartCategory> getPartCategories()
-  {
-    if (partCategories == null)
-    {
-      partCategories = new EObjectContainmentEList<PartCategory>(PartCategory.class, this, EclipsePackage.BUNDLE__PART_CATEGORIES);
-    }
-    return partCategories;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Context> getContexts()
   {
     if (contexts == null)
@@ -806,8 +780,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__WIZARDS:
         return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__EXTENSIONS:
-        return ((InternalEList<?>)getExtensions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+        return ((InternalEList<?>)getExtensionPoints()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__DECORATORS:
         return ((InternalEList<?>)getDecorators()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__MARKERS:
@@ -826,8 +800,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return ((InternalEList<?>)getPartCategories()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__CONTEXTS:
         return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__CATEGORIES:
@@ -866,8 +838,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getBuilders();
       case EclipsePackage.BUNDLE__WIZARDS:
         return getWizards();
-      case EclipsePackage.BUNDLE__EXTENSIONS:
-        return getExtensions();
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+        return getExtensionPoints();
       case EclipsePackage.BUNDLE__DECORATORS:
         return getDecorators();
       case EclipsePackage.BUNDLE__MARKERS:
@@ -886,8 +858,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getMenus();
       case EclipsePackage.BUNDLE__ACTIONS:
         return getActions();
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return getPartCategories();
       case EclipsePackage.BUNDLE__CONTEXTS:
         return getContexts();
       case EclipsePackage.BUNDLE__CATEGORIES:
@@ -948,9 +918,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getWizards().clear();
         getWizards().addAll((Collection<? extends Wizard>)newValue);
         return;
-      case EclipsePackage.BUNDLE__EXTENSIONS:
-        getExtensions().clear();
-        getExtensions().addAll((Collection<? extends Extension>)newValue);
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+        getExtensionPoints().clear();
+        getExtensionPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
         return;
       case EclipsePackage.BUNDLE__DECORATORS:
         getDecorators().clear();
@@ -987,10 +957,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__ACTIONS:
         getActions().clear();
         getActions().addAll((Collection<? extends Action>)newValue);
-        return;
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        getPartCategories().clear();
-        getPartCategories().addAll((Collection<? extends PartCategory>)newValue);
         return;
       case EclipsePackage.BUNDLE__CONTEXTS:
         getContexts().clear();
@@ -1057,8 +1023,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__WIZARDS:
         getWizards().clear();
         return;
-      case EclipsePackage.BUNDLE__EXTENSIONS:
-        getExtensions().clear();
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+        getExtensionPoints().clear();
         return;
       case EclipsePackage.BUNDLE__DECORATORS:
         getDecorators().clear();
@@ -1086,9 +1052,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return;
       case EclipsePackage.BUNDLE__ACTIONS:
         getActions().clear();
-        return;
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        getPartCategories().clear();
         return;
       case EclipsePackage.BUNDLE__CONTEXTS:
         getContexts().clear();
@@ -1140,8 +1103,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return builders != null && !builders.isEmpty();
       case EclipsePackage.BUNDLE__WIZARDS:
         return wizards != null && !wizards.isEmpty();
-      case EclipsePackage.BUNDLE__EXTENSIONS:
-        return extensions != null && !extensions.isEmpty();
+      case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+        return extensionPoints != null && !extensionPoints.isEmpty();
       case EclipsePackage.BUNDLE__DECORATORS:
         return decorators != null && !decorators.isEmpty();
       case EclipsePackage.BUNDLE__MARKERS:
@@ -1160,8 +1123,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return menus != null && !menus.isEmpty();
       case EclipsePackage.BUNDLE__ACTIONS:
         return actions != null && !actions.isEmpty();
-      case EclipsePackage.BUNDLE__PART_CATEGORIES:
-        return partCategories != null && !partCategories.isEmpty();
       case EclipsePackage.BUNDLE__CONTEXTS:
         return contexts != null && !contexts.isEmpty();
       case EclipsePackage.BUNDLE__CATEGORIES:

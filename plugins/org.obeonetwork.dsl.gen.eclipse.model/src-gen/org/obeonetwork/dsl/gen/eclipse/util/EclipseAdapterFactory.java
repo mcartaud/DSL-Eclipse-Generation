@@ -135,9 +135,9 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createProjectWizardAdapter();
       }
       @Override
-      public Adapter caseExtension(Extension object)
+      public Adapter caseExtensionPoint(ExtensionPoint object)
       {
-        return createExtensionAdapter();
+        return createExtensionPointAdapter();
       }
       @Override
       public Adapter caseAttribute(Attribute object)
@@ -173,11 +173,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
       public Adapter casePart(Part object)
       {
         return createPartAdapter();
-      }
-      @Override
-      public Adapter casePartCategory(PartCategory object)
-      {
-        return createPartCategoryAdapter();
       }
       @Override
       public Adapter caseView(View object)
@@ -427,16 +422,16 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Extension <em>Extension</em>}'.
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint <em>Extension Point</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.Extension
+   * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint
    * @generated
    */
-  public Adapter createExtensionAdapter()
+  public Adapter createExtensionPointAdapter()
   {
     return null;
   }
@@ -542,21 +537,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPartAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.PartCategory <em>Part Category</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.PartCategory
-   * @generated
-   */
-  public Adapter createPartCategoryAdapter()
   {
     return null;
   }

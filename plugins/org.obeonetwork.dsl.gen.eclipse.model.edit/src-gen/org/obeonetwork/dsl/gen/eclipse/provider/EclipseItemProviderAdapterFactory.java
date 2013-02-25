@@ -349,28 +349,28 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Extension} instances.
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExtensionItemProvider extensionItemProvider;
+  protected ExtensionPointItemProvider extensionPointItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Extension}.
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createExtensionAdapter()
+  public Adapter createExtensionPointAdapter()
   {
-    if (extensionItemProvider == null)
+    if (extensionPointItemProvider == null)
     {
-      extensionItemProvider = new ExtensionItemProvider(this);
+      extensionPointItemProvider = new ExtensionPointItemProvider(this);
     }
 
-    return extensionItemProvider;
+    return extensionPointItemProvider;
   }
 
   /**
@@ -521,31 +521,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     }
 
     return categoryItemProvider;
-  }
-
-  /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.PartCategory} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PartCategoryItemProvider partCategoryItemProvider;
-
-  /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.PartCategory}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createPartCategoryAdapter()
-  {
-    if (partCategoryItemProvider == null)
-    {
-      partCategoryItemProvider = new PartCategoryItemProvider(this);
-    }
-
-    return partCategoryItemProvider;
   }
 
   /**
@@ -895,14 +870,13 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (natureItemProvider != null) natureItemProvider.dispose();
     if (wizardItemProvider != null) wizardItemProvider.dispose();
     if (projectWizardItemProvider != null) projectWizardItemProvider.dispose();
-    if (extensionItemProvider != null) extensionItemProvider.dispose();
+    if (extensionPointItemProvider != null) extensionPointItemProvider.dispose();
     if (attributeItemProvider != null) attributeItemProvider.dispose();
     if (decoratorItemProvider != null) decoratorItemProvider.dispose();
     if (markerItemProvider != null) markerItemProvider.dispose();
     if (contextItemProvider != null) contextItemProvider.dispose();
     if (perspectiveItemProvider != null) perspectiveItemProvider.dispose();
     if (categoryItemProvider != null) categoryItemProvider.dispose();
-    if (partCategoryItemProvider != null) partCategoryItemProvider.dispose();
     if (viewItemProvider != null) viewItemProvider.dispose();
     if (editorItemProvider != null) editorItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();

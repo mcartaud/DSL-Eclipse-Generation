@@ -25,7 +25,7 @@ import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
-import org.obeonetwork.dsl.gen.eclipse.Extension;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.HelpPage;
@@ -35,7 +35,6 @@ import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.Part;
-import org.obeonetwork.dsl.gen.eclipse.PartCategory;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.Project;
 import org.obeonetwork.dsl.gen.eclipse.ProjectWizard;
@@ -143,7 +142,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass extensionEClass = null;
+  private EClass extensionPointEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,13 +192,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * @generated
    */
   private EClass partEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass partCategoryEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -699,7 +691,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_Extensions()
+  public EReference getBundle_ExtensionPoints()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(9);
   }
@@ -799,7 +791,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_PartCategories()
+  public EReference getBundle_Contexts()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(19);
   }
@@ -809,7 +801,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_Contexts()
+  public EReference getBundle_Categories()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(20);
   }
@@ -819,7 +811,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_Categories()
+  public EReference getBundle_Bindings()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(21);
   }
@@ -829,7 +821,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_Bindings()
+  public EReference getBundle_ExportedPackages()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(22);
   }
@@ -839,7 +831,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_ExportedPackages()
+  public EReference getBundle_OwnedPackages()
   {
     return (EReference)bundleEClass.getEStructuralFeatures().get(23);
   }
@@ -849,19 +841,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBundle_OwnedPackages()
-  {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(24);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getBundle_AllExportedPackages()
   {
-    return (EReference)bundleEClass.getEStructuralFeatures().get(25);
+    return (EReference)bundleEClass.getEStructuralFeatures().get(24);
   }
 
   /**
@@ -1189,9 +1171,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExtension()
+  public EClass getExtensionPoint()
   {
-    return extensionEClass;
+    return extensionPointEClass;
   }
 
   /**
@@ -1199,9 +1181,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExtension_Name()
+  public EAttribute getExtensionPoint_Name()
   {
-    return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)extensionPointEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1209,9 +1191,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExtension_Required()
+  public EAttribute getExtensionPoint_Required()
   {
-    return (EAttribute)extensionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)extensionPointEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1219,9 +1201,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExtension_Attributes()
+  public EReference getExtensionPoint_Attributes()
   {
-    return (EReference)extensionEClass.getEStructuralFeatures().get(2);
+    return (EReference)extensionPointEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1602,56 +1584,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
   public EReference getPart_DynamicHelp()
   {
     return (EReference)partEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPartCategory()
-  {
-    return partCategoryEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPartCategory_Name()
-  {
-    return (EAttribute)partCategoryEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPartCategory_Parts()
-  {
-    return (EReference)partCategoryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPartCategory_Menus()
-  {
-    return (EReference)partCategoryEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPartCategory_Actions()
-  {
-    return (EReference)partCategoryEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2223,7 +2155,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEReference(bundleEClass, BUNDLE__NATURES);
     createEReference(bundleEClass, BUNDLE__BUILDERS);
     createEReference(bundleEClass, BUNDLE__WIZARDS);
-    createEReference(bundleEClass, BUNDLE__EXTENSIONS);
+    createEReference(bundleEClass, BUNDLE__EXTENSION_POINTS);
     createEReference(bundleEClass, BUNDLE__DECORATORS);
     createEReference(bundleEClass, BUNDLE__MARKERS);
     createEReference(bundleEClass, BUNDLE__PERSPECTIVES);
@@ -2233,7 +2165,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEReference(bundleEClass, BUNDLE__COMMANDS);
     createEReference(bundleEClass, BUNDLE__MENUS);
     createEReference(bundleEClass, BUNDLE__ACTIONS);
-    createEReference(bundleEClass, BUNDLE__PART_CATEGORIES);
     createEReference(bundleEClass, BUNDLE__CONTEXTS);
     createEReference(bundleEClass, BUNDLE__CATEGORIES);
     createEReference(bundleEClass, BUNDLE__BINDINGS);
@@ -2280,10 +2211,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     projectWizardEClass = createEClass(PROJECT_WIZARD);
     createEReference(projectWizardEClass, PROJECT_WIZARD__NATURES);
 
-    extensionEClass = createEClass(EXTENSION);
-    createEAttribute(extensionEClass, EXTENSION__NAME);
-    createEAttribute(extensionEClass, EXTENSION__REQUIRED);
-    createEReference(extensionEClass, EXTENSION__ATTRIBUTES);
+    extensionPointEClass = createEClass(EXTENSION_POINT);
+    createEAttribute(extensionPointEClass, EXTENSION_POINT__NAME);
+    createEAttribute(extensionPointEClass, EXTENSION_POINT__REQUIRED);
+    createEReference(extensionPointEClass, EXTENSION_POINT__ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
@@ -2329,12 +2260,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(partEClass, PART__NAME);
     createEAttribute(partEClass, PART__ICON);
     createEReference(partEClass, PART__DYNAMIC_HELP);
-
-    partCategoryEClass = createEClass(PART_CATEGORY);
-    createEAttribute(partCategoryEClass, PART_CATEGORY__NAME);
-    createEReference(partCategoryEClass, PART_CATEGORY__PARTS);
-    createEReference(partCategoryEClass, PART_CATEGORY__MENUS);
-    createEReference(partCategoryEClass, PART_CATEGORY__ACTIONS);
 
     viewEClass = createEClass(VIEW);
     createEAttribute(viewEClass, VIEW__IS_TREE);
@@ -2477,7 +2402,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEReference(getBundle_Natures(), this.getNature(), null, "natures", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Builders(), this.getBuilder(), null, "builders", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Wizards(), this.getWizard(), null, "wizards", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBundle_Extensions(), this.getExtension(), null, "extensions", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBundle_ExtensionPoints(), this.getExtensionPoint(), null, "extensionPoints", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Decorators(), this.getDecorator(), null, "decorators", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Markers(), this.getMarker(), null, "markers", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2487,7 +2412,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEReference(getBundle_Commands(), this.getCommand(), null, "commands", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Menus(), this.getMenu(), null, "menus", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Actions(), this.getAction(), null, "actions", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBundle_PartCategories(), this.getPartCategory(), null, "partCategories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Contexts(), this.getContext(), null, "contexts", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Categories(), this.getCategory(), null, "categories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBundle_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2534,10 +2458,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEClass(projectWizardEClass, ProjectWizard.class, "ProjectWizard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProjectWizard_Natures(), this.getNature(), null, "natures", null, 0, -1, ProjectWizard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(extensionEClass, Extension.class, "Extension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExtension_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExtension_Required(), theEcorePackage.getEBoolean(), "required", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExtension_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(extensionPointEClass, ExtensionPoint.class, "ExtensionPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExtensionPoint_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ExtensionPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExtensionPoint_Required(), theEcorePackage.getEBoolean(), "required", null, 0, 1, ExtensionPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtensionPoint_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, ExtensionPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2583,12 +2507,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getPart_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPart_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPart_DynamicHelp(), this.getDynamicHelp(), null, "dynamicHelp", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(partCategoryEClass, PartCategory.class, "PartCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPartCategory_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PartCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPartCategory_Parts(), this.getPart(), null, "parts", null, 0, -1, PartCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPartCategory_Menus(), this.getMenu(), null, "menus", null, 0, -1, PartCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPartCategory_Actions(), this.getAction(), null, "actions", null, 0, -1, PartCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getView_IsTree(), theEcorePackage.getEBoolean(), "isTree", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

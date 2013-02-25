@@ -30,12 +30,12 @@ aRequiredService.interface.ancestors(EPackage)->reverse().name
 	invoke('org.obeonetwork.dsl.gen.eclipse.impl.spec.BundleSpec', 'getAllExportedPackages()', Sequence{})
 /]
 
-[template public genExtensionName(anExtension : Extension)]
-[anExtension.name.toUpperFirst().substituteAll(' ', '').substitute('Extension', '')/]
+[template public genExtensionName(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '').substitute('Extension', '')/]
 [/template]
 
-[query public staticExtensionName(anExtension : Extension) : String = 
-anExtension.name.substituteAll(' ', '_').toUpper()
+[query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
+anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 /]
 
 [template public genBundleQualifiedPath(aBundle : Bundle)]
