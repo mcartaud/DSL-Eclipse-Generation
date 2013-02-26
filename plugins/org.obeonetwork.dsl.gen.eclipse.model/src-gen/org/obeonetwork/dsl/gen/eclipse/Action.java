@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getTooltip <em>Tooltip</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getIcons <em>Icons</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
@@ -76,32 +75,6 @@ public interface Action extends EObject
    * @generated
    */
   void setTooltip(String value);
-
-  /**
-   * Returns the value of the '<em><b>Icons</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Icons</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Icons</em>' attribute.
-   * @see #setIcons(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getAction_Icons()
-   * @model unique="false"
-   * @generated
-   */
-  String getIcons();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Action#getIcons <em>Icons</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Icons</em>' attribute.
-   * @see #getIcons()
-   * @generated
-   */
-  void setIcons(String value);
 
   /**
    * Returns the value of the '<em><b>Command</b></em>' reference.

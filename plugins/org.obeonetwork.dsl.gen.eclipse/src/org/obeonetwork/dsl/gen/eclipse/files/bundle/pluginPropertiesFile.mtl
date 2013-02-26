@@ -43,6 +43,12 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aBundle.commands->size() > 0)]
 [aBundle.commandInformation()/]
 [/if]
+[if (aBundle.perspectives->size() > 0)]
+[aBundle.perspectiveInformation()/]
+[/if]
+[if (aBundle.decorators->size() > 0)]
+[aBundle.decoratorInformation()/]
+[/if]
 [/file]
 [/template]
 
@@ -54,6 +60,7 @@ Bundle-Provider = [aBundle.vendor/]
 [aWizard.category.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name = [aWizard.category.name/]
 [/if][aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name = [aWizard.name/]
 [aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Description = [aWizard.description/]
+Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/wizards/[aWizard.icon/]
 
 [/for]
 [/template]
@@ -83,6 +90,7 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aView.category->size() > 0)]
 [aView.category.name.toUpperFirst().replaceAll(' ', '')/]-ViewCategory-Name = [aView.category.name/]
 [/if][aView.name.toUpperFirst().replaceAll(' ', '')/]-View-Name = [aView.name/]
+View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/views/[aView.icon/]
 
 [/for]
 [/template]
@@ -91,7 +99,9 @@ Bundle-Provider = [aBundle.vendor/]
 
 #User information for the editors
 [for (anEditor : Editor | aBundle.editors)]
+
 [anEditor.name.toUpperFirst().replaceAll(' ', '')/]-Editor-Name = [anEditor.name/]
+Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/editors/[anEditor.icon/]
 
 [/for]
 [/template]
@@ -103,7 +113,25 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aCommand.category->size() > 0)]
 [aCommand.category.name.toUpperFirst().replaceAll(' ', '')/]-CommandCategory-Name = [aCommand.category.name/]
 [/if][aCommand.name.toUpperFirst().replaceAll(' ', '')/]-Command-Name = [aCommand.name/]
+Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/commands/[aCommand.icon/]
 
 [/for]
 [/template]
 
+[template private decoratorInformation(aBundle : Bundle)]
+
+#User information for the Decorators
+[for (aDecorator : Decorator | aBundle.decorators)]
+Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/decorators/[aDecorator.icon/]
+
+[/for]
+[/template]
+
+[template private perspectiveInformation(aBundle : Bundle)]
+
+#User information for the Perspectives
+[for (aPerspective : Perspective | aBundle.perspectives)]
+Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/perspectives/[aPerspective.icon/]
+
+[/for]
+[/template]

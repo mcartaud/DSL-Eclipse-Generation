@@ -66,7 +66,6 @@ public class ActionItemProvider
 
       addNamePropertyDescriptor(object);
       addTooltipPropertyDescriptor(object);
-      addIconsPropertyDescriptor(object);
       addCommandPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -110,29 +109,6 @@ public class ActionItemProvider
          getString("_UI_Action_tooltip_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Action_tooltip_feature", "_UI_Action_type"),
          EclipsePackage.Literals.ACTION__TOOLTIP,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Icons feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addIconsPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Action_icons_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Action_icons_feature", "_UI_Action_type"),
-         EclipsePackage.Literals.ACTION__ICONS,
          true,
          false,
          false,
@@ -207,7 +183,6 @@ public class ActionItemProvider
     {
       case EclipsePackage.ACTION__NAME:
       case EclipsePackage.ACTION__TOOLTIP:
-      case EclipsePackage.ACTION__ICONS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

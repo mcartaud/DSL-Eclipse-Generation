@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}</li>
@@ -52,6 +53,32 @@ public interface Command extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Icon</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Icon</em>' attribute.
+   * @see #setIcon(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Icon()
+   * @model unique="false"
+   * @generated
+   */
+  String getIcon();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getIcon <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Icon</em>' attribute.
+   * @see #getIcon()
+   * @generated
+   */
+  void setIcon(String value);
 
   /**
    * Returns the value of the '<em><b>Action</b></em>' reference.

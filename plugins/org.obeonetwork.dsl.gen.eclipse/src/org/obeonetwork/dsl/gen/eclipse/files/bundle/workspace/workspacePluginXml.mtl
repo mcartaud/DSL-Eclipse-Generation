@@ -119,7 +119,7 @@ false[/if]
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
             name="%[aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name"
-            icon="[aWizard.icon/]"
+            icon="%Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
 [if (aWizard.isProject)]
 			project="true"
 [/if][if (aWizard.category->size() > 0)]
@@ -136,7 +136,7 @@ false[/if]
             location="[aDecorator.location/]"
             adaptable="[aDecorator.isAdaptable/]"
             label="[aDecorator.label/]"
-            icon="[aDecorator.icon/]"
+            icon="%Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
             state="true"
             id="[aDecorator.eContainer(Bundle).basePackage/].[aDecorator.name/]">
          <enablement>

@@ -88,7 +88,7 @@
 [template private genToolbarCommand(aCommand : Command)]
             <command
                   commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-                  icon="icons/sample.gif"
+                  icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
                   tooltip="[aCommand.action.tooltip/]"
 				  mnemonic="S"
                   id="[aCommand.eContainer(Bundle).genBundlePath()/].toolbars.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
@@ -101,7 +101,7 @@
 [template private genMenuCommand(aCommand : Command)]
             <command
                   commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-                  icon="icons/sample.gif"
+                  icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
                   tooltip="[aCommand.action.tooltip/]"
 				  mnemonic="S"
                   id="[aCommand.eContainer(Bundle).genBundlePath()/].menus.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">

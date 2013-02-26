@@ -44,39 +44,40 @@
     <views name="vueTree" isTree="true" perspectives="//@projects.5/@perspectives.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="ui" basePackage="org.obeonetwork.dsl.gen.eclipse" vendor="mCartaud">
-    <wizards name="creationWizard" title="New Wizard" description="allow project creation" isProject="true" category="//@projects.6/@categories.0"/>
+    <wizards name="creationWizard" title="New Wizard" description="allow project creation" icon="wizardCreation.gif" isProject="true" category="//@projects.6/@categories.0"/>
     <markers name="fileMarker"/>
-    <perspectives name="projectPerspective" views="//@projects.6/@views.0 //@projects.6/@views.2">
+    <perspectives name="projectPerspective" icon="perspIcon.gif" views="//@projects.6/@views.0 //@projects.6/@views.2">
       <actions name="clique1" command="//@projects.6/@commands.0"/>
       <actions name="clique2" command="//@projects.6/@commands.1"/>
       <menus name="parameter" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.1 //@projects.6/@commands.0"/>
-      <wizards name="newFile" title="wizard for new File" description="wizard for the new file creation" category="//@projects.6/@categories.0"/>
+      <wizards name="newFile" title="wizard for new File" description="wizard for the new file creation" icon="fileWizard.gif" category="//@projects.6/@categories.0"/>
+      <wizards name="newProject" title="first page" description="allow to create a new Project" icon="wizardProject.gif" isProject="true" category="//@projects.6/@categories.0"/>
     </perspectives>
-    <editors name="projectEditor">
+    <editors name="projectEditor" icon="editorIcone.gif">
       <actions name="clique3" command="//@projects.6/@commands.2"/>
-      <menus name="editorMenu" toolbarContribution="true" commands="//@projects.6/@commands.2"/>
+      <menus name="editorMenu" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.2"/>
     </editors>
-    <views name="firstView" icon="" isVisible="true" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1">
+    <views name="firstView" icon="firstViewIcon.gif" isVisible="true" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1">
       <actions name="clique4" tooltip="" command="//@projects.6/@commands.4"/>
       <actions name="clique5" command="//@projects.6/@commands.3"/>
-      <menus name="viewMenu1" menuContribution="true" commands="//@projects.6/@commands.3 //@projects.6/@commands.4"/>
+      <menus name="viewMenu1" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.3 //@projects.6/@commands.4"/>
     </views>
-    <views name="treeVeiw" category="//@projects.6/@categories.1">
+    <views name="treeVeiw" icon="treeViewIcon.gif" category="//@projects.6/@categories.1">
       <dynamicHelp description="this page allow help" label="help For Tree View" title="treeView help" helpPages="//@projects.6/@helpContents.0/@helpPages.0 //@projects.6/@helpContents.0/@helpPages.1"/>
     </views>
-    <views name="otherView" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1"/>
+    <views name="otherView" icon="otherViewIcon.gif" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1"/>
     <helpContents description="this help offer help for the DSL" label="help For The Bundle" title="summary">
       <helpPages description="explain the model creation" label="creation Model  Help" title="Model Help">
         <helpPages description="explain the Generation" label="generation help" title="Generation"/>
       </helpPages>
       <helpPages description="explicit the Licence" label="licence Help" title="Licence"/>
     </helpContents>
-    <commands name="edit" action="//@projects.6/@perspectives.0/@actions.0" menu="//@projects.6/@perspectives.0/@menus.0"/>
-    <commands name="save" action="//@projects.6/@perspectives.0/@actions.1" menu="//@projects.6/@perspectives.0/@menus.0" binding="//@projects.6/@bindings.0"/>
-    <commands name="remove" action="//@projects.6/@editors.0/@actions.0" menu="//@projects.6/@editors.0/@menus.0"/>
-    <commands name="run" action="//@projects.6/@views.0/@actions.1" menu="//@projects.6/@views.0/@menus.0" binding="//@projects.6/@bindings.1"/>
-    <commands name="refactor" action="//@projects.6/@views.0/@actions.0" menu="//@projects.6/@views.0/@menus.0"/>
-    <categories name="Model Wizard" wizards="//@projects.6/@wizards.0 //@projects.6/@perspectives.0/@wizards.0"/>
+    <commands name="edit" icon="image1.gif" action="//@projects.6/@perspectives.0/@actions.0" menu="//@projects.6/@perspectives.0/@menus.0"/>
+    <commands name="save" icon="image2.gif" action="//@projects.6/@perspectives.0/@actions.1" menu="//@projects.6/@perspectives.0/@menus.0" binding="//@projects.6/@bindings.0"/>
+    <commands name="remove" icon="image3.gif" action="//@projects.6/@editors.0/@actions.0" menu="//@projects.6/@editors.0/@menus.0"/>
+    <commands name="run" icon="image4.gif" action="//@projects.6/@views.0/@actions.1" menu="//@projects.6/@views.0/@menus.0" binding="//@projects.6/@bindings.1"/>
+    <commands name="refactor" icon="image5.gif" action="//@projects.6/@views.0/@actions.0" menu="//@projects.6/@views.0/@menus.0"/>
+    <categories name="Model Wizard" wizards="//@projects.6/@wizards.0 //@projects.6/@perspectives.0/@wizards.0 //@projects.6/@perspectives.0/@wizards.1"/>
     <categories name="Model View" views="//@projects.6/@views.0 //@projects.6/@views.2 //@projects.6/@views.1"/>
     <bindings keySequence="ALT+1" command="//@projects.6/@commands.1"/>
     <bindings keySequence="ALT+2" command="//@projects.6/@commands.3"/>

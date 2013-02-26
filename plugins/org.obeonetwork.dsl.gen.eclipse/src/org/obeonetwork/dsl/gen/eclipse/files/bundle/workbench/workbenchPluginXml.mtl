@@ -70,7 +70,7 @@
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
             name="[aPerspective.name/]"
-            icon="[aPerspective.icon/]"
+            icon="%Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
 [if (aPerspective._context->size() > 0)]
 			contextId="[aPerspective.eContainer(Bundle).genBundlePath()/].context.[aPerspective._context.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
@@ -149,7 +149,7 @@
 [/if]
             class="[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
             id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]"
-            icon="icons/XYZ.gif"
+            icon="%View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
 			name="%[aView.name.toUpperFirst()/]-View-Name">
       </view>
 [/template]
@@ -157,7 +157,7 @@
 [template private editorTemplate(anEditor : Editor)]
       <editor
             class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
-            icon="icons/editor.gif"
+            icon="%Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
             id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]"
             name="%[anEditor.name.toUpperFirst()/]-Editor-Name">
       </editor>

@@ -65,6 +65,7 @@ public class CommandItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
+      addIconPropertyDescriptor(object);
       addActionPropertyDescriptor(object);
       addMenuPropertyDescriptor(object);
       addCategoryPropertyDescriptor(object);
@@ -89,6 +90,29 @@ public class CommandItemProvider
          getString("_UI_Command_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Command_name_feature", "_UI_Command_type"),
          EclipsePackage.Literals.COMMAND__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Icon feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIconPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Command_icon_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Command_icon_feature", "_UI_Command_type"),
+         EclipsePackage.Literals.COMMAND__ICON,
          true,
          false,
          false,
@@ -254,6 +278,7 @@ public class CommandItemProvider
     switch (notification.getFeatureID(Command.class))
     {
       case EclipsePackage.COMMAND__NAME:
+      case EclipsePackage.COMMAND__ICON:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

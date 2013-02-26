@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategory <em>Category</em>}</li>
@@ -58,6 +59,26 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIcon()
+   * @generated
+   * @ordered
+   */
+  protected static final String ICON_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIcon()
+   * @generated
+   * @ordered
+   */
+  protected String icon = ICON_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAction() <em>Action</em>}' reference.
@@ -151,6 +172,29 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getIcon()
+  {
+    return icon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIcon(String newIcon)
+  {
+    String oldIcon = icon;
+    icon = newIcon;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__ICON, oldIcon, icon));
   }
 
   /**
@@ -563,6 +607,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case EclipsePackage.COMMAND__NAME:
         return getName();
+      case EclipsePackage.COMMAND__ICON:
+        return getIcon();
       case EclipsePackage.COMMAND__ACTION:
         if (resolve) return getAction();
         return basicGetAction();
@@ -594,6 +640,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case EclipsePackage.COMMAND__NAME:
         setName((String)newValue);
+        return;
+      case EclipsePackage.COMMAND__ICON:
+        setIcon((String)newValue);
         return;
       case EclipsePackage.COMMAND__ACTION:
         setAction((Action)newValue);
@@ -627,6 +676,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EclipsePackage.COMMAND__ICON:
+        setIcon(ICON_EDEFAULT);
+        return;
       case EclipsePackage.COMMAND__ACTION:
         setAction((Action)null);
         return;
@@ -658,6 +710,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case EclipsePackage.COMMAND__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EclipsePackage.COMMAND__ICON:
+        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.COMMAND__ACTION:
         return action != null;
       case EclipsePackage.COMMAND__MENU:
@@ -685,6 +739,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", icon: ");
+    result.append(icon);
     result.append(')');
     return result.toString();
   }

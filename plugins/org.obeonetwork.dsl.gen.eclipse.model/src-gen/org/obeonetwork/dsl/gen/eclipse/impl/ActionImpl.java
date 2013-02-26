@@ -24,7 +24,6 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getTooltip <em>Tooltip</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getIcons <em>Icons</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
@@ -72,26 +71,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @ordered
    */
   protected String tooltip = TOOLTIP_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getIcons() <em>Icons</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIcons()
-   * @generated
-   * @ordered
-   */
-  protected static final String ICONS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIcons() <em>Icons</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIcons()
-   * @generated
-   * @ordered
-   */
-  protected String icons = ICONS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getCommand() <em>Command</em>}' reference.
@@ -168,29 +147,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     tooltip = newTooltip;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__TOOLTIP, oldTooltip, tooltip));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getIcons()
-  {
-    return icons;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIcons(String newIcons)
-  {
-    String oldIcons = icons;
-    icons = newIcons;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__ICONS, oldIcons, icons));
   }
 
   /**
@@ -309,8 +265,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return getName();
       case EclipsePackage.ACTION__TOOLTIP:
         return getTooltip();
-      case EclipsePackage.ACTION__ICONS:
-        return getIcons();
       case EclipsePackage.ACTION__COMMAND:
         if (resolve) return getCommand();
         return basicGetCommand();
@@ -333,9 +287,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return;
       case EclipsePackage.ACTION__TOOLTIP:
         setTooltip((String)newValue);
-        return;
-      case EclipsePackage.ACTION__ICONS:
-        setIcons((String)newValue);
         return;
       case EclipsePackage.ACTION__COMMAND:
         setCommand((Command)newValue);
@@ -360,9 +311,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       case EclipsePackage.ACTION__TOOLTIP:
         setTooltip(TOOLTIP_EDEFAULT);
         return;
-      case EclipsePackage.ACTION__ICONS:
-        setIcons(ICONS_EDEFAULT);
-        return;
       case EclipsePackage.ACTION__COMMAND:
         setCommand((Command)null);
         return;
@@ -384,8 +332,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.ACTION__TOOLTIP:
         return TOOLTIP_EDEFAULT == null ? tooltip != null : !TOOLTIP_EDEFAULT.equals(tooltip);
-      case EclipsePackage.ACTION__ICONS:
-        return ICONS_EDEFAULT == null ? icons != null : !ICONS_EDEFAULT.equals(icons);
       case EclipsePackage.ACTION__COMMAND:
         return command != null;
     }
@@ -407,8 +353,6 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     result.append(name);
     result.append(", tooltip: ");
     result.append(tooltip);
-    result.append(", icons: ");
-    result.append(icons);
     result.append(')');
     return result.toString();
   }
