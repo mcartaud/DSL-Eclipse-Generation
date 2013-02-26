@@ -63,7 +63,7 @@
 
 [template private wizardCategory(aCategory : Category)]
       <category
-            name="%[aCategory.wizards->first().name.toUpperFirst()/]-WizardCategory-Name"
+            name="%[aCategory.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name"
             id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
       </category>
 [/template]
@@ -118,7 +118,7 @@ false[/if]
 
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
-            name="%[aWizard.name.toUpperFirst()/]-Wizard-Name"
+            name="%[aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name"
             icon="[aWizard.icon/]"
 [if (aWizard.isProject)]
 			project="true"

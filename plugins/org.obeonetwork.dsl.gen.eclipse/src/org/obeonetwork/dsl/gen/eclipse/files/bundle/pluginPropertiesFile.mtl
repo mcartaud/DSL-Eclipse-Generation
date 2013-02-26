@@ -39,6 +39,9 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aBundle.editors->size() > 0)]
 [aBundle.editorInformation()/]
 [/if]
+[if (aBundle.commands->size() > 0)]
+[aBundle.commandInformation()/]
+[/if]
 [/file]
 [/template]
 
@@ -46,19 +49,19 @@ Bundle-Provider = [aBundle.vendor/]
 
 # User information for the wizards
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
-[aWizard.name.toUpperFirst()/]-Wizard-Name = [aWizard.name/]
-[aWizard.name.toUpperFirst()/]-Wizard-Description = [aWizard.description/]
 [if (aWizard.category->size() > 0)]
-[aWizard.name.toUpperFirst()/]-WizardCategory-Name = [aWizard.category.name/]
+[aWizard.category.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name = [aWizard.category.name/]
+[/if][aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name = [aWizard.name/]
+[aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Description = [aWizard.description/]
 
-[/if][/for]
+[/for]
 [/template]
 
 [template private natureInformation(aBundle : Bundle)]
 
 # User information for the natures
 [for (aNature : Nature | aBundle.natures)]
-[aNature.name.toUpperFirst()/]-Nature-Name = [aNature.name/]
+[aNature.name.toUpperFirst().replaceAll(' ', '')/]-Nature-Name = [aNature.name/]
 
 [/for]
 [/template]
@@ -67,7 +70,7 @@ Bundle-Provider = [aBundle.vendor/]
 
 # User information for the builders
 [for (aBuilder : Builder | aBundle.builders)]
-[aBuilder.name.toUpperFirst()/]-Builder-Name = [aBuilder.name/]
+[aBuilder.name.toUpperFirst().replaceAll(' ', '')/]-Builder-Name = [aBuilder.name/]
 
 [/for]
 [/template]
@@ -76,27 +79,30 @@ Bundle-Provider = [aBundle.vendor/]
 
 #User information for the views
 [for (aView : View | aBundle.views)]
-[aView.name.toUpperFirst()/]-View-Name = [aView.name/]
 [if (aView.category->size() > 0)]
-[aView.name.toUpperFirst()/]-ViewCategory-Name = [aView.category.name/]
+[aView.category.name.toUpperFirst().replaceAll(' ', '')/]-ViewCategory-Name = [aView.category.name/]
+[/if][aView.name.toUpperFirst().replaceAll(' ', '')/]-View-Name = [aView.name/]
 
-[/if][/for]
+[/for]
 [/template]
 
 [template private editorInformation(aBundle : Bundle)]
 
 #User information for the editors
 [for (anEditor : Editor | aBundle.editors)]
-[anEditor.name.toUpperFirst()/]-Editor-Name = [anEditor.name/]
+[anEditor.name.toUpperFirst().replaceAll(' ', '')/]-Editor-Name = [anEditor.name/]
 
 [/for]
 [/template]
 
-[template public commandInformation(aBundle : Bundle)]
+[template private commandInformation(aBundle : Bundle)]
 
 #User information for the commands
 [for (aCommand : Command | aBundle.commands)]
-[aCommand.name.toUpperFirst()/]-CommandCategory-Name = [aCommand.name/]
+[if (aCommand.category->size() > 0)]
+[aCommand.category.name.toUpperFirst().replaceAll(' ', '')/]-CommandCategory-Name = [aCommand.category.name/]
+[/if][aCommand.name.toUpperFirst().replaceAll(' ', '')/]-Command-Name = [aCommand.name/]
 
 [/for]
 [/template]
+

@@ -97,7 +97,7 @@
 
 [template private commandTemplate(aCommand : Command)]
       <command
-            name="[aCommand.name/]"
+            name="%[aCommand.name.toUpperFirst().substituteAll(' ', '')/]-Command-Name"
 [if (aCommand.category->size() > 0)]
             categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCommand.category.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
@@ -114,7 +114,7 @@
 
 [template private categoryName(aCategory : Category)]
 [if (aCategory.views->size() > 0)]
-[aCategory.views->first().name.toUpperFirst()/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
+[aCategory.name.toUpperFirst().substituteAll(' ', '')/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
 [aCategory.commands->first().name.toUpperFirst()/]-CommandCategory-Name
 [elseif (aCategory.wizards->size() > 0)][aCategory.wizards->first().name.toUpperFirst()/]-WizardCategory-Name[/if]
 [/template]
