@@ -23,7 +23,7 @@ Contributors :
 [file (aBundle.manifestMFFile(), false, 'UTF-8')]
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: [if (aBundle.requiredEnvironment->size() > 0)][aBundle.requiredEnvironment/][else]J2SE-1.5[/if]
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: [aBundle.genBundlePath()/];singleton:=true
 Bundle-Version: [aBundle.bundleVersion()/]
@@ -32,7 +32,6 @@ Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 [if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0)]Bundle-Activator: [aBundle.genBundlePath()/].Activator
-[/if][if (aBundle.requiredEnvironment->size() > 0)]Bundle-RequiredExecutionEnvironment: [aBundle.requiredEnvironment/]
 [/if][if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0)][importDeclaration()/]
 [/if][if (aBundle.allExportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
 [/if][if (aBundle.requiredServices->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
@@ -56,7 +55,7 @@ Bundle-Localization: plugin
 [/template]
 
 [template private importDeclaration(aBundle : Bundle)]
-Require-Bundle:[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
+Require-Bundle: [for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
 separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0
 or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0)][importRequired()/][/if]

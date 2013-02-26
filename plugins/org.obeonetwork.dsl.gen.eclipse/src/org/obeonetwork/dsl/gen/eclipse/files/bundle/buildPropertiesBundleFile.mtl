@@ -29,10 +29,15 @@ bin.includes = META-INF/,\
 [/file]
 [/template]
 
-[template private buildPropertiesWorkspace(aBundle : Bundle)]
+[template private buildPropertiesWorkbench(aBundle : Bundle)]
 
 plugin.xml,\
 icons/
+[/template]
+
+[template private buildPropertiesWorkspace(aBundle : Bundle)]
+
+plugin.xml
 [/template]
 
 [template private buildPropertiesOSGi(aBundle : Bundle)]
@@ -41,7 +46,8 @@ OSGI-INF/
 [/template]
 
 [template private binIncludes(aBundle : Bundle)]
-[if ((aBundle.eContents(Wizard)->size() > 0) or (aBundle.eContents(Nature)->size() > 0) or (aBundle.eContents(Builder)->size() > 0) 
-or aBundle.eContents(Perspective)->size() > 0 or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0
-)],\[buildPropertiesWorkspace()/][/if][if (aBundle.providedServices->size() > 0)],\[buildPropertiesOSGi()/][/if]
+[if ((aBundle.eContents(Wizard)->size() > 0) or aBundle.eContents(Decorator)->size() > 0 or aBundle.eContents(Perspective)->size() > 0 
+or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0 or aBundle.eContents(Command)->size() > 0
+)],\[aBundle.buildPropertiesWorkbench()/][elseif ((aBundle.eContents(Nature)->size() > 0) 
+or (aBundle.eContents(Builder)->size() > 0))],\[aBundle.buildPropertiesWorkspace()/][/if][if (aBundle.providedServices->size() > 0)],\[aBundle.buildPropertiesOSGi()/][/if]
 [/template]
