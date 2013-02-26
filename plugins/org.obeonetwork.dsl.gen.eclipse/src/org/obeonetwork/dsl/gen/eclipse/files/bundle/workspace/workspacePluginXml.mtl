@@ -180,6 +180,6 @@ false[/if]
 
 [template public dynamicHelpTemplate(aDynamicHelp : DynamicHelp)]
       <contexts
-            file="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml">
+            file="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/].xml">
       </contexts>
 [/template]

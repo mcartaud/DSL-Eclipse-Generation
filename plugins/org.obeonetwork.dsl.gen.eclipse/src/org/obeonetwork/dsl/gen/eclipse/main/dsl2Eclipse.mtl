@@ -30,7 +30,6 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpContentsXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::dynamicHelpPageHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::mainHelpPageHtmlFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::activatorJavaFile /]
@@ -94,7 +93,6 @@ Contributors :
 [aView.genViewJavaFile()/]
 [if (aView.dynamicHelp->size() > 0)]
 [aView.dynamicHelp.genDynamicHelpContextXmlFile()/]
-[aView.dynamicHelp.genDynamicHelpPageHtmlFile()/]
 [/if][for (anAction : Action | aView.actions)]
 [anAction.genActionJavaFile()/]
 [/for]
@@ -108,7 +106,6 @@ Contributors :
 [anEditor.genEditorJavaFile()/]
 [if (anEditor.dynamicHelp->size() > 0)]
 [anEditor.dynamicHelp.genDynamicHelpContextXmlFile()/]
-[anEditor.dynamicHelp.genDynamicHelpPageHtmlFile()/]
 [/if][for (anAction : Action | anEditor.actions)]
 [anAction.genActionJavaFile()/]
 [/for][/for]

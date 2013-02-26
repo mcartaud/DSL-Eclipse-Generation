@@ -101,7 +101,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 
 		// Create the help context id for the viewer's control
 [if (aView.dynamicHelp->size() > 0)]
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].[aView.dynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 [/if]
 	}
 

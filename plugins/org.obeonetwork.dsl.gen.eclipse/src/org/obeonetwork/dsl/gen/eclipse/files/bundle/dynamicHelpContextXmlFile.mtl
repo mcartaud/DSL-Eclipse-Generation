@@ -4,21 +4,23 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private dynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
-[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml
+[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/].xml
 [/template]
 
 [template public genDynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
 [file (dynamicHelpContextXmlFile(), false, 'UTF-8')]
 <contexts>
-	<context id="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/]" title="[aDynamicHelp.title/]">
+	<context id="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]" title="[aDynamicHelp.title/]">
 		<description>[aDynamicHelp.description/]</description>
-		<topic href="contexts/[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].html" label="[aDynamicHelp.label/]">
+[for (anHelpPage : HelpPage | aDynamicHelp.helpPages)]
+		<topic href="html/[anHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html" label="[anHelpPage.label/]">
 			<enablement>
 				<with variable="platform">
 	            	<test property="org.eclipse.core.runtime.isBundleInstalled" args="org.eclipse.platform.doc.isv"/>
 	     		</with>
 			</enablement>
 		</topic>
+[/for]
 	</context>
 </contexts>
 [/file]
