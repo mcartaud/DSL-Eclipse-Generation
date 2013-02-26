@@ -58,7 +58,6 @@ class Bundle extends Project {
 	contains Command[] commands
 	contains Menu[] menus
 	contains Action[] actions
-//	contains PartCategory[] partCategories
 	contains Context[] contexts
 	contains Category[] categories
 	contains Binding[] bindings
@@ -170,13 +169,6 @@ abstract class Part {
 	String icon
 	contains DynamicHelp dynamicHelp
 }
-
-//class PartCategory {
-//	String name
-//	contains Part[] parts
-//	contains Menu[] menus
-//	contains Action[] actions
-//}
 
 class View extends Part {
 	boolean isTree

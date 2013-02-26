@@ -52,9 +52,9 @@
 [/if][if (aBundle.eAllContents(DynamicHelp)->size() > 0)]
    <extension
          point="org.eclipse.help.contexts">
-[for (aDynamicHelp : DynamicHelp | aBundle.views.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
-[/for][for (aDynamicHelp : DynamicHelp | aBundle.editors.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
-[/for]
+[if (aBundle.views->size() > 0)][for (aDynamicHelp : DynamicHelp | aBundle.views.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
+[/for][/if][if (aBundle.editors->size() > 0)][for (aDynamicHelp : DynamicHelp | aBundle.editors.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
+[/for][/if]
    </extension>
 [/if]
 [/template]

@@ -21,6 +21,7 @@ Contributors :
 
 [template public genPluginPropertiesFile(aBundle : Bundle)]
 [file (aBundle.pluginPropertiesFile(), false, 'UTF-8')]
+#User information for the Bundle
 Bundle-Name = [aBundle.name/]
 Bundle-Provider = [aBundle.vendor/]
 
@@ -47,7 +48,7 @@ Bundle-Provider = [aBundle.vendor/]
 
 [template private wizardInformation(aBundle : Bundle)]
 
-# User information for the wizards
+#User information for the wizards
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
 [if (aWizard.category->size() > 0)]
 [aWizard.category.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name = [aWizard.category.name/]
@@ -59,7 +60,7 @@ Bundle-Provider = [aBundle.vendor/]
 
 [template private natureInformation(aBundle : Bundle)]
 
-# User information for the natures
+#User information for the natures
 [for (aNature : Nature | aBundle.natures)]
 [aNature.name.toUpperFirst().replaceAll(' ', '')/]-Nature-Name = [aNature.name/]
 
@@ -68,7 +69,7 @@ Bundle-Provider = [aBundle.vendor/]
 
 [template private builderInformation(aBundle : Bundle)]
 
-# User information for the builders
+#User information for the builders
 [for (aBuilder : Builder | aBundle.builders)]
 [aBuilder.name.toUpperFirst().replaceAll(' ', '')/]-Builder-Name = [aBuilder.name/]
 

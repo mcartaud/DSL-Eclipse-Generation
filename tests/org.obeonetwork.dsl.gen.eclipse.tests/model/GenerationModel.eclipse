@@ -43,7 +43,7 @@
     </views>
     <views name="vueTree" isTree="true" perspectives="//@projects.5/@perspectives.0"/>
   </projects>
-  <projects xsi:type="eclipse:Bundle" name="ui" basePackage="org.obeonetwork.dsl.gen.eclipse">
+  <projects xsi:type="eclipse:Bundle" name="ui" basePackage="org.obeonetwork.dsl.gen.eclipse" vendor="mCartaud">
     <wizards name="creationWizard" title="New Wizard" description="allow project creation" isProject="true" category="//@projects.6/@categories.0"/>
     <markers name="fileMarker"/>
     <perspectives name="projectPerspective" views="//@projects.6/@views.0 //@projects.6/@views.2">
