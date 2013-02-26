@@ -65,7 +65,6 @@ public class RepositoryItemProvider
       addCategoryIDPropertyDescriptor(object);
       addCategoryDescriptionPropertyDescriptor(object);
       addFeaturesPropertyDescriptor(object);
-      addBundlesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -154,29 +153,6 @@ public class RepositoryItemProvider
          getString("_UI_Repository_features_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Repository_features_feature", "_UI_Repository_type"),
          EclipsePackage.Literals.REPOSITORY__FEATURES,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Bundles feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addBundlesPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Repository_bundles_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Repository_bundles_feature", "_UI_Repository_type"),
-         EclipsePackage.Literals.REPOSITORY__BUNDLES,
          true,
          false,
          true,

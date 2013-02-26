@@ -29,7 +29,6 @@ import org.obeonetwork.dsl.gen.eclipse.Feature;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getLicense <em>License</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getFeatureProvider <em>Feature Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getBundles <em>Bundles</em>}</li>
  * </ul>
@@ -118,26 +117,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
    * @ordered
    */
   protected String license = LICENSE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabel()
-   * @generated
-   * @ordered
-   */
-  protected static final String LABEL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabel()
-   * @generated
-   * @ordered
-   */
-  protected String label = LABEL_EDEFAULT;
 
   /**
    * The default value of the '{@link #getFeatureProvider() <em>Feature Provider</em>}' attribute.
@@ -287,29 +266,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getLabel()
-  {
-    return label;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLabel(String newLabel)
-  {
-    String oldLabel = label;
-    label = newLabel;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__LABEL, oldLabel, label));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getFeatureProvider()
   {
     return featureProvider;
@@ -360,8 +316,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
         return getVersion();
       case EclipsePackage.FEATURE__LICENSE:
         return getLicense();
-      case EclipsePackage.FEATURE__LABEL:
-        return getLabel();
       case EclipsePackage.FEATURE__FEATURE_PROVIDER:
         return getFeatureProvider();
       case EclipsePackage.FEATURE__BUNDLES:
@@ -392,9 +346,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
         return;
       case EclipsePackage.FEATURE__LICENSE:
         setLicense((String)newValue);
-        return;
-      case EclipsePackage.FEATURE__LABEL:
-        setLabel((String)newValue);
         return;
       case EclipsePackage.FEATURE__FEATURE_PROVIDER:
         setFeatureProvider((String)newValue);
@@ -429,9 +380,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
       case EclipsePackage.FEATURE__LICENSE:
         setLicense(LICENSE_EDEFAULT);
         return;
-      case EclipsePackage.FEATURE__LABEL:
-        setLabel(LABEL_EDEFAULT);
-        return;
       case EclipsePackage.FEATURE__FEATURE_PROVIDER:
         setFeatureProvider(FEATURE_PROVIDER_EDEFAULT);
         return;
@@ -460,8 +408,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case EclipsePackage.FEATURE__LICENSE:
         return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
-      case EclipsePackage.FEATURE__LABEL:
-        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case EclipsePackage.FEATURE__FEATURE_PROVIDER:
         return FEATURE_PROVIDER_EDEFAULT == null ? featureProvider != null : !FEATURE_PROVIDER_EDEFAULT.equals(featureProvider);
       case EclipsePackage.FEATURE__BUNDLES:
@@ -489,8 +435,6 @@ public class FeatureImpl extends ProjectImpl implements Feature
     result.append(version);
     result.append(", license: ");
     result.append(license);
-    result.append(", label: ");
-    result.append(label);
     result.append(", featureProvider: ");
     result.append(featureProvider);
     result.append(')');

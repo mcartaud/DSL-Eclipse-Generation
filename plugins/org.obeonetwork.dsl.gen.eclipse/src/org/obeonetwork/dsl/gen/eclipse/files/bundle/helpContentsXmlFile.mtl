@@ -13,7 +13,7 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="[anHelpContents.label/]" topic="html/[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/].html">
-	<link toc="[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/].xml"/>
+	<link toc="[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/]Toc.xml"/>
 </toc>
 [/file]
 [/template]

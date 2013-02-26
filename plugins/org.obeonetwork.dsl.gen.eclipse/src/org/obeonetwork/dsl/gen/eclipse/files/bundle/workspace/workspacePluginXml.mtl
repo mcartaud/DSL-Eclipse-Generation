@@ -26,7 +26,7 @@
 [/if][if (aBundle.eAllContents(Wizard)->size() > 0)]
    <extension
          point="org.eclipse.ui.newWizards">
-[for (aWizard : Wizard | aBundle.eAllContents(Wizard))][if (aWizard.category->size() > 0)][aWizard.wizardCategory()/][/if]
+[for (aCategory : Category | aBundle.categories)][if (aCategory.wizards->size() > 0)][aCategory.wizardCategory()/][/if]
 [/for]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))][aWizard.wizardTemplate()/]
 [/for]
@@ -43,10 +43,30 @@
 [for (aMarker : Marker | aBundle.markers)][aMarker.markersTemplate()/]
 [/for]
    </extension>
+[/if][if (aBundle.helpContents->size() > 0)]
+   <extension
+         point="org.eclipse.help.toc">
+[for (anHelpContent : HelpContents | aBundle.helpContents)][anHelpContent.helpTemplate()/]
+[/for]
+   </extension>
+[/if][if (aBundle.eAllContents(DynamicHelp)->size() > 0)]
+   <extension
+         point="org.eclipse.help.contexts">
+[for (aDynamicHelp : DynamicHelp | aBundle.views.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
+[/for][for (aDynamicHelp : DynamicHelp | aBundle.editors.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
+[/for]
+   </extension>
 [/if]
 [/template]
 
 
+
+[template private wizardCategory(aCategory : Category)]
+      <category
+            name="%[aCategory.wizards->first().name.toUpperFirst()/]-WizardCategory-Name"
+            id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
+      </category>
+[/template]
 
 [template private natureTemplate(aNature : Nature)]
       id="[aNature.eContainer(Bundle).basePackage/].nature.[aNature.name.toLowerFirst()/]"
@@ -96,13 +116,6 @@ false[/if]
       </objectContribution>
 [/template]
 
-[template private wizardCategory(aWizard : Wizard)]
-      <category
-            name="%[aWizard.name.toUpperFirst()/]-WizardCategory-Name"
-            id="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst()/]">
-      </category>
-[/template]
-
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
             name="%[aWizard.name.toUpperFirst()/]-Wizard-Name"
@@ -110,7 +123,7 @@ false[/if]
 [if (aWizard.isProject)]
 			project="true"
 [/if][if (aWizard.category->size() > 0)]
-			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]"
+			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.category.name.toLowerFirst().substituteAll(' ', '')/]"
 [/if]
             class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst().substituteAll(' ', '')/]"
             id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]">
@@ -153,4 +166,20 @@ false[/if]
       <persistent
             value="[aMarker.isPersistant/]">
       </persistent>
+[/template]
+
+[template private helpTemplate(anHelpContent : HelpContents)]
+      <toc
+            file="[anHelpContent.label.substituteAll(' ', '').toLowerFirst()/].xml"
+			primary="true">
+      </toc>
+      <toc
+            file="[anHelpContent.label.substituteAll(' ', '').toLowerFirst()/]Toc.xml">
+      </toc>
+[/template]
+
+[template public dynamicHelpTemplate(aDynamicHelp : DynamicHelp)]
+      <contexts
+            file="[aDynamicHelp.label.substituteAll(' ', '').toLowerFirst()/].xml">
+      </contexts>
 [/template]

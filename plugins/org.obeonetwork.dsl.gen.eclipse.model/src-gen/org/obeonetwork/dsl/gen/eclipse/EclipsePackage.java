@@ -261,22 +261,13 @@ public interface EclipsePackage extends EPackage
   int REPOSITORY__FEATURES = PROJECT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Bundles</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPOSITORY__BUNDLES = PROJECT_FEATURE_COUNT + 4;
-
-  /**
    * The number of structural features of the '<em>Repository</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 5;
+  int REPOSITORY_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The number of operations of the '<em>Repository</em>' class.
@@ -352,22 +343,13 @@ public interface EclipsePackage extends EPackage
   int FEATURE__LICENSE = PROJECT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Label</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FEATURE__LABEL = PROJECT_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Feature Provider</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__FEATURE_PROVIDER = PROJECT_FEATURE_COUNT + 5;
+  int FEATURE__FEATURE_PROVIDER = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Bundles</b></em>' reference list.
@@ -376,7 +358,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__BUNDLES = PROJECT_FEATURE_COUNT + 6;
+  int FEATURE__BUNDLES = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -385,7 +367,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 7;
+  int FEATURE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The number of operations of the '<em>Feature</em>' class.
@@ -2524,17 +2506,6 @@ public interface EclipsePackage extends EPackage
   EReference getRepository_Features();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getBundles <em>Bundles</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Bundles</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getBundles()
-   * @see #getRepository()
-   * @generated
-   */
-  EReference getRepository_Bundles();
-
-  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Feature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2587,17 +2558,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EAttribute getFeature_License();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLabel <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Feature#getLabel()
-   * @see #getFeature()
-   * @generated
-   */
-  EAttribute getFeature_Label();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider <em>Feature Provider</em>}'.
@@ -4403,14 +4363,6 @@ public interface EclipsePackage extends EPackage
     EReference REPOSITORY__FEATURES = eINSTANCE.getRepository_Features();
 
     /**
-     * The meta object literal for the '<em><b>Bundles</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REPOSITORY__BUNDLES = eINSTANCE.getRepository_Bundles();
-
-    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl <em>Feature</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4451,14 +4403,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EAttribute FEATURE__LICENSE = eINSTANCE.getFeature_License();
-
-    /**
-     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FEATURE__LABEL = eINSTANCE.getFeature_Label();
 
     /**
      * The meta object literal for the '<em><b>Feature Provider</b></em>' attribute feature.

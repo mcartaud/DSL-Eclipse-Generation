@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLicense <em>License</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider <em>Feature Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getBundles <em>Bundles</em>}</li>
  * </ul>
@@ -131,32 +130,6 @@ public interface Feature extends Project
    * @generated
    */
   void setLicense(String value);
-
-  /**
-   * Returns the value of the '<em><b>Label</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Label</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Label</em>' attribute.
-   * @see #setLabel(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Label()
-   * @model unique="false"
-   * @generated
-   */
-  String getLabel();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLabel <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Label</em>' attribute.
-   * @see #getLabel()
-   * @generated
-   */
-  void setLabel(String value);
 
   /**
    * Returns the value of the '<em><b>Feature Provider</b></em>' attribute.

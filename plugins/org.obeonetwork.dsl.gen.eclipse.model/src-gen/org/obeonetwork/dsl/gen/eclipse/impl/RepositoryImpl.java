@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
 import org.obeonetwork.dsl.gen.eclipse.Repository;
@@ -30,7 +29,6 @@ import org.obeonetwork.dsl.gen.eclipse.Repository;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryID <em>Category ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getFeatures <em>Features</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl#getBundles <em>Bundles</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,16 +105,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
    * @ordered
    */
   protected EList<Feature> features;
-
-  /**
-   * The cached value of the '{@link #getBundles() <em>Bundles</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBundles()
-   * @generated
-   * @ordered
-   */
-  protected EList<Bundle> bundles;
 
   /**
    * <!-- begin-user-doc -->
@@ -227,20 +215,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Bundle> getBundles()
-  {
-    if (bundles == null)
-    {
-      bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this, EclipsePackage.REPOSITORY__BUNDLES);
-    }
-    return bundles;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -254,8 +228,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
         return getCategoryDescription();
       case EclipsePackage.REPOSITORY__FEATURES:
         return getFeatures();
-      case EclipsePackage.REPOSITORY__BUNDLES:
-        return getBundles();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -284,10 +256,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
         getFeatures().clear();
         getFeatures().addAll((Collection<? extends Feature>)newValue);
         return;
-      case EclipsePackage.REPOSITORY__BUNDLES:
-        getBundles().clear();
-        getBundles().addAll((Collection<? extends Bundle>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -314,9 +282,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
       case EclipsePackage.REPOSITORY__FEATURES:
         getFeatures().clear();
         return;
-      case EclipsePackage.REPOSITORY__BUNDLES:
-        getBundles().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -339,8 +304,6 @@ public class RepositoryImpl extends ProjectImpl implements Repository
         return CATEGORY_DESCRIPTION_EDEFAULT == null ? categoryDescription != null : !CATEGORY_DESCRIPTION_EDEFAULT.equals(categoryDescription);
       case EclipsePackage.REPOSITORY__FEATURES:
         return features != null && !features.isEmpty();
-      case EclipsePackage.REPOSITORY__BUNDLES:
-        return bundles != null && !bundles.isEmpty();
     }
     return super.eIsSet(featureID);
   }

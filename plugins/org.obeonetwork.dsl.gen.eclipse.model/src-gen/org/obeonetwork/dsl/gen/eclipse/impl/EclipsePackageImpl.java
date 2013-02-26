@@ -501,16 +501,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRepository_Bundles()
-  {
-    return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFeature()
   {
     return featureEClass;
@@ -561,7 +551,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Label()
+  public EAttribute getFeature_FeatureProvider()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
   }
@@ -571,19 +561,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_FeatureProvider()
-  {
-    return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getFeature_Bundles()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(6);
+    return (EReference)featureEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2134,14 +2114,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_ID);
     createEAttribute(repositoryEClass, REPOSITORY__CATEGORY_DESCRIPTION);
     createEReference(repositoryEClass, REPOSITORY__FEATURES);
-    createEReference(repositoryEClass, REPOSITORY__BUNDLES);
 
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__COPYRIGHT);
     createEAttribute(featureEClass, FEATURE__DESCRIPTION);
     createEAttribute(featureEClass, FEATURE__VERSION);
     createEAttribute(featureEClass, FEATURE__LICENSE);
-    createEAttribute(featureEClass, FEATURE__LABEL);
     createEAttribute(featureEClass, FEATURE__FEATURE_PROVIDER);
     createEReference(featureEClass, FEATURE__BUNDLES);
 
@@ -2381,14 +2359,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getRepository_CategoryID(), theEcorePackage.getEString(), "categoryID", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRepository_CategoryDescription(), theEcorePackage.getEString(), "categoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepository_Features(), this.getFeature(), null, "features", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFeature_Copyright(), theEcorePackage.getEString(), "copyright", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_License(), theEcorePackage.getEString(), "license", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_Label(), theEcorePackage.getEString(), "label", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_FeatureProvider(), theEcorePackage.getEString(), "featureProvider", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeature_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -24,7 +24,7 @@ Contributors :
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="[aFeature.genBundlePath()/]"
-      label="%Feature-Label"
+      label="%Feature-Name"
       version="[aFeature.featureVersion()/]"
 	  provider-name="%Feature-Provider">
 

@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryID <em>Category ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryDescription <em>Category Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getFeatures <em>Features</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Repository#getBundles <em>Bundles</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,21 +118,5 @@ public interface Repository extends Project
    * @generated
    */
   EList<Feature> getFeatures();
-
-  /**
-   * Returns the value of the '<em><b>Bundles</b></em>' reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Bundle}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Bundles</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Bundles</em>' reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRepository_Bundles()
-   * @model
-   * @generated
-   */
-  EList<Bundle> getBundles();
 
 } // Repository

@@ -27,7 +27,6 @@ class Repository extends Project {
 	String categoryID
 	String categoryDescription
 	refers Feature[] features
-	refers Bundle[] bundles
 }
 
 class Feature extends Project {
@@ -35,7 +34,6 @@ class Feature extends Project {
 	String description
 	String version
 	String license
-	String label
 	String featureProvider
 	refers Bundle[] bundles
 }

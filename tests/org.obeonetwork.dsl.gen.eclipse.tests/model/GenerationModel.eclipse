@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <eclipse:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse" name="Dsl2Eclipse" applicationID="org.obeonetwork.dsl.gen.dsl2eclipse" provider="Mathieu Cartaud" copyright="obeo" version="1.0.0" description="Allow to generate all files for an Eclipse plugin">
-  <projects xsi:type="eclipse:Repository" name="repository" basePackage="org.obeonetwork.dsl.gen.eclipse" categoryLabel="Acceleo" categoryID="org.obeonetwork.acceleo.category" categoryDescription="This category contains all the projects for Dsl2Eclipse" features="//@projects.1" bundles="//@projects.2 //@projects.3 //@projects.5 //@projects.4"/>
-  <projects xsi:type="eclipse:Feature" name="feature" basePackage="org.obeonetwork.dsl.gen.eclipse" copyright="Obeo" description="contains all of the bundles" version="1.0.0" license="Eclipse Public License - v 1.0" label="SuperFeat" featureProvider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3 //@projects.4 //@projects.5"/>
+  <projects xsi:type="eclipse:Repository" name="repository" basePackage="org.obeonetwork.dsl.gen.eclipse" categoryLabel="Acceleo" categoryID="org.obeonetwork.acceleo.category" categoryDescription="This category contains all the projects for Dsl2Eclipse" features="//@projects.1"/>
+  <projects xsi:type="eclipse:Feature" name="feature" basePackage="org.obeonetwork.dsl.gen.eclipse" copyright="Obeo" description="contains all of the bundles" version="1.0.0" license="Eclipse Public License - v 1.0" featureProvider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3 //@projects.4 //@projects.5 //@projects.6"/>
   <projects xsi:type="eclipse:Bundle" name="model" basePackage="org.obeonetwork.dsl.gen.eclipse" version="1.0.0.qualifier" requiredEnvironment="JavaSE-1.7" vendor=" Mathieu Cartaud">
     <providedServices name="Model Provided Service">
       <implementation href="model.ecore#//impl/Model"/>
@@ -43,50 +43,43 @@
     </views>
     <views name="vueTree" isTree="true" perspectives="//@projects.5/@perspectives.0"/>
   </projects>
-  <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
-    <natures name="nature" langageName="" builders="//@projects.6/@builders.0"/>
-    <builders name="builder" natures="//@projects.6/@natures.0"/>
-    <wizards name="fileWizard" title="file" description="super fileWizard"/>
-    <wizards xsi:type="eclipse:ProjectWizard" name="catego1" title="super" description="plein de chose" isProject="true" natures="//@projects.6/@natures.0"/>
-    <helpContents description="sommaire" label="pageTitre" title="titrePage">
-      <helpPages description="premiere page" label="page1" title="1page">
-        <helpPages description="souspage 1" label="page11" title="11page">
-          <helpPages description="sous page" label="page111" title="111page"/>
-        </helpPages>
-      </helpPages>
-      <helpPages description="deuxieme page" label="page2" title="2page"/>
-      <helpPages description="troisieme page" label="page3" title="3page"/>
-    </helpContents>
-  </projects>
-  <projects xsi:type="eclipse:Bundle" name="workspace" basePackage="org.obeonetwork.test">
-    <perspectives name="perspective12" views="//@projects.7/@views.0 //@projects.7/@views.1">
-      <actions name="action1" tooltip="premiere action" command="//@projects.7/@commands.1"/>
-      <actions name="action2" tooltip="deuxieme action" command="//@projects.7/@commands.2"/>
-      <menus name="menu1" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.1 //@projects.7/@commands.2"/>
-      <wizards name="wizard1" description="nouveau wizard" isProject="true" category="//@projects.7/@categories.0"/>
+  <projects xsi:type="eclipse:Bundle" name="ui" basePackage="org.obeonetwork.dsl.gen.eclipse">
+    <wizards name="creationWizard" title="New Wizard" description="allow project creation" isProject="true" category="//@projects.6/@categories.0"/>
+    <markers name="fileMarker"/>
+    <perspectives name="projectPerspective" views="//@projects.6/@views.0 //@projects.6/@views.2">
+      <actions name="clique1" command="//@projects.6/@commands.0"/>
+      <actions name="clique2" command="//@projects.6/@commands.1"/>
+      <menus name="parameter" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.1 //@projects.6/@commands.0"/>
+      <wizards name="newFile" title="wizard for new File" description="wizard for the new file creation" category="//@projects.6/@categories.0"/>
     </perspectives>
-    <editors name="editeurDeTruc" extension="">
-      <actions name="actioEdit" command="//@projects.7/@commands.3"/>
-      <actions name="aditoracction2" command="//@projects.7/@commands.5"/>
-      <menus name="menuedit" mnecmonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.3 //@projects.7/@commands.5"/>
+    <editors name="projectEditor">
+      <actions name="clique3" command="//@projects.6/@commands.2"/>
+      <menus name="editorMenu" toolbarContribution="true" commands="//@projects.6/@commands.2"/>
     </editors>
-    <views name="vue1" icon="" isVisible="true" perspectives="//@projects.7/@perspectives.0" category="//@projects.7/@categories.1">
-      <actions name="actionvue" tooltip="" command="//@projects.7/@commands.4"/>
-      <menus name="menuvue" menuContribution="true" toolbarContribution="true" commands="//@projects.7/@commands.4"/>
+    <views name="firstView" icon="" isVisible="true" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1">
+      <actions name="clique4" tooltip="" command="//@projects.6/@commands.4"/>
+      <actions name="clique5" command="//@projects.6/@commands.3"/>
+      <menus name="viewMenu1" menuContribution="true" commands="//@projects.6/@commands.3 //@projects.6/@commands.4"/>
     </views>
-    <views name="vue2" isTree="true" isVisible="true" perspectives="//@projects.7/@perspectives.0" category="//@projects.7/@categories.1">
-      <actions name="double clique" command="//@projects.7/@commands.0"/>
-      <menus toolbarContribution="true" commands="//@projects.7/@commands.0"/>
+    <views name="treeVeiw" category="//@projects.6/@categories.1">
+      <dynamicHelp description="this page allow help" label="help For Tree View" title="treeView help" helpPages="//@projects.6/@helpContents.0/@helpPages.0 //@projects.6/@helpContents.0/@helpPages.1"/>
     </views>
-    <commands name="command3" action="//@projects.7/@views.1/@actions.0" menu="//@projects.7/@views.1/@menus.0"/>
-    <commands name="Command 1" action="//@projects.7/@perspectives.0/@actions.0" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.1"/>
-    <commands name="Command 2" action="//@projects.7/@perspectives.0/@actions.1" menu="//@projects.7/@perspectives.0/@menus.0" binding="//@projects.7/@bindings.0"/>
-    <commands name="Command 5" action="//@projects.7/@editors.0/@actions.0" menu="//@projects.7/@editors.0/@menus.0"/>
-    <commands name="Command 6" action="//@projects.7/@views.0/@actions.0" menu="//@projects.7/@views.0/@menus.0"/>
-    <commands name="Command 7" action="//@projects.7/@editors.0/@actions.1" menu="//@projects.7/@editors.0/@menus.0"/>
-    <categories name="wizardCatego" wizards="//@projects.7/@perspectives.0/@wizards.0"/>
-    <categories name="view catego" views="//@projects.7/@views.0 //@projects.7/@views.1"/>
-    <bindings keySequence="ctrl+1" command="//@projects.7/@commands.2"/>
-    <bindings keySequence="p" command="//@projects.7/@commands.1"/>
+    <views name="otherView" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1"/>
+    <helpContents description="this help offer help for the DSL" label="help For The Bundle" title="summary">
+      <helpPages description="explain the model creation" label="creation Model  Help" title="Model Help">
+        <helpPages description="explain the Generation" label="generation help" title="Generation"/>
+      </helpPages>
+      <helpPages description="explicit the Licence" label="licence Help" title="Licence"/>
+    </helpContents>
+    <commands name="edit" action="//@projects.6/@perspectives.0/@actions.0" menu="//@projects.6/@perspectives.0/@menus.0"/>
+    <commands name="save" action="//@projects.6/@perspectives.0/@actions.1" menu="//@projects.6/@perspectives.0/@menus.0" binding="//@projects.6/@bindings.0"/>
+    <commands name="remove" action="//@projects.6/@editors.0/@actions.0" menu="//@projects.6/@editors.0/@menus.0"/>
+    <commands name="run" action="//@projects.6/@views.0/@actions.1" menu="//@projects.6/@views.0/@menus.0" binding="//@projects.6/@bindings.1"/>
+    <commands name="refactor" action="//@projects.6/@views.0/@actions.0" menu="//@projects.6/@views.0/@menus.0"/>
+    <categories name="Model Wizard" wizards="//@projects.6/@wizards.0 //@projects.6/@perspectives.0/@wizards.0"/>
+    <categories name="Model View" views="//@projects.6/@views.0 //@projects.6/@views.2 //@projects.6/@views.1"/>
+    <bindings keySequence="ALT+1" command="//@projects.6/@commands.1"/>
+    <bindings keySequence="ALT+2" command="//@projects.6/@commands.3"/>
   </projects>
+  <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen.eclipse"/>
 </eclipse:Application>

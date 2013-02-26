@@ -84,7 +84,7 @@ Contributors :
 [anHelpContents.genHelpPageXmlFile()/]
 [anHelpContents.genMainHelpPageHtmlFile()/]
 [for (anHelpPage : HelpPage | anHelpContents.helpPages)]
-[anHelpPage.genHelpPageHtmlFile()/]
+[anHelpPage.helpGen()/]
 [/for]
 [/for]
 [for (aBuilder : Builder | aBundle.builders)]
@@ -149,4 +149,11 @@ or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.he
 
 
 [anApplication.genPomParentXmlFile()/]
+[/template]
+
+[template private helpGen(anHelpPage : HelpPage)]
+[anHelpPage.genHelpPageHtmlFile()/]
+[for (aSubHelpPage : HelpPage | anHelpPage.helpPages)]
+[aSubHelpPage.helpGen()/]
+[/for]
 [/template]

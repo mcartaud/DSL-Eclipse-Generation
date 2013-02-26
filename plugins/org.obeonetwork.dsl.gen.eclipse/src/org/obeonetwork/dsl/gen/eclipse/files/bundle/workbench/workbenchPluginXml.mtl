@@ -114,8 +114,9 @@
 
 [template private categoryName(aCategory : Category)]
 [if (aCategory.views->size() > 0)]
-[aCategory.views.name.toUpperFirst()/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
-[aCategory.commands.name.toUpperFirst()/]-CommandCategory-Name[/if]
+[aCategory.views->first().name.toUpperFirst()/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
+[aCategory.commands->first().name.toUpperFirst()/]-CommandCategory-Name
+[elseif (aCategory.wizards->size() > 0)][aCategory.wizards->first().name.toUpperFirst()/]-WizardCategory-Name[/if]
 [/template]
 
 [template private handlerTemplate(anAction : Action)]
