@@ -7,7 +7,7 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.*"
             id="org.obeonetwork.dsl.gen.eclipse.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Plug-In" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Eclipse Plug-in" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
@@ -15,7 +15,7 @@
                enablesFor="+"
                id="org.obeonetwork.dsl.gen.eclipse.ui.popupMenus.acceleoGenerateEclipseAction"
                icon="icons/default.gif"
-               label="Generate Eclipse"
+               label="Generate Plug-in"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>
