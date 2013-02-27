@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getTooltip <em>Tooltip</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
@@ -53,24 +53,24 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
+   * The default value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTooltip()
+   * @see #getMnemonic()
    * @generated
    * @ordered
    */
-  protected static final String TOOLTIP_EDEFAULT = null;
+  protected static final String MNEMONIC_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
+   * The cached value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTooltip()
+   * @see #getMnemonic()
    * @generated
    * @ordered
    */
-  protected String tooltip = TOOLTIP_EDEFAULT;
+  protected String mnemonic = MNEMONIC_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getCommand() <em>Command</em>}' reference.
@@ -131,9 +131,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTooltip()
+  public String getMnemonic()
   {
-    return tooltip;
+    return mnemonic;
   }
 
   /**
@@ -141,12 +141,12 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTooltip(String newTooltip)
+  public void setMnemonic(String newMnemonic)
   {
-    String oldTooltip = tooltip;
-    tooltip = newTooltip;
+    String oldMnemonic = mnemonic;
+    mnemonic = newMnemonic;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__TOOLTIP, oldTooltip, tooltip));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__MNEMONIC, oldMnemonic, mnemonic));
   }
 
   /**
@@ -263,8 +263,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       case EclipsePackage.ACTION__NAME:
         return getName();
-      case EclipsePackage.ACTION__TOOLTIP:
-        return getTooltip();
+      case EclipsePackage.ACTION__MNEMONIC:
+        return getMnemonic();
       case EclipsePackage.ACTION__COMMAND:
         if (resolve) return getCommand();
         return basicGetCommand();
@@ -285,8 +285,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       case EclipsePackage.ACTION__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.ACTION__TOOLTIP:
-        setTooltip((String)newValue);
+      case EclipsePackage.ACTION__MNEMONIC:
+        setMnemonic((String)newValue);
         return;
       case EclipsePackage.ACTION__COMMAND:
         setCommand((Command)newValue);
@@ -308,8 +308,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       case EclipsePackage.ACTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.ACTION__TOOLTIP:
-        setTooltip(TOOLTIP_EDEFAULT);
+      case EclipsePackage.ACTION__MNEMONIC:
+        setMnemonic(MNEMONIC_EDEFAULT);
         return;
       case EclipsePackage.ACTION__COMMAND:
         setCommand((Command)null);
@@ -330,8 +330,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       case EclipsePackage.ACTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.ACTION__TOOLTIP:
-        return TOOLTIP_EDEFAULT == null ? tooltip != null : !TOOLTIP_EDEFAULT.equals(tooltip);
+      case EclipsePackage.ACTION__MNEMONIC:
+        return MNEMONIC_EDEFAULT == null ? mnemonic != null : !MNEMONIC_EDEFAULT.equals(mnemonic);
       case EclipsePackage.ACTION__COMMAND:
         return command != null;
     }
@@ -351,8 +351,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", tooltip: ");
-    result.append(tooltip);
+    result.append(", mnemonic: ");
+    result.append(mnemonic);
     result.append(')');
     return result.toString();
   }

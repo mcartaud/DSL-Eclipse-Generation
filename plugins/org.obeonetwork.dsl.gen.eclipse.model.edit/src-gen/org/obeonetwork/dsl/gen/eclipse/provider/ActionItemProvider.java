@@ -65,7 +65,7 @@ public class ActionItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addTooltipPropertyDescriptor(object);
+      addMnemonicPropertyDescriptor(object);
       addCommandPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -95,20 +95,20 @@ public class ActionItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Tooltip feature.
+   * This adds a property descriptor for the Mnemonic feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTooltipPropertyDescriptor(Object object)
+  protected void addMnemonicPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Action_tooltip_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Action_tooltip_feature", "_UI_Action_type"),
-         EclipsePackage.Literals.ACTION__TOOLTIP,
+         getString("_UI_Action_mnemonic_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Action_mnemonic_feature", "_UI_Action_type"),
+         EclipsePackage.Literals.ACTION__MNEMONIC,
          true,
          false,
          false,
@@ -182,7 +182,7 @@ public class ActionItemProvider
     switch (notification.getFeatureID(Action.class))
     {
       case EclipsePackage.ACTION__NAME:
-      case EclipsePackage.ACTION__TOOLTIP:
+      case EclipsePackage.ACTION__MNEMONIC:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

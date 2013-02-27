@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnecmonic <em>Mnecmonic</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#isMenuContribution <em>Menu Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#isToolbarContribution <em>Toolbar Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Menu#getCommands <em>Commands</em>}</li>
@@ -55,30 +55,30 @@ public interface Menu extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Mnecmonic</b></em>' attribute.
+   * Returns the value of the '<em><b>Mnemonic</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Mnecmonic</em>' attribute isn't clear,
+   * If the meaning of the '<em>Mnemonic</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mnecmonic</em>' attribute.
-   * @see #setMnecmonic(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenu_Mnecmonic()
+   * @return the value of the '<em>Mnemonic</em>' attribute.
+   * @see #setMnemonic(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenu_Mnemonic()
    * @model unique="false"
    * @generated
    */
-  String getMnecmonic();
+  String getMnemonic();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnecmonic <em>Mnecmonic</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Mnecmonic</em>' attribute.
-   * @see #getMnecmonic()
+   * @param value the new value of the '<em>Mnemonic</em>' attribute.
+   * @see #getMnemonic()
    * @generated
    */
-  void setMnecmonic(String value);
+  void setMnemonic(String value);
 
   /**
    * Returns the value of the '<em><b>Menu Contribution</b></em>' attribute.

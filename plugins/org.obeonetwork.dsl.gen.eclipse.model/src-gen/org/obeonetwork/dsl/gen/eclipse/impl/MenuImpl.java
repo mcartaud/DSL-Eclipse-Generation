@@ -30,7 +30,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getMnecmonic <em>Mnecmonic</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#isMenuContribution <em>Menu Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#isToolbarContribution <em>Toolbar Contribution</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl#getCommands <em>Commands</em>}</li>
@@ -62,24 +62,24 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMnecmonic() <em>Mnecmonic</em>}' attribute.
+   * The default value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMnecmonic()
+   * @see #getMnemonic()
    * @generated
    * @ordered
    */
-  protected static final String MNECMONIC_EDEFAULT = null;
+  protected static final String MNEMONIC_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMnecmonic() <em>Mnecmonic</em>}' attribute.
+   * The cached value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMnecmonic()
+   * @see #getMnemonic()
    * @generated
    * @ordered
    */
-  protected String mnecmonic = MNECMONIC_EDEFAULT;
+  protected String mnemonic = MNEMONIC_EDEFAULT;
 
   /**
    * The default value of the '{@link #isMenuContribution() <em>Menu Contribution</em>}' attribute.
@@ -180,9 +180,9 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMnecmonic()
+  public String getMnemonic()
   {
-    return mnecmonic;
+    return mnemonic;
   }
 
   /**
@@ -190,12 +190,12 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMnecmonic(String newMnecmonic)
+  public void setMnemonic(String newMnemonic)
   {
-    String oldMnecmonic = mnecmonic;
-    mnecmonic = newMnecmonic;
+    String oldMnemonic = mnemonic;
+    mnemonic = newMnemonic;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__MNECMONIC, oldMnecmonic, mnecmonic));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__MNEMONIC, oldMnemonic, mnemonic));
   }
 
   /**
@@ -303,8 +303,8 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     {
       case EclipsePackage.MENU__NAME:
         return getName();
-      case EclipsePackage.MENU__MNECMONIC:
-        return getMnecmonic();
+      case EclipsePackage.MENU__MNEMONIC:
+        return getMnemonic();
       case EclipsePackage.MENU__MENU_CONTRIBUTION:
         return isMenuContribution();
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
@@ -329,8 +329,8 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
       case EclipsePackage.MENU__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.MENU__MNECMONIC:
-        setMnecmonic((String)newValue);
+      case EclipsePackage.MENU__MNEMONIC:
+        setMnemonic((String)newValue);
         return;
       case EclipsePackage.MENU__MENU_CONTRIBUTION:
         setMenuContribution((Boolean)newValue);
@@ -359,8 +359,8 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
       case EclipsePackage.MENU__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.MENU__MNECMONIC:
-        setMnecmonic(MNECMONIC_EDEFAULT);
+      case EclipsePackage.MENU__MNEMONIC:
+        setMnemonic(MNEMONIC_EDEFAULT);
         return;
       case EclipsePackage.MENU__MENU_CONTRIBUTION:
         setMenuContribution(MENU_CONTRIBUTION_EDEFAULT);
@@ -387,8 +387,8 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     {
       case EclipsePackage.MENU__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.MENU__MNECMONIC:
-        return MNECMONIC_EDEFAULT == null ? mnecmonic != null : !MNECMONIC_EDEFAULT.equals(mnecmonic);
+      case EclipsePackage.MENU__MNEMONIC:
+        return MNEMONIC_EDEFAULT == null ? mnemonic != null : !MNEMONIC_EDEFAULT.equals(mnemonic);
       case EclipsePackage.MENU__MENU_CONTRIBUTION:
         return menuContribution != MENU_CONTRIBUTION_EDEFAULT;
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
@@ -412,8 +412,8 @@ public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", mnecmonic: ");
-    result.append(mnecmonic);
+    result.append(", mnemonic: ");
+    result.append(mnemonic);
     result.append(", menuContribution: ");
     result.append(menuContribution);
     result.append(", toolbarContribution: ");

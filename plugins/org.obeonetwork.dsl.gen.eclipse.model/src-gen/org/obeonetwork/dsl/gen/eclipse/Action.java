@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getTooltip <em>Tooltip</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Action#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
@@ -51,30 +51,30 @@ public interface Action extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Tooltip</b></em>' attribute.
+   * Returns the value of the '<em><b>Mnemonic</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tooltip</em>' attribute isn't clear,
+   * If the meaning of the '<em>Mnemonic</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tooltip</em>' attribute.
-   * @see #setTooltip(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getAction_Tooltip()
+   * @return the value of the '<em>Mnemonic</em>' attribute.
+   * @see #setMnemonic(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getAction_Mnemonic()
    * @model unique="false"
    * @generated
    */
-  String getTooltip();
+  String getMnemonic();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Action#getTooltip <em>Tooltip</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic <em>Mnemonic</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tooltip</em>' attribute.
-   * @see #getTooltip()
+   * @param value the new value of the '<em>Mnemonic</em>' attribute.
+   * @see #getMnemonic()
    * @generated
    */
-  void setTooltip(String value);
+  void setMnemonic(String value);
 
   /**
    * Returns the value of the '<em><b>Command</b></em>' reference.

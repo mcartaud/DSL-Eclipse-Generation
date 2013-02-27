@@ -66,6 +66,7 @@ public class CommandItemProvider
 
       addNamePropertyDescriptor(object);
       addIconPropertyDescriptor(object);
+      addTooltipPropertyDescriptor(object);
       addActionPropertyDescriptor(object);
       addMenuPropertyDescriptor(object);
       addCategoryPropertyDescriptor(object);
@@ -113,6 +114,29 @@ public class CommandItemProvider
          getString("_UI_Command_icon_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Command_icon_feature", "_UI_Command_type"),
          EclipsePackage.Literals.COMMAND__ICON,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Tooltip feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addTooltipPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Command_tooltip_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Command_tooltip_feature", "_UI_Command_type"),
+         EclipsePackage.Literals.COMMAND__TOOLTIP,
          true,
          false,
          false,
@@ -279,6 +303,7 @@ public class CommandItemProvider
     {
       case EclipsePackage.COMMAND__NAME:
       case EclipsePackage.COMMAND__ICON:
+      case EclipsePackage.COMMAND__TOOLTIP:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

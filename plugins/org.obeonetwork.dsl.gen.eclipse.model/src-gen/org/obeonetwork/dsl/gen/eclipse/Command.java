@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getIcon <em>Icon</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}</li>
@@ -79,6 +80,32 @@ public interface Command extends EObject
    * @generated
    */
   void setIcon(String value);
+
+  /**
+   * Returns the value of the '<em><b>Tooltip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tooltip</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tooltip</em>' attribute.
+   * @see #setTooltip(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Tooltip()
+   * @model unique="false"
+   * @generated
+   */
+  String getTooltip();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getTooltip <em>Tooltip</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tooltip</em>' attribute.
+   * @see #getTooltip()
+   * @generated
+   */
+  void setTooltip(String value);
 
   /**
    * Returns the value of the '<em><b>Action</b></em>' reference.

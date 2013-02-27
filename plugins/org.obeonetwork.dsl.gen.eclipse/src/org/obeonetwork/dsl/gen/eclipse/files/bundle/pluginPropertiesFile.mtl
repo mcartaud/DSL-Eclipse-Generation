@@ -53,7 +53,7 @@ Bundle-Provider = [aBundle.vendor/]
 [aBundle.markerInformation()/]
 [/if]
 [if (aBundle.eAllContents(Menu)->size() > 0)]
-[aBundle.menuMnemonicInformation()/]
+[aBundle.mnemonicInformation()/]
 [/if]
 [/file]
 [/template]
@@ -120,6 +120,7 @@ Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/edito
 [aCommand.category.name.toUpperFirst().replaceAll(' ', '')/]-CommandCategory-Name = [aCommand.category.name/]
 [/if][aCommand.name.toUpperFirst().replaceAll(' ', '')/]-Command-Name = [aCommand.name/]
 Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/commands/[aCommand.icon/]
+Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Tooltip = [aCommand.tooltip/]
 
 [/for]
 [/template]
@@ -152,11 +153,15 @@ Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aMarker.nam
 [/for]
 [/template]
 
-[template private menuMnemonicInformation(aBundle : Bundle)]
+[template private mnemonicInformation(aBundle : Bundle)]
 
 #User information for the Menu's mnemonic
-[for (aMenu : Menu | aBundle.eAllContents(Menu))]
-Menu-[aMenu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [aMenu.mnecmonic/]
+[for (aMenu : Menu | aBundle.eAllContents(Menu))][if (not(aMenu.eContainer().oclIsKindOf(View)))]
+Menu-[aMenu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [aMenu.mnemonic/]
+[/if][/for]
 
+#User information for the Action's mnemonic
+[for (anAction : Action | aBundle.eAllContents(Action))]
+Action-[anAction.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [anAction.mnemonic/]
 [/for]
 [/template]

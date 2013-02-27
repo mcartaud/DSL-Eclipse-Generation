@@ -65,7 +65,7 @@ public class MenuItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addMnecmonicPropertyDescriptor(object);
+      addMnemonicPropertyDescriptor(object);
       addMenuContributionPropertyDescriptor(object);
       addToolbarContributionPropertyDescriptor(object);
       addCommandsPropertyDescriptor(object);
@@ -97,20 +97,20 @@ public class MenuItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Mnecmonic feature.
+   * This adds a property descriptor for the Mnemonic feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addMnecmonicPropertyDescriptor(Object object)
+  protected void addMnemonicPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Menu_mnecmonic_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Menu_mnecmonic_feature", "_UI_Menu_type"),
-         EclipsePackage.Literals.MENU__MNECMONIC,
+         getString("_UI_Menu_mnemonic_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Menu_mnemonic_feature", "_UI_Menu_type"),
+         EclipsePackage.Literals.MENU__MNEMONIC,
          true,
          false,
          false,
@@ -230,7 +230,7 @@ public class MenuItemProvider
     switch (notification.getFeatureID(Menu.class))
     {
       case EclipsePackage.MENU__NAME:
-      case EclipsePackage.MENU__MNECMONIC:
+      case EclipsePackage.MENU__MNEMONIC:
       case EclipsePackage.MENU__MENU_CONTRIBUTION:
       case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -89,7 +89,7 @@
             <command
                   commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
                   icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-                  tooltip="[aCommand.action.tooltip/]"
+                  tooltip="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Tooltip"
                   id="[aCommand.eContainer(Bundle).genBundlePath()/].toolbars.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
 [for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
 [anAction.activateEditorAction()/]
@@ -101,8 +101,7 @@
             <command
                   commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
                   icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-                  tooltip="[aCommand.action.tooltip/]"
-				  mnemonic="%Menu-[aCommand.menu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic"
+				  mnemonic="%Action-[aCommand.action.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic"
                   id="[aCommand.eContainer(Bundle).genBundlePath()/].menus.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
 [for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
 [anAction.activateEditorAction()/]

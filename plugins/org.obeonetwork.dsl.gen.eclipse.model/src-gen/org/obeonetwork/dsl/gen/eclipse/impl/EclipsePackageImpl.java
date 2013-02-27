@@ -1711,7 +1711,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMenu_Mnecmonic()
+  public EAttribute getMenu_Mnemonic()
   {
     return (EAttribute)menuEClass.getEStructuralFeatures().get(1);
   }
@@ -1781,9 +1781,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommand_Action()
+  public EAttribute getCommand_Tooltip()
   {
-    return (EReference)commandEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1791,7 +1791,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommand_Menu()
+  public EReference getCommand_Action()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(3);
   }
@@ -1801,7 +1801,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommand_Category()
+  public EReference getCommand_Menu()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(4);
   }
@@ -1811,7 +1811,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommand_Binding()
+  public EReference getCommand_Category()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(5);
   }
@@ -1821,9 +1821,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCommand_Context()
+  public EReference getCommand_Binding()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCommand_Context()
+  {
+    return (EReference)commandEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1851,7 +1861,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAction_Tooltip()
+  public EAttribute getAction_Mnemonic()
   {
     return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
   }
@@ -2255,7 +2265,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     menuEClass = createEClass(MENU);
     createEAttribute(menuEClass, MENU__NAME);
-    createEAttribute(menuEClass, MENU__MNECMONIC);
+    createEAttribute(menuEClass, MENU__MNEMONIC);
     createEAttribute(menuEClass, MENU__MENU_CONTRIBUTION);
     createEAttribute(menuEClass, MENU__TOOLBAR_CONTRIBUTION);
     createEReference(menuEClass, MENU__COMMANDS);
@@ -2263,6 +2273,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     commandEClass = createEClass(COMMAND);
     createEAttribute(commandEClass, COMMAND__NAME);
     createEAttribute(commandEClass, COMMAND__ICON);
+    createEAttribute(commandEClass, COMMAND__TOOLTIP);
     createEReference(commandEClass, COMMAND__ACTION);
     createEReference(commandEClass, COMMAND__MENU);
     createEReference(commandEClass, COMMAND__CATEGORY);
@@ -2271,7 +2282,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     actionEClass = createEClass(ACTION);
     createEAttribute(actionEClass, ACTION__NAME);
-    createEAttribute(actionEClass, ACTION__TOOLTIP);
+    createEAttribute(actionEClass, ACTION__MNEMONIC);
     createEReference(actionEClass, ACTION__COMMAND);
 
     helpContentsEClass = createEClass(HELP_CONTENTS);
@@ -2500,7 +2511,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMenu_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMenu_Mnecmonic(), theEcorePackage.getEString(), "mnecmonic", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMenu_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMenu_MenuContribution(), theEcorePackage.getEBoolean(), "menuContribution", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMenu_ToolbarContribution(), theEcorePackage.getEBoolean(), "toolbarContribution", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMenu_Commands(), this.getCommand(), this.getCommand_Menu(), "commands", null, 0, -1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2508,6 +2519,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommand_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommand_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_Tooltip(), theEcorePackage.getEString(), "tooltip", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommand_Action(), this.getAction(), this.getAction_Command(), "action", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommand_Menu(), this.getMenu(), this.getMenu_Commands(), "menu", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommand_Category(), this.getCategory(), this.getCategory_Commands(), "category", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2516,7 +2528,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAction_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAction_Tooltip(), theEcorePackage.getEString(), "tooltip", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAction_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAction_Command(), this.getCommand(), this.getCommand_Action(), "command", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

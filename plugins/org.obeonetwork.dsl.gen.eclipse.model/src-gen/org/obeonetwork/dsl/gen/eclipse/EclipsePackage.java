@@ -1874,13 +1874,13 @@ public interface EclipsePackage extends EPackage
   int MENU__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Mnecmonic</b></em>' attribute.
+   * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MENU__MNECMONIC = 1;
+  int MENU__MNEMONIC = 1;
 
   /**
    * The feature id for the '<em><b>Menu Contribution</b></em>' attribute.
@@ -1956,13 +1956,22 @@ public interface EclipsePackage extends EPackage
   int COMMAND__ICON = 1;
 
   /**
+   * The feature id for the '<em><b>Tooltip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND__TOOLTIP = 2;
+
+  /**
    * The feature id for the '<em><b>Action</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__ACTION = 2;
+  int COMMAND__ACTION = 3;
 
   /**
    * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -1971,7 +1980,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND__MENU = 3;
+  int COMMAND__MENU = 4;
 
   /**
    * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1980,7 +1989,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND__CATEGORY = 4;
+  int COMMAND__CATEGORY = 5;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -1989,7 +1998,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND__BINDING = 5;
+  int COMMAND__BINDING = 6;
 
   /**
    * The feature id for the '<em><b>Context</b></em>' reference.
@@ -1998,7 +2007,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND__CONTEXT = 6;
+  int COMMAND__CONTEXT = 7;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -2007,7 +2016,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 7;
+  int COMMAND_FEATURE_COUNT = 8;
 
   /**
    * The number of operations of the '<em>Command</em>' class.
@@ -2038,13 +2047,13 @@ public interface EclipsePackage extends EPackage
   int ACTION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Tooltip</b></em>' attribute.
+   * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION__TOOLTIP = 1;
+  int ACTION__MNEMONIC = 1;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' reference.
@@ -3817,15 +3826,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getMenu_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnecmonic <em>Mnecmonic</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic <em>Mnemonic</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mnecmonic</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMnecmonic()
+   * @return the meta object for the attribute '<em>Mnemonic</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic()
    * @see #getMenu()
    * @generated
    */
-  EAttribute getMenu_Mnecmonic();
+  EAttribute getMenu_Mnemonic();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#isMenuContribution <em>Menu Contribution</em>}'.
@@ -3891,6 +3900,17 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EAttribute getCommand_Icon();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Command#getTooltip <em>Tooltip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Tooltip</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Command#getTooltip()
+   * @see #getCommand()
+   * @generated
+   */
+  EAttribute getCommand_Tooltip();
 
   /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}'.
@@ -3969,15 +3989,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getAction_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getTooltip <em>Tooltip</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic <em>Mnemonic</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Tooltip</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getTooltip()
+   * @return the meta object for the attribute '<em>Mnemonic</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic()
    * @see #getAction()
    * @generated
    */
-  EAttribute getAction_Tooltip();
+  EAttribute getAction_Mnemonic();
 
   /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Action#getCommand <em>Command</em>}'.
@@ -5371,12 +5391,12 @@ public interface EclipsePackage extends EPackage
     EAttribute MENU__NAME = eINSTANCE.getMenu_Name();
 
     /**
-     * The meta object literal for the '<em><b>Mnecmonic</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Mnemonic</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MENU__MNECMONIC = eINSTANCE.getMenu_Mnecmonic();
+    EAttribute MENU__MNEMONIC = eINSTANCE.getMenu_Mnemonic();
 
     /**
      * The meta object literal for the '<em><b>Menu Contribution</b></em>' attribute feature.
@@ -5427,6 +5447,14 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EAttribute COMMAND__ICON = eINSTANCE.getCommand_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>Tooltip</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMAND__TOOLTIP = eINSTANCE.getCommand_Tooltip();
 
     /**
      * The meta object literal for the '<em><b>Action</b></em>' reference feature.
@@ -5487,12 +5515,12 @@ public interface EclipsePackage extends EPackage
     EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
 
     /**
-     * The meta object literal for the '<em><b>Tooltip</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Mnemonic</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION__TOOLTIP = eINSTANCE.getAction_Tooltip();
+    EAttribute ACTION__MNEMONIC = eINSTANCE.getAction_Mnemonic();
 
     /**
      * The meta object literal for the '<em><b>Command</b></em>' reference feature.

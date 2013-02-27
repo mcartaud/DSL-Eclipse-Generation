@@ -188,7 +188,7 @@ class Editor extends Part {
 
 class Menu {
 	String name
-	String mnecmonic
+	String mnemonic
 	boolean menuContribution
 	boolean toolbarContribution
 	refers Command[] commands opposite menu
@@ -197,6 +197,7 @@ class Menu {
 class Command {
 	String name
 	String icon
+	String tooltip
 	refers Action action opposite command
 	refers Menu menu opposite commands
 	refers Category category opposite commands
@@ -206,7 +207,7 @@ class Command {
 
 class Action {
 	String name
-	String tooltip
+	String mnemonic
 	refers Command command opposite action
 }
 

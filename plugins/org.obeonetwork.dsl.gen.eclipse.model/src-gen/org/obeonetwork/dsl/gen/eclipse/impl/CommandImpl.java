@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategory <em>Category</em>}</li>
@@ -79,6 +80,26 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @ordered
    */
   protected String icon = ICON_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTooltip()
+   * @generated
+   * @ordered
+   */
+  protected static final String TOOLTIP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTooltip() <em>Tooltip</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTooltip()
+   * @generated
+   * @ordered
+   */
+  protected String tooltip = TOOLTIP_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAction() <em>Action</em>}' reference.
@@ -195,6 +216,29 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     icon = newIcon;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__ICON, oldIcon, icon));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTooltip()
+  {
+    return tooltip;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTooltip(String newTooltip)
+  {
+    String oldTooltip = tooltip;
+    tooltip = newTooltip;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__TOOLTIP, oldTooltip, tooltip));
   }
 
   /**
@@ -609,6 +653,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return getName();
       case EclipsePackage.COMMAND__ICON:
         return getIcon();
+      case EclipsePackage.COMMAND__TOOLTIP:
+        return getTooltip();
       case EclipsePackage.COMMAND__ACTION:
         if (resolve) return getAction();
         return basicGetAction();
@@ -643,6 +689,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return;
       case EclipsePackage.COMMAND__ICON:
         setIcon((String)newValue);
+        return;
+      case EclipsePackage.COMMAND__TOOLTIP:
+        setTooltip((String)newValue);
         return;
       case EclipsePackage.COMMAND__ACTION:
         setAction((Action)newValue);
@@ -679,6 +728,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case EclipsePackage.COMMAND__ICON:
         setIcon(ICON_EDEFAULT);
         return;
+      case EclipsePackage.COMMAND__TOOLTIP:
+        setTooltip(TOOLTIP_EDEFAULT);
+        return;
       case EclipsePackage.COMMAND__ACTION:
         setAction((Action)null);
         return;
@@ -712,6 +764,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.COMMAND__ICON:
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+      case EclipsePackage.COMMAND__TOOLTIP:
+        return TOOLTIP_EDEFAULT == null ? tooltip != null : !TOOLTIP_EDEFAULT.equals(tooltip);
       case EclipsePackage.COMMAND__ACTION:
         return action != null;
       case EclipsePackage.COMMAND__MENU:
@@ -741,6 +795,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     result.append(name);
     result.append(", icon: ");
     result.append(icon);
+    result.append(", tooltip: ");
+    result.append(tooltip);
     result.append(')');
     return result.toString();
   }
