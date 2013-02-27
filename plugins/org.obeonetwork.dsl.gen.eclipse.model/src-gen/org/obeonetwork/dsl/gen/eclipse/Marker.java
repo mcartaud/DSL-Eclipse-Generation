@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Marker#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID <em>Marker ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Marker#isIsPersistant <em>Is Persistant</em>}</li>
  * </ul>
  * </p>
@@ -49,32 +48,6 @@ public interface Marker extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Marker ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Marker ID</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Marker ID</em>' attribute.
-   * @see #setMarkerID(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMarker_MarkerID()
-   * @model unique="false"
-   * @generated
-   */
-  String getMarkerID();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID <em>Marker ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Marker ID</em>' attribute.
-   * @see #getMarkerID()
-   * @generated
-   */
-  void setMarkerID(String value);
 
   /**
    * Returns the value of the '<em><b>Is Persistant</b></em>' attribute.

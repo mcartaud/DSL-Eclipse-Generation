@@ -65,7 +65,6 @@ public class MarkerItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addMarkerIDPropertyDescriptor(object);
       addIsPersistantPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -86,29 +85,6 @@ public class MarkerItemProvider
          getString("_UI_Marker_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Marker_name_feature", "_UI_Marker_type"),
          EclipsePackage.Literals.MARKER__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Marker ID feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addMarkerIDPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Marker_markerID_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Marker_markerID_feature", "_UI_Marker_type"),
-         EclipsePackage.Literals.MARKER__MARKER_ID,
          true,
          false,
          false,
@@ -182,7 +158,6 @@ public class MarkerItemProvider
     switch (notification.getFeatureID(Marker.class))
     {
       case EclipsePackage.MARKER__NAME:
-      case EclipsePackage.MARKER__MARKER_ID:
       case EclipsePackage.MARKER__IS_PERSISTANT:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

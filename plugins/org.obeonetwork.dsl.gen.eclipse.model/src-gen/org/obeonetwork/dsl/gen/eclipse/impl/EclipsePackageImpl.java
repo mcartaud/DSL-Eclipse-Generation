@@ -411,9 +411,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getApplication_MavenCompilation()
+  {
+    return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getApplication_Projects()
   {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(6);
+    return (EReference)applicationEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1331,19 +1341,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMarker_MarkerID()
-  {
-    return (EAttribute)markerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getMarker_IsPersistant()
   {
-    return (EAttribute)markerEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)markerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2103,6 +2103,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(applicationEClass, APPLICATION__COPYRIGHT);
     createEAttribute(applicationEClass, APPLICATION__VERSION);
     createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
+    createEAttribute(applicationEClass, APPLICATION__MAVEN_COMPILATION);
     createEReference(applicationEClass, APPLICATION__PROJECTS);
 
     projectEClass = createEClass(PROJECT);
@@ -2210,7 +2211,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     markerEClass = createEClass(MARKER);
     createEAttribute(markerEClass, MARKER__NAME);
-    createEAttribute(markerEClass, MARKER__MARKER_ID);
     createEAttribute(markerEClass, MARKER__IS_PERSISTANT);
 
     contextEClass = createEClass(CONTEXT);
@@ -2348,6 +2348,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getApplication_Copyright(), theEcorePackage.getEString(), "copyright", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplication_MavenCompilation(), theEcorePackage.getEBoolean(), "mavenCompilation", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Projects(), this.getProject(), null, "projects", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2455,7 +2456,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
 
     initEClass(markerEClass, Marker.class, "Marker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMarker_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMarker_MarkerID(), theEcorePackage.getEString(), "markerID", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMarker_IsPersistant(), theEcorePackage.getEBoolean(), "isPersistant", null, 0, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

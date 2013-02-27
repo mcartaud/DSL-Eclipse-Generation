@@ -73,6 +73,7 @@ public class ApplicationItemProvider
       addCopyrightPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
+      addMavenCompilationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -216,6 +217,29 @@ public class ApplicationItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Maven Compilation feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addMavenCompilationPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Application_mavenCompilation_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Application_mavenCompilation_feature", "_UI_Application_type"),
+         EclipsePackage.Literals.APPLICATION__MAVEN_COMPILATION,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -295,6 +319,7 @@ public class ApplicationItemProvider
       case EclipsePackage.APPLICATION__COPYRIGHT:
       case EclipsePackage.APPLICATION__VERSION:
       case EclipsePackage.APPLICATION__DESCRIPTION:
+      case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.APPLICATION__PROJECTS:

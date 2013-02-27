@@ -158,8 +158,8 @@ false[/if]
 [/template]
 
 [template private markersTemplate(aMarker : Marker)]
-         id="[aMarker.markerID/]"
-         name="[aMarker.name/]">
+         id="[aMarker.eContainer(Bundle).genBundlePath()/].marker.[aMarker.name/]"
+         name="%Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name">
       <super
             type="org.eclipse.core.resources.problemmarker">
       </super>

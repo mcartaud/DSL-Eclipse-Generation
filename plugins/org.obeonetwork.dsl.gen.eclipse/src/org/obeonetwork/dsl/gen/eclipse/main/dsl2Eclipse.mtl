@@ -68,7 +68,9 @@ Contributors :
 [aBundle.genManifestMFFile()/]
 [aBundle.genPluginPropertiesFile()/]
 [aBundle.genProjectXmlFile()/]
+[if (anApplication.mavenCompilation)]
 [aBundle.genPomXmlFile()/]
+[/if]
 [for (aProvidedService : ProvidedService | aBundle.providedServices)]
 [aProvidedService.genProvidedServiceXmlFile()/]
 [/for]
@@ -130,7 +132,9 @@ or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.he
 [aFeature.genFeaturePropertiesFile()/]
 [aFeature.genFeatureXmlFile()/]
 [aFeature.genProjectXmlFile()/]
+[if (anApplication.mavenCompilation)]
 [aFeature.genPomXmlFile()/]
+[/if]
 [/for]
 
 
@@ -141,11 +145,14 @@ or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.he
 [aRepository.genSiteCssFile()/]
 [aRepository.genSiteXlsFile()/]
 [aRepository.genSiteXmlFile()/]
+[if (anApplication.mavenCompilation)]
 [aRepository.genPomXmlFile()/]
+[/if]
 [/for]
 
-
+[if (anApplication.mavenCompilation)]
 [anApplication.genPomParentXmlFile()/]
+[/if]
 [/template]
 
 [template private helpGen(anHelpPage : HelpPage)]

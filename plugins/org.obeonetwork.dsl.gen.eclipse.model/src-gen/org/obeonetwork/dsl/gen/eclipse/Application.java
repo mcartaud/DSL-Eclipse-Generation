@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}</li>
  * </ul>
  * </p>
@@ -185,6 +186,32 @@ public interface Application extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Maven Compilation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Maven Compilation</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Maven Compilation</em>' attribute.
+   * @see #setMavenCompilation(boolean)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_MavenCompilation()
+   * @model unique="false"
+   * @generated
+   */
+  boolean isMavenCompilation();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Maven Compilation</em>' attribute.
+   * @see #isMavenCompilation()
+   * @generated
+   */
+  void setMavenCompilation(boolean value);
 
   /**
    * Returns the value of the '<em><b>Projects</b></em>' containment reference list.

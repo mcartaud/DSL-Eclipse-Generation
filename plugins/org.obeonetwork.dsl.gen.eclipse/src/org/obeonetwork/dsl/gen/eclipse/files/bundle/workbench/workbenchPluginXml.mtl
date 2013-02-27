@@ -69,7 +69,7 @@
 
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
-            name="[aPerspective.name/]"
+            name="%Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Name"
             icon="%Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
 [if (aPerspective._context->size() > 0)]
 			contextId="[aPerspective.eContainer(Bundle).genBundlePath()/].context.[aPerspective._context.name.toLowerFirst().substituteAll(' ', '')/]"

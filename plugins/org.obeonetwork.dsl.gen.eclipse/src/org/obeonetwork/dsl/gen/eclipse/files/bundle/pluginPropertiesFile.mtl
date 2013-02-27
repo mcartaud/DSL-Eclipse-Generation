@@ -49,6 +49,12 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aBundle.decorators->size() > 0)]
 [aBundle.decoratorInformation()/]
 [/if]
+[if (aBundle.markers->size() > 0)]
+[aBundle.markerInformation()/]
+[/if]
+[if (aBundle.eAllContents(Menu)->size() > 0)]
+[aBundle.menuMnemonicInformation()/]
+[/if]
 [/file]
 [/template]
 
@@ -132,6 +138,25 @@ Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/
 #User information for the Perspectives
 [for (aPerspective : Perspective | aBundle.perspectives)]
 Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/perspectives/[aPerspective.icon/]
+Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aPerspective.name/]
+
+[/for]
+[/template]
+
+[template private markerInformation(aBundle : Bundle)]
+
+#User information for the Markers
+[for (aMarker : Marker | aBundle.markers)]
+Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aMarker.name/]
+
+[/for]
+[/template]
+
+[template private menuMnemonicInformation(aBundle : Bundle)]
+
+#User information for the Menu's mnemonic
+[for (aMenu : Menu | aBundle.eAllContents(Menu))]
+Menu-[aMenu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [aMenu.mnecmonic/]
 
 [/for]
 [/template]

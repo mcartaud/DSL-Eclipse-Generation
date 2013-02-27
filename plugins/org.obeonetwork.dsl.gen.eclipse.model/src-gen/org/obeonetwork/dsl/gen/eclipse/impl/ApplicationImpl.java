@@ -35,6 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProjects <em>Projects</em>}</li>
  * </ul>
  * </p>
@@ -162,6 +163,26 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMavenCompilation()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean MAVEN_COMPILATION_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isMavenCompilation()
+   * @generated
+   * @ordered
+   */
+  protected boolean mavenCompilation = MAVEN_COMPILATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getProjects() <em>Projects</em>}' containment reference list.
@@ -337,6 +358,29 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isMavenCompilation()
+  {
+    return mavenCompilation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMavenCompilation(boolean newMavenCompilation)
+  {
+    boolean oldMavenCompilation = mavenCompilation;
+    mavenCompilation = newMavenCompilation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__MAVEN_COMPILATION, oldMavenCompilation, mavenCompilation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Project> getProjects()
   {
     if (projects == null)
@@ -384,6 +428,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getVersion();
       case EclipsePackage.APPLICATION__DESCRIPTION:
         return getDescription();
+      case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+        return isMavenCompilation();
       case EclipsePackage.APPLICATION__PROJECTS:
         return getProjects();
     }
@@ -418,6 +464,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return;
       case EclipsePackage.APPLICATION__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+        setMavenCompilation((Boolean)newValue);
         return;
       case EclipsePackage.APPLICATION__PROJECTS:
         getProjects().clear();
@@ -455,6 +504,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case EclipsePackage.APPLICATION__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+        setMavenCompilation(MAVEN_COMPILATION_EDEFAULT);
+        return;
       case EclipsePackage.APPLICATION__PROJECTS:
         getProjects().clear();
         return;
@@ -484,6 +536,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case EclipsePackage.APPLICATION__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+        return mavenCompilation != MAVEN_COMPILATION_EDEFAULT;
       case EclipsePackage.APPLICATION__PROJECTS:
         return projects != null && !projects.isEmpty();
     }
@@ -513,6 +567,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     result.append(version);
     result.append(", description: ");
     result.append(description);
+    result.append(", mavenCompilation: ");
+    result.append(mavenCompilation);
     result.append(')');
     return result.toString();
   }

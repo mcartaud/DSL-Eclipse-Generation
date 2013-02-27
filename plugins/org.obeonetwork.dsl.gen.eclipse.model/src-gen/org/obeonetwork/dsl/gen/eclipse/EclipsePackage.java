@@ -124,13 +124,22 @@ public interface EclipsePackage extends EPackage
   int APPLICATION__DESCRIPTION = 5;
 
   /**
+   * The feature id for the '<em><b>Maven Compilation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__MAVEN_COMPILATION = 6;
+
+  /**
    * The feature id for the '<em><b>Projects</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__PROJECTS = 6;
+  int APPLICATION__PROJECTS = 7;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -139,7 +148,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 7;
+  int APPLICATION_FEATURE_COUNT = 8;
 
   /**
    * The number of operations of the '<em>Application</em>' class.
@@ -1345,22 +1354,13 @@ public interface EclipsePackage extends EPackage
   int MARKER__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Marker ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MARKER__MARKER_ID = 1;
-
-  /**
    * The feature id for the '<em><b>Is Persistant</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MARKER__IS_PERSISTANT = 2;
+  int MARKER__IS_PERSISTANT = 1;
 
   /**
    * The number of structural features of the '<em>Marker</em>' class.
@@ -1369,7 +1369,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MARKER_FEATURE_COUNT = 3;
+  int MARKER_FEATURE_COUNT = 2;
 
   /**
    * The number of operations of the '<em>Marker</em>' class.
@@ -2409,6 +2409,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getApplication_Description();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Maven Compilation</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_MavenCompilation();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3406,17 +3417,6 @@ public interface EclipsePackage extends EPackage
   EAttribute getMarker_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID <em>Marker ID</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Marker ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Marker#getMarkerID()
-   * @see #getMarker()
-   * @generated
-   */
-  EAttribute getMarker_MarkerID();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Marker#isIsPersistant <em>Is Persistant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4287,6 +4287,14 @@ public interface EclipsePackage extends EPackage
     EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
 
     /**
+     * The meta object literal for the '<em><b>Maven Compilation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__MAVEN_COMPILATION = eINSTANCE.getApplication_MavenCompilation();
+
+    /**
      * The meta object literal for the '<em><b>Projects</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5051,14 +5059,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EAttribute MARKER__NAME = eINSTANCE.getMarker_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Marker ID</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MARKER__MARKER_ID = eINSTANCE.getMarker_MarkerID();
 
     /**
      * The meta object literal for the '<em><b>Is Persistant</b></em>' attribute feature.
