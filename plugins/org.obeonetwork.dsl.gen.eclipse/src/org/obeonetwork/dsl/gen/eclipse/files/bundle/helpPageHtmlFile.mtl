@@ -19,7 +19,8 @@
 
 <body>
 <h1>[anHelpPage.label/]</h1>
-Please enter your text here.
+<h2>[anHelpPage.description/]</h2> 
+Please enter your text here
 </body>
 </html>
 [/file]

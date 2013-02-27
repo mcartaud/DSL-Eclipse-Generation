@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel <em>Label</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsLightweight <em>Is Lightweight</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsAdaptable <em>Is Adaptable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLocation <em>Location</em>}</li>
@@ -27,32 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Decorator extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Label</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Label</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Label</em>' attribute.
-   * @see #setLabel(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDecorator_Label()
-   * @model unique="false"
-   * @generated
-   */
-  String getLabel();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel <em>Label</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Label</em>' attribute.
-   * @see #getLabel()
-   * @generated
-   */
-  void setLabel(String value);
-
   /**
    * Returns the value of the '<em><b>Icon</b></em>' attribute.
    * <!-- begin-user-doc -->

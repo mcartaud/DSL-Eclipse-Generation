@@ -127,9 +127,8 @@ class Attribute {
 }
 
 class Decorator {
-	String label
-	String icon
 	String name
+	String icon
 	boolean isLightweight
 	boolean isAdaptable
 	Location location
@@ -212,22 +211,24 @@ class Action {
 }
 
 class HelpContents {
-	String description
 	String label
+	String description
 	String title
 	contains HelpPage[] helpPages
+	refers HelpPage[] externalHelpPages
 }
 
 class HelpPage {
-	String description
 	String label
+	String description
 	String title
 	contains HelpPage[] helpPages
+	refers HelpPage[] externalHelpPages
 }
 
 class DynamicHelp {
-	String description
 	String label
+	String description
 	String title
 	refers HelpPage[] helpPages
 }

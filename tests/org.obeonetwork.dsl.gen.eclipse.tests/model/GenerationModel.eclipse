@@ -45,8 +45,8 @@
   </projects>
   <projects xsi:type="eclipse:Bundle" name="ui" basePackage="org.obeonetwork.dsl.gen.eclipse" vendor="mCartaud">
     <wizards name="creationWizard" title="New Wizard" description="allow project creation" icon="wizardCreation.gif" isProject="true" category="//@projects.6/@categories.0"/>
-    <markers name="fileMarker"/>
-    <perspectives name="projectPerspective" icon="perspIcon.gif" views="//@projects.6/@views.0 //@projects.6/@views.2">
+    <markers name="fileMarker" isPersistant="true"/>
+    <perspectives name="work" icon="perspIcon.gif" views="//@projects.6/@views.0 //@projects.6/@views.2">
       <actions name="clique1" mnemonic="t" command="//@projects.6/@commands.0"/>
       <actions name="clique2" mnemonic="s" command="//@projects.6/@commands.1"/>
       <menus name="parameter" mnemonic="m" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.1 //@projects.6/@commands.0"/>
@@ -63,14 +63,14 @@
       <menus name="viewMenu1" mnemonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.6/@commands.3 //@projects.6/@commands.4"/>
     </views>
     <views name="treeVeiw" icon="treeViewIcon.gif" category="//@projects.6/@categories.1">
-      <dynamicHelp description="this page allow help" label="help For Tree View" title="treeView help" helpPages="//@projects.6/@helpContents.0/@helpPages.0 //@projects.6/@helpContents.0/@helpPages.1"/>
+      <dynamicHelp label="help For Tree View" description="this page allow help" title="treeView help" helpPages="//@projects.6/@helpContents.0/@helpPages.0 //@projects.6/@helpContents.0/@helpPages.1"/>
     </views>
     <views name="otherView" icon="otherViewIcon.gif" perspectives="//@projects.6/@perspectives.0" category="//@projects.6/@categories.1"/>
-    <helpContents description="this help offer help for the DSL" label="help For The Bundle" title="summary">
-      <helpPages description="explain the model creation" label="creation Model  Help" title="Model Help">
-        <helpPages description="explain the Generation" label="generation help" title="Generation"/>
+    <helpContents label="help For The Bundle" description="this help offer help for the DSL" title="summary" externalHelpPages="//@projects.7/@helpContents.0/@helpPages.0/@helpPages.0">
+      <helpPages label="creation Model  Help" description="explain the model creation" title="Model Help" externalHelpPages="//@projects.7/@helpContents.0/@helpPages.2">
+        <helpPages label="generation help" description="explain the Generation" title="Generation" externalHelpPages="//@projects.7/@helpContents.0/@helpPages.1"/>
       </helpPages>
-      <helpPages description="explicit the Licence" label="licence Help" title="Licence"/>
+      <helpPages label="licence Help" description="explicit the Licence" title="Licence" externalHelpPages="//@projects.7/@helpContents.0/@helpPages.0"/>
     </helpContents>
     <commands name="edit" icon="image1.gif" tooltip="edit the stuf" action="//@projects.6/@perspectives.0/@actions.0" menu="//@projects.6/@perspectives.0/@menus.0"/>
     <commands name="save" icon="image2.gif" tooltip="save the stuf" action="//@projects.6/@perspectives.0/@actions.1" menu="//@projects.6/@perspectives.0/@menus.0" binding="//@projects.6/@bindings.0"/>
@@ -82,5 +82,13 @@
     <bindings keySequence="ALT+1" command="//@projects.6/@commands.1"/>
     <bindings keySequence="CTRL+2" command="//@projects.6/@commands.3"/>
   </projects>
-  <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen.eclipse"/>
+  <projects xsi:type="eclipse:Bundle" name="tests" basePackage="org.obeonetwork.dsl.gen.eclipse">
+    <helpContents label="Help For The Tests" description="this page allow help for the tests" title="help Test">
+      <helpPages label="First Page" description="this is the first page" title="help's first page">
+        <helpPages label="sub page" description="this is the first page's sub page" title="help sub page"/>
+      </helpPages>
+      <helpPages label="stuf Explanation" description="explain so much stuf" title="you will understand so much things"/>
+      <helpPages label="something" description="stuf, stuf everywhere" title="something's title"/>
+    </helpContents>
+  </projects>
 </eclipse:Application>

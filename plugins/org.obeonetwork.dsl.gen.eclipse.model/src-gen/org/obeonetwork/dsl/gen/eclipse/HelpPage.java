@@ -14,10 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getHelpPages <em>Help Pages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getExternalHelpPages <em>External Help Pages</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,5 +121,21 @@ public interface HelpPage extends EObject
    * @generated
    */
   EList<HelpPage> getHelpPages();
+
+  /**
+   * Returns the value of the '<em><b>External Help Pages</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.HelpPage}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>External Help Pages</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>External Help Pages</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHelpPage_ExternalHelpPages()
+   * @model
+   * @generated
+   */
+  EList<HelpPage> getExternalHelpPages();
 
 } // HelpPage

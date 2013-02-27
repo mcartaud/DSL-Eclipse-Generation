@@ -1263,13 +1263,13 @@ public interface EclipsePackage extends EPackage
   int DECORATOR = 14;
 
   /**
-   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECORATOR__LABEL = 0;
+  int DECORATOR__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -1281,22 +1281,13 @@ public interface EclipsePackage extends EPackage
   int DECORATOR__ICON = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECORATOR__NAME = 2;
-
-  /**
    * The feature id for the '<em><b>Is Lightweight</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECORATOR__IS_LIGHTWEIGHT = 3;
+  int DECORATOR__IS_LIGHTWEIGHT = 2;
 
   /**
    * The feature id for the '<em><b>Is Adaptable</b></em>' attribute.
@@ -1305,7 +1296,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECORATOR__IS_ADAPTABLE = 4;
+  int DECORATOR__IS_ADAPTABLE = 3;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1314,7 +1305,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECORATOR__LOCATION = 5;
+  int DECORATOR__LOCATION = 4;
 
   /**
    * The number of structural features of the '<em>Decorator</em>' class.
@@ -1323,7 +1314,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECORATOR_FEATURE_COUNT = 6;
+  int DECORATOR_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Decorator</em>' class.
@@ -2093,22 +2084,22 @@ public interface EclipsePackage extends EPackage
   int HELP_CONTENTS = 25;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_CONTENTS__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_CONTENTS__LABEL = 1;
+  int HELP_CONTENTS__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__DESCRIPTION = 1;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2129,13 +2120,22 @@ public interface EclipsePackage extends EPackage
   int HELP_CONTENTS__HELP_PAGES = 3;
 
   /**
+   * The feature id for the '<em><b>External Help Pages</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_CONTENTS__EXTERNAL_HELP_PAGES = 4;
+
+  /**
    * The number of structural features of the '<em>Help Contents</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_CONTENTS_FEATURE_COUNT = 4;
+  int HELP_CONTENTS_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Help Contents</em>' class.
@@ -2157,22 +2157,22 @@ public interface EclipsePackage extends EPackage
   int HELP_PAGE = 26;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_PAGE__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_PAGE__LABEL = 1;
+  int HELP_PAGE__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__DESCRIPTION = 1;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -2193,13 +2193,22 @@ public interface EclipsePackage extends EPackage
   int HELP_PAGE__HELP_PAGES = 3;
 
   /**
+   * The feature id for the '<em><b>External Help Pages</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HELP_PAGE__EXTERNAL_HELP_PAGES = 4;
+
+  /**
    * The number of structural features of the '<em>Help Page</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_PAGE_FEATURE_COUNT = 4;
+  int HELP_PAGE_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Help Page</em>' class.
@@ -2221,22 +2230,22 @@ public interface EclipsePackage extends EPackage
   int DYNAMIC_HELP = 27;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DYNAMIC_HELP__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP__LABEL = 1;
+  int DYNAMIC_HELP__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DYNAMIC_HELP__DESCRIPTION = 1;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -3339,17 +3348,6 @@ public interface EclipsePackage extends EPackage
   EClass getDecorator();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getLabel()
-   * @see #getDecorator()
-   * @generated
-   */
-  EAttribute getDecorator_Label();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4065,6 +4063,17 @@ public interface EclipsePackage extends EPackage
   EReference getHelpContents_HelpPages();
 
   /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getExternalHelpPages <em>External Help Pages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>External Help Pages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents#getExternalHelpPages()
+   * @see #getHelpContents()
+   * @generated
+   */
+  EReference getHelpContents_ExternalHelpPages();
+
+  /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage <em>Help Page</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4117,6 +4126,17 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getHelpPage_HelpPages();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getExternalHelpPages <em>External Help Pages</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>External Help Pages</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage#getExternalHelpPages()
+   * @see #getHelpPage()
+   * @generated
+   */
+  EReference getHelpPage_ExternalHelpPages();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp <em>Dynamic Help</em>}'.
@@ -5015,14 +5035,6 @@ public interface EclipsePackage extends EPackage
     EClass DECORATOR = eINSTANCE.getDecorator();
 
     /**
-     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DECORATOR__LABEL = eINSTANCE.getDecorator_Label();
-
-    /**
      * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5573,6 +5585,14 @@ public interface EclipsePackage extends EPackage
     EReference HELP_CONTENTS__HELP_PAGES = eINSTANCE.getHelpContents_HelpPages();
 
     /**
+     * The meta object literal for the '<em><b>External Help Pages</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HELP_CONTENTS__EXTERNAL_HELP_PAGES = eINSTANCE.getHelpContents_ExternalHelpPages();
+
+    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl <em>Help Page</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5613,6 +5633,14 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference HELP_PAGE__HELP_PAGES = eINSTANCE.getHelpPage_HelpPages();
+
+    /**
+     * The meta object literal for the '<em><b>External Help Pages</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HELP_PAGE__EXTERNAL_HELP_PAGES = eINSTANCE.getHelpPage_ExternalHelpPages();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl <em>Dynamic Help</em>}' class.

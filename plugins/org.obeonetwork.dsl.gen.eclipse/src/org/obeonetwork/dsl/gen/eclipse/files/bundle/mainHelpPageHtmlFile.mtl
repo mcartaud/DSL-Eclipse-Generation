@@ -19,6 +19,7 @@
 
 <body>
 <h1>[anHelpContent.label/]</h1>
+<h2>[anHelpContent.description/]</h2> 
 Please enter your text here.
 </body>
 </html>

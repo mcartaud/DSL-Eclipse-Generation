@@ -135,7 +135,7 @@ false[/if]
             lightweight="[aDecorator.isLightweight/]"
             location="[aDecorator.location/]"
             adaptable="[aDecorator.isAdaptable/]"
-            label="[aDecorator.label/]"
+            label="[aDecorator.name/]"
             icon="%Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
             state="true"
             id="[aDecorator.eContainer(Bundle).basePackage/].[aDecorator.name/]">

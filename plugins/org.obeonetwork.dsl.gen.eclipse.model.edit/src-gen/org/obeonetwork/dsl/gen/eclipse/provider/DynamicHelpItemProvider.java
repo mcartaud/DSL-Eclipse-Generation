@@ -64,8 +64,8 @@ public class DynamicHelpItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addDescriptionPropertyDescriptor(object);
       addLabelPropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
       addTitlePropertyDescriptor(object);
       addHelpPagesPropertyDescriptor(object);
     }
@@ -185,7 +185,7 @@ public class DynamicHelpItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((DynamicHelp)object).getDescription();
+    String label = ((DynamicHelp)object).getLabel();
     return label == null || label.length() == 0 ?
       getString("_UI_DynamicHelp_type") :
       getString("_UI_DynamicHelp_type") + " " + label;
@@ -205,8 +205,8 @@ public class DynamicHelpItemProvider
 
     switch (notification.getFeatureID(DynamicHelp.class))
     {
-      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
       case EclipsePackage.DYNAMIC_HELP__LABEL:
+      case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
       case EclipsePackage.DYNAMIC_HELP__TITLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

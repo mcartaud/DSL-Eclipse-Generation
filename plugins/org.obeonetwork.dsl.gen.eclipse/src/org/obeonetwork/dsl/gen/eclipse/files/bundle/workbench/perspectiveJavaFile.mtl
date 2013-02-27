@@ -58,7 +58,9 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
 [/if][/for]
 
-		layout.addView(IPageLayout.ID_OUTLINE, IPageLayout.RIGHT, threeQuarter, editorArea);
+		IFolderLayout rightFolder = layout.createFolder(
+				"right", IPageLayout.RIGHT, threeQuarter, editorArea); //$NON-NLS-1$
+		rightFolder.addView(IPageLayout.ID_OUTLINE);
 
 		layout.addActionSet(JavaUI.ID_ACTION_SET);
 		layout.addActionSet(JavaUI.ID_ELEMENT_CREATION_ACTION_SET);

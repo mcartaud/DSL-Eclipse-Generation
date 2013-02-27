@@ -20,9 +20,8 @@ import org.obeonetwork.dsl.gen.eclipse.Location;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#isIsLightweight <em>Is Lightweight</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#isIsAdaptable <em>Is Adaptable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getLocation <em>Location</em>}</li>
@@ -34,24 +33,24 @@ import org.obeonetwork.dsl.gen.eclipse.Location;
 public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decorator
 {
   /**
-   * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLabel()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String LABEL_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLabel()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String label = LABEL_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
@@ -72,26 +71,6 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
    * @ordered
    */
   protected String icon = ICON_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #isIsLightweight() <em>Is Lightweight</em>}' attribute.
@@ -172,29 +151,6 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
   protected EClass eStaticClass()
   {
     return EclipsePackage.Literals.DECORATOR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLabel()
-  {
-    return label;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLabel(String newLabel)
-  {
-    String oldLabel = label;
-    label = newLabel;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__LABEL, oldLabel, label));
   }
 
   /**
@@ -322,12 +278,10 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
   {
     switch (featureID)
     {
-      case EclipsePackage.DECORATOR__LABEL:
-        return getLabel();
-      case EclipsePackage.DECORATOR__ICON:
-        return getIcon();
       case EclipsePackage.DECORATOR__NAME:
         return getName();
+      case EclipsePackage.DECORATOR__ICON:
+        return getIcon();
       case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
         return isIsLightweight();
       case EclipsePackage.DECORATOR__IS_ADAPTABLE:
@@ -348,14 +302,11 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
   {
     switch (featureID)
     {
-      case EclipsePackage.DECORATOR__LABEL:
-        setLabel((String)newValue);
+      case EclipsePackage.DECORATOR__NAME:
+        setName((String)newValue);
         return;
       case EclipsePackage.DECORATOR__ICON:
         setIcon((String)newValue);
-        return;
-      case EclipsePackage.DECORATOR__NAME:
-        setName((String)newValue);
         return;
       case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
         setIsLightweight((Boolean)newValue);
@@ -380,14 +331,11 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
   {
     switch (featureID)
     {
-      case EclipsePackage.DECORATOR__LABEL:
-        setLabel(LABEL_EDEFAULT);
+      case EclipsePackage.DECORATOR__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case EclipsePackage.DECORATOR__ICON:
         setIcon(ICON_EDEFAULT);
-        return;
-      case EclipsePackage.DECORATOR__NAME:
-        setName(NAME_EDEFAULT);
         return;
       case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
         setIsLightweight(IS_LIGHTWEIGHT_EDEFAULT);
@@ -412,12 +360,10 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
   {
     switch (featureID)
     {
-      case EclipsePackage.DECORATOR__LABEL:
-        return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-      case EclipsePackage.DECORATOR__ICON:
-        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.DECORATOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EclipsePackage.DECORATOR__ICON:
+        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
         return isLightweight != IS_LIGHTWEIGHT_EDEFAULT;
       case EclipsePackage.DECORATOR__IS_ADAPTABLE:
@@ -439,12 +385,10 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (label: ");
-    result.append(label);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", icon: ");
     result.append(icon);
-    result.append(", name: ");
-    result.append(name);
     result.append(", isLightweight: ");
     result.append(isLightweight);
     result.append(", isAdaptable: ");

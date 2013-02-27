@@ -1261,16 +1261,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecorator_Label()
-  {
-    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDecorator_Icon()
   {
     return (EAttribute)decoratorEClass.getEStructuralFeatures().get(1);
@@ -1283,7 +1273,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDecorator_Name()
   {
-    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1293,7 +1283,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDecorator_IsLightweight()
   {
-    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1303,7 +1293,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDecorator_IsAdaptable()
   {
-    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1313,7 +1303,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDecorator_Location()
   {
-    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)decoratorEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1893,7 +1883,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getHelpContents_Description()
   {
-    return (EAttribute)helpContentsEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)helpContentsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1903,7 +1893,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getHelpContents_Label()
   {
-    return (EAttribute)helpContentsEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)helpContentsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1931,6 +1921,16 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getHelpContents_ExternalHelpPages()
+  {
+    return (EReference)helpContentsEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getHelpPage()
   {
     return helpPageEClass;
@@ -1943,7 +1943,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getHelpPage_Description()
   {
-    return (EAttribute)helpPageEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)helpPageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1953,7 +1953,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getHelpPage_Label()
   {
-    return (EAttribute)helpPageEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)helpPageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1981,6 +1981,16 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getHelpPage_ExternalHelpPages()
+  {
+    return (EReference)helpPageEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDynamicHelp()
   {
     return dynamicHelpEClass;
@@ -1993,7 +2003,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDynamicHelp_Description()
   {
-    return (EAttribute)dynamicHelpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dynamicHelpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2003,7 +2013,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    */
   public EAttribute getDynamicHelp_Label()
   {
-    return (EAttribute)dynamicHelpEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dynamicHelpEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2212,9 +2222,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
 
     decoratorEClass = createEClass(DECORATOR);
-    createEAttribute(decoratorEClass, DECORATOR__LABEL);
-    createEAttribute(decoratorEClass, DECORATOR__ICON);
     createEAttribute(decoratorEClass, DECORATOR__NAME);
+    createEAttribute(decoratorEClass, DECORATOR__ICON);
     createEAttribute(decoratorEClass, DECORATOR__IS_LIGHTWEIGHT);
     createEAttribute(decoratorEClass, DECORATOR__IS_ADAPTABLE);
     createEAttribute(decoratorEClass, DECORATOR__LOCATION);
@@ -2286,20 +2295,22 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEReference(actionEClass, ACTION__COMMAND);
 
     helpContentsEClass = createEClass(HELP_CONTENTS);
-    createEAttribute(helpContentsEClass, HELP_CONTENTS__DESCRIPTION);
     createEAttribute(helpContentsEClass, HELP_CONTENTS__LABEL);
+    createEAttribute(helpContentsEClass, HELP_CONTENTS__DESCRIPTION);
     createEAttribute(helpContentsEClass, HELP_CONTENTS__TITLE);
     createEReference(helpContentsEClass, HELP_CONTENTS__HELP_PAGES);
+    createEReference(helpContentsEClass, HELP_CONTENTS__EXTERNAL_HELP_PAGES);
 
     helpPageEClass = createEClass(HELP_PAGE);
-    createEAttribute(helpPageEClass, HELP_PAGE__DESCRIPTION);
     createEAttribute(helpPageEClass, HELP_PAGE__LABEL);
+    createEAttribute(helpPageEClass, HELP_PAGE__DESCRIPTION);
     createEAttribute(helpPageEClass, HELP_PAGE__TITLE);
     createEReference(helpPageEClass, HELP_PAGE__HELP_PAGES);
+    createEReference(helpPageEClass, HELP_PAGE__EXTERNAL_HELP_PAGES);
 
     dynamicHelpEClass = createEClass(DYNAMIC_HELP);
-    createEAttribute(dynamicHelpEClass, DYNAMIC_HELP__DESCRIPTION);
     createEAttribute(dynamicHelpEClass, DYNAMIC_HELP__LABEL);
+    createEAttribute(dynamicHelpEClass, DYNAMIC_HELP__DESCRIPTION);
     createEAttribute(dynamicHelpEClass, DYNAMIC_HELP__TITLE);
     createEReference(dynamicHelpEClass, DYNAMIC_HELP__HELP_PAGES);
 
@@ -2458,9 +2469,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getAttribute_Type(), this.getType(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(decoratorEClass, Decorator.class, "Decorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDecorator_Label(), theEcorePackage.getEString(), "label", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDecorator_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecorator_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecorator_Icon(), theEcorePackage.getEString(), "icon", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecorator_IsLightweight(), theEcorePackage.getEBoolean(), "isLightweight", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecorator_IsAdaptable(), theEcorePackage.getEBoolean(), "isAdaptable", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecorator_Location(), this.getLocation(), "location", null, 0, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2532,20 +2542,22 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEReference(getAction_Command(), this.getCommand(), this.getCommand_Action(), "command", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getHelpContents_Description(), theEcorePackage.getEString(), "description", null, 0, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHelpContents_Label(), theEcorePackage.getEString(), "label", null, 0, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getHelpContents_Description(), theEcorePackage.getEString(), "description", null, 0, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHelpContents_Title(), theEcorePackage.getEString(), "title", null, 0, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getHelpContents_HelpPages(), this.getHelpPage(), null, "helpPages", null, 0, -1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHelpContents_ExternalHelpPages(), this.getHelpPage(), null, "externalHelpPages", null, 0, -1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(helpPageEClass, HelpPage.class, "HelpPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getHelpPage_Description(), theEcorePackage.getEString(), "description", null, 0, 1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHelpPage_Label(), theEcorePackage.getEString(), "label", null, 0, 1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getHelpPage_Description(), theEcorePackage.getEString(), "description", null, 0, 1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHelpPage_Title(), theEcorePackage.getEString(), "title", null, 0, 1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getHelpPage_HelpPages(), this.getHelpPage(), null, "helpPages", null, 0, -1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHelpPage_ExternalHelpPages(), this.getHelpPage(), null, "externalHelpPages", null, 0, -1, HelpPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dynamicHelpEClass, DynamicHelp.class, "DynamicHelp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDynamicHelp_Description(), theEcorePackage.getEString(), "description", null, 0, 1, DynamicHelp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDynamicHelp_Label(), theEcorePackage.getEString(), "label", null, 0, 1, DynamicHelp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDynamicHelp_Description(), theEcorePackage.getEString(), "description", null, 0, 1, DynamicHelp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDynamicHelp_Title(), theEcorePackage.getEString(), "title", null, 0, 1, DynamicHelp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDynamicHelp_HelpPages(), this.getHelpPage(), null, "helpPages", null, 0, -1, DynamicHelp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

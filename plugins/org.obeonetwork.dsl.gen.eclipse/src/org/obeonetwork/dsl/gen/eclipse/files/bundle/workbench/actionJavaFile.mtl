@@ -39,7 +39,7 @@ public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] extends Abstrac
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
-				"[anAction.eContainer(Bundle).name.toUpperFirst()/]",
+				"[anAction.eContainer(Bundle).genBundlePath()/]",
 				"Running [anAction.name/]!");
 		return null;
 	}

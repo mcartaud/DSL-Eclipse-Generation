@@ -64,37 +64,13 @@ public class DecoratorItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addLabelPropertyDescriptor(object);
-      addIconPropertyDescriptor(object);
       addNamePropertyDescriptor(object);
+      addIconPropertyDescriptor(object);
       addIsLightweightPropertyDescriptor(object);
       addIsAdaptablePropertyDescriptor(object);
       addLocationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Label feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLabelPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Decorator_label_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Decorator_label_feature", "_UI_Decorator_type"),
-         EclipsePackage.Literals.DECORATOR__LABEL,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -253,9 +229,8 @@ public class DecoratorItemProvider
 
     switch (notification.getFeatureID(Decorator.class))
     {
-      case EclipsePackage.DECORATOR__LABEL:
-      case EclipsePackage.DECORATOR__ICON:
       case EclipsePackage.DECORATOR__NAME:
+      case EclipsePackage.DECORATOR__ICON:
       case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
       case EclipsePackage.DECORATOR__IS_ADAPTABLE:
       case EclipsePackage.DECORATOR__LOCATION:

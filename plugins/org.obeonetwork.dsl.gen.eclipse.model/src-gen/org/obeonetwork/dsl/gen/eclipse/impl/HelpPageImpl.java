@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -28,10 +29,11 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getHelpPages <em>Help Pages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getExternalHelpPages <em>External Help Pages</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,26 +41,6 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  */
 public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPage
 {
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
-
   /**
    * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -78,6 +60,26 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * @ordered
    */
   protected String label = LABEL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -108,6 +110,16 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * @ordered
    */
   protected EList<HelpPage> helpPages;
+
+  /**
+   * The cached value of the '{@link #getExternalHelpPages() <em>External Help Pages</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExternalHelpPages()
+   * @generated
+   * @ordered
+   */
+  protected EList<HelpPage> externalHelpPages;
 
   /**
    * <!-- begin-user-doc -->
@@ -218,6 +230,20 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<HelpPage> getExternalHelpPages()
+  {
+    if (externalHelpPages == null)
+    {
+      externalHelpPages = new EObjectResolvingEList<HelpPage>(HelpPage.class, this, EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES);
+    }
+    return externalHelpPages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -239,14 +265,16 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
   {
     switch (featureID)
     {
-      case EclipsePackage.HELP_PAGE__DESCRIPTION:
-        return getDescription();
       case EclipsePackage.HELP_PAGE__LABEL:
         return getLabel();
+      case EclipsePackage.HELP_PAGE__DESCRIPTION:
+        return getDescription();
       case EclipsePackage.HELP_PAGE__TITLE:
         return getTitle();
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         return getHelpPages();
+      case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
+        return getExternalHelpPages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -262,11 +290,11 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
   {
     switch (featureID)
     {
-      case EclipsePackage.HELP_PAGE__DESCRIPTION:
-        setDescription((String)newValue);
-        return;
       case EclipsePackage.HELP_PAGE__LABEL:
         setLabel((String)newValue);
+        return;
+      case EclipsePackage.HELP_PAGE__DESCRIPTION:
+        setDescription((String)newValue);
         return;
       case EclipsePackage.HELP_PAGE__TITLE:
         setTitle((String)newValue);
@@ -274,6 +302,10 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         getHelpPages().clear();
         getHelpPages().addAll((Collection<? extends HelpPage>)newValue);
+        return;
+      case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
+        getExternalHelpPages().clear();
+        getExternalHelpPages().addAll((Collection<? extends HelpPage>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -289,17 +321,20 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
   {
     switch (featureID)
     {
-      case EclipsePackage.HELP_PAGE__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
       case EclipsePackage.HELP_PAGE__LABEL:
         setLabel(LABEL_EDEFAULT);
+        return;
+      case EclipsePackage.HELP_PAGE__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
         return;
       case EclipsePackage.HELP_PAGE__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         getHelpPages().clear();
+        return;
+      case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
+        getExternalHelpPages().clear();
         return;
     }
     super.eUnset(featureID);
@@ -315,14 +350,16 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
   {
     switch (featureID)
     {
-      case EclipsePackage.HELP_PAGE__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case EclipsePackage.HELP_PAGE__LABEL:
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+      case EclipsePackage.HELP_PAGE__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case EclipsePackage.HELP_PAGE__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         return helpPages != null && !helpPages.isEmpty();
+      case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
+        return externalHelpPages != null && !externalHelpPages.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -338,10 +375,10 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (description: ");
-    result.append(description);
-    result.append(", label: ");
+    result.append(" (label: ");
     result.append(label);
+    result.append(", description: ");
+    result.append(description);
     result.append(", title: ");
     result.append(title);
     result.append(')');

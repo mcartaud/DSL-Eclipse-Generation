@@ -105,7 +105,6 @@ View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/views/[aVi
 
 #User information for the editors
 [for (anEditor : Editor | aBundle.editors)]
-
 [anEditor.name.toUpperFirst().replaceAll(' ', '')/]-Editor-Name = [anEditor.name/]
 Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/editors/[anEditor.icon/]
 

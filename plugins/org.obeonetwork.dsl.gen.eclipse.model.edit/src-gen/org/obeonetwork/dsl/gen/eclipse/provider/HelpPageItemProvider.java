@@ -67,9 +67,10 @@ public class HelpPageItemProvider
     {
       super.getPropertyDescriptors(object);
 
-      addDescriptionPropertyDescriptor(object);
       addLabelPropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
       addTitlePropertyDescriptor(object);
+      addExternalHelpPagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -144,6 +145,29 @@ public class HelpPageItemProvider
   }
 
   /**
+   * This adds a property descriptor for the External Help Pages feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addExternalHelpPagesPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_HelpPage_externalHelpPages_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_externalHelpPages_feature", "_UI_HelpPage_type"),
+         EclipsePackage.Literals.HELP_PAGE__EXTERNAL_HELP_PAGES,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -197,7 +221,7 @@ public class HelpPageItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((HelpPage)object).getDescription();
+    String label = ((HelpPage)object).getLabel();
     return label == null || label.length() == 0 ?
       getString("_UI_HelpPage_type") :
       getString("_UI_HelpPage_type") + " " + label;
@@ -217,8 +241,8 @@ public class HelpPageItemProvider
 
     switch (notification.getFeatureID(HelpPage.class))
     {
-      case EclipsePackage.HELP_PAGE__DESCRIPTION:
       case EclipsePackage.HELP_PAGE__LABEL:
+      case EclipsePackage.HELP_PAGE__DESCRIPTION:
       case EclipsePackage.HELP_PAGE__TITLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
