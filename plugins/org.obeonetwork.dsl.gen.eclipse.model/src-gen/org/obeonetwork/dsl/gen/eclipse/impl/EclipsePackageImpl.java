@@ -391,7 +391,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getApplication_Version()
+  public EAttribute getApplication_License()
   {
     return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
   }
@@ -401,7 +401,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getApplication_Description()
+  public EAttribute getApplication_Version()
   {
     return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
   }
@@ -411,7 +411,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getApplication_MavenCompilation()
+  public EAttribute getApplication_Description()
   {
     return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
   }
@@ -421,9 +421,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getApplication_MavenCompilation()
+  {
+    return (EAttribute)applicationEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getApplication_Projects()
   {
-    return (EReference)applicationEClass.getEStructuralFeatures().get(7);
+    return (EReference)applicationEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1051,7 +1061,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNature_HasToogleNature()
+  public EAttribute getNature_HasToggleNature()
   {
     return (EAttribute)natureEClass.getEStructuralFeatures().get(2);
   }
@@ -2121,6 +2131,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     createEAttribute(applicationEClass, APPLICATION__APPLICATION_ID);
     createEAttribute(applicationEClass, APPLICATION__PROVIDER);
     createEAttribute(applicationEClass, APPLICATION__COPYRIGHT);
+    createEAttribute(applicationEClass, APPLICATION__LICENSE);
     createEAttribute(applicationEClass, APPLICATION__VERSION);
     createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
     createEAttribute(applicationEClass, APPLICATION__MAVEN_COMPILATION);
@@ -2196,7 +2207,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     natureEClass = createEClass(NATURE);
     createEAttribute(natureEClass, NATURE__NAME);
     createEAttribute(natureEClass, NATURE__LANGAGE_NAME);
-    createEAttribute(natureEClass, NATURE__HAS_TOOGLE_NATURE);
+    createEAttribute(natureEClass, NATURE__HAS_TOGGLE_NATURE);
     createEReference(natureEClass, NATURE__BUILDERS);
 
     wizardEClass = createEClass(WIZARD);
@@ -2368,6 +2379,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEAttribute(getApplication_ApplicationID(), theEcorePackage.getEString(), "applicationID", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Provider(), theEcorePackage.getEString(), "provider", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Copyright(), theEcorePackage.getEString(), "copyright", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getApplication_License(), theEcorePackage.getEString(), "license", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Version(), theEcorePackage.getEString(), "version", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getApplication_MavenCompilation(), theEcorePackage.getEBoolean(), "mavenCompilation", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2443,7 +2455,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage
     initEClass(natureEClass, Nature.class, "Nature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNature_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNature_LangageName(), theEcorePackage.getEString(), "langageName", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getNature_HasToogleNature(), theEcorePackage.getEBoolean(), "hasToogleNature", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNature_HasToggleNature(), theEcorePackage.getEBoolean(), "hasToggleNature", null, 0, 1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNature_Builders(), this.getBuilder(), this.getBuilder_Natures(), "builders", null, 0, -1, Nature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wizardEClass, Wizard.class, "Wizard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

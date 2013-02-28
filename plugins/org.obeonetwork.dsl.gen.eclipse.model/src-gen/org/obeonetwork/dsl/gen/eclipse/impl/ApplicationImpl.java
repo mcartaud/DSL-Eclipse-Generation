@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getApplicationID <em>Application ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isMavenCompilation <em>Maven Compilation</em>}</li>
@@ -123,6 +124,26 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * @ordered
    */
   protected String copyright = COPYRIGHT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getLicense() <em>License</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLicense()
+   * @generated
+   * @ordered
+   */
+  protected static final String LICENSE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLicense()
+   * @generated
+   * @ordered
+   */
+  protected String license = LICENSE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -312,6 +333,29 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getLicense()
+  {
+    return license;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLicense(String newLicense)
+  {
+    String oldLicense = license;
+    license = newLicense;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__LICENSE, oldLicense, license));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getVersion()
   {
     return version;
@@ -424,6 +468,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getProvider();
       case EclipsePackage.APPLICATION__COPYRIGHT:
         return getCopyright();
+      case EclipsePackage.APPLICATION__LICENSE:
+        return getLicense();
       case EclipsePackage.APPLICATION__VERSION:
         return getVersion();
       case EclipsePackage.APPLICATION__DESCRIPTION:
@@ -458,6 +504,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return;
       case EclipsePackage.APPLICATION__COPYRIGHT:
         setCopyright((String)newValue);
+        return;
+      case EclipsePackage.APPLICATION__LICENSE:
+        setLicense((String)newValue);
         return;
       case EclipsePackage.APPLICATION__VERSION:
         setVersion((String)newValue);
@@ -498,6 +547,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case EclipsePackage.APPLICATION__COPYRIGHT:
         setCopyright(COPYRIGHT_EDEFAULT);
         return;
+      case EclipsePackage.APPLICATION__LICENSE:
+        setLicense(LICENSE_EDEFAULT);
+        return;
       case EclipsePackage.APPLICATION__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
@@ -532,6 +584,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
       case EclipsePackage.APPLICATION__COPYRIGHT:
         return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
+      case EclipsePackage.APPLICATION__LICENSE:
+        return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
       case EclipsePackage.APPLICATION__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case EclipsePackage.APPLICATION__DESCRIPTION:
@@ -563,6 +617,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     result.append(provider);
     result.append(", copyright: ");
     result.append(copyright);
+    result.append(", license: ");
+    result.append(license);
     result.append(", version: ");
     result.append(version);
     result.append(", description: ");

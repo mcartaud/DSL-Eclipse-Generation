@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.gen.eclipse.Nature;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getLangageName <em>Langage Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#isHasToogleNature <em>Has Toogle Nature</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#isHasToggleNature <em>Has Toggle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getBuilders <em>Builders</em>}</li>
  * </ul>
  * </p>
@@ -81,24 +81,24 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
   protected String langageName = LANGAGE_NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isHasToogleNature() <em>Has Toogle Nature</em>}' attribute.
+   * The default value of the '{@link #isHasToggleNature() <em>Has Toggle Nature</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHasToogleNature()
+   * @see #isHasToggleNature()
    * @generated
    * @ordered
    */
-  protected static final boolean HAS_TOOGLE_NATURE_EDEFAULT = false;
+  protected static final boolean HAS_TOGGLE_NATURE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isHasToogleNature() <em>Has Toogle Nature</em>}' attribute.
+   * The cached value of the '{@link #isHasToggleNature() <em>Has Toggle Nature</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHasToogleNature()
+   * @see #isHasToggleNature()
    * @generated
    * @ordered
    */
-  protected boolean hasToogleNature = HAS_TOOGLE_NATURE_EDEFAULT;
+  protected boolean hasToggleNature = HAS_TOGGLE_NATURE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBuilders() <em>Builders</em>}' reference list.
@@ -182,9 +182,9 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHasToogleNature()
+  public boolean isHasToggleNature()
   {
-    return hasToogleNature;
+    return hasToggleNature;
   }
 
   /**
@@ -192,12 +192,12 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHasToogleNature(boolean newHasToogleNature)
+  public void setHasToggleNature(boolean newHasToggleNature)
   {
-    boolean oldHasToogleNature = hasToogleNature;
-    hasToogleNature = newHasToogleNature;
+    boolean oldHasToggleNature = hasToggleNature;
+    hasToggleNature = newHasToggleNature;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__HAS_TOOGLE_NATURE, oldHasToogleNature, hasToogleNature));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__HAS_TOGGLE_NATURE, oldHasToggleNature, hasToggleNature));
   }
 
   /**
@@ -261,8 +261,8 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
         return getName();
       case EclipsePackage.NATURE__LANGAGE_NAME:
         return getLangageName();
-      case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
-        return isHasToogleNature();
+      case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+        return isHasToggleNature();
       case EclipsePackage.NATURE__BUILDERS:
         return getBuilders();
     }
@@ -286,8 +286,8 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
       case EclipsePackage.NATURE__LANGAGE_NAME:
         setLangageName((String)newValue);
         return;
-      case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
-        setHasToogleNature((Boolean)newValue);
+      case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+        setHasToggleNature((Boolean)newValue);
         return;
       case EclipsePackage.NATURE__BUILDERS:
         getBuilders().clear();
@@ -313,8 +313,8 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
       case EclipsePackage.NATURE__LANGAGE_NAME:
         setLangageName(LANGAGE_NAME_EDEFAULT);
         return;
-      case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
-        setHasToogleNature(HAS_TOOGLE_NATURE_EDEFAULT);
+      case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+        setHasToggleNature(HAS_TOGGLE_NATURE_EDEFAULT);
         return;
       case EclipsePackage.NATURE__BUILDERS:
         getBuilders().clear();
@@ -337,8 +337,8 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.NATURE__LANGAGE_NAME:
         return LANGAGE_NAME_EDEFAULT == null ? langageName != null : !LANGAGE_NAME_EDEFAULT.equals(langageName);
-      case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
-        return hasToogleNature != HAS_TOOGLE_NATURE_EDEFAULT;
+      case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+        return hasToggleNature != HAS_TOGGLE_NATURE_EDEFAULT;
       case EclipsePackage.NATURE__BUILDERS:
         return builders != null && !builders.isEmpty();
     }
@@ -360,8 +360,8 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     result.append(name);
     result.append(", langageName: ");
     result.append(langageName);
-    result.append(", hasToogleNature: ");
-    result.append(hasToogleNature);
+    result.append(", hasToggleNature: ");
+    result.append(hasToggleNature);
     result.append(')');
     return result.toString();
   }

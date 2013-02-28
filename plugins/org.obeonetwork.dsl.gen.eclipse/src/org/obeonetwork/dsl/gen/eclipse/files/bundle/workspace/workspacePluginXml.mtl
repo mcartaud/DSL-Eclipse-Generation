@@ -11,10 +11,10 @@
 [for (aNature : Nature | aBundle.natures)][aNature.natureTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.natures.hasToogleNature->size() > 0)]
+[/if][if (aBundle.natures.hasToggleNature->size() > 0)]
    <extension
          point="org.eclipse.ui.popupMenus">
-[for (aNature : Nature | aBundle.natures)][if (aNature.hasToogleNature)][aNature.toogleNatureTemplate()/][/if]
+[for (aNature : Nature | aBundle.natures)][if (aNature.hasToggleNature)][aNature.toogleNatureTemplate()/][/if]
 [/for]
    </extension>
 [/if][if (aBundle.builders->size() > 0)]

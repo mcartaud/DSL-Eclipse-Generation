@@ -66,7 +66,7 @@ public class NatureItemProvider
 
       addNamePropertyDescriptor(object);
       addLangageNamePropertyDescriptor(object);
-      addHasToogleNaturePropertyDescriptor(object);
+      addHasToggleNaturePropertyDescriptor(object);
       addBuildersPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -119,20 +119,20 @@ public class NatureItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Has Toogle Nature feature.
+   * This adds a property descriptor for the Has Toggle Nature feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addHasToogleNaturePropertyDescriptor(Object object)
+  protected void addHasToggleNaturePropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Nature_hasToogleNature_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Nature_hasToogleNature_feature", "_UI_Nature_type"),
-         EclipsePackage.Literals.NATURE__HAS_TOOGLE_NATURE,
+         getString("_UI_Nature_hasToggleNature_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Nature_hasToggleNature_feature", "_UI_Nature_type"),
+         EclipsePackage.Literals.NATURE__HAS_TOGGLE_NATURE,
          true,
          false,
          false,
@@ -207,7 +207,7 @@ public class NatureItemProvider
     {
       case EclipsePackage.NATURE__NAME:
       case EclipsePackage.NATURE__LANGAGE_NAME:
-      case EclipsePackage.NATURE__HAS_TOOGLE_NATURE:
+      case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

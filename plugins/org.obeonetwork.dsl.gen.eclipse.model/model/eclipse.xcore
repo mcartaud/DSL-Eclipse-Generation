@@ -12,6 +12,7 @@ class Application {
 	String applicationID
 	String provider
 	String copyright
+	String license
 	String version
 	String description
 	boolean mavenCompilation
@@ -96,7 +97,7 @@ class Builder {
 class Nature {
 	String name
 	String langageName
-	boolean hasToogleNature
+	boolean hasToggleNature
 	refers Builder[] builders opposite natures
 }
 

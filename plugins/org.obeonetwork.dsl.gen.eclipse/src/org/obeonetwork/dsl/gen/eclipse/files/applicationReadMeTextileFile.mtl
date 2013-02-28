@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module applicationReadMeTextileFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+
+[template private applicationReadMeTextileFile(anApplication : Application)]
+[anApplication.name/]/README.textile
+[/template]
+
+[template public genApplicationReadMeTextileFile(anApplication : Application)]
+[file (applicationReadMeTextileFile(), false, 'UTF-8')]
+h1. Welcome to [anApplication.name.toUpperFirst()/] by [anApplication.provider/]
+
+[anApplication.description/]
+
+These plugins are released under the [anApplication.license/]
+
+Copyright : [anApplication.copyright/]
+[/file]
+[/template]

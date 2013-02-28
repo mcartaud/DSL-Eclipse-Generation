@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getApplicationID <em>Application ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}</li>
@@ -134,6 +135,32 @@ public interface Application extends EObject
    * @generated
    */
   void setCopyright(String value);
+
+  /**
+   * Returns the value of the '<em><b>License</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>License</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>License</em>' attribute.
+   * @see #setLicense(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_License()
+   * @model unique="false"
+   * @generated
+   */
+  String getLicense();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getLicense <em>License</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>License</em>' attribute.
+   * @see #getLicense()
+   * @generated
+   */
+  void setLicense(String value);
 
   /**
    * Returns the value of the '<em><b>Version</b></em>' attribute.

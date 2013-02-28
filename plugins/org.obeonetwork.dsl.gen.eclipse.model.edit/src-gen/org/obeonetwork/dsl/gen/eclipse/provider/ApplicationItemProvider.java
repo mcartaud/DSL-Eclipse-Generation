@@ -71,6 +71,7 @@ public class ApplicationItemProvider
       addApplicationIDPropertyDescriptor(object);
       addProviderPropertyDescriptor(object);
       addCopyrightPropertyDescriptor(object);
+      addLicensePropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
       addMavenCompilationPropertyDescriptor(object);
@@ -162,6 +163,29 @@ public class ApplicationItemProvider
          getString("_UI_Application_copyright_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Application_copyright_feature", "_UI_Application_type"),
          EclipsePackage.Literals.APPLICATION__COPYRIGHT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the License feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addLicensePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Application_license_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Application_license_feature", "_UI_Application_type"),
+         EclipsePackage.Literals.APPLICATION__LICENSE,
          true,
          false,
          false,
@@ -317,6 +341,7 @@ public class ApplicationItemProvider
       case EclipsePackage.APPLICATION__APPLICATION_ID:
       case EclipsePackage.APPLICATION__PROVIDER:
       case EclipsePackage.APPLICATION__COPYRIGHT:
+      case EclipsePackage.APPLICATION__LICENSE:
       case EclipsePackage.APPLICATION__VERSION:
       case EclipsePackage.APPLICATION__DESCRIPTION:
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:

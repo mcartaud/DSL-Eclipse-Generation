@@ -16,6 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::projectXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::applicationReadMeTextileFile /]
 
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::buildPropertiesBundleFile /]
@@ -76,7 +77,7 @@ Contributors :
 [/for]
 [for (aNature : Nature | aBundle.natures)]
 [aNature.genNatureJavaFile()/]
-[if (aNature.hasToogleNature)]
+[if (aNature.hasToggleNature)]
 [aNature.genToggleNatureActionJavaFile()/]
 [/if]
 [/for]
@@ -153,6 +154,7 @@ or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.he
 [if (anApplication.mavenCompilation)]
 [anApplication.genPomParentXmlFile()/]
 [/if]
+[anApplication.genApplicationReadMeTextileFile()/]
 [/template]
 
 [template private helpGen(anHelpPage : HelpPage)]

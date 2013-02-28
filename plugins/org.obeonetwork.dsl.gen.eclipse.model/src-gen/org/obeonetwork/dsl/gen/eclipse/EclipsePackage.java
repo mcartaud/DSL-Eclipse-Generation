@@ -106,13 +106,22 @@ public interface EclipsePackage extends EPackage
   int APPLICATION__COPYRIGHT = 3;
 
   /**
+   * The feature id for the '<em><b>License</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__LICENSE = 4;
+
+  /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__VERSION = 4;
+  int APPLICATION__VERSION = 5;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -121,7 +130,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__DESCRIPTION = 5;
+  int APPLICATION__DESCRIPTION = 6;
 
   /**
    * The feature id for the '<em><b>Maven Compilation</b></em>' attribute.
@@ -130,7 +139,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__MAVEN_COMPILATION = 6;
+  int APPLICATION__MAVEN_COMPILATION = 7;
 
   /**
    * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -139,7 +148,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__PROJECTS = 7;
+  int APPLICATION__PROJECTS = 8;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -148,7 +157,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 8;
+  int APPLICATION_FEATURE_COUNT = 9;
 
   /**
    * The number of operations of the '<em>Application</em>' class.
@@ -925,13 +934,13 @@ public interface EclipsePackage extends EPackage
   int NATURE__LANGAGE_NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Has Toogle Nature</b></em>' attribute.
+   * The feature id for the '<em><b>Has Toggle Nature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NATURE__HAS_TOOGLE_NATURE = 2;
+  int NATURE__HAS_TOGGLE_NATURE = 2;
 
   /**
    * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -2405,6 +2414,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getApplication_Copyright();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getLicense <em>License</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>License</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Application#getLicense()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_License();
+
+  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3122,15 +3142,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getNature_LangageName();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature <em>Has Toggle Nature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Toogle Nature</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature()
+   * @return the meta object for the attribute '<em>Has Toggle Nature</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature()
    * @see #getNature()
    * @generated
    */
-  EAttribute getNature_HasToogleNature();
+  EAttribute getNature_HasToggleNature();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders <em>Builders</em>}'.
@@ -4311,6 +4331,14 @@ public interface EclipsePackage extends EPackage
     EAttribute APPLICATION__COPYRIGHT = eINSTANCE.getApplication_Copyright();
 
     /**
+     * The meta object literal for the '<em><b>License</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__LICENSE = eINSTANCE.getApplication_License();
+
+    /**
      * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4857,12 +4885,12 @@ public interface EclipsePackage extends EPackage
     EAttribute NATURE__LANGAGE_NAME = eINSTANCE.getNature_LangageName();
 
     /**
-     * The meta object literal for the '<em><b>Has Toogle Nature</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Has Toggle Nature</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NATURE__HAS_TOOGLE_NATURE = eINSTANCE.getNature_HasToogleNature();
+    EAttribute NATURE__HAS_TOGGLE_NATURE = eINSTANCE.getNature_HasToggleNature();
 
     /**
      * The meta object literal for the '<em><b>Builders</b></em>' reference list feature.

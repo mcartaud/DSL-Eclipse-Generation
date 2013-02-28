@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature <em>Has Toggle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders <em>Builders</em>}</li>
  * </ul>
  * </p>
@@ -80,30 +80,30 @@ public interface Nature extends EObject
   void setLangageName(String value);
 
   /**
-   * Returns the value of the '<em><b>Has Toogle Nature</b></em>' attribute.
+   * Returns the value of the '<em><b>Has Toggle Nature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Has Toogle Nature</em>' attribute isn't clear,
+   * If the meaning of the '<em>Has Toggle Nature</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Has Toogle Nature</em>' attribute.
-   * @see #setHasToogleNature(boolean)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_HasToogleNature()
+   * @return the value of the '<em>Has Toggle Nature</em>' attribute.
+   * @see #setHasToggleNature(boolean)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_HasToggleNature()
    * @model unique="false"
    * @generated
    */
-  boolean isHasToogleNature();
+  boolean isHasToggleNature();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToogleNature <em>Has Toogle Nature</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature <em>Has Toggle Nature</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Has Toogle Nature</em>' attribute.
-   * @see #isHasToogleNature()
+   * @param value the new value of the '<em>Has Toggle Nature</em>' attribute.
+   * @see #isHasToggleNature()
    * @generated
    */
-  void setHasToogleNature(boolean value);
+  void setHasToggleNature(boolean value);
 
   /**
    * Returns the value of the '<em><b>Builders</b></em>' reference list.
