@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[module osgiServiceXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+
+[template private osgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/OSGI-INF/[aDeclarativeService.name.replaceAll(' ', '').toLowerFirst()/].xml
+[/template]
+
+[template public genOsgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
+[file (aDeclarativeService.osgiServiceXmlFile(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aDeclarativeService.name/]">
+   <implementation class="[aDeclarativeService.implentationClass.ancestors(EPackage).refactorEPackageName()->reverse()->sep('.')/].[aDeclarativeService.implentationClass.name/]"/>
+[if (aDeclarativeService.providedServices->size() > 0)]
+   [aDeclarativeService.genProvidedServices()/]
+[/if][if (aDeclarativeService.requiredServices->size() > 0)]
+   [aDeclarativeService.genReferencedServices()/]
+[/if]
+</scr:component>
+[/file]
+[/template]
+
+[template private genReferencedServices(aDeclarativeService : DeclarativeService) post(trim())]
+[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+<reference bind="set[aRequiredService.bind/]" cardinality="[aRequiredService.lowerBound/]..[aRequiredService.upperBound/]" interface="[aRequiredService.genInterfacePath()/].[aRequiredService.interface.name/]" name="[aRequiredService.name/]" policy="static" unbind="unSet[aRequiredService.bind/]"/>
+[/for]
+[/template]
+
+
+[template public genProvidedServices(aDeclarativeService : DeclarativeService) post(trim())]
+   <service>
+[for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)]
+      <provide interface="[aProvidedService.genInterfacePath()/].[aProvidedService.interface.name/]"/>
+[/for]
+   </service>
+[/template]

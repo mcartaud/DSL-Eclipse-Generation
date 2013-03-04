@@ -12,12 +12,5 @@
             class="org.obeonetwork.dsl.gen.eclipse.EclipsePackage"
             genModel="model/eclipse.xcore"/>
    </extension>
-   <extension
-         point="org.eclipse.emf.ecore.factory_override">
-      <factory
-            class="org.obeonetwork.dsl.gen.eclipse.impl.spec.EclipseFactorySpec"
-            uri="http://www.obeonetwork.org/dsl/eclipse">
-      </factory>
-   </extension>
 
 </plugin>

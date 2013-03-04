@@ -68,13 +68,13 @@ public interface EclipseFactory extends EFactory
   Bundle createBundle();
 
   /**
-   * Returns a new object of class '<em>Imported Package Declaration</em>'.
+   * Returns a new object of class '<em>Declarative Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Imported Package Declaration</em>'.
+   * @return a new object of class '<em>Declarative Service</em>'.
    * @generated
    */
-  ImportedPackageDeclaration createImportedPackageDeclaration();
+  DeclarativeService createDeclarativeService();
 
   /**
    * Returns a new object of class '<em>Provided Service</em>'.
@@ -93,6 +93,15 @@ public interface EclipseFactory extends EFactory
    * @generated
    */
   RequiredService createRequiredService();
+
+  /**
+   * Returns a new object of class '<em>Imported Package Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Imported Package Declaration</em>'.
+   * @generated
+   */
+  ImportedPackageDeclaration createImportedPackageDeclaration();
 
   /**
    * Returns a new object of class '<em>Builder</em>'.

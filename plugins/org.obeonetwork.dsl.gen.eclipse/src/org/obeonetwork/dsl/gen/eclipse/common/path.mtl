@@ -7,16 +7,16 @@
 [aProvidedService.eContainer(Bundle).genBundleID()/].[aProvidedService.interfacePath()->sep('.')/]
 [/template]
 
-[template public genImplementationPath(aProvidedService : ProvidedService)]
-[aProvidedService.eContainer(Application).baseNamespace/].[aProvidedService.eContainer(Bundle).name/].[aProvidedService.implementationPath()->sep('.')/]
+[template public genImplementationPath(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.eContainer(Bundle).genBundleID()/].[aDeclarativeService.implementationPath()->sep('.')/]
 [/template]
 
 [query private interfacePath(aProvidedService : ProvidedService) : Sequence(String) = 
 aProvidedService.interface.ancestors(EPackage)->reverse().name
 /]
 
-[query private implementationPath(aProvidedService : ProvidedService) : Sequence(String) = 
-aProvidedService.implementation.ancestors(EPackage)->reverse().name
+[query private implementationPath(aDeclarativeService : DeclarativeService) : Sequence(String) = 
+aDeclarativeService.implentationClass.ancestors(EPackage)->reverse().name
 /]
 
 [template public genInterfacePath(aRequiredService : RequiredService)]

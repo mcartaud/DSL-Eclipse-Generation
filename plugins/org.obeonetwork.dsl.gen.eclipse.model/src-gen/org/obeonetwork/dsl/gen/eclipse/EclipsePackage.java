@@ -499,22 +499,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__VENDOR = PROJECT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
+   * The feature id for the '<em><b>Declarative Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__PROVIDED_SERVICES = PROJECT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__REQUIRED_SERVICES = PROJECT_FEATURE_COUNT + 4;
+  int BUNDLE__DECLARATIVE_SERVICES = PROJECT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Imported Package Declarations</b></em>' containment reference list.
@@ -523,7 +514,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 5;
+  int BUNDLE__IMPORTED_PACKAGE_DECLARATIONS = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Natures</b></em>' containment reference list.
@@ -532,7 +523,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__NATURES = PROJECT_FEATURE_COUNT + 6;
+  int BUNDLE__NATURES = PROJECT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Builders</b></em>' containment reference list.
@@ -541,7 +532,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__BUILDERS = PROJECT_FEATURE_COUNT + 7;
+  int BUNDLE__BUILDERS = PROJECT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Wizards</b></em>' containment reference list.
@@ -550,7 +541,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 8;
+  int BUNDLE__WIZARDS = PROJECT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Extension Points</b></em>' containment reference list.
@@ -559,7 +550,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXTENSION_POINTS = PROJECT_FEATURE_COUNT + 9;
+  int BUNDLE__EXTENSION_POINTS = PROJECT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Decorators</b></em>' containment reference list.
@@ -568,7 +559,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__DECORATORS = PROJECT_FEATURE_COUNT + 10;
+  int BUNDLE__DECORATORS = PROJECT_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -577,7 +568,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__MARKERS = PROJECT_FEATURE_COUNT + 11;
+  int BUNDLE__MARKERS = PROJECT_FEATURE_COUNT + 10;
 
   /**
    * The feature id for the '<em><b>Perspectives</b></em>' containment reference list.
@@ -586,7 +577,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 12;
+  int BUNDLE__PERSPECTIVES = PROJECT_FEATURE_COUNT + 11;
 
   /**
    * The feature id for the '<em><b>Editors</b></em>' containment reference list.
@@ -595,7 +586,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EDITORS = PROJECT_FEATURE_COUNT + 13;
+  int BUNDLE__EDITORS = PROJECT_FEATURE_COUNT + 12;
 
   /**
    * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -604,7 +595,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__VIEWS = PROJECT_FEATURE_COUNT + 14;
+  int BUNDLE__VIEWS = PROJECT_FEATURE_COUNT + 13;
 
   /**
    * The feature id for the '<em><b>Help Contents</b></em>' containment reference list.
@@ -613,7 +604,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__HELP_CONTENTS = PROJECT_FEATURE_COUNT + 15;
+  int BUNDLE__HELP_CONTENTS = PROJECT_FEATURE_COUNT + 14;
 
   /**
    * The feature id for the '<em><b>Commands</b></em>' containment reference list.
@@ -622,7 +613,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__COMMANDS = PROJECT_FEATURE_COUNT + 16;
+  int BUNDLE__COMMANDS = PROJECT_FEATURE_COUNT + 15;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -631,7 +622,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__MENUS = PROJECT_FEATURE_COUNT + 17;
+  int BUNDLE__MENUS = PROJECT_FEATURE_COUNT + 16;
 
   /**
    * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
@@ -640,7 +631,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 18;
+  int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 17;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -649,7 +640,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 19;
+  int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 18;
 
   /**
    * The feature id for the '<em><b>Categories</b></em>' containment reference list.
@@ -658,7 +649,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 20;
+  int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 19;
 
   /**
    * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -667,7 +658,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 21;
+  int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 20;
 
   /**
    * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
@@ -676,7 +667,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 22;
+  int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 21;
 
   /**
    * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
@@ -685,16 +676,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 23;
-
-  /**
-   * The feature id for the '<em><b>All Exported Packages</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUNDLE__ALL_EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 24;
+  int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 22;
 
   /**
    * The number of structural features of the '<em>Bundle</em>' class.
@@ -703,7 +685,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 25;
+  int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 23;
 
   /**
    * The number of operations of the '<em>Bundle</em>' class.
@@ -715,50 +697,68 @@ public interface EclipsePackage extends EPackage
   int BUNDLE_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportedPackageDeclaration()
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDeclarativeService()
    * @generated
    */
-  int IMPORTED_PACKAGE_DECLARATION = 6;
+  int DECLARATIVE_SERVICE = 6;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME = 0;
+  int DECLARATIVE_SERVICE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Package Version</b></em>' attribute.
+   * The feature id for the '<em><b>Implentation Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION = 1;
+  int DECLARATIVE_SERVICE__IMPLENTATION_CLASS = 1;
 
   /**
-   * The number of structural features of the '<em>Imported Package Declaration</em>' class.
+   * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPORTED_PACKAGE_DECLARATION_FEATURE_COUNT = 2;
+  int DECLARATIVE_SERVICE__PROVIDED_SERVICES = 2;
 
   /**
-   * The number of operations of the '<em>Imported Package Declaration</em>' class.
+   * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPORTED_PACKAGE_DECLARATION_OPERATION_COUNT = 0;
+  int DECLARATIVE_SERVICE__REQUIRED_SERVICES = 3;
+
+  /**
+   * The number of structural features of the '<em>Declarative Service</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATIVE_SERVICE_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Declarative Service</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATIVE_SERVICE_OPERATION_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -771,40 +771,13 @@ public interface EclipsePackage extends EPackage
   int PROVIDED_SERVICE = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROVIDED_SERVICE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Implementation</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROVIDED_SERVICE__IMPLEMENTATION = 1;
-
-  /**
    * The feature id for the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROVIDED_SERVICE__INTERFACE = 2;
-
-  /**
-   * The feature id for the '<em><b>Required Services</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROVIDED_SERVICE__REQUIRED_SERVICES = 3;
+  int PROVIDED_SERVICE__INTERFACE = 0;
 
   /**
    * The number of structural features of the '<em>Provided Service</em>' class.
@@ -813,7 +786,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROVIDED_SERVICE_FEATURE_COUNT = 4;
+  int PROVIDED_SERVICE_FEATURE_COUNT = 1;
 
   /**
    * The number of operations of the '<em>Provided Service</em>' class.
@@ -862,31 +835,22 @@ public interface EclipsePackage extends EPackage
   int REQUIRED_SERVICE__UPPER_BOUND = 2;
 
   /**
+   * The feature id for the '<em><b>Bind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIRED_SERVICE__BIND = 3;
+
+  /**
    * The feature id for the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIRED_SERVICE__INTERFACE = 3;
-
-  /**
-   * The feature id for the '<em><b>Implementation</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REQUIRED_SERVICE__IMPLEMENTATION = 4;
-
-  /**
-   * The feature id for the '<em><b>Binded Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REQUIRED_SERVICE__BINDED_REFERENCE = 5;
+  int REQUIRED_SERVICE__INTERFACE = 4;
 
   /**
    * The number of structural features of the '<em>Required Service</em>' class.
@@ -895,7 +859,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIRED_SERVICE_FEATURE_COUNT = 6;
+  int REQUIRED_SERVICE_FEATURE_COUNT = 5;
 
   /**
    * The number of operations of the '<em>Required Service</em>' class.
@@ -907,6 +871,52 @@ public interface EclipsePackage extends EPackage
   int REQUIRED_SERVICE_OPERATION_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportedPackageDeclaration()
+   * @generated
+   */
+  int IMPORTED_PACKAGE_DECLARATION = 9;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Package Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Imported Package Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_PACKAGE_DECLARATION_FEATURE_COUNT = 2;
+
+  /**
+   * The number of operations of the '<em>Imported Package Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_PACKAGE_DECLARATION_OPERATION_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl <em>Builder</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -914,7 +924,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBuilder()
    * @generated
    */
-  int BUILDER = 9;
+  int BUILDER = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -960,7 +970,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNature()
    * @generated
    */
-  int NATURE = 10;
+  int NATURE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1015,7 +1025,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getWizard()
    * @generated
    */
-  int WIZARD = 11;
+  int WIZARD = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1097,7 +1107,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProjectWizard()
    * @generated
    */
-  int PROJECT_WIZARD = 12;
+  int PROJECT_WIZARD = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1188,7 +1198,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION_POINT = 13;
+  int EXTENSION_POINT = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1243,7 +1253,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 14;
+  int ATTRIBUTE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1307,7 +1317,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDecorator()
    * @generated
    */
-  int DECORATOR = 15;
+  int DECORATOR = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1380,7 +1390,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMarker()
    * @generated
    */
-  int MARKER = 16;
+  int MARKER = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1426,7 +1436,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContext()
    * @generated
    */
-  int CONTEXT = 17;
+  int CONTEXT = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1481,7 +1491,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
    * @generated
    */
-  int PERSPECTIVE = 18;
+  int PERSPECTIVE = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1563,7 +1573,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCategory()
    * @generated
    */
-  int CATEGORY = 19;
+  int CATEGORY = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1627,7 +1637,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
    * @generated
    */
-  int PART = 20;
+  int PART = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1682,7 +1692,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
    * @generated
    */
-  int VIEW = 21;
+  int VIEW = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1791,7 +1801,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
    * @generated
    */
-  int EDITOR = 22;
+  int EDITOR = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1882,7 +1892,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
    * @generated
    */
-  int MENU = 23;
+  int MENU = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1955,7 +1965,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 24;
+  int COMMAND = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2046,7 +2056,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHandler()
    * @generated
    */
-  int HANDLER = 25;
+  int HANDLER = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2110,7 +2120,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
    * @generated
    */
-  int HELP_CONTENTS = 26;
+  int HELP_CONTENTS = 27;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2174,7 +2184,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
    * @generated
    */
-  int HELP_PAGE = 27;
+  int HELP_PAGE = 28;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2238,7 +2248,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
    * @generated
    */
-  int DYNAMIC_HELP = 28;
+  int DYNAMIC_HELP = 29;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2293,7 +2303,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 29;
+  int BINDING = 30;
 
   /**
    * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -2348,7 +2358,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 30;
+  int TYPE = 31;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2358,7 +2368,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
    * @generated
    */
-  int LOCATION = 31;
+  int LOCATION = 32;
 
   /**
    * The meta object id for the '<em>Version</em>' data type.
@@ -2368,7 +2378,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 32;
+  int VERSION = 33;
 
   /**
    * The meta object id for the '<em>Namespace</em>' data type.
@@ -2378,7 +2388,17 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
    * @generated
    */
-  int NAMESPACE = 33;
+  int NAMESPACE = 34;
+
+  /**
+   * The meta object id for the '<em>Java Name</em>' data type.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see java.lang.String
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
+   * @generated
+   */
+  int JAVA_NAME = 35;
 
   /**
    * The meta object id for the '<em>Name</em>' data type.
@@ -2388,7 +2408,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
    * @generated
    */
-  int NAME = 34;
+  int NAME = 36;
 
 
   /**
@@ -2738,26 +2758,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getBundle_Vendor();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getProvidedServices <em>Provided Services</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices <em>Declarative Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Provided Services</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getProvidedServices()
+   * @return the meta object for the containment reference list '<em>Declarative Services</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices()
    * @see #getBundle()
    * @generated
    */
-  EReference getBundle_ProvidedServices();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredServices <em>Required Services</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Required Services</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredServices()
-   * @see #getBundle()
-   * @generated
-   */
-  EReference getBundle_RequiredServices();
+  EReference getBundle_DeclarativeServices();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportedPackageDeclarations <em>Imported Package Declarations</em>}'.
@@ -2969,47 +2978,58 @@ public interface EclipsePackage extends EPackage
   EReference getBundle_OwnedPackages();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages <em>All Exported Packages</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>All Exported Packages</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getAllExportedPackages()
-   * @see #getBundle()
+   * @return the meta object for class '<em>Declarative Service</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService
    * @generated
    */
-  EReference getBundle_AllExportedPackages();
+  EClass getDeclarativeService();
 
   /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Imported Package Declaration</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName()
+   * @see #getDeclarativeService()
    * @generated
    */
-  EClass getImportedPackageDeclaration();
+  EAttribute getDeclarativeService_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageName <em>Package Name</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass <em>Implentation Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Package Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageName()
-   * @see #getImportedPackageDeclaration()
+   * @return the meta object for the reference '<em>Implentation Class</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass()
+   * @see #getDeclarativeService()
    * @generated
    */
-  EAttribute getImportedPackageDeclaration_PackageName();
+  EReference getDeclarativeService_ImplentationClass();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageVersion <em>Package Version</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices <em>Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Package Version</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageVersion()
-   * @see #getImportedPackageDeclaration()
+   * @return the meta object for the containment reference list '<em>Provided Services</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices()
+   * @see #getDeclarativeService()
    * @generated
    */
-  EAttribute getImportedPackageDeclaration_PackageVersion();
+  EReference getDeclarativeService_ProvidedServices();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getRequiredServices <em>Required Services</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Required Services</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getRequiredServices()
+   * @see #getDeclarativeService()
+   * @generated
+   */
+  EReference getDeclarativeService_RequiredServices();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
@@ -3022,28 +3042,6 @@ public interface EclipsePackage extends EPackage
   EClass getProvidedService();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ProvidedService#getName()
-   * @see #getProvidedService()
-   * @generated
-   */
-  EAttribute getProvidedService_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getImplementation <em>Implementation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Implementation</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ProvidedService#getImplementation()
-   * @see #getProvidedService()
-   * @generated
-   */
-  EReference getProvidedService_Implementation();
-
-  /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3053,17 +3051,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getProvidedService_Interface();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService#getRequiredServices <em>Required Services</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Required Services</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.ProvidedService#getRequiredServices()
-   * @see #getProvidedService()
-   * @generated
-   */
-  EReference getProvidedService_RequiredServices();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService <em>Required Service</em>}'.
@@ -3109,6 +3096,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getRequiredService_UpperBound();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind <em>Bind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bind</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind()
+   * @see #getRequiredService()
+   * @generated
+   */
+  EAttribute getRequiredService_Bind();
+
+  /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3120,26 +3118,36 @@ public interface EclipsePackage extends EPackage
   EReference getRequiredService_Interface();
 
   /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation <em>Implementation</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Implementation</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation()
-   * @see #getRequiredService()
+   * @return the meta object for class '<em>Imported Package Declaration</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
    * @generated
    */
-  EReference getRequiredService_Implementation();
+  EClass getImportedPackageDeclaration();
 
   /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference <em>Binded Reference</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageName <em>Package Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Binded Reference</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference()
-   * @see #getRequiredService()
+   * @return the meta object for the attribute '<em>Package Name</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageName()
+   * @see #getImportedPackageDeclaration()
    * @generated
    */
-  EReference getRequiredService_BindedReference();
+  EAttribute getImportedPackageDeclaration_PackageName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageVersion <em>Package Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Package Version</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration#getPackageVersion()
+   * @see #getImportedPackageDeclaration()
+   * @generated
+   */
+  EAttribute getImportedPackageDeclaration_PackageVersion();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Builder <em>Builder</em>}'.
@@ -4298,13 +4306,25 @@ public interface EclipsePackage extends EPackage
   EDataType getNamespace();
 
   /**
+   * Returns the meta object for data type '{@link java.lang.String <em>Java Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for data type '<em>Java Name</em>'.
+   * @see java.lang.String
+   * @model instanceClass="java.lang.String"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"[A-Z]+([0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   * @generated
+   */
+  EDataType getJavaName();
+
+  /**
    * Returns the meta object for data type '{@link java.lang.String <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Name</em>'.
    * @see java.lang.String
    * @model instanceClass="java.lang.String"
-   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for the name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
    * @generated
    */
   EDataType getName_();
@@ -4602,20 +4622,12 @@ public interface EclipsePackage extends EPackage
     EAttribute BUNDLE__VENDOR = eINSTANCE.getBundle_Vendor();
 
     /**
-     * The meta object literal for the '<em><b>Provided Services</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Declarative Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUNDLE__PROVIDED_SERVICES = eINSTANCE.getBundle_ProvidedServices();
-
-    /**
-     * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BUNDLE__REQUIRED_SERVICES = eINSTANCE.getBundle_RequiredServices();
+    EReference BUNDLE__DECLARATIVE_SERVICES = eINSTANCE.getBundle_DeclarativeServices();
 
     /**
      * The meta object literal for the '<em><b>Imported Package Declarations</b></em>' containment reference list feature.
@@ -4770,38 +4782,46 @@ public interface EclipsePackage extends EPackage
     EReference BUNDLE__OWNED_PACKAGES = eINSTANCE.getBundle_OwnedPackages();
 
     /**
-     * The meta object literal for the '<em><b>All Exported Packages</b></em>' reference list feature.
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDeclarativeService()
      * @generated
      */
-    EReference BUNDLE__ALL_EXPORTED_PACKAGES = eINSTANCE.getBundle_AllExportedPackages();
+    EClass DECLARATIVE_SERVICE = eINSTANCE.getDeclarativeService();
 
     /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportedPackageDeclaration()
      * @generated
      */
-    EClass IMPORTED_PACKAGE_DECLARATION = eINSTANCE.getImportedPackageDeclaration();
+    EAttribute DECLARATIVE_SERVICE__NAME = eINSTANCE.getDeclarativeService_Name();
 
     /**
-     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Implentation Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME = eINSTANCE.getImportedPackageDeclaration_PackageName();
+    EReference DECLARATIVE_SERVICE__IMPLENTATION_CLASS = eINSTANCE.getDeclarativeService_ImplentationClass();
 
     /**
-     * The meta object literal for the '<em><b>Package Version</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Provided Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION = eINSTANCE.getImportedPackageDeclaration_PackageVersion();
+    EReference DECLARATIVE_SERVICE__PROVIDED_SERVICES = eINSTANCE.getDeclarativeService_ProvidedServices();
+
+    /**
+     * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATIVE_SERVICE__REQUIRED_SERVICES = eINSTANCE.getDeclarativeService_RequiredServices();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -4814,36 +4834,12 @@ public interface EclipsePackage extends EPackage
     EClass PROVIDED_SERVICE = eINSTANCE.getProvidedService();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROVIDED_SERVICE__NAME = eINSTANCE.getProvidedService_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Implementation</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROVIDED_SERVICE__IMPLEMENTATION = eINSTANCE.getProvidedService_Implementation();
-
-    /**
      * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PROVIDED_SERVICE__INTERFACE = eINSTANCE.getProvidedService_Interface();
-
-    /**
-     * The meta object literal for the '<em><b>Required Services</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROVIDED_SERVICE__REQUIRED_SERVICES = eINSTANCE.getProvidedService_RequiredServices();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl <em>Required Service</em>}' class.
@@ -4880,6 +4876,14 @@ public interface EclipsePackage extends EPackage
     EAttribute REQUIRED_SERVICE__UPPER_BOUND = eINSTANCE.getRequiredService_UpperBound();
 
     /**
+     * The meta object literal for the '<em><b>Bind</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIRED_SERVICE__BIND = eINSTANCE.getRequiredService_Bind();
+
+    /**
      * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4888,20 +4892,30 @@ public interface EclipsePackage extends EPackage
     EReference REQUIRED_SERVICE__INTERFACE = eINSTANCE.getRequiredService_Interface();
 
     /**
-     * The meta object literal for the '<em><b>Implementation</b></em>' reference feature.
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportedPackageDeclaration()
      * @generated
      */
-    EReference REQUIRED_SERVICE__IMPLEMENTATION = eINSTANCE.getRequiredService_Implementation();
+    EClass IMPORTED_PACKAGE_DECLARATION = eINSTANCE.getImportedPackageDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Binded Reference</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIRED_SERVICE__BINDED_REFERENCE = eINSTANCE.getRequiredService_BindedReference();
+    EAttribute IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME = eINSTANCE.getImportedPackageDeclaration_PackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Package Version</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION = eINSTANCE.getImportedPackageDeclaration_PackageVersion();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BuilderImpl <em>Builder</em>}' class.
@@ -5808,6 +5822,16 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EDataType NAMESPACE = eINSTANCE.getNamespace();
+
+    /**
+     * The meta object literal for the '<em>Java Name</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.String
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
+     * @generated
+     */
+    EDataType JAVA_NAME = eINSTANCE.getJavaName();
 
     /**
      * The meta object literal for the '<em>Name</em>' data type.

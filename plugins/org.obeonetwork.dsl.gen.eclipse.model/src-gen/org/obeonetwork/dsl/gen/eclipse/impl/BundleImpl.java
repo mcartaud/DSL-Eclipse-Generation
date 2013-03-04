@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.Context;
+import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
@@ -36,8 +37,6 @@ import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
-import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
-import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
@@ -51,8 +50,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVendor <em>Vendor</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getProvidedServices <em>Provided Services</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDeclarativeServices <em>Declarative Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBuilders <em>Builders</em>}</li>
@@ -72,7 +70,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAllExportedPackages <em>All Exported Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,24 +138,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected String vendor = VENDOR_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProvidedServices() <em>Provided Services</em>}' containment reference list.
+   * The cached value of the '{@link #getDeclarativeServices() <em>Declarative Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProvidedServices()
+   * @see #getDeclarativeServices()
    * @generated
    * @ordered
    */
-  protected EList<ProvidedService> providedServices;
-
-  /**
-   * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRequiredServices()
-   * @generated
-   * @ordered
-   */
-  protected EList<RequiredService> requiredServices;
+  protected EList<DeclarativeService> declarativeServices;
 
   /**
    * The cached value of the '{@link #getImportedPackageDeclarations() <em>Imported Package Declarations</em>}' containment reference list.
@@ -351,16 +338,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<EPackage> ownedPackages;
 
   /**
-   * The cached value of the '{@link #getAllExportedPackages() <em>All Exported Packages</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAllExportedPackages()
-   * @generated
-   * @ordered
-   */
-  protected EList<EPackage> allExportedPackages;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -455,27 +432,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ProvidedService> getProvidedServices()
+  public EList<DeclarativeService> getDeclarativeServices()
   {
-    if (providedServices == null)
+    if (declarativeServices == null)
     {
-      providedServices = new EObjectContainmentEList<ProvidedService>(ProvidedService.class, this, EclipsePackage.BUNDLE__PROVIDED_SERVICES);
+      declarativeServices = new EObjectContainmentEList<DeclarativeService>(DeclarativeService.class, this, EclipsePackage.BUNDLE__DECLARATIVE_SERVICES);
     }
-    return providedServices;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<RequiredService> getRequiredServices()
-  {
-    if (requiredServices == null)
-    {
-      requiredServices = new EObjectContainmentEList<RequiredService>(RequiredService.class, this, EclipsePackage.BUNDLE__REQUIRED_SERVICES);
-    }
-    return requiredServices;
+    return declarativeServices;
   }
 
   /**
@@ -749,29 +712,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EPackage> getAllExportedPackages()
-  {
-    if (allExportedPackages == null)
-    {
-      allExportedPackages = new EObjectResolvingEList<EPackage>(EPackage.class, this, EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES);
-    }
-    return allExportedPackages;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-        return ((InternalEList<?>)getProvidedServices()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-        return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
+        return ((InternalEList<?>)getDeclarativeServices()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return ((InternalEList<?>)getImportedPackageDeclarations()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__NATURES:
@@ -826,10 +773,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getRequiredEnvironment();
       case EclipsePackage.BUNDLE__VENDOR:
         return getVendor();
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-        return getProvidedServices();
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-        return getRequiredServices();
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
+        return getDeclarativeServices();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return getImportedPackageDeclarations();
       case EclipsePackage.BUNDLE__NATURES:
@@ -868,8 +813,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getExportedPackages();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
         return getOwnedPackages();
-      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
-        return getAllExportedPackages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -894,13 +837,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor((String)newValue);
         return;
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-        getProvidedServices().clear();
-        getProvidedServices().addAll((Collection<? extends ProvidedService>)newValue);
-        return;
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-        getRequiredServices().clear();
-        getRequiredServices().addAll((Collection<? extends RequiredService>)newValue);
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
+        getDeclarativeServices().clear();
+        getDeclarativeServices().addAll((Collection<? extends DeclarativeService>)newValue);
         return;
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         getImportedPackageDeclarations().clear();
@@ -978,10 +917,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getOwnedPackages().clear();
         getOwnedPackages().addAll((Collection<? extends EPackage>)newValue);
         return;
-      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
-        getAllExportedPackages().clear();
-        getAllExportedPackages().addAll((Collection<? extends EPackage>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -1005,11 +940,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__VENDOR:
         setVendor(VENDOR_EDEFAULT);
         return;
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-        getProvidedServices().clear();
-        return;
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-        getRequiredServices().clear();
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
+        getDeclarativeServices().clear();
         return;
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         getImportedPackageDeclarations().clear();
@@ -1068,9 +1000,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
         getOwnedPackages().clear();
         return;
-      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
-        getAllExportedPackages().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -1091,10 +1020,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null : !REQUIRED_ENVIRONMENT_EDEFAULT.equals(requiredEnvironment);
       case EclipsePackage.BUNDLE__VENDOR:
         return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-        return providedServices != null && !providedServices.isEmpty();
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
-        return requiredServices != null && !requiredServices.isEmpty();
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
+        return declarativeServices != null && !declarativeServices.isEmpty();
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
         return importedPackageDeclarations != null && !importedPackageDeclarations.isEmpty();
       case EclipsePackage.BUNDLE__NATURES:
@@ -1133,8 +1060,6 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return exportedPackages != null && !exportedPackages.isEmpty();
       case EclipsePackage.BUNDLE__OWNED_PACKAGES:
         return ownedPackages != null && !ownedPackages.isEmpty();
-      case EclipsePackage.BUNDLE__ALL_EXPORTED_PACKAGES:
-        return allExportedPackages != null && !allExportedPackages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

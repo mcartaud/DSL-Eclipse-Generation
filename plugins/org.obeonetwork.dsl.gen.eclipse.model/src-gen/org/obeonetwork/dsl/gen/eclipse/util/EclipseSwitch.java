@@ -117,10 +117,10 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclipsePackage.IMPORTED_PACKAGE_DECLARATION:
+      case EclipsePackage.DECLARATIVE_SERVICE:
       {
-        ImportedPackageDeclaration importedPackageDeclaration = (ImportedPackageDeclaration)theEObject;
-        T result = caseImportedPackageDeclaration(importedPackageDeclaration);
+        DeclarativeService declarativeService = (DeclarativeService)theEObject;
+        T result = caseDeclarativeService(declarativeService);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -135,6 +135,13 @@ public class EclipseSwitch<T> extends Switch<T>
       {
         RequiredService requiredService = (RequiredService)theEObject;
         T result = caseRequiredService(requiredService);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EclipsePackage.IMPORTED_PACKAGE_DECLARATION:
+      {
+        ImportedPackageDeclaration importedPackageDeclaration = (ImportedPackageDeclaration)theEObject;
+        T result = caseImportedPackageDeclaration(importedPackageDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -389,17 +396,17 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Declarative Service</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Declarative Service</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseImportedPackageDeclaration(ImportedPackageDeclaration object)
+  public T caseDeclarativeService(DeclarativeService object)
   {
     return null;
   }
@@ -432,6 +439,22 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRequiredService(RequiredService object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Imported Package Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportedPackageDeclaration(ImportedPackageDeclaration object)
   {
     return null;
   }

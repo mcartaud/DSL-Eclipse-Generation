@@ -72,9 +72,10 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.REPOSITORY_CATEGORY: return createRepositoryCategory();
       case EclipsePackage.FEATURE: return createFeature();
       case EclipsePackage.BUNDLE: return createBundle();
-      case EclipsePackage.IMPORTED_PACKAGE_DECLARATION: return createImportedPackageDeclaration();
+      case EclipsePackage.DECLARATIVE_SERVICE: return createDeclarativeService();
       case EclipsePackage.PROVIDED_SERVICE: return createProvidedService();
       case EclipsePackage.REQUIRED_SERVICE: return createRequiredService();
+      case EclipsePackage.IMPORTED_PACKAGE_DECLARATION: return createImportedPackageDeclaration();
       case EclipsePackage.BUILDER: return createBuilder();
       case EclipsePackage.NATURE: return createNature();
       case EclipsePackage.WIZARD: return createWizard();
@@ -118,6 +119,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
         return createVersionFromString(eDataType, initialValue);
       case EclipsePackage.NAMESPACE:
         return createNamespaceFromString(eDataType, initialValue);
+      case EclipsePackage.JAVA_NAME:
+        return createJavaNameFromString(eDataType, initialValue);
       case EclipsePackage.NAME:
         return createNameFromString(eDataType, initialValue);
       default:
@@ -143,6 +146,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
         return convertVersionToString(eDataType, instanceValue);
       case EclipsePackage.NAMESPACE:
         return convertNamespaceToString(eDataType, instanceValue);
+      case EclipsePackage.JAVA_NAME:
+        return convertJavaNameToString(eDataType, instanceValue);
       case EclipsePackage.NAME:
         return convertNameToString(eDataType, instanceValue);
       default:
@@ -210,10 +215,10 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ImportedPackageDeclaration createImportedPackageDeclaration()
+  public DeclarativeService createDeclarativeService()
   {
-    ImportedPackageDeclarationImpl importedPackageDeclaration = new ImportedPackageDeclarationImpl();
-    return importedPackageDeclaration;
+    DeclarativeServiceImpl declarativeService = new DeclarativeServiceImpl();
+    return declarativeService;
   }
 
   /**
@@ -236,6 +241,17 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     RequiredServiceImpl requiredService = new RequiredServiceImpl();
     return requiredService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportedPackageDeclaration createImportedPackageDeclaration()
+  {
+    ImportedPackageDeclarationImpl importedPackageDeclaration = new ImportedPackageDeclarationImpl();
+    return importedPackageDeclaration;
   }
 
   /**
@@ -599,6 +615,52 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public String createJavaName(String it)
+  {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (!_notEquals)
+    {
+      _and = false;
+    } else
+    {
+      boolean _matches = it.matches("[A-Z]+([0-9]*[A-Z]*[a-z]*)*");
+      boolean _not = (!_matches);
+      _and = (_notEquals && _not);
+    }
+    if (_and)
+    {
+      RuntimeException _runtimeException = new RuntimeException("Bad format for name");
+      throw _runtimeException;
+    }
+    return it;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createJavaNameFromString(EDataType eDataType, String initialValue)
+  {
+    return createJavaName(initialValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertJavaNameToString(EDataType eDataType, Object instanceValue)
+  {
+    return super.convertToString(eDataType, instanceValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String createName(String it)
   {
     boolean _and = false;
@@ -614,7 +676,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
     }
     if (_and)
     {
-      RuntimeException _runtimeException = new RuntimeException("Bad format for the name");
+      RuntimeException _runtimeException = new RuntimeException("Bad format for name");
       throw _runtimeException;
     }
     return it;

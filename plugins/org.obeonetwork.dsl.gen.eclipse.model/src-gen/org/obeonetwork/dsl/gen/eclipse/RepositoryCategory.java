@@ -116,7 +116,7 @@ public interface RepositoryCategory extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Features</em>' reference list.
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRepositoryCategory_Features()
-   * @model
+   * @model required="true"
    * @generated
    */
   EList<Feature> getFeatures();

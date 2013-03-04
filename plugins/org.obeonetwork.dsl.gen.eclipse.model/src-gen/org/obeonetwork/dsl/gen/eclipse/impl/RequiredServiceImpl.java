@@ -5,7 +5,6 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -24,9 +23,8 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getBind <em>Bind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getImplementation <em>Implementation</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.RequiredServiceImpl#getBindedReference <em>Binded Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +93,26 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
   protected Integer upperBound = UPPER_BOUND_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getBind() <em>Bind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBind()
+   * @generated
+   * @ordered
+   */
+  protected static final String BIND_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBind() <em>Bind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBind()
+   * @generated
+   * @ordered
+   */
+  protected String bind = BIND_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -103,26 +121,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EClass interface_;
-
-  /**
-   * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImplementation()
-   * @generated
-   * @ordered
-   */
-  protected EClass implementation;
-
-  /**
-   * The cached value of the '{@link #getBindedReference() <em>Binded Reference</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBindedReference()
-   * @generated
-   * @ordered
-   */
-  protected EReference bindedReference;
 
   /**
    * <!-- begin-user-doc -->
@@ -219,6 +217,29 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getBind()
+  {
+    return bind;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBind(String newBind)
+  {
+    String oldBind = bind;
+    bind = newBind;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__BIND, oldBind, bind));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInterface()
   {
     if (interface_ != null && interface_.eIsProxy())
@@ -262,92 +283,6 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getImplementation()
-  {
-    if (implementation != null && implementation.eIsProxy())
-    {
-      InternalEObject oldImplementation = (InternalEObject)implementation;
-      implementation = (EClass)eResolveProxy(oldImplementation);
-      if (implementation != oldImplementation)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION, oldImplementation, implementation));
-      }
-    }
-    return implementation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass basicGetImplementation()
-  {
-    return implementation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setImplementation(EClass newImplementation)
-  {
-    EClass oldImplementation = implementation;
-    implementation = newImplementation;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION, oldImplementation, implementation));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBindedReference()
-  {
-    if (bindedReference != null && bindedReference.eIsProxy())
-    {
-      InternalEObject oldBindedReference = (InternalEObject)bindedReference;
-      bindedReference = (EReference)eResolveProxy(oldBindedReference);
-      if (bindedReference != oldBindedReference)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE, oldBindedReference, bindedReference));
-      }
-    }
-    return bindedReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference basicGetBindedReference()
-  {
-    return bindedReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBindedReference(EReference newBindedReference)
-  {
-    EReference oldBindedReference = bindedReference;
-    bindedReference = newBindedReference;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE, oldBindedReference, bindedReference));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -359,15 +294,11 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
         return getLowerBound();
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
         return getUpperBound();
+      case EclipsePackage.REQUIRED_SERVICE__BIND:
+        return getBind();
       case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
         if (resolve) return getInterface();
         return basicGetInterface();
-      case EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION:
-        if (resolve) return getImplementation();
-        return basicGetImplementation();
-      case EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE:
-        if (resolve) return getBindedReference();
-        return basicGetBindedReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -391,14 +322,11 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
         setUpperBound((Integer)newValue);
         return;
+      case EclipsePackage.REQUIRED_SERVICE__BIND:
+        setBind((String)newValue);
+        return;
       case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
         setInterface((EClass)newValue);
-        return;
-      case EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION:
-        setImplementation((EClass)newValue);
-        return;
-      case EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE:
-        setBindedReference((EReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -423,14 +351,11 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
         setUpperBound(UPPER_BOUND_EDEFAULT);
         return;
+      case EclipsePackage.REQUIRED_SERVICE__BIND:
+        setBind(BIND_EDEFAULT);
+        return;
       case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
         setInterface((EClass)null);
-        return;
-      case EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION:
-        setImplementation((EClass)null);
-        return;
-      case EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE:
-        setBindedReference((EReference)null);
         return;
     }
     super.eUnset(featureID);
@@ -452,12 +377,10 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
         return LOWER_BOUND_EDEFAULT == null ? lowerBound != null : !LOWER_BOUND_EDEFAULT.equals(lowerBound);
       case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
         return UPPER_BOUND_EDEFAULT == null ? upperBound != null : !UPPER_BOUND_EDEFAULT.equals(upperBound);
+      case EclipsePackage.REQUIRED_SERVICE__BIND:
+        return BIND_EDEFAULT == null ? bind != null : !BIND_EDEFAULT.equals(bind);
       case EclipsePackage.REQUIRED_SERVICE__INTERFACE:
         return interface_ != null;
-      case EclipsePackage.REQUIRED_SERVICE__IMPLEMENTATION:
-        return implementation != null;
-      case EclipsePackage.REQUIRED_SERVICE__BINDED_REFERENCE:
-        return bindedReference != null;
     }
     return super.eIsSet(featureID);
   }
@@ -479,6 +402,8 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
     result.append(lowerBound);
     result.append(", upperBound: ");
     result.append(upperBound);
+    result.append(", bind: ");
+    result.append(bind);
     result.append(')');
     return result.toString();
   }

@@ -69,7 +69,6 @@ public class BundleItemProvider
       addVendorPropertyDescriptor(object);
       addExportedPackagesPropertyDescriptor(object);
       addOwnedPackagesPropertyDescriptor(object);
-      addAllExportedPackagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -190,29 +189,6 @@ public class BundleItemProvider
   }
 
   /**
-   * This adds a property descriptor for the All Exported Packages feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addAllExportedPackagesPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Bundle_allExportedPackages_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Bundle_allExportedPackages_feature", "_UI_Bundle_type"),
-         EclipsePackage.Literals.BUNDLE__ALL_EXPORTED_PACKAGES,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
    * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -226,8 +202,7 @@ public class BundleItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PROVIDED_SERVICES);
-      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__REQUIRED_SERVICES);
+      childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DECLARATIVE_SERVICES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__NATURES);
       childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BUILDERS);
@@ -309,8 +284,7 @@ public class BundleItemProvider
       case EclipsePackage.BUNDLE__VENDOR:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.BUNDLE__PROVIDED_SERVICES:
-      case EclipsePackage.BUNDLE__REQUIRED_SERVICES:
+      case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
       case EclipsePackage.BUNDLE__IMPORTED_PACKAGE_DECLARATIONS:
       case EclipsePackage.BUNDLE__NATURES:
       case EclipsePackage.BUNDLE__BUILDERS:
@@ -348,13 +322,8 @@ public class BundleItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__PROVIDED_SERVICES,
-         EclipseFactory.eINSTANCE.createProvidedService()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (EclipsePackage.Literals.BUNDLE__REQUIRED_SERVICES,
-         EclipseFactory.eINSTANCE.createRequiredService()));
+        (EclipsePackage.Literals.BUNDLE__DECLARATIVE_SERVICES,
+         EclipseFactory.eINSTANCE.createDeclarativeService()));
 
     newChildDescriptors.add
       (createChildParameter

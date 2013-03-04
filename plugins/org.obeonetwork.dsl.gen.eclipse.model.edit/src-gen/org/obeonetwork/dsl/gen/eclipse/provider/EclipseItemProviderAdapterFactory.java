@@ -199,28 +199,28 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration} instances.
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ImportedPackageDeclarationItemProvider importedPackageDeclarationItemProvider;
+  protected DeclarativeServiceItemProvider declarativeServiceItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createImportedPackageDeclarationAdapter()
+  public Adapter createDeclarativeServiceAdapter()
   {
-    if (importedPackageDeclarationItemProvider == null)
+    if (declarativeServiceItemProvider == null)
     {
-      importedPackageDeclarationItemProvider = new ImportedPackageDeclarationItemProvider(this);
+      declarativeServiceItemProvider = new DeclarativeServiceItemProvider(this);
     }
 
-    return importedPackageDeclarationItemProvider;
+    return declarativeServiceItemProvider;
   }
 
   /**
@@ -271,6 +271,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     }
 
     return requiredServiceItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ImportedPackageDeclarationItemProvider importedPackageDeclarationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createImportedPackageDeclarationAdapter()
+  {
+    if (importedPackageDeclarationItemProvider == null)
+    {
+      importedPackageDeclarationItemProvider = new ImportedPackageDeclarationItemProvider(this);
+    }
+
+    return importedPackageDeclarationItemProvider;
   }
 
   /**
@@ -889,9 +914,10 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (repositoryCategoryItemProvider != null) repositoryCategoryItemProvider.dispose();
     if (featureItemProvider != null) featureItemProvider.dispose();
     if (bundleItemProvider != null) bundleItemProvider.dispose();
-    if (importedPackageDeclarationItemProvider != null) importedPackageDeclarationItemProvider.dispose();
+    if (declarativeServiceItemProvider != null) declarativeServiceItemProvider.dispose();
     if (providedServiceItemProvider != null) providedServiceItemProvider.dispose();
     if (requiredServiceItemProvider != null) requiredServiceItemProvider.dispose();
+    if (importedPackageDeclarationItemProvider != null) importedPackageDeclarationItemProvider.dispose();
     if (builderItemProvider != null) builderItemProvider.dispose();
     if (natureItemProvider != null) natureItemProvider.dispose();
     if (wizardItemProvider != null) wizardItemProvider.dispose();

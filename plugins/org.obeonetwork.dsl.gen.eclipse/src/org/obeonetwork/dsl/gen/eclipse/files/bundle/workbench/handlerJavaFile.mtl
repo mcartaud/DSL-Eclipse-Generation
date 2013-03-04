@@ -1,14 +1,14 @@
 [comment encoding = UTF-8 /]
-[module actionJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module handlerJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private actionJavaFile(anHandler : Handler)]
+[template private handlerJavaFile(anHandler : Handler)]
 [anHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[anHandler.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
-[template public genActionJavaFile(anHandler : Handler)]
-[file (actionJavaFile(), false, 'UTF-8')]
+[template public genHandlerJavaFile(anHandler : Handler)]
+[file (handlerJavaFile(), false, 'UTF-8')]
 package [anHandler.eContainer(Bundle).genBundleID()/].handlers;
 
 import org.eclipse.core.commands.AbstractHandler;

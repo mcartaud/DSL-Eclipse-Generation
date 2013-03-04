@@ -50,5 +50,5 @@ OSGI-INF/
 or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0 or aBundle.eContents(Command)->size() > 0
 )],\[aBundle.buildPropertiesWorkbench()/][elseif ((aBundle.eContents(Nature)->size() > 0) 
 or (aBundle.eContents(Builder)->size() > 0
-or aBundle.eContents(HelpContents)->size() > 0))],\[aBundle.buildPropertiesWorkspace()/][/if][if (aBundle.providedServices->size() > 0)],\[aBundle.buildPropertiesOSGi()/][/if]
+or aBundle.eContents(HelpContents)->size() > 0))],\[aBundle.buildPropertiesWorkspace()/][/if][if (aBundle.declarativeServices->size() > 0)],\[aBundle.buildPropertiesOSGi()/][/if]
 [/template]

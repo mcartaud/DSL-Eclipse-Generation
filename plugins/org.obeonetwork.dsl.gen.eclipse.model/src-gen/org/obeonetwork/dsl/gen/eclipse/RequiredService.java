@@ -4,7 +4,6 @@ package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,9 +16,8 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound <em>Upper Bound</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind <em>Bind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation <em>Implementation</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference <em>Binded Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,7 +38,7 @@ public interface RequiredService extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_Name()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
    * @generated
    */
   String getName();
@@ -108,6 +106,32 @@ public interface RequiredService extends EObject
   void setUpperBound(Integer value);
 
   /**
+   * Returns the value of the '<em><b>Bind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bind</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bind</em>' attribute.
+   * @see #setBind(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_Bind()
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.JavaName"
+   * @generated
+   */
+  String getBind();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind <em>Bind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Bind</em>' attribute.
+   * @see #getBind()
+   * @generated
+   */
+  void setBind(String value);
+
+  /**
    * Returns the value of the '<em><b>Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -118,7 +142,7 @@ public interface RequiredService extends EObject
    * @return the value of the '<em>Interface</em>' reference.
    * @see #setInterface(EClass)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_Interface()
-   * @model
+   * @model required="true"
    * @generated
    */
   EClass getInterface();
@@ -132,57 +156,5 @@ public interface RequiredService extends EObject
    * @generated
    */
   void setInterface(EClass value);
-
-  /**
-   * Returns the value of the '<em><b>Implementation</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Implementation</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Implementation</em>' reference.
-   * @see #setImplementation(EClass)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_Implementation()
-   * @model
-   * @generated
-   */
-  EClass getImplementation();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getImplementation <em>Implementation</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Implementation</em>' reference.
-   * @see #getImplementation()
-   * @generated
-   */
-  void setImplementation(EClass value);
-
-  /**
-   * Returns the value of the '<em><b>Binded Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Binded Reference</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Binded Reference</em>' reference.
-   * @see #setBindedReference(EReference)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getRequiredService_BindedReference()
-   * @model
-   * @generated
-   */
-  EReference getBindedReference();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBindedReference <em>Binded Reference</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Binded Reference</em>' reference.
-   * @see #getBindedReference()
-   * @generated
-   */
-  void setBindedReference(EReference value);
 
 } // RequiredService

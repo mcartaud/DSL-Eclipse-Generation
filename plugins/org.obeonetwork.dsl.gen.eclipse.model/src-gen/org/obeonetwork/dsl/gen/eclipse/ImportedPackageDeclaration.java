@@ -34,7 +34,7 @@ public interface ImportedPackageDeclaration extends EObject
    * @return the value of the '<em>Package Name</em>' attribute.
    * @see #setPackageName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getImportedPackageDeclaration_PackageName()
-   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
    * @generated
    */
   String getPackageName();

@@ -195,5 +195,5 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 /]
 
 [template public refactorEPackageName(anEPackage : EPackage)]
-[anEPackage.name.substituteAll(' ', '').toLower()/]
+[anEPackage.name.substituteAll(' ', '.').toLower()/]
 [/template]

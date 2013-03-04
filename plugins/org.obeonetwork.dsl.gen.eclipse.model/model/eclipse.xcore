@@ -1,4 +1,3 @@
-
 @Ecore(nsURI="http://www.obeonetwork.org/dsl/eclipse", nsPrefix="eclipse")
 @GenModel(editDirectory="/org.obeonetwork.dsl.gen.eclipse.model.edit/src-gen")
 @GenModel(editorDirectory="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen")
@@ -11,7 +10,7 @@ import org.eclipse.emf.ecore.EReference
 
 class Application
 {
-	String [1] name
+	Name [1] name
 	Namespace [1] applicationID
 	String provider
 	String copyright
@@ -25,7 +24,7 @@ class Application
 
 abstract class Project
 {
-	String name
+	Name name
 	Namespace [1] ID
 }
 
@@ -37,7 +36,7 @@ class RepositoryCategory  {
 	String [1] label
 	String description
 	Namespace [1] ID
-	refers Feature [] features
+	refers Feature [1..*] features
 }
 
 class Feature extends Project
@@ -55,8 +54,7 @@ class Bundle extends Project
 	Version version
 	String requiredEnvironment
 	String vendor
-	contains ProvidedService [] providedServices
-	contains RequiredService [] requiredServices
+	contains DeclarativeService[] declarativeServices
 	contains ImportedPackageDeclaration [] importedPackageDeclarations
 	contains Nature [] natures
 	contains Builder [] builders
@@ -76,31 +74,34 @@ class Bundle extends Project
 	contains Binding [] bindings
 	refers EPackage [] exportedPackages
 	refers EPackage [] ownedPackages
-	refers derived EPackage [] allExportedPackages
 }
 
-class ImportedPackageDeclaration
+class DeclarativeService 
 {
-	Namespace packageName
-	Version packageVersion
+	Name [1] name
+	refers EClass [1] implentationClass
+	contains ProvidedService[] providedServices
+	contains RequiredService[] requiredServices
 }
 
 class ProvidedService
 {
-	Name [1] name
-	refers EClass implementation
-	refers EClass ^interface
-	refers RequiredService [] requiredServices
+	refers EClass [1] ^interface
 }
 
 class RequiredService
 {
-	String name	
+	Name [1] name	
 	Integer lowerBound
 	Integer upperBound
-	refers EClass ^interface
-	refers EClass implementation
-	refers EReference bindedReference
+	JavaName bind
+	refers EClass [1] ^interface
+}
+
+class ImportedPackageDeclaration
+{
+	Namespace [1] packageName
+	Version packageVersion
 }
 
 class Builder
@@ -294,14 +295,17 @@ type Version wraps java.lang.String create
 ; return it
 }
 
-
 type Namespace wraps java.lang.String create
 { if ( it != null && ! it . matches ( "([a-z]+([0-9]*[A-Z]*[a-z]*)*\\.)*[a-z]+([0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for ID" )
 ; return it
 }
 
+type JavaName wraps java.lang.String create
+{ if ( it != null && ! it . matches ( "[A-Z]+([0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for name" )
+; return it
+}
 
 type Name wraps java.lang.String create
-{ if ( it != null && ! it . matches ( "([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for the name" )
+{ if ( it != null && ! it . matches ( "([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for name" )
 ; return it
 }

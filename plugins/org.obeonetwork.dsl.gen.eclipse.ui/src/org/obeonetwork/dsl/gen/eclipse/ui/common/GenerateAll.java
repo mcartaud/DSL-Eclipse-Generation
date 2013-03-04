@@ -16,15 +16,14 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
-
 
 /**
  * Main entry point of the 'Eclipse' generation module.
@@ -59,7 +58,8 @@ public class GenerateAll {
 	 *             Thrown when the output cannot be saved.
 	 * @generated
 	 */
-	public GenerateAll(URI modelURI, IContainer targetFolder, List<? extends Object> arguments) {
+	public GenerateAll(URI modelURI, IContainer targetFolder,
+			List<? extends Object> arguments) {
 		this.modelURI = modelURI;
 		this.targetFolder = targetFolder;
 		this.arguments = arguments;
@@ -67,7 +67,7 @@ public class GenerateAll {
 
 	/**
 	 * Launches the generation.
-	 *
+	 * 
 	 * @param monitor
 	 *            This will be used to display progress information to the user.
 	 * @throws IOException
@@ -78,24 +78,32 @@ public class GenerateAll {
 		if (!targetFolder.getLocation().toFile().exists()) {
 			targetFolder.getLocation().toFile().mkdirs();
 		}
-		
-		// final URI template0 = getTemplateURI("org.obeonetwork.dsl.gen.eclipse", new Path("/org/obeonetwork/dsl/gen/eclipse/main/dsl2Eclipse.emtl"));
-		// org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(modelURI, targetFolder.getLocation().toFile(), arguments) {
-		//	protected URI createTemplateURI(String entry) {
-		//		return template0;
-		//	}
-		//};
-		//gen0.doGenerate(BasicMonitor.toMonitor(monitor));
+
+		// final URI template0 =
+		// getTemplateURI("org.obeonetwork.dsl.gen.eclipse", new
+		// Path("/org/obeonetwork/dsl/gen/eclipse/main/dsl2Eclipse.emtl"));
+		// org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new
+		// org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(modelURI,
+		// targetFolder.getLocation().toFile(), arguments) {
+		// protected URI createTemplateURI(String entry) {
+		// return template0;
+		// }
+		// };
+		// gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 		monitor.subTask("Loading...");
-		org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(modelURI, targetFolder.getLocation().toFile(), arguments);
+		org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(
+				modelURI, targetFolder.getLocation().toFile(), arguments);
 		monitor.worked(1);
-		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("org.obeonetwork.dsl.gen.eclipse", "org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
+		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil
+				.computeUIProjectID("org.obeonetwork.dsl.gen.eclipse",
+						"org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse",
+						modelURI.toString(), targetFolder.getFullPath()
+								.toString(), new ArrayList<String>());
 		gen0.setGenerationID(generationID);
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
-			
-		
+
 	}
-	
+
 	/**
 	 * Finds the template in the plug-in. Returns the template plug-in URI.
 	 * 
@@ -108,11 +116,13 @@ public class GenerateAll {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	private URI getTemplateURI(String bundleID, IPath relativePath) throws IOException {
+	private URI getTemplateURI(String bundleID, IPath relativePath)
+			throws IOException {
 		Bundle bundle = Platform.getBundle(bundleID);
 		if (bundle == null) {
 			// no need to go any further
-			return URI.createPlatformResourceURI(new Path(bundleID).append(relativePath).toString(), false);
+			return URI.createPlatformResourceURI(
+					new Path(bundleID).append(relativePath).toString(), false);
 		}
 		URL url = bundle.getEntry(relativePath.toString());
 		if (url == null && relativePath.segmentCount() > 1) {
@@ -123,12 +133,14 @@ public class GenerateAll {
 					URL entry = entries.nextElement();
 					IPath path = new Path(entry.getPath());
 					if (path.segmentCount() > relativePath.segmentCount()) {
-						path = path.removeFirstSegments(path.segmentCount() - relativePath.segmentCount());
+						path = path.removeFirstSegments(path.segmentCount()
+								- relativePath.segmentCount());
 					}
 					String[] segmentsPath = path.segments();
 					boolean equals = segmentsPath.length == segmentsRelativePath.length;
 					for (int i = 0; equals && i < segmentsPath.length; i++) {
-						equals = segmentsPath[i].equals(segmentsRelativePath[i]);
+						equals = segmentsPath[i]
+								.equals(segmentsRelativePath[i]);
 					}
 					if (equals) {
 						url = bundle.getEntry(entry.getPath());
@@ -138,9 +150,12 @@ public class GenerateAll {
 		}
 		URI result;
 		if (url != null) {
-			result = URI.createPlatformPluginURI(new Path(bundleID).append(new Path(url.getPath())).toString(), false);
+			result = URI.createPlatformPluginURI(
+					new Path(bundleID).append(new Path(url.getPath()))
+							.toString(), false);
 		} else {
-			result = URI.createPlatformResourceURI(new Path(bundleID).append(relativePath).toString(), false);
+			result = URI.createPlatformResourceURI(
+					new Path(bundleID).append(relativePath).toString(), false);
 		}
 		return result;
 	}

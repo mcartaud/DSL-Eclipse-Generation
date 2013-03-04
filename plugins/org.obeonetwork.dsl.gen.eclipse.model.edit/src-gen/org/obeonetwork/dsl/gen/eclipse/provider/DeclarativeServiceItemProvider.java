@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,16 +24,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
+import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.RequiredService} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RequiredServiceItemProvider
+public class DeclarativeServiceItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +49,7 @@ public class RequiredServiceItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequiredServiceItemProvider(AdapterFactory adapterFactory)
+  public DeclarativeServiceItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -65,10 +68,7 @@ public class RequiredServiceItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addLowerBoundPropertyDescriptor(object);
-      addUpperBoundPropertyDescriptor(object);
-      addBindPropertyDescriptor(object);
-      addInterfacePropertyDescriptor(object);
+      addImplentationClassPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -85,9 +85,9 @@ public class RequiredServiceItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_RequiredService_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_name_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__NAME,
+         getString("_UI_DeclarativeService_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DeclarativeService_name_feature", "_UI_DeclarativeService_type"),
+         EclipsePackage.Literals.DECLARATIVE_SERVICE__NAME,
          true,
          false,
          false,
@@ -97,89 +97,20 @@ public class RequiredServiceItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Lower Bound feature.
+   * This adds a property descriptor for the Implentation Class feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addLowerBoundPropertyDescriptor(Object object)
+  protected void addImplentationClassPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_RequiredService_lowerBound_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_lowerBound_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__LOWER_BOUND,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Upper Bound feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addUpperBoundPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_RequiredService_upperBound_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_upperBound_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__UPPER_BOUND,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Bind feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addBindPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_RequiredService_bind_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_bind_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__BIND,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Interface feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addInterfacePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_RequiredService_interface_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_RequiredService_interface_feature", "_UI_RequiredService_type"),
-         EclipsePackage.Literals.REQUIRED_SERVICE__INTERFACE,
+         getString("_UI_DeclarativeService_implentationClass_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DeclarativeService_implentationClass_feature", "_UI_DeclarativeService_type"),
+         EclipsePackage.Literals.DECLARATIVE_SERVICE__IMPLENTATION_CLASS,
          true,
          false,
          true,
@@ -189,7 +120,41 @@ public class RequiredServiceItemProvider
   }
 
   /**
-   * This returns RequiredService.gif.
+   * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+   * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+  {
+    if (childrenFeatures == null)
+    {
+      super.getChildrenFeatures(object);
+      childrenFeatures.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES);
+      childrenFeatures.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES);
+    }
+    return childrenFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EStructuralFeature getChildFeature(Object object, Object child)
+  {
+    // Check the type of the specified child object and return the proper feature to use for
+    // adding (see {@link AddCommand}) it as a child.
+
+    return super.getChildFeature(object, child);
+  }
+
+  /**
+   * This returns DeclarativeService.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -197,7 +162,7 @@ public class RequiredServiceItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/RequiredService"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/DeclarativeService"));
   }
 
   /**
@@ -209,10 +174,10 @@ public class RequiredServiceItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((RequiredService)object).getName();
+    String label = ((DeclarativeService)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_RequiredService_type") :
-      getString("_UI_RequiredService_type") + " " + label;
+      getString("_UI_DeclarativeService_type") :
+      getString("_UI_DeclarativeService_type") + " " + label;
   }
 
   /**
@@ -227,13 +192,14 @@ public class RequiredServiceItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(RequiredService.class))
+    switch (notification.getFeatureID(DeclarativeService.class))
     {
-      case EclipsePackage.REQUIRED_SERVICE__NAME:
-      case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
-      case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
-      case EclipsePackage.REQUIRED_SERVICE__BIND:
+      case EclipsePackage.DECLARATIVE_SERVICE__NAME:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+      case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
+      case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
     }
     super.notifyChanged(notification);
@@ -250,6 +216,16 @@ public class RequiredServiceItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES,
+         EclipseFactory.eINSTANCE.createProvidedService()));
+
+    newChildDescriptors.add
+      (createChildParameter
+        (EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES,
+         EclipseFactory.eINSTANCE.createRequiredService()));
   }
 
   /**

@@ -105,9 +105,9 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createBundleAdapter();
       }
       @Override
-      public Adapter caseImportedPackageDeclaration(ImportedPackageDeclaration object)
+      public Adapter caseDeclarativeService(DeclarativeService object)
       {
-        return createImportedPackageDeclarationAdapter();
+        return createDeclarativeServiceAdapter();
       }
       @Override
       public Adapter caseProvidedService(ProvidedService object)
@@ -118,6 +118,11 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRequiredService(RequiredService object)
       {
         return createRequiredServiceAdapter();
+      }
+      @Override
+      public Adapter caseImportedPackageDeclaration(ImportedPackageDeclaration object)
+      {
+        return createImportedPackageDeclarationAdapter();
       }
       @Override
       public Adapter caseBuilder(Builder object)
@@ -337,16 +342,16 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
+   * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService
    * @generated
    */
-  public Adapter createImportedPackageDeclarationAdapter()
+  public Adapter createDeclarativeServiceAdapter()
   {
     return null;
   }
@@ -377,6 +382,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRequiredServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
+   * @generated
+   */
+  public Adapter createImportedPackageDeclarationAdapter()
   {
     return null;
   }
