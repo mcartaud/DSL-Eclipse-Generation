@@ -69,33 +69,9 @@ public class HelpPageItemProvider
 
       addLabelPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
-      addTitlePropertyDescriptor(object);
       addExternalHelpPagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Description feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addDescriptionPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_HelpPage_description_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_description_feature", "_UI_HelpPage_type"),
-         EclipsePackage.Literals.HELP_PAGE__DESCRIPTION,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -122,20 +98,20 @@ public class HelpPageItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Title feature.
+   * This adds a property descriptor for the Description feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTitlePropertyDescriptor(Object object)
+  protected void addDescriptionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_HelpPage_title_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_title_feature", "_UI_HelpPage_type"),
-         EclipsePackage.Literals.HELP_PAGE__TITLE,
+         getString("_UI_HelpPage_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_description_feature", "_UI_HelpPage_type"),
+         EclipsePackage.Literals.HELP_PAGE__DESCRIPTION,
          true,
          false,
          false,
@@ -243,7 +219,6 @@ public class HelpPageItemProvider
     {
       case EclipsePackage.HELP_PAGE__LABEL:
       case EclipsePackage.HELP_PAGE__DESCRIPTION:
-      case EclipsePackage.HELP_PAGE__TITLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.HELP_PAGE__HELP_PAGES:

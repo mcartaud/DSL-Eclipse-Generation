@@ -16,10 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getContext <em>Context</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
@@ -41,7 +40,7 @@ public interface Perspective extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Name()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
    * @generated
    */
   String getName();
@@ -83,20 +82,20 @@ public interface Perspective extends EObject
   void setIcon(String value);
 
   /**
-   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
+   * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Handlers</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actions</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Actions()
+   * @return the value of the '<em>Handlers</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Handlers()
    * @model containment="true"
    * @generated
    */
-  EList<Action> getActions();
+  EList<Handler> getHandlers();
 
   /**
    * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
@@ -129,34 +128,6 @@ public interface Perspective extends EObject
    * @generated
    */
   EList<Wizard> getWizards();
-
-  /**
-   * Returns the value of the '<em><b>Context</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Context#getPerspective <em>Perspective</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Context</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Context</em>' reference.
-   * @see #setContext(Context)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Context()
-   * @see org.obeonetwork.dsl.gen.eclipse.Context#getPerspective
-   * @model opposite="perspective"
-   * @generated
-   */
-  Context getContext();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getContext <em>Context</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Context</em>' reference.
-   * @see #getContext()
-   * @generated
-   */
-  void setContext(Context value);
 
   /**
    * Returns the value of the '<em><b>Views</b></em>' reference list.

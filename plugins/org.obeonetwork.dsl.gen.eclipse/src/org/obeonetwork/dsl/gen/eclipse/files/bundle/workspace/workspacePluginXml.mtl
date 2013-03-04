@@ -2,6 +2,7 @@
 [module workspacePluginXml('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
 [template public genWorkspacePluginXml(aBundle : Bundle)]
@@ -63,33 +64,33 @@
 
 [template private wizardCategory(aCategory : Category)]
       <category
-            name="%[aCategory.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name"
-            id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
+            name="%Wizard-[aCategory.refactorCategoryName().toUpperFirst()/]-Category-Name"
+            id="[aCategory.genCategoryID()/]">
       </category>
 [/template]
 
 [template private natureTemplate(aNature : Nature)]
-      id="[aNature.eContainer(Bundle).basePackage/].nature.[aNature.name.toLowerFirst()/]"
-      name="%[aNature.name.toUpperFirst()/]-Nature-Name">
+      id="[aNature.genNatureID()/]"
+      name="%Nature-[aNature.refactorNatureName().toUpperFirst()/]-Name">
       <runtime>
          <run 
-			class="[aNature.ancestors(Bundle).genBundlePath()/].ui.nature.[aNature.name.toUpperFirst()/]">
+			class="[aNature.genNaturePath()/]">
          </run>
       </runtime>
-[if ((aNature.builders)->size() > 0)]
+[for (aBuilder : Builder | aNature.builders)]
       <builder
-            id="[aNature.ancestors(Bundle).genBundlePath()/].builder.[aNature.builders.name.toLowerFirst()/]">
+            id="[aBuilder.genBuilderID()/]">
       </builder>
-[/if]
+[/for]
 [/template]
 
 [template private builderTemplate(aBuilder : Builder)]
-         id="[aBuilder.ancestors(Bundle).genBundlePath()/].builder.[aBuilder.name.toLowerFirst()/]"
-         name="%[aBuilder.name.toUpperFirst()/]-Builder-Name">
+         id="[aBuilder.genBuilderID()/]"
+         name="%Builder-[aBuilder.refactorBuilderName().toUpperFirst()/]-Name">
       <builder
             hasNature="[associatedNature()/]">
          <run
-               class="[aBuilder.ancestors(Bundle).genBundlePath()/].ui.builder.[aBuilder.name.toUpperFirst()/]">
+               class="[aBuilder.genBuilderPath()/]">
          </run>
       </builder>
 [/template]
@@ -105,28 +106,28 @@ false[/if]
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="[aNature.ancestors(Bundle).genBundlePath()/].popupMenus.[aNature.name/]Contribution">
+            id="[aNature.ancestors(Bundle).genBundleID()/].popupMenus.[aNature.refactorNatureName()/]Contribution">
          <action
                label="Add/Remove [aNature.name/] Nature"
-               class="[aNature.ancestors(Bundle).genBundlePath()/].ui.nature.Toggle[aNature.name.toUpperFirst()/]Action"
+               class="[aNature.ancestors(Bundle).genBundleID()/].nature.Toggle[aNature.refactorNatureName().toUpperFirst()/]Action"
                menubarPath="additions"
                enablesFor="+"
-               id="[aNature.ancestors(Bundle).genBundlePath()/].popupMenus.addRemove[aNature.name.toUpperFirst()/]Action">
+               id="[aNature.ancestors(Bundle).genBundleID()/].popupMenus.addRemove[aNature.refactorNatureName().toUpperFirst()/]Action">
          </action>
       </objectContribution>
 [/template]
 
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
-            name="%[aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name"
-            icon="%Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
+            name="%Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Name"
+            icon="%Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon"
 [if (aWizard.isProject)]
 			project="true"
 [/if][if (aWizard.category->size() > 0)]
-			category="[aWizard.ancestors(Bundle).genBundlePath()/].category.[aWizard.category.name.toLowerFirst().substituteAll(' ', '')/]"
+			category="[aWizard.category.genCategoryID()/]"
 [/if]
-            class="[aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards.[aWizard.name.toUpperFirst().substituteAll(' ', '')/]"
-            id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]">
+            class="[aWizard.genWizardPath()/]"
+            id="[aWizard.genWizardID()/]">
       </wizard>
 [/template]
 
@@ -136,9 +137,9 @@ false[/if]
             location="[aDecorator.location/]"
             adaptable="[aDecorator.isAdaptable/]"
             label="[aDecorator.name/]"
-            icon="%Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
+            icon="%Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon"
             state="true"
-            id="[aDecorator.eContainer(Bundle).basePackage/].[aDecorator.name/]">
+            id="[aDecorator.genDecoratorID()/]">
          <enablement>
             <and>
                <objectClass
@@ -158,8 +159,8 @@ false[/if]
 [/template]
 
 [template private markersTemplate(aMarker : Marker)]
-         id="[aMarker.eContainer(Bundle).genBundlePath()/].marker.[aMarker.name/]"
-         name="%Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name">
+         id="[aMarker.genMarkerID()/]"
+         name="%Marker-[aMarker.refactorMarkerName().toUpperFirst()/]-Name">
       <super
             type="org.eclipse.core.resources.problemmarker">
       </super>
@@ -170,16 +171,16 @@ false[/if]
 
 [template private helpTemplate(anHelpContent : HelpContents)]
       <toc
-            file="[anHelpContent.label.substituteAll(' ', '').toLowerFirst()/].xml"
+            file="[anHelpContent.refactorHelpLabel()/].xml"
 			primary="true">
       </toc>
       <toc
-            file="[anHelpContent.label.substituteAll(' ', '').toLowerFirst()/]Toc.xml">
+            file="[anHelpContent.refactorHelpLabel()/]Toc.xml">
       </toc>
 [/template]
 
 [template public dynamicHelpTemplate(aDynamicHelp : DynamicHelp)]
       <contexts
-            file="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/].xml">
+            file="dynamic[aDynamicHelp.refactorDynamicHelpLabel()/].xml">
       </contexts>
 [/template]

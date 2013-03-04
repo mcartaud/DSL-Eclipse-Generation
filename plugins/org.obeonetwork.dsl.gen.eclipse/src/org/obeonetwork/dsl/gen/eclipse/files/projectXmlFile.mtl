@@ -14,16 +14,17 @@ Contributors :
 [module projectXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private projectXmlFile(aProject : Project)]
-[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.genBundlePath()/]/.project
+[aProject.buildPath()/]/.project
 [/template]
 
 [template public genProjectXmlFile(aProject : Project)]
 [file (aProject.projectXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>[aProject.genBundlePath()/]</name>
+	<name>[aProject.buildID()/]</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -68,4 +69,18 @@ pde.UpdateSiteBuilder
 [elseif (aProject.oclIsKindOf(Bundle))]
 jdt.core.javabuilder
 [/if]
+[/template]
+
+[template private buildID(aProject : Project) post(trim())]
+[if (aProject.oclIsKindOf(Feature))]
+[aProject.oclAsType(Feature).genFeatureID()/]
+[elseif (aProject.oclIsKindOf(Repository))]
+[aProject.oclAsType(Repository).genRepositoryID()/]
+[elseif (aProject.oclIsKindOf(Bundle))]
+[aProject.oclAsType(Bundle).genBundleID()/]
+[/if]
+[/template]
+
+[template private buildPath(aProject : Project) post(trim())]
+[if (aProject.oclIsKindOf(Feature))][aProject.oclAsType(Feature).genFeaturePath()/][elseif (aProject.oclIsKindOf(Repository))][aProject.oclAsType(Repository).genRepositoryPath()/][elseif (aProject.oclIsKindOf(Bundle))][aProject.oclAsType(Bundle).genBundlePath()/][/if]
 [/template]

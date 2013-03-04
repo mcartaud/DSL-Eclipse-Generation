@@ -13,10 +13,10 @@ Contributors :
 /]
 [module pluginPropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pluginPropertiesFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/plugin.properties
+[aBundle.genBundlePath()/]/plugin.properties
 [/template]
 
 [template public genPluginPropertiesFile(aBundle : Bundle)]
@@ -43,6 +43,9 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aBundle.commands->size() > 0)]
 [aBundle.commandInformation()/]
 [/if]
+[if (aBundle.contexts->size() > 0)]
+[aBundle.commandInformation()/]
+[/if]
 [if (aBundle.perspectives->size() > 0)]
 [aBundle.perspectiveInformation()/]
 [/if]
@@ -63,10 +66,10 @@ Bundle-Provider = [aBundle.vendor/]
 #User information for the wizards
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
 [if (aWizard.category->size() > 0)]
-[aWizard.category.name.toUpperFirst().replaceAll(' ', '')/]-WizardCategory-Name = [aWizard.category.name/]
-[/if][aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Name = [aWizard.name/]
-[aWizard.name.toUpperFirst().replaceAll(' ', '')/]-Wizard-Description = [aWizard.description/]
-Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/wizards/[aWizard.icon/]
+Wizard-[aWizard.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aWizard.category.name/]
+[/if]Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Name = [aWizard.name/]
+Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Description = [aWizard.description/]
+Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon = icons/wizards/[aWizard.icon/]
 
 [/for]
 [/template]
@@ -75,7 +78,7 @@ Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/wizard
 
 #User information for the natures
 [for (aNature : Nature | aBundle.natures)]
-[aNature.name.toUpperFirst().replaceAll(' ', '')/]-Nature-Name = [aNature.name/]
+Nature-[aNature.refactorNatureName().toUpperFirst()/]-Name = [aNature.name/]
 
 [/for]
 [/template]
@@ -84,7 +87,7 @@ Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/wizard
 
 #User information for the builders
 [for (aBuilder : Builder | aBundle.builders)]
-[aBuilder.name.toUpperFirst().replaceAll(' ', '')/]-Builder-Name = [aBuilder.name/]
+Builder-[aBuilder.refactorBuilderName().toUpperFirst()/]-Name = [aBuilder.name/]
 
 [/for]
 [/template]
@@ -94,9 +97,9 @@ Wizard-[aWizard.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/wizard
 #User information for the views
 [for (aView : View | aBundle.views)]
 [if (aView.category->size() > 0)]
-[aView.category.name.toUpperFirst().replaceAll(' ', '')/]-ViewCategory-Name = [aView.category.name/]
-[/if][aView.name.toUpperFirst().replaceAll(' ', '')/]-View-Name = [aView.name/]
-View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/views/[aView.icon/]
+View-[aView.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aView.category.name/]
+[/if]View-[aView.refactorViewName().toUpperFirst()/]-Name = [aView.name/]
+View-[aView.refactorViewName().toUpperFirst()/]-Icon = icons/views/[aView.icon/]
 
 [/for]
 [/template]
@@ -105,8 +108,8 @@ View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/views/[aVi
 
 #User information for the editors
 [for (anEditor : Editor | aBundle.editors)]
-[anEditor.name.toUpperFirst().replaceAll(' ', '')/]-Editor-Name = [anEditor.name/]
-Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/editors/[anEditor.icon/]
+Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name = [anEditor.name/]
+Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon = icons/editors/[anEditor.icon/]
 
 [/for]
 [/template]
@@ -116,19 +119,29 @@ Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/edito
 #User information for the commands
 [for (aCommand : Command | aBundle.commands)]
 [if (aCommand.category->size() > 0)]
-[aCommand.category.name.toUpperFirst().replaceAll(' ', '')/]-CommandCategory-Name = [aCommand.category.name/]
-[/if][aCommand.name.toUpperFirst().replaceAll(' ', '')/]-Command-Name = [aCommand.name/]
-Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/commands/[aCommand.icon/]
-Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Tooltip = [aCommand.tooltip/]
+Command-[aCommand.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aCommand.category.name/]
+[/if]Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name = [aCommand.name/]
+Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon = icons/commands/[aCommand.icon/]
+Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip = [aCommand.tooltip/]
 
 [/for]
+[/template]
+
+[template public contextInformation(aBundle : Bundle)]
+
+#User information for the Handlers Contexts
+[for (aContext : Context | aBundle.contexts)]
+Context-[aContext.refactorContextName().toUpperFirst()/]-Name = [aContext.name/]
+Context-[aContext.refactorContextName().toUpperFirst()/]-Description = [aContext.description/]
+[/for]
+
 [/template]
 
 [template private decoratorInformation(aBundle : Bundle)]
 
 #User information for the Decorators
 [for (aDecorator : Decorator | aBundle.decorators)]
-Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/decorators/[aDecorator.icon/]
+Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon = icons/decorators/[aDecorator.icon/]
 
 [/for]
 [/template]
@@ -137,8 +150,8 @@ Decorator-[aDecorator.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/
 
 #User information for the Perspectives
 [for (aPerspective : Perspective | aBundle.perspectives)]
-Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon = icons/perspectives/[aPerspective.icon/]
-Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aPerspective.name/]
+Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon = icons/perspectives/[aPerspective.icon/]
+Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Name = [aPerspective.name/]
 
 [/for]
 [/template]
@@ -147,7 +160,7 @@ Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Name = [a
 
 #User information for the Markers
 [for (aMarker : Marker | aBundle.markers)]
-Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aMarker.name/]
+Marker-[aMarker.refactorMarkerName().toUpperFirst()/]-Name = [aMarker.name/]
 
 [/for]
 [/template]
@@ -156,11 +169,11 @@ Marker-[aMarker.name.substituteAll(' ', '').toUpperFirst()/]-Name = [aMarker.nam
 
 #User information for the Menu's mnemonic
 [for (aMenu : Menu | aBundle.eAllContents(Menu))][if (not(aMenu.eContainer().oclIsKindOf(View)))]
-Menu-[aMenu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [aMenu.mnemonic/]
+Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic = [aMenu.mnemonic/]
 [/if][/for]
 
 #User information for the Action's mnemonic
-[for (anAction : Action | aBundle.eAllContents(Action))]
-Action-[anAction.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic = [anAction.mnemonic/]
+[for (anHandler : Handler | aBundle.eAllContents(Handler))]
+Command-[anHandler.command.refactorCommandName().toUpperFirst()/]-Mnemonic = [anHandler.mnemonic/]
 [/for]
 [/template]

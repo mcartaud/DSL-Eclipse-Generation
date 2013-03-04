@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module wizardNewFilePageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private wizardNewFilePageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundleQualifiedPath()/]/ui/wizards/[aWizard.name.toUpperFirst()/]FilePage.java
+[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.toUpperFirst()/]FilePage.java
 [/template]
 
 [template public genWizardNewFilePageJavaFile(aWizard : Wizard)]
 [file (wizardNewFilePageJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards;
+package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;

@@ -13,10 +13,10 @@ Contributors :
 /]
 [module classPathXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName/]
 
 [template private classPathXmlFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/.classpath
+[aBundle.genBundlePath()/]/.classpath
 [/template]
 
 [template public genClassPathXmlFile(aBundle : Bundle)]

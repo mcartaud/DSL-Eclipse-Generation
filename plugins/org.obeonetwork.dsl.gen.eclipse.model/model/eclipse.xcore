@@ -1,3 +1,4 @@
+
 @Ecore(nsURI="http://www.obeonetwork.org/dsl/eclipse", nsPrefix="eclipse")
 @GenModel(editDirectory="/org.obeonetwork.dsl.gen.eclipse.model.edit/src-gen")
 @GenModel(editorDirectory="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen")
@@ -6,82 +7,95 @@ package org.obeonetwork.dsl.gen.eclipse
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EReference
+//import org.eclipse.emf.codegen.ecore.genmodel.GenClass 
 
-class Application {
-	String name
-	String applicationID
+class Application
+{
+	String [1] name
+	Namespace [1] applicationID
 	String provider
 	String copyright
 	String license
-	String version
+	Version version
 	String description
+	Namespace [1] baseNamespace
 	boolean mavenCompilation
-	contains Project[] projects
+	contains Project [] projects
 }
 
-abstract class Project {
+abstract class Project
+{
 	String name
-	String basePackage
+	Namespace [1] ID
 }
 
 class Repository extends Project {
-	String categoryLabel
-	String categoryID
-	String categoryDescription
-	refers Feature[] features
+	contains RepositoryCategory[1..*] repositoryCategories
 }
 
-class Feature extends Project {
+class RepositoryCategory  {
+	String [1] label
+	String description
+	Namespace [1] ID
+	refers Feature [] features
+}
+
+class Feature extends Project
+{
 	String copyright
 	String description
-	String version
+	Version version
 	String license
-	String featureProvider
-	refers Bundle[] bundles
+	String provider
+	refers Bundle [1..*] bundles
 }
 
-class Bundle extends Project {
-	String version
+class Bundle extends Project
+{
+	Version version
 	String requiredEnvironment
 	String vendor
-	contains ProvidedService[] providedServices
-	contains RequiredService[] requiredServices
-	contains ImportedPackageDeclaration[] importedPackageDeclarations
-	contains Nature[] natures
-	contains Builder[] builders
-	contains Wizard[] wizards
-	contains ExtensionPoint[] extensionPoints
-	contains Decorator[] decorators
-	contains Marker[] markers
-	contains Perspective[] perspectives
-	contains Editor[] editors
-	contains View[] views
-	contains HelpContents[] helpContents
-	contains Command[] commands
-	contains Menu[] menus
-	contains Action[] actions
-	contains Context[] contexts
-	contains Category[] categories
-	contains Binding[] bindings
-	refers EPackage[] exportedPackages
-	refers EPackage[] ownedPackages
- 	refers derived EPackage[] allExportedPackages
+	contains ProvidedService [] providedServices
+	contains RequiredService [] requiredServices
+	contains ImportedPackageDeclaration [] importedPackageDeclarations
+	contains Nature [] natures
+	contains Builder [] builders
+	contains Wizard [] wizards
+	contains ExtensionPoint [] extensionPoints
+	contains Decorator [] decorators
+	contains Marker [] markers
+	contains Perspective [] perspectives
+	contains Editor [] editors
+	contains View [] views
+	contains HelpContents [] helpContents
+	contains Command [] commands
+	contains Menu [] menus
+	contains Handler[] handlers
+	contains Context [] contexts
+	contains Category [] categories
+	contains Binding [] bindings
+	refers EPackage [] exportedPackages
+	refers EPackage [] ownedPackages
+	refers derived EPackage [] allExportedPackages
 }
 
-class ImportedPackageDeclaration {
-	String packageName
-	String packageVersion
+class ImportedPackageDeclaration
+{
+	Namespace packageName
+	Version packageVersion
 }
 
-class ProvidedService {
-	String name
+class ProvidedService
+{
+	Name [1] name
 	refers EClass implementation
 	refers EClass ^interface
-	refers RequiredService[] requiredServices
+	refers RequiredService [] requiredServices
 }
 
-class RequiredService {
-	String name
+class RequiredService
+{
+	String name	
 	Integer lowerBound
 	Integer upperBound
 	refers EClass ^interface
@@ -89,20 +103,22 @@ class RequiredService {
 	refers EReference bindedReference
 }
 
-class Builder {
-	String name
-	refers Nature[] natures opposite builders
+class Builder
+{
+	Name [1] name
+	refers Nature [1..*] natures opposite builders
 }
 
-class Nature {
-	String name
-	String langageName
+class Nature
+{
+	Name [1] name
 	boolean hasToggleNature
-	refers Builder[] builders opposite natures
+	refers Builder [1..*] builders opposite natures
 }
 
-class Wizard {
-	String name
+class Wizard
+{
+	Name [1] name
 	String title
 	String description
 	String icon
@@ -110,136 +126,151 @@ class Wizard {
 	refers Category category opposite wizards
 }
 
-class ProjectWizard extends Wizard {
-	refers Nature[] natures
+class ProjectWizard extends Wizard
+{
+	refers Nature [] natures
 }
 
-class ExtensionPoint {
-	String name
+class ExtensionPoint
+{
+	Name [1] name
 	boolean required
-	contains Attribute[] attributes
+	contains Attribute [] attributes
 }
 
-class Attribute {
-	String name
+class Attribute
+{
+	Name [1] name
 	boolean required
 	boolean translatable
 	Type ^type
 }
 
-class Decorator {
-	String name
+class Decorator
+{
+	Name [1] name
 	String icon
 	boolean isLightweight
 	boolean isAdaptable
 	Location location
 }
 
-class Marker {
-	String name
+class Marker
+{
+	Name [1] name
 	boolean isPersistant
 }
 
-class Context {
-	String name
-	contains Context[] contexts
-	refers Perspective perspective opposite context
-	refers Command[] commands opposite context
+class Context
+{
+	Name [1] name
+	String description
+	contains Context [] contexts
 }
 
-class Perspective {
-	String name
+class Perspective
+{
+	Name [1] name
 	String icon
-	contains Action[] actions
-	contains Menu[] menus
-	contains Wizard[] wizards
-	refers Context context opposite perspective
-	refers View[] views opposite perspectives
+	contains Handler[] handlers
+	contains Menu [] menus
+	contains Wizard [] wizards
+	refers View [] views opposite perspectives
 }
 
-class Category {
-	String name
-	refers Command[] commands opposite category
-	refers View[] views opposite category
-	refers Wizard[] wizards opposite category
+class Category
+{
+	Name [1] name
+	refers Command [] commands opposite category
+	refers View [] views opposite category
+	refers Wizard [] wizards opposite category
 }
 
-abstract class Part {
-	String name
+abstract class Part
+{
+	Name [1] name
 	String icon
 	contains DynamicHelp dynamicHelp
 }
 
-class View extends Part {
+class View extends Part
+{
 	boolean isTree
 	boolean isVisible
-	contains Action[] actions
-	contains Menu[] menus
-	refers Perspective[] perspectives opposite views
+	contains Handler[] handlers
+	contains Menu [] menus
+	refers Perspective [] perspectives opposite views
 	refers Category category opposite views
 }
 
-class Editor extends Part {
+class Editor extends Part
+{
 	String extension
 	boolean dynamicMenu
-	contains Action[] actions
-	contains Menu[] menus
+	contains Handler[] handlers
+	contains Menu [] menus
 }
 
-class Menu {
-	String name
+class Menu
+{
+	Name [1] name
 	String mnemonic
 	boolean menuContribution
 	boolean toolbarContribution
-	refers Command[] commands opposite menu
+	refers Command [] commands opposite menu
 }
 
-class Command {
-	String name
+class Command
+{
+	Name [1] name
 	String icon
 	String tooltip
-	refers Action action opposite command
+	refers Handler handler opposite command
 	refers Menu menu opposite commands
 	refers Category category opposite commands
 	refers Binding binding opposite command
-	refers Context context opposite commands
 }
 
-class Action {
-	String name
+class Handler
+{
+	Name [1] name
 	String mnemonic
-	refers Command command opposite action
+	refers Command command opposite handler
+	refers Context[] contexts
 }
 
-class HelpContents {
-	String label
+class HelpContents
+{
+	Name [1] label
 	String description
-	String title
-	contains HelpPage[] helpPages
-	refers HelpPage[] externalHelpPages
+	contains HelpPage [] helpPages
+	refers HelpPage [] externalHelpPages
 }
 
-class HelpPage {
-	String label
+class HelpPage
+{
+	Name [1] label
 	String description
-	String title
-	contains HelpPage[] helpPages
-	refers HelpPage[] externalHelpPages
+	contains HelpPage [] helpPages
+	refers HelpPage [] externalHelpPages
 }
 
-class DynamicHelp {
-	String label
+class DynamicHelp
+{
+	Name [1] label
 	String description
-	String title
-	refers HelpPage[] helpPages
+	refers HelpPage [] helpPages
 }
 
-class Binding {
-	String keySequence
+class Binding
+{
+	String [1] keySequence
 	refers Command command opposite binding
+	refers Context[] contexts
 }
 
-enum Type {
+enum Type
+{
 	string
 	^boolean
 	java
@@ -247,11 +278,30 @@ enum Type {
 	identifier
 }
 
-enum Location {
+enum Location
+{
 	BottomRight
 	BottomLeft
 	TopRight
 	TopLeft
 	Underlay
 	Blank
+}
+
+
+type Version wraps java.lang.String create
+{ if ( it != null && ! it . matches ( "\\d+\\.\\d+\\.\\d+" ) ) throw new RuntimeException ( "Bad format for version" )
+; return it
+}
+
+
+type Namespace wraps java.lang.String create
+{ if ( it != null && ! it . matches ( "([a-z]+([0-9]*[A-Z]*[a-z]*)*\\.)*[a-z]+([0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for ID" )
+; return it
+}
+
+
+type Name wraps java.lang.String create
+{ if ( it != null && ! it . matches ( "([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for the name" )
+; return it
 }

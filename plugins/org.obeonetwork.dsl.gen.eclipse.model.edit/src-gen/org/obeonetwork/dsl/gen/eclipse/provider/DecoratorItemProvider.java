@@ -74,29 +74,6 @@ public class DecoratorItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Icon feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addIconPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Decorator_icon_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Decorator_icon_feature", "_UI_Decorator_type"),
-         EclipsePackage.Literals.DECORATOR__ICON,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
    * This adds a property descriptor for the Name feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -111,6 +88,29 @@ public class DecoratorItemProvider
          getString("_UI_Decorator_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Decorator_name_feature", "_UI_Decorator_type"),
          EclipsePackage.Literals.DECORATOR__NAME,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Icon feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addIconPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Decorator_icon_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Decorator_icon_feature", "_UI_Decorator_type"),
+         EclipsePackage.Literals.DECORATOR__ICON,
          true,
          false,
          false,

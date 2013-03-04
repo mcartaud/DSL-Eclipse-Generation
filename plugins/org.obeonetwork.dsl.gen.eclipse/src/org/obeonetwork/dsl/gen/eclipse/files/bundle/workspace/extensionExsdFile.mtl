@@ -1,19 +1,20 @@
 [comment encoding = UTF-8 /]
 [module extensionExsdFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionExsdFile(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/schema/[anExtensionPoint.genExtensionName()/]Extension.exsd
+[anExtensionPoint.eContainer(Bundle).genBundlePath()/]/schema/[anExtensionPoint.genExtensionName()/]Extension.exsd
 [/template]
 
 [template public genExtensionExsdFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionExsdFile(), false, 'UTF-8')]
 <!-- Schema file written by PDE -->
-<schema targetNamespace="[anExtensionPoint.ancestors(Bundle).genBundlePath()/]" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="[anExtensionPoint.ancestors(Bundle).genBundlePath()/]" id="[anExtensionPoint.ancestors(Bundle).genBundlePath()/].[anExtensionPoint.genExtensionName()/]Extension" name="[anExtensionPoint.genExtensionName()/]Extension"/>
+         <meta.schema plugin="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" id="[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" name="[anExtensionPoint.genExtensionName()/]Extension"/>
       </appinfo>
       <documentation>
          ['['/]Enter description of this extension point.]
@@ -52,7 +53,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":[anExtensionPoint.ancestors(Bundle).genBundlePath()/].I[anExtensionPoint.genExtensionName()/]Extension"/>
+                  <meta.attribute kind="java" basedOn=":[anExtensionPoint.ancestors(Bundle).genBundleID()/].I[anExtensionPoint.genExtensionName()/]Extension"/>
                </appinfo>
             </annotation>
          </attribute>

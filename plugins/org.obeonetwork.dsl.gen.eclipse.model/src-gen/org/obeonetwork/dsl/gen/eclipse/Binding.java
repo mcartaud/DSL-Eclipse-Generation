@@ -2,6 +2,8 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Binding#getKeySequence <em>Key Sequence</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Binding#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Binding#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,7 +37,7 @@ public interface Binding extends EObject
    * @return the value of the '<em>Key Sequence</em>' attribute.
    * @see #setKeySequence(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBinding_KeySequence()
-   * @model unique="false"
+   * @model unique="false" required="true"
    * @generated
    */
   String getKeySequence();
@@ -76,5 +79,21 @@ public interface Binding extends EObject
    * @generated
    */
   void setCommand(Command value);
+
+  /**
+   * Returns the value of the '<em><b>Contexts</b></em>' reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Context}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Contexts</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Contexts</em>' reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBinding_Contexts()
+   * @model
+   * @generated
+   */
+  EList<Context> getContexts();
 
 } // Binding

@@ -2,6 +2,8 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import com.google.common.base.Objects;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -67,6 +69,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
     {
       case EclipsePackage.APPLICATION: return createApplication();
       case EclipsePackage.REPOSITORY: return createRepository();
+      case EclipsePackage.REPOSITORY_CATEGORY: return createRepositoryCategory();
       case EclipsePackage.FEATURE: return createFeature();
       case EclipsePackage.BUNDLE: return createBundle();
       case EclipsePackage.IMPORTED_PACKAGE_DECLARATION: return createImportedPackageDeclaration();
@@ -87,7 +90,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
       case EclipsePackage.EDITOR: return createEditor();
       case EclipsePackage.MENU: return createMenu();
       case EclipsePackage.COMMAND: return createCommand();
-      case EclipsePackage.ACTION: return createAction();
+      case EclipsePackage.HANDLER: return createHandler();
       case EclipsePackage.HELP_CONTENTS: return createHelpContents();
       case EclipsePackage.HELP_PAGE: return createHelpPage();
       case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
@@ -111,6 +114,12 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
         return createTypeFromString(eDataType, initialValue);
       case EclipsePackage.LOCATION:
         return createLocationFromString(eDataType, initialValue);
+      case EclipsePackage.VERSION:
+        return createVersionFromString(eDataType, initialValue);
+      case EclipsePackage.NAMESPACE:
+        return createNamespaceFromString(eDataType, initialValue);
+      case EclipsePackage.NAME:
+        return createNameFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -130,6 +139,12 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
         return convertTypeToString(eDataType, instanceValue);
       case EclipsePackage.LOCATION:
         return convertLocationToString(eDataType, instanceValue);
+      case EclipsePackage.VERSION:
+        return convertVersionToString(eDataType, instanceValue);
+      case EclipsePackage.NAMESPACE:
+        return convertNamespaceToString(eDataType, instanceValue);
+      case EclipsePackage.NAME:
+        return convertNameToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -155,6 +170,17 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   {
     RepositoryImpl repository = new RepositoryImpl();
     return repository;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RepositoryCategory createRepositoryCategory()
+  {
+    RepositoryCategoryImpl repositoryCategory = new RepositoryCategoryImpl();
+    return repositoryCategory;
   }
 
   /**
@@ -382,10 +408,10 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Action createAction()
+  public Handler createHandler()
   {
-    ActionImpl action = new ActionImpl();
-    return action;
+    HandlerImpl handler = new HandlerImpl();
+    return handler;
   }
 
   /**
@@ -474,6 +500,144 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
   public String convertLocationToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createVersion(String it)
+  {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (!_notEquals)
+    {
+      _and = false;
+    } else
+    {
+      boolean _matches = it.matches("\\d+\\.\\d+\\.\\d+");
+      boolean _not = (!_matches);
+      _and = (_notEquals && _not);
+    }
+    if (_and)
+    {
+      RuntimeException _runtimeException = new RuntimeException("Bad format for version");
+      throw _runtimeException;
+    }
+    return it;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createVersionFromString(EDataType eDataType, String initialValue)
+  {
+    return createVersion(initialValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertVersionToString(EDataType eDataType, Object instanceValue)
+  {
+    return super.convertToString(eDataType, instanceValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createNamespace(String it)
+  {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (!_notEquals)
+    {
+      _and = false;
+    } else
+    {
+      boolean _matches = it.matches("([a-z]+([0-9]*[A-Z]*[a-z]*)*\\.)*[a-z]+([0-9]*[A-Z]*[a-z]*)*");
+      boolean _not = (!_matches);
+      _and = (_notEquals && _not);
+    }
+    if (_and)
+    {
+      RuntimeException _runtimeException = new RuntimeException("Bad format for ID");
+      throw _runtimeException;
+    }
+    return it;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createNamespaceFromString(EDataType eDataType, String initialValue)
+  {
+    return createNamespace(initialValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertNamespaceToString(EDataType eDataType, Object instanceValue)
+  {
+    return super.convertToString(eDataType, instanceValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createName(String it)
+  {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (!_notEquals)
+    {
+      _and = false;
+    } else
+    {
+      boolean _matches = it.matches("([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*");
+      boolean _not = (!_matches);
+      _and = (_notEquals && _not);
+    }
+    if (_and)
+    {
+      RuntimeException _runtimeException = new RuntimeException("Bad format for the name");
+      throw _runtimeException;
+    }
+    return it;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String createNameFromString(EDataType eDataType, String initialValue)
+  {
+    return createName(initialValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertNameToString(EDataType eDataType, Object instanceValue)
+  {
+    return super.convertToString(eDataType, instanceValue);
   }
 
   /**

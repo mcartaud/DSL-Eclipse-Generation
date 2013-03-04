@@ -1,21 +1,22 @@
 [comment encoding = UTF-8 /]
 [module extensionDescriptorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/registry/[anExtensionPoint.genExtensionName()/]ExtensionDescriptor.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName()/]ExtensionDescriptor.java
 [/template]
 
 [template public genExtensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundlePath()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
- * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundlePath()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
+ * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
  * 
  */
 public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {

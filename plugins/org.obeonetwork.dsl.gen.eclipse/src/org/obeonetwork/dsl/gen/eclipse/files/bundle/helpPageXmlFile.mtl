@@ -1,10 +1,10 @@
 [comment encoding = UTF-8 /]
 [module helpPageXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private helpPageXmlFile(anHelpContent : HelpContents)]
-[anHelpContent.eContainer(Application).name/]/plugins/[anHelpContent.eContainer(Bundle).genBundlePath()/]/[anHelpContent.label.substituteAll(' ', '').toLowerFirst()/]Toc.xml
+[anHelpContent.eContainer(Bundle).genBundlePath()/]/[anHelpContent.refactorHelpLabel()/]Toc.xml
 [/template]
 
 [template public genHelpPageXmlFile(anHelpContent : HelpContents)]
@@ -16,13 +16,13 @@
 [for (anHelpPage : HelpPage | anHelpContent.helpPages)]
 	<topic label="[anHelpPage.label/]"  href="html/[anHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html">  
 [for (anExternalHelpPage : HelpPage | anHelpPage.externalHelpPages)]
-		<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundlePath()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
+		<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
 [/for][for (aSubHelpPage : HelpPage | anHelpPage.helpPages)]
 [aSubHelpPage.subHelpPage()/]
 [/for]
 	</topic>
 [/for][for (anExternalHelpPage : HelpPage | anHelpContent.externalHelpPages)]
-	<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundlePath()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
+	<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
 [/for]
 </toc>
 [/file]
@@ -31,7 +31,7 @@
 [template private subHelpPage(aSubHelpPage : HelpPage)]
 		<topic label="[aSubHelpPage.label/]"  href="html/[aSubHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"[if (not(aSubHelpPage.helpPages->size() > 0) and not(aSubHelpPage.externalHelpPages->size() > 0))]/>[else]> 
 [for (anExternalHelpPage : HelpPage | aSubHelpPage.externalHelpPages)]
-			<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundlePath()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
+			<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
 [/for][for (anHelpPage : HelpPage | aSubHelpPage.helpPages)]
 	[anHelpPage.subHelpPage()/]
 [/for]		

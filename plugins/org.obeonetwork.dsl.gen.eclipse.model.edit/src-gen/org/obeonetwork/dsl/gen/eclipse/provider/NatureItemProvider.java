@@ -65,7 +65,6 @@ public class NatureItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addLangageNamePropertyDescriptor(object);
       addHasToggleNaturePropertyDescriptor(object);
       addBuildersPropertyDescriptor(object);
     }
@@ -87,29 +86,6 @@ public class NatureItemProvider
          getString("_UI_Nature_name_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Nature_name_feature", "_UI_Nature_type"),
          EclipsePackage.Literals.NATURE__NAME,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Langage Name feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addLangageNamePropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Nature_langageName_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Nature_langageName_feature", "_UI_Nature_type"),
-         EclipsePackage.Literals.NATURE__LANGAGE_NAME,
          true,
          false,
          false,
@@ -206,7 +182,6 @@ public class NatureItemProvider
     switch (notification.getFeatureID(Nature.class))
     {
       case EclipsePackage.NATURE__NAME:
-      case EclipsePackage.NATURE__LANGAGE_NAME:
       case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

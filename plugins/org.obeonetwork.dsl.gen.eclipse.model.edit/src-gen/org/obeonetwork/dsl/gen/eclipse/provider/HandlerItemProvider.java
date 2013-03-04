@@ -22,16 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Action} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Handler} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActionItemProvider
+public class HandlerItemProvider
   extends ItemProviderAdapter
   implements
     IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class ActionItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionItemProvider(AdapterFactory adapterFactory)
+  public HandlerItemProvider(AdapterFactory adapterFactory)
   {
     super(adapterFactory);
   }
@@ -67,6 +67,7 @@ public class ActionItemProvider
       addNamePropertyDescriptor(object);
       addMnemonicPropertyDescriptor(object);
       addCommandPropertyDescriptor(object);
+      addContextsPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -83,9 +84,9 @@ public class ActionItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Action_name_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Action_name_feature", "_UI_Action_type"),
-         EclipsePackage.Literals.ACTION__NAME,
+         getString("_UI_Handler_name_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Handler_name_feature", "_UI_Handler_type"),
+         EclipsePackage.Literals.HANDLER__NAME,
          true,
          false,
          false,
@@ -106,9 +107,9 @@ public class ActionItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Action_mnemonic_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Action_mnemonic_feature", "_UI_Action_type"),
-         EclipsePackage.Literals.ACTION__MNEMONIC,
+         getString("_UI_Handler_mnemonic_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Handler_mnemonic_feature", "_UI_Handler_type"),
+         EclipsePackage.Literals.HANDLER__MNEMONIC,
          true,
          false,
          false,
@@ -129,9 +130,9 @@ public class ActionItemProvider
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Action_command_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Action_command_feature", "_UI_Action_type"),
-         EclipsePackage.Literals.ACTION__COMMAND,
+         getString("_UI_Handler_command_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Handler_command_feature", "_UI_Handler_type"),
+         EclipsePackage.Literals.HANDLER__COMMAND,
          true,
          false,
          true,
@@ -141,7 +142,30 @@ public class ActionItemProvider
   }
 
   /**
-   * This returns Action.gif.
+   * This adds a property descriptor for the Contexts feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addContextsPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Handler_contexts_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Handler_contexts_feature", "_UI_Handler_type"),
+         EclipsePackage.Literals.HANDLER__CONTEXTS,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
+
+  /**
+   * This returns Handler.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -149,7 +173,7 @@ public class ActionItemProvider
   @Override
   public Object getImage(Object object)
   {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/Action"));
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Handler"));
   }
 
   /**
@@ -161,10 +185,10 @@ public class ActionItemProvider
   @Override
   public String getText(Object object)
   {
-    String label = ((Action)object).getName();
+    String label = ((Handler)object).getName();
     return label == null || label.length() == 0 ?
-      getString("_UI_Action_type") :
-      getString("_UI_Action_type") + " " + label;
+      getString("_UI_Handler_type") :
+      getString("_UI_Handler_type") + " " + label;
   }
 
   /**
@@ -179,10 +203,10 @@ public class ActionItemProvider
   {
     updateChildren(notification);
 
-    switch (notification.getFeatureID(Action.class))
+    switch (notification.getFeatureID(Handler.class))
     {
-      case EclipsePackage.ACTION__NAME:
-      case EclipsePackage.ACTION__MNEMONIC:
+      case EclipsePackage.HANDLER__NAME:
+      case EclipsePackage.HANDLER__MNEMONIC:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

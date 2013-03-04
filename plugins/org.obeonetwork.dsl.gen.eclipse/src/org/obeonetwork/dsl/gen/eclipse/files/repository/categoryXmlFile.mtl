@@ -13,26 +13,27 @@ Contributors :
 /]
 [module categoryXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private categoryXmlFile(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repository/[aRepository.genBundlePath()/]/category.xml
+[aRepository.genRepositoryPath()/]/category.xml
 [/template]
 
 [template public genCategoryXmlFile(aRepository : Repository)]
 [file (aRepository.categoryXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-[for (aFeature : Feature | aRepository.features)]
-   <feature url="features/[aFeature.genBundlePath()/]_[aFeature.version/].jar" id="[aFeature.genBundlePath()/]" version="[aFeature.version/]">
-      <category name="[aRepository.categoryID/]"/>
+[for (aCategory : RepositoryCategory | aRepository.repositoryCategories)][for (aFeature : Feature | aCategory.features)]
+   <feature url="features/[aFeature.genFeatureID()/]_[aFeature.featureVersion()/].jar" id="[aFeature.genFeatureID()/]" version="[aFeature.featureVersion()/]">
+      <category name="[aCategory.ID/]"/>
    </feature>
-[/for]
-   <category-def name="[aRepository.categoryID/]" label="[aRepository.categoryLabel/]">
+[/for][/for][for (aCategory : RepositoryCategory | aRepository.repositoryCategories)]
+   <category-def name="[aCategory.ID/]" label="[aCategory.label/]">
       <description>
-         [aRepository.categoryDescription/]
+         [aCategory.description/]
       </description>
    </category-def>
+[/for]
 </site>
 [/file]
 [/template]

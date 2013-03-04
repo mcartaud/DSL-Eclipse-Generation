@@ -158,29 +158,6 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIcon()
-  {
-    return icon;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIcon(String newIcon)
-  {
-    String oldIcon = icon;
-    icon = newIcon;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__ICON, oldIcon, icon));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -197,6 +174,29 @@ public class DecoratorImpl extends MinimalEObjectImpl.Container implements Decor
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getIcon()
+  {
+    return icon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIcon(String newIcon)
+  {
+    String oldIcon = icon;
+    icon = newIcon;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__ICON, oldIcon, icon));
   }
 
   /**

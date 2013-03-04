@@ -90,6 +90,11 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createRepositoryAdapter();
       }
       @Override
+      public Adapter caseRepositoryCategory(RepositoryCategory object)
+      {
+        return createRepositoryCategoryAdapter();
+      }
+      @Override
       public Adapter caseFeature(Feature object)
       {
         return createFeatureAdapter();
@@ -195,9 +200,9 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
         return createCommandAdapter();
       }
       @Override
-      public Adapter caseAction(Action object)
+      public Adapter caseHandler(Handler object)
       {
-        return createActionAdapter();
+        return createHandlerAdapter();
       }
       @Override
       public Adapter caseHelpContents(HelpContents object)
@@ -282,6 +287,21 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRepositoryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory <em>Repository Category</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory
+   * @generated
+   */
+  public Adapter createRepositoryCategoryAdapter()
   {
     return null;
   }
@@ -602,16 +622,16 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
+   * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler
    * @generated
    */
-  public Adapter createActionAdapter()
+  public Adapter createHandlerAdapter()
   {
     return null;
   }

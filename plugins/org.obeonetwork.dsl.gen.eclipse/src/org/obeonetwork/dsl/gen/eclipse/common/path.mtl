@@ -1,13 +1,14 @@
 [comment encoding = UTF-8 /]
 [module path('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template public genInterfacePath(aProvidedService : ProvidedService)]
-[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.interfacePath()->sep('.')/]
+[aProvidedService.eContainer(Bundle).genBundleID()/].[aProvidedService.interfacePath()->sep('.')/]
 [/template]
 
 [template public genImplementationPath(aProvidedService : ProvidedService)]
-[aProvidedService.eContainer(Bundle).basePackage/].[aProvidedService.implementationPath()->sep('.')/]
+[aProvidedService.eContainer(Application).baseNamespace/].[aProvidedService.eContainer(Bundle).name/].[aProvidedService.implementationPath()->sep('.')/]
 [/template]
 
 [query private interfacePath(aProvidedService : ProvidedService) : Sequence(String) = 
@@ -19,7 +20,7 @@ aProvidedService.implementation.ancestors(EPackage)->reverse().name
 /]
 
 [template public genInterfacePath(aRequiredService : RequiredService)]
-[aRequiredService.interface.eContainer(EPackage).eInverse(Bundle).basePackage/].[aRequiredService.interfacePath()->sep('.')/]
+[aRequiredService.interface.eContainer(EPackage).eInverse(Bundle).genBundleID()/].[aRequiredService.interfacePath()->sep('.')/]
 [/template]
 
 [query private interfacePath(aRequiredService : RequiredService) : Sequence(String) =
@@ -29,19 +30,3 @@ aRequiredService.interface.ancestors(EPackage)->reverse().name
 [query public allExportedPackages(aBundle : Bundle) : EPackage = 
 	invoke('org.obeonetwork.dsl.gen.eclipse.impl.spec.BundleSpec', 'getAllExportedPackages()', Sequence{})
 /]
-
-[template public genExtensionName(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '').substitute('Extension', '')/]
-[/template]
-
-[query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
-anExtensionPoint.name.substituteAll(' ', '_').toUpper()
-/]
-
-[template public genBundleQualifiedPath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.basePackage/].[aBundle.name.toLowerFirst()/]/src/[aBundle.basePackage.substituteAll('.', '/')/][if (aBundle.basePackage.endsWith(aBundle.name.toLowerFirst()))][else]/[aBundle.name.toLowerFirst()/][/if]
-[/template]
-
-[template public genBundlePath(aProject : Project)]
-[aProject.basePackage/].[aProject.name.toLowerFirst()/]
-[/template]

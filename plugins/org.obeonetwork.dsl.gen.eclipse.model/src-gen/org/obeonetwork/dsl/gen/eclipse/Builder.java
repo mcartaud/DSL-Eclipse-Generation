@@ -36,7 +36,7 @@ public interface Builder extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBuilder_Name()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
    * @generated
    */
   String getName();
@@ -64,7 +64,7 @@ public interface Builder extends EObject
    * @return the value of the '<em>Natures</em>' reference list.
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBuilder_Natures()
    * @see org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders
-   * @model opposite="builders"
+   * @model opposite="builders" required="true"
    * @generated
    */
   EList<Nature> getNatures();

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getBaseNamespace <em>Base Namespace</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}</li>
  * </ul>
@@ -43,7 +44,7 @@ public interface Application extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Name()
-   * @model unique="false"
+   * @model unique="false" required="true"
    * @generated
    */
   String getName();
@@ -69,7 +70,7 @@ public interface Application extends EObject
    * @return the value of the '<em>Application ID</em>' attribute.
    * @see #setApplicationID(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_ApplicationID()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
    * @generated
    */
   String getApplicationID();
@@ -173,7 +174,7 @@ public interface Application extends EObject
    * @return the value of the '<em>Version</em>' attribute.
    * @see #setVersion(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Version()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Version"
    * @generated
    */
   String getVersion();
@@ -213,6 +214,32 @@ public interface Application extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Base Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Base Namespace</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Base Namespace</em>' attribute.
+   * @see #setBaseNamespace(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_BaseNamespace()
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
+   * @generated
+   */
+  String getBaseNamespace();
+
+  /**
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getBaseNamespace <em>Base Namespace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Base Namespace</em>' attribute.
+   * @see #getBaseNamespace()
+   * @generated
+   */
+  void setBaseNamespace(String value);
 
   /**
    * Returns the value of the '<em><b>Maven Compilation</b></em>' attribute.

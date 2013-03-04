@@ -31,7 +31,6 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getHelpPages <em>Help Pages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpPageImpl#getExternalHelpPages <em>External Help Pages</em>}</li>
  * </ul>
@@ -82,26 +81,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected static final String TITLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected String title = TITLE_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getHelpPages() <em>Help Pages</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -147,29 +126,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_PAGE__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getLabel()
   {
     return label;
@@ -193,9 +149,9 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTitle()
+  public String getDescription()
   {
-    return title;
+    return description;
   }
 
   /**
@@ -203,12 +159,12 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTitle(String newTitle)
+  public void setDescription(String newDescription)
   {
-    String oldTitle = title;
-    title = newTitle;
+    String oldDescription = description;
+    description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_PAGE__TITLE, oldTitle, title));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_PAGE__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -269,8 +225,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
         return getLabel();
       case EclipsePackage.HELP_PAGE__DESCRIPTION:
         return getDescription();
-      case EclipsePackage.HELP_PAGE__TITLE:
-        return getTitle();
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         return getHelpPages();
       case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
@@ -295,9 +249,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
         return;
       case EclipsePackage.HELP_PAGE__DESCRIPTION:
         setDescription((String)newValue);
-        return;
-      case EclipsePackage.HELP_PAGE__TITLE:
-        setTitle((String)newValue);
         return;
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         getHelpPages().clear();
@@ -327,9 +278,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
       case EclipsePackage.HELP_PAGE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.HELP_PAGE__TITLE:
-        setTitle(TITLE_EDEFAULT);
-        return;
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         getHelpPages().clear();
         return;
@@ -354,8 +302,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case EclipsePackage.HELP_PAGE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case EclipsePackage.HELP_PAGE__TITLE:
-        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.HELP_PAGE__HELP_PAGES:
         return helpPages != null && !helpPages.isEmpty();
       case EclipsePackage.HELP_PAGE__EXTERNAL_HELP_PAGES:
@@ -379,8 +325,6 @@ public class HelpPageImpl extends MinimalEObjectImpl.Container implements HelpPa
     result.append(label);
     result.append(", description: ");
     result.append(description);
-    result.append(", title: ");
-    result.append(title);
     result.append(')');
     return result.toString();
   }

@@ -1,10 +1,10 @@
 [comment encoding = UTF-8 /]
 [module helpContentsXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private helpContentsXmlFile(anHelpContents : HelpContents)]
-[anHelpContents.eContainer(Application).name/]/plugins/[anHelpContents.eContainer(Bundle).genBundlePath()/]/[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/].xml
+[anHelpContents.eContainer(Bundle).genBundlePath()/]/[anHelpContents.refactorHelpLabel()/].xml
 [/template]
 
 [template public genHelpContentsXmlFile(anHelpContents : HelpContents)]

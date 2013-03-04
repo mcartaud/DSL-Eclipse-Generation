@@ -67,11 +67,10 @@ public class CommandItemProvider
       addNamePropertyDescriptor(object);
       addIconPropertyDescriptor(object);
       addTooltipPropertyDescriptor(object);
-      addActionPropertyDescriptor(object);
+      addHandlerPropertyDescriptor(object);
       addMenuPropertyDescriptor(object);
       addCategoryPropertyDescriptor(object);
       addBindingPropertyDescriptor(object);
-      addContextPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -146,20 +145,20 @@ public class CommandItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Action feature.
+   * This adds a property descriptor for the Handler feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addActionPropertyDescriptor(Object object)
+  protected void addHandlerPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Command_action_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Command_action_feature", "_UI_Command_type"),
-         EclipsePackage.Literals.COMMAND__ACTION,
+         getString("_UI_Command_handler_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Command_handler_feature", "_UI_Command_type"),
+         EclipsePackage.Literals.COMMAND__HANDLER,
          true,
          false,
          true,
@@ -229,29 +228,6 @@ public class CommandItemProvider
          getString("_UI_Command_binding_feature"),
          getString("_UI_PropertyDescriptor_description", "_UI_Command_binding_feature", "_UI_Command_type"),
          EclipsePackage.Literals.COMMAND__BINDING,
-         true,
-         false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Context feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addContextPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Command_context_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Command_context_feature", "_UI_Command_type"),
-         EclipsePackage.Literals.COMMAND__CONTEXT,
          true,
          false,
          true,

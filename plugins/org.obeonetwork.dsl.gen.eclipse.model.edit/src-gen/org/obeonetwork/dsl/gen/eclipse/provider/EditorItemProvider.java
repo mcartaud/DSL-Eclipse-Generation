@@ -130,7 +130,7 @@ public class EditorItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.EDITOR__ACTIONS);
+      childrenFeatures.add(EclipsePackage.Literals.EDITOR__HANDLERS);
       childrenFeatures.add(EclipsePackage.Literals.EDITOR__MENUS);
     }
     return childrenFeatures;
@@ -195,7 +195,7 @@ public class EditorItemProvider
       case EclipsePackage.EDITOR__DYNAMIC_MENU:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.EDITOR__ACTIONS:
+      case EclipsePackage.EDITOR__HANDLERS:
       case EclipsePackage.EDITOR__MENUS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -217,8 +217,8 @@ public class EditorItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.EDITOR__ACTIONS,
-         EclipseFactory.eINSTANCE.createAction()));
+        (EclipsePackage.Literals.EDITOR__HANDLERS,
+         EclipseFactory.eINSTANCE.createHandler()));
 
     newChildDescriptors.add
       (createChildParameter

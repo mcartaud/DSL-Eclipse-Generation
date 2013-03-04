@@ -41,6 +41,15 @@ public interface EclipseFactory extends EFactory
   Repository createRepository();
 
   /**
+   * Returns a new object of class '<em>Repository Category</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Repository Category</em>'.
+   * @generated
+   */
+  RepositoryCategory createRepositoryCategory();
+
+  /**
    * Returns a new object of class '<em>Feature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -221,13 +230,13 @@ public interface EclipseFactory extends EFactory
   Command createCommand();
 
   /**
-   * Returns a new object of class '<em>Action</em>'.
+   * Returns a new object of class '<em>Handler</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action</em>'.
+   * @return a new object of class '<em>Handler</em>'.
    * @generated
    */
-  Action createAction();
+  Handler createHandler();
 
   /**
    * Returns a new object of class '<em>Help Contents</em>'.

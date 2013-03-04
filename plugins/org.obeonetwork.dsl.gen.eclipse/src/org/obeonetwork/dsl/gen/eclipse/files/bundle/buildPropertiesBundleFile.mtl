@@ -13,10 +13,10 @@ Contributors :
 /]
 [module buildPropertiesBundleFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private buildPropertiesBundleFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/build.properties
+[aBundle.genBundlePath()/]/build.properties
 [/template]
 
 [template public genBuildPropertiesBundleFile(aBundle : Bundle)]

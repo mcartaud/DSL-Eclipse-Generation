@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module workbenchPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::menuPluginXml /]
 
 
@@ -15,10 +15,10 @@
 [for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.actions->size() > 0 or aBundle.perspectives.actions->size() > 0)]
+[/if][if (aBundle.handlers->size() > 0 or aBundle.perspectives.handlers->size() > 0)]
    <extension
          point="org.eclipse.ui.handlers">
-[for (anAction : Action | aBundle.eAllContents(Action))][anAction.handlerTemplate()/]
+[for (anHandler : Handler | aBundle.eAllContents(Handler))][anHandler.handlerTemplate()/]
 [/for]
    </extension>
 [/if][if (aBundle.bindings->size() > 0)]
@@ -50,16 +50,22 @@
 [for (aPerspective : Perspective | aBundle.perspectives)][aPerspective.perspectiveTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.perspectives.actions->size() > 0 or aBundle.perspectives.menus->size() > 0 or aBundle.perspectives.views->size() > 0 or aBundle.perspectives.wizards->size() > 0)]
+[/if][if (aBundle.perspectives.handlers->size() > 0 or aBundle.perspectives.menus->size() > 0 or aBundle.perspectives.views->size() > 0 or aBundle.perspectives.wizards->size() > 0)]
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
 [for (aPerspective : Perspective | aBundle.perspectives)][aPerspective.perspectiveExtensionTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).actions->size() > 0)]
+[/if][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).handlers->size() > 0)]
    <extension
          point = "org.eclipse.core.expressions.definitions">
-[for (anAction : Action | aBundle.eAllContents(Editor).eAllContents(Action))][anAction.editorActionDefinition()/]
+[for (anHandler : Handler | aBundle.eAllContents(Editor).eAllContents(Handler))][anHandler.editorActionDefinition()/]
+[/for]
+   </extension>
+[/if][if (aBundle.contexts->size() > 0)]
+   <extension
+		 point="org.eclipse.ui.contexts">
+[for (aContext : Context | aBundle.eAllContents(Context))][aContext.contextDefinition()/]
 [/for]
    </extension>
 [/if]
@@ -69,27 +75,24 @@
 
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
-            name="%Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Name"
-            icon="%Perspective-[aPerspective.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-[if (aPerspective._context->size() > 0)]
-			contextId="[aPerspective.eContainer(Bundle).genBundlePath()/].context.[aPerspective._context.name.toLowerFirst().substituteAll(' ', '')/]"
-[/if]
-            class="[aPerspective.eContainer(Bundle).genBundlePath()/].ui.perspectives.[aPerspective.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().substituteAll(' ', '')/]">
+            name="%Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Name"
+            icon="%Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon"
+            class="[aPerspective.genPerspectivePath()/]"
+            id="[aPerspective.genPerspectiveID()/]">
       </perspective>
 [/template]
 
 [template private perspectiveExtensionTemplate(aPerspective : Perspective)]
   	  <perspectiveExtension 
-			targetID="[aPerspective.eContainer(Bundle).genBundlePath()/].perspectives.[aPerspective.name.toLowerFirst().substituteAll(' ', '')/]">
+			targetID="[aPerspective.genPerspectiveID()/]">
     		<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
 [for (aView : View | aPerspective.views)][if (aView.isVisible)]
-    		<view id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]" 
+    		<view id="[aView.genViewID()/]" 
         		relative="org.eclipse.ui.console.ConsoleView" 
     			relationship="stack"/>	
 [/if][/for][for (aWizard : Wizard | aPerspective.wizards)]
       		<newWizardShortcut
-            		id="[aWizard.ancestors(Bundle).genBundlePath()/].wizards.[aWizard.name.toLowerFirst().substituteAll(' ', '')/]">
+            		id="[aWizard.genWizardID()/]">
       		</newWizardShortcut>	
 [/for]
  	  </perspectiveExtension>
@@ -97,41 +100,41 @@
 
 [template private commandTemplate(aCommand : Command)]
       <command
-            name="%[aCommand.name.toUpperFirst().substituteAll(' ', '')/]-Command-Name"
+            name="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
 [if (aCommand.category->size() > 0)]
-            categoryId="[aCommand.eContainer(Bundle).genBundlePath()/].category.[aCommand.category.name.toLowerFirst().substituteAll(' ', '')/]"
+            categoryId="[aCommand.category.genCategoryID()/]"
 [/if]
-            id="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.substituteAll(' ', '').toLowerFirst()/]">
+            id="[aCommand.genCommandID()/]">
       </command>
 [/template]
 
 [template private commandCategory(aCategory : Category)]
       <category
             name="%[aCategory.categoryName()/]"
-            id="[aCategory.eContainer(Bundle).genBundlePath()/].category.[aCategory.name.toLowerFirst().substituteAll(' ', '')/]">
+            id="[aCategory.genCategoryID()/]">
       </category>
 [/template]
 
 [template private categoryName(aCategory : Category)]
 [if (aCategory.views->size() > 0)]
-[aCategory.name.toUpperFirst().substituteAll(' ', '')/]-ViewCategory-Name[elseif (aCategory.commands->size() > 0)]
-[aCategory.commands->first().name.toUpperFirst()/]-CommandCategory-Name
-[elseif (aCategory.wizards->size() > 0)][aCategory.wizards->first().name.toUpperFirst()/]-WizardCategory-Name[/if]
+View-[aCategory.refactorCategoryName().toUpperFirst()/]-Category-Name[elseif (aCategory.commands->size() > 0)]
+Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Category-Name
+[elseif (aCategory.wizards->size() > 0)]Wizard-[aCategory.wizards->first().refactorWizardName().toUpperFirst()/]-Category-Name[/if]
 [/template]
 
-[template private handlerTemplate(anAction : Action)]
+[template private handlerTemplate(anHandler : Handler)]
       <handler
-            commandId="[anAction.eContainer(Bundle).genBundlePath()/].commands.[anAction.command.name.toLowerFirst().substituteAll(' ', '')/]"
-            class="[anAction.eContainer(Bundle).genBundlePath()/].ui.handlers.[anAction.name.toUpperFirst().substituteAll(' ', '')/]">
+            commandId="[anHandler.command.genCommandID()/]"
+            class="[anHandler.genHandlerPath()/]">
       </handler>
 [/template]
 
 [template private bindingTemplate(aBinding : Binding)]
       <key
-            commandId="[aBinding.eContainer(Bundle).genBundlePath()/].commands.[aBinding.command.name.toLowerFirst().substituteAll(' ', '')/]"
-[if (aBinding.command._context->size() > 0)]
-            contextId="[aBinding.eContainer(Bundle).genBundlePath()/].contexts.[aBinding.command._context.name.toLowerFirst().substituteAll(' ', '')/]"
-[/if]
+            commandId="[aBinding.command.genCommandID()/]"
+[for (aContext : Context | aBinding.contexts)]
+            contextId="[aBinding.command.handler.contexts.genContextID()/]"
+[/for]
             sequence="[aBinding.bindingKey()/]"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
@@ -145,28 +148,38 @@
 [template private viewTemplate(aView : View)]
       <view
 [if (aView.category->size() > 0)]
-            category="[aView.eContainer(Bundle).genBundlePath()/].category.[aView.category.name.toLowerFirst().substituteAll(' ', '')/]"
+            category="[aView.category.genCategoryID()/]"
 [/if]
-            class="[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.toUpperFirst().replaceAll(' ', '')/]"
-            id="[aView.eContainer(Bundle).genBundlePath()/].views.[aView.name.toLowerFirst().substituteAll(' ', '')/]"
-            icon="%View-[aView.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-			name="%[aView.name.toUpperFirst()/]-View-Name">
+            class="[aView.genViewPath()/]"
+            id="[aView.genViewID()/]"
+            icon="%View-[aView.refactorViewName().toUpperFirst()/]-Icon"
+			name="%View-[aView.refactorViewName().toUpperFirst()/]-Name">
       </view>
 [/template]
 
 [template private editorTemplate(anEditor : Editor)]
       <editor
-            class="[anEditor.eContainer(Bundle).genBundlePath()/].ui.editors.[anEditor.name.toUpperFirst().replaceAll(' ', '')/]"
-            icon="%Editor-[anEditor.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-            id="[anEditor.eContainer(Bundle).genBundlePath()/].editors.[anEditor.name.toLowerFirst().substituteAll(' ', '')/]"
-            name="%[anEditor.name.toUpperFirst()/]-Editor-Name">
+            class="[anEditor.genEditorPath()/]"
+            icon="%Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon"
+            id="[anEditor.genEditorID()/]"
+            name="%Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name">
       </editor>
 [/template]
 
-[template private editorActionDefinition(anAction : Action)]
-      <definition id="[anAction.eContainer(Bundle).genBundlePath()/].definitions.[anAction.name.substituteAll(' ', '').toLowerFirst()/]">    
+[template private editorActionDefinition(anHandler : Handler)]
+      <definition id="[anHandler.command.genDefinitionID()/]">    
          <with variable="activeEditorId">
-            <equals value="[anAction.eContainer(Bundle).genBundlePath()/].editors.[anAction.eContainer(Editor).name.toLowerFirst().substituteAll(' ', '')/]"/>
+            <equals value="[anHandler.eContainer(Editor).genEditorID()/]"/>
          </with>
       </definition>
+[/template]
+
+[template private contextDefinition(aContext : Context)]
+	  <context
+		 name="%Context-[aContext.refactorContextName().toUpperFirst()/]-Name"
+		 description="%Context-[aContext.refactorContextName().toUpperFirst()/]-Description"
+		 id="[aContext.genContextID()/]"[if (aContext.eContainer().oclIsKindOf(Bundle))]>[else]
+	     parentId="[aContext.eContainer(Context).genContextID()/]">
+[/if]
+	  </context>
 [/template]

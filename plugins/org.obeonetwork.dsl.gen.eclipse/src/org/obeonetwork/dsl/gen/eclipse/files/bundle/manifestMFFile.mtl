@@ -14,9 +14,10 @@ Contributors :
 [module manifestMFFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private manifestMFFile(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundlePath()/]/META-INF/MANIFEST.MF
+[aBundle.genBundlePath()/]/META-INF/MANIFEST.MF
 [/template]
 
 [template public genManifestMFFile(aBundle : Bundle)]
@@ -25,18 +26,18 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: [if (aBundle.requiredEnvironment->size() > 0)][aBundle.requiredEnvironment/][else]J2SE-1.5[/if]
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: [aBundle.genBundlePath()/];singleton:=true
+Bundle-SymbolicName: [aBundle.genBundleID()/];singleton:=true
 Bundle-Version: [aBundle.bundleVersion()/]
 Bundle-Vendor: %Provider-Name
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 [if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.views->size() > 0 
-or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0 or aBundle.commands->size() > 0 
-or aBundle.editors.actions->size() > 0 or aBundle.helpContents->size() > 0)]Bundle-Activator: [aBundle.genBundlePath()/].Activator
+or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0 or aBundle.commands->size() > 0 
+or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)]Bundle-Activator: [aBundle.genBundleID()/].Activator
 [/if][if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 
-or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0
-or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0 or aBundle.helpContents->size() > 0)][importDeclaration()/]
+or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
+or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importDeclaration()/]
 [/if][if (aBundle.allExportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
 [/if][if (aBundle.requiredServices->size() > 0)]Import-Package:[for (aRequiredService : RequiredService | aBundle.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
 [/if][if (aBundle.providedServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
@@ -46,11 +47,7 @@ or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0 or aBundl
 
 [template private bundleExportedPackages(aBundle : Bundle)]
 [for (anEPackage : EPackage | aBundle.allExportedPackages) separator (',' + aBundle.lineSeparator())]
- [aBundle.basePackage/].[if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage)->reverse().name/].[/if][anEPackage.name/][/for]
-[/template]
-
-[template private bundleVersion(aBundle : Bundle)]
-[if (aBundle.version->size() > 0)][aBundle.version/][else]1.0.0.qualifier[/if]
+ [aBundle.genBundleID()/].[if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage).refactorEPackageName()->reverse()/].[/if][anEPackage.refactorEPackageName()/][/for]
 [/template]
 
 [template private exportPackage(aBundle : Bundle)]
@@ -61,8 +58,8 @@ or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0 or aBundl
 [template private importDeclaration(aBundle : Bundle)]
 Require-Bundle: [for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
 separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0 
-or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.actions->size() > 0
-or aBundle.commands->size() > 0 or aBundle.editors.actions->size() > 0 or aBundle.helpContents->size() > 0)][importRequired()/][/if]
+or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
+or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importRequired()/][/if]
 [/template]
 
 [template private importRequired(aBundle : Bundle)]

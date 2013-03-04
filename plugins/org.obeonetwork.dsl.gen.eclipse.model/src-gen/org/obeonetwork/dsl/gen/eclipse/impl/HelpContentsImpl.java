@@ -32,7 +32,6 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl#getHelpPages <em>Help Pages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl#getExternalHelpPages <em>External Help Pages</em>}</li>
  * </ul>
@@ -83,26 +82,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected static final String TITLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected String title = TITLE_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getHelpPages() <em>Help Pages</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -148,29 +127,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_CONTENTS__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getLabel()
   {
     return label;
@@ -194,9 +150,9 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTitle()
+  public String getDescription()
   {
-    return title;
+    return description;
   }
 
   /**
@@ -204,12 +160,12 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTitle(String newTitle)
+  public void setDescription(String newDescription)
   {
-    String oldTitle = title;
-    title = newTitle;
+    String oldDescription = description;
+    description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_CONTENTS__TITLE, oldTitle, title));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_CONTENTS__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -270,8 +226,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
         return getLabel();
       case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
         return getDescription();
-      case EclipsePackage.HELP_CONTENTS__TITLE:
-        return getTitle();
       case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
         return getHelpPages();
       case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
@@ -296,9 +250,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
         return;
       case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
         setDescription((String)newValue);
-        return;
-      case EclipsePackage.HELP_CONTENTS__TITLE:
-        setTitle((String)newValue);
         return;
       case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
         getHelpPages().clear();
@@ -328,9 +279,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
       case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.HELP_CONTENTS__TITLE:
-        setTitle(TITLE_EDEFAULT);
-        return;
       case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
         getHelpPages().clear();
         return;
@@ -355,8 +303,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case EclipsePackage.HELP_CONTENTS__TITLE:
-        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
         return helpPages != null && !helpPages.isEmpty();
       case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
@@ -380,8 +326,6 @@ public class HelpContentsImpl extends MinimalEObjectImpl.Container implements He
     result.append(label);
     result.append(", description: ");
     result.append(description);
-    result.append(", title: ");
-    result.append(title);
     result.append(')');
     return result.toString();
   }

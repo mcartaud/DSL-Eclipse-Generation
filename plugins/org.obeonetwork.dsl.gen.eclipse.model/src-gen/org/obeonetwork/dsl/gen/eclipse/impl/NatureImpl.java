@@ -30,7 +30,6 @@ import org.obeonetwork.dsl.gen.eclipse.Nature;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getLangageName <em>Langage Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#isHasToggleNature <em>Has Toggle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.NatureImpl#getBuilders <em>Builders</em>}</li>
  * </ul>
@@ -59,26 +58,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getLangageName() <em>Langage Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLangageName()
-   * @generated
-   * @ordered
-   */
-  protected static final String LANGAGE_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getLangageName() <em>Langage Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLangageName()
-   * @generated
-   * @ordered
-   */
-  protected String langageName = LANGAGE_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #isHasToggleNature() <em>Has Toggle Nature</em>}' attribute.
@@ -152,29 +131,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getLangageName()
-  {
-    return langageName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLangageName(String newLangageName)
-  {
-    String oldLangageName = langageName;
-    langageName = newLangageName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__LANGAGE_NAME, oldLangageName, langageName));
   }
 
   /**
@@ -259,8 +215,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     {
       case EclipsePackage.NATURE__NAME:
         return getName();
-      case EclipsePackage.NATURE__LANGAGE_NAME:
-        return getLangageName();
       case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         return isHasToggleNature();
       case EclipsePackage.NATURE__BUILDERS:
@@ -282,9 +236,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     {
       case EclipsePackage.NATURE__NAME:
         setName((String)newValue);
-        return;
-      case EclipsePackage.NATURE__LANGAGE_NAME:
-        setLangageName((String)newValue);
         return;
       case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         setHasToggleNature((Boolean)newValue);
@@ -310,9 +261,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
       case EclipsePackage.NATURE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.NATURE__LANGAGE_NAME:
-        setLangageName(LANGAGE_NAME_EDEFAULT);
-        return;
       case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         setHasToggleNature(HAS_TOGGLE_NATURE_EDEFAULT);
         return;
@@ -335,8 +283,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     {
       case EclipsePackage.NATURE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.NATURE__LANGAGE_NAME:
-        return LANGAGE_NAME_EDEFAULT == null ? langageName != null : !LANGAGE_NAME_EDEFAULT.equals(langageName);
       case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
         return hasToggleNature != HAS_TOGGLE_NATURE_EDEFAULT;
       case EclipsePackage.NATURE__BUILDERS:
@@ -358,8 +304,6 @@ public class NatureImpl extends MinimalEObjectImpl.Container implements Nature
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", langageName: ");
-    result.append(langageName);
     result.append(", hasToggleNature: ");
     result.append(hasToggleNature);
     result.append(')');

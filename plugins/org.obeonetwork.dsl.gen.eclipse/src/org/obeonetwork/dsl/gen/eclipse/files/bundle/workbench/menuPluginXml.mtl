@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module menuPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
 [template public menuTemplate(aBundle : Bundle)]
@@ -45,7 +45,7 @@
 
 [template private viewMenuContribution(aMenu : Menu)]
       <menuContribution
-            locationURI="menu:[aMenu.eContainer(Bundle).genBundlePath()/].views.[aMenu.eContainer(View).name.toLowerFirst().substituteAll(' ', '')/]?after=additions">
+            locationURI="menu:[aMenu.eContainer(View).genViewID()/]?after=additions">
 [for (aCommand : Command | aMenu.commands)]
 [aCommand.genMenuCommand()/]
 [/for]
@@ -54,7 +54,7 @@
 
 [template private viewToolbarContribution(aMenu : Menu)]
       <menuContribution
-            locationURI="toolbar:[aMenu.eContainer(Bundle).genBundlePath()/].views.[aMenu.eContainer(View).name.toLowerFirst().substituteAll(' ', '')/]?after=additions">
+            locationURI="toolbar:[aMenu.eContainer(View).genViewID()/]?after=additions">
 [for (aCommand : Command | aMenu.commands)]
 [aCommand.genToolbarCommand()/]
 [/for]
@@ -65,8 +65,8 @@
 [for (aMenu)]
          <menu
                label="[aMenu.name/]"
-               mnemonic="%Menu-[aMenu.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic"
-               id="[aMenu.eContainer(Bundle).genBundlePath()/].menus.[aMenu.name.toLowerFirst().substituteAll(' ', '')/]">
+               mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
+               id="[aMenu.eContainer(Bundle).genBundleID()/].menus.[aMenu.refactorMenuName().toLowerFirst()/]">
 [for (aCommand : Command | aMenu.commands)]
 [aCommand.genMenuCommand()/]
 [/for]
@@ -77,7 +77,7 @@
 [template private genToolbarContribution(aMenu : Menu)]
 [for (aMenu)]
          <toolbar
-               id="[aMenu.eContainer(Bundle).genBundlePath()/].toolbars.[aMenu.name.toLowerFirst().substituteAll(' ', '')/]">
+               id="[aMenu.eContainer(Bundle).genBundleID()/].toolbars.[aMenu.refactorMenuName().toLowerFirst()/]">
 [for (aCommand : Command | aMenu.commands)]
 [aCommand.genToolbarCommand()/]
 [/for]
@@ -87,31 +87,31 @@
 
 [template private genToolbarCommand(aCommand : Command)]
             <command
-                  commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-                  icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-                  tooltip="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Tooltip"
-                  id="[aCommand.eContainer(Bundle).genBundlePath()/].toolbars.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
-[for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
-[anAction.activateEditorAction()/]
+                  commandId="[aCommand.genCommandID()/]"
+                  icon="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon"
+                  tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
+                  id="[aCommand.eContainer(Bundle).genBundleID()/].toolbars.[aCommand.refactorCommandName().toLowerFirst()/]">
+[for (anHandler : Handler | aCommand.handler)][if (anHandler.eContainer().oclIsKindOf(Editor))]
+[anHandler.activateEditorHandler()/]
 [/if][/for]
             </command>
 [/template]
 
 [template private genMenuCommand(aCommand : Command)]
             <command
-                  commandId="[aCommand.eContainer(Bundle).genBundlePath()/].commands.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]"
-                  icon="%Command-[aCommand.name.substituteAll(' ', '').toUpperFirst()/]-Icon"
-				  mnemonic="%Action-[aCommand.action.name.substituteAll(' ', '').toUpperFirst()/]-Mnemonic"
-                  id="[aCommand.eContainer(Bundle).genBundlePath()/].menus.[aCommand.name.toLowerFirst().substituteAll(' ', '')/]">
-[for (anAction : Action | aCommand.action)][if (anAction.eContainer().oclIsKindOf(Editor))]
-[anAction.activateEditorAction()/]
+                  commandId="[aCommand.genCommandID()/]"
+                  icon="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon"
+				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
+                  id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
+[for (anHandler : Handler | aCommand.handler)][if (anHandler.eContainer().oclIsKindOf(Editor))]
+[anHandler.activateEditorHandler()/]
 [/if][/for]
             </command>
 [/template]
 
-[template private activateEditorAction(anAction : Action)]
+[template private activateEditorHandler(anHandler : Handler)]
 			<visibleWhen
 					checkEnabled="true">
-     				<reference definitionId="[anAction.eContainer(Bundle).genBundlePath()/].definitions.[anAction.name.substituteAll(' ', '').toLowerFirst()/]"/>
+     				<reference definitionId="[anHandler.command.genDefinitionID()/]"/>
 			</visibleWhen>
 [/template]

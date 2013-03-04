@@ -1,15 +1,16 @@
 [comment encoding = UTF-8 /]
 [module extensionInterfaceJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private extensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.eContainer(Bundle).genBundleQualifiedPath()/]/registry/I[anExtensionPoint.genExtensionName()/]Extension.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/I[anExtensionPoint.genExtensionName()/]Extension.java
 [/template]
 
 [template public genExtensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundlePath()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry;
 
 
 public interface I[anExtensionPoint.genExtensionName()/]Extension {

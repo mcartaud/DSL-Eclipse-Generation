@@ -74,6 +74,7 @@ public class ApplicationItemProvider
       addLicensePropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
+      addBaseNamespacePropertyDescriptor(object);
       addMavenCompilationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -241,6 +242,29 @@ public class ApplicationItemProvider
   }
 
   /**
+   * This adds a property descriptor for the Base Namespace feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addBaseNamespacePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Application_baseNamespace_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Application_baseNamespace_feature", "_UI_Application_type"),
+         EclipsePackage.Literals.APPLICATION__BASE_NAMESPACE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+         null,
+         null));
+  }
+
+  /**
    * This adds a property descriptor for the Maven Compilation feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -344,6 +368,7 @@ public class ApplicationItemProvider
       case EclipsePackage.APPLICATION__LICENSE:
       case EclipsePackage.APPLICATION__VERSION:
       case EclipsePackage.APPLICATION__DESCRIPTION:
+      case EclipsePackage.APPLICATION__BASE_NAMESPACE:
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;

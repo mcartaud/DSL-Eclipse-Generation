@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLicense <em>License</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider <em>Feature Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getBundles <em>Bundles</em>}</li>
  * </ul>
  * </p>
@@ -90,7 +90,7 @@ public interface Feature extends Project
    * @return the value of the '<em>Version</em>' attribute.
    * @see #setVersion(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Version()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Version"
    * @generated
    */
   String getVersion();
@@ -132,30 +132,30 @@ public interface Feature extends Project
   void setLicense(String value);
 
   /**
-   * Returns the value of the '<em><b>Feature Provider</b></em>' attribute.
+   * Returns the value of the '<em><b>Provider</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature Provider</em>' attribute isn't clear,
+   * If the meaning of the '<em>Provider</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature Provider</em>' attribute.
-   * @see #setFeatureProvider(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_FeatureProvider()
+   * @return the value of the '<em>Provider</em>' attribute.
+   * @see #setProvider(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Provider()
    * @model unique="false"
    * @generated
    */
-  String getFeatureProvider();
+  String getProvider();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider <em>Feature Provider</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature Provider</em>' attribute.
-   * @see #getFeatureProvider()
+   * @param value the new value of the '<em>Provider</em>' attribute.
+   * @see #getProvider()
    * @generated
    */
-  void setFeatureProvider(String value);
+  void setProvider(String value);
 
   /**
    * Returns the value of the '<em><b>Bundles</b></em>' reference list.
@@ -168,7 +168,7 @@ public interface Feature extends Project
    * <!-- end-user-doc -->
    * @return the value of the '<em>Bundles</em>' reference list.
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Bundles()
-   * @model
+   * @model required="true"
    * @generated
    */
   EList<Bundle> getBundles();

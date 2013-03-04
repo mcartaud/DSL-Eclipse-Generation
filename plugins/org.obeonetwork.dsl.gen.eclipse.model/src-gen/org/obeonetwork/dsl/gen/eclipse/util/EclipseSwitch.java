@@ -94,6 +94,13 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EclipsePackage.REPOSITORY_CATEGORY:
+      {
+        RepositoryCategory repositoryCategory = (RepositoryCategory)theEObject;
+        T result = caseRepositoryCategory(repositoryCategory);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EclipsePackage.FEATURE:
       {
         Feature feature = (Feature)theEObject;
@@ -246,10 +253,10 @@ public class EclipseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EclipsePackage.ACTION:
+      case EclipsePackage.HANDLER:
       {
-        Action action = (Action)theEObject;
-        T result = caseAction(action);
+        Handler handler = (Handler)theEObject;
+        T result = caseHandler(handler);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -329,6 +336,22 @@ public class EclipseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRepository(Repository object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Repository Category</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Repository Category</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRepositoryCategory(RepositoryCategory object)
   {
     return null;
   }
@@ -670,17 +693,17 @@ public class EclipseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Handler</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Handler</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAction(Action object)
+  public T caseHandler(Handler object)
   {
     return null;
   }

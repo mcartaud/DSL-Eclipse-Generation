@@ -178,7 +178,7 @@ public class ViewItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(EclipsePackage.Literals.VIEW__ACTIONS);
+      childrenFeatures.add(EclipsePackage.Literals.VIEW__HANDLERS);
       childrenFeatures.add(EclipsePackage.Literals.VIEW__MENUS);
     }
     return childrenFeatures;
@@ -243,7 +243,7 @@ public class ViewItemProvider
       case EclipsePackage.VIEW__IS_VISIBLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
-      case EclipsePackage.VIEW__ACTIONS:
+      case EclipsePackage.VIEW__HANDLERS:
       case EclipsePackage.VIEW__MENUS:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
         return;
@@ -265,8 +265,8 @@ public class ViewItemProvider
 
     newChildDescriptors.add
       (createChildParameter
-        (EclipsePackage.Literals.VIEW__ACTIONS,
-         EclipseFactory.eINSTANCE.createAction()));
+        (EclipsePackage.Literals.VIEW__HANDLERS,
+         EclipseFactory.eINSTANCE.createHandler()));
 
     newChildDescriptors.add
       (createChildParameter

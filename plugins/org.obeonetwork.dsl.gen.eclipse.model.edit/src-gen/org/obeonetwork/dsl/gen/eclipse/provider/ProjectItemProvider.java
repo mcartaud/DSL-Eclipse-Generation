@@ -65,7 +65,7 @@ public class ProjectItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addBasePackagePropertyDescriptor(object);
+      addIDPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -94,20 +94,20 @@ public class ProjectItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Base Package feature.
+   * This adds a property descriptor for the ID feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addBasePackagePropertyDescriptor(Object object)
+  protected void addIDPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Project_basePackage_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Project_basePackage_feature", "_UI_Project_type"),
-         EclipsePackage.Literals.PROJECT__BASE_PACKAGE,
+         getString("_UI_Project_ID_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Project_ID_feature", "_UI_Project_type"),
+         EclipsePackage.Literals.PROJECT__ID,
          true,
          false,
          false,
@@ -146,7 +146,7 @@ public class ProjectItemProvider
     switch (notification.getFeatureID(Project.class))
     {
       case EclipsePackage.PROJECT__NAME:
-      case EclipsePackage.PROJECT__BASE_PACKAGE:
+      case EclipsePackage.PROJECT__ID:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

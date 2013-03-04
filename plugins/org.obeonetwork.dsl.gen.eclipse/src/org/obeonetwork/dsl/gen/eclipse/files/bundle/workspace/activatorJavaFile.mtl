@@ -1,15 +1,16 @@
 [comment encoding = UTF-8 /]
 [module activatorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private activatorJavafile(aBundle : Bundle)]
-[aBundle.genBundleQualifiedPath()/]/Activator.java
+[aBundle.genBundleJavaPath()/]/Activator.java
 [/template]
 
 [template public genActivatorJavaFile(aBundle : Bundle)]
 [file (activatorJavafile(), false, 'UTF-8')]
-package [aBundle.genBundlePath()/];
+package [aBundle.genBundleID()/];
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -17,8 +18,8 @@ import org.osgi.framework.BundleContext;
 [if (aBundle.extensionPoints->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;[/if]
 [for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
-import [aBundle.genBundlePath()/].registry.[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
-import [aBundle.genBundlePath()/].registry.[anExtensionPoint.genExtensionName()/]RegistryListener;
+import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
+import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]
 /**
  * The activator class controls the plug-in life cycle
@@ -26,7 +27,7 @@ import [aBundle.genBundlePath()/].registry.[anExtensionPoint.genExtensionName()/
 public class Activator extends AbstractUIPlugin {
 
 	/** The plug-in ID */
-	public static final String PLUGIN_ID = "[aBundle.genBundlePath()/]"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "[aBundle.genBundleID()/]"; //$NON-NLS-1$
 
 	/** The shared instance */
 	private static Activator plugin;

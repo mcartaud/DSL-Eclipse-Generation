@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module builderJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private builderJavaFile(aBuilder : Builder)]
-[aBuilder.eContainer(Bundle).genBundleQualifiedPath()/]/ui/builder/[aBuilder.name.toUpperFirst()/].java
+[aBuilder.eContainer(Bundle).genBundleJavaPath()/]/builder/[aBuilder.name.toUpperFirst()/].java
 [/template]
 
 [template public genBuilderJavaFile(aBuilder : Builder)]
 [file (builderJavaFile(), false, 'UTF-8')]
-package [aBuilder.ancestors(Bundle).genBundlePath()/].ui.builder;
+package [aBuilder.ancestors(Bundle).genBundleID()/].builder;
 
 import java.util.Map;
 
@@ -23,7 +23,7 @@ public class [aBuilder.name.toUpperFirst()/] extends IncrementalProjectBuilder {
 	/**
 	 * The ID of the builder.
 	 */
-	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).genBundlePath()/].[aBuilder.name.toLowerFirst()/]";
+	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).genBundleID()/].[aBuilder.name.toLowerFirst()/]";
 
 	/**
 	 * {@inheritDoc}

@@ -1,16 +1,16 @@
 [comment encoding = UTF-8 /]
 [module dynamicHelpContextXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private dynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
-[aDynamicHelp.eContainer(Application).name/]/plugins/[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/].xml
+[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/dynamic[aDynamicHelp.refactorDynamicHelpLabel()/].xml
 [/template]
 
 [template public genDynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
 [file (dynamicHelpContextXmlFile(), false, 'UTF-8')]
 <contexts>
-	<context id="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]" title="[aDynamicHelp.title/]">
+	<context id="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]" title="[aDynamicHelp.label/]">
 		<description>[aDynamicHelp.description/]</description>
 [for (anHelpPage : HelpPage | aDynamicHelp.helpPages)]
 		<topic href="html/[anHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html" label="[anHelpPage.label/]">

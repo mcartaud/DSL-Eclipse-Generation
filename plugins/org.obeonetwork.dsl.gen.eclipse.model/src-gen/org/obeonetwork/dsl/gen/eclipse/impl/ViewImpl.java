@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
@@ -34,7 +34,7 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsVisible <em>Is Visible</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategory <em>Category</em>}</li>
@@ -86,14 +86,14 @@ public class ViewImpl extends PartImpl implements View
   protected boolean isVisible = IS_VISIBLE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActions()
+   * @see #getHandlers()
    * @generated
    * @ordered
    */
-  protected EList<Action> actions;
+  protected EList<Handler> handlers;
 
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
@@ -197,13 +197,13 @@ public class ViewImpl extends PartImpl implements View
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Action> getActions()
+  public EList<Handler> getHandlers()
   {
-    if (actions == null)
+    if (handlers == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.VIEW__ACTIONS);
+      handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.VIEW__HANDLERS);
     }
-    return actions;
+    return handlers;
   }
 
   /**
@@ -333,8 +333,8 @@ public class ViewImpl extends PartImpl implements View
   {
     switch (featureID)
     {
-      case EclipsePackage.VIEW__ACTIONS:
-        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.VIEW__HANDLERS:
+        return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
       case EclipsePackage.VIEW__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.VIEW__PERSPECTIVES:
@@ -359,8 +359,8 @@ public class ViewImpl extends PartImpl implements View
         return isIsTree();
       case EclipsePackage.VIEW__IS_VISIBLE:
         return isIsVisible();
-      case EclipsePackage.VIEW__ACTIONS:
-        return getActions();
+      case EclipsePackage.VIEW__HANDLERS:
+        return getHandlers();
       case EclipsePackage.VIEW__MENUS:
         return getMenus();
       case EclipsePackage.VIEW__PERSPECTIVES:
@@ -389,9 +389,9 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__IS_VISIBLE:
         setIsVisible((Boolean)newValue);
         return;
-      case EclipsePackage.VIEW__ACTIONS:
-        getActions().clear();
-        getActions().addAll((Collection<? extends Action>)newValue);
+      case EclipsePackage.VIEW__HANDLERS:
+        getHandlers().clear();
+        getHandlers().addAll((Collection<? extends Handler>)newValue);
         return;
       case EclipsePackage.VIEW__MENUS:
         getMenus().clear();
@@ -424,8 +424,8 @@ public class ViewImpl extends PartImpl implements View
       case EclipsePackage.VIEW__IS_VISIBLE:
         setIsVisible(IS_VISIBLE_EDEFAULT);
         return;
-      case EclipsePackage.VIEW__ACTIONS:
-        getActions().clear();
+      case EclipsePackage.VIEW__HANDLERS:
+        getHandlers().clear();
         return;
       case EclipsePackage.VIEW__MENUS:
         getMenus().clear();
@@ -454,8 +454,8 @@ public class ViewImpl extends PartImpl implements View
         return isTree != IS_TREE_EDEFAULT;
       case EclipsePackage.VIEW__IS_VISIBLE:
         return isVisible != IS_VISIBLE_EDEFAULT;
-      case EclipsePackage.VIEW__ACTIONS:
-        return actions != null && !actions.isEmpty();
+      case EclipsePackage.VIEW__HANDLERS:
+        return handlers != null && !handlers.isEmpty();
       case EclipsePackage.VIEW__MENUS:
         return menus != null && !menus.isEmpty();
       case EclipsePackage.VIEW__PERSPECTIVES:

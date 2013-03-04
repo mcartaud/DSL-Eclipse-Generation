@@ -34,7 +34,7 @@ public interface ImportedPackageDeclaration extends EObject
    * @return the value of the '<em>Package Name</em>' attribute.
    * @see #setPackageName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getImportedPackageDeclaration_PackageName()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace"
    * @generated
    */
   String getPackageName();
@@ -60,7 +60,7 @@ public interface ImportedPackageDeclaration extends EObject
    * @return the value of the '<em>Package Version</em>' attribute.
    * @see #setPackageVersion(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getImportedPackageDeclaration_PackageVersion()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Version"
    * @generated
    */
   String getPackageVersion();

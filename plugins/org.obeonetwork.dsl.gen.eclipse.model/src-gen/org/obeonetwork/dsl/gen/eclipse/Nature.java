@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature <em>Has Toggle Nature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Nature#getBuilders <em>Builders</em>}</li>
  * </ul>
@@ -38,7 +37,7 @@ public interface Nature extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_Name()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
    * @generated
    */
   String getName();
@@ -52,32 +51,6 @@ public interface Nature extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Langage Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Langage Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Langage Name</em>' attribute.
-   * @see #setLangageName(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_LangageName()
-   * @model unique="false"
-   * @generated
-   */
-  String getLangageName();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Langage Name</em>' attribute.
-   * @see #getLangageName()
-   * @generated
-   */
-  void setLangageName(String value);
 
   /**
    * Returns the value of the '<em><b>Has Toggle Nature</b></em>' attribute.
@@ -118,7 +91,7 @@ public interface Nature extends EObject
    * @return the value of the '<em>Builders</em>' reference list.
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getNature_Builders()
    * @see org.obeonetwork.dsl.gen.eclipse.Builder#getNatures
-   * @model opposite="natures"
+   * @model opposite="natures" required="true"
    * @generated
    */
   EList<Builder> getBuilders();

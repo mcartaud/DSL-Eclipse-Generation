@@ -66,33 +66,9 @@ public class DynamicHelpItemProvider
 
       addLabelPropertyDescriptor(object);
       addDescriptionPropertyDescriptor(object);
-      addTitlePropertyDescriptor(object);
       addHelpPagesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
-  }
-
-  /**
-   * This adds a property descriptor for the Description feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addDescriptionPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_DynamicHelp_description_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_description_feature", "_UI_DynamicHelp_type"),
-         EclipsePackage.Literals.DYNAMIC_HELP__DESCRIPTION,
-         true,
-         false,
-         false,
-         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-         null,
-         null));
   }
 
   /**
@@ -119,20 +95,20 @@ public class DynamicHelpItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Title feature.
+   * This adds a property descriptor for the Description feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTitlePropertyDescriptor(Object object)
+  protected void addDescriptionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_DynamicHelp_title_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_title_feature", "_UI_DynamicHelp_type"),
-         EclipsePackage.Literals.DYNAMIC_HELP__TITLE,
+         getString("_UI_DynamicHelp_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_DynamicHelp_description_feature", "_UI_DynamicHelp_type"),
+         EclipsePackage.Literals.DYNAMIC_HELP__DESCRIPTION,
          true,
          false,
          false,
@@ -207,7 +183,6 @@ public class DynamicHelpItemProvider
     {
       case EclipsePackage.DYNAMIC_HELP__LABEL:
       case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
-      case EclipsePackage.DYNAMIC_HELP__TITLE:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

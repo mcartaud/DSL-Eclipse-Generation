@@ -4,6 +4,7 @@ package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -133,13 +134,22 @@ public interface EclipsePackage extends EPackage
   int APPLICATION__DESCRIPTION = 6;
 
   /**
+   * The feature id for the '<em><b>Base Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__BASE_NAMESPACE = 7;
+
+  /**
    * The feature id for the '<em><b>Maven Compilation</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__MAVEN_COMPILATION = 7;
+  int APPLICATION__MAVEN_COMPILATION = 8;
 
   /**
    * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -148,7 +158,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION__PROJECTS = 8;
+  int APPLICATION__PROJECTS = 9;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -157,7 +167,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 9;
+  int APPLICATION_FEATURE_COUNT = 10;
 
   /**
    * The number of operations of the '<em>Application</em>' class.
@@ -188,13 +198,13 @@ public interface EclipsePackage extends EPackage
   int PROJECT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Base Package</b></em>' attribute.
+   * The feature id for the '<em><b>ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT__BASE_PACKAGE = 1;
+  int PROJECT__ID = 1;
 
   /**
    * The number of structural features of the '<em>Project</em>' class.
@@ -234,49 +244,22 @@ public interface EclipsePackage extends EPackage
   int REPOSITORY__NAME = PROJECT__NAME;
 
   /**
-   * The feature id for the '<em><b>Base Package</b></em>' attribute.
+   * The feature id for the '<em><b>ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY__BASE_PACKAGE = PROJECT__BASE_PACKAGE;
+  int REPOSITORY__ID = PROJECT__ID;
 
   /**
-   * The feature id for the '<em><b>Category Label</b></em>' attribute.
+   * The feature id for the '<em><b>Repository Categories</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPOSITORY__CATEGORY_LABEL = PROJECT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Category ID</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPOSITORY__CATEGORY_ID = PROJECT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Category Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPOSITORY__CATEGORY_DESCRIPTION = PROJECT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Features</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPOSITORY__FEATURES = PROJECT_FEATURE_COUNT + 3;
+  int REPOSITORY__REPOSITORY_CATEGORIES = PROJECT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Repository</em>' class.
@@ -285,7 +268,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REPOSITORY_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 4;
+  int REPOSITORY_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 1;
 
   /**
    * The number of operations of the '<em>Repository</em>' class.
@@ -297,6 +280,70 @@ public interface EclipsePackage extends EPackage
   int REPOSITORY_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryCategoryImpl <em>Repository Category</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.RepositoryCategoryImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getRepositoryCategory()
+   * @generated
+   */
+  int REPOSITORY_CATEGORY = 3;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY__ID = 2;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY__FEATURES = 3;
+
+  /**
+   * The number of structural features of the '<em>Repository Category</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Repository Category</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPOSITORY_CATEGORY_OPERATION_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl <em>Feature</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -304,7 +351,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 3;
+  int FEATURE = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -316,13 +363,13 @@ public interface EclipsePackage extends EPackage
   int FEATURE__NAME = PROJECT__NAME;
 
   /**
-   * The feature id for the '<em><b>Base Package</b></em>' attribute.
+   * The feature id for the '<em><b>ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__BASE_PACKAGE = PROJECT__BASE_PACKAGE;
+  int FEATURE__ID = PROJECT__ID;
 
   /**
    * The feature id for the '<em><b>Copyright</b></em>' attribute.
@@ -361,13 +408,13 @@ public interface EclipsePackage extends EPackage
   int FEATURE__LICENSE = PROJECT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Feature Provider</b></em>' attribute.
+   * The feature id for the '<em><b>Provider</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__FEATURE_PROVIDER = PROJECT_FEATURE_COUNT + 4;
+  int FEATURE__PROVIDER = PROJECT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Bundles</b></em>' reference list.
@@ -404,7 +451,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBundle()
    * @generated
    */
-  int BUNDLE = 4;
+  int BUNDLE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -416,13 +463,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__NAME = PROJECT__NAME;
 
   /**
-   * The feature id for the '<em><b>Base Package</b></em>' attribute.
+   * The feature id for the '<em><b>ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__BASE_PACKAGE = PROJECT__BASE_PACKAGE;
+  int BUNDLE__ID = PROJECT__ID;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -587,13 +634,13 @@ public interface EclipsePackage extends EPackage
   int BUNDLE__MENUS = PROJECT_FEATURE_COUNT + 17;
 
   /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUNDLE__ACTIONS = PROJECT_FEATURE_COUNT + 18;
+  int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 18;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -675,7 +722,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportedPackageDeclaration()
    * @generated
    */
-  int IMPORTED_PACKAGE_DECLARATION = 5;
+  int IMPORTED_PACKAGE_DECLARATION = 6;
 
   /**
    * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -721,7 +768,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProvidedService()
    * @generated
    */
-  int PROVIDED_SERVICE = 6;
+  int PROVIDED_SERVICE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -785,7 +832,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getRequiredService()
    * @generated
    */
-  int REQUIRED_SERVICE = 7;
+  int REQUIRED_SERVICE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -867,7 +914,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBuilder()
    * @generated
    */
-  int BUILDER = 8;
+  int BUILDER = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -913,7 +960,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNature()
    * @generated
    */
-  int NATURE = 9;
+  int NATURE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -925,22 +972,13 @@ public interface EclipsePackage extends EPackage
   int NATURE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Langage Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NATURE__LANGAGE_NAME = 1;
-
-  /**
    * The feature id for the '<em><b>Has Toggle Nature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NATURE__HAS_TOGGLE_NATURE = 2;
+  int NATURE__HAS_TOGGLE_NATURE = 1;
 
   /**
    * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -949,7 +987,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NATURE__BUILDERS = 3;
+  int NATURE__BUILDERS = 2;
 
   /**
    * The number of structural features of the '<em>Nature</em>' class.
@@ -958,7 +996,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NATURE_FEATURE_COUNT = 4;
+  int NATURE_FEATURE_COUNT = 3;
 
   /**
    * The number of operations of the '<em>Nature</em>' class.
@@ -977,7 +1015,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getWizard()
    * @generated
    */
-  int WIZARD = 10;
+  int WIZARD = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1059,7 +1097,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getProjectWizard()
    * @generated
    */
-  int PROJECT_WIZARD = 11;
+  int PROJECT_WIZARD = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1150,7 +1188,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION_POINT = 12;
+  int EXTENSION_POINT = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1205,7 +1243,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 13;
+  int ATTRIBUTE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1269,7 +1307,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDecorator()
    * @generated
    */
-  int DECORATOR = 14;
+  int DECORATOR = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1342,7 +1380,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMarker()
    * @generated
    */
-  int MARKER = 15;
+  int MARKER = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1388,7 +1426,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContext()
    * @generated
    */
-  int CONTEXT = 16;
+  int CONTEXT = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1400,31 +1438,22 @@ public interface EclipsePackage extends EPackage
   int CONTEXT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__DESCRIPTION = 1;
+
+  /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT__CONTEXTS = 1;
-
-  /**
-   * The feature id for the '<em><b>Perspective</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT__PERSPECTIVE = 2;
-
-  /**
-   * The feature id for the '<em><b>Commands</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTEXT__COMMANDS = 3;
+  int CONTEXT__CONTEXTS = 2;
 
   /**
    * The number of structural features of the '<em>Context</em>' class.
@@ -1433,7 +1462,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTEXT_FEATURE_COUNT = 4;
+  int CONTEXT_FEATURE_COUNT = 3;
 
   /**
    * The number of operations of the '<em>Context</em>' class.
@@ -1452,7 +1481,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
    * @generated
    */
-  int PERSPECTIVE = 17;
+  int PERSPECTIVE = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1473,13 +1502,13 @@ public interface EclipsePackage extends EPackage
   int PERSPECTIVE__ICON = 1;
 
   /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSPECTIVE__ACTIONS = 2;
+  int PERSPECTIVE__HANDLERS = 2;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -1500,22 +1529,13 @@ public interface EclipsePackage extends EPackage
   int PERSPECTIVE__WIZARDS = 4;
 
   /**
-   * The feature id for the '<em><b>Context</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSPECTIVE__CONTEXT = 5;
-
-  /**
    * The feature id for the '<em><b>Views</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSPECTIVE__VIEWS = 6;
+  int PERSPECTIVE__VIEWS = 5;
 
   /**
    * The number of structural features of the '<em>Perspective</em>' class.
@@ -1524,7 +1544,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSPECTIVE_FEATURE_COUNT = 7;
+  int PERSPECTIVE_FEATURE_COUNT = 6;
 
   /**
    * The number of operations of the '<em>Perspective</em>' class.
@@ -1543,7 +1563,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCategory()
    * @generated
    */
-  int CATEGORY = 18;
+  int CATEGORY = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1607,7 +1627,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
    * @generated
    */
-  int PART = 19;
+  int PART = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1662,7 +1682,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
    * @generated
    */
-  int VIEW = 20;
+  int VIEW = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1710,13 +1730,13 @@ public interface EclipsePackage extends EPackage
   int VIEW__IS_VISIBLE = PART_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW__ACTIONS = PART_FEATURE_COUNT + 2;
+  int VIEW__HANDLERS = PART_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -1771,7 +1791,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
    * @generated
    */
-  int EDITOR = 21;
+  int EDITOR = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1819,13 +1839,13 @@ public interface EclipsePackage extends EPackage
   int EDITOR__DYNAMIC_MENU = PART_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EDITOR__ACTIONS = PART_FEATURE_COUNT + 2;
+  int EDITOR__HANDLERS = PART_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -1862,7 +1882,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
    * @generated
    */
-  int MENU = 22;
+  int MENU = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1935,7 +1955,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 23;
+  int COMMAND = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1965,13 +1985,13 @@ public interface EclipsePackage extends EPackage
   int COMMAND__TOOLTIP = 2;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' reference.
+   * The feature id for the '<em><b>Handler</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__ACTION = 3;
+  int COMMAND__HANDLER = 3;
 
   /**
    * The feature id for the '<em><b>Menu</b></em>' reference.
@@ -2001,22 +2021,13 @@ public interface EclipsePackage extends EPackage
   int COMMAND__BINDING = 6;
 
   /**
-   * The feature id for the '<em><b>Context</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND__CONTEXT = 7;
-
-  /**
    * The number of structural features of the '<em>Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 8;
+  int COMMAND_FEATURE_COUNT = 7;
 
   /**
    * The number of operations of the '<em>Command</em>' class.
@@ -2028,14 +2039,14 @@ public interface EclipsePackage extends EPackage
   int COMMAND_OPERATION_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
+   * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
-   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHandler()
    * @generated
    */
-  int ACTION = 24;
+  int HANDLER = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2044,7 +2055,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION__NAME = 0;
+  int HANDLER__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
@@ -2053,7 +2064,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION__MNEMONIC = 1;
+  int HANDLER__MNEMONIC = 1;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' reference.
@@ -2062,25 +2073,34 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION__COMMAND = 2;
+  int HANDLER__COMMAND = 2;
 
   /**
-   * The number of structural features of the '<em>Action</em>' class.
+   * The feature id for the '<em><b>Contexts</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_FEATURE_COUNT = 3;
+  int HANDLER__CONTEXTS = 3;
 
   /**
-   * The number of operations of the '<em>Action</em>' class.
+   * The number of structural features of the '<em>Handler</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_OPERATION_COUNT = 0;
+  int HANDLER_FEATURE_COUNT = 4;
+
+  /**
+   * The number of operations of the '<em>Handler</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HANDLER_OPERATION_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
@@ -2090,7 +2110,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
    * @generated
    */
-  int HELP_CONTENTS = 25;
+  int HELP_CONTENTS = 26;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2111,22 +2131,13 @@ public interface EclipsePackage extends EPackage
   int HELP_CONTENTS__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>Title</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_CONTENTS__TITLE = 2;
-
-  /**
    * The feature id for the '<em><b>Help Pages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_CONTENTS__HELP_PAGES = 3;
+  int HELP_CONTENTS__HELP_PAGES = 2;
 
   /**
    * The feature id for the '<em><b>External Help Pages</b></em>' reference list.
@@ -2135,7 +2146,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int HELP_CONTENTS__EXTERNAL_HELP_PAGES = 4;
+  int HELP_CONTENTS__EXTERNAL_HELP_PAGES = 3;
 
   /**
    * The number of structural features of the '<em>Help Contents</em>' class.
@@ -2144,7 +2155,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int HELP_CONTENTS_FEATURE_COUNT = 5;
+  int HELP_CONTENTS_FEATURE_COUNT = 4;
 
   /**
    * The number of operations of the '<em>Help Contents</em>' class.
@@ -2163,7 +2174,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
    * @generated
    */
-  int HELP_PAGE = 26;
+  int HELP_PAGE = 27;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2184,22 +2195,13 @@ public interface EclipsePackage extends EPackage
   int HELP_PAGE__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>Title</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HELP_PAGE__TITLE = 2;
-
-  /**
    * The feature id for the '<em><b>Help Pages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HELP_PAGE__HELP_PAGES = 3;
+  int HELP_PAGE__HELP_PAGES = 2;
 
   /**
    * The feature id for the '<em><b>External Help Pages</b></em>' reference list.
@@ -2208,7 +2210,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int HELP_PAGE__EXTERNAL_HELP_PAGES = 4;
+  int HELP_PAGE__EXTERNAL_HELP_PAGES = 3;
 
   /**
    * The number of structural features of the '<em>Help Page</em>' class.
@@ -2217,7 +2219,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int HELP_PAGE_FEATURE_COUNT = 5;
+  int HELP_PAGE_FEATURE_COUNT = 4;
 
   /**
    * The number of operations of the '<em>Help Page</em>' class.
@@ -2236,7 +2238,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
    * @generated
    */
-  int DYNAMIC_HELP = 27;
+  int DYNAMIC_HELP = 28;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2257,22 +2259,13 @@ public interface EclipsePackage extends EPackage
   int DYNAMIC_HELP__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>Title</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DYNAMIC_HELP__TITLE = 2;
-
-  /**
    * The feature id for the '<em><b>Help Pages</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP__HELP_PAGES = 3;
+  int DYNAMIC_HELP__HELP_PAGES = 2;
 
   /**
    * The number of structural features of the '<em>Dynamic Help</em>' class.
@@ -2281,7 +2274,7 @@ public interface EclipsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DYNAMIC_HELP_FEATURE_COUNT = 4;
+  int DYNAMIC_HELP_FEATURE_COUNT = 3;
 
   /**
    * The number of operations of the '<em>Dynamic Help</em>' class.
@@ -2300,7 +2293,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 28;
+  int BINDING = 29;
 
   /**
    * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -2321,13 +2314,22 @@ public interface EclipsePackage extends EPackage
   int BINDING__COMMAND = 1;
 
   /**
+   * The feature id for the '<em><b>Contexts</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINDING__CONTEXTS = 2;
+
+  /**
    * The number of structural features of the '<em>Binding</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_FEATURE_COUNT = 2;
+  int BINDING_FEATURE_COUNT = 3;
 
   /**
    * The number of operations of the '<em>Binding</em>' class.
@@ -2346,7 +2348,7 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 29;
+  int TYPE = 30;
 
   /**
    * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2356,7 +2358,37 @@ public interface EclipsePackage extends EPackage
    * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
    * @generated
    */
-  int LOCATION = 30;
+  int LOCATION = 31;
+
+  /**
+   * The meta object id for the '<em>Version</em>' data type.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see java.lang.String
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
+   * @generated
+   */
+  int VERSION = 32;
+
+  /**
+   * The meta object id for the '<em>Namespace</em>' data type.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see java.lang.String
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
+   * @generated
+   */
+  int NAMESPACE = 33;
+
+  /**
+   * The meta object id for the '<em>Name</em>' data type.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see java.lang.String
+   * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
+   * @generated
+   */
+  int NAME = 34;
 
 
   /**
@@ -2447,6 +2479,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getApplication_Description();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getBaseNamespace <em>Base Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Base Namespace</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Application#getBaseNamespace()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_BaseNamespace();
+
+  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2490,15 +2533,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getProject_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage <em>Base Package</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Project#getID <em>ID</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Base Package</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage()
+   * @return the meta object for the attribute '<em>ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Project#getID()
    * @see #getProject()
    * @generated
    */
-  EAttribute getProject_BasePackage();
+  EAttribute getProject_ID();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Repository <em>Repository</em>}'.
@@ -2511,48 +2554,69 @@ public interface EclipsePackage extends EPackage
   EClass getRepository();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryLabel <em>Category Label</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getRepositoryCategories <em>Repository Categories</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Category Label</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryLabel()
+   * @return the meta object for the containment reference list '<em>Repository Categories</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getRepositoryCategories()
    * @see #getRepository()
    * @generated
    */
-  EAttribute getRepository_CategoryLabel();
+  EReference getRepository_RepositoryCategories();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryID <em>Category ID</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory <em>Repository Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Category ID</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryID()
-   * @see #getRepository()
+   * @return the meta object for class '<em>Repository Category</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory
    * @generated
    */
-  EAttribute getRepository_CategoryID();
+  EClass getRepositoryCategory();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryDescription <em>Category Description</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getLabel <em>Label</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Category Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getCategoryDescription()
-   * @see #getRepository()
+   * @return the meta object for the attribute '<em>Label</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getLabel()
+   * @see #getRepositoryCategory()
    * @generated
    */
-  EAttribute getRepository_CategoryDescription();
+  EAttribute getRepositoryCategory_Label();
 
   /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Repository#getFeatures <em>Features</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getDescription()
+   * @see #getRepositoryCategory()
+   * @generated
+   */
+  EAttribute getRepositoryCategory_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getID <em>ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>ID</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getID()
+   * @see #getRepositoryCategory()
+   * @generated
+   */
+  EAttribute getRepositoryCategory_ID();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getFeatures <em>Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Features</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Repository#getFeatures()
-   * @see #getRepository()
+   * @see org.obeonetwork.dsl.gen.eclipse.RepositoryCategory#getFeatures()
+   * @see #getRepositoryCategory()
    * @generated
    */
-  EReference getRepository_Features();
+  EReference getRepositoryCategory_Features();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Feature <em>Feature</em>}'.
@@ -2609,15 +2673,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getFeature_License();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider <em>Feature Provider</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Feature Provider</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Feature#getFeatureProvider()
+   * @return the meta object for the attribute '<em>Provider</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Feature#getProvider()
    * @see #getFeature()
    * @generated
    */
-  EAttribute getFeature_FeatureProvider();
+  EAttribute getFeature_Provider();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getBundles <em>Bundles</em>}'.
@@ -2839,15 +2903,15 @@ public interface EclipsePackage extends EPackage
   EReference getBundle_Menus();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getActions <em>Actions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers <em>Handlers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getActions()
+   * @return the meta object for the containment reference list '<em>Handlers</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers()
    * @see #getBundle()
    * @generated
    */
-  EReference getBundle_Actions();
+  EReference getBundle_Handlers();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}'.
@@ -3131,17 +3195,6 @@ public interface EclipsePackage extends EPackage
   EAttribute getNature_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName <em>Langage Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Langage Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Nature#getLangageName()
-   * @see #getNature()
-   * @generated
-   */
-  EAttribute getNature_LangageName();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Nature#isHasToggleNature <em>Has Toggle Nature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3368,17 +3421,6 @@ public interface EclipsePackage extends EPackage
   EClass getDecorator();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Icon</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon()
-   * @see #getDecorator()
-   * @generated
-   */
-  EAttribute getDecorator_Icon();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3388,6 +3430,17 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EAttribute getDecorator_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon()
+   * @see #getDecorator()
+   * @generated
+   */
+  EAttribute getDecorator_Icon();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsLightweight <em>Is Lightweight</em>}'.
@@ -3476,6 +3529,17 @@ public interface EclipsePackage extends EPackage
   EAttribute getContext_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Context#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Context#getDescription()
+   * @see #getContext()
+   * @generated
+   */
+  EAttribute getContext_Description();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Context#getContexts <em>Contexts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3485,28 +3549,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getContext_Contexts();
-
-  /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Context#getPerspective <em>Perspective</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Perspective</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Context#getPerspective()
-   * @see #getContext()
-   * @generated
-   */
-  EReference getContext_Perspective();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Context#getCommands <em>Commands</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Commands</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Context#getCommands()
-   * @see #getContext()
-   * @generated
-   */
-  EReference getContext_Commands();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Perspective <em>Perspective</em>}'.
@@ -3541,15 +3583,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getPerspective_Icon();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getActions <em>Actions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getHandlers <em>Handlers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getActions()
+   * @return the meta object for the containment reference list '<em>Handlers</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getHandlers()
    * @see #getPerspective()
    * @generated
    */
-  EReference getPerspective_Actions();
+  EReference getPerspective_Handlers();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getMenus <em>Menus</em>}'.
@@ -3572,17 +3614,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EReference getPerspective_Wizards();
-
-  /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getContext <em>Context</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Context</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getContext()
-   * @see #getPerspective()
-   * @generated
-   */
-  EReference getPerspective_Context();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}'.
@@ -3725,15 +3756,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getView_IsVisible();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getHandlers <em>Handlers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.View#getActions()
+   * @return the meta object for the containment reference list '<em>Handlers</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.View#getHandlers()
    * @see #getView()
    * @generated
    */
-  EReference getView_Actions();
+  EReference getView_Handlers();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
@@ -3801,15 +3832,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getEditor_DynamicMenu();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getActions <em>Actions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getHandlers <em>Handlers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Actions</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getActions()
+   * @return the meta object for the containment reference list '<em>Handlers</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Editor#getHandlers()
    * @see #getEditor()
    * @generated
    */
-  EReference getEditor_Actions();
+  EReference getEditor_Handlers();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getMenus <em>Menus</em>}'.
@@ -3931,15 +3962,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getCommand_Tooltip();
 
   /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Action</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Command#getAction()
+   * @return the meta object for the reference '<em>Handler</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandler()
    * @see #getCommand()
    * @generated
    */
-  EReference getCommand_Action();
+  EReference getCommand_Handler();
 
   /**
    * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}'.
@@ -3975,58 +4006,58 @@ public interface EclipsePackage extends EPackage
   EReference getCommand_Binding();
 
   /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getContext <em>Context</em>}'.
+   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Context</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Command#getContext()
-   * @see #getCommand()
+   * @return the meta object for class '<em>Handler</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler
    * @generated
    */
-  EReference getCommand_Context();
+  EClass getHandler();
 
   /**
-   * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Action <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action
-   * @generated
-   */
-  EClass getAction();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getName()
-   * @see #getAction()
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler#getName()
+   * @see #getHandler()
    * @generated
    */
-  EAttribute getAction_Name();
+  EAttribute getHandler_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic <em>Mnemonic</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Mnemonic</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getMnemonic()
-   * @see #getAction()
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic()
+   * @see #getHandler()
    * @generated
    */
-  EAttribute getAction_Mnemonic();
+  EAttribute getHandler_Mnemonic();
 
   /**
-   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Action#getCommand <em>Command</em>}'.
+   * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Command</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getCommand()
-   * @see #getAction()
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommand()
+   * @see #getHandler()
    * @generated
    */
-  EReference getAction_Command();
+  EReference getHandler_Command();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getContexts <em>Contexts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Contexts</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler#getContexts()
+   * @see #getHandler()
+   * @generated
+   */
+  EReference getHandler_Contexts();
 
   /**
    * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
@@ -4037,17 +4068,6 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EClass getHelpContents();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents#getDescription()
-   * @see #getHelpContents()
-   * @generated
-   */
-  EAttribute getHelpContents_Description();
 
   /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getLabel <em>Label</em>}'.
@@ -4061,15 +4081,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getHelpContents_Label();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getTitle <em>Title</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Title</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents#getTitle()
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpContents#getDescription()
    * @see #getHelpContents()
    * @generated
    */
-  EAttribute getHelpContents_Title();
+  EAttribute getHelpContents_Description();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents#getHelpPages <em>Help Pages</em>}'.
@@ -4104,17 +4124,6 @@ public interface EclipsePackage extends EPackage
   EClass getHelpPage();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription()
-   * @see #getHelpPage()
-   * @generated
-   */
-  EAttribute getHelpPage_Description();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getLabel <em>Label</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4126,15 +4135,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getHelpPage_Label();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getTitle <em>Title</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Title</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage#getTitle()
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.HelpPage#getDescription()
    * @see #getHelpPage()
    * @generated
    */
-  EAttribute getHelpPage_Title();
+  EAttribute getHelpPage_Description();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.HelpPage#getHelpPages <em>Help Pages</em>}'.
@@ -4169,17 +4178,6 @@ public interface EclipsePackage extends EPackage
   EClass getDynamicHelp();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription()
-   * @see #getDynamicHelp()
-   * @generated
-   */
-  EAttribute getDynamicHelp_Description();
-
-  /**
    * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getLabel <em>Label</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4191,15 +4189,15 @@ public interface EclipsePackage extends EPackage
   EAttribute getDynamicHelp_Label();
 
   /**
-   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle <em>Title</em>}'.
+   * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Title</em>'.
-   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getTitle()
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getDescription()
    * @see #getDynamicHelp()
    * @generated
    */
-  EAttribute getDynamicHelp_Title();
+  EAttribute getDynamicHelp_Description();
 
   /**
    * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.DynamicHelp#getHelpPages <em>Help Pages</em>}'.
@@ -4245,6 +4243,17 @@ public interface EclipsePackage extends EPackage
   EReference getBinding_Command();
 
   /**
+   * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Binding#getContexts <em>Contexts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Contexts</em>'.
+   * @see org.obeonetwork.dsl.gen.eclipse.Binding#getContexts()
+   * @see #getBinding()
+   * @generated
+   */
+  EReference getBinding_Contexts();
+
+  /**
    * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4263,6 +4272,42 @@ public interface EclipsePackage extends EPackage
    * @generated
    */
   EEnum getLocation();
+
+  /**
+   * Returns the meta object for data type '{@link java.lang.String <em>Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for data type '<em>Version</em>'.
+   * @see java.lang.String
+   * @model instanceClass="java.lang.String"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"\\\\d+\\\\.\\\\d+\\\\.\\\\d+\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for version\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   * @generated
+   */
+  EDataType getVersion();
+
+  /**
+   * Returns the meta object for data type '{@link java.lang.String <em>Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for data type '<em>Namespace</em>'.
+   * @see java.lang.String
+   * @model instanceClass="java.lang.String"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"([a-z]+([0-9]*[A-Z]*[a-z]*)*\\\\.)*[a-z]+([0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for ID\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   * @generated
+   */
+  EDataType getNamespace();
+
+  /**
+   * Returns the meta object for data type '{@link java.lang.String <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for data type '<em>Name</em>'.
+   * @see java.lang.String
+   * @model instanceClass="java.lang.String"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"([A-Z]*[a-z]+)+([ ]*[0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for the name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   * @generated
+   */
+  EDataType getName_();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -4355,6 +4400,14 @@ public interface EclipsePackage extends EPackage
     EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
 
     /**
+     * The meta object literal for the '<em><b>Base Namespace</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__BASE_NAMESPACE = eINSTANCE.getApplication_BaseNamespace();
+
+    /**
      * The meta object literal for the '<em><b>Maven Compilation</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4389,12 +4442,12 @@ public interface EclipsePackage extends EPackage
     EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
 
     /**
-     * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROJECT__BASE_PACKAGE = eINSTANCE.getProject_BasePackage();
+    EAttribute PROJECT__ID = eINSTANCE.getProject_ID();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryImpl <em>Repository</em>}' class.
@@ -4407,28 +4460,46 @@ public interface EclipsePackage extends EPackage
     EClass REPOSITORY = eINSTANCE.getRepository();
 
     /**
-     * The meta object literal for the '<em><b>Category Label</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Repository Categories</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REPOSITORY__CATEGORY_LABEL = eINSTANCE.getRepository_CategoryLabel();
+    EReference REPOSITORY__REPOSITORY_CATEGORIES = eINSTANCE.getRepository_RepositoryCategories();
 
     /**
-     * The meta object literal for the '<em><b>Category ID</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.RepositoryCategoryImpl <em>Repository Category</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.RepositoryCategoryImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getRepositoryCategory()
      * @generated
      */
-    EAttribute REPOSITORY__CATEGORY_ID = eINSTANCE.getRepository_CategoryID();
+    EClass REPOSITORY_CATEGORY = eINSTANCE.getRepositoryCategory();
 
     /**
-     * The meta object literal for the '<em><b>Category Description</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REPOSITORY__CATEGORY_DESCRIPTION = eINSTANCE.getRepository_CategoryDescription();
+    EAttribute REPOSITORY_CATEGORY__LABEL = eINSTANCE.getRepositoryCategory_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPOSITORY_CATEGORY__DESCRIPTION = eINSTANCE.getRepositoryCategory_Description();
+
+    /**
+     * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPOSITORY_CATEGORY__ID = eINSTANCE.getRepositoryCategory_ID();
 
     /**
      * The meta object literal for the '<em><b>Features</b></em>' reference list feature.
@@ -4436,7 +4507,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REPOSITORY__FEATURES = eINSTANCE.getRepository_Features();
+    EReference REPOSITORY_CATEGORY__FEATURES = eINSTANCE.getRepositoryCategory_Features();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl <em>Feature</em>}' class.
@@ -4481,12 +4552,12 @@ public interface EclipsePackage extends EPackage
     EAttribute FEATURE__LICENSE = eINSTANCE.getFeature_License();
 
     /**
-     * The meta object literal for the '<em><b>Feature Provider</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Provider</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FEATURE__FEATURE_PROVIDER = eINSTANCE.getFeature_FeatureProvider();
+    EAttribute FEATURE__PROVIDER = eINSTANCE.getFeature_Provider();
 
     /**
      * The meta object literal for the '<em><b>Bundles</b></em>' reference list feature.
@@ -4651,12 +4722,12 @@ public interface EclipsePackage extends EPackage
     EReference BUNDLE__MENUS = eINSTANCE.getBundle_Menus();
 
     /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BUNDLE__ACTIONS = eINSTANCE.getBundle_Actions();
+    EReference BUNDLE__HANDLERS = eINSTANCE.getBundle_Handlers();
 
     /**
      * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
@@ -4877,14 +4948,6 @@ public interface EclipsePackage extends EPackage
     EAttribute NATURE__NAME = eINSTANCE.getNature_Name();
 
     /**
-     * The meta object literal for the '<em><b>Langage Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NATURE__LANGAGE_NAME = eINSTANCE.getNature_LangageName();
-
-    /**
      * The meta object literal for the '<em><b>Has Toggle Nature</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5063,20 +5126,20 @@ public interface EclipsePackage extends EPackage
     EClass DECORATOR = eINSTANCE.getDecorator();
 
     /**
-     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DECORATOR__ICON = eINSTANCE.getDecorator_Icon();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DECORATOR__NAME = eINSTANCE.getDecorator_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECORATOR__ICON = eINSTANCE.getDecorator_Icon();
 
     /**
      * The meta object literal for the '<em><b>Is Lightweight</b></em>' attribute feature.
@@ -5147,28 +5210,20 @@ public interface EclipsePackage extends EPackage
     EAttribute CONTEXT__NAME = eINSTANCE.getContext_Name();
 
     /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT__DESCRIPTION = eINSTANCE.getContext_Description();
+
+    /**
      * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CONTEXT__CONTEXTS = eINSTANCE.getContext_Contexts();
-
-    /**
-     * The meta object literal for the '<em><b>Perspective</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTEXT__PERSPECTIVE = eINSTANCE.getContext_Perspective();
-
-    /**
-     * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTEXT__COMMANDS = eINSTANCE.getContext_Commands();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl <em>Perspective</em>}' class.
@@ -5197,12 +5252,12 @@ public interface EclipsePackage extends EPackage
     EAttribute PERSPECTIVE__ICON = eINSTANCE.getPerspective_Icon();
 
     /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PERSPECTIVE__ACTIONS = eINSTANCE.getPerspective_Actions();
+    EReference PERSPECTIVE__HANDLERS = eINSTANCE.getPerspective_Handlers();
 
     /**
      * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
@@ -5219,14 +5274,6 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EReference PERSPECTIVE__WIZARDS = eINSTANCE.getPerspective_Wizards();
-
-    /**
-     * The meta object literal for the '<em><b>Context</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PERSPECTIVE__CONTEXT = eINSTANCE.getPerspective_Context();
 
     /**
      * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
@@ -5339,12 +5386,12 @@ public interface EclipsePackage extends EPackage
     EAttribute VIEW__IS_VISIBLE = eINSTANCE.getView_IsVisible();
 
     /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
+    EReference VIEW__HANDLERS = eINSTANCE.getView_Handlers();
 
     /**
      * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
@@ -5397,12 +5444,12 @@ public interface EclipsePackage extends EPackage
     EAttribute EDITOR__DYNAMIC_MENU = eINSTANCE.getEditor_DynamicMenu();
 
     /**
-     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EDITOR__ACTIONS = eINSTANCE.getEditor_Actions();
+    EReference EDITOR__HANDLERS = eINSTANCE.getEditor_Handlers();
 
     /**
      * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
@@ -5497,12 +5544,12 @@ public interface EclipsePackage extends EPackage
     EAttribute COMMAND__TOOLTIP = eINSTANCE.getCommand_Tooltip();
 
     /**
-     * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Handler</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMMAND__ACTION = eINSTANCE.getCommand_Action();
+    EReference COMMAND__HANDLER = eINSTANCE.getCommand_Handler();
 
     /**
      * The meta object literal for the '<em><b>Menu</b></em>' reference feature.
@@ -5529,22 +5576,14 @@ public interface EclipsePackage extends EPackage
     EReference COMMAND__BINDING = eINSTANCE.getCommand_Binding();
 
     /**
-     * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHandler()
      * @generated
      */
-    EReference COMMAND__CONTEXT = eINSTANCE.getCommand_Context();
-
-    /**
-     * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl <em>Action</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl
-     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAction()
-     * @generated
-     */
-    EClass ACTION = eINSTANCE.getAction();
+    EClass HANDLER = eINSTANCE.getHandler();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5552,7 +5591,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+    EAttribute HANDLER__NAME = eINSTANCE.getHandler_Name();
 
     /**
      * The meta object literal for the '<em><b>Mnemonic</b></em>' attribute feature.
@@ -5560,7 +5599,7 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION__MNEMONIC = eINSTANCE.getAction_Mnemonic();
+    EAttribute HANDLER__MNEMONIC = eINSTANCE.getHandler_Mnemonic();
 
     /**
      * The meta object literal for the '<em><b>Command</b></em>' reference feature.
@@ -5568,7 +5607,15 @@ public interface EclipsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ACTION__COMMAND = eINSTANCE.getAction_Command();
+    EReference HANDLER__COMMAND = eINSTANCE.getHandler_Command();
+
+    /**
+     * The meta object literal for the '<em><b>Contexts</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HANDLER__CONTEXTS = eINSTANCE.getHandler_Contexts();
 
     /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
@@ -5581,14 +5628,6 @@ public interface EclipsePackage extends EPackage
     EClass HELP_CONTENTS = eINSTANCE.getHelpContents();
 
     /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute HELP_CONTENTS__DESCRIPTION = eINSTANCE.getHelpContents_Description();
-
-    /**
      * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5597,12 +5636,12 @@ public interface EclipsePackage extends EPackage
     EAttribute HELP_CONTENTS__LABEL = eINSTANCE.getHelpContents_Label();
 
     /**
-     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute HELP_CONTENTS__TITLE = eINSTANCE.getHelpContents_Title();
+    EAttribute HELP_CONTENTS__DESCRIPTION = eINSTANCE.getHelpContents_Description();
 
     /**
      * The meta object literal for the '<em><b>Help Pages</b></em>' containment reference list feature.
@@ -5631,14 +5670,6 @@ public interface EclipsePackage extends EPackage
     EClass HELP_PAGE = eINSTANCE.getHelpPage();
 
     /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute HELP_PAGE__DESCRIPTION = eINSTANCE.getHelpPage_Description();
-
-    /**
      * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5647,12 +5678,12 @@ public interface EclipsePackage extends EPackage
     EAttribute HELP_PAGE__LABEL = eINSTANCE.getHelpPage_Label();
 
     /**
-     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute HELP_PAGE__TITLE = eINSTANCE.getHelpPage_Title();
+    EAttribute HELP_PAGE__DESCRIPTION = eINSTANCE.getHelpPage_Description();
 
     /**
      * The meta object literal for the '<em><b>Help Pages</b></em>' containment reference list feature.
@@ -5681,14 +5712,6 @@ public interface EclipsePackage extends EPackage
     EClass DYNAMIC_HELP = eINSTANCE.getDynamicHelp();
 
     /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DYNAMIC_HELP__DESCRIPTION = eINSTANCE.getDynamicHelp_Description();
-
-    /**
      * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5697,12 +5720,12 @@ public interface EclipsePackage extends EPackage
     EAttribute DYNAMIC_HELP__LABEL = eINSTANCE.getDynamicHelp_Label();
 
     /**
-     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DYNAMIC_HELP__TITLE = eINSTANCE.getDynamicHelp_Title();
+    EAttribute DYNAMIC_HELP__DESCRIPTION = eINSTANCE.getDynamicHelp_Description();
 
     /**
      * The meta object literal for the '<em><b>Help Pages</b></em>' reference list feature.
@@ -5739,6 +5762,14 @@ public interface EclipsePackage extends EPackage
     EReference BINDING__COMMAND = eINSTANCE.getBinding_Command();
 
     /**
+     * The meta object literal for the '<em><b>Contexts</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINDING__CONTEXTS = eINSTANCE.getBinding_Contexts();
+
+    /**
      * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5757,6 +5788,36 @@ public interface EclipsePackage extends EPackage
      * @generated
      */
     EEnum LOCATION = eINSTANCE.getLocation();
+
+    /**
+     * The meta object literal for the '<em>Version</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.String
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
+     * @generated
+     */
+    EDataType VERSION = eINSTANCE.getVersion();
+
+    /**
+     * The meta object literal for the '<em>Namespace</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.String
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
+     * @generated
+     */
+    EDataType NAMESPACE = eINSTANCE.getNamespace();
+
+    /**
+     * The meta object literal for the '<em>Name</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.String
+     * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
+     * @generated
+     */
+    EDataType NAME = eINSTANCE.getName_();
 
   }
 

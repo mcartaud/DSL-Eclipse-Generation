@@ -2,8 +2,12 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,26 +15,30 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.obeonetwork.dsl.gen.eclipse.Command;
+import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Action</b></em>'.
+ * An implementation of the model object '<em><b>Handler</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getMnemonic <em>Mnemonic</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ActionImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getMnemonic <em>Mnemonic</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ActionImpl extends MinimalEObjectImpl.Container implements Action
+public class HandlerImpl extends MinimalEObjectImpl.Container implements Handler
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -83,11 +91,21 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   protected Command command;
 
   /**
+   * The cached value of the '{@link #getContexts() <em>Contexts</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContexts()
+   * @generated
+   * @ordered
+   */
+  protected EList<Context> contexts;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ActionImpl()
+  protected HandlerImpl()
   {
     super();
   }
@@ -100,7 +118,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   @Override
   protected EClass eStaticClass()
   {
-    return EclipsePackage.Literals.ACTION;
+    return EclipsePackage.Literals.HANDLER;
   }
 
   /**
@@ -123,7 +141,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__NAME, oldName, name));
   }
 
   /**
@@ -146,7 +164,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     String oldMnemonic = mnemonic;
     mnemonic = newMnemonic;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__MNEMONIC, oldMnemonic, mnemonic));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__MNEMONIC, oldMnemonic, mnemonic));
   }
 
   /**
@@ -163,7 +181,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       if (command != oldCommand)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.ACTION__COMMAND, oldCommand, command));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.HANDLER__COMMAND, oldCommand, command));
       }
     }
     return command;
@@ -190,7 +208,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     command = newCommand;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__COMMAND, oldCommand, newCommand);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, oldCommand, newCommand);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -207,14 +225,28 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       NotificationChain msgs = null;
       if (command != null)
-        msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__ACTION, Command.class, msgs);
+        msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
       if (newCommand != null)
-        msgs = ((InternalEObject)newCommand).eInverseAdd(this, EclipsePackage.COMMAND__ACTION, Command.class, msgs);
+        msgs = ((InternalEObject)newCommand).eInverseAdd(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
       msgs = basicSetCommand(newCommand, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ACTION__COMMAND, newCommand, newCommand));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, newCommand, newCommand));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Context> getContexts()
+  {
+    if (contexts == null)
+    {
+      contexts = new EObjectResolvingEList<Context>(Context.class, this, EclipsePackage.HANDLER__CONTEXTS);
+    }
+    return contexts;
   }
 
   /**
@@ -227,9 +259,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         if (command != null)
-          msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__ACTION, Command.class, msgs);
+          msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
         return basicSetCommand((Command)otherEnd, msgs);
     }
     return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -245,7 +277,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         return basicSetCommand(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -261,13 +293,15 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__NAME:
+      case EclipsePackage.HANDLER__NAME:
         return getName();
-      case EclipsePackage.ACTION__MNEMONIC:
+      case EclipsePackage.HANDLER__MNEMONIC:
         return getMnemonic();
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         if (resolve) return getCommand();
         return basicGetCommand();
+      case EclipsePackage.HANDLER__CONTEXTS:
+        return getContexts();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -277,19 +311,24 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__NAME:
+      case EclipsePackage.HANDLER__NAME:
         setName((String)newValue);
         return;
-      case EclipsePackage.ACTION__MNEMONIC:
+      case EclipsePackage.HANDLER__MNEMONIC:
         setMnemonic((String)newValue);
         return;
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         setCommand((Command)newValue);
+        return;
+      case EclipsePackage.HANDLER__CONTEXTS:
+        getContexts().clear();
+        getContexts().addAll((Collection<? extends Context>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -305,14 +344,17 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__NAME:
+      case EclipsePackage.HANDLER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EclipsePackage.ACTION__MNEMONIC:
+      case EclipsePackage.HANDLER__MNEMONIC:
         setMnemonic(MNEMONIC_EDEFAULT);
         return;
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         setCommand((Command)null);
+        return;
+      case EclipsePackage.HANDLER__CONTEXTS:
+        getContexts().clear();
         return;
     }
     super.eUnset(featureID);
@@ -328,12 +370,14 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   {
     switch (featureID)
     {
-      case EclipsePackage.ACTION__NAME:
+      case EclipsePackage.HANDLER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.ACTION__MNEMONIC:
+      case EclipsePackage.HANDLER__MNEMONIC:
         return MNEMONIC_EDEFAULT == null ? mnemonic != null : !MNEMONIC_EDEFAULT.equals(mnemonic);
-      case EclipsePackage.ACTION__COMMAND:
+      case EclipsePackage.HANDLER__COMMAND:
         return command != null;
+      case EclipsePackage.HANDLER__CONTEXTS:
+        return contexts != null && !contexts.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -357,4 +401,4 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     return result.toString();
   }
 
-} //ActionImpl
+} //HandlerImpl

@@ -36,6 +36,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getBaseNamespace <em>Base Namespace</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProjects <em>Projects</em>}</li>
  * </ul>
@@ -184,6 +185,26 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBaseNamespace() <em>Base Namespace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBaseNamespace()
+   * @generated
+   * @ordered
+   */
+  protected static final String BASE_NAMESPACE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBaseNamespace() <em>Base Namespace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBaseNamespace()
+   * @generated
+   * @ordered
+   */
+  protected String baseNamespace = BASE_NAMESPACE_EDEFAULT;
 
   /**
    * The default value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.
@@ -402,6 +423,29 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getBaseNamespace()
+  {
+    return baseNamespace;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBaseNamespace(String newBaseNamespace)
+  {
+    String oldBaseNamespace = baseNamespace;
+    baseNamespace = newBaseNamespace;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__BASE_NAMESPACE, oldBaseNamespace, baseNamespace));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isMavenCompilation()
   {
     return mavenCompilation;
@@ -474,6 +518,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getVersion();
       case EclipsePackage.APPLICATION__DESCRIPTION:
         return getDescription();
+      case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+        return getBaseNamespace();
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         return isMavenCompilation();
       case EclipsePackage.APPLICATION__PROJECTS:
@@ -513,6 +559,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return;
       case EclipsePackage.APPLICATION__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+        setBaseNamespace((String)newValue);
         return;
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         setMavenCompilation((Boolean)newValue);
@@ -556,6 +605,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case EclipsePackage.APPLICATION__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+        setBaseNamespace(BASE_NAMESPACE_EDEFAULT);
+        return;
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         setMavenCompilation(MAVEN_COMPILATION_EDEFAULT);
         return;
@@ -590,6 +642,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case EclipsePackage.APPLICATION__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+        return BASE_NAMESPACE_EDEFAULT == null ? baseNamespace != null : !BASE_NAMESPACE_EDEFAULT.equals(baseNamespace);
       case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
         return mavenCompilation != MAVEN_COMPILATION_EDEFAULT;
       case EclipsePackage.APPLICATION__PROJECTS:
@@ -623,6 +677,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     result.append(version);
     result.append(", description: ");
     result.append(description);
+    result.append(", baseNamespace: ");
+    result.append(baseNamespace);
     result.append(", mavenCompilation: ");
     result.append(mavenCompilation);
     result.append(')');

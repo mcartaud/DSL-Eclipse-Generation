@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module perspectiveJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private perspectiveJavaFile(aPerspective : Perspective)]
-[aPerspective.eContainer(Bundle).genBundleQualifiedPath()/]/ui/perspectives/[aPerspective.name.replaceAll(' ', '').toUpperFirst()/].java
+[aPerspective.eContainer(Bundle).genBundleJavaPath()/]/perspectives/[aPerspective.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
 [template public genPerspectiveJavaFile(aPerspective : Perspective)]
 [file (perspectiveJavaFile(), false, 'UTF-8')]
-package [aPerspective.eContainer(Bundle).genBundlePath()/].ui.perspectives;
+package [aPerspective.eContainer(Bundle).genBundleID()/].perspectives;
 
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.ui.IFolderLayout;
@@ -55,7 +55,7 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 		bottomFolder.addPlaceholder(IConsoleConstants.ID_CONSOLE_VIEW);
 		bottomFolder.addPlaceholder(IProgressConstants.PROGRESS_VIEW_ID);
 [for (aView : View | aPerspective.views)][if (not(aView.isVisible))]
-		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundlePath()/].ui.views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
+		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundleID()/].views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
 [/if][/for]
 
 		IFolderLayout rightFolder = layout.createFolder(

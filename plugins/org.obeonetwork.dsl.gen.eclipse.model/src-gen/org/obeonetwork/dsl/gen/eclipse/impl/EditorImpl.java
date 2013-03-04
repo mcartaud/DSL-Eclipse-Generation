@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 
 /**
@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#isDynamicMenu <em>Dynamic Menu</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getMenus <em>Menus</em>}</li>
  * </ul>
  * </p>
@@ -81,14 +81,14 @@ public class EditorImpl extends PartImpl implements Editor
   protected boolean dynamicMenu = DYNAMIC_MENU_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActions()
+   * @see #getHandlers()
    * @generated
    * @ordered
    */
-  protected EList<Action> actions;
+  protected EList<Handler> handlers;
 
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
@@ -172,13 +172,13 @@ public class EditorImpl extends PartImpl implements Editor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Action> getActions()
+  public EList<Handler> getHandlers()
   {
-    if (actions == null)
+    if (handlers == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.EDITOR__ACTIONS);
+      handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.EDITOR__HANDLERS);
     }
-    return actions;
+    return handlers;
   }
 
   /**
@@ -205,8 +205,8 @@ public class EditorImpl extends PartImpl implements Editor
   {
     switch (featureID)
     {
-      case EclipsePackage.EDITOR__ACTIONS:
-        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.EDITOR__HANDLERS:
+        return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
       case EclipsePackage.EDITOR__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
     }
@@ -227,8 +227,8 @@ public class EditorImpl extends PartImpl implements Editor
         return getExtension();
       case EclipsePackage.EDITOR__DYNAMIC_MENU:
         return isDynamicMenu();
-      case EclipsePackage.EDITOR__ACTIONS:
-        return getActions();
+      case EclipsePackage.EDITOR__HANDLERS:
+        return getHandlers();
       case EclipsePackage.EDITOR__MENUS:
         return getMenus();
     }
@@ -252,9 +252,9 @@ public class EditorImpl extends PartImpl implements Editor
       case EclipsePackage.EDITOR__DYNAMIC_MENU:
         setDynamicMenu((Boolean)newValue);
         return;
-      case EclipsePackage.EDITOR__ACTIONS:
-        getActions().clear();
-        getActions().addAll((Collection<? extends Action>)newValue);
+      case EclipsePackage.EDITOR__HANDLERS:
+        getHandlers().clear();
+        getHandlers().addAll((Collection<? extends Handler>)newValue);
         return;
       case EclipsePackage.EDITOR__MENUS:
         getMenus().clear();
@@ -280,8 +280,8 @@ public class EditorImpl extends PartImpl implements Editor
       case EclipsePackage.EDITOR__DYNAMIC_MENU:
         setDynamicMenu(DYNAMIC_MENU_EDEFAULT);
         return;
-      case EclipsePackage.EDITOR__ACTIONS:
-        getActions().clear();
+      case EclipsePackage.EDITOR__HANDLERS:
+        getHandlers().clear();
         return;
       case EclipsePackage.EDITOR__MENUS:
         getMenus().clear();
@@ -304,8 +304,8 @@ public class EditorImpl extends PartImpl implements Editor
         return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
       case EclipsePackage.EDITOR__DYNAMIC_MENU:
         return dynamicMenu != DYNAMIC_MENU_EDEFAULT;
-      case EclipsePackage.EDITOR__ACTIONS:
-        return actions != null && !actions.isEmpty();
+      case EclipsePackage.EDITOR__HANDLERS:
+        return handlers != null && !handlers.isEmpty();
       case EclipsePackage.EDITOR__MENUS:
         return menus != null && !menus.isEmpty();
     }

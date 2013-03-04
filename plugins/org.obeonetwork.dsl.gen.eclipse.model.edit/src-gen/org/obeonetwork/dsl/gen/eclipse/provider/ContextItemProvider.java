@@ -68,8 +68,7 @@ public class ContextItemProvider
       super.getPropertyDescriptors(object);
 
       addNamePropertyDescriptor(object);
-      addPerspectivePropertyDescriptor(object);
-      addCommandsPropertyDescriptor(object);
+      addDescriptionPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -98,47 +97,24 @@ public class ContextItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Perspective feature.
+   * This adds a property descriptor for the Description feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addPerspectivePropertyDescriptor(Object object)
+  protected void addDescriptionPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Context_perspective_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Context_perspective_feature", "_UI_Context_type"),
-         EclipsePackage.Literals.CONTEXT__PERSPECTIVE,
+         getString("_UI_Context_description_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Context_description_feature", "_UI_Context_type"),
+         EclipsePackage.Literals.CONTEXT__DESCRIPTION,
          true,
          false,
-         true,
-         null,
-         null,
-         null));
-  }
-
-  /**
-   * This adds a property descriptor for the Commands feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addCommandsPropertyDescriptor(Object object)
-  {
-    itemPropertyDescriptors.add
-      (createItemPropertyDescriptor
-        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-         getResourceLocator(),
-         getString("_UI_Context_commands_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Context_commands_feature", "_UI_Context_type"),
-         EclipsePackage.Literals.CONTEXT__COMMANDS,
-         true,
          false,
-         true,
-         null,
+         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
          null,
          null));
   }
@@ -218,6 +194,7 @@ public class ContextItemProvider
     switch (notification.getFeatureID(Context.class))
     {
       case EclipsePackage.CONTEXT__NAME:
+      case EclipsePackage.CONTEXT__DESCRIPTION:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
       case EclipsePackage.CONTEXT__CONTEXTS:

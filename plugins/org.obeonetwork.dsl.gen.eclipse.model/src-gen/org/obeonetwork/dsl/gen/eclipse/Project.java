@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage <em>Base Package</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Project#getID <em>ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,29 +50,29 @@ public interface Project extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Base Package</b></em>' attribute.
+   * Returns the value of the '<em><b>ID</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Base Package</em>' attribute isn't clear,
+   * If the meaning of the '<em>ID</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Base Package</em>' attribute.
-   * @see #setBasePackage(String)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_BasePackage()
-   * @model unique="false"
+   * @return the value of the '<em>ID</em>' attribute.
+   * @see #setID(String)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getProject_ID()
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
    * @generated
    */
-  String getBasePackage();
+  String getID();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getBasePackage <em>Base Package</em>}' attribute.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Project#getID <em>ID</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Base Package</em>' attribute.
-   * @see #getBasePackage()
+   * @param value the new value of the '<em>ID</em>' attribute.
+   * @see #getID()
    * @generated
    */
-  void setBasePackage(String value);
+  void setID(String value);
 
 } // Project

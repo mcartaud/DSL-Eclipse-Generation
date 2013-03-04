@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module actionJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private actionJavaFile(anAction : Action)]
-[anAction.eContainer(Bundle).genBundleQualifiedPath()/]/ui/handlers/[anAction.name.replaceAll(' ', '').toUpperFirst()/].java
+[template private actionJavaFile(anHandler : Handler)]
+[anHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[anHandler.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
-[template public genActionJavaFile(anAction : Action)]
+[template public genActionJavaFile(anHandler : Handler)]
 [file (actionJavaFile(), false, 'UTF-8')]
-package [anAction.eContainer(Bundle).genBundlePath()/].ui.handlers;
+package [anHandler.eContainer(Bundle).genBundleID()/].handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -23,12 +23,12 @@ import org.eclipse.jface.dialogs.MessageDialog;
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
-public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] extends AbstractHandler {
+public class [anHandler.name.replaceAll(' ', '').toUpperFirst()/] extends AbstractHandler {
 	
 	/**
 	 * The constructor.
 	 */
-	public [anAction.name.replaceAll(' ', '').toUpperFirst()/]() {
+	public [anHandler.name.replaceAll(' ', '').toUpperFirst()/]() {
 	}
 
 	/**
@@ -39,8 +39,8 @@ public class [anAction.name.replaceAll(' ', '').toUpperFirst()/] extends Abstrac
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
-				"[anAction.eContainer(Bundle).genBundlePath()/]",
-				"Running [anAction.name/]!");
+				"[anHandler.eContainer(Bundle).genBundleID()/]",
+				"Running [anHandler.name/]!");
 		return null;
 	}
 }

@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module newWizardJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private newWizardJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundleQualifiedPath()/]/ui/wizards/[aWizard.name.toUpperFirst()/].java
+[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.toUpperFirst()/].java
 [/template]
 
 [template public gennewWizardJavaFile(aWizard : Wizard)]
 [file (newWizardJavaFile(), false, 'UTF-8')]
-package [aWizard.ancestors(Bundle).genBundlePath()/].ui.wizards;
+package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -23,7 +23,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 [for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
-import [aWizard.ancestors(Bundle).genBundlePath()/].ui.nature.[aNature.name.toUpperFirst()/];
+import [aWizard.ancestors(Bundle).genBundleID()/].nature.[aNature.name.toUpperFirst()/];
 [/if][/for][if (aWizard.oclIsKindOf(ProjectWizard))]
 import org.eclipse.core.resources.IProject;
 [else]

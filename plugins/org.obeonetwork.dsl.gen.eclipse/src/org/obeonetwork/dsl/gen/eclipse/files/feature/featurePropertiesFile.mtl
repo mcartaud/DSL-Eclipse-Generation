@@ -13,15 +13,15 @@ Contributors :
 /]
 [module featurePropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private featurePropertiesFile(aFeature : Feature)]
-[aFeature.eContainer(Application).name/]/features/[aFeature.genBundlePath()/]/feature.properties
+[aFeature.genFeaturePath()/]/feature.properties
 [/template]
 
 [template public genFeaturePropertiesFile(aFeature : Feature)]
 [file (aFeature.featurePropertiesFile(), false, 'UTF-8')]
 Feature-Name = [aFeature.name/]
-Feature-Provider = [aFeature.featureProvider/] 
+Feature-Provider = [aFeature.provider/] 
 [/file]
 [/template]

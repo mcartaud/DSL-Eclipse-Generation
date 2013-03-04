@@ -19,9 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
-import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
@@ -36,10 +35,9 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
@@ -89,14 +87,14 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
   protected String icon = ICON_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActions()
+   * @see #getHandlers()
    * @generated
    * @ordered
    */
-  protected EList<Action> actions;
+  protected EList<Handler> handlers;
 
   /**
    * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
@@ -117,16 +115,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * @ordered
    */
   protected EList<Wizard> wizards;
-
-  /**
-   * The cached value of the '{@link #getContext() <em>Context</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContext()
-   * @generated
-   * @ordered
-   */
-  protected Context context;
 
   /**
    * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
@@ -210,13 +198,13 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Action> getActions()
+  public EList<Handler> getHandlers()
   {
-    if (actions == null)
+    if (handlers == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.PERSPECTIVE__ACTIONS);
+      handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.PERSPECTIVE__HANDLERS);
     }
-    return actions;
+    return handlers;
   }
 
   /**
@@ -252,74 +240,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getContext()
-  {
-    if (context != null && context.eIsProxy())
-    {
-      InternalEObject oldContext = (InternalEObject)context;
-      context = (Context)eResolveProxy(oldContext);
-      if (context != oldContext)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.PERSPECTIVE__CONTEXT, oldContext, context));
-      }
-    }
-    return context;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Context basicGetContext()
-  {
-    return context;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContext(Context newContext, NotificationChain msgs)
-  {
-    Context oldContext = context;
-    context = newContext;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.PERSPECTIVE__CONTEXT, oldContext, newContext);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContext(Context newContext)
-  {
-    if (newContext != context)
-    {
-      NotificationChain msgs = null;
-      if (context != null)
-        msgs = ((InternalEObject)context).eInverseRemove(this, EclipsePackage.CONTEXT__PERSPECTIVE, Context.class, msgs);
-      if (newContext != null)
-        msgs = ((InternalEObject)newContext).eInverseAdd(this, EclipsePackage.CONTEXT__PERSPECTIVE, Context.class, msgs);
-      msgs = basicSetContext(newContext, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PERSPECTIVE__CONTEXT, newContext, newContext));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<View> getViews()
   {
     if (views == null)
@@ -340,10 +260,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
   {
     switch (featureID)
     {
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        if (context != null)
-          msgs = ((InternalEObject)context).eInverseRemove(this, EclipsePackage.CONTEXT__PERSPECTIVE, Context.class, msgs);
-        return basicSetContext((Context)otherEnd, msgs);
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
     }
@@ -360,14 +276,12 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
   {
     switch (featureID)
     {
-      case EclipsePackage.PERSPECTIVE__ACTIONS:
-        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.PERSPECTIVE__HANDLERS:
+        return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
       case EclipsePackage.PERSPECTIVE__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        return basicSetContext(null, msgs);
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
     }
@@ -388,15 +302,12 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return getName();
       case EclipsePackage.PERSPECTIVE__ICON:
         return getIcon();
-      case EclipsePackage.PERSPECTIVE__ACTIONS:
-        return getActions();
+      case EclipsePackage.PERSPECTIVE__HANDLERS:
+        return getHandlers();
       case EclipsePackage.PERSPECTIVE__MENUS:
         return getMenus();
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         return getWizards();
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        if (resolve) return getContext();
-        return basicGetContext();
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return getViews();
     }
@@ -420,9 +331,9 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__ICON:
         setIcon((String)newValue);
         return;
-      case EclipsePackage.PERSPECTIVE__ACTIONS:
-        getActions().clear();
-        getActions().addAll((Collection<? extends Action>)newValue);
+      case EclipsePackage.PERSPECTIVE__HANDLERS:
+        getHandlers().clear();
+        getHandlers().addAll((Collection<? extends Handler>)newValue);
         return;
       case EclipsePackage.PERSPECTIVE__MENUS:
         getMenus().clear();
@@ -431,9 +342,6 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         getWizards().clear();
         getWizards().addAll((Collection<? extends Wizard>)newValue);
-        return;
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        setContext((Context)newValue);
         return;
       case EclipsePackage.PERSPECTIVE__VIEWS:
         getViews().clear();
@@ -459,17 +367,14 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
       case EclipsePackage.PERSPECTIVE__ICON:
         setIcon(ICON_EDEFAULT);
         return;
-      case EclipsePackage.PERSPECTIVE__ACTIONS:
-        getActions().clear();
+      case EclipsePackage.PERSPECTIVE__HANDLERS:
+        getHandlers().clear();
         return;
       case EclipsePackage.PERSPECTIVE__MENUS:
         getMenus().clear();
         return;
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         getWizards().clear();
-        return;
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        setContext((Context)null);
         return;
       case EclipsePackage.PERSPECTIVE__VIEWS:
         getViews().clear();
@@ -492,14 +397,12 @@ public class PerspectiveImpl extends MinimalEObjectImpl.Container implements Per
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EclipsePackage.PERSPECTIVE__ICON:
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
-      case EclipsePackage.PERSPECTIVE__ACTIONS:
-        return actions != null && !actions.isEmpty();
+      case EclipsePackage.PERSPECTIVE__HANDLERS:
+        return handlers != null && !handlers.isEmpty();
       case EclipsePackage.PERSPECTIVE__MENUS:
         return menus != null && !menus.isEmpty();
       case EclipsePackage.PERSPECTIVE__WIZARDS:
         return wizards != null && !wizards.isEmpty();
-      case EclipsePackage.PERSPECTIVE__CONTEXT:
-        return context != null;
       case EclipsePackage.PERSPECTIVE__VIEWS:
         return views != null && !views.isEmpty();
     }

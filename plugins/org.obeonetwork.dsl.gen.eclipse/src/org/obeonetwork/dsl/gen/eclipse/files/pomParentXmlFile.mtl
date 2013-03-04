@@ -2,6 +2,7 @@
 [module pomParentXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pomParentXmlFile(anApplication : Application)]
 [anApplication.name/]/pom.xml
@@ -19,7 +20,7 @@
   </prerequisites>
 
   <groupId>org.obeonetwork.acceleo</groupId>
-  <artifactId>[anApplication.applicationID/].parent</artifactId>
+  <artifactId>[anApplication.genApplicationID()/].parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>[anApplication.description/] Project</name>
@@ -195,12 +196,12 @@
 
 [template private modulesLocation(anApplication : Application) post(trim())]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
-<module>plugins/[aBundle.genBundlePath()/]</module>
+<module>plugins/[aBundle.genBundleID()/]</module>
 [/for]
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
-<module>features/[aFeature.genBundlePath()/]</module>
+<module>features/[aFeature.genFeatureID()/]</module>
 [/for]
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
-<module>repository/[aRepository.genBundlePath()/]</module>
+<module>repositories/[aRepository.genRepositoryID()/]</module>
 [/for]
 [/template]

@@ -65,7 +65,7 @@ public class FeatureItemProvider
       addDescriptionPropertyDescriptor(object);
       addVersionPropertyDescriptor(object);
       addLicensePropertyDescriptor(object);
-      addFeatureProviderPropertyDescriptor(object);
+      addProviderPropertyDescriptor(object);
       addBundlesPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
@@ -164,20 +164,20 @@ public class FeatureItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Feature Provider feature.
+   * This adds a property descriptor for the Provider feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addFeatureProviderPropertyDescriptor(Object object)
+  protected void addProviderPropertyDescriptor(Object object)
   {
     itemPropertyDescriptors.add
       (createItemPropertyDescriptor
         (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
          getResourceLocator(),
-         getString("_UI_Feature_featureProvider_feature"),
-         getString("_UI_PropertyDescriptor_description", "_UI_Feature_featureProvider_feature", "_UI_Feature_type"),
-         EclipsePackage.Literals.FEATURE__FEATURE_PROVIDER,
+         getString("_UI_Feature_provider_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Feature_provider_feature", "_UI_Feature_type"),
+         EclipsePackage.Literals.FEATURE__PROVIDER,
          true,
          false,
          false,
@@ -254,7 +254,7 @@ public class FeatureItemProvider
       case EclipsePackage.FEATURE__DESCRIPTION:
       case EclipsePackage.FEATURE__VERSION:
       case EclipsePackage.FEATURE__LICENSE:
-      case EclipsePackage.FEATURE__FEATURE_PROVIDER:
+      case EclipsePackage.FEATURE__PROVIDER:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
         return;
     }

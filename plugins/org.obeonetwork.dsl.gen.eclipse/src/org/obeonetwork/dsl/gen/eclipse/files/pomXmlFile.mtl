@@ -2,9 +2,10 @@
 [module pomXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pomXmlFile(aProject : Project)]
-[aProject.eContainer(Application).name/]/[if (aProject.oclIsKindOf(Feature))]features[elseif (aProject.oclIsKindOf(Repository))]repository[elseif (aProject.oclIsKindOf(Bundle))]plugins[/if]/[aProject.genBundlePath()/]/pom.xml
+[aProject.pomPath()/]/pom.xml
 [/template]
 
 [template public genPomXmlFile(aProject : Project)]
@@ -18,7 +19,7 @@
 
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
-    <artifactId>[aProject.ancestors(Application).applicationID/].parent</artifactId>
+    <artifactId>[aProject.ancestors(Application).genApplicationID()/].parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
@@ -36,7 +37,7 @@
 
 
 [template private pomRepository(aRepository : Repository)]
-<artifactId>[aRepository.genBundlePath()/]</artifactId>
+<artifactId>[aRepository.genRepositoryID()/]</artifactId>
 <packaging>eclipse-repository</packaging>
 
 <name>[aRepository.name/]</name>
@@ -76,8 +77,8 @@
 [/template]
 
 [template private pomFeature(aFeature : Feature)]
-<artifactId>[aFeature.genBundlePath()/]</artifactId>
-<version>[aFeature.version/]-SNAPSHOT</version>
+<artifactId>[aFeature.genFeatureID()/]</artifactId>
+<version>[aFeature.featureVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
 <packaging>eclipse-feature</packaging>
 
 <name>[aFeature.name/] Feature</name>
@@ -85,8 +86,8 @@
 
 
 [template private pomBundle(aBundle : Bundle)]
-<artifactId>[aBundle.genBundlePath()/]</artifactId>
-<version>[aBundle.version/]-SNAPSHOT</version>
+<artifactId>[aBundle.genBundleID()/]</artifactId>
+<version>[aBundle.bundleVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
 <packaging>eclipse-plugin</packaging>
 
 <name>[aBundle.name/]</name>
@@ -108,4 +109,8 @@
     </plugin>
   </plugins>
 </build>
+[/template]
+
+[template private pomPath(aProject : Project) post(trim())]
+[if (aProject.oclIsKindOf(Feature))][aProject.oclAsType(Feature).genFeaturePath()/][elseif (aProject.oclIsKindOf(Repository))][aProject.oclAsType(Repository).genRepositoryPath()/][elseif (aProject.oclIsKindOf(Bundle))][aProject.oclAsType(Bundle).genBundlePath()/][/if]
 [/template]

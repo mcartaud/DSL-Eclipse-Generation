@@ -1,0 +1,199 @@
+[comment encoding = UTF-8 /]
+[module normalizeName('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public genApplicationID(anApplication : Application)]
+[anApplication.baseNamespace/].[anApplication.applicationID/]
+[/template]
+
+[template public genFeatureID(aFeature : Feature)]
+[aFeature.eContainer(Application).baseNamespace/].[aFeature.ID/]
+[/template]
+
+[template public genFeaturePath(aFeature : Feature)]
+[aFeature.eContainer(Application).name/]/features/[aFeature.genFeatureID()/]
+[/template]
+
+[template public genRepositoryID(aRepository : Repository)]
+[aRepository.eContainer(Application).baseNamespace/].[aRepository.ID/]
+[/template]
+
+[template public genRepositoryPath(aRepository : Repository)]
+[aRepository.eContainer(Application).name/]/repositories/[aRepository.genRepositoryID()/]
+[/template]
+
+[template public genBundleID(aBundle : Bundle)]
+[aBundle.eContainer(Application).baseNamespace/].[aBundle.ID/]
+[/template]
+
+[template public genBundlePath(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundleID()/]
+[/template]
+
+[template public genBundleJavaPath(aBundle : Bundle)]
+[aBundle.genBundlePath()/]/src/[aBundle.eContainer(Application).baseNamespace.substituteAll('.', '/')/]/[aBundle.ID.substituteAll('.', '/')/]
+[/template]
+
+[template public bundleVersion(aBundle : Bundle)]
+[if (aBundle.version.oclIsUndefined())]1.0.0.qualifier[else][aBundle.version/].qualifier[/if]
+[/template]
+
+[template public featureVersion(aFeature : Feature)]
+[if (aFeature.version.oclIsUndefined())]1.0.0.qualifier[else][aFeature.version/].qualifier[/if]
+[/template]
+
+[template public genNatureID(aNature : Nature)]
+[aNature.eContainer(Bundle).genBundleID()/].nature-id.[aNature.refactorNatureName().toLowerFirst()/]
+[/template]
+
+[template public genNaturePath(aNature : Nature)]
+[aNature.eContainer(Bundle).genBundleID()/].natures.[aNature.refactorNatureName().toUpperFirst()/]
+[/template]
+
+[template public refactorNatureName(aNature : Nature)]
+[aNature.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genBuilderID(aBuilder : Builder)]
+[aBuilder.eContainer(Bundle).genBundleID()/].builder-id.[aBuilder.refactorBuilderName().toLowerFirst()/]
+[/template]
+
+[template public genBuilderPath(aBuilder : Builder)]
+[aBuilder.eContainer(Bundle).genBundleID()/].builders.[aBuilder.refactorBuilderName().toUpperFirst()/]
+[/template]
+
+[template public refactorBuilderName(aBuilder : Builder)]
+[aBuilder.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genCategoryID(aCategory : Category)]
+[aCategory.eContainer(Bundle).genBundleID()/].category-id.[aCategory.refactorCategoryName().toLowerFirst()/]
+[/template]
+
+[template public refactorCategoryName(aCategory : Category)]
+[aCategory.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genWizardID(aWizard : Wizard)]
+[aWizard.eContainer(Bundle).genBundleID()/].wizard-id.[aWizard.refactorWizardName().toLowerFirst()/]
+[/template]
+
+[template public genWizardPath(aWizard : Wizard)]
+[aWizard.eContainer(Bundle).genBundleID()/].wizards.[aWizard.refactorWizardName().toUpperFirst()/]
+[/template]
+
+[template public refactorWizardName(aWizard : Wizard)]
+[aWizard.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genDecoratorID(aDecorator : Decorator)]
+[aDecorator.eContainer(Bundle).genBundleID()/].decorator-id.[aDecorator.refactorDecoratorName().toLowerFirst()/]
+[/template]
+
+[template public refactorDecoratorName(aDecorator : Decorator)]
+[aDecorator.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genMarkerID(aMarker : Marker)]
+[aMarker.eContainer(Bundle).genBundleID()/].marker-id.[aMarker.refactorMarkerName().toLowerFirst()/]
+[/template]
+
+[template public refactorMarkerName(aMarker : Marker)]
+[aMarker.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public refactorHelpLabel(anHelpContent : HelpContents)]
+[anHelpContent.label.substituteAll(' ', '_').toLowerFirst()/]
+[/template]
+
+[template public refactorDynamicHelpLabel(aDynamicHelp : DynamicHelp)]
+[aDynamicHelp.label.substituteAll(' ', '_').toLowerFirst()/]
+[/template]
+
+[template public genPerspectiveID(aPerspective : Perspective)]
+[aPerspective.eContainer(Bundle).genBundleID()/].perspective-id.[aPerspective.refactorPerspectiveName().toLowerFirst()/]
+[/template]
+
+[template public genPerspectivePath(aPerspective : Perspective)]
+[aPerspective.eContainer(Bundle).genBundleID()/].perspectives.[aPerspective.refactorPerspectiveName().toUpperFirst()/]
+[/template]
+
+[template public refactorPerspectiveName(aPerspective : Perspective)]
+[aPerspective.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genCommandID(aCommand : Command)]
+[aCommand.eContainer(Bundle).genBundleID()/].command-id.[aCommand.refactorCommandName().toLowerFirst()/]
+[/template]
+
+[template public refactorCommandName(aCommand : Command)]
+[aCommand.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genHandlerPath(anHandler : Handler)]
+[anHandler.eContainer(Bundle).genBundleID()/].handlers.[anHandler.refactorHandlerName().toUpperFirst()/]
+[/template]
+
+[template public genHandlerID(anHandler : Handler)]
+[anHandler.eContainer(Bundle).genBundleID()/].handler-id.[anHandler.refactorHandlerName().toLowerFirst()/]
+[/template]
+
+[template public refactorHandlerName(anHandler : Handler)]
+[anHandler.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genViewID(aView : View)]
+[aView.eContainer(Bundle).genBundleID()/].view-id.[aView.refactorViewName().toLowerFirst()/]
+[/template]
+
+[template public genViewPath(aView : View)]
+[aView.eContainer(Bundle).genBundleID()/].views.[aView.refactorViewName().toUpperFirst()/]
+[/template]
+
+[template public refactorViewName(aView : View)]
+[aView.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genEditorID(anEditor : Editor)]
+[anEditor.eContainer(Bundle).genBundleID()/].editor-id.[anEditor.refactorEditorName().toLowerFirst()/]
+[/template]
+
+[template public genEditorPath(anEditor : Editor)]
+[anEditor.eContainer(Bundle).genBundleID()/].editors.[anEditor.refactorEditorName().toUpperFirst()/]
+[/template]
+
+[template public refactorEditorName(anEditor : Editor)]
+[anEditor.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genMenuID(aMenu : Menu)]
+[aMenu.eContainer(Bundle).genBundleID()/].menu-id.[aMenu.refactorMenuName().toLowerFirst()/]
+[/template]
+
+[template public refactorMenuName(aMenu : Menu)]
+[aMenu.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genDefinitionID(aCommand : Command)]
+[aCommand.eContainer(Bundle).genBundleID()/].definition-id.[aCommand.refactorCommandName().toLowerFirst()/]
+[/template]
+
+[template public refactorContextName(aContext : Context)]
+[aContext.name.substituteAll(' ', '_')/]
+[/template]
+
+[template public genContextID(aContext : Context)]
+[aContext.eContainer(Bundle).genBundleID()/].context-id.[aContext.refactorContextName().toLowerFirst()/]
+[/template]
+
+[template public genExtensionName(anExtensionPoint : ExtensionPoint)]
+[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '').substitute('Extension', '')/]
+[/template]
+
+[query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
+anExtensionPoint.name.substituteAll(' ', '_').toUpper()
+/]
+
+[template public refactorEPackageName(anEPackage : EPackage)]
+[anEPackage.name.substituteAll(' ', '').toLower()/]
+[/template]

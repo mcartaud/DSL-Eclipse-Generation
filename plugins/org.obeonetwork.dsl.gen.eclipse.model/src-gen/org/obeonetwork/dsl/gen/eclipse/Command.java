@@ -15,11 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getTooltip <em>Tooltip</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getBinding <em>Binding</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,7 +39,7 @@ public interface Command extends EObject
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
    * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Name()
-   * @model unique="false"
+   * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
    * @generated
    */
   String getName();
@@ -108,32 +107,32 @@ public interface Command extends EObject
   void setTooltip(String value);
 
   /**
-   * Returns the value of the '<em><b>Action</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Action#getCommand <em>Command</em>}'.
+   * Returns the value of the '<em><b>Handler</b></em>' reference.
+   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action</em>' reference isn't clear,
+   * If the meaning of the '<em>Handler</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action</em>' reference.
-   * @see #setAction(Action)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Action()
-   * @see org.obeonetwork.dsl.gen.eclipse.Action#getCommand
+   * @return the value of the '<em>Handler</em>' reference.
+   * @see #setHandler(Handler)
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Handler()
+   * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommand
    * @model opposite="command"
    * @generated
    */
-  Action getAction();
+  Handler getHandler();
 
   /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getAction <em>Action</em>}' reference.
+   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action</em>' reference.
-   * @see #getAction()
+   * @param value the new value of the '<em>Handler</em>' reference.
+   * @see #getHandler()
    * @generated
    */
-  void setAction(Action value);
+  void setHandler(Handler value);
 
   /**
    * Returns the value of the '<em><b>Menu</b></em>' reference.
@@ -218,33 +217,5 @@ public interface Command extends EObject
    * @generated
    */
   void setBinding(Binding value);
-
-  /**
-   * Returns the value of the '<em><b>Context</b></em>' reference.
-   * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Context#getCommands <em>Commands</em>}'.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Context</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Context</em>' reference.
-   * @see #setContext(Context)
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Context()
-   * @see org.obeonetwork.dsl.gen.eclipse.Context#getCommands
-   * @model opposite="commands"
-   * @generated
-   */
-  Context getContext();
-
-  /**
-   * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getContext <em>Context</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Context</em>' reference.
-   * @see #getContext()
-   * @generated
-   */
-  void setContext(Context value);
 
 } // Command

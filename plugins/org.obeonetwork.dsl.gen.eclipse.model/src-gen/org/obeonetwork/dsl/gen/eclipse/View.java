@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getCategory <em>Category</em>}</li>
@@ -80,20 +80,20 @@ public interface View extends Part
   void setIsVisible(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Action}.
+   * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
+   * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Handlers</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actions</em>' containment reference list.
-   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Actions()
+   * @return the value of the '<em>Handlers</em>' containment reference list.
+   * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_Handlers()
    * @model containment="true"
    * @generated
    */
-  EList<Action> getActions();
+  EList<Handler> getHandlers();
 
   /**
    * Returns the value of the '<em><b>Menus</b></em>' containment reference list.

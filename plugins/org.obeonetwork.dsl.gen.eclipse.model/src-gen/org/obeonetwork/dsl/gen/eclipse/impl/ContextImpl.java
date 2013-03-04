@@ -16,13 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Perspective;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,9 +29,8 @@ import org.obeonetwork.dsl.gen.eclipse.Perspective;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextImpl#getContexts <em>Contexts</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextImpl#getPerspective <em>Perspective</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +59,26 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -71,26 +87,6 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * @ordered
    */
   protected EList<Context> contexts;
-
-  /**
-   * The cached value of the '{@link #getPerspective() <em>Perspective</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPerspective()
-   * @generated
-   * @ordered
-   */
-  protected Perspective perspective;
-
-  /**
-   * The cached value of the '{@link #getCommands() <em>Commands</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCommands()
-   * @generated
-   * @ordered
-   */
-  protected EList<Command> commands;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,6 +137,29 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXT__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Context> getContexts()
   {
     if (contexts == null)
@@ -155,109 +174,6 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public Perspective getPerspective()
-  {
-    if (perspective != null && perspective.eIsProxy())
-    {
-      InternalEObject oldPerspective = (InternalEObject)perspective;
-      perspective = (Perspective)eResolveProxy(oldPerspective);
-      if (perspective != oldPerspective)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.CONTEXT__PERSPECTIVE, oldPerspective, perspective));
-      }
-    }
-    return perspective;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Perspective basicGetPerspective()
-  {
-    return perspective;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPerspective(Perspective newPerspective, NotificationChain msgs)
-  {
-    Perspective oldPerspective = perspective;
-    perspective = newPerspective;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXT__PERSPECTIVE, oldPerspective, newPerspective);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPerspective(Perspective newPerspective)
-  {
-    if (newPerspective != perspective)
-    {
-      NotificationChain msgs = null;
-      if (perspective != null)
-        msgs = ((InternalEObject)perspective).eInverseRemove(this, EclipsePackage.PERSPECTIVE__CONTEXT, Perspective.class, msgs);
-      if (newPerspective != null)
-        msgs = ((InternalEObject)newPerspective).eInverseAdd(this, EclipsePackage.PERSPECTIVE__CONTEXT, Perspective.class, msgs);
-      msgs = basicSetPerspective(newPerspective, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXT__PERSPECTIVE, newPerspective, newPerspective));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Command> getCommands()
-  {
-    if (commands == null)
-    {
-      commands = new EObjectWithInverseResolvingEList<Command>(Command.class, this, EclipsePackage.CONTEXT__COMMANDS, EclipsePackage.COMMAND__CONTEXT);
-    }
-    return commands;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        if (perspective != null)
-          msgs = ((InternalEObject)perspective).eInverseRemove(this, EclipsePackage.PERSPECTIVE__CONTEXT, Perspective.class, msgs);
-        return basicSetPerspective((Perspective)otherEnd, msgs);
-      case EclipsePackage.CONTEXT__COMMANDS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getCommands()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -265,10 +181,6 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case EclipsePackage.CONTEXT__CONTEXTS:
         return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        return basicSetPerspective(null, msgs);
-      case EclipsePackage.CONTEXT__COMMANDS:
-        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -285,13 +197,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case EclipsePackage.CONTEXT__NAME:
         return getName();
+      case EclipsePackage.CONTEXT__DESCRIPTION:
+        return getDescription();
       case EclipsePackage.CONTEXT__CONTEXTS:
         return getContexts();
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        if (resolve) return getPerspective();
-        return basicGetPerspective();
-      case EclipsePackage.CONTEXT__COMMANDS:
-        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -310,16 +219,12 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
       case EclipsePackage.CONTEXT__NAME:
         setName((String)newValue);
         return;
+      case EclipsePackage.CONTEXT__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
       case EclipsePackage.CONTEXT__CONTEXTS:
         getContexts().clear();
         getContexts().addAll((Collection<? extends Context>)newValue);
-        return;
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        setPerspective((Perspective)newValue);
-        return;
-      case EclipsePackage.CONTEXT__COMMANDS:
-        getCommands().clear();
-        getCommands().addAll((Collection<? extends Command>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -338,14 +243,11 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
       case EclipsePackage.CONTEXT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EclipsePackage.CONTEXT__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case EclipsePackage.CONTEXT__CONTEXTS:
         getContexts().clear();
-        return;
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        setPerspective((Perspective)null);
-        return;
-      case EclipsePackage.CONTEXT__COMMANDS:
-        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -363,12 +265,10 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case EclipsePackage.CONTEXT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EclipsePackage.CONTEXT__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case EclipsePackage.CONTEXT__CONTEXTS:
         return contexts != null && !contexts.isEmpty();
-      case EclipsePackage.CONTEXT__PERSPECTIVE:
-        return perspective != null;
-      case EclipsePackage.CONTEXT__COMMANDS:
-        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -386,6 +286,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

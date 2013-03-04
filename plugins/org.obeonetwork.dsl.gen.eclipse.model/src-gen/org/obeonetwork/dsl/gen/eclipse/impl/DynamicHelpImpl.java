@@ -28,7 +28,6 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DynamicHelpImpl#getHelpPages <em>Help Pages</em>}</li>
  * </ul>
  * </p>
@@ -78,26 +77,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected static final String TITLE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTitle()
-   * @generated
-   * @ordered
-   */
-  protected String title = TITLE_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getHelpPages() <em>Help Pages</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -133,29 +112,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getLabel()
   {
     return label;
@@ -179,9 +135,9 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTitle()
+  public String getDescription()
   {
-    return title;
+    return description;
   }
 
   /**
@@ -189,12 +145,12 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTitle(String newTitle)
+  public void setDescription(String newDescription)
   {
-    String oldTitle = title;
-    title = newTitle;
+    String oldDescription = description;
+    description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__TITLE, oldTitle, title));
+      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -225,8 +181,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
         return getLabel();
       case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
         return getDescription();
-      case EclipsePackage.DYNAMIC_HELP__TITLE:
-        return getTitle();
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
         return getHelpPages();
     }
@@ -249,9 +203,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
         return;
       case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
         setDescription((String)newValue);
-        return;
-      case EclipsePackage.DYNAMIC_HELP__TITLE:
-        setTitle((String)newValue);
         return;
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
         getHelpPages().clear();
@@ -277,9 +228,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
       case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case EclipsePackage.DYNAMIC_HELP__TITLE:
-        setTitle(TITLE_EDEFAULT);
-        return;
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
         getHelpPages().clear();
         return;
@@ -301,8 +249,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
         return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
       case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case EclipsePackage.DYNAMIC_HELP__TITLE:
-        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
         return helpPages != null && !helpPages.isEmpty();
     }
@@ -324,8 +270,6 @@ public class DynamicHelpImpl extends MinimalEObjectImpl.Container implements Dyn
     result.append(label);
     result.append(", description: ");
     result.append(description);
-    result.append(", title: ");
-    result.append(title);
     result.append(')');
     return result.toString();
   }

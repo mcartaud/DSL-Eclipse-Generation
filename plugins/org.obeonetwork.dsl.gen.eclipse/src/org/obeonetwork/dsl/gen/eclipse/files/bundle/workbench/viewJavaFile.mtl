@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module viewJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private viewJavaFile(aView : View)]
-[aView.eContainer(Bundle).genBundleQualifiedPath()/]/ui/views/[aView.name.replaceAll(' ', '').toUpperFirst()/].java
+[aView.eContainer(Bundle).genBundleJavaPath()/]/views/[aView.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
 [template public genViewJavaFile(aView : View)]
 [file (viewJavaFile(), false, 'UTF-8')]
-package [aView.eContainer(Bundle).genBundlePath()/].ui.views;
+package [aView.eContainer(Bundle).genBundleID()/].views;
 
 
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -49,7 +49,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "[aView.eContainer(Bundle).genBundlePath()/].ui.view.[aView.name.replaceAll(' ', '').toUpperFirst()/]";
+	public static final String ID = "[aView.eContainer(Bundle).genBundleID()/].view.[aView.name.replaceAll(' ', '').toUpperFirst()/]";
 
 [if (aView.isTree)]
 	private TreeViewer viewer;
@@ -101,7 +101,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 
 		// Create the help context id for the viewer's control
 [if (aView.dynamicHelp->size() > 0)]
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundlePath()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 [/if]
 	}
 

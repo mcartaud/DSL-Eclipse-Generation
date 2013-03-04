@@ -1,15 +1,15 @@
 [comment encoding = UTF-8 /]
 [module editorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private editorJavaFile(anEditor : Editor)]
-[anEditor.eContainer(Bundle).genBundleQualifiedPath()/]/ui/editors/[anEditor.name.replaceAll(' ', '').toUpperFirst()/].java
+[anEditor.eContainer(Bundle).genBundleJavaPath()/]/editors/[anEditor.name.replaceAll(' ', '').toUpperFirst()/].java
 [/template]
 
 [template public genEditorJavaFile(anEditor : Editor)]
 [file (editorJavaFile(), false, 'UTF-8')]
-package [anEditor.eContainer(Bundle).genBundlePath()/].ui.editors;
+package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
@@ -19,7 +19,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	/**
 	 * The ID of the editor as specified by the extension.
 	 */
-	public static final String ID = "[anEditor.eContainer(Bundle).genBundlePath()/].ui.editor.[anEditor.name.replaceAll(' ', '').toUpperFirst()/]";
+	public static final String ID = "[anEditor.eContainer(Bundle).genBundleID()/].editor.[anEditor.name.replaceAll(' ', '').toUpperFirst()/]";
 
 
 	private TableEditor tableEditor;
@@ -31,7 +31,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 
 [if (anEditor.dynamicHelp->size() > 0)]
 	public void createPartControl(Composite parent) {
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(textEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundlePath()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(textEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 	}
 [/if]
 

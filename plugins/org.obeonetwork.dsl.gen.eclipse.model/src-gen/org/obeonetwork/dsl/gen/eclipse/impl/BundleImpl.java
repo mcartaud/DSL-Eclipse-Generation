@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.Action;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
@@ -30,6 +29,7 @@ import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
+import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
@@ -66,7 +66,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenus <em>Menus</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
@@ -291,14 +291,14 @@ public class BundleImpl extends ProjectImpl implements Bundle
   protected EList<Menu> menus;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActions()
+   * @see #getHandlers()
    * @generated
    * @ordered
    */
-  protected EList<Action> actions;
+  protected EList<Handler> handlers;
 
   /**
    * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
@@ -665,13 +665,13 @@ public class BundleImpl extends ProjectImpl implements Bundle
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Action> getActions()
+  public EList<Handler> getHandlers()
   {
-    if (actions == null)
+    if (handlers == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, EclipsePackage.BUNDLE__ACTIONS);
+      handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.BUNDLE__HANDLERS);
     }
-    return actions;
+    return handlers;
   }
 
   /**
@@ -798,8 +798,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__MENUS:
         return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
-      case EclipsePackage.BUNDLE__ACTIONS:
-        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case EclipsePackage.BUNDLE__HANDLERS:
+        return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__CONTEXTS:
         return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
       case EclipsePackage.BUNDLE__CATEGORIES:
@@ -856,8 +856,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return getCommands();
       case EclipsePackage.BUNDLE__MENUS:
         return getMenus();
-      case EclipsePackage.BUNDLE__ACTIONS:
-        return getActions();
+      case EclipsePackage.BUNDLE__HANDLERS:
+        return getHandlers();
       case EclipsePackage.BUNDLE__CONTEXTS:
         return getContexts();
       case EclipsePackage.BUNDLE__CATEGORIES:
@@ -954,9 +954,9 @@ public class BundleImpl extends ProjectImpl implements Bundle
         getMenus().clear();
         getMenus().addAll((Collection<? extends Menu>)newValue);
         return;
-      case EclipsePackage.BUNDLE__ACTIONS:
-        getActions().clear();
-        getActions().addAll((Collection<? extends Action>)newValue);
+      case EclipsePackage.BUNDLE__HANDLERS:
+        getHandlers().clear();
+        getHandlers().addAll((Collection<? extends Handler>)newValue);
         return;
       case EclipsePackage.BUNDLE__CONTEXTS:
         getContexts().clear();
@@ -1050,8 +1050,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
       case EclipsePackage.BUNDLE__MENUS:
         getMenus().clear();
         return;
-      case EclipsePackage.BUNDLE__ACTIONS:
-        getActions().clear();
+      case EclipsePackage.BUNDLE__HANDLERS:
+        getHandlers().clear();
         return;
       case EclipsePackage.BUNDLE__CONTEXTS:
         getContexts().clear();
@@ -1121,8 +1121,8 @@ public class BundleImpl extends ProjectImpl implements Bundle
         return commands != null && !commands.isEmpty();
       case EclipsePackage.BUNDLE__MENUS:
         return menus != null && !menus.isEmpty();
-      case EclipsePackage.BUNDLE__ACTIONS:
-        return actions != null && !actions.isEmpty();
+      case EclipsePackage.BUNDLE__HANDLERS:
+        return handlers != null && !handlers.isEmpty();
       case EclipsePackage.BUNDLE__CONTEXTS:
         return contexts != null && !contexts.isEmpty();
       case EclipsePackage.BUNDLE__CATEGORIES:

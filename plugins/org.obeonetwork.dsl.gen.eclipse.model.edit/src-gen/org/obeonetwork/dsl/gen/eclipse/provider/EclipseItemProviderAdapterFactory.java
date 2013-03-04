@@ -124,6 +124,31 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RepositoryCategoryItemProvider repositoryCategoryItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.RepositoryCategory}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createRepositoryCategoryAdapter()
+  {
+    if (repositoryCategoryItemProvider == null)
+    {
+      repositoryCategoryItemProvider = new RepositoryCategoryItemProvider(this);
+    }
+
+    return repositoryCategoryItemProvider;
+  }
+
+  /**
    * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Feature} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -624,28 +649,28 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Action} instances.
+   * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Handler} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ActionItemProvider actionItemProvider;
+  protected HandlerItemProvider handlerItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Action}.
+   * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public Adapter createActionAdapter()
+  public Adapter createHandlerAdapter()
   {
-    if (actionItemProvider == null)
+    if (handlerItemProvider == null)
     {
-      actionItemProvider = new ActionItemProvider(this);
+      handlerItemProvider = new HandlerItemProvider(this);
     }
 
-    return actionItemProvider;
+    return handlerItemProvider;
   }
 
   /**
@@ -861,6 +886,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
   {
     if (applicationItemProvider != null) applicationItemProvider.dispose();
     if (repositoryItemProvider != null) repositoryItemProvider.dispose();
+    if (repositoryCategoryItemProvider != null) repositoryCategoryItemProvider.dispose();
     if (featureItemProvider != null) featureItemProvider.dispose();
     if (bundleItemProvider != null) bundleItemProvider.dispose();
     if (importedPackageDeclarationItemProvider != null) importedPackageDeclarationItemProvider.dispose();
@@ -881,7 +907,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
     if (editorItemProvider != null) editorItemProvider.dispose();
     if (menuItemProvider != null) menuItemProvider.dispose();
     if (commandItemProvider != null) commandItemProvider.dispose();
-    if (actionItemProvider != null) actionItemProvider.dispose();
+    if (handlerItemProvider != null) handlerItemProvider.dispose();
     if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
     if (helpPageItemProvider != null) helpPageItemProvider.dispose();
     if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
