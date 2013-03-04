@@ -5,7 +5,6 @@ package org.obeonetwork.dsl.gen.eclipse
 
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EReference
 //import org.eclipse.emf.codegen.ecore.genmodel.GenClass 
 
 class Application

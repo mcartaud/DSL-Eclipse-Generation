@@ -1,0 +1,42 @@
+[comment encoding = UTF-8 /]
+[module osgiServiceJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private osgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/src/[aDeclarativeService.implentationClass.ancestors(EPackage).refactorEPackageName()->reverse()->sep('/')/]/[aDeclarativeService.implentationClass.name/].java
+[/template]
+
+[template public genOsgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
+[file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
+package [aDeclarativeService.implentationClass.ancestors(EPackage).refactorEPackageName()->reverse()->sep('.')/];
+
+import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.eclipse.osgi.framework.console.CommandProvider;
+
+
+// referenced in component.xml
+public class [aDeclarativeService.implentationClass.name/] implements CommandProvider {
+
+[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+	private [aRequiredService.interface.name.toUpperFirst()/] [aRequiredService.bind.toLowerFirst()/];
+[/for]
+	
+[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+	public void set[aRequiredService.bind/]([aRequiredService.interface.name.toUpperFirst()/] d) {
+		[aRequiredService.bind.toLowerFirst()/] = d;
+	}
+	
+	public void unset[aRequiredService.bind/]([aRequiredService.interface.name.toUpperFirst()/] d) {
+		[aRequiredService.bind.toLowerFirst()/] = null;
+	}
+[/for]
+	@Override
+	public String getHelp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+[/file]
+[/template]

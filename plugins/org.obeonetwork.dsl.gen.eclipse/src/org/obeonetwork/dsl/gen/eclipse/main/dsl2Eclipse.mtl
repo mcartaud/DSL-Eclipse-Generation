@@ -32,6 +32,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::mainHelpPageHtmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::osgiServiceJavaFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::activatorJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::builderJavaFile /]
@@ -74,6 +75,9 @@ Contributors :
 [/if]
 [for (aDeclarativeService : DeclarativeService | aBundle.declarativeServices)]
 [aDeclarativeService.genOsgiServiceXmlFile()/]
+[if (aDeclarativeService.requiredServices->size() > 0)]
+[aDeclarativeService.genOsgiServiceJavaFile()/]
+[/if]
 [/for]
 [for (aNature : Nature | aBundle.natures)]
 [aNature.genNatureJavaFile()/]
