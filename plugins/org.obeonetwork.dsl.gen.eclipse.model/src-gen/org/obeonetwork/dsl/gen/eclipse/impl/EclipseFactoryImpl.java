@@ -630,7 +630,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory
     }
     if (_and)
     {
-      RuntimeException _runtimeException = new RuntimeException("Bad format for name");
+      RuntimeException _runtimeException = new RuntimeException("Bad format for a java name");
       throw _runtimeException;
     }
     return it;

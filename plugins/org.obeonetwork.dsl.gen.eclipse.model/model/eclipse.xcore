@@ -300,7 +300,7 @@ type Namespace wraps java.lang.String create
 }
 
 type JavaName wraps java.lang.String create
-{ if ( it != null && ! it . matches ( "[A-Z]+([0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for name" )
+{ if ( it != null && ! it . matches ( "[A-Z]+([0-9]*[A-Z]*[a-z]*)*" ) ) throw new RuntimeException ( "Bad format for a java name" )
 ; return it
 }
 

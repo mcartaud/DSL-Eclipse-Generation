@@ -4312,7 +4312,7 @@ public interface EclipsePackage extends EPackage
    * @return the meta object for data type '<em>Java Name</em>'.
    * @see java.lang.String
    * @model instanceClass="java.lang.String"
-   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"[A-Z]+([0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
+   *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _and = false;\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(it, null));\nif (!_notEquals)\n{\n\t_and = false;\n} else\n{\n\tboolean _matches = it.matches(\"[A-Z]+([0-9]*[A-Z]*[a-z]*)*\");\n\tboolean _not = (!_matches);\n\t_and = (_notEquals && _not);\n}\nif (_and)\n{\n\t<%java.lang.RuntimeException%> _runtimeException = new <%java.lang.RuntimeException%>(\"Bad format for a java name\");\n\tthrow _runtimeException;\n}\nreturn it;'"
    * @generated
    */
   EDataType getJavaName();
