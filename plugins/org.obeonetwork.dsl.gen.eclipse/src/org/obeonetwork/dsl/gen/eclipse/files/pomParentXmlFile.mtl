@@ -21,7 +21,7 @@
 
   <groupId>org.obeonetwork.acceleo</groupId>
   <artifactId>[anApplication.genApplicationID()/].parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>[anApplication.applicationVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>[anApplication.description/] Project</name>
 

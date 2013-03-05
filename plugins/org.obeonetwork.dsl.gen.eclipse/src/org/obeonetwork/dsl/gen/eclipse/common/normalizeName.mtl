@@ -34,6 +34,10 @@
 [aBundle.genBundlePath()/]/src/[aBundle.eContainer(Application).baseNamespace.substituteAll('.', '/')/]/[aBundle.ID.substituteAll('.', '/')/]
 [/template]
 
+[template public applicationVersion(anApplication : Application)]
+[if (anApplication.version.oclIsUndefined())]1.0.0.qualifier[else][anApplication.version/].qualifier[/if]
+[/template]
+
 [template public bundleVersion(aBundle : Bundle)]
 [if (aBundle.version.oclIsUndefined())]1.0.0.qualifier[else][aBundle.version/].qualifier[/if]
 [/template]

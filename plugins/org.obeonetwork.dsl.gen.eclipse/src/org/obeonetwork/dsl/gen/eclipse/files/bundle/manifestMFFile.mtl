@@ -40,7 +40,7 @@ or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspecti
 or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importDeclaration()/]
 [/if][if (aBundle.declarativeServices.providedServices->size() > 0 and aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
 [else]
-Export-Package:[aBundle.exportedPackage()/][/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
+[aBundle.exportedPackage()/][/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
 [for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genInterfacePath()/][/for]
 [/if][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
 
@@ -55,8 +55,8 @@ Export-Package:[aBundle.exportedPackage()/][/if][if (aBundle.declarativeServices
 [/template]
 
 [template private exportedPackage(aBundle : Bundle)]
-[if (aBundle.declarativeServices.providedServices->size() > 0)][aBundle.providedServiceExportedPackage()/]
-[elseif (aBundle.exportedPackages->size() > 0)][aBundle.userExportedPackage()/]
+[if (aBundle.declarativeServices.providedServices->size() > 0)]Export-Package:[aBundle.providedServiceExportedPackage()/]
+[elseif (aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.userExportedPackage()/]
 [/if]
 [/template]
 
