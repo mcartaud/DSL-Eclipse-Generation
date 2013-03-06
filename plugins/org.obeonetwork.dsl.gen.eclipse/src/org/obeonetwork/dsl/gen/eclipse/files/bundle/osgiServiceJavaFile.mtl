@@ -2,32 +2,33 @@
 [module osgiServiceJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private osgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/src/[aDeclarativeService.implentationClass.ancestors(EPackage).refactorEPackageName()->reverse()->sep('/')/]/[aDeclarativeService.implentationClass.name/].java
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/src/[aDeclarativeService.genImplementationPath()/].java
 [/template]
 
 [template public genOsgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
 [file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
-package [aDeclarativeService.implentationClass.ancestors(EPackage).refactorEPackageName()->reverse()->sep('.')/];
+package [aDeclarativeService.implentationClass.genPackage.basePackage/];
 
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
 
 // referenced in component.xml
-public class [aDeclarativeService.implentationClass.name/] implements CommandProvider {
+public class [aDeclarativeService.implentationClass.ecoreClass.name/] implements CommandProvider {
 
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-	private [aRequiredService.interface.name.toUpperFirst()/] [aRequiredService.bind.toLowerFirst()/];
+	private [aRequiredService.interface.ecoreClass.name.toUpperFirst()/] [aRequiredService.bind.toLowerFirst()/];
 [/for]
 	
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-	public void set[aRequiredService.bind/]([aRequiredService.interface.name.toUpperFirst()/] d) {
+	public void set[aRequiredService.bind.toUpperFirst()/]([aRequiredService.interface.ecoreClass.name.toUpperFirst()/] d) {
 		[aRequiredService.bind.toLowerFirst()/] = d;
 	}
 	
-	public void unset[aRequiredService.bind/]([aRequiredService.interface.name.toUpperFirst()/] d) {
+	public void unset[aRequiredService.bind.toUpperFirst()/]([aRequiredService.interface.ecoreClass.name.toUpperFirst()/] d) {
 		[aRequiredService.bind.toLowerFirst()/] = null;
 	}
 [/for]

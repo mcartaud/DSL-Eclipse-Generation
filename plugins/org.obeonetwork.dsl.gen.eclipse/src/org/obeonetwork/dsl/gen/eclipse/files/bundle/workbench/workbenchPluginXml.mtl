@@ -85,10 +85,9 @@
 [template private perspectiveExtensionTemplate(aPerspective : Perspective)]
   	  <perspectiveExtension 
 			targetID="[aPerspective.genPerspectiveID()/]">
-    		<viewShortcut id="org.eclipse.jdt.debug.ui.DisplayView"/>
 [for (aView : View | aPerspective.views)][if (aView.isVisible)]
     		<view id="[aView.genViewID()/]" 
-        		relative="org.eclipse.ui.console.ConsoleView" 
+        		relative="org.eclipse.ui.views.ProblemView" 
     			relationship="stack"/>	
 [/if][/for][for (aWizard : Wizard | aPerspective.wizards)]
       		<newWizardShortcut

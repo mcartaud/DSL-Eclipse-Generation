@@ -2,13 +2,14 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
@@ -26,147 +27,136 @@ import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
  *
  * @generated
  */
-public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements ProvidedService
-{
-  /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface()
-   * @generated
-   * @ordered
-   */
-  protected EClass interface_;
+public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService {
+	/**
+	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected GenClass interface_;
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ProvidedServiceImpl()
-  {
-    super();
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProvidedServiceImpl() {
+		super();
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EClass eStaticClass()
-  {
-    return EclipsePackage.Literals.PROVIDED_SERVICE;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return EclipsePackage.Literals.PROVIDED_SERVICE;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getInterface()
-  {
-    if (interface_ != null && interface_.eIsProxy())
-    {
-      InternalEObject oldInterface = (InternalEObject)interface_;
-      interface_ = (EClass)eResolveProxy(oldInterface);
-      if (interface_ != oldInterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface, interface_));
-      }
-    }
-    return interface_;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenClass getInterface() {
+		if (interface_ != null && interface_.eIsProxy()) {
+			InternalEObject oldInterface = (InternalEObject) interface_;
+			interface_ = (GenClass) eResolveProxy(oldInterface);
+			if (interface_ != oldInterface) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							EclipsePackage.PROVIDED_SERVICE__INTERFACE,
+							oldInterface, interface_));
+			}
+		}
+		return interface_;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass basicGetInterface()
-  {
-    return interface_;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenClass basicGetInterface() {
+		return interface_;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInterface(EClass newInterface)
-  {
-    EClass oldInterface = interface_;
-    interface_ = newInterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface, interface_));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterface(GenClass newInterface) {
+		GenClass oldInterface = interface_;
+		interface_ = newInterface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface,
+					interface_));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-        if (resolve) return getInterface();
-        return basicGetInterface();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+			if (resolve)
+				return getInterface();
+			return basicGetInterface();
+		}
+		return eDynamicGet(featureID, resolve, coreType);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-        setInterface((EClass)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+			setInterface((GenClass) newValue);
+			return;
+		}
+		eDynamicSet(featureID, newValue);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-        setInterface((EClass)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+			setInterface((GenClass) null);
+			return;
+		}
+		eDynamicUnset(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-        return interface_ != null;
-    }
-    return super.eIsSet(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+			return interface_ != null;
+		}
+		return eDynamicIsSet(featureID);
+	}
 
 } //ProvidedServiceImpl

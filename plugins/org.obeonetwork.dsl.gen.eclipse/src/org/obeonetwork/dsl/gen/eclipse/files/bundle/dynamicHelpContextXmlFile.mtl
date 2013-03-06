@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private dynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
-[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/dynamic[aDynamicHelp.refactorDynamicHelpLabel()/].xml
+[aDynamicHelp.eContainer(Bundle).genBundlePath()/]/help/dynamic[aDynamicHelp.refactorDynamicHelpLabel()/].xml
 [/template]
 
 [template public genDynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]

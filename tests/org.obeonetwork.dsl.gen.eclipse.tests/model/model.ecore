@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="model" nsPrefix="model">
-  <eClassifiers xsi:type="ecore:EClass" name="IModel" abstract="true" interface="true"/>
-  <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
-    <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//IModel">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
-          eType="#//IModel"/>
-    </eClassifiers>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="org" nsURI="org" nsPrefix="org">
+  <eSubpackages name="obeonetwork" nsURI="obeonetwork" nsPrefix="obeonetwork">
+    <eSubpackages name="dsl" nsURI="dsl" nsPrefix="dsl">
+      <eSubpackages name="model" nsURI="model" nsPrefix="model">
+        <eClassifiers xsi:type="ecore:EClass" name="IModel" abstract="true" interface="true"/>
+        <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
+          <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//obeonetwork/dsl/model/IModel"/>
+        </eSubpackages>
+      </eSubpackages>
+    </eSubpackages>
   </eSubpackages>
 </ecore:EPackage>

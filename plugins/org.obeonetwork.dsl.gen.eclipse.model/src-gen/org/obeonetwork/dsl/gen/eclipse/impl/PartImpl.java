@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -30,292 +30,287 @@ import org.obeonetwork.dsl.gen.eclipse.Part;
  *
  * @generated
  */
-public abstract class PartImpl extends MinimalEObjectImpl.Container implements Part
-{
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
+public abstract class PartImpl extends EObjectImpl implements Part {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-  /**
-   * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIcon()
-   * @generated
-   * @ordered
-   */
-  protected static final String ICON_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcon()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ICON_EDEFAULT = null;
 
-  /**
-   * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIcon()
-   * @generated
-   * @ordered
-   */
-  protected String icon = ICON_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcon()
+	 * @generated
+	 * @ordered
+	 */
+	protected String icon = ICON_EDEFAULT;
 
-  /**
-   * The cached value of the '{@link #getDynamicHelp() <em>Dynamic Help</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDynamicHelp()
-   * @generated
-   * @ordered
-   */
-  protected DynamicHelp dynamicHelp;
+	/**
+	 * The cached value of the '{@link #getDynamicHelp() <em>Dynamic Help</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDynamicHelp()
+	 * @generated
+	 * @ordered
+	 */
+	protected DynamicHelp dynamicHelp;
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected PartImpl()
-  {
-    super();
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PartImpl() {
+		super();
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EClass eStaticClass()
-  {
-    return EclipsePackage.Literals.PART;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return EclipsePackage.Literals.PART;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__NAME, oldName, name));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.PART__NAME, oldName, name));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getIcon()
-  {
-    return icon;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getIcon() {
+		return icon;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIcon(String newIcon)
-  {
-    String oldIcon = icon;
-    icon = newIcon;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__ICON, oldIcon, icon));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIcon(String newIcon) {
+		String oldIcon = icon;
+		icon = newIcon;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.PART__ICON, oldIcon, icon));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DynamicHelp getDynamicHelp()
-  {
-    return dynamicHelp;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DynamicHelp getDynamicHelp() {
+		return dynamicHelp;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDynamicHelp(DynamicHelp newDynamicHelp, NotificationChain msgs)
-  {
-    DynamicHelp oldDynamicHelp = dynamicHelp;
-    dynamicHelp = newDynamicHelp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DYNAMIC_HELP, oldDynamicHelp, newDynamicHelp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDynamicHelp(DynamicHelp newDynamicHelp,
+			NotificationChain msgs) {
+		DynamicHelp oldDynamicHelp = dynamicHelp;
+		dynamicHelp = newDynamicHelp;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, EclipsePackage.PART__DYNAMIC_HELP,
+					oldDynamicHelp, newDynamicHelp);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDynamicHelp(DynamicHelp newDynamicHelp)
-  {
-    if (newDynamicHelp != dynamicHelp)
-    {
-      NotificationChain msgs = null;
-      if (dynamicHelp != null)
-        msgs = ((InternalEObject)dynamicHelp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
-      if (newDynamicHelp != null)
-        msgs = ((InternalEObject)newDynamicHelp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
-      msgs = basicSetDynamicHelp(newDynamicHelp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PART__DYNAMIC_HELP, newDynamicHelp, newDynamicHelp));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDynamicHelp(DynamicHelp newDynamicHelp) {
+		if (newDynamicHelp != dynamicHelp) {
+			NotificationChain msgs = null;
+			if (dynamicHelp != null)
+				msgs = ((InternalEObject) dynamicHelp)
+						.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+								- EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
+			if (newDynamicHelp != null)
+				msgs = ((InternalEObject) newDynamicHelp)
+						.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+								- EclipsePackage.PART__DYNAMIC_HELP, null, msgs);
+			msgs = basicSetDynamicHelp(newDynamicHelp, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.PART__DYNAMIC_HELP, newDynamicHelp,
+					newDynamicHelp));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__DYNAMIC_HELP:
-        return basicSetDynamicHelp(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case EclipsePackage.PART__DYNAMIC_HELP:
+			return basicSetDynamicHelp(null, msgs);
+		}
+		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__NAME:
-        return getName();
-      case EclipsePackage.PART__ICON:
-        return getIcon();
-      case EclipsePackage.PART__DYNAMIC_HELP:
-        return getDynamicHelp();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case EclipsePackage.PART__NAME:
+			return getName();
+		case EclipsePackage.PART__ICON:
+			return getIcon();
+		case EclipsePackage.PART__DYNAMIC_HELP:
+			return getDynamicHelp();
+		}
+		return eDynamicGet(featureID, resolve, coreType);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__NAME:
-        setName((String)newValue);
-        return;
-      case EclipsePackage.PART__ICON:
-        setIcon((String)newValue);
-        return;
-      case EclipsePackage.PART__DYNAMIC_HELP:
-        setDynamicHelp((DynamicHelp)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case EclipsePackage.PART__NAME:
+			setName((String) newValue);
+			return;
+		case EclipsePackage.PART__ICON:
+			setIcon((String) newValue);
+			return;
+		case EclipsePackage.PART__DYNAMIC_HELP:
+			setDynamicHelp((DynamicHelp) newValue);
+			return;
+		}
+		eDynamicSet(featureID, newValue);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case EclipsePackage.PART__ICON:
-        setIcon(ICON_EDEFAULT);
-        return;
-      case EclipsePackage.PART__DYNAMIC_HELP:
-        setDynamicHelp((DynamicHelp)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.PART__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case EclipsePackage.PART__ICON:
+			setIcon(ICON_EDEFAULT);
+			return;
+		case EclipsePackage.PART__DYNAMIC_HELP:
+			setDynamicHelp((DynamicHelp) null);
+			return;
+		}
+		eDynamicUnset(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.PART__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.PART__ICON:
-        return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
-      case EclipsePackage.PART__DYNAMIC_HELP:
-        return dynamicHelp != null;
-    }
-    return super.eIsSet(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.PART__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
+					.equals(name);
+		case EclipsePackage.PART__ICON:
+			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT
+					.equals(icon);
+		case EclipsePackage.PART__DYNAMIC_HELP:
+			return dynamicHelp != null;
+		}
+		return eDynamicIsSet(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", icon: ");
-    result.append(icon);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", icon: ");
+		result.append(icon);
+		result.append(')');
+		return result.toString();
+	}
 
 } //PartImpl

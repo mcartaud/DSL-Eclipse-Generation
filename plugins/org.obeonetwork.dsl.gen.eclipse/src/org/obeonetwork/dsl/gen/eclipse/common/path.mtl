@@ -4,29 +4,18 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template public genInterfacePath(aProvidedService : ProvidedService)]
-[aProvidedService.eContainer(Bundle).genBundleID()/].[aProvidedService.interfacePath()->sep('.')/]
+[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/].[aProvidedService.interface.ecoreClass.name/]
 [/template]
 
 [template public genImplementationPath(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.eContainer(Bundle).genBundleID()/].[aDeclarativeService.implementationPath()->sep('.')/]
+[aDeclarativeService.implentationClass.genPackage.basePackage.substituteAll('.', '/')/]/[aDeclarativeService.implentationClass.ecoreClass.name/]
 [/template]
 
-[query private interfacePath(aProvidedService : ProvidedService) : Sequence(String) = 
-aProvidedService.interface.ancestors(EPackage)->reverse().name
-/]
-
-[query private implementationPath(aDeclarativeService : DeclarativeService) : Sequence(String) = 
-aDeclarativeService.implentationClass.ancestors(EPackage)->reverse().name
-/]
-
-[template public genInterfacePath(aRequiredService : RequiredService)]
-[aRequiredService.interface.eContainer(EPackage).eInverse(Bundle).genBundleID()/].[aRequiredService.interfacePath()->sep('.')/]
+[template public genInterfaceID(aRequiredService : RequiredService)]
+[aRequiredService.interface.genPackage.basePackage/].[aRequiredService.interface.genPackage.ecorePackage.name/].[aRequiredService.interface.ecoreClass.name/]
 [/template]
 
-[query private interfacePath(aRequiredService : RequiredService) : Sequence(String) =
-aRequiredService.interface.ancestors(EPackage)->reverse().name 
-/]
+[template public genImplementationID(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.implentationClass.genPackage.basePackage/].[aDeclarativeService.implentationClass.genPackage.classPackageSuffix/].[aDeclarativeService.implentationClass.ecoreClass.name/]
+[/template]
 
-[query public allExportedPackages(aBundle : Bundle) : EPackage = 
-	invoke('org.obeonetwork.dsl.gen.eclipse.impl.spec.BundleSpec', 'getAllExportedPackages()', Sequence{})
-/]

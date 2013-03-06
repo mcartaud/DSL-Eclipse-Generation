@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,260 +37,252 @@ import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
  *
  * @generated
  */
-public class ExtensionPointImpl extends MinimalEObjectImpl.Container implements ExtensionPoint
-{
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
+public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-  /**
-   * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isRequired()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean REQUIRED_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
 
-  /**
-   * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isRequired()
-   * @generated
-   * @ordered
-   */
-  protected boolean required = REQUIRED_EDEFAULT;
+	/**
+	 * The flag representing the value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int REQUIRED_EFLAG = 1 << 8;
 
-  /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAttributes()
-   * @generated
-   * @ordered
-   */
-  protected EList<Attribute> attributes;
+	/**
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Attribute> attributes;
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ExtensionPointImpl()
-  {
-    super();
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtensionPointImpl() {
+		super();
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EClass eStaticClass()
-  {
-    return EclipsePackage.Literals.EXTENSION_POINT;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return EclipsePackage.Literals.EXTENSION_POINT;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__NAME, oldName, name));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.EXTENSION_POINT__NAME, oldName, name));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isRequired()
-  {
-    return required;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequired() {
+		return (eFlags & REQUIRED_EFLAG) != 0;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRequired(boolean newRequired)
-  {
-    boolean oldRequired = required;
-    required = newRequired;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__REQUIRED, oldRequired, required));
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = (eFlags & REQUIRED_EFLAG) != 0;
+		if (newRequired)
+			eFlags |= REQUIRED_EFLAG;
+		else
+			eFlags &= ~REQUIRED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.EXTENSION_POINT__REQUIRED, oldRequired,
+					newRequired));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Attribute> getAttributes()
-  {
-    if (attributes == null)
-    {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION_POINT__ATTRIBUTES);
-    }
-    return attributes;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Attribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<Attribute>(
+					Attribute.class, this,
+					EclipsePackage.EXTENSION_POINT__ATTRIBUTES);
+		}
+		return attributes;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd,
+					msgs);
+		}
+		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.EXTENSION_POINT__NAME:
-        return getName();
-      case EclipsePackage.EXTENSION_POINT__REQUIRED:
-        return isRequired();
-      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-        return getAttributes();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case EclipsePackage.EXTENSION_POINT__NAME:
+			return getName();
+		case EclipsePackage.EXTENSION_POINT__REQUIRED:
+			return isRequired();
+		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			return getAttributes();
+		}
+		return eDynamicGet(featureID, resolve, coreType);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.EXTENSION_POINT__NAME:
-        setName((String)newValue);
-        return;
-      case EclipsePackage.EXTENSION_POINT__REQUIRED:
-        setRequired((Boolean)newValue);
-        return;
-      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case EclipsePackage.EXTENSION_POINT__NAME:
+			setName((String) newValue);
+			return;
+		case EclipsePackage.EXTENSION_POINT__REQUIRED:
+			setRequired((Boolean) newValue);
+			return;
+		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			getAttributes().clear();
+			getAttributes().addAll((Collection<? extends Attribute>) newValue);
+			return;
+		}
+		eDynamicSet(featureID, newValue);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.EXTENSION_POINT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case EclipsePackage.EXTENSION_POINT__REQUIRED:
-        setRequired(REQUIRED_EDEFAULT);
-        return;
-      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-        getAttributes().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.EXTENSION_POINT__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case EclipsePackage.EXTENSION_POINT__REQUIRED:
+			setRequired(REQUIRED_EDEFAULT);
+			return;
+		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			getAttributes().clear();
+			return;
+		}
+		eDynamicUnset(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case EclipsePackage.EXTENSION_POINT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EclipsePackage.EXTENSION_POINT__REQUIRED:
-        return required != REQUIRED_EDEFAULT;
-      case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case EclipsePackage.EXTENSION_POINT__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
+					.equals(name);
+		case EclipsePackage.EXTENSION_POINT__REQUIRED:
+			return ((eFlags & REQUIRED_EFLAG) != 0) != REQUIRED_EDEFAULT;
+		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			return attributes != null && !attributes.isEmpty();
+		}
+		return eDynamicIsSet(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", required: ");
-    result.append(required);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", required: ");
+		result.append((eFlags & REQUIRED_EFLAG) != 0);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ExtensionPointImpl

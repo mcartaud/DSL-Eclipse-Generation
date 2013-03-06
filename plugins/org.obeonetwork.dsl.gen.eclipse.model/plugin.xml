@@ -10,7 +10,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/eclipse"
             class="org.obeonetwork.dsl.gen.eclipse.EclipsePackage"
-            genModel="model/eclipse.xcore"/>
+            genModel="model/eclipse.genmodel"/>
    </extension>
 
 </plugin>

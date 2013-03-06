@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private mainHelpPageHtmlFile(anHelpContent : HelpContents)]
-[anHelpContent.eContainer(Bundle).genBundlePath()/]/html/[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/].html
+[anHelpContent.eContainer(Bundle).genBundlePath()/]/help/html/[anHelpContent.label.toLowerFirst().substituteAll(' ', '')/].html
 [/template]
 
 [template public genMainHelpPageHtmlFile(anHelpContent : HelpContents)]

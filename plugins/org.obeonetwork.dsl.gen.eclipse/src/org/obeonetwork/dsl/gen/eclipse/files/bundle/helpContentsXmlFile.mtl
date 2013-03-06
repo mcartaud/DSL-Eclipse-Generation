@@ -4,7 +4,7 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private helpContentsXmlFile(anHelpContents : HelpContents)]
-[anHelpContents.eContainer(Bundle).genBundlePath()/]/[anHelpContents.refactorHelpLabel()/].xml
+[anHelpContents.eContainer(Bundle).genBundlePath()/]/help/[anHelpContents.refactorHelpLabel()/].xml
 [/template]
 
 [template public genHelpContentsXmlFile(anHelpContents : HelpContents)]
@@ -12,8 +12,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?NLS TYPE="org.eclipse.help.toc"?>
 
-<toc label="[anHelpContents.label/]" topic="html/[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/].html">
-	<link toc="[anHelpContents.label.substituteAll(' ', '').toLowerFirst()/]Toc.xml"/>
+<toc label="[anHelpContents.label/]" topic="html/[anHelpContents.refactorHelpLabel()/].html">
+	<link toc="[anHelpContents.refactorHelpLabel()/]Toc.xml"/>
 </toc>
 [/file]
 [/template]
