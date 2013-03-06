@@ -3,7 +3,6 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**

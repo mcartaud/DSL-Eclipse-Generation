@@ -7,6 +7,7 @@
         <eClassifiers xsi:type="ecore:EClass" name="IModel" abstract="true" interface="true"/>
         <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
           <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//obeonetwork/dsl/model/IModel"/>
+          <eClassifiers xsi:type="ecore:EClass" name="OtherModel" eSuperTypes="#//obeonetwork/dsl/model/IModel"/>
         </eSubpackages>
       </eSubpackages>
     </eSubpackages>

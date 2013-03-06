@@ -69,7 +69,7 @@ Bundle-Provider = [aBundle.vendor/]
 Wizard-[aWizard.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aWizard.category.name/]
 [/if]Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Name = [aWizard.name/]
 Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Description = [aWizard.description/]
-Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon = icons/wizards/[aWizard.icon/]
+Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon = icons/[aWizard.icon/]
 
 [/for]
 [/template]
@@ -99,7 +99,7 @@ Builder-[aBuilder.refactorBuilderName().toUpperFirst()/]-Name = [aBuilder.name/]
 [if (aView.category->size() > 0)]
 View-[aView.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aView.category.name/]
 [/if]View-[aView.refactorViewName().toUpperFirst()/]-Name = [aView.name/]
-View-[aView.refactorViewName().toUpperFirst()/]-Icon = icons/views/[aView.icon/]
+View-[aView.refactorViewName().toUpperFirst()/]-Icon = icons/[aView.icon/]
 
 [/for]
 [/template]
@@ -109,7 +109,7 @@ View-[aView.refactorViewName().toUpperFirst()/]-Icon = icons/views/[aView.icon/]
 #User information for the editors
 [for (anEditor : Editor | aBundle.editors)]
 Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name = [anEditor.name/]
-Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon = icons/editors/[anEditor.icon/]
+Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon = icons/[anEditor.icon/]
 
 [/for]
 [/template]
@@ -121,7 +121,7 @@ Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon = icons/editors/[anE
 [if (aCommand.category->size() > 0)]
 Command-[aCommand.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aCommand.category.name/]
 [/if]Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name = [aCommand.name/]
-Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon = icons/commands/[aCommand.icon/]
+Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon = icons/[aCommand.icon/]
 Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip = [aCommand.tooltip/]
 
 [/for]
@@ -141,7 +141,7 @@ Context-[aContext.refactorContextName().toUpperFirst()/]-Description = [aContext
 
 #User information for the Decorators
 [for (aDecorator : Decorator | aBundle.decorators)]
-Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon = icons/decorators/[aDecorator.icon/]
+Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon = icons/[aDecorator.icon/]
 
 [/for]
 [/template]
@@ -150,7 +150,7 @@ Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon = icons/deco
 
 #User information for the Perspectives
 [for (aPerspective : Perspective | aBundle.perspectives)]
-Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon = icons/perspectives/[aPerspective.icon/]
+Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon = icons/[aPerspective.icon/]
 Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Name = [aPerspective.name/]
 
 [/for]

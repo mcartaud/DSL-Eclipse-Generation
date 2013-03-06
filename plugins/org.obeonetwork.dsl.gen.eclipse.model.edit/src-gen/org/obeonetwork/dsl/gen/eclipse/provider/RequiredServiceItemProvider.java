@@ -54,109 +54,27 @@ public class RequiredServiceItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addLowerBoundPropertyDescriptor(object);
-			addUpperBoundPropertyDescriptor(object);
-			addBindPropertyDescriptor(object);
-			addInterfacePropertyDescriptor(object);
+			addReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory)
 						.getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_RequiredService_name_feature"),
+				getString("_UI_RequiredService_reference_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_RequiredService_name_feature",
+						"_UI_RequiredService_reference_feature",
 						"_UI_RequiredService_type"),
-				EclipsePackage.Literals.REQUIRED_SERVICE__NAME, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lower Bound feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLowerBoundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RequiredService_lowerBound_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RequiredService_lowerBound_feature",
-						"_UI_RequiredService_type"),
-				EclipsePackage.Literals.REQUIRED_SERVICE__LOWER_BOUND, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Upper Bound feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUpperBoundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RequiredService_upperBound_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RequiredService_upperBound_feature",
-						"_UI_RequiredService_type"),
-				EclipsePackage.Literals.REQUIRED_SERVICE__UPPER_BOUND, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Bind feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBindPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RequiredService_bind_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RequiredService_bind_feature",
-						"_UI_RequiredService_type"),
-				EclipsePackage.Literals.REQUIRED_SERVICE__BIND, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Interface feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RequiredService_interface_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RequiredService_interface_feature",
-						"_UI_RequiredService_type"),
-				EclipsePackage.Literals.REQUIRED_SERVICE__INTERFACE, true,
+				EclipsePackage.Literals.REQUIRED_SERVICE__REFERENCE, true,
 				false, true, null, null, null));
 	}
 
@@ -180,9 +98,7 @@ public class RequiredServiceItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RequiredService) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_RequiredService_type")
-				: getString("_UI_RequiredService_type") + " " + label;
+		return getString("_UI_RequiredService_type");
 	}
 
 	/**
@@ -195,16 +111,6 @@ public class RequiredServiceItemProvider extends ItemProviderAdapter implements
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(RequiredService.class)) {
-		case EclipsePackage.REQUIRED_SERVICE__NAME:
-		case EclipsePackage.REQUIRED_SERVICE__LOWER_BOUND:
-		case EclipsePackage.REQUIRED_SERVICE__UPPER_BOUND:
-		case EclipsePackage.REQUIRED_SERVICE__BIND:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

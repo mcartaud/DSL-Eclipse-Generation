@@ -152,7 +152,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactory;
+import org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactorySpec;
 
 import org.eclipse.emf.codegen.ecore.genmodel.provider.GenModelItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
@@ -685,7 +685,7 @@ public class EclipseEditor extends MultiPageEditorPart implements
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generatedNOT
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -696,7 +696,7 @@ public class EclipseEditor extends MultiPageEditorPart implements
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new EclipseItemProviderAdapterFactory());
+				.addAdapterFactory(new EclipseItemProviderAdapterFactorySpec());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new GenModelItemProviderAdapterFactory());

@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EPackage;
@@ -413,7 +414,7 @@ public interface Bundle extends Project {
 
 	/**
 	 * Returns the value of the '<em><b>Exported Packages</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EPackage}.
+	 * The list contents are of type {@link org.eclipse.emf.codegen.ecore.genmodel.GenPackage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Exported Packages</em>' reference list isn't clear,
@@ -425,11 +426,11 @@ public interface Bundle extends Project {
 	 * @model
 	 * @generated
 	 */
-	EList<EPackage> getExportedPackages();
+	EList<GenPackage> getExportedPackages();
 
 	/**
 	 * Returns the value of the '<em><b>Owned Packages</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EPackage}.
+	 * The list contents are of type {@link org.eclipse.emf.codegen.ecore.genmodel.GenPackage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owned Packages</em>' reference list isn't clear,
@@ -441,6 +442,6 @@ public interface Bundle extends Project {
 	 * @model
 	 * @generated
 	 */
-	EList<EPackage> getOwnedPackages();
+	EList<GenPackage> getOwnedPackages();
 
 } // Bundle

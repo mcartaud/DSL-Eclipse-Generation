@@ -24,7 +24,7 @@
 
 [template private genReferencedServices(aDeclarativeService : DeclarativeService) post(trim())]
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-   <reference bind="set[aRequiredService.bind.toUpperFirst()/]" cardinality="[aRequiredService.lowerBound/]..[aRequiredService.upperBound/]" interface="[aRequiredService.genInterfaceID()/]" name="[aRequiredService.name/]" policy="static" unbind="unSet[aRequiredService.bind.toUpperFirst()/]"/>
+   <reference bind="add[aRequiredService.reference.name.toUpperFirst()/]" cardinality="[aRequiredService.reference.lowerBound/]..[aRequiredService.reference.upperBound/]" interface="[aRequiredService.genInterfaceID()/]" name="[aRequiredService.reference.name/]" policy="static" unbind="remove[aRequiredService.reference.name.toUpperFirst()/]"/>
 [/for]
 [/template]
 

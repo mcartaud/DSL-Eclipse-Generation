@@ -808,49 +808,13 @@ public interface EclipsePackage extends EPackage {
 	int REQUIRED_SERVICE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_SERVICE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_SERVICE__LOWER_BOUND = 1;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_SERVICE__UPPER_BOUND = 2;
-
-	/**
-	 * The feature id for the '<em><b>Bind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_SERVICE__BIND = 3;
-
-	/**
-	 * The feature id for the '<em><b>Interface</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_SERVICE__INTERFACE = 4;
+	int REQUIRED_SERVICE__REFERENCE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Required Service</em>' class.
@@ -859,7 +823,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_SERVICE_FEATURE_COUNT = 5;
+	int REQUIRED_SERVICE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Required Service</em>' class.
@@ -3062,59 +3026,15 @@ public interface EclipsePackage extends EPackage {
 	EClass getRequiredService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getName <em>Name</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getName()
+	 * @return the meta object for the reference '<em>Reference</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getReference()
 	 * @see #getRequiredService()
 	 * @generated
 	 */
-	EAttribute getRequiredService_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound <em>Lower Bound</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower Bound</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getLowerBound()
-	 * @see #getRequiredService()
-	 * @generated
-	 */
-	EAttribute getRequiredService_LowerBound();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound <em>Upper Bound</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper Bound</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getUpperBound()
-	 * @see #getRequiredService()
-	 * @generated
-	 */
-	EAttribute getRequiredService_UpperBound();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind <em>Bind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bind</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getBind()
-	 * @see #getRequiredService()
-	 * @generated
-	 */
-	EAttribute getRequiredService_Bind();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface <em>Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Interface</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.RequiredService#getInterface()
-	 * @see #getRequiredService()
-	 * @generated
-	 */
-	EReference getRequiredService_Interface();
+	EReference getRequiredService_Reference();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
@@ -4866,47 +4786,13 @@ public interface EclipsePackage extends EPackage {
 		EClass REQUIRED_SERVICE = eINSTANCE.getRequiredService();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REQUIRED_SERVICE__NAME = eINSTANCE.getRequiredService_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIRED_SERVICE__LOWER_BOUND = eINSTANCE
-				.getRequiredService_LowerBound();
-
-		/**
-		 * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIRED_SERVICE__UPPER_BOUND = eINSTANCE
-				.getRequiredService_UpperBound();
-
-		/**
-		 * The meta object literal for the '<em><b>Bind</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIRED_SERVICE__BIND = eINSTANCE.getRequiredService_Bind();
-
-		/**
-		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_SERVICE__INTERFACE = eINSTANCE
-				.getRequiredService_Interface();
+		EReference REQUIRED_SERVICE__REFERENCE = eINSTANCE
+				.getRequiredService_Reference();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ImportedPackageDeclarationImpl <em>Imported Package Declaration</em>}' class.

@@ -24,6 +24,12 @@ public class [aDeclarativeService.implentationClass.ecoreClass.name/] implements
 [/for]
 	
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+[if (aRequiredService.reference.upperBound > 1)]
+	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/])
+[/if]
+
+
+
 	public void set[aRequiredService.bind.toUpperFirst()/]([aRequiredService.interface.ecoreClass.name.toUpperFirst()/] d) {
 		[aRequiredService.bind.toLowerFirst()/] = d;
 	}

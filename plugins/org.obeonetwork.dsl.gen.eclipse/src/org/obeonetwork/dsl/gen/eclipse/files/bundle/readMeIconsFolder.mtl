@@ -1,0 +1,29 @@
+[comment encoding = UTF-8 /]
+[module readMeIconsFolder('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private readMeIconsFolder(aBundle : Bundle)]
+[aBundle.genBundlePath()/]/icons/README.txt
+[/template]
+
+[template public genreadMeIconsFoler(aBundle : Bundle)]
+[file (aBundle.readMeIconsFolder(), false, 'UTF-8')]
+//TODO Replace this file by the icons you need
+
+[for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
+[aWizard.icon/]
+[/for][for (aView : View | aBundle.eAllContents(View))]
+[aView.icon/]
+[/for][for (anEditor : Editor | aBundle.editors)]
+[anEditor.icon/]
+[/for][for (aPerspective : Perspective | aBundle.perspectives)]
+[aPerspective.icon/]
+[/for][for (aCommand : Command | aBundle.eAllContents(Command))]
+[aCommand.icon/]
+[/for][for (aDecorator : Decorator | aBundle.decorators)]
+[aDecorator.icon/]
+[/for]
+[/file]
+[/template]
+

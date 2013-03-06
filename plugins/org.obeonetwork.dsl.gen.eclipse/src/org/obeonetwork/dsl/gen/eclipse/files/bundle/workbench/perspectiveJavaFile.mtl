@@ -47,34 +47,18 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 		String editorArea = layout.getEditorArea();
 
 		IFolderLayout leftFolder = layout.createFolder("left", IPageLayout.LEFT, oneQuarter, editorArea); //$NON-NLS-1$
-		leftFolder.addView(JavaUI.ID_PACKAGES);
 
 		IFolderLayout bottomFolder = layout.createFolder(
 				"bottom", IPageLayout.BOTTOM, threeQuarter, editorArea); //$NON-NLS-1$
-		bottomFolder.addView(IPageLayout.ID_PROBLEM_VIEW);
-		bottomFolder.addPlaceholder(IConsoleConstants.ID_CONSOLE_VIEW);
-		bottomFolder.addPlaceholder(IProgressConstants.PROGRESS_VIEW_ID);
+[for (aView : View | aPerspective.views)][if (aView.isVisible)]
+		bottomFolder.addView("[aView.eContainer(Bundle).genBundleID()/].views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
+[/if][/for]
 [for (aView : View | aPerspective.views)][if (not(aView.isVisible))]
 		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundleID()/].views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
 [/if][/for]
 
 		IFolderLayout rightFolder = layout.createFolder(
 				"right", IPageLayout.RIGHT, threeQuarter, editorArea); //$NON-NLS-1$
-		rightFolder.addView(IPageLayout.ID_OUTLINE);
-
-		layout.addActionSet(JavaUI.ID_ACTION_SET);
-		layout.addActionSet(JavaUI.ID_ELEMENT_CREATION_ACTION_SET);
-		layout.addActionSet(IPageLayout.ID_NAVIGATE_ACTION_SET);
-
-		// views - java
-		layout.addShowViewShortcut(JavaUI.ID_PACKAGES);
-
-		// views - console
-		layout.addShowViewShortcut(IConsoleConstants.ID_CONSOLE_VIEW);
-
-		// views - workbench
-		layout.addShowViewShortcut(IPageLayout.ID_OUTLINE);
-		layout.addShowViewShortcut(IPageLayout.ID_PROBLEM_VIEW);
 
 	}
 

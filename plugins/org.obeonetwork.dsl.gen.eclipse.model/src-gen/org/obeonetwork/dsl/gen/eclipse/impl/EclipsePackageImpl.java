@@ -937,49 +937,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequiredService_Name() {
-		return (EAttribute) requiredServiceEClass.getEStructuralFeatures().get(
-				0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRequiredService_LowerBound() {
-		return (EAttribute) requiredServiceEClass.getEStructuralFeatures().get(
-				1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRequiredService_UpperBound() {
-		return (EAttribute) requiredServiceEClass.getEStructuralFeatures().get(
-				2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRequiredService_Bind() {
-		return (EAttribute) requiredServiceEClass.getEStructuralFeatures().get(
-				3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredService_Interface() {
+	public EReference getRequiredService_Reference() {
 		return (EReference) requiredServiceEClass.getEStructuralFeatures().get(
-				4);
+				0);
 	}
 
 	/**
@@ -2097,11 +2057,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(providedServiceEClass, PROVIDED_SERVICE__INTERFACE);
 
 		requiredServiceEClass = createEClass(REQUIRED_SERVICE);
-		createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__NAME);
-		createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__LOWER_BOUND);
-		createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__UPPER_BOUND);
-		createEAttribute(requiredServiceEClass, REQUIRED_SERVICE__BIND);
-		createEReference(requiredServiceEClass, REQUIRED_SERVICE__INTERFACE);
+		createEReference(requiredServiceEClass, REQUIRED_SERVICE__REFERENCE);
 
 		importedPackageDeclarationEClass = createEClass(IMPORTED_PACKAGE_DECLARATION);
 		createEAttribute(importedPackageDeclarationEClass,
@@ -2487,15 +2443,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_ExportedPackages(),
-				theEcorePackage.getEPackage(), null, "exportedPackages", null,
-				0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE,
+				theGenModelPackage.getGenPackage(), null, "exportedPackages",
+				null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_OwnedPackages(),
-				theEcorePackage.getEPackage(), null, "ownedPackages", null, 0,
-				-1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+				theGenModelPackage.getGenPackage(), null, "ownedPackages",
+				null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declarativeServiceEClass, DeclarativeService.class,
 				"DeclarativeService", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2532,27 +2488,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(requiredServiceEClass, RequiredService.class,
 				"RequiredService", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRequiredService_Name(), this.getName_(), "name",
-				null, 1, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getRequiredService_LowerBound(),
-				theEcorePackage.getEIntegerObject(), "lowerBound", null, 0, 1,
+		initEReference(getRequiredService_Reference(),
+				theEcorePackage.getEReference(), null, "reference", null, 1, 1,
 				RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getRequiredService_UpperBound(),
-				theEcorePackage.getEIntegerObject(), "upperBound", null, 0, 1,
-				RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getRequiredService_Bind(), this.getJavaName(), "bind",
-				null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getRequiredService_Interface(),
-				theGenModelPackage.getGenClass(), null, "interface", null, 1,
-				1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

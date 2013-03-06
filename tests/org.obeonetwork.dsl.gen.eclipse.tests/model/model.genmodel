@@ -5,12 +5,17 @@
     copyrightFields="false">
   <foreignModel>model.ecore</foreignModel>
   <genPackages prefix="Org" disposableProviderFactory="true" ecorePackage="model.ecore#/">
-    <nestedGenPackages prefix="Obeonetwork" disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork">
-      <nestedGenPackages prefix="Dsl" disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork/dsl">
-        <nestedGenPackages prefix="Model" disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork/dsl/model">
+    <nestedGenPackages prefix="Obeonetwork" basePackage="org" disposableProviderFactory="true"
+        ecorePackage="model.ecore#//obeonetwork">
+      <nestedGenPackages prefix="Dsl" basePackage="org.obeonetwork" disposableProviderFactory="true"
+          ecorePackage="model.ecore#//obeonetwork/dsl">
+        <nestedGenPackages prefix="Model" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
+            ecorePackage="model.ecore#//obeonetwork/dsl/model">
           <genClasses image="false" ecoreClass="model.ecore#//obeonetwork/dsl/model/IModel"/>
-          <nestedGenPackages prefix="Impl" disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork/dsl/model/impl">
+          <nestedGenPackages prefix="Impl" basePackage="org.obeonetwork.dsl.model"
+              disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork/dsl/model/impl">
             <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/Model"/>
+            <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/OtherModel"/>
           </nestedGenPackages>
         </nestedGenPackages>
       </nestedGenPackages>

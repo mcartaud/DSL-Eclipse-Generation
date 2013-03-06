@@ -4,6 +4,7 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -324,7 +325,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EPackage> exportedPackages;
+	protected EList<GenPackage> exportedPackages;
 
 	/**
 	 * The cached value of the '{@link #getOwnedPackages() <em>Owned Packages</em>}' reference list.
@@ -334,7 +335,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EPackage> ownedPackages;
+	protected EList<GenPackage> ownedPackages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -666,10 +667,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EPackage> getExportedPackages() {
+	public EList<GenPackage> getExportedPackages() {
 		if (exportedPackages == null) {
-			exportedPackages = new EObjectResolvingEList<EPackage>(
-					EPackage.class, this,
+			exportedPackages = new EObjectResolvingEList<GenPackage>(
+					GenPackage.class, this,
 					EclipsePackage.BUNDLE__EXPORTED_PACKAGES);
 		}
 		return exportedPackages;
@@ -680,10 +681,11 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EPackage> getOwnedPackages() {
+	public EList<GenPackage> getOwnedPackages() {
 		if (ownedPackages == null) {
-			ownedPackages = new EObjectResolvingEList<EPackage>(EPackage.class,
-					this, EclipsePackage.BUNDLE__OWNED_PACKAGES);
+			ownedPackages = new EObjectResolvingEList<GenPackage>(
+					GenPackage.class, this,
+					EclipsePackage.BUNDLE__OWNED_PACKAGES);
 		}
 		return ownedPackages;
 	}
@@ -919,12 +921,12 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 		case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 			getExportedPackages().clear();
 			getExportedPackages().addAll(
-					(Collection<? extends EPackage>) newValue);
+					(Collection<? extends GenPackage>) newValue);
 			return;
 		case EclipsePackage.BUNDLE__OWNED_PACKAGES:
 			getOwnedPackages().clear();
-			getOwnedPackages()
-					.addAll((Collection<? extends EPackage>) newValue);
+			getOwnedPackages().addAll(
+					(Collection<? extends GenPackage>) newValue);
 			return;
 		}
 		eDynamicSet(featureID, newValue);
