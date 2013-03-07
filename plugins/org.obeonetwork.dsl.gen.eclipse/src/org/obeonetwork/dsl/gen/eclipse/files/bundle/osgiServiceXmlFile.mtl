@@ -5,14 +5,14 @@
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private osgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/OSGI-INF/[aDeclarativeService.name.replaceAll(' ', '').toLowerFirst()/].xml
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/OSGI-INF/[aDeclarativeService.genServiceClassName().substitute('.', '').toLowerFirst()/].xml
 [/template]
 
 [template public genOsgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
 [file (aDeclarativeService.osgiServiceXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aDeclarativeService.name/]">
-   <implementation class="[aDeclarativeService.genImplementationID()/]"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aDeclarativeService.genServiceClassName().substitute('.', '')/]">
+   <implementation class="[aDeclarativeService.serviceClassQualifiedName/]"/>
 [if (aDeclarativeService.providedServices->size() > 0)]
    [aDeclarativeService.genProvidedServices()/]
 [/if][if (aDeclarativeService.requiredServices->size() > 0)]
@@ -24,15 +24,15 @@
 
 [template private genReferencedServices(aDeclarativeService : DeclarativeService) post(trim())]
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-   <reference bind="add[aRequiredService.reference.name.toUpperFirst()/]" cardinality="[aRequiredService.reference.lowerBound/]..[aRequiredService.reference.upperBound/]" interface="[aRequiredService.genInterfaceID()/]" name="[aRequiredService.reference.name/]" policy="static" unbind="remove[aRequiredService.reference.name.toUpperFirst()/]"/>
+   <reference bind="add[aRequiredService.reference.name.toUpperFirst()/]" cardinality="[aRequiredService.reference.lowerBound/]..[aRequiredService.reference.upperBound/]" interface="[aRequiredService.genInterfaceRequiredID()/]" name="[aRequiredService.reference.name/]" policy="static" unbind="remove[aRequiredService.reference.name.toUpperFirst()/]"/>
 [/for]
 [/template]
 
 
-[template public genProvidedServices(aDeclarativeService : DeclarativeService) post(trim())]
+[template private genProvidedServices(aDeclarativeService : DeclarativeService) post(trim())]
    <service>
 [for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)]
-      <provide interface="[aProvidedService.genInterfacePath()/]"/>
+      <provide interface="[aProvidedService.genInterfaceProvidedID()/]"/>
 [/for]
    </service>
 [/template]

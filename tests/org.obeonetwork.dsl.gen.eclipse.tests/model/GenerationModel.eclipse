@@ -5,17 +5,16 @@
   </projects>
   <projects xsi:type="eclipse:Feature" name="feature" ID="eclipse.feature" copyright="Obeo" description="contains all of the bundles" version="1.0.0" license="Eclipse Public License - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3 //@projects.4"/>
   <projects xsi:type="eclipse:Bundle" name="model" ID="eclipse.model" version="1.2.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
-    <declarativeServices name="declarativeTest">
-      <implentationClass href="editor.genmodel#//com/fr/test/obeonetwork/eclipse/impl/Editor"/>
+    <declarativeServices serviceClassQualifiedName="org.emf.patate.truc.TestDeclar">
+      <delegatorClass href="model.genmodel#//org/obeonetwork/dsl/model/impl/Model"/>
       <providedServices>
-        <interface href="editor.genmodel#//com/fr/test/obeonetwork/eclipse/IEditor"/>
+        <interface href="model.genmodel#//org/obeonetwork/dsl/model/impl/Model"/>
       </providedServices>
-      <requiredServices name="requiredTest" lowerBound="1" upperBound="1" bind="test">
-        <interface href="editor.genmodel#//com/fr/test/obeonetwork/eclipse/IEditor"/>
+      <requiredServices>
+        <reference href="editor.ecore#//fr/test/obeonetwork/eclipse/impl/Editor/edit"/>
       </requiredServices>
     </declarativeServices>
     <importedPackageDeclarations packageName="org.eclipse.emf.ecore" packageVersion="1.0.0"/>
-    <ownedPackages href="model.ecore#//obeonetwork/dsl"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="eclipse" ID="eclipse" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
     <perspectives name="perspTropCool" icon="" views="//@projects.3/@views.0 //@projects.3/@views.1"/>
@@ -23,13 +22,13 @@
     <views name="vueBasic" perspectives="//@projects.3/@perspectives.0">
       <handlers name="clique" command="//@projects.3/@commands.0"/>
     </views>
-    <views name="vueTree" isTree="true" perspectives="//@projects.3/@perspectives.0"/>
+    <views name="vueTree" isTree="true" perspectives="//@projects.3/@perspectives.0 //@projects.4/@perspectives.0"/>
     <commands name="test" handler="//@projects.3/@views.0/@handlers.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="ui" ID="eclipse.ui" vendor="mCartaud">
     <wizards name="creationWizard" title="New Wizard" description="allow project creation" icon="wizardCreation.gif" isProject="true" category="//@projects.4/@categories.0"/>
     <markers name="fileMarker" isPersistant="true"/>
-    <perspectives name="work" icon="perspIcon.gif" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2">
+    <perspectives name="work" icon="perspIcon.gif" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2 //@projects.3/@views.1">
       <handlers name="clique1" mnemonic="t" command="//@projects.4/@commands.0"/>
       <handlers name="clique2" mnemonic="s" command="//@projects.4/@commands.4"/>
       <menus name="parameter" mnemonic="m" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.0 //@projects.4/@commands.4"/>

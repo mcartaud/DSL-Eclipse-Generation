@@ -1,49 +1,90 @@
 [comment encoding = UTF-8 /]
-[module osgiServiceJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module osgiServiceJavaFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private osgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/src/[aDeclarativeService.genImplementationPath()/].java
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/src/[aDeclarativeService.serviceClassQualifiedName.substituteAll('.', '/')/].java
 [/template]
 
 [template public genOsgiServiceJavaFile(aDeclarativeService : DeclarativeService)]
 [file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
-package [aDeclarativeService.implentationClass.genPackage.basePackage/];
-
-import org.eclipse.osgi.framework.console.CommandInterpreter;
-import org.eclipse.osgi.framework.console.CommandProvider;
+package [aDeclarativeService.genServicePackageName()/];
 
 
-// referenced in component.xml
-public class [aDeclarativeService.implentationClass.ecoreClass.name/] implements CommandProvider {
+// referenced in [aDeclarativeService.genServiceClassName().toLowerFirst()/].xml
+public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.genSuperType()/][/for]{
 
-[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-	private [aRequiredService.interface.ecoreClass.name.toUpperFirst()/] [aRequiredService.bind.toLowerFirst()/];
+	private [aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/] a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/];
+
+[if (aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations->size() > 0)]
+	// Provided Services
+[for (anEOperation : EOperation | aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations)]
+	public [anEOperation.genReturn()/] [anEOperation.name.toLowerFirst()/]([anEOperation.eParameters.genDeclaration()->sep(', ')/]) {
+		this.a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/].[anEOperation.name/];
+	}
 [/for]
-	
-[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-[if (aRequiredService.reference.upperBound > 1)]
-	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/])
 [/if]
 
-
-
-	public void set[aRequiredService.bind.toUpperFirst()/]([aRequiredService.interface.ecoreClass.name.toUpperFirst()/] d) {
-		[aRequiredService.bind.toLowerFirst()/] = d;
+[if (aDeclarativeService.requiredServices->size() > 0)]
+	// Required Services
+[for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
+		[aRequiredService.addMethodBody()/]
 	}
-	
-	public void unset[aRequiredService.bind.toUpperFirst()/]([aRequiredService.interface.ecoreClass.name.toUpperFirst()/] d) {
-		[aRequiredService.bind.toLowerFirst()/] = null;
+
+	public void remove[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
+		[aRequiredService.removeMethodBody()/]
 	}
 [/for]
-	@Override
-	public String getHelp() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+[/if]
 
 }
 [/file]
+[/template]
+
+[template private genSuperType(aProvidedService : ProvidedService)]
+[if (aProvidedService.interface.ecoreClass.abstract and not(aProvidedService.interface.ecoreClass.interface))]
+ extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][if (not(aGenClass.ecoreClass.interface))][aGenClass.abstractSuperType()/][/if][/for]
+[/if]
+[if (aProvidedService.interface.ecoreClass.interface)]
+ implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][if (aGenClass.ecoreClass.interface)][aGenClass.interfaceSuperType()/][/if][/for]
+[/if]
+[/template]
+
+[template private abstractSuperType(aGenClass : GenClass)]
+[aGenClass.ecoreClass.name.toUpperFirst()/]
+[/template]
+
+[template private interfaceSuperType(aGenClass : GenClass)]
+[aGenClass.ecoreClass.name.toUpperFirst()/]
+[/template]
+
+[template private genReturn(anEOperation : EOperation)]
+[if (anEOperation.eType.oclIsUndefined())]
+void
+[else]
+[anEOperation.eType.name.toUpperFirst()/]
+[/if]
+[/template]
+
+[template private genDeclaration(anEParameters : EParameter)]
+[anEParameters.eType.name.toUpperFirst()/] [anEParameters.name.toLowerFirst()/]
+[/template]
+
+[template private addMethodBody(aRequiredService : RequiredService)]
+[if (aRequiredService.reference.upperBound = 1)]
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+[else]
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+[/if]
+[/template]
+
+[template private removeMethodBody(aRequiredService : RequiredService)]
+[if (aRequiredService.reference.upperBound = 1)]
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](null);
+[else]
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+[/if]
 [/template]

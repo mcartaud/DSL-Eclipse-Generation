@@ -1,21 +1,23 @@
 [comment encoding = UTF-8 /]
-[module path('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
+[module path('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template public genInterfacePath(aProvidedService : ProvidedService)]
+[template public genInterfaceProvidedID(aProvidedService : ProvidedService)]
 [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/].[aProvidedService.interface.ecoreClass.name/]
 [/template]
 
 [template public genImplementationPath(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.implentationClass.genPackage.basePackage.substituteAll('.', '/')/]/[aDeclarativeService.implentationClass.ecoreClass.name/]
+[aDeclarativeService.delegatorClass.genPackage.basePackage.substituteAll('.', '/')/]/[aDeclarativeService.delegatorClass.ecoreClass.name/]
 [/template]
 
-[template public genInterfaceID(aRequiredService : RequiredService)]
-[aRequiredService.interface.genPackage.basePackage/].[aRequiredService.interface.genPackage.ecorePackage.name/].[aRequiredService.interface.ecoreClass.name/]
+[template public genInterfaceRequiredID(aRequiredService : RequiredService)]
+[aRequiredService.genPackageInterfaceRequiredID()/].[aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.name/]
 [/template]
+
+[query public genPackageInterfaceRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
+		Sequence{(aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.implentationClass.genPackage.basePackage/].[aDeclarativeService.implentationClass.genPackage.classPackageSuffix/].[aDeclarativeService.implentationClass.ecoreClass.name/]
+[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.genPackage.classPackageSuffix/].[aDeclarativeService.delegatorClass.ecoreClass.name/]
 [/template]
-

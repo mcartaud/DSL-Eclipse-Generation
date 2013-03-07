@@ -110,9 +110,9 @@
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarativeService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
-        eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="implentationClass" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassQualifiedName"
+        unique="false" lowerBound="1" eType="#//Namespace"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delegatorClass" lowerBound="1"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"
         eType="#//ProvidedService" containment="true" resolveProxies="false"/>

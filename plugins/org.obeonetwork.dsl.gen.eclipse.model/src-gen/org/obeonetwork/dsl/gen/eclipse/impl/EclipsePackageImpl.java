@@ -869,7 +869,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclarativeService_Name() {
+	public EAttribute getDeclarativeService_ServiceClassQualifiedName() {
 		return (EAttribute) declarativeServiceEClass.getEStructuralFeatures()
 				.get(0);
 	}
@@ -879,7 +879,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeclarativeService_ImplentationClass() {
+	public EReference getDeclarativeService_DelegatorClass() {
 		return (EReference) declarativeServiceEClass.getEStructuralFeatures()
 				.get(1);
 	}
@@ -2045,9 +2045,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bundleEClass, BUNDLE__OWNED_PACKAGES);
 
 		declarativeServiceEClass = createEClass(DECLARATIVE_SERVICE);
-		createEAttribute(declarativeServiceEClass, DECLARATIVE_SERVICE__NAME);
+		createEAttribute(declarativeServiceEClass,
+				DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME);
 		createEReference(declarativeServiceEClass,
-				DECLARATIVE_SERVICE__IMPLENTATION_CLASS);
+				DECLARATIVE_SERVICE__DELEGATOR_CLASS);
 		createEReference(declarativeServiceEClass,
 				DECLARATIVE_SERVICE__PROVIDED_SERVICES);
 		createEReference(declarativeServiceEClass,
@@ -2456,14 +2457,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(declarativeServiceEClass, DeclarativeService.class,
 				"DeclarativeService", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclarativeService_Name(), this.getName_(), "name",
-				null, 1, 1, DeclarativeService.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeclarativeService_ImplentationClass(),
-				theGenModelPackage.getGenClass(), null, "implentationClass",
-				null, 1, 1, DeclarativeService.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEAttribute(getDeclarativeService_ServiceClassQualifiedName(),
+				this.getNamespace(), "serviceClassQualifiedName", null, 1, 1,
+				DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getDeclarativeService_DelegatorClass(),
+				theGenModelPackage.getGenClass(), null, "delegatorClass", null,
+				1, 1, DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeclarativeService_ProvidedServices(),
 				this.getProvidedService(), null, "providedServices", null, 0,

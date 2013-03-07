@@ -152,6 +152,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
+import org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactory;
 import org.obeonetwork.dsl.gen.eclipse.provider.EclipseItemProviderAdapterFactorySpec;
 
 import org.eclipse.emf.codegen.ecore.genmodel.provider.GenModelItemProviderAdapterFactory;

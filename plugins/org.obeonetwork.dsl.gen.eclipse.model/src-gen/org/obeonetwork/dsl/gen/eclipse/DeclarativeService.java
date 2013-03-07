@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass <em>Implentation Class</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getRequiredServices <em>Required Services</em>}</li>
  * </ul>
@@ -27,56 +27,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DeclarativeService extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Service Class Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Service Class Qualified Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_Name()
-	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
+	 * @return the value of the '<em>Service Class Qualified Name</em>' attribute.
+	 * @see #setServiceClassQualifiedName(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ServiceClassQualifiedName()
+	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
 	 * @generated
 	 */
-	String getName();
+	String getServiceClassQualifiedName();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Service Class Qualified Name</em>' attribute.
+	 * @see #getServiceClassQualifiedName()
 	 * @generated
 	 */
-	void setName(String value);
+	void setServiceClassQualifiedName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Implentation Class</b></em>' reference.
+	 * Returns the value of the '<em><b>Delegator Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Implentation Class</em>' reference isn't clear,
+	 * If the meaning of the '<em>Delegator Class</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Implentation Class</em>' reference.
-	 * @see #setImplentationClass(GenClass)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ImplentationClass()
+	 * @return the value of the '<em>Delegator Class</em>' reference.
+	 * @see #setDelegatorClass(GenClass)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_DelegatorClass()
 	 * @model required="true"
 	 * @generated
 	 */
-	GenClass getImplentationClass();
+	GenClass getDelegatorClass();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass <em>Implentation Class</em>}' reference.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Implentation Class</em>' reference.
-	 * @see #getImplentationClass()
+	 * @param value the new value of the '<em>Delegator Class</em>' reference.
+	 * @see #getDelegatorClass()
 	 * @generated
 	 */
-	void setImplentationClass(GenClass value);
+	void setDelegatorClass(GenClass value);
 
 	/**
 	 * Returns the value of the '<em><b>Provided Services</b></em>' containment reference list.

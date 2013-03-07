@@ -707,22 +707,22 @@ public interface EclipsePackage extends EPackage {
 	int DECLARATIVE_SERVICE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Service Class Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATIVE_SERVICE__NAME = 0;
+	int DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Implentation Class</b></em>' reference.
+	 * The feature id for the '<em><b>Delegator Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATIVE_SERVICE__IMPLENTATION_CLASS = 1;
+	int DECLARATIVE_SERVICE__DELEGATOR_CLASS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
@@ -2951,26 +2951,26 @@ public interface EclipsePackage extends EPackage {
 	EClass getDeclarativeService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getName()
+	 * @return the meta object for the attribute '<em>Service Class Qualified Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName()
 	 * @see #getDeclarativeService()
 	 * @generated
 	 */
-	EAttribute getDeclarativeService_Name();
+	EAttribute getDeclarativeService_ServiceClassQualifiedName();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass <em>Implentation Class</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Implentation Class</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getImplentationClass()
+	 * @return the meta object for the reference '<em>Delegator Class</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass()
 	 * @see #getDeclarativeService()
 	 * @generated
 	 */
-	EReference getDeclarativeService_ImplentationClass();
+	EReference getDeclarativeService_DelegatorClass();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices <em>Provided Services</em>}'.
@@ -4721,22 +4721,22 @@ public interface EclipsePackage extends EPackage {
 		EClass DECLARATIVE_SERVICE = eINSTANCE.getDeclarativeService();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Service Class Qualified Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DECLARATIVE_SERVICE__NAME = eINSTANCE
-				.getDeclarativeService_Name();
+		EAttribute DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME = eINSTANCE
+				.getDeclarativeService_ServiceClassQualifiedName();
 
 		/**
-		 * The meta object literal for the '<em><b>Implentation Class</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Delegator Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DECLARATIVE_SERVICE__IMPLENTATION_CLASS = eINSTANCE
-				.getDeclarativeService_ImplentationClass();
+		EReference DECLARATIVE_SERVICE__DELEGATOR_CLASS = eINSTANCE
+				.getDeclarativeService_DelegatorClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Provided Services</b></em>' containment reference list feature.

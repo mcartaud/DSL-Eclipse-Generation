@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -167,7 +168,8 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			initialObjectNames.add(EclipsePackage.eINSTANCE.getApplication().getName());
+			initialObjectNames.add(EclipsePackage.eINSTANCE.getApplication()
+					.getName());
 			Collections.sort(initialObjectNames,
 					CommonPlugin.INSTANCE.getComparator());
 		}

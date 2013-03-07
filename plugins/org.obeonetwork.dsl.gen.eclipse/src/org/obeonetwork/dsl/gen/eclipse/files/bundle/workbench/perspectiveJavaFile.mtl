@@ -50,10 +50,10 @@ public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements 
 
 		IFolderLayout bottomFolder = layout.createFolder(
 				"bottom", IPageLayout.BOTTOM, threeQuarter, editorArea); //$NON-NLS-1$
-[for (aView : View | aPerspective.views)][if (aView.isVisible)]
+[for (aView : View | aPerspective.views)][if (aView.eContainer(Bundle)=aPerspective.eContainer(Bundle) and aView.isVisible)]
 		bottomFolder.addView("[aView.eContainer(Bundle).genBundleID()/].views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
 [/if][/for]
-[for (aView : View | aPerspective.views)][if (not(aView.isVisible))]
+[for (aView : View | aPerspective.views)][if (aView.eContainer(Bundle)=aPerspective.eContainer(Bundle) and not(aView.isVisible))]
 		bottomFolder.addPlaceholder("[aView.eContainer(Bundle).genBundleID()/].views.[aView.name.substituteAll(' ', '').toUpperFirst()/]"); //$NON-NLS-1$
 [/if][/for]
 

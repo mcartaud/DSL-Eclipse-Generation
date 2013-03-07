@@ -41,15 +41,15 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 [/if][if (aBundle.declarativeServices.providedServices->size() > 0 and aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
 [else]
 [aBundle.exportedPackage()/][/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
-[for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.interface.genPackage.basePackage/].[aRequiredService.interface.genPackage.ecorePackage.name/][/for]
+[for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genPackageInterfaceRequiredID()/][/for]
 [/if][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml[/if]
 
 [/file]
 [/template]
 
 [template private bundleExportedPackages(aBundle : Bundle)]
-[for (anEPackage : EPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
- [if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage).refactorEPackageName()->reverse()->sep('.')/].[/if][anEPackage.refactorEPackageName()/],
+[for (aGenPackage : GenPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
+ [if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.classPackageSuffix/],
 [for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices) separator (',' + aBundle.lineSeparator())]
  [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/][/for][/for]
 [/template]
@@ -61,8 +61,8 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 [/template]
 
 [template private userExportedPackage(aBundle : Bundle)]
-[for (anEPackage : EPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
- [if(anEPackage.ancestors(EPackage)->size() > 0)][anEPackage.ancestors(EPackage).refactorEPackageName()->reverse()->sep('.')/].[/if][anEPackage.refactorEPackageName()/][/for]
+[for (aGenPackage : GenPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
+ [if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.classPackageSuffix/][/for]
 [/template]
 
 [template private providedServiceExportedPackage(aBundle : Bundle)]
@@ -72,7 +72,7 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 
 [template private exportPackage(aBundle : Bundle)]
 [for (aBundle) separator(',')]
-[if (aBundle.exportedPackages->size() > 0)][for (aBundle : Bundle | aBundle) separator(',')][aBundle.bundleExportedPackages()/][/for][/if][if (aBundle.declarativeServices.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices) separator(',')][aProvidedService.genInterfacePath()/][/for][/if][/for]
+[if (aBundle.exportedPackages->size() > 0)][for (aBundle : Bundle | aBundle) separator(',')][aBundle.bundleExportedPackages()/][/for][/if][if (aBundle.declarativeServices.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices) separator(',')][aProvidedService.genInterfaceProvidedID()/][/for][/if][/for]
 [/template]
 
 [template private importDeclaration(aBundle : Bundle)]

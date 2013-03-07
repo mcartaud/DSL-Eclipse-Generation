@@ -41,7 +41,7 @@ public class ProvidedServiceItemProviderSpec extends ProvidedServiceItemProvider
 					EObject eContainer = providedService.eContainer();
 					if (eContainer instanceof DeclarativeService) {
 						DeclarativeService declarativeService = (DeclarativeService) eContainer;
-						GenClass implentationClass = declarativeService.getImplentationClass();
+						GenClass implentationClass = declarativeService.getDelegatorClass();
 						
 						for (Object anObject : choiceOfValues) {
 							if (anObject instanceof GenClass

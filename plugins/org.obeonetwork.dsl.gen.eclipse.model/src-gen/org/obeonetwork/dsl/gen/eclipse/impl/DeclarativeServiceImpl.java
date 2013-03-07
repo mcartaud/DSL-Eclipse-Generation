@@ -31,8 +31,8 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getImplentationClass <em>Implentation Class</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getDelegatorClass <em>Delegator Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getRequiredServices <em>Required Services</em>}</li>
  * </ul>
@@ -43,34 +43,34 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 public class DeclarativeServiceImpl extends EObjectImpl implements
 		DeclarativeService {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getServiceClassQualifiedName() <em>Service Class Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getServiceClassQualifiedName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String SERVICE_CLASS_QUALIFIED_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getServiceClassQualifiedName() <em>Service Class Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getServiceClassQualifiedName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String serviceClassQualifiedName = SERVICE_CLASS_QUALIFIED_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getImplentationClass() <em>Implentation Class</em>}' reference.
+	 * The cached value of the '{@link #getDelegatorClass() <em>Delegator Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImplentationClass()
+	 * @see #getDelegatorClass()
 	 * @generated
 	 * @ordered
 	 */
-	protected GenClass implentationClass;
+	protected GenClass delegatorClass;
 
 	/**
 	 * The cached value of the '{@link #getProvidedServices() <em>Provided Services</em>}' containment reference list.
@@ -116,8 +116,8 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getServiceClassQualifiedName() {
+		return serviceClassQualifiedName;
 	}
 
 	/**
@@ -125,12 +125,15 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setServiceClassQualifiedName(String newServiceClassQualifiedName) {
+		String oldServiceClassQualifiedName = serviceClassQualifiedName;
+		serviceClassQualifiedName = newServiceClassQualifiedName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECLARATIVE_SERVICE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME,
+					oldServiceClassQualifiedName, serviceClassQualifiedName));
 	}
 
 	/**
@@ -138,20 +141,20 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GenClass getImplentationClass() {
-		if (implentationClass != null && implentationClass.eIsProxy()) {
-			InternalEObject oldImplentationClass = (InternalEObject) implentationClass;
-			implentationClass = (GenClass) eResolveProxy(oldImplentationClass);
-			if (implentationClass != oldImplentationClass) {
+	public GenClass getDelegatorClass() {
+		if (delegatorClass != null && delegatorClass.eIsProxy()) {
+			InternalEObject oldDelegatorClass = (InternalEObject) delegatorClass;
+			delegatorClass = (GenClass) eResolveProxy(oldDelegatorClass);
+			if (delegatorClass != oldDelegatorClass) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(
 							this,
 							Notification.RESOLVE,
-							EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS,
-							oldImplentationClass, implentationClass));
+							EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
+							oldDelegatorClass, delegatorClass));
 			}
 		}
-		return implentationClass;
+		return delegatorClass;
 	}
 
 	/**
@@ -159,8 +162,8 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GenClass basicGetImplentationClass() {
-		return implentationClass;
+	public GenClass basicGetDelegatorClass() {
+		return delegatorClass;
 	}
 
 	/**
@@ -168,13 +171,13 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setImplentationClass(GenClass newImplentationClass) {
-		GenClass oldImplentationClass = implentationClass;
-		implentationClass = newImplentationClass;
+	public void setDelegatorClass(GenClass newDelegatorClass) {
+		GenClass oldDelegatorClass = delegatorClass;
+		delegatorClass = newDelegatorClass;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS,
-					oldImplentationClass, implentationClass));
+					EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
+					oldDelegatorClass, delegatorClass));
 	}
 
 	/**
@@ -232,12 +235,12 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.DECLARATIVE_SERVICE__NAME:
-			return getName();
-		case EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS:
+		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME:
+			return getServiceClassQualifiedName();
+		case EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS:
 			if (resolve)
-				return getImplentationClass();
-			return basicGetImplentationClass();
+				return getDelegatorClass();
+			return basicGetDelegatorClass();
 		case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
 			return getProvidedServices();
 		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
@@ -255,11 +258,11 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.DECLARATIVE_SERVICE__NAME:
-			setName((String) newValue);
+		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME:
+			setServiceClassQualifiedName((String) newValue);
 			return;
-		case EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS:
-			setImplentationClass((GenClass) newValue);
+		case EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS:
+			setDelegatorClass((GenClass) newValue);
 			return;
 		case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
 			getProvidedServices().clear();
@@ -283,11 +286,11 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DECLARATIVE_SERVICE__NAME:
-			setName(NAME_EDEFAULT);
+		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME:
+			setServiceClassQualifiedName(SERVICE_CLASS_QUALIFIED_NAME_EDEFAULT);
 			return;
-		case EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS:
-			setImplentationClass((GenClass) null);
+		case EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS:
+			setDelegatorClass((GenClass) null);
 			return;
 		case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
 			getProvidedServices().clear();
@@ -307,11 +310,12 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DECLARATIVE_SERVICE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.DECLARATIVE_SERVICE__IMPLENTATION_CLASS:
-			return implentationClass != null;
+		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME:
+			return SERVICE_CLASS_QUALIFIED_NAME_EDEFAULT == null ? serviceClassQualifiedName != null
+					: !SERVICE_CLASS_QUALIFIED_NAME_EDEFAULT
+							.equals(serviceClassQualifiedName);
+		case EclipsePackage.DECLARATIVE_SERVICE__DELEGATOR_CLASS:
+			return delegatorClass != null;
 		case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
 			return providedServices != null && !providedServices.isEmpty();
 		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
@@ -331,8 +335,8 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (serviceClassQualifiedName: ");
+		result.append(serviceClassQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

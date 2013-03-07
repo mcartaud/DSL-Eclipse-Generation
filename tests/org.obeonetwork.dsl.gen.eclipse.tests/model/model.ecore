@@ -5,9 +5,12 @@
     <eSubpackages name="dsl" nsURI="dsl" nsPrefix="dsl">
       <eSubpackages name="model" nsURI="model" nsPrefix="model">
         <eClassifiers xsi:type="ecore:EClass" name="IModel" abstract="true" interface="true"/>
+        <eClassifiers xsi:type="ecore:EClass" name="truc" abstract="true"/>
         <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
-          <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//obeonetwork/dsl/model/IModel"/>
-          <eClassifiers xsi:type="ecore:EClass" name="OtherModel" eSuperTypes="#//obeonetwork/dsl/model/IModel"/>
+          <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//obeonetwork/dsl/model/truc">
+            <eOperations name="teststs"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="OtherModel" eSuperTypes="#//obeonetwork/dsl/model/truc"/>
         </eSubpackages>
       </eSubpackages>
     </eSubpackages>

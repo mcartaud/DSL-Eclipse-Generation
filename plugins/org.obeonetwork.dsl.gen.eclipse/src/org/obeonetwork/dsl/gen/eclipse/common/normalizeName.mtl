@@ -201,3 +201,11 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [template public refactorEPackageName(anEPackage : EPackage)]
 [anEPackage.name.substituteAll(' ', '.').toLower()/]
 [/template]
+
+[template public genServiceClassName (aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.serviceClassQualifiedName.replaceAll('[a-zA-Z0-9\\.]*\\.', '.')/]
+[/template]
+
+[template public genServicePackageName(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.serviceClassQualifiedName.substitute(aDeclarativeService.genServiceClassName(), '')/]
+[/template]
