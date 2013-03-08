@@ -12,9 +12,10 @@
 [file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
 package [aDeclarativeService.genServicePackageName()/];
 
+import [aDeclarativeService.genImplementationID()/];
 
 // referenced in [aDeclarativeService.genServiceClassName().toLowerFirst()/].xml
-public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.genSuperType()/][/for]{
+public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
 
 	private [aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/] a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/];
 
@@ -44,28 +45,22 @@ public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUp
 [/file]
 [/template]
 
-[template private genSuperType(aProvidedService : ProvidedService)]
+[template private superType(aProvidedService : ProvidedService)]
 [if (aProvidedService.interface.ecoreClass.abstract and not(aProvidedService.interface.ecoreClass.interface))]
- extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][if (not(aGenClass.ecoreClass.interface))][aGenClass.abstractSuperType()/][/if][/for]
+ extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for]
 [/if]
-[if (aProvidedService.interface.ecoreClass.interface)]
- implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][if (aGenClass.ecoreClass.interface)][aGenClass.interfaceSuperType()/][/if][/for]
+[if (aProvidedService.interface.ecoreClass.abstract and aProvidedService.interface.ecoreClass.interface)]
+ implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for]
 [/if]
 [/template]
 
-[template private abstractSuperType(aGenClass : GenClass)]
-[aGenClass.ecoreClass.name.toUpperFirst()/]
-[/template]
-
-[template private interfaceSuperType(aGenClass : GenClass)]
+[template private genSuperType(aGenClass : GenClass)]
 [aGenClass.ecoreClass.name.toUpperFirst()/]
 [/template]
 
 [template private genReturn(anEOperation : EOperation)]
 [if (anEOperation.eType.oclIsUndefined())]
-void
-[else]
-[anEOperation.eType.name.toUpperFirst()/]
+void[else][anEOperation.eType.name.toUpperFirst()/]
 [/if]
 [/template]
 

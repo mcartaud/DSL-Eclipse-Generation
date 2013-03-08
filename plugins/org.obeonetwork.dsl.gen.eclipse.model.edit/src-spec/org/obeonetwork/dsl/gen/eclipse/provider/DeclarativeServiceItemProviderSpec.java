@@ -34,8 +34,7 @@ public class DeclarativeServiceItemProviderSpec extends DeclarativeServiceItemPr
 				List<Object> newChoicesOfValues = new ArrayList<Object>();	
 					for (Object anObject : choiceOfValues) {
 						if (anObject instanceof GenClass
-								&& !(((GenClass)anObject).isInterface())
-								&& !(((GenClass)anObject).isAbstract())) {
+								&& (!(((GenClass)anObject).isInterface()) || !(((GenClass)anObject).isAbstract()))) {
 							newChoicesOfValues.add(anObject);
 						}
 						

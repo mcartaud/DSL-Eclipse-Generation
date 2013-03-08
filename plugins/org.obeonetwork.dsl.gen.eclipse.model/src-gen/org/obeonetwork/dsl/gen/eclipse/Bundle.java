@@ -5,8 +5,6 @@ package org.obeonetwork.dsl.gen.eclipse;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EPackage;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Bundle</b></em>'.

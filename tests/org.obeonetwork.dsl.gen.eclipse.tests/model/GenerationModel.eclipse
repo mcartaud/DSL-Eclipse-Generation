@@ -8,7 +8,7 @@
     <declarativeServices serviceClassQualifiedName="org.emf.patate.truc.TestDeclar">
       <delegatorClass href="model.genmodel#//org/obeonetwork/dsl/model/impl/Model"/>
       <providedServices>
-        <interface href="model.genmodel#//org/obeonetwork/dsl/model/impl/Model"/>
+        <interface href="model.genmodel#//org/obeonetwork/dsl/model/IModel"/>
       </providedServices>
       <requiredServices>
         <reference href="editor.ecore#//fr/test/obeonetwork/eclipse/impl/Editor/edit"/>
