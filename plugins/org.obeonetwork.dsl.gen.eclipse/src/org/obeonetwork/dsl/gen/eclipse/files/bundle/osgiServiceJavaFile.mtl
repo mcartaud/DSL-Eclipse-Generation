@@ -14,7 +14,7 @@ package [aDeclarativeService.genServicePackageName()/];
 
 import [aDeclarativeService.genImplementationID()/];
 
-// referenced in [aDeclarativeService.genServiceClassName().toLowerFirst()/].xml
+// referenced in [aDeclarativeService.genServiceClassName().toLowerFirst().substitute('.', '').toLowerFirst()/].xml
 public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
 
 	private [aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/] a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/];
@@ -23,7 +23,7 @@ public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUp
 	// Provided Services
 [for (anEOperation : EOperation | aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations)]
 	public [anEOperation.genReturn()/] [anEOperation.name.toLowerFirst()/]([anEOperation.eParameters.genDeclaration()->sep(', ')/]) {
-		this.a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/].[anEOperation.name/];
+		this.a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/].[anEOperation.name/]();
 	}
 [/for]
 [/if]

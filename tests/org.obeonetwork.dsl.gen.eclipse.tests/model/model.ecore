@@ -5,13 +5,18 @@
     <eSubpackages name="dsl" nsURI="dsl" nsPrefix="dsl">
       <eSubpackages name="model" nsURI="model" nsPrefix="model">
         <eClassifiers xsi:type="ecore:EClass" name="IModel" abstract="true" interface="true"/>
-        <eClassifiers xsi:type="ecore:EClass" name="Truc" abstract="true"/>
+        <eClassifiers xsi:type="ecore:EClass" name="Truc" abstract="true">
+          <eOperations name="elseStuff"/>
+          <eOperations name="otherStuff"/>
+          <eOperations name="stuff"/>
+        </eClassifiers>
         <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
           <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//obeonetwork/dsl/model/IModel">
             <eOperations name="teststs"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="OtherModel" eSuperTypes="#//obeonetwork/dsl/model/Truc">
             <eOperations name="otherTest"/>
+            <eOperations name="else"/>
           </eClassifiers>
         </eSubpackages>
       </eSubpackages>

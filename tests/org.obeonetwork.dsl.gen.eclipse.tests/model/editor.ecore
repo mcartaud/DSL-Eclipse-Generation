@@ -8,7 +8,8 @@
           <eClassifiers xsi:type="ecore:EClass" name="IEditor" abstract="true" interface="true"/>
           <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
             <eClassifiers xsi:type="ecore:EClass" name="Editor" eSuperTypes="#//fr/test/obeonetwork/eclipse/IEditor">
-              <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="ecore:EClass edit.ecore#//IEdit"/>
+              <eStructuralFeatures xsi:type="ecore:EReference" name="edit" upperBound="-1"
+                  eType="ecore:EClass edit.ecore#//IEdit"/>
             </eClassifiers>
           </eSubpackages>
         </eSubpackages>
