@@ -198,11 +198,11 @@
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>plugins/[aBundle.genBundleID()/]</module>
 [/for]
-
+[if (anApplication.generateTestsBundle)]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>tests/[aBundle.genBundleID()/].tests</module>
 [/for]
-
+[/if]
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 <module>features/[aFeature.genFeatureID()/]</module>
 [/for]

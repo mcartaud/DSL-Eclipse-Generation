@@ -25,20 +25,11 @@
 
   <artifactId>[aBundle.genBundleID()/].tests</artifactId>
   <version>[aBundle.bundleVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
-  <packaging>eclipse-plugin</packaging>
+  <packaging>eclipse-test-plugin</packaging>
 
   <name>[aBundle.name/] Tests</name>
 
-  <!-- workaround for https://issues.sonatype.org/browse/TYCHO-168 -->
   <build>
-    <resources>
-    <resource>
-      <directory>src</directory>
-      <excludes>
-        <exclude>**/*.java</exclude>
-      </excludes>
-    </resource>
-  </resources>
   <plugins>
     <plugin>
       <groupId>org.eclipse.tycho</groupId>

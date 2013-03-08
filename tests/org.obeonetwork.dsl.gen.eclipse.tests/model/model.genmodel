@@ -12,10 +12,15 @@
         <nestedGenPackages prefix="Model" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
             ecorePackage="model.ecore#//obeonetwork/dsl/model">
           <genClasses image="false" ecoreClass="model.ecore#//obeonetwork/dsl/model/IModel"/>
+          <genClasses image="false" ecoreClass="model.ecore#//obeonetwork/dsl/model/Truc"/>
           <nestedGenPackages prefix="Impl" basePackage="org.obeonetwork.dsl.model"
               disposableProviderFactory="true" ecorePackage="model.ecore#//obeonetwork/dsl/model/impl">
-            <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/Model"/>
-            <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/OtherModel"/>
+            <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/Model">
+              <genOperations ecoreOperation="model.ecore#//obeonetwork/dsl/model/impl/Model/teststs"/>
+            </genClasses>
+            <genClasses ecoreClass="model.ecore#//obeonetwork/dsl/model/impl/OtherModel">
+              <genOperations ecoreOperation="model.ecore#//obeonetwork/dsl/model/impl/OtherModel/otherTest"/>
+            </genClasses>
           </nestedGenPackages>
         </nestedGenPackages>
       </nestedGenPackages>

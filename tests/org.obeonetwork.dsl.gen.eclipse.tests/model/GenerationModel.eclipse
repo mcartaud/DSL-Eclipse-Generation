@@ -6,9 +6,9 @@
   <projects xsi:type="eclipse:Feature" name="feature" ID="eclipse.feature" copyright="Obeo" description="contains all of the bundles" version="1.0.0" license="Eclipse Public License - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3 //@projects.4"/>
   <projects xsi:type="eclipse:Bundle" name="model" ID="eclipse.model" version="1.2.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
     <declarativeServices serviceClassQualifiedName="org.emf.patate.truc.TestDeclar">
-      <delegatorClass href="model.genmodel#//org/obeonetwork/dsl/model/impl/Model"/>
+      <delegatorClass href="model.genmodel#//org/obeonetwork/dsl/model/impl/OtherModel"/>
       <providedServices>
-        <interface href="model.genmodel#//org/obeonetwork/dsl/model/IModel"/>
+        <interface href="model.genmodel#//org/obeonetwork/dsl/model/Truc"/>
       </providedServices>
       <requiredServices>
         <reference href="editor.ecore#//fr/test/obeonetwork/eclipse/impl/Editor/edit"/>

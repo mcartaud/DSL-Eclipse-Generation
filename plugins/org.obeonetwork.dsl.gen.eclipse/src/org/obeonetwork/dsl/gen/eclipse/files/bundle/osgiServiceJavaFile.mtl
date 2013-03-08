@@ -47,11 +47,9 @@ public class [aDeclarativeService.genServiceClassName().substitute('.', '').toUp
 
 [template private superType(aProvidedService : ProvidedService)]
 [if (aProvidedService.interface.ecoreClass.abstract and not(aProvidedService.interface.ecoreClass.interface))]
- extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for]
-[/if]
+ extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
 [if (aProvidedService.interface.ecoreClass.abstract and aProvidedService.interface.ecoreClass.interface)]
- implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for]
-[/if]
+ implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
 [/template]
 
 [template private genSuperType(aGenClass : GenClass)]
