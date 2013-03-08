@@ -64,7 +64,7 @@
     <bindings keySequence="ALT+1" command="//@projects.4/@commands.4"/>
     <bindings keySequence="CTRL+2" command="//@projects.4/@commands.3"/>
   </projects>
-  <projects xsi:type="eclipse:Bundle" name="tests" ID="eclipse.tests">
+  <projects xsi:type="eclipse:Bundle" name="edit" ID="eclipse.edit">
     <helpContents label="Help For The Tests" description="this page allow help for the tests">
       <helpPages label="First Page" description="this is the first page">
         <helpPages label="sub page" description="this is the first page's sub page"/>

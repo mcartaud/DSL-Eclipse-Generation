@@ -1,0 +1,16 @@
+[comment encoding = UTF-8 /]
+[module pluginPropertiesTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private pluginPropertiesTestFile(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/plugin.properties
+[/template]
+
+[template public genPluginPropertiesTestFile(aBundle : Bundle)]
+[file (aBundle.pluginPropertiesTestFile(), false, 'UTF-8')]
+#User information for the Bundle
+Bundle-Name = [aBundle.name/] tests
+Bundle-Provider = [aBundle.vendor/]
+[/file]
+[/template]

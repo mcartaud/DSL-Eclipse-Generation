@@ -198,9 +198,15 @@
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>plugins/[aBundle.genBundleID()/]</module>
 [/for]
+
+[for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
+<module>tests/[aBundle.genBundleID()/].tests</module>
+[/for]
+
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 <module>features/[aFeature.genFeatureID()/]</module>
 [/for]
+
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
 <module>repositories/[aRepository.genRepositoryID()/]</module>
 [/for]

@@ -30,8 +30,16 @@
 [aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundleID()/]
 [/template]
 
+[template public genBundleTestPath(aBundle : Bundle)]
+[aBundle.eContainer(Application).name/]/tests/[aBundle.genBundleID()/].tests
+[/template]
+
 [template public genBundleJavaPath(aBundle : Bundle)]
 [aBundle.genBundlePath()/]/src/[aBundle.eContainer(Application).baseNamespace.substituteAll('.', '/')/]/[aBundle.ID.substituteAll('.', '/')/]
+[/template]
+
+[template public genBundleJavaTestPath(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/src/[aBundle.eContainer(Application).baseNamespace.substituteAll('.', '/')/]/[aBundle.ID.substituteAll('.', '/')/]/tests
 [/template]
 
 [template public applicationVersion(anApplication : Application)]

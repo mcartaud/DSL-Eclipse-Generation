@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module coreSettingsTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private coreSettingsTestFile(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/.settings/org.eclipse.core.ressources.prefs
+[/template]
+
+[template public genCoreSettingsTestFile(aBundle : Bundle)]
+[file (aBundle.coreSettingsTestFile(), false, 'UTF-8')]
+eclipse.preferences.version=1
+encoding/<project>=UTF-8
+[/file]
+[/template]

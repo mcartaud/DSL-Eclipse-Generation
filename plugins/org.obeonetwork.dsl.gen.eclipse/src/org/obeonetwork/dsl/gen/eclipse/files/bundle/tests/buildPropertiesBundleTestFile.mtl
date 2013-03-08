@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 
+
+Copyright (c) 2012 Obeo
+All rights reserved.  This program and the accompanying materials
+are made available under the terms of the Eclipse Public License 1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+You can apply any license to the files generated with this module and Acceleo.
+
+Contributors :
+	Mathieu Cartaud (Obeo) - initial API and implementation
+/]
+[module buildPropertiesBundleTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private buildPropertiesBundleTestFile(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/build.properties
+[/template]
+
+[template public genBuildPropertiesBundleTestFile(aBundle : Bundle)]
+[file (aBundle.buildPropertiesBundleTestFile(), false, 'UTF-8')]
+source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\
+               plugin.properties[binIncludes()/]
+[/file]
+[/template]
+
+[template private buildPropertiesWorkbench(aBundle : Bundle)]
+
+plugin.xml,\
+icons/
+[/template]
+
+[template private buildPropertiesWorkspace(aBundle : Bundle)]
+
+plugin.xml
+[/template]
+
+[template private buildPropertiesOSGi(aBundle : Bundle)]
+
+OSGI-INF/
+[/template]
+
+[template private binIncludes(aBundle : Bundle)]
+[if ((aBundle.eContents(Wizard)->size() > 0) or aBundle.eContents(Decorator)->size() > 0 or aBundle.eContents(Perspective)->size() > 0 
+or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0 or aBundle.eContents(Command)->size() > 0
+)],\[aBundle.buildPropertiesWorkbench()/][elseif ((aBundle.eContents(Nature)->size() > 0) 
+or (aBundle.eContents(Builder)->size() > 0
+or aBundle.eContents(HelpContents)->size() > 0))],\[aBundle.buildPropertiesWorkspace()/][/if][if 
+(aBundle.declarativeServices->size() > 0)],\[aBundle.buildPropertiesOSGi()/][/if]
+[/template]

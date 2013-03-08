@@ -1,0 +1,67 @@
+[comment encoding = UTF-8 /]
+[module activatorJavaTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private activatorJavaTestFile(aBundle : Bundle)]
+[aBundle.genBundleJavaTestPath()/]/Activator.java
+[/template]
+
+[template public genActivatorJavaTestFile(aBundle : Bundle)]
+[file (aBundle.activatorJavaTestFile(), false, 'UTF-8')]
+package [aBundle.genBundleID()/].tests;
+
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
+
+/**
+ * The activator class controls the plug-in life cycle.
+ * 
+ */
+public class Activator extends AbstractUIPlugin {
+	/** The plug-in ID. */
+	public static final String PLUGIN_ID = "[aBundle.genBundleID()/].tests"; //$NON-NLS-1$
+
+	/** This plug-in's shared instance. */
+	private static Activator plugin;
+
+	/**
+	 * Default constructor for the plugin.
+	 */
+	public Activator() {
+		// Empty implementation
+	}
+
+	/**
+	 * Returns the shared instance.
+	 * 
+	 * @return the shared instance
+	 */
+	public static Activator getDefault() {
+		return plugin;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.runtime.Plugin#start(org.osgi.framework.BundleContext)
+	 */
+	@Override
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
+		plugin = this;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
+	 */
+	@Override
+	public void stop(BundleContext context) throws Exception {
+		plugin = null;
+		super.stop(context);
+	}
+}
+[/file]
+[/template]

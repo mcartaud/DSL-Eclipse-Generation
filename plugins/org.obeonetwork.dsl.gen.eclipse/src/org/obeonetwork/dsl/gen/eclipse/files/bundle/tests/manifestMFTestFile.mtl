@@ -1,0 +1,29 @@
+[comment encoding = UTF-8 /]
+[module manifestMFTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+[template private manifestMFTestFile(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/META-INF/MANIFEST.MF
+[/template]
+
+[template public genManifestMFTestFile(aBundle : Bundle)]
+[file (aBundle.manifestMFTestFile(), false, 'UTF-8')]
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: [aBundle.genBundleID()/].tests;singleton:=true
+Bundle-Version: [aBundle.bundleVersion()/]
+Bundle-Activator: [aBundle.genBundleID()/].tests.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.jdt.core,
+ org.junit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: %Provider-Name
+Export-Package: [aBundle.genBundleID()/].tests.suite
+Bundle-Localization: plugin
+[/file]
+[/template]

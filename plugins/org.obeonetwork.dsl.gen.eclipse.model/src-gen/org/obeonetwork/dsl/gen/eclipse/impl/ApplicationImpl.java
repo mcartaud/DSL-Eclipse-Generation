@@ -39,6 +39,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getBaseNamespace <em>Base Namespace</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProjects <em>Projects</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isGenerateTestsBundle <em>Generate Tests Bundle</em>}</li>
  * </ul>
  * </p>
  *
@@ -236,12 +237,33 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	protected EList<Project> projects;
 
 	/**
+	 * The default value of the '{@link #isGenerateTestsBundle() <em>Generate Tests Bundle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateTestsBundle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_TESTS_BUNDLE_EDEFAULT = true;
+
+	/**
+	 * The flag representing the value of the '{@link #isGenerateTestsBundle() <em>Generate Tests Bundle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateTestsBundle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int GENERATE_TESTS_BUNDLE_EFLAG = 1 << 9;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ApplicationImpl() {
 		super();
+		eFlags |= GENERATE_TESTS_BUNDLE_EFLAG;
 	}
 
 	/**
@@ -478,6 +500,32 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isGenerateTestsBundle() {
+		return (eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenerateTestsBundle(boolean newGenerateTestsBundle) {
+		boolean oldGenerateTestsBundle = (eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0;
+		if (newGenerateTestsBundle)
+			eFlags |= GENERATE_TESTS_BUNDLE_EFLAG;
+		else
+			eFlags &= ~GENERATE_TESTS_BUNDLE_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE,
+					oldGenerateTestsBundle, newGenerateTestsBundle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -517,6 +565,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			return isMavenCompilation();
 		case EclipsePackage.APPLICATION__PROJECTS:
 			return getProjects();
+		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+			return isGenerateTestsBundle();
 		}
 		return eDynamicGet(featureID, resolve, coreType);
 	}
@@ -561,6 +611,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			getProjects().clear();
 			getProjects().addAll((Collection<? extends Project>) newValue);
 			return;
+		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+			setGenerateTestsBundle((Boolean) newValue);
+			return;
 		}
 		eDynamicSet(featureID, newValue);
 	}
@@ -603,6 +656,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		case EclipsePackage.APPLICATION__PROJECTS:
 			getProjects().clear();
 			return;
+		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+			setGenerateTestsBundle(GENERATE_TESTS_BUNDLE_EDEFAULT);
+			return;
 		}
 		eDynamicUnset(featureID);
 	}
@@ -643,6 +699,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			return ((eFlags & MAVEN_COMPILATION_EFLAG) != 0) != MAVEN_COMPILATION_EDEFAULT;
 		case EclipsePackage.APPLICATION__PROJECTS:
 			return projects != null && !projects.isEmpty();
+		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+			return ((eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0) != GENERATE_TESTS_BUNDLE_EDEFAULT;
 		}
 		return eDynamicIsSet(featureID);
 	}
@@ -676,6 +734,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		result.append(baseNamespace);
 		result.append(", mavenCompilation: ");
 		result.append((eFlags & MAVEN_COMPILATION_EFLAG) != 0);
+		result.append(", generateTestsBundle: ");
+		result.append((eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

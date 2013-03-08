@@ -161,13 +161,22 @@ public interface EclipsePackage extends EPackage {
 	int APPLICATION__PROJECTS = 9;
 
 	/**
+	 * The feature id for the '<em><b>Generate Tests Bundle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__GENERATE_TESTS_BUNDLE = 10;
+
+	/**
 	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 10;
+	int APPLICATION_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -2495,6 +2504,17 @@ public interface EclipsePackage extends EPackage {
 	EReference getApplication_Projects();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#isGenerateTestsBundle <em>Generate Tests Bundle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Tests Bundle</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Application#isGenerateTestsBundle()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_GenerateTestsBundle();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Project <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4361,6 +4381,15 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION__PROJECTS = eINSTANCE.getApplication_Projects();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Tests Bundle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__GENERATE_TESTS_BUNDLE = eINSTANCE
+				.getApplication_GenerateTestsBundle();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl <em>Project</em>}' class.

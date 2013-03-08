@@ -487,6 +487,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getApplication_GenerateTestsBundle() {
+		return (EAttribute) applicationEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProject() {
 		return projectEClass;
 	}
@@ -1995,6 +2004,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEAttribute(applicationEClass, APPLICATION__BASE_NAMESPACE);
 		createEAttribute(applicationEClass, APPLICATION__MAVEN_COMPILATION);
 		createEReference(applicationEClass, APPLICATION__PROJECTS);
+		createEAttribute(applicationEClass, APPLICATION__GENERATE_TESTS_BUNDLE);
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
@@ -2286,6 +2296,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				"projects", null, 0, -1, Application.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_GenerateTestsBundle(),
+				theEcorePackage.getEBoolean(), "generateTestsBundle", "true",
+				0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

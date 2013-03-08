@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getBaseNamespace <em>Base Namespace</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProjects <em>Projects</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#isGenerateTestsBundle <em>Generate Tests Bundle</em>}</li>
  * </ul>
  * </p>
  *
@@ -281,5 +282,32 @@ public interface Application extends EObject {
 	 * @generated
 	 */
 	EList<Project> getProjects();
+
+	/**
+	 * Returns the value of the '<em><b>Generate Tests Bundle</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Generate Tests Bundle</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Generate Tests Bundle</em>' attribute.
+	 * @see #setGenerateTestsBundle(boolean)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_GenerateTestsBundle()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isGenerateTestsBundle();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#isGenerateTestsBundle <em>Generate Tests Bundle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Generate Tests Bundle</em>' attribute.
+	 * @see #isGenerateTestsBundle()
+	 * @generated
+	 */
+	void setGenerateTestsBundle(boolean value);
 
 } // Application

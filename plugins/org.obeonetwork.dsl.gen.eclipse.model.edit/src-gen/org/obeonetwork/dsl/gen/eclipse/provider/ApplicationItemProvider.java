@@ -66,6 +66,7 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 			addDescriptionPropertyDescriptor(object);
 			addBaseNamespacePropertyDescriptor(object);
 			addMavenCompilationPropertyDescriptor(object);
+			addGenerateTestsBundlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -247,6 +248,26 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Generate Tests Bundle feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGenerateTestsBundlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Application_generateTestsBundle_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Application_generateTestsBundle_feature",
+						"_UI_Application_type"),
+				EclipsePackage.Literals.APPLICATION__GENERATE_TESTS_BUNDLE,
+				true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -323,6 +344,7 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 		case EclipsePackage.APPLICATION__DESCRIPTION:
 		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
 		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
