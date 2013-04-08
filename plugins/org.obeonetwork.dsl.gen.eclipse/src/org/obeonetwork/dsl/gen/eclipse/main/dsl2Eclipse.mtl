@@ -19,6 +19,18 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::applicationReadMeTextileFile /]
 
 
+[import org::obeonetwork::dsl::gen::eclipse::files::feature::buildPropertiesFeatureFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::feature::featurePropertiesFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::feature::featureXmlFile /]
+
+
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::indexHtmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::categoryXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteCssFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXslFile /]
+
+
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::buildPropertiesBundleFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::classPathXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::jdtSettingsFile /]
@@ -60,18 +72,6 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perspectiveJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorJavaFile /]
-
-
-[import org::obeonetwork::dsl::gen::eclipse::files::feature::buildPropertiesFeatureFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::feature::featurePropertiesFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::feature::featureXmlFile /]
-
-
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::indexHtmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::categoryXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteCssFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXslFile /]
 
 
 [template public generateElement(anApplication : Application)]

@@ -5,16 +5,24 @@
     copyrightFields="false">
   <foreignModel>editor.ecore</foreignModel>
   <genPackages prefix="Com" disposableProviderFactory="true" ecorePackage="editor.ecore#/">
-    <nestedGenPackages prefix="Fr" disposableProviderFactory="true" ecorePackage="editor.ecore#//fr">
-      <nestedGenPackages prefix="Test" disposableProviderFactory="true" ecorePackage="editor.ecore#//fr/test">
-        <nestedGenPackages prefix="Obeonetwork" disposableProviderFactory="true" ecorePackage="editor.ecore#//fr/test/obeonetwork">
-          <nestedGenPackages prefix="Eclipse" disposableProviderFactory="true" ecorePackage="editor.ecore#//fr/test/obeonetwork/eclipse">
-            <genClasses image="false" ecoreClass="editor.ecore#//fr/test/obeonetwork/eclipse/IEditor"/>
-            <nestedGenPackages prefix="Impl" disposableProviderFactory="true" ecorePackage="editor.ecore#//fr/test/obeonetwork/eclipse/impl">
-              <genClasses ecoreClass="editor.ecore#//fr/test/obeonetwork/eclipse/impl/Editor">
-                <genFeatures notify="false" createChild="false" propertySortChoices="true"
-                    ecoreFeature="ecore:EReference editor.ecore#//fr/test/obeonetwork/eclipse/impl/Editor/edit"/>
-              </genClasses>
+    <nestedGenPackages prefix="Obeonetwork" basePackage="org" disposableProviderFactory="true"
+        ecorePackage="editor.ecore#//obeonetwork">
+      <nestedGenPackages prefix="Dsl" basePackage="org.obeonetwork" disposableProviderFactory="true"
+          ecorePackage="editor.ecore#//obeonetwork/dsl">
+        <nestedGenPackages prefix="Gen" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
+            ecorePackage="editor.ecore#//obeonetwork/dsl/gen">
+          <nestedGenPackages prefix="Eclipse" basePackage="org.obeonetwork.dsl.gen"
+              disposableProviderFactory="true" ecorePackage="editor.ecore#//obeonetwork/dsl/gen/eclipse">
+            <nestedGenPackages prefix="Editor" basePackage="org.obeonetwork.dsl.gen.eclipse"
+                disposableProviderFactory="true" ecorePackage="editor.ecore#//obeonetwork/dsl/gen/eclipse/editor">
+              <genClasses image="false" ecoreClass="editor.ecore#//obeonetwork/dsl/gen/eclipse/editor/IEditor"/>
+              <nestedGenPackages prefix="Impl" basePackage="org.obeonetwork.dsl.gen.eclipse.editor"
+                  disposableProviderFactory="true" ecorePackage="editor.ecore#//obeonetwork/dsl/gen/eclipse/editor/impl">
+                <genClasses ecoreClass="editor.ecore#//obeonetwork/dsl/gen/eclipse/editor/impl/Editor">
+                  <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                      ecoreFeature="ecore:EReference editor.ecore#//obeonetwork/dsl/gen/eclipse/editor/impl/Editor/edit"/>
+                </genClasses>
+              </nestedGenPackages>
             </nestedGenPackages>
           </nestedGenPackages>
         </nestedGenPackages>
@@ -23,7 +31,8 @@
   </genPackages>
   <genPackages prefix="Edit" disposableProviderFactory="true" ecorePackage="edit.ecore#/">
     <genClasses image="false" ecoreClass="edit.ecore#//IEdit"/>
-    <nestedGenPackages prefix="Impl" disposableProviderFactory="true" ecorePackage="edit.ecore#//impl">
+    <nestedGenPackages prefix="Impl" basePackage="edit" disposableProviderFactory="true"
+        ecorePackage="edit.ecore#//impl">
       <genClasses ecoreClass="edit.ecore#//impl/Edit"/>
     </nestedGenPackages>
   </genPackages>

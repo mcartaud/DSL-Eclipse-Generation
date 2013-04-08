@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="com" nsURI="com" nsPrefix="com">
-  <eSubpackages name="fr" nsURI="fr" nsPrefix="fr">
-    <eSubpackages name="test" nsURI="test" nsPrefix="test">
-      <eSubpackages name="obeonetwork" nsURI="obeonetwork" nsPrefix="obeonetwork">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="org" nsURI="org" nsPrefix="org">
+  <eSubpackages name="obeonetwork" nsURI="obeonetwork" nsPrefix="obeonetwork">
+    <eSubpackages name="dsl" nsURI="dsl" nsPrefix="dsl">
+      <eSubpackages name="gen" nsURI="gen" nsPrefix="gen">
         <eSubpackages name="eclipse" nsURI="eclipse" nsPrefix="eclipse">
-          <eClassifiers xsi:type="ecore:EClass" name="IEditor" abstract="true" interface="true"/>
-          <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
-            <eClassifiers xsi:type="ecore:EClass" name="Editor" eSuperTypes="#//fr/test/obeonetwork/eclipse/IEditor">
-              <eStructuralFeatures xsi:type="ecore:EReference" name="edit" upperBound="-1"
-                  eType="ecore:EClass edit.ecore#//IEdit"/>
-            </eClassifiers>
+          <eSubpackages name="editor" nsURI="editor" nsPrefix="editor">
+            <eClassifiers xsi:type="ecore:EClass" name="IEditor" abstract="true" interface="true"/>
+            <eSubpackages name="impl" nsURI="impl" nsPrefix="impl">
+              <eClassifiers xsi:type="ecore:EClass" name="Editor" eSuperTypes="#//obeonetwork/dsl/gen/eclipse/editor/IEditor">
+                <eStructuralFeatures xsi:type="ecore:EReference" name="edit" upperBound="-1"
+                    eType="ecore:EClass edit.ecore#//IEdit"/>
+              </eClassifiers>
+            </eSubpackages>
           </eSubpackages>
         </eSubpackages>
       </eSubpackages>

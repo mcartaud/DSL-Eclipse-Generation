@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -14,10 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassName <em>Service Class Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,30 +29,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DeclarativeService extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Service Class Qualified Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Service Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Class Qualified Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Service Class Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Class Qualified Name</em>' attribute.
-	 * @see #setServiceClassQualifiedName(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ServiceClassQualifiedName()
-	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace" required="true"
+	 * @return the value of the '<em>Service Class Name</em>' attribute.
+	 * @see #setServiceClassName(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ServiceClassName()
+	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.JavaName" required="true"
 	 * @generated
 	 */
-	String getServiceClassQualifiedName();
+	String getServiceClassName();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassName <em>Service Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Class Qualified Name</em>' attribute.
-	 * @see #getServiceClassQualifiedName()
+	 * @param value the new value of the '<em>Service Class Name</em>' attribute.
+	 * @see #getServiceClassName()
 	 * @generated
 	 */
-	void setServiceClassQualifiedName(String value);
+	void setServiceClassName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Delegator Class</b></em>' reference.
@@ -109,5 +111,31 @@ public interface DeclarativeService extends EObject {
 	 * @generated
 	 */
 	EList<RequiredService> getRequiredServices();
+
+	/**
+	 * Returns the value of the '<em><b>Service Class Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service Class Package</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service Class Package</em>' reference.
+	 * @see #setServiceClassPackage(GenPackage)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ServiceClassPackage()
+	 * @model required="true"
+	 * @generated
+	 */
+	GenPackage getServiceClassPackage();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service Class Package</em>' reference.
+	 * @see #getServiceClassPackage()
+	 * @generated
+	 */
+	void setServiceClassPackage(GenPackage value);
 
 } // DeclarativeService

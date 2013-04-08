@@ -112,14 +112,16 @@
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarativeService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassQualifiedName"
-        unique="false" lowerBound="1" eType="#//Namespace"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassName" unique="false"
+        lowerBound="1" eType="#//JavaName"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="delegatorClass" lowerBound="1"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"
         eType="#//ProvidedService" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
         eType="#//RequiredService" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceClassPackage" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface" lowerBound="1"

@@ -878,7 +878,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclarativeService_ServiceClassQualifiedName() {
+	public EAttribute getDeclarativeService_ServiceClassName() {
 		return (EAttribute) declarativeServiceEClass.getEStructuralFeatures()
 				.get(0);
 	}
@@ -911,6 +911,16 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	public EReference getDeclarativeService_RequiredServices() {
 		return (EReference) declarativeServiceEClass.getEStructuralFeatures()
 				.get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeclarativeService_ServiceClassPackage() {
+		return (EReference) declarativeServiceEClass.getEStructuralFeatures()
+				.get(4);
 	}
 
 	/**
@@ -2056,13 +2066,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		declarativeServiceEClass = createEClass(DECLARATIVE_SERVICE);
 		createEAttribute(declarativeServiceEClass,
-				DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME);
+				DECLARATIVE_SERVICE__SERVICE_CLASS_NAME);
 		createEReference(declarativeServiceEClass,
 				DECLARATIVE_SERVICE__DELEGATOR_CLASS);
 		createEReference(declarativeServiceEClass,
 				DECLARATIVE_SERVICE__PROVIDED_SERVICES);
 		createEReference(declarativeServiceEClass,
 				DECLARATIVE_SERVICE__REQUIRED_SERVICES);
+		createEReference(declarativeServiceEClass,
+				DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE);
 
 		providedServiceEClass = createEClass(PROVIDED_SERVICE);
 		createEReference(providedServiceEClass, PROVIDED_SERVICE__INTERFACE);
@@ -2472,8 +2484,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(declarativeServiceEClass, DeclarativeService.class,
 				"DeclarativeService", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclarativeService_ServiceClassQualifiedName(),
-				this.getNamespace(), "serviceClassQualifiedName", null, 1, 1,
+		initEAttribute(getDeclarativeService_ServiceClassName(),
+				this.getJavaName(), "serviceClassName", null, 1, 1,
 				DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
@@ -2492,6 +2504,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				-1, DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeclarativeService_ServiceClassPackage(),
+				theGenModelPackage.getGenPackage(), null,
+				"serviceClassPackage", null, 1, 1, DeclarativeService.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(providedServiceEClass, ProvidedService.class,
 				"ProvidedService", !IS_ABSTRACT, !IS_INTERFACE,

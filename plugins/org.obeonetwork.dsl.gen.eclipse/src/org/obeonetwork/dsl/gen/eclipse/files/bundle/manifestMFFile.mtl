@@ -13,7 +13,6 @@ Contributors :
 /]
 [module manifestMFFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel')]
 
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private manifestMFFile(aBundle : Bundle)]
@@ -55,19 +54,13 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 [/template]
 
 [template private exportedPackage(aBundle : Bundle)]
-[if (aBundle.declarativeServices.providedServices->size() > 0)]Export-Package:[aBundle.providedServiceExportedPackage()/]
-[elseif (aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.userExportedPackage()/]
-[/if]
+[if (aBundle.declarativeServices.providedServices->size() > 0 or aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.allExportedPackage()/][/if]
 [/template]
 
-[template private userExportedPackage(aBundle : Bundle)]
-[for (aGenPackage : GenPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
- [if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.classPackageSuffix/][/for]
-[/template]
-
-[template private providedServiceExportedPackage(aBundle : Bundle)]
-[for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices) separator (',' + aBundle.lineSeparator())]
- [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/][/for]
+[template private allExportedPackage(aBundle : Bundle)]
+[if (aBundle.exportedPackages->size() > 0)][for (aGenPackage : GenPackage | aBundle.exportedPackages) separator (',' + aBundle.lineSeparator())]
+ [if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.ecorePackage.name/][/for][/if][if (aBundle.declarativeServices.providedServices->size() > 0)][for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices) separator (',' + aBundle.lineSeparator())]
+ [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/][/for][/if]
 [/template]
 
 [template private exportPackage(aBundle : Bundle)]

@@ -57,30 +57,31 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceClassQualifiedNamePropertyDescriptor(object);
+			addServiceClassNamePropertyDescriptor(object);
 			addDelegatorClassPropertyDescriptor(object);
+			addServiceClassPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Service Class Qualified Name feature.
+	 * This adds a property descriptor for the Service Class Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addServiceClassQualifiedNamePropertyDescriptor(Object object) {
+	protected void addServiceClassNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
 								.getRootAdapterFactory(),
 						getResourceLocator(),
-						getString("_UI_DeclarativeService_serviceClassQualifiedName_feature"),
+						getString("_UI_DeclarativeService_serviceClassName_feature"),
 						getString(
 								"_UI_PropertyDescriptor_description",
-								"_UI_DeclarativeService_serviceClassQualifiedName_feature",
+								"_UI_DeclarativeService_serviceClassName_feature",
 								"_UI_DeclarativeService_type"),
-						EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME,
+						EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME,
 						true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -102,6 +103,27 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 						"_UI_DeclarativeService_type"),
 				EclipsePackage.Literals.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
 				true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Service Class Package feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServiceClassPackagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_DeclarativeService_serviceClassPackage_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_DeclarativeService_serviceClassPackage_feature",
+								"_UI_DeclarativeService_type"),
+						EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE,
+						true, false, true, null, null, null));
 	}
 
 	/**
@@ -158,8 +180,7 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeclarativeService) object)
-				.getServiceClassQualifiedName();
+		String label = ((DeclarativeService) object).getServiceClassName();
 		return label == null || label.length() == 0 ? getString("_UI_DeclarativeService_type")
 				: getString("_UI_DeclarativeService_type") + " " + label;
 	}
@@ -176,7 +197,7 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DeclarativeService.class)) {
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME:
+		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;

@@ -1,4 +1,16 @@
-[comment encoding = UTF-8 /]
+[comment encoding = UTF-8 
+
+Copyright (c) 2012 Obeo
+All rights reserved.  This program and the accompanying materials
+are made available under the terms of the Eclipse Public License 1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+You can apply any license to the files generated with this module and Acceleo.
+
+Contributors :
+	Mathieu Cartaud (Obeo) - initial API and implementation
+/]
 [module normalizeName('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 
@@ -210,10 +222,29 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [anEPackage.name.substituteAll(' ', '.').toLower()/]
 [/template]
 
-[template public genServiceClassName (aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.serviceClassQualifiedName.replaceAll('[a-zA-Z0-9\\.]*\\.', '.')/]
+[template public genServicePackageName(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.serviceClassPackage.basePackage/].[aDeclarativeService.serviceClassPackage.ecorePackage.name/]
 [/template]
 
-[template public genServicePackageName(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.serviceClassQualifiedName.substitute(aDeclarativeService.genServiceClassName(), '')/]
+[template public genServicePackagePath(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.genServicePackageName().substituteAll('.', '/')/]
+[/template]
+
+[template public genInterfaceProvidedID(aProvidedService : ProvidedService)]
+[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/].[aProvidedService.interface.ecoreClass.name/]
+[/template]
+
+[template public genImplementationPath(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.delegatorClass.genPackage.basePackage.substituteAll('.', '/')/]/[aDeclarativeService.delegatorClass.ecoreClass.name/]
+[/template]
+
+[template public genInterfaceRequiredID(aRequiredService : RequiredService)]
+[aRequiredService.genPackageInterfaceRequiredID()/].[aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.name/]
+[/template]
+
+[query public genPackageInterfaceRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
+		Sequence{(aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.ancestors(EPackage).name)->reverse()->sep('.')} /]
+
+[template public genImplementationID(aDeclarativeService : DeclarativeService)]
+[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.genPackage.classPackageSuffix/].[aDeclarativeService.delegatorClass.ecoreClass.name/]
 [/template]

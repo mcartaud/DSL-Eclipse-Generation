@@ -1,18 +1,29 @@
-[comment encoding = UTF-8 /]
+[comment encoding = UTF-8 
+
+Copyright (c) 2012 Obeo
+All rights reserved.  This program and the accompanying materials
+are made available under the terms of the Eclipse Public License 1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+You can apply any license to the files generated with this module and Acceleo.
+
+Contributors :
+	Mathieu Cartaud (Obeo) - initial API and implementation
+/]
 [module osgiServiceXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
-[import org::obeonetwork::dsl::gen::eclipse::common::path /]
 
 [template private osgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/OSGI-INF/[aDeclarativeService.genServiceClassName().substitute('.', '').toLowerFirst()/].xml
+[aDeclarativeService.eContainer(Bundle).genBundlePath()/]/OSGI-INF/[aDeclarativeService.serviceClassName.toLowerFirst()/].xml
 [/template]
 
 [template public genOsgiServiceXmlFile(aDeclarativeService : DeclarativeService)]
 [file (aDeclarativeService.osgiServiceXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aDeclarativeService.genServiceClassName().substitute('.', '')/]">
-   <implementation class="[aDeclarativeService.serviceClassQualifiedName/]"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="[aDeclarativeService.serviceClassName/]">
+   <implementation class="[aDeclarativeService.genServicePackageName()/].[aDeclarativeService.serviceClassName.toUpperFirst()/]"/>
 [if (aDeclarativeService.providedServices->size() > 0)]
    [aDeclarativeService.genProvidedServices()/]
 [/if][if (aDeclarativeService.requiredServices->size() > 0)]

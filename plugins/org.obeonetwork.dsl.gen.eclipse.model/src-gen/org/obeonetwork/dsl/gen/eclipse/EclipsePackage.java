@@ -716,13 +716,13 @@ public interface EclipsePackage extends EPackage {
 	int DECLARATIVE_SERVICE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Service Class Qualified Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Service Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME = 0;
+	int DECLARATIVE_SERVICE__SERVICE_CLASS_NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Delegator Class</b></em>' reference.
@@ -752,13 +752,22 @@ public interface EclipsePackage extends EPackage {
 	int DECLARATIVE_SERVICE__REQUIRED_SERVICES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Service Class Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Declarative Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATIVE_SERVICE_FEATURE_COUNT = 4;
+	int DECLARATIVE_SERVICE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Declarative Service</em>' class.
@@ -2971,15 +2980,15 @@ public interface EclipsePackage extends EPackage {
 	EClass getDeclarativeService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName <em>Service Class Qualified Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassName <em>Service Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Class Qualified Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassQualifiedName()
+	 * @return the meta object for the attribute '<em>Service Class Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassName()
 	 * @see #getDeclarativeService()
 	 * @generated
 	 */
-	EAttribute getDeclarativeService_ServiceClassQualifiedName();
+	EAttribute getDeclarativeService_ServiceClassName();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}'.
@@ -3013,6 +3022,17 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeclarativeService_RequiredServices();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service Class Package</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage()
+	 * @see #getDeclarativeService()
+	 * @generated
+	 */
+	EReference getDeclarativeService_ServiceClassPackage();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
@@ -4750,13 +4770,13 @@ public interface EclipsePackage extends EPackage {
 		EClass DECLARATIVE_SERVICE = eINSTANCE.getDeclarativeService();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Class Qualified Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Service Class Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DECLARATIVE_SERVICE__SERVICE_CLASS_QUALIFIED_NAME = eINSTANCE
-				.getDeclarativeService_ServiceClassQualifiedName();
+		EAttribute DECLARATIVE_SERVICE__SERVICE_CLASS_NAME = eINSTANCE
+				.getDeclarativeService_ServiceClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Delegator Class</b></em>' reference feature.
@@ -4784,6 +4804,15 @@ public interface EclipsePackage extends EPackage {
 		 */
 		EReference DECLARATIVE_SERVICE__REQUIRED_SERVICES = eINSTANCE
 				.getDeclarativeService_RequiredServices();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Class Package</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE = eINSTANCE
+				.getDeclarativeService_ServiceClassPackage();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
