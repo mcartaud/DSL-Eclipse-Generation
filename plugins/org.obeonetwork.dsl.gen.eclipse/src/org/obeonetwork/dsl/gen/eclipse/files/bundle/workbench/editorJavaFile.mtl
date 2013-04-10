@@ -46,7 +46,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 
 [if (anEditor.dynamicHelp->size() > 0)]
 	public void createPartControl(Composite parent) {
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(textEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(tableEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 	}
 [/if]
 
