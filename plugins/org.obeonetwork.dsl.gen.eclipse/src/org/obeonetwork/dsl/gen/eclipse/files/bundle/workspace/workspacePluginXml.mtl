@@ -64,8 +64,7 @@ Contributors :
 [/if][if (aBundle.eAllContents(DynamicHelp)->size() > 0)]
    <extension
          point="org.eclipse.help.contexts">
-[for (aDynamicHelp : DynamicHelp | aBundle.views.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
-[/for][for (aDynamicHelp : DynamicHelp | aBundle.editors.dynamicHelp)][aDynamicHelp.dynamicHelpTemplate()/]
+[for (aDynamicHelp : DynamicHelp | aBundle.eAllContents(DynamicHelp))][aDynamicHelp.dynamicHelpTemplate()/]
 [/for]
    </extension>
 [/if]

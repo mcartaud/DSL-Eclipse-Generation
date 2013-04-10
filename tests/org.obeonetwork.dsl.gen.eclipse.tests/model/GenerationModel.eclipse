@@ -18,18 +18,21 @@
     <importedPackageDeclarations packageName="org.eclipse.emf.ecore" packageVersion="1.0.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="eclipse" ID="eclipse" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
-    <perspectives name="perspTropCool" icon="" views="//@projects.3/@views.0 //@projects.3/@views.1"/>
+    <perspectives name="perspTropCool" icon="" views="//@projects.3/@views.1 //@projects.3/@views.2"/>
+    <perspectives name="Perspecr2" views="//@projects.3/@views.1"/>
     <editors name="superEdit" extension="java"/>
-    <views name="vueBasic" perspectives="//@projects.3/@perspectives.0">
+    <views name="truc" icon="truc.gif" isVisible="true" perspectives="//@projects.4/@perspectives.0">
       <handlers name="clique" command="//@projects.3/@commands.0"/>
+      <menus name="viewBasicMenu" toolbarContribution="true" commands="//@projects.3/@commands.0"/>
     </views>
-    <views name="vueTree" isTree="true" perspectives="//@projects.3/@perspectives.0 //@projects.4/@perspectives.0"/>
-    <commands name="test" handler="//@projects.3/@views.0/@handlers.0"/>
+    <views name="vueTree" isVisible="true" perspectives="//@projects.3/@perspectives.0 //@projects.3/@perspectives.1"/>
+    <views name="machin" icon="" perspectives="//@projects.3/@perspectives.0"/>
+    <commands name="test" tooltip="Test the stuff" handler="//@projects.3/@views.0/@handlers.0" menu="//@projects.3/@views.0/@menus.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="ui" ID="eclipse.ui" vendor="mCartaud">
     <wizards name="creationWizard" title="New Wizard" description="allow project creation" icon="wizardCreation.gif" isProject="true" category="//@projects.4/@categories.0"/>
     <markers name="fileMarker" isPersistant="true"/>
-    <perspectives name="work" icon="perspIcon.gif" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2 //@projects.3/@views.1">
+    <perspectives name="work" icon="perspIcon.gif" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2 //@projects.3/@views.0">
       <handlers name="clique1" mnemonic="t" command="//@projects.4/@commands.0"/>
       <handlers name="clique2" mnemonic="s" command="//@projects.4/@commands.4"/>
       <menus name="parameter" mnemonic="m" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.0 //@projects.4/@commands.4"/>
@@ -38,14 +41,14 @@
     </perspectives>
     <editors name="projectEditor" icon="editorIcone.gif">
       <handlers name="clique3" mnemonic="v" command="//@projects.4/@commands.1"/>
-      <menus name="editorMenu" mnemonic="i" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.1"/>
+      <menus name="editorMenu" mnemonic="i" menuContribution="true" toolbarContribution="true"/>
     </editors>
     <views name="firstView" icon="firstViewIcon.gif" isVisible="true" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1">
       <handlers name="clique4" mnemonic="f" command="//@projects.4/@commands.3"/>
       <handlers name="clique5" mnemonic="n" command="//@projects.4/@commands.2"/>
       <menus name="viewMenu1" mnemonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.3 //@projects.4/@commands.2"/>
     </views>
-    <views name="treeVeiw" icon="treeViewIcon.gif" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1">
+    <views name="treeView" icon="treeViewIcon.gif" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1">
       <dynamicHelp label="help For Tree View" description="this page allow help"/>
     </views>
     <views name="otherView" icon="otherViewIcon.gif" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1"/>
@@ -55,11 +58,11 @@
       </helpPages>
       <helpPages label="licence Help" description="explicit the Licence"/>
     </helpContents>
-    <commands name="edit" icon="image1.gif" tooltip="edit the stuf" handler="//@projects.4/@perspectives.0/@handlers.0" menu="//@projects.4/@perspectives.0/@menus.0"/>
-    <commands name="save" icon="image2.gif" tooltip="save the stuf" handler="//@projects.4/@editors.0/@handlers.0" menu="//@projects.4/@editors.0/@menus.0"/>
-    <commands name="remove" icon="image3.gif" tooltip="remove the stuf" handler="//@projects.4/@views.0/@handlers.1" menu="//@projects.4/@views.0/@menus.0"/>
-    <commands name="run" icon="image4.gif" tooltip="run the stuf" handler="//@projects.4/@views.0/@handlers.0" menu="//@projects.4/@views.0/@menus.0" binding="//@projects.4/@bindings.1"/>
-    <commands name="refactor" icon="image5.gif" tooltip="refactor the stuf" handler="//@projects.4/@perspectives.0/@handlers.1" menu="//@projects.4/@perspectives.0/@menus.0" binding="//@projects.4/@bindings.0"/>
+    <commands name="edit" icon="image1.gif" tooltip="edit the stuff" handler="//@projects.4/@perspectives.0/@handlers.0" menu="//@projects.4/@perspectives.0/@menus.0"/>
+    <commands name="save" icon="image2.gif" tooltip="save the stuff" handler="//@projects.4/@editors.0/@handlers.0"/>
+    <commands name="remove" icon="image3.gif" tooltip="remove the stuff" handler="//@projects.4/@views.0/@handlers.1" menu="//@projects.4/@views.0/@menus.0"/>
+    <commands name="run" icon="image4.gif" tooltip="run the stuff" handler="//@projects.4/@views.0/@handlers.0" menu="//@projects.4/@views.0/@menus.0" binding="//@projects.4/@bindings.1"/>
+    <commands name="refactor" icon="image5.gif" tooltip="refactor the stuff" handler="//@projects.4/@perspectives.0/@handlers.1" menu="//@projects.4/@perspectives.0/@menus.0" binding="//@projects.4/@bindings.0"/>
     <categories name="Model Wizard" wizards="//@projects.4/@wizards.0 //@projects.4/@perspectives.0/@wizards.0 //@projects.4/@perspectives.0/@wizards.1"/>
     <categories name="Model View" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2"/>
     <bindings keySequence="ALT+1" command="//@projects.4/@commands.4"/>

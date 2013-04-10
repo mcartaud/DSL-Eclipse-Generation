@@ -83,7 +83,7 @@ public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard
 		if (!file.exists()) {
 [/if]	
 			IRunnableWithProgress runnable = new IRunnableWithProgress() {
-				@Override
+
 				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 					try {
 						[for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
@@ -105,7 +105,7 @@ public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard
 			};
 			try {
 				PlatformUI.getWorkbench().getProgressService().run(false, false, runnable);
-			} catch (InvocationTargetException) {
+			} catch (InvocationTargetException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -114,7 +114,7 @@ public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard
 		return true;
 	}
 
-	@Override
+
 	public void init(IWorkbench arg0, IStructuredSelection selection) {
 		[if (aWizard.oclIsKindOf(ProjectWizard))]
 		// TODO Auto-generated method stub	

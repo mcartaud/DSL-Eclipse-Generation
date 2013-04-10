@@ -61,7 +61,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "[aView.eContainer(Bundle).genBundleID()/].view.[aView.name.replaceAll(' ', '').toUpperFirst()/]";
+	public static final String ID = "[aView.genViewID()/]";
 
 [if (aView.isTree)]
 	private TreeViewer viewer;

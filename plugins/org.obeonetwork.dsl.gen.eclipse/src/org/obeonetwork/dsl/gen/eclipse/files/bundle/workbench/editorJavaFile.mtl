@@ -31,7 +31,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	/**
 	 * The ID of the editor as specified by the extension.
 	 */
-	public static final String ID = "[anEditor.eContainer(Bundle).genBundleID()/].editor.[anEditor.name.replaceAll(' ', '').toUpperFirst()/]";
+	public static final String ID = "[anEditor.genEditorID()/]";
 
 
 	private TableEditor tableEditor;
