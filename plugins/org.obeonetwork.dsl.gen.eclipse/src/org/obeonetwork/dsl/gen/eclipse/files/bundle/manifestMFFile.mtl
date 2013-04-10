@@ -70,7 +70,7 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 
 [template private importDeclaration(aBundle : Bundle)]
 Require-Bundle: [for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) 
-separator(',' + aBundle.lineSeparator())] [anImportedpackage.packageName/][/for][if (aBundle.wizards->size() > 0 
+separator(aBundle.lineSeparator())] [anImportedpackage.genImportedPackageName()/][/for][if (aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
 or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importRequired()/][/if]
 [/template]

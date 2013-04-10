@@ -252,3 +252,7 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
 [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.genPackage.classPackageSuffix/].[aDeclarativeService.delegatorClass.ecoreClass.name/]
 [/template]
+
+[template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
+[anImportedPackage.packageName/];bundle-version="[anImportedPackage.packageVersion/]",
+[/template]

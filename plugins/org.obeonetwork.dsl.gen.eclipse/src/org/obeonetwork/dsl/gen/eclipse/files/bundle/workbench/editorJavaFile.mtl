@@ -23,6 +23,9 @@ Contributors :
 [file (editorJavaFile(), false, 'UTF-8')]
 package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 
+import java.awt.Composite;
+
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
 
