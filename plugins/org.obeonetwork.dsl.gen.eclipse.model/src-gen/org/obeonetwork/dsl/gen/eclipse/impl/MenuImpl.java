@@ -88,7 +88,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MENU_CONTRIBUTION_EDEFAULT = false;
+	protected static final boolean MENU_CONTRIBUTION_EDEFAULT = true;
 
 	/**
 	 * The flag representing the value of the '{@link #isMenuContribution() <em>Menu Contribution</em>}' attribute.
@@ -108,7 +108,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean TOOLBAR_CONTRIBUTION_EDEFAULT = false;
+	protected static final boolean TOOLBAR_CONTRIBUTION_EDEFAULT = true;
 
 	/**
 	 * The flag representing the value of the '{@link #isToolbarContribution() <em>Toolbar Contribution</em>}' attribute.
@@ -137,6 +137,8 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 */
 	protected MenuImpl() {
 		super();
+		eFlags |= MENU_CONTRIBUTION_EFLAG;
+		eFlags |= TOOLBAR_CONTRIBUTION_EFLAG;
 	}
 
 	/**

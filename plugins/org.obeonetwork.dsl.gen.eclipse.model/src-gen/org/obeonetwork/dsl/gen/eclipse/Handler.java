@@ -2,8 +2,6 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,21 +102,5 @@ public interface Handler extends EObject {
 	 * @generated
 	 */
 	void setCommand(Command value);
-
-	/**
-	 * Returns the value of the '<em><b>Contexts</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Context}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Contexts</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contexts</em>' reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Contexts()
-	 * @model
-	 * @generated
-	 */
-	EList<Context> getContexts();
 
 } // Handler

@@ -108,8 +108,6 @@
         eType="#//Binding" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exportedPackages" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedPackages" upperBound="-1"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarativeService">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassName" unique="false"
@@ -298,8 +296,6 @@
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="command" eType="#//Command"
         eOpposite="#//Command/handler"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
-        eType="#//Context"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HelpContents">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" unique="false" lowerBound="1"

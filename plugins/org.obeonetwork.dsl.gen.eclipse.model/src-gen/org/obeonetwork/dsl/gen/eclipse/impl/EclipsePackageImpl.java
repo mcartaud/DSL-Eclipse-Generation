@@ -860,15 +860,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_OwnedPackages() {
-		return (EReference) bundleEClass.getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDeclarativeService() {
 		return declarativeServiceEClass;
 	}
@@ -1754,15 +1745,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHandler_Contexts() {
-		return (EReference) handlerEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getHelpContents() {
 		return helpContentsEClass;
 	}
@@ -2062,7 +2044,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bundleEClass, BUNDLE__CATEGORIES);
 		createEReference(bundleEClass, BUNDLE__BINDINGS);
 		createEReference(bundleEClass, BUNDLE__EXPORTED_PACKAGES);
-		createEReference(bundleEClass, BUNDLE__OWNED_PACKAGES);
 
 		declarativeServiceEClass = createEClass(DECLARATIVE_SERVICE);
 		createEAttribute(declarativeServiceEClass,
@@ -2188,7 +2169,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEAttribute(handlerEClass, HANDLER__NAME);
 		createEAttribute(handlerEClass, HANDLER__MNEMONIC);
 		createEReference(handlerEClass, HANDLER__COMMAND);
-		createEReference(handlerEClass, HANDLER__CONTEXTS);
 
 		helpContentsEClass = createEClass(HELP_CONTENTS);
 		createEAttribute(helpContentsEClass, HELP_CONTENTS__LABEL);
@@ -2472,11 +2452,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_ExportedPackages(),
 				theGenModelPackage.getGenPackage(), null, "exportedPackages",
-				null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBundle_OwnedPackages(),
-				theGenModelPackage.getGenPackage(), null, "ownedPackages",
 				null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2805,12 +2780,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenu_MenuContribution(),
-				theEcorePackage.getEBoolean(), "menuContribution", null, 0, 1,
-				Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				theEcorePackage.getEBoolean(), "menuContribution", "true", 0,
+				1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenu_ToolbarContribution(),
-				theEcorePackage.getEBoolean(), "toolbarContribution", null, 0,
-				1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				theEcorePackage.getEBoolean(), "toolbarContribution", "true",
+				0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenu_Commands(), this.getCommand(),
 				this.getCommand_Menu(), "commands", null, 0, -1, Menu.class,
@@ -2866,10 +2841,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getHandler_Contexts(), this.getContext(), null,
-				"contexts", null, 0, -1, Handler.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

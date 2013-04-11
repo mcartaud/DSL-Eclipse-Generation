@@ -35,7 +35,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -425,21 +424,5 @@ public interface Bundle extends Project {
 	 * @generated
 	 */
 	EList<GenPackage> getExportedPackages();
-
-	/**
-	 * Returns the value of the '<em><b>Owned Packages</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.codegen.ecore.genmodel.GenPackage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Packages</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Packages</em>' reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_OwnedPackages()
-	 * @model
-	 * @generated
-	 */
-	EList<GenPackage> getOwnedPackages();
 
 } // Bundle

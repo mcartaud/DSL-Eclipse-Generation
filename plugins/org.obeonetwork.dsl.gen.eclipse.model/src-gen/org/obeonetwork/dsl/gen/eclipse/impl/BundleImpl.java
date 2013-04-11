@@ -64,7 +64,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getOwnedPackages <em>Owned Packages</em>}</li>
  * </ul>
  * </p>
  *
@@ -320,16 +319,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @ordered
 	 */
 	protected EList<GenPackage> exportedPackages;
-
-	/**
-	 * The cached value of the '{@link #getOwnedPackages() <em>Owned Packages</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedPackages()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GenPackage> ownedPackages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -675,20 +664,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GenPackage> getOwnedPackages() {
-		if (ownedPackages == null) {
-			ownedPackages = new EObjectResolvingEList<GenPackage>(
-					GenPackage.class, this,
-					EclipsePackage.BUNDLE__OWNED_PACKAGES);
-		}
-		return ownedPackages;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -805,8 +780,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			return getBindings();
 		case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 			return getExportedPackages();
-		case EclipsePackage.BUNDLE__OWNED_PACKAGES:
-			return getOwnedPackages();
 		}
 		return eDynamicGet(featureID, resolve, coreType);
 	}
@@ -917,11 +890,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			getExportedPackages().addAll(
 					(Collection<? extends GenPackage>) newValue);
 			return;
-		case EclipsePackage.BUNDLE__OWNED_PACKAGES:
-			getOwnedPackages().clear();
-			getOwnedPackages().addAll(
-					(Collection<? extends GenPackage>) newValue);
-			return;
 		}
 		eDynamicSet(featureID, newValue);
 	}
@@ -1006,9 +974,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 		case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 			getExportedPackages().clear();
 			return;
-		case EclipsePackage.BUNDLE__OWNED_PACKAGES:
-			getOwnedPackages().clear();
-			return;
 		}
 		eDynamicUnset(featureID);
 	}
@@ -1076,8 +1041,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			return bindings != null && !bindings.isEmpty();
 		case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 			return exportedPackages != null && !exportedPackages.isEmpty();
-		case EclipsePackage.BUNDLE__OWNED_PACKAGES:
-			return ownedPackages != null && !ownedPackages.isEmpty();
 		}
 		return eDynamicIsSet(featureID);
 	}

@@ -58,7 +58,6 @@ public class BundleItemProvider extends ProjectItemProvider implements
 			addRequiredEnvironmentPropertyDescriptor(object);
 			addVendorPropertyDescriptor(object);
 			addExportedPackagesPropertyDescriptor(object);
-			addOwnedPackagesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,24 +134,6 @@ public class BundleItemProvider extends ProjectItemProvider implements
 						"_UI_Bundle_exportedPackages_feature",
 						"_UI_Bundle_type"),
 				EclipsePackage.Literals.BUNDLE__EXPORTED_PACKAGES, true, false,
-				true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Owned Packages feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnedPackagesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Bundle_ownedPackages_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Bundle_ownedPackages_feature", "_UI_Bundle_type"),
-				EclipsePackage.Literals.BUNDLE__OWNED_PACKAGES, true, false,
 				true, null, null, null));
 	}
 

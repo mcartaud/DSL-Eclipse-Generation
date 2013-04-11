@@ -2,23 +2,13 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.obeonetwork.dsl.gen.eclipse.Command;
-import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
 
@@ -32,7 +22,6 @@ import org.obeonetwork.dsl.gen.eclipse.Handler;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getMnemonic <em>Mnemonic</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getCommand <em>Command</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,16 +77,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @ordered
 	 */
 	protected Command command;
-
-	/**
-	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContexts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Context> contexts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,19 +217,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Context> getContexts() {
-		if (contexts == null) {
-			contexts = new EObjectResolvingEList<Context>(Context.class, this,
-					EclipsePackage.HANDLER__CONTEXTS);
-		}
-		return contexts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -295,8 +261,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 			if (resolve)
 				return getCommand();
 			return basicGetCommand();
-		case EclipsePackage.HANDLER__CONTEXTS:
-			return getContexts();
 		}
 		return eDynamicGet(featureID, resolve, coreType);
 	}
@@ -306,7 +270,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -318,10 +281,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 			return;
 		case EclipsePackage.HANDLER__COMMAND:
 			setCommand((Command) newValue);
-			return;
-		case EclipsePackage.HANDLER__CONTEXTS:
-			getContexts().clear();
-			getContexts().addAll((Collection<? extends Context>) newValue);
 			return;
 		}
 		eDynamicSet(featureID, newValue);
@@ -344,9 +303,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		case EclipsePackage.HANDLER__COMMAND:
 			setCommand((Command) null);
 			return;
-		case EclipsePackage.HANDLER__CONTEXTS:
-			getContexts().clear();
-			return;
 		}
 		eDynamicUnset(featureID);
 	}
@@ -367,8 +323,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 					: !MNEMONIC_EDEFAULT.equals(mnemonic);
 		case EclipsePackage.HANDLER__COMMAND:
 			return command != null;
-		case EclipsePackage.HANDLER__CONTEXTS:
-			return contexts != null && !contexts.isEmpty();
 		}
 		return eDynamicIsSet(featureID);
 	}

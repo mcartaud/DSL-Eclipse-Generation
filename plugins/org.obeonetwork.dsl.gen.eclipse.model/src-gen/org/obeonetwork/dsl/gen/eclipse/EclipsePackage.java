@@ -679,22 +679,13 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 21;
 
 	/**
-	 * The feature id for the '<em><b>Owned Packages</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__OWNED_PACKAGES = PROJECT_FEATURE_COUNT + 22;
-
-	/**
 	 * The number of structural features of the '<em>Bundle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 23;
+	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Bundle</em>' class.
@@ -2068,22 +2059,13 @@ public interface EclipsePackage extends EPackage {
 	int HANDLER__COMMAND = 2;
 
 	/**
-	 * The feature id for the '<em><b>Contexts</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HANDLER__CONTEXTS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HANDLER_FEATURE_COUNT = 4;
+	int HANDLER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Handler</em>' class.
@@ -2957,17 +2939,6 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBundle_ExportedPackages();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages <em>Owned Packages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Owned Packages</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getOwnedPackages()
-	 * @see #getBundle()
-	 * @generated
-	 */
-	EReference getBundle_OwnedPackages();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
@@ -4016,17 +3987,6 @@ public interface EclipsePackage extends EPackage {
 	EReference getHandler_Command();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getContexts <em>Contexts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Contexts</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getContexts()
-	 * @see #getHandler()
-	 * @generated
-	 */
-	EReference getHandler_Contexts();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4750,14 +4710,6 @@ public interface EclipsePackage extends EPackage {
 		 */
 		EReference BUNDLE__EXPORTED_PACKAGES = eINSTANCE
 				.getBundle_ExportedPackages();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Packages</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUNDLE__OWNED_PACKAGES = eINSTANCE.getBundle_OwnedPackages();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -5595,14 +5547,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference HANDLER__COMMAND = eINSTANCE.getHandler_Command();
-
-		/**
-		 * The meta object literal for the '<em><b>Contexts</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference HANDLER__CONTEXTS = eINSTANCE.getHandler_Contexts();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.

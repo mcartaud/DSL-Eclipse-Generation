@@ -81,6 +81,7 @@ public interface Menu extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Menu Contribution</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Menu Contribution</em>' attribute isn't clear,
@@ -90,7 +91,7 @@ public interface Menu extends EObject {
 	 * @return the value of the '<em>Menu Contribution</em>' attribute.
 	 * @see #setMenuContribution(boolean)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenu_MenuContribution()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	boolean isMenuContribution();
@@ -107,6 +108,7 @@ public interface Menu extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Toolbar Contribution</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Toolbar Contribution</em>' attribute isn't clear,
@@ -116,7 +118,7 @@ public interface Menu extends EObject {
 	 * @return the value of the '<em>Toolbar Contribution</em>' attribute.
 	 * @see #setToolbarContribution(boolean)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenu_ToolbarContribution()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	boolean isToolbarContribution();

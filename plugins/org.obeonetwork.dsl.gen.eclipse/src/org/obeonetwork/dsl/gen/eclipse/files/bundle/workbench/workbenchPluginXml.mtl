@@ -143,7 +143,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
       <key
             commandId="[aBinding.command.genCommandID()/]"
 [for (aContext : Context | aBinding.contexts)]
-            contextId="[aBinding.command.handler.contexts.genContextID()/]"
+            contextId="[aContext.genContextID()/]"
 [/for]
             sequence="[aBinding.bindingKey()/]"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
@@ -188,7 +188,8 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 	  <context
 		 name="%Context-[aContext.refactorContextName().toUpperFirst()/]-Name"
 		 description="%Context-[aContext.refactorContextName().toUpperFirst()/]-Description"
-		 id="[aContext.genContextID()/]"[if (aContext.eContainer().oclIsKindOf(Bundle))]>[else]
+		 id="[aContext.genContextID()/]"[if (aContext.eContainer().oclIsKindOf(Bundle))]>
+[else]
 	     parentId="[aContext.eContainer(Context).genContextID()/]">
 [/if]
 	  </context>
