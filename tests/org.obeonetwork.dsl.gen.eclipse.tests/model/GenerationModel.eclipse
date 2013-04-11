@@ -15,6 +15,7 @@
       </requiredServices>
       <serviceClassPackage href="editor.genmodel#//org/obeonetwork/dsl/gen/eclipse/editor"/>
     </declarativeServices>
+    <importedPackageDeclarations packageName="org.eclipse.core.runtime"/>
     <importedPackageDeclarations packageName="org.eclipse.emf.ecore" packageVersion="1.0.0"/>
   </projects>
   <projects xsi:type="eclipse:Bundle" name="eclipse" ID="eclipse" version="1.0.0" requiredEnvironment="JavaSE-1.7" vendor="Mathieu Cartaud">
@@ -23,7 +24,7 @@
     <editors name="superEdit" extension="java"/>
     <views name="truc" icon="truc.gif" isVisible="true" perspectives="//@projects.4/@perspectives.0">
       <handlers name="clique" command="//@projects.3/@commands.0"/>
-      <menus name="viewBasicMenu" toolbarContribution="true" commands="//@projects.3/@commands.0"/>
+      <menus name="viewBasicMenu" commands="//@projects.3/@commands.0"/>
     </views>
     <views name="vueTree" isVisible="true" perspectives="//@projects.3/@perspectives.0 //@projects.3/@perspectives.1"/>
     <views name="machin" icon="" perspectives="//@projects.3/@perspectives.0"/>
@@ -35,18 +36,18 @@
     <perspectives name="work" icon="perspIcon.gif" views="//@projects.4/@views.0 //@projects.4/@views.1 //@projects.4/@views.2 //@projects.3/@views.0">
       <handlers name="clique1" mnemonic="t" command="//@projects.4/@commands.0"/>
       <handlers name="clique2" mnemonic="s" command="//@projects.4/@commands.4"/>
-      <menus name="parameter" mnemonic="m" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.0 //@projects.4/@commands.4"/>
+      <menus name="parameter" mnemonic="m" commands="//@projects.4/@commands.0 //@projects.4/@commands.4"/>
       <wizards name="newFile" title="wizard for new File" description="wizard for the new file creation" icon="fileWizard.gif" category="//@projects.4/@categories.0"/>
       <wizards name="newProject" title="first page" description="allow to create a new Project" icon="wizardProject.gif" isProject="true" category="//@projects.4/@categories.0"/>
     </perspectives>
     <editors name="projectEditor" icon="editorIcone.gif">
       <handlers name="clique3" mnemonic="v" command="//@projects.4/@commands.1"/>
-      <menus name="editorMenu" mnemonic="i" menuContribution="true" toolbarContribution="true"/>
+      <menus name="editorMenu" mnemonic="i"/>
     </editors>
     <views name="firstView" icon="firstViewIcon.gif" isVisible="true" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1">
       <handlers name="clique4" mnemonic="f" command="//@projects.4/@commands.3"/>
       <handlers name="clique5" mnemonic="n" command="//@projects.4/@commands.2"/>
-      <menus name="viewMenu1" mnemonic="" menuContribution="true" toolbarContribution="true" commands="//@projects.4/@commands.3 //@projects.4/@commands.2"/>
+      <menus name="viewMenu1" mnemonic="" commands="//@projects.4/@commands.3 //@projects.4/@commands.2"/>
     </views>
     <views name="treeView" icon="treeViewIcon.gif" perspectives="//@projects.4/@perspectives.0" category="//@projects.4/@categories.1">
       <dynamicHelp label="help For Tree View" description="this page allow help"/>

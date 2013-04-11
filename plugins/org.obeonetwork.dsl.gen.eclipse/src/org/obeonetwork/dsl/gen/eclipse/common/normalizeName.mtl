@@ -254,5 +254,5 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [/template]
 
 [template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
-[anImportedPackage.packageName/];bundle-version="[anImportedPackage.packageVersion/]",
+[anImportedPackage.packageName/][if (not(anImportedPackage.packageVersion.oclIsUndefined()))];bundle-version="[anImportedPackage.packageVersion/]"[/if]
 [/template]
