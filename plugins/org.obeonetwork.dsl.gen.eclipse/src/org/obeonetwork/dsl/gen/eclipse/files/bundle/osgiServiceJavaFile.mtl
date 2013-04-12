@@ -24,6 +24,7 @@ Contributors :
 package [aDeclarativeService.genServicePackageName()/];
 
 import [aDeclarativeService.genImplementationID()/];
+[if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.genInterfaceID()/][/for][/if]
 
 // referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
@@ -64,7 +65,7 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvid
 [/template]
 
 [template private genSuperType(aGenClass : GenClass)]
-[aGenClass.ecoreClass.name.toUpperFirst()/]
+[aGenClass.eInverse(ProvidedService).eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/]
 [/template]
 
 [template private genReturn(anEOperation : EOperation)]
@@ -91,4 +92,8 @@ this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass
 [else]
 this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [/if]
+[/template]
+
+[template private genInterfaceID(aRequiredService : RequiredService)]
+import [aRequiredService.interfaceID()/];
 [/template]

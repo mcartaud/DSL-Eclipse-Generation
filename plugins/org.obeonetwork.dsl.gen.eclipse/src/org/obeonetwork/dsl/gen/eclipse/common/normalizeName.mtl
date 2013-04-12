@@ -259,3 +259,10 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
 [anImportedPackage.packageName/][if (not(anImportedPackage.packageVersion.oclIsUndefined()))];bundle-version="[anImportedPackage.packageVersion/]"[/if]
 [/template]
+
+[template public interfaceID(aRequiredService : RequiredService)]
+[for (anEClass : EClass | aRequiredService.reference.eReferenceType.eSuperTypes)]
+[for (aProvidedService : ProvidedService | aRequiredService.ancestors(Application).eAllContents(ProvidedService))]
+[if (anEClass.ePackage.nsURI = aProvidedService.interface.ecoreClass.ePackage.nsURI)]
+[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.ecoreClass.ePackage.name/].[aRequiredService.reference.eContainingClass.ePackage.name/].[aRequiredService.reference.eContainingClass.name/][/if][/for][/for]
+[/template]
