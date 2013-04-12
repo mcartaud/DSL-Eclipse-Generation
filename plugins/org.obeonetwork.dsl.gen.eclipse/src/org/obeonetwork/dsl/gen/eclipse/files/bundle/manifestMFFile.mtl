@@ -33,17 +33,15 @@ Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 [if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.views->size() > 0 
 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0 or aBundle.commands->size() > 0 
-or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)]Bundle-Activator: [aBundle.genBundleID()/].Activator[/if]
-[if (aBundle.declarativeServices.providedServices->size() > 0 and aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.bundleExportedPackages()/]
+or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)]Bundle-Activator: [aBundle.genBundleID()/].Activator
+[/if][if (aBundle.declarativeServices.providedServices->size() > 0 or aBundle.exportedPackages->size() > 0)]Export-Package:[if (aBundle.declarativeServices.providedServices->size() > 0 and aBundle.exportedPackages->size() > 0)][aBundle.bundleExportedPackages()/]
 [else][aBundle.exportedPackage()/]
-[/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
+[/if][/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
 [for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genPackageInterfaceRequiredID()/][/for]
 [/if]Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport[if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
 or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)],
-[importDeclaration()/]
-[else]
-
+[importDeclaration()/][else]
 [/if]
 [if (aBundle.declarativeServices->size() > 0)]
 Service-Component: OSGI-INF/*.xml[/if]
@@ -59,7 +57,7 @@ Service-Component: OSGI-INF/*.xml[/if]
 [/template]
 
 [template private exportedPackage(aBundle : Bundle)]
-[if (aBundle.declarativeServices.providedServices->size() > 0 or aBundle.exportedPackages->size() > 0)]Export-Package:[aBundle.allExportedPackage()/][/if]
+[if (aBundle.declarativeServices.providedServices->size() > 0 or aBundle.exportedPackages->size() > 0)][aBundle.allExportedPackage()/][/if]
 [/template]
 
 [template private allExportedPackage(aBundle : Bundle)]
@@ -85,10 +83,14 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
  org.eclipse.core.runtime;bundle-version="3.7.0"[if (aBundle.eAllContents(Wizard)->size() > 0)],
  org.eclipse.jface;bundle-version="3.7.0",
  org.eclipse.core.resources;bundle-version="3.7.101",
- org.eclipse.ui.ide;bundle-version="3.7.0"[/if][if (aBundle.eAllContents(Editor)->size() > 0)],
+ org.eclipse.ui.ide;bundle-version="3.7.0"[else]
+[/if][if (aBundle.eAllContents(Editor)->size() > 0)],
  org.eclipse.jface.text,
- org.eclipse.ui.editors[/if][if (aBundle.eAllContents(Perspective)->size() > 0)],
+ org.eclipse.ui.editors[else]
+[/if][if (aBundle.eAllContents(Perspective)->size() > 0)],
  org.eclipse.ui.console,
  org.eclipse.jdt.ui
+[else]
+
 [/if]
 [/template]

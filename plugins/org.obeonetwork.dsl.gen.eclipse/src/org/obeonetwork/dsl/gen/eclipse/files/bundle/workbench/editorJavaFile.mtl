@@ -23,11 +23,11 @@ Contributors :
 [file (editorJavaFile(), false, 'UTF-8')]
 package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 
-import java.awt.Composite;
-
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Table;
 
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
 
@@ -46,6 +46,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 
 [if (anEditor.dynamicHelp->size() > 0)]
 	public void createPartControl(Composite parent) {
+		tableEditor = new TableEditor(new Table(parent, PROP_TITLE));
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(tableEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 	}
 [/if]

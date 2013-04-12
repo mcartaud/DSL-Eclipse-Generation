@@ -184,9 +184,6 @@ false[/if]
             file="help/[anHelpContent.refactorHelpLabel()/].xml"
 			primary="true">
       </toc>
-      <toc
-            file="help/[anHelpContent.refactorHelpLabel()/]Toc.xml">
-      </toc>
 [/template]
 
 [template private dynamicHelpTemplate(aDynamicHelp : DynamicHelp)]
