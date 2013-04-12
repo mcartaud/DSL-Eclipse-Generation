@@ -30,9 +30,9 @@ import [aDeclarativeService.genImplementationID()/];
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
 
 [for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)]
-	private [aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/] a[aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/];
+	private [aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/] a[aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/];
 [/for][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-	private [aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/] a[aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/];
+	private [aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/] a[aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/];
 [/for]
 
 [if (aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations->size() > 0)]
@@ -84,17 +84,17 @@ void[else][anEOperation.eType.name.toUpperFirst()/]
 
 [template private addMethodBody(aRequiredService : RequiredService)]
 [if (aRequiredService.reference.upperBound = 1)]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [else]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [/if]
 [/template]
 
 [template private removeMethodBody(aRequiredService : RequiredService)]
 [if (aRequiredService.reference.upperBound = 1)]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](null);
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](null);
 [else]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.eSuperTypes.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [/if]
 [/template]
 

@@ -257,7 +257,7 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 		Sequence{(aRequiredService.reference.eType.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
+[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.ePackage.name/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
 [/template]
 
 [template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
