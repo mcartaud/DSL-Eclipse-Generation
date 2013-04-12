@@ -37,7 +37,7 @@ or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)]Bun
 [/if][if (aBundle.declarativeServices.providedServices->size() > 0 or aBundle.exportedPackages->size() > 0)]Export-Package:[if (aBundle.declarativeServices.providedServices->size() > 0 and aBundle.exportedPackages->size() > 0)][aBundle.bundleExportedPackages()/]
 [else][aBundle.exportedPackage()/]
 [/if][/if][if (aBundle.declarativeServices.requiredServices->size() > 0)]Import-Package: org.eclipse.osgi.framework.console;version="1.1.0",
-[for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genPackageInterfaceRequiredID()/][/for]
+[for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices) separator(',' + aBundle.lineSeparator())] [aRequiredService.genImportPackageRequiredID()/][/for]
 [/if]Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport[if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
 or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)],
