@@ -249,8 +249,12 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [query public genPackageInterfaceRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
 		Sequence{(aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
-[query public genImportPackageRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
-		Sequence{(aRequiredService.reference.eGenericType.eClassifier.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
+[template public genImportPackageRequiredID(aRequiredService : RequiredService)]
+[aRequiredService.importPackageRequiredID()/].[aRequiredService.reference.eType.ePackage.name/]
+[/template]
+
+[query private importPackageRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
+		Sequence{(aRequiredService.reference.eType.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
 [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
@@ -261,8 +265,7 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [/template]
 
 [template public interfaceID(aRequiredService : RequiredService)]
-[for (anEClass : EClass | aRequiredService.reference.eReferenceType.eSuperTypes)]
 [for (aProvidedService : ProvidedService | aRequiredService.ancestors(Application).eAllContents(ProvidedService))]
-[if (anEClass.ePackage.nsURI = aProvidedService.interface.ecoreClass.ePackage.nsURI)]
-[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.ecoreClass.ePackage.name/].[aProvidedService.interface.ecoreClass.name/][/if][/for][/for]
+[if (aRequiredService.reference.eType.name = aProvidedService.interface.ecoreClass.name)]
+[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.ecoreClass.ePackage.name/].[aProvidedService.interface.ecoreClass.name/][/if][/for]
 [/template]
