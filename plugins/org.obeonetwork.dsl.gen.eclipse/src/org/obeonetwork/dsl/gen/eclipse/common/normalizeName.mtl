@@ -257,14 +257,14 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 		Sequence{(aRequiredService.reference.eType.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.ePackage.name/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
+[aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
 [/template]
 
 [template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
 [anImportedPackage.packageName/][if (not(anImportedPackage.packageVersion.oclIsUndefined()))];bundle-version="[anImportedPackage.packageVersion/]"[/if]
 [/template]
 
-[template public interfaceID(aRequiredService : RequiredService)]
+[template public genInterfaceID(aRequiredService : RequiredService)]
 [for (aProvidedService : ProvidedService | aRequiredService.ancestors(Application).eAllContents(ProvidedService))]
 [if (aRequiredService.reference.eType.name = aProvidedService.interface.ecoreClass.name)]
 [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.ecoreClass.ePackage.name/].[aProvidedService.interface.ecoreClass.name/][/if][/for]

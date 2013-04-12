@@ -23,8 +23,9 @@ Contributors :
 [file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
 package [aDeclarativeService.genServicePackageName()/];
 
-import [aDeclarativeService.genImplementationID()/];
-[if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.genInterfaceID()/][/for][/if]
+import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.ePackage.name/].[aDeclarativeService.delegatorClass.ecoreClass.name/];
+[if (aDeclarativeService.providedServices->size() > 0)]import [aDeclarativeService.genImplementationID()/];
+[/if][if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.interfaceID()/][/for][/if]
 
 // referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
@@ -98,6 +99,6 @@ this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass
 [/if]
 [/template]
 
-[template private genInterfaceID(aRequiredService : RequiredService)]
-import [aRequiredService.interfaceID()/];
+[template private interfaceID(aRequiredService : RequiredService)]
+import [aRequiredService.genInterfaceID()/];
 [/template]
