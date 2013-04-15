@@ -397,7 +397,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Name() {
+	public EAttribute getApplication_ApplicationID() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -406,7 +406,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_ApplicationID() {
+	public EAttribute getApplication_Provider() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -415,7 +415,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Provider() {
+	public EAttribute getApplication_Copyright() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -424,7 +424,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Copyright() {
+	public EAttribute getApplication_License() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -433,7 +433,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_License() {
+	public EAttribute getApplication_Version() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -442,7 +442,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Version() {
+	public EAttribute getApplication_Description() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -451,7 +451,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Description() {
+	public EAttribute getApplication_BaseNamespace() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -460,7 +460,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_BaseNamespace() {
+	public EAttribute getApplication_MavenCompilation() {
 		return (EAttribute) applicationEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -469,17 +469,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_MavenCompilation() {
-		return (EAttribute) applicationEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplication_Projects() {
-		return (EReference) applicationEClass.getEStructuralFeatures().get(9);
+		return (EReference) applicationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -488,7 +479,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EAttribute getApplication_GenerateTestsBundle() {
-		return (EAttribute) applicationEClass.getEStructuralFeatures().get(10);
+		return (EAttribute) applicationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1986,7 +1977,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		// Create classes and their features
 		applicationEClass = createEClass(APPLICATION);
-		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__APPLICATION_ID);
 		createEAttribute(applicationEClass, APPLICATION__PROVIDER);
 		createEAttribute(applicationEClass, APPLICATION__COPYRIGHT);
@@ -2248,10 +2238,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(applicationEClass, Application.class, "Application",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getApplication_Name(), this.getName_(), "name", null, 1,
-				1, Application.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEAttribute(getApplication_ApplicationID(), this.getNamespace(),
 				"applicationID", null, 1, 1, Application.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,

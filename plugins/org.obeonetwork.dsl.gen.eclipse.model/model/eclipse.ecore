@@ -7,8 +7,6 @@
     <details key="editorDirectory" value="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
-        eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicationID" unique="false"
         lowerBound="1" eType="#//Namespace"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="provider" unique="false"

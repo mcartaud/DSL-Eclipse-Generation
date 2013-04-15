@@ -71,22 +71,13 @@ public interface EclipsePackage extends EPackage {
 	int APPLICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__NAME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Application ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__APPLICATION_ID = 1;
+	int APPLICATION__APPLICATION_ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' attribute.
@@ -95,7 +86,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PROVIDER = 2;
+	int APPLICATION__PROVIDER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
@@ -104,7 +95,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__COPYRIGHT = 3;
+	int APPLICATION__COPYRIGHT = 2;
 
 	/**
 	 * The feature id for the '<em><b>License</b></em>' attribute.
@@ -113,7 +104,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__LICENSE = 4;
+	int APPLICATION__LICENSE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -122,7 +113,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__VERSION = 5;
+	int APPLICATION__VERSION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -131,7 +122,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DESCRIPTION = 6;
+	int APPLICATION__DESCRIPTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Base Namespace</b></em>' attribute.
@@ -140,7 +131,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__BASE_NAMESPACE = 7;
+	int APPLICATION__BASE_NAMESPACE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Maven Compilation</b></em>' attribute.
@@ -149,7 +140,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__MAVEN_COMPILATION = 8;
+	int APPLICATION__MAVEN_COMPILATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -158,7 +149,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PROJECTS = 9;
+	int APPLICATION__PROJECTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Generate Tests Bundle</b></em>' attribute.
@@ -167,7 +158,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__GENERATE_TESTS_BUNDLE = 10;
+	int APPLICATION__GENERATE_TESTS_BUNDLE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -176,7 +167,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 11;
+	int APPLICATION_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -2385,17 +2376,6 @@ public interface EclipsePackage extends EPackage {
 	EClass getApplication();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Application#getName()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getApplicationID <em>Application ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4276,14 +4256,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EClass APPLICATION = eINSTANCE.getApplication();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Application ID</b></em>' attribute feature.

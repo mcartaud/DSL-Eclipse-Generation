@@ -18,12 +18,16 @@ Contributors :
 [anApplication.baseNamespace/].[anApplication.applicationID/]
 [/template]
 
+[template public genApplicationName(anApplication : Application)]
+[anApplication.applicationID.substituteAll('.', '-')/]
+[/template]
+
 [template public genFeatureID(aFeature : Feature)]
 [aFeature.eContainer(Application).baseNamespace/].[aFeature.ID/]
 [/template]
 
 [template public genFeaturePath(aFeature : Feature)]
-[aFeature.eContainer(Application).name/]/features/[aFeature.genFeatureID()/]
+[aFeature.eContainer(Application).genApplicationName()/]/features/[aFeature.genFeatureID()/]
 [/template]
 
 [template public genRepositoryID(aRepository : Repository)]
@@ -31,7 +35,7 @@ Contributors :
 [/template]
 
 [template public genRepositoryPath(aRepository : Repository)]
-[aRepository.eContainer(Application).name/]/repositories/[aRepository.genRepositoryID()/]
+[aRepository.eContainer(Application).genApplicationName()/]/repositories/[aRepository.genRepositoryID()/]
 [/template]
 
 [template public genBundleID(aBundle : Bundle)]
@@ -39,11 +43,11 @@ Contributors :
 [/template]
 
 [template public genBundlePath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/plugins/[aBundle.genBundleID()/]
+[aBundle.eContainer(Application).genApplicationName()/]/plugins/[aBundle.genBundleID()/]
 [/template]
 
 [template public genBundleTestPath(aBundle : Bundle)]
-[aBundle.eContainer(Application).name/]/tests/[aBundle.genBundleID()/].tests
+[aBundle.eContainer(Application).genApplicationName()/]/tests/[aBundle.genBundleID()/].tests
 [/template]
 
 [template public genBundleJavaPath(aBundle : Bundle)]

@@ -29,7 +29,6 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getApplicationID <em>Application ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getCopyright <em>Copyright</em>}</li>
@@ -46,26 +45,6 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  * @generated
  */
 public class ApplicationImpl extends EObjectImpl implements Application {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getApplicationID() <em>Application ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -274,28 +253,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	protected EClass eStaticClass() {
 		return EclipsePackage.Literals.APPLICATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__NAME, oldName, name));
 	}
 
 	/**
@@ -545,8 +502,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__NAME:
-			return getName();
 		case EclipsePackage.APPLICATION__APPLICATION_ID:
 			return getApplicationID();
 		case EclipsePackage.APPLICATION__PROVIDER:
@@ -580,9 +535,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__NAME:
-			setName((String) newValue);
-			return;
 		case EclipsePackage.APPLICATION__APPLICATION_ID:
 			setApplicationID((String) newValue);
 			return;
@@ -626,9 +578,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case EclipsePackage.APPLICATION__APPLICATION_ID:
 			setApplicationID(APPLICATION_ID_EDEFAULT);
 			return;
@@ -671,9 +620,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
 		case EclipsePackage.APPLICATION__APPLICATION_ID:
 			return APPLICATION_ID_EDEFAULT == null ? applicationID != null
 					: !APPLICATION_ID_EDEFAULT.equals(applicationID);
@@ -716,9 +662,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", applicationID: ");
+		result.append(" (applicationID: ");
 		result.append(applicationID);
 		result.append(", provider: ");
 		result.append(provider);

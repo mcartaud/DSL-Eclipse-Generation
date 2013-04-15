@@ -13,14 +13,16 @@ Contributors :
 /]
 [module applicationReadMeTextileFile('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
 
 [template private applicationReadMeTextileFile(anApplication : Application)]
-[anApplication.name/]/README.textile
+[anApplication.genApplicationName()/]/README.textile
 [/template]
 
 [template public genApplicationReadMeTextileFile(anApplication : Application)]
 [file (applicationReadMeTextileFile(), false, 'UTF-8')]
-h1. Welcome to [anApplication.name.toUpperFirst()/] by [anApplication.provider/]
+h1. Welcome to [anApplication.genApplicationName().toUpperFirst()/] by [anApplication.provider/]
 
 [anApplication.description/]
 

@@ -44,7 +44,6 @@
     <genDataTypes ecoreDataType="eclipse.ecore#//JavaName"/>
     <genDataTypes ecoreDataType="eclipse.ecore#//Name"/>
     <genClasses ecoreClass="eclipse.ecore#//Application">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Application/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Application/applicationID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Application/provider"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Application/copyright"/>

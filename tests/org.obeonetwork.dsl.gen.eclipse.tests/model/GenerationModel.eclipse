@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eclipse:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse" name="Dsl2Eclipse" applicationID="dsl2eclipse" provider="Mathieu Cartaud" copyright="obeo" license="Eclipse Public License - v 1.0" version="1.0.0" description="Allow to generate all files for an Eclipse plugin" baseNamespace="org.obeonetwork.dsl.gen" mavenCompilation="true">
+<eclipse:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse" applicationID="dsl2eclipse" provider="Mathieu Cartaud" copyright="obeo" license="Eclipse Public License - v 1.0" version="1.0.0" description="Allow to generate all files for an Eclipse plugin" baseNamespace="org.obeonetwork.dsl.gen" mavenCompilation="true">
   <projects xsi:type="eclipse:Repository" name="repository" ID="eclipse.repository">
     <repositoryCategories label="Acceleo" description="This category contains all the projects for Dsl2Eclipse" ID="org.obeonetwork.acceleo.category" features="//@projects.1"/>
   </projects>

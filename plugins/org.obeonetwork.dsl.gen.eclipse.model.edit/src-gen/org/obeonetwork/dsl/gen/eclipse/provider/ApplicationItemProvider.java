@@ -57,7 +57,6 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addApplicationIDPropertyDescriptor(object);
 			addProviderPropertyDescriptor(object);
 			addCopyrightPropertyDescriptor(object);
@@ -69,27 +68,6 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 			addGenerateTestsBundlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Application_name_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Application_name_feature",
-								"_UI_Application_type"),
-						EclipsePackage.Literals.APPLICATION__NAME, true, false,
-						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null, null));
 	}
 
 	/**
@@ -314,11 +292,11 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated-NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Application) object).getName();
+		String label = ((Application) object).getApplicationID();
 		return label == null || label.length() == 0 ? getString("_UI_Application_type")
 				: getString("_UI_Application_type") + " " + label;
 	}
@@ -335,7 +313,6 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Application.class)) {
-		case EclipsePackage.APPLICATION__NAME:
 		case EclipsePackage.APPLICATION__APPLICATION_ID:
 		case EclipsePackage.APPLICATION__PROVIDER:
 		case EclipsePackage.APPLICATION__COPYRIGHT:

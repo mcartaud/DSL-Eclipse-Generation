@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getApplicationID <em>Application ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}</li>
@@ -33,32 +32,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Application extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Name()
-	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Application ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->

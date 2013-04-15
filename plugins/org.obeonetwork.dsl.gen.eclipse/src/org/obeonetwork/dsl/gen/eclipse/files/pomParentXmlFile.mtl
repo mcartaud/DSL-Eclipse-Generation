@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pomParentXmlFile(anApplication : Application)]
-[anApplication.name/]/pom.xml
+[anApplication.genApplicationName()/]/pom.xml
 [/template]
 
 [template public genPomParentXmlFile(anApplication : Application)]
