@@ -156,11 +156,11 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated-NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RepositoryCategory) object).getID();
+		String label = ((RepositoryCategory) object).getLabel();
 		return label == null || label.length() == 0 ? getString("_UI_RepositoryCategory_type")
 				: getString("_UI_RepositoryCategory_type") + " " + label;
 	}
