@@ -24,3 +24,5 @@ target/
 src-gen-test/
 
 src-gen-test-comp/
+
+testModel/

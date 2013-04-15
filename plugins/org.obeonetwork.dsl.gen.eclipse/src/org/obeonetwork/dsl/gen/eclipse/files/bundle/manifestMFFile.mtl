@@ -72,10 +72,12 @@ Service-Component: OSGI-INF/*.xml[/if]
 [/template]
 
 [template private importDeclaration(aBundle : Bundle)]
-[for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) separator(',' + aBundle.lineSeparator())]
- [anImportedpackage.genImportedPackageName()/][/for][if (aBundle.wizards->size() > 0 
-or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
-or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importRequired()/][/if]
+[if (aBundle.wizards->size() > 0 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 
+or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
+or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)][importRequired()/]
+[/if][for (anImportedpackage : ImportedPackageDeclaration | aBundle.importedPackageDeclarations) separator(',' + aBundle.lineSeparator())]
+ [anImportedpackage.genImportedPackageName()/]
+[/for]
 [/template]
 
 [template private importRequired(aBundle : Bundle)]
@@ -90,7 +92,5 @@ or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBund
 [/if][if (aBundle.eAllContents(Perspective)->size() > 0)],
  org.eclipse.ui.console,
  org.eclipse.jdt.ui
-[else]
-
-[/if]
+[/if][if (aBundle.importedPackageDeclarations.packageName->size() > 0)],[/if]
 [/template]
