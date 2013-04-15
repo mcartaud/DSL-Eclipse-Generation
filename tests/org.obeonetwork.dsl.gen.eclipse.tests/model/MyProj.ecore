@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="org" nsURI="machin" nsPrefix="org">
+  <eSubpackages name="obeonetwork" nsURI="test" nsPrefix="obeonetwork">
+    <eSubpackages name="dsl" nsURI="patate" nsPrefix="dsl">
+      <eSubpackages name="demo" nsURI="frite" nsPrefix="demo">
+        <eSubpackages name="project2" nsURI="project2" nsPrefix="project2">
+          <eSubpackages name="chouette" nsURI="chouette" nsPrefix="chouette">
+            <eClassifiers xsi:type="ecore:EClass" name="Interface2" abstract="true"
+                interface="true"/>
+            <eSubpackages name="chose" nsURI="chose" nsPrefix="chose">
+              <eClassifiers xsi:type="ecore:EClass" name="Implem2" eSuperTypes="#//obeonetwork/dsl/demo/project2/chouette/Interface2">
+                <eStructuralFeatures xsi:type="ecore:EReference" name="reference1"
+                    upperBound="-1" eType="ecore:EClass My.ecore#//obeonetwork/dsl/demo/project1/truc/Interface1"/>
+              </eClassifiers>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>

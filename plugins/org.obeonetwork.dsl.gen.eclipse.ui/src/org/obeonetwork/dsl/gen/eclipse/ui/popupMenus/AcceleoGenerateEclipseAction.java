@@ -12,41 +12,49 @@ package org.obeonetwork.dsl.gen.eclipse.ui.popupMenus;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceVisitor;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.obeonetwork.dsl.gen.eclipse.ui.Activator;
-import org.obeonetwork.dsl.gen.eclipse.ui.common.GenerateAll;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
+import org.obeonetwork.dsl.gen.eclipse.ui.Activator;
+import org.obeonetwork.dsl.gen.eclipse.ui.common.GenerateAll;
 
 /**
  * Eclipse code generation.
  */
-public class AcceleoGenerateEclipseAction extends ActionDelegate implements IActionDelegate {
-	
+public class AcceleoGenerateEclipseAction extends ActionDelegate implements
+		IActionDelegate {
+
 	/**
 	 * Selected model files.
 	 */
 	protected List<IFile> files;
 
-	/**{@inheritDoc}
-	 *
-	 * @see org.eclipse.ui.actions.ActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.ui.actions.ActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,
+	 *      org.eclipse.jface.viewers.ISelection)
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -56,10 +64,11 @@ public class AcceleoGenerateEclipseAction extends ActionDelegate implements IAct
 		}
 	}
 
-	/**{@inheritDoc}
-	 *
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.ui.actions.ActionDelegate#run(org.eclipse.jface.action.IAction)
-	 * @generated
+	 * @not-generated
 	 */
 	public void run(IAction action) {
 		if (files != null) {
@@ -68,32 +77,78 @@ public class AcceleoGenerateEclipseAction extends ActionDelegate implements IAct
 					try {
 						Iterator<IFile> filesIt = files.iterator();
 						while (filesIt.hasNext()) {
-							IFile model = (IFile)filesIt.next();
-							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+							IFile model = (IFile) filesIt.next();
+							URI modelURI = URI.createPlatformResourceURI(model
+									.getFullPath().toString(), true);
 							try {
-								IContainer target = model.getProject().getFolder("src-gen");
-								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
+								IContainer target = model.getProject()
+										.getFolder("src-gen");
+								GenerateAll generator = new GenerateAll(
+										modelURI, target, getArguments());
+
 								generator.doGenerate(monitor);
+
+								target.refreshLocal(IResource.DEPTH_INFINITE,
+										null);
+								final List<Path> generatedProjects = new ArrayList<Path>();
+								target.accept(new IResourceVisitor() {
+
+									public boolean visit(IResource resource)
+											throws CoreException {
+										if (".project".equals(resource
+												.getName())) {
+											generatedProjects
+													.add(new Path(resource
+															.getLocation()
+															.toPortableString()));
+											return false;
+										}
+										return true;
+									}
+								});
+
+								for (Path path : generatedProjects) {
+									IProjectDescription description = ResourcesPlugin
+											.getWorkspace()
+											.loadProjectDescription(path);
+									IProject project = ResourcesPlugin
+											.getWorkspace().getRoot()
+											.getProject(description.getName());
+									if (!project.exists()) {
+										project.create(description, null);
+										project.open(null);
+									} else {
+										project.refreshLocal(
+												IResource.DEPTH_INFINITE, null);
+									}
+								}
+
 							} catch (IOException e) {
-								IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+								IStatus status = new Status(IStatus.ERROR,
+										Activator.PLUGIN_ID, e.getMessage(), e);
 								Activator.getDefault().getLog().log(status);
 							} finally {
-								model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+								model.getProject().refreshLocal(
+										IResource.DEPTH_INFINITE, monitor);
 							}
 						}
 					} catch (CoreException e) {
-						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+						IStatus status = new Status(IStatus.ERROR,
+								Activator.PLUGIN_ID, e.getMessage(), e);
 						Activator.getDefault().getLog().log(status);
 					}
 				}
 			};
 			try {
-				PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
+				PlatformUI.getWorkbench().getProgressService()
+						.run(true, true, operation);
 			} catch (InvocationTargetException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID,
+						e.getMessage(), e);
 				Activator.getDefault().getLog().log(status);
 			} catch (InterruptedException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID,
+						e.getMessage(), e);
 				Activator.getDefault().getLog().log(status);
 			}
 		}
