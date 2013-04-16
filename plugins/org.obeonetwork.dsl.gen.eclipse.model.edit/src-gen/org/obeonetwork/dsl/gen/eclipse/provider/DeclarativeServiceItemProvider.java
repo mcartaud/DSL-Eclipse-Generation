@@ -59,7 +59,6 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 
 			addServiceClassNamePropertyDescriptor(object);
 			addDelegatorClassPropertyDescriptor(object);
-			addServiceClassPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,27 +102,6 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 						"_UI_DeclarativeService_type"),
 				EclipsePackage.Literals.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
 				true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Service Class Package feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addServiceClassPackagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_DeclarativeService_serviceClassPackage_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_DeclarativeService_serviceClassPackage_feature",
-								"_UI_DeclarativeService_type"),
-						EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE,
-						true, false, true, null, null, null));
 	}
 
 	/**

@@ -29,7 +29,9 @@ Bundle-SymbolicName: [aBundle.genBundleID()/];singleton:=true
 Bundle-Version: [aBundle.bundleVersion()/]
 Bundle-Vendor: %Provider-Name
 Bundle-ClassPath: .
-Bundle-ActivationPolicy: lazy
+[if (aBundle.declarativeServices->size() > 0)]
+Service-Component: OSGI-INF/*.xml
+[/if]Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 [if (aBundle.wizards->size() > 0 or aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.views->size() > 0 
 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0 or aBundle.commands->size() > 0 
@@ -41,10 +43,8 @@ or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)]Bun
 [/if]Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport[if (aBundle.importedPackageDeclarations->size() > 0 or aBundle.wizards->size() > 0 
 or aBundle.views->size() > 0 or aBundle.editors->size() > 0 or aBundle.perspectives->size() > 0 or aBundle.views.handlers->size() > 0
 or aBundle.commands->size() > 0 or aBundle.editors.handlers->size() > 0 or aBundle.helpContents->size() > 0)],
-[importDeclaration()/][else]
+[importDeclaration()/]
 [/if]
-[if (aBundle.declarativeServices->size() > 0)]
-Service-Component: OSGI-INF/*.xml[/if]
 
 [/file]
 [/template]

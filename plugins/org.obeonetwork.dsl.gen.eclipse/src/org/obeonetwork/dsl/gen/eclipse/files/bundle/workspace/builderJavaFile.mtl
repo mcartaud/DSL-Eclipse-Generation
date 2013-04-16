@@ -16,12 +16,12 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private builderJavaFile(aBuilder : Builder)]
-[aBuilder.eContainer(Bundle).genBundleJavaPath()/]/builder/[aBuilder.name.toUpperFirst()/].java
+[aBuilder.eContainer(Bundle).genBundleJavaPath()/]/builders/[aBuilder.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genBuilderJavaFile(aBuilder : Builder)]
 [file (builderJavaFile(), false, 'UTF-8')]
-package [aBuilder.ancestors(Bundle).genBundleID()/].builder;
+package [aBuilder.ancestors(Bundle).genBundleID()/].builders;
 
 import java.util.Map;
 
@@ -30,12 +30,12 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-public class [aBuilder.name.toUpperFirst()/] extends IncrementalProjectBuilder { 
+public abstract class [aBuilder.name.replaceAll(' ', '_').toUpperFirst()/] extends IncrementalProjectBuilder { 
 
 	/**
 	 * The ID of the builder.
 	 */
-	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).genBundleID()/].[aBuilder.name.toLowerFirst()/]";
+	public static final String BUILDER_ID = "[aBuilder.ancestors(Bundle).genBundleID()/].[aBuilder.name.replaceAll(' ', '_').toLowerFirst()/]";
 
 	/**
 	 * {@inheritDoc}

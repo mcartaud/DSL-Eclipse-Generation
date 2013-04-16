@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
+import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
@@ -98,7 +99,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQUIRED_ENVIRONMENT_EDEFAULT = null;
+	protected static final JavaVersion REQUIRED_ENVIRONMENT_EDEFAULT = JavaVersion.JAVA_SE15;
 
 	/**
 	 * The cached value of the '{@link #getRequiredEnvironment() <em>Required Environment</em>}' attribute.
@@ -108,7 +109,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @generated
 	 * @ordered
 	 */
-	protected String requiredEnvironment = REQUIRED_ENVIRONMENT_EDEFAULT;
+	protected JavaVersion requiredEnvironment = REQUIRED_ENVIRONMENT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
@@ -366,7 +367,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRequiredEnvironment() {
+	public JavaVersion getRequiredEnvironment() {
 		return requiredEnvironment;
 	}
 
@@ -375,9 +376,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredEnvironment(String newRequiredEnvironment) {
-		String oldRequiredEnvironment = requiredEnvironment;
-		requiredEnvironment = newRequiredEnvironment;
+	public void setRequiredEnvironment(JavaVersion newRequiredEnvironment) {
+		JavaVersion oldRequiredEnvironment = requiredEnvironment;
+		requiredEnvironment = newRequiredEnvironment == null ? REQUIRED_ENVIRONMENT_EDEFAULT
+				: newRequiredEnvironment;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT,
@@ -803,7 +805,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			setVersion((String) newValue);
 			return;
 		case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
-			setRequiredEnvironment((String) newValue);
+			setRequiredEnvironment((JavaVersion) newValue);
 			return;
 		case EclipsePackage.BUNDLE__VENDOR:
 			setVendor((String) newValue);
@@ -995,9 +997,7 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			return VERSION_EDEFAULT == null ? version != null
 					: !VERSION_EDEFAULT.equals(version);
 		case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
-			return REQUIRED_ENVIRONMENT_EDEFAULT == null ? requiredEnvironment != null
-					: !REQUIRED_ENVIRONMENT_EDEFAULT
-							.equals(requiredEnvironment);
+			return requiredEnvironment != REQUIRED_ENVIRONMENT_EDEFAULT;
 		case EclipsePackage.BUNDLE__VENDOR:
 			return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT
 					.equals(vendor);

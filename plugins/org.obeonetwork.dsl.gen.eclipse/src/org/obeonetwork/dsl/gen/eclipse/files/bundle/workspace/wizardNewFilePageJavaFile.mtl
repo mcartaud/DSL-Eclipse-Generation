@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private wizardNewFilePageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.toUpperFirst()/]FilePage.java
+[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage.java
 [/template]
 
 [template public genWizardNewFilePageJavaFile(aWizard : Wizard)]
@@ -26,9 +26,9 @@ package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-public class [aWizard.name.toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
+public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
 
-	public [aWizard.name.toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
+	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
 		super(pageName, selection);
 	}
 }

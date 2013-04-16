@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.HelpPage;
 import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
+import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
 import org.obeonetwork.dsl.gen.eclipse.Location;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
 import org.obeonetwork.dsl.gen.eclipse.Menu;
@@ -272,6 +273,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EClass bindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum javaVersionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -893,16 +901,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	public EReference getDeclarativeService_RequiredServices() {
 		return (EReference) declarativeServiceEClass.getEStructuralFeatures()
 				.get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDeclarativeService_ServiceClassPackage() {
-		return (EReference) declarativeServiceEClass.getEStructuralFeatures()
-				.get(4);
 	}
 
 	/**
@@ -1898,6 +1896,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getJavaVersion() {
+		return javaVersionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getType() {
 		return typeEEnum;
 	}
@@ -2044,8 +2051,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				DECLARATIVE_SERVICE__PROVIDED_SERVICES);
 		createEReference(declarativeServiceEClass,
 				DECLARATIVE_SERVICE__REQUIRED_SERVICES);
-		createEReference(declarativeServiceEClass,
-				DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE);
 
 		providedServiceEClass = createEClass(PROVIDED_SERVICE);
 		createEReference(providedServiceEClass, PROVIDED_SERVICE__INTERFACE);
@@ -2183,6 +2188,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bindingEClass, BINDING__CONTEXTS);
 
 		// Create enums
+		javaVersionEEnum = createEEnum(JAVA_VERSION);
 		typeEEnum = createEEnum(TYPE);
 		locationEEnum = createEEnum(LOCATION);
 
@@ -2323,11 +2329,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeature_Copyright(), theEcorePackage.getEString(),
-				"copyright", null, 0, 1, Feature.class, !IS_TRANSIENT,
+				"copyright", null, 1, 1, Feature.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Description(), theEcorePackage.getEString(),
-				"description", null, 0, 1, Feature.class, !IS_TRANSIENT,
+				"description", null, 1, 1, Feature.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Version(), this.getVersion(), "version",
@@ -2335,7 +2341,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getFeature_License(), theEcorePackage.getEString(),
-				"license", null, 0, 1, Feature.class, !IS_TRANSIENT,
+				"license", null, 1, 1, Feature.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Provider(), theEcorePackage.getEString(),
@@ -2352,10 +2358,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEAttribute(getBundle_Version(), this.getVersion(), "version", null,
 				0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBundle_RequiredEnvironment(),
-				theEcorePackage.getEString(), "requiredEnvironment", null, 0,
-				1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBundle_RequiredEnvironment(), this.getJavaVersion(),
+				"requiredEnvironment", "", 0, 1, Bundle.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundle_Vendor(), theEcorePackage.getEString(),
 				"vendor", null, 0, 1, Bundle.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
@@ -2465,12 +2471,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				-1, DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeclarativeService_ServiceClassPackage(),
-				theGenModelPackage.getGenPackage(), null,
-				"serviceClassPackage", null, 1, 1, DeclarativeService.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(providedServiceEClass, ProvidedService.class,
 				"ProvidedService", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2899,6 +2899,12 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(javaVersionEEnum, JavaVersion.class, "JavaVersion");
+		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE15);
+		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE14);
+		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE16);
+		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE17);
+
 		initEEnum(typeEEnum, Type.class, "Type");
 		addEEnumLiteral(typeEEnum, Type.STRING);
 		addEEnumLiteral(typeEEnum, Type.BOOLEAN);
@@ -2912,7 +2918,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		addEEnumLiteral(locationEEnum, Location.TOP_RIGHT);
 		addEEnumLiteral(locationEEnum, Location.TOP_LEFT);
 		addEEnumLiteral(locationEEnum, Location.UNDERLAY);
-		addEEnumLiteral(locationEEnum, Location.BLANK);
+		addEEnumLiteral(locationEEnum, Location.REPLACE);
 
 		// Initialize data types
 		initEDataType(versionEDataType, String.class, "Version",

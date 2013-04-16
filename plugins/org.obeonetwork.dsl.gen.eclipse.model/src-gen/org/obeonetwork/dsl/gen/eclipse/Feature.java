@@ -37,7 +37,7 @@ public interface Feature extends Project {
 	 * @return the value of the '<em>Copyright</em>' attribute.
 	 * @see #setCopyright(String)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Copyright()
-	 * @model unique="false"
+	 * @model unique="false" required="true"
 	 * @generated
 	 */
 	String getCopyright();
@@ -63,7 +63,7 @@ public interface Feature extends Project {
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Description()
-	 * @model unique="false"
+	 * @model unique="false" required="true"
 	 * @generated
 	 */
 	String getDescription();
@@ -115,7 +115,7 @@ public interface Feature extends Project {
 	 * @return the value of the '<em>License</em>' attribute.
 	 * @see #setLicense(String)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_License()
-	 * @model unique="false"
+	 * @model unique="false" required="true"
 	 * @generated
 	 */
 	String getLicense();

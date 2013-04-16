@@ -16,12 +16,12 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private natureJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundleJavaPath()/]/nature/[aNature.name.toUpperFirst()/].java
+[aNature.eContainer(Bundle).genBundleJavaPath()/]/natures/[aNature.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genNatureJavaFile(aNature : Nature)]
 [file (natureJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).genBundleID()/].nature;
+package [aNature.ancestors(Bundle).genBundleID()/].natures;
 
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
@@ -29,15 +29,15 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 [for (aBuilder : Builder | aNature.builders)]
-import [aBuilder.ancestors(Bundle).genBundleID()/].builder.[aNature.builders.name.toUpperFirst()/];
+import [aBuilder.ancestors(Bundle).genBundleID()/].builders.[aNature.builders.name.replaceAll(' ', '_').toUpperFirst()/];
 [/for]
 
-public class [aNature.name.toUpperFirst()/] implements IProjectNature {
+public class [aNature.name.replaceAll(' ', '_').toUpperFirst()/] implements IProjectNature {
 
 	/**
 	 * ID of this project nature
 	 */
-	public static final String NATURE_ID = "[aNature.ancestors(Bundle).genBundleID()/].[aNature.name.toLowerFirst()/]";
+	public static final String NATURE_ID = "[aNature.ancestors(Bundle).genBundleID()/].[aNature.name.replaceAll(' ', '_').toLowerFirst()/]";
 
 	private IProject project;
 
@@ -52,7 +52,7 @@ public class [aNature.name.toUpperFirst()/] implements IProjectNature {
 		ICommand['['/]] commands = desc.getBuildSpec();
 
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.toUpperFirst()/].BUILDER_ID)) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.replaceAll(' ', '_').toUpperFirst()/].BUILDER_ID)) {
 				return;
 			}
 		}
@@ -60,7 +60,7 @@ public class [aNature.name.toUpperFirst()/] implements IProjectNature {
 		ICommand['['/]] newCommands = new ICommand['['/]commands.length + 1];
 		System.arraycopy(commands, 0, newCommands, 0, commands.length);
 		ICommand command = desc.newCommand();
-		command.setBuilderName([aNature.builders.name.toUpperFirst()/].BUILDER_ID);
+		command.setBuilderName([aNature.builders.name.replaceAll(' ', '_').toUpperFirst()/].BUILDER_ID);
 		newCommands['['/]newCommands.length - 1] = command;
 		desc.setBuildSpec(newCommands);
 		project.setDescription(desc, null);
@@ -77,7 +77,7 @@ public class [aNature.name.toUpperFirst()/] implements IProjectNature {
 		IProjectDescription description = getProject().getDescription();
 		ICommand['['/]] commands = description.getBuildSpec();
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.toUpperFirst()/].BUILDER_ID)) {
+			if (commands['['/]i].getBuilderName().equals([aNature.builders.name.replaceAll(' ', '_').toUpperFirst()/].BUILDER_ID)) {
 				ICommand['['/]] newCommands = new ICommand['['/]commands.length - 1];
 				System.arraycopy(commands, 0, newCommands, 0, i);
 				System.arraycopy(commands, i + 1, newCommands, i,

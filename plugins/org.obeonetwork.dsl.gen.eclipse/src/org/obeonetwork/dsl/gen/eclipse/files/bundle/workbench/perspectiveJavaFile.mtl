@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private perspectiveJavaFile(aPerspective : Perspective)]
-[aPerspective.eContainer(Bundle).genBundleJavaPath()/]/perspectives/[aPerspective.name.replaceAll(' ', '').toUpperFirst()/].java
+[aPerspective.eContainer(Bundle).genBundleJavaPath()/]/perspectives/[aPerspective.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genPerspectiveJavaFile(aPerspective : Perspective)]
@@ -34,13 +34,13 @@ import org.eclipse.ui.IPerspectiveFactory;
  *  referred to as API constants while others are hardcoded and may be subject 
  *  to change. 
  */
-public class [aPerspective.name.replaceAll(' ', '').toUpperFirst()/] implements IPerspectiveFactory {
+public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements IPerspectiveFactory {
 
 
 	/**
 	 * Constructor.
 	 */
-	public [aPerspective.name.replaceAll(' ', '').toUpperFirst()/]() {
+	public [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
 	}
 

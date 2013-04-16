@@ -219,7 +219,7 @@ Contributors :
 [/template]
 
 [template public genExtensionName(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '').substitute('Extension', '')/]
+[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '_').substitute('Extension', '')/]
 [/template]
 
 [query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
@@ -231,7 +231,7 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [/template]
 
 [template public genServicePackageName(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.serviceClassPackage.basePackage/].[aDeclarativeService.serviceClassPackage.ecorePackage.name/]
+[aDeclarativeService.ancestors(Bundle).genBundleID()/].services
 [/template]
 
 [template public genServicePackagePath(aDeclarativeService : DeclarativeService)]

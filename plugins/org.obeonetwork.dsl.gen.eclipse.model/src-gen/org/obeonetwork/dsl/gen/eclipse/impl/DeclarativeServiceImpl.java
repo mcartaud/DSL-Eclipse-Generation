@@ -5,21 +5,15 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
-import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
@@ -36,7 +30,6 @@ import org.obeonetwork.dsl.gen.eclipse.RequiredService;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getDelegatorClass <em>Delegator Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getRequiredServices <em>Required Services</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl#getServiceClassPackage <em>Service Class Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,16 +86,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * @ordered
 	 */
 	protected EList<RequiredService> requiredServices;
-
-	/**
-	 * The cached value of the '{@link #getServiceClassPackage() <em>Service Class Package</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceClassPackage()
-	 * @generated
-	 * @ordered
-	 */
-	protected GenPackage serviceClassPackage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,50 +206,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GenPackage getServiceClassPackage() {
-		if (serviceClassPackage != null && serviceClassPackage.eIsProxy()) {
-			InternalEObject oldServiceClassPackage = (InternalEObject) serviceClassPackage;
-			serviceClassPackage = (GenPackage) eResolveProxy(oldServiceClassPackage);
-			if (serviceClassPackage != oldServiceClassPackage) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(
-							this,
-							Notification.RESOLVE,
-							EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE,
-							oldServiceClassPackage, serviceClassPackage));
-			}
-		}
-		return serviceClassPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GenPackage basicGetServiceClassPackage() {
-		return serviceClassPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceClassPackage(GenPackage newServiceClassPackage) {
-		GenPackage oldServiceClassPackage = serviceClassPackage;
-		serviceClassPackage = newServiceClassPackage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE,
-					oldServiceClassPackage, serviceClassPackage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -299,10 +238,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 			return getProvidedServices();
 		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
 			return getRequiredServices();
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE:
-			if (resolve)
-				return getServiceClassPackage();
-			return basicGetServiceClassPackage();
 		}
 		return eDynamicGet(featureID, resolve, coreType);
 	}
@@ -332,9 +267,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 			getRequiredServices().addAll(
 					(Collection<? extends RequiredService>) newValue);
 			return;
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE:
-			setServiceClassPackage((GenPackage) newValue);
-			return;
 		}
 		eDynamicSet(featureID, newValue);
 	}
@@ -359,9 +291,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
 			getRequiredServices().clear();
 			return;
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE:
-			setServiceClassPackage((GenPackage) null);
-			return;
 		}
 		eDynamicUnset(featureID);
 	}
@@ -383,8 +312,6 @@ public class DeclarativeServiceImpl extends EObjectImpl implements
 			return providedServices != null && !providedServices.isEmpty();
 		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
 			return requiredServices != null && !requiredServices.isEmpty();
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE:
-			return serviceClassPackage != null;
 		}
 		return eDynamicIsSet(featureID);
 	}

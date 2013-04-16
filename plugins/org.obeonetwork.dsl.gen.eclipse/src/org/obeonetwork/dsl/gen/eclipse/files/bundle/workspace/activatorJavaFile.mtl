@@ -27,8 +27,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 [if (aBundle.extensionPoints->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;[/if]
-[for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
+import org.eclipse.core.runtime.Platform;
+[/if][for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]

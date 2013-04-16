@@ -24,6 +24,12 @@
   <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
   <genPackages prefix="Eclipse" basePackage="org.obeonetwork.dsl.gen" disposableProviderFactory="true"
       ecorePackage="eclipse.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//JavaVersion">
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE15"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE14"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE16"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE17"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//Type">
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Type/string"/>
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Type/boolean"/>
@@ -32,12 +38,12 @@
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Type/identifier"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//Location">
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/BottomRight"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/BottomLeft"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/TopRight"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/TopLeft"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/Underlay"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/Blank"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/BOTTOM_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/BOTTOM_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/TOP_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/TOP_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/UNDERLAY"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/REPLACE"/>
     </genEnums>
     <genDataTypes ecoreDataType="eclipse.ecore#//Version"/>
     <genDataTypes ecoreDataType="eclipse.ecore#//Namespace"/>
@@ -105,7 +111,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/delegatorClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/providedServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/requiredServices"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/serviceClassPackage"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//ProvidedService">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ProvidedService/interface"/>

@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private newWizardJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.toUpperFirst()/].java
+[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public gennewWizardJavaFile(aWizard : Wizard)]
@@ -35,7 +35,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 [for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
-import [aWizard.ancestors(Bundle).genBundleID()/].nature.[aNature.name.toUpperFirst()/];
+import [aWizard.ancestors(Bundle).genBundleID()/].natures.[aNature.name.replaceAll(' ', '_').toUpperFirst()/];
 [/if][/for][if (aWizard.oclIsKindOf(ProjectWizard))]
 import org.eclipse.core.resources.IProject;
 [else]
@@ -45,16 +45,16 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.resources.IFile;
 [/if]
 
-public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard{
+public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard implements INewWizard{
 
 [if (aWizard.oclIsKindOf(ProjectWizard))]
-	private [aWizard.name.toUpperFirst()/]ProjectPage [aWizard.name.toLowerFirst()/]ProjectPage;
+	private [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage [aWizard.name.replaceAll(' ', '_').toLowerFirst()/]ProjectPage;
 [else]
-	private [aWizard.name.toUpperFirst()/]FilePage [aWizard.name.toLowerFirst()/]FilePage;
+	private [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage [aWizard.name.replaceAll(' ', '_').toLowerFirst()/]FilePage;
 	private IStructuredSelection selection;
 [/if]
 
-	public [aWizard.name.toUpperFirst()/]() {
+	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();		
 		setNeedsProgressMonitor(true);
 		setWindowTitle("[aWizard.title/]");
@@ -63,22 +63,22 @@ public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard
 	@Override
 	public void addPages() {
 [if (aWizard.oclIsKindOf(ProjectWizard))]
-		[aWizard.name.toLowerFirst()/]ProjectPage = new [aWizard.name.toUpperFirst()/]ProjectPage();
-		addPage([aWizard.name.toLowerFirst()/]ProjectPage);
+		[aWizard.name.replaceAll(' ', '_').toLowerFirst()/]ProjectPage = new [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage();
+		addPage([aWizard.name.replaceAll(' ', '_').toLowerFirst()/]ProjectPage);
 [else]
-		[aWizard.name.toLowerFirst()/]FilePage = new [aWizard.name.toUpperFirst()/]FilePage("[aWizard.title/]" , selection);
-		addPage([aWizard.name.toLowerFirst()/]FilePage);
+		[aWizard.name.replaceAll(' ', '_').toLowerFirst()/]FilePage = new [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage("[aWizard.title/]" , selection);
+		addPage([aWizard.name.replaceAll(' ', '_').toLowerFirst()/]FilePage);
 [/if]	
 	}
 
 	@Override
 	public boolean performFinish() {
 [if (aWizard.oclIsKindOf(ProjectWizard))]
-		String projectName = [aWizard.name.toLowerFirst()/]ProjectPage.getProjectName();
+		String projectName = [aWizard.name.replaceAll(' ', '_').toLowerFirst()/]ProjectPage.getProjectName();
 		final IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		if (!project.exists()) {
 [else]
-		IPath filePath = [aWizard.name.toLowerFirst()/]FilePage.getContainerFullPath();
+		IPath filePath = [aWizard.name.replaceAll(' ', '_').toLowerFirst()/]FilePage.getContainerFullPath();
 		final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(filePath);
 		if (!file.exists()) {
 [/if]	
@@ -87,9 +87,9 @@ public class [aWizard.name.toUpperFirst()/] extends Wizard implements INewWizard
 				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 					try {
 						[for (aNature : Nature | aWizard.ancestors(Bundle).natures)][if (aWizard.oclIsKindOf(ProjectWizard))]
-						[aNature.name.toUpperFirst()/] [aNature.name.toLowerFirst()/] = new [aNature.name.toUpperFirst()/]();
-						[aNature.name.toLowerFirst()/].setProject(project);
-						[aNature.name.toLowerFirst()/].configure();[/if][/for]
+						[aNature.name.replaceAll(' ', '_').toUpperFirst()/] [aNature.name.replaceAll(' ', '_').toLowerFirst()/] = new [aNature.name.replaceAll(' ', '_').toUpperFirst()/]();
+						[aNature.name.replaceAll(' ', '_').toLowerFirst()/].setProject(project);
+						[aNature.name.replaceAll(' ', '_').toLowerFirst()/].configure();[/if][/for]
 
 						[if (aWizard.oclIsKindOf(ProjectWizard))]	
 						project.create(monitor);

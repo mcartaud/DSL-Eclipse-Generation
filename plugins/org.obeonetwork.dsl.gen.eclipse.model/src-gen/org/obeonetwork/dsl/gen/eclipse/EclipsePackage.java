@@ -734,22 +734,13 @@ public interface EclipsePackage extends EPackage {
 	int DECLARATIVE_SERVICE__REQUIRED_SERVICES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Service Class Package</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE = 4;
-
-	/**
 	 * The number of structural features of the '<em>Declarative Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATIVE_SERVICE_FEATURE_COUNT = 5;
+	int DECLARATIVE_SERVICE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Declarative Service</em>' class.
@@ -2306,6 +2297,16 @@ public interface EclipsePackage extends EPackage {
 	int BINDING_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaVersion
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
+	 * @generated
+	 */
+	int JAVA_VERSION = 31;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2313,7 +2314,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 31;
+	int TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2323,7 +2324,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 32;
+	int LOCATION = 33;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2333,7 +2334,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 33;
+	int VERSION = 34;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2343,7 +2344,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 34;
+	int NAMESPACE = 35;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2353,7 +2354,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 35;
+	int JAVA_NAME = 36;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2363,7 +2364,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 36;
+	int NAME = 37;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Application <em>Application</em>}'.
@@ -2973,17 +2974,6 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeclarativeService_RequiredServices();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Service Class Package</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage()
-	 * @see #getDeclarativeService()
-	 * @generated
-	 */
-	EReference getDeclarativeService_ServiceClassPackage();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
@@ -4161,6 +4151,16 @@ public interface EclipsePackage extends EPackage {
 	EReference getBinding_Contexts();
 
 	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Java Version</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaVersion
+	 * @generated
+	 */
+	EEnum getJavaVersion();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4728,15 +4728,6 @@ public interface EclipsePackage extends EPackage {
 		 */
 		EReference DECLARATIVE_SERVICE__REQUIRED_SERVICES = eINSTANCE
 				.getDeclarativeService_RequiredServices();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Class Package</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DECLARATIVE_SERVICE__SERVICE_CLASS_PACKAGE = eINSTANCE
-				.getDeclarativeService_ServiceClassPackage();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -5677,6 +5668,16 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINDING__CONTEXTS = eINSTANCE.getBinding_Contexts();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.JavaVersion
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
+		 * @generated
+		 */
+		EEnum JAVA_VERSION = eINSTANCE.getJavaVersion();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.

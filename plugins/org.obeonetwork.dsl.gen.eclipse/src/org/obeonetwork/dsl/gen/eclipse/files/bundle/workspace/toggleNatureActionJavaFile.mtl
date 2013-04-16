@@ -16,12 +16,12 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private toggleNatureActionJavaFile(aNature : Nature)]
-[aNature.eContainer(Bundle).genBundleJavaPath()/]/nature/Toggle[aNature.name.toUpperFirst()/]Action.java
+[aNature.eContainer(Bundle).genBundleJavaPath()/]/natures/Toggle[aNature.name.toUpperFirst()/]Action.java
 [/template]
 
 [template public genToggleNatureActionJavaFile(aNature : Nature)]
 [file (toggleNatureActionJavaFile(), false, 'UTF-8')]
-package [aNature.ancestors(Bundle).genBundleID()/].nature;
+package [aNature.ancestors(Bundle).genBundleID()/].natures;
 
 import java.util.Iterator;
 

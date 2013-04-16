@@ -26,15 +26,15 @@ Contributors :
 
 <toc label="[anHelpContent.label/]" topic="help/html/[anHelpContent.refactorHelpLabel()/].html">
 [for (anHelpPage : HelpPage | anHelpContent.helpPages)]
-	<topic label="[anHelpPage.label/]"  href="help/html/[anHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html">  
+	<topic label="[anHelpPage.label/]"  href="help/html/[anHelpPage.label.substituteAll(' ', '_').toLowerFirst()/].html">  
 [for (anExternalHelpPage : HelpPage | anHelpPage.externalHelpPages)]
-		<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
+		<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/html/[anExternalHelpPage.label.substituteAll(' ', '_').toLowerFirst()/].html"/>
 [/for][for (aSubHelpPage : HelpPage | anHelpPage.helpPages)]
 [aSubHelpPage.subHelpPage()/]
 [/for]
 	</topic>
 [/for][for (anExternalHelpPage : HelpPage | anHelpContent.externalHelpPages)]
-	<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/help/html/[anExternalHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html"/>
+	<topic label="[anExternalHelpPage.label/]"  href="PLUGINS_ROOT/[anExternalHelpPage.eContainer(Bundle).genBundleID()/]/help/html/[anExternalHelpPage.label.substituteAll(' ', '_').toLowerFirst()/].html"/>
 [/for]
 </toc>
 [/file]

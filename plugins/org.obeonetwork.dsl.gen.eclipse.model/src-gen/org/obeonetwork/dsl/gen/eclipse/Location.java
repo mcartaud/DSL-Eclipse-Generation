@@ -19,67 +19,67 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Location implements Enumerator {
 	/**
-	 * The '<em><b>Bottom Right</b></em>' literal object.
+	 * The '<em><b>BOTTOM RIGHT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #BOTTOM_RIGHT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BOTTOM_RIGHT(0, "BottomRight", "BottomRight"),
+	BOTTOM_RIGHT(0, "BOTTOM_RIGHT", "BOTTOM_RIGHT"),
 
 	/**
-	 * The '<em><b>Bottom Left</b></em>' literal object.
+	 * The '<em><b>BOTTOM LEFT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #BOTTOM_LEFT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BOTTOM_LEFT(0, "BottomLeft", "BottomLeft"),
+	BOTTOM_LEFT(0, "BOTTOM_LEFT", "BOTTOM_LEFT"),
 
 	/**
-	 * The '<em><b>Top Right</b></em>' literal object.
+	 * The '<em><b>TOP RIGHT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #TOP_RIGHT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TOP_RIGHT(0, "TopRight", "TopRight"),
+	TOP_RIGHT(0, "TOP_RIGHT", "TOP_RIGHT"),
 
 	/**
-	 * The '<em><b>Top Left</b></em>' literal object.
+	 * The '<em><b>TOP LEFT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #TOP_LEFT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TOP_LEFT(0, "TopLeft", "TopLeft"),
+	TOP_LEFT(0, "TOP_LEFT", "TOP_LEFT"),
 
 	/**
-	 * The '<em><b>Underlay</b></em>' literal object.
+	 * The '<em><b>UNDERLAY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #UNDERLAY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	UNDERLAY(0, "Underlay", "Underlay"),
+	UNDERLAY(0, "UNDERLAY", "UNDERLAY"),
 
 	/**
-	 * The '<em><b>Blank</b></em>' literal object.
+	 * The '<em><b>REPLACE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BLANK_VALUE
+	 * @see #REPLACE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BLANK(0, "Blank", "Blank");
+	REPLACE(0, "REPLACE", "REPLACE");
 
 	/**
-	 * The '<em><b>Bottom Right</b></em>' literal value.
+	 * The '<em><b>BOTTOM RIGHT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Bottom Right</b></em>' literal object isn't clear,
@@ -87,14 +87,14 @@ public enum Location implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BOTTOM_RIGHT
-	 * @model name="BottomRight"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
 	public static final int BOTTOM_RIGHT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Bottom Left</b></em>' literal value.
+	 * The '<em><b>BOTTOM LEFT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Bottom Left</b></em>' literal object isn't clear,
@@ -102,14 +102,14 @@ public enum Location implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #BOTTOM_LEFT
-	 * @model name="BottomLeft"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
 	public static final int BOTTOM_LEFT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Top Right</b></em>' literal value.
+	 * The '<em><b>TOP RIGHT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Top Right</b></em>' literal object isn't clear,
@@ -117,14 +117,14 @@ public enum Location implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TOP_RIGHT
-	 * @model name="TopRight"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
 	public static final int TOP_RIGHT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Top Left</b></em>' literal value.
+	 * The '<em><b>TOP LEFT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Top Left</b></em>' literal object isn't clear,
@@ -132,14 +132,14 @@ public enum Location implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TOP_LEFT
-	 * @model name="TopLeft"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
 	public static final int TOP_LEFT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Underlay</b></em>' literal value.
+	 * The '<em><b>UNDERLAY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Underlay</b></em>' literal object isn't clear,
@@ -147,26 +147,26 @@ public enum Location implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #UNDERLAY
-	 * @model name="Underlay"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
 	public static final int UNDERLAY_VALUE = 0;
 
 	/**
-	 * The '<em><b>Blank</b></em>' literal value.
+	 * The '<em><b>REPLACE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Blank</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>REPLACE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BLANK
-	 * @model name="Blank"
+	 * @see #REPLACE
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BLANK_VALUE = 0;
+	public static final int REPLACE_VALUE = 0;
 
 	/**
 	 * An array of all the '<em><b>Location</b></em>' enumerators.
@@ -175,7 +175,7 @@ public enum Location implements Enumerator {
 	 * @generated
 	 */
 	private static final Location[] VALUES_ARRAY = new Location[] {
-			BOTTOM_RIGHT, BOTTOM_LEFT, TOP_RIGHT, TOP_LEFT, UNDERLAY, BLANK, };
+			BOTTOM_RIGHT, BOTTOM_LEFT, TOP_RIGHT, TOP_LEFT, UNDERLAY, REPLACE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Location</b></em>' enumerators.

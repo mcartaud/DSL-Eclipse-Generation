@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.gen.eclipse.*;
 import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
@@ -160,6 +161,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case EclipsePackage.JAVA_VERSION:
+			return createJavaVersionFromString(eDataType, initialValue);
 		case EclipsePackage.TYPE:
 			return createTypeFromString(eDataType, initialValue);
 		case EclipsePackage.LOCATION:
@@ -186,6 +189,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case EclipsePackage.JAVA_VERSION:
+			return convertJavaVersionToString(eDataType, instanceValue);
 		case EclipsePackage.TYPE:
 			return convertTypeToString(eDataType, instanceValue);
 		case EclipsePackage.LOCATION:
@@ -492,6 +497,31 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	public Binding createBinding() {
 		BindingImpl binding = new BindingImpl();
 		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaVersion createJavaVersionFromString(EDataType eDataType,
+			String initialValue) {
+		JavaVersion result = JavaVersion.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJavaVersionToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

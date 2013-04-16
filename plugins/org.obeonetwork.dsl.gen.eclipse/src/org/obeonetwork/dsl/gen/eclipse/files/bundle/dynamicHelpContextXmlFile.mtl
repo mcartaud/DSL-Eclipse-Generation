@@ -22,10 +22,10 @@ Contributors :
 [template public genDynamicHelpContextXmlFile(aDynamicHelp : DynamicHelp)]
 [file (dynamicHelpContextXmlFile(), false, 'UTF-8')]
 <contexts>
-	<context id="dynamic[aDynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]" title="[aDynamicHelp.label/]">
+	<context id="dynamic[aDynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]" title="[aDynamicHelp.label/]">
 		<description>[aDynamicHelp.description/]</description>
 [for (anHelpPage : HelpPage | aDynamicHelp.helpPages)]
-		<topic href="help/html/[anHelpPage.label.substituteAll(' ', '').toLowerFirst()/].html" label="[anHelpPage.label/]">
+		<topic href="help/html/[anHelpPage.label.substituteAll(' ', '_').toLowerFirst()/].html" label="[anHelpPage.label/]">
 			<enablement>
 				<with variable="platform">
 	            	<test property="org.eclipse.core.runtime.isBundleInstalled" args="org.eclipse.platform.doc.isv"/>

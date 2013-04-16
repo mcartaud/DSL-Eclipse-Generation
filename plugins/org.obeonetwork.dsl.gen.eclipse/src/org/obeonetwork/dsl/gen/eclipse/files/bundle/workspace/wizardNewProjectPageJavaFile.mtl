@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private wizardNewProjectPageJavaFile(aWizard : Wizard)]
-[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.toUpperFirst()/]ProjectPage.java
+[aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage.java
 [/template]
 
 [template public genWizardNewProjectPageJavaFile(aWizard : Wizard)]
@@ -25,9 +25,9 @@ package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
-public class [aWizard.name.toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
+public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
 	
-	public [aWizard.name.toUpperFirst()/]ProjectPage() {
+	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage() {
 		super("[aWizard.name/]");
 		this.setTitle("[aWizard.title/]");
 		this.setDescription("[aWizard.description/]");

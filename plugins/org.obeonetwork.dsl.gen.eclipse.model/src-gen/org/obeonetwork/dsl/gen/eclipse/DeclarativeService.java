@@ -3,7 +3,6 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
-import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getDelegatorClass <em>Delegator Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getProvidedServices <em>Provided Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getRequiredServices <em>Required Services</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,31 +109,5 @@ public interface DeclarativeService extends EObject {
 	 * @generated
 	 */
 	EList<RequiredService> getRequiredServices();
-
-	/**
-	 * Returns the value of the '<em><b>Service Class Package</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Class Package</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Class Package</em>' reference.
-	 * @see #setServiceClassPackage(GenPackage)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDeclarativeService_ServiceClassPackage()
-	 * @model required="true"
-	 * @generated
-	 */
-	GenPackage getServiceClassPackage();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService#getServiceClassPackage <em>Service Class Package</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Class Package</em>' reference.
-	 * @see #getServiceClassPackage()
-	 * @generated
-	 */
-	void setServiceClassPackage(GenPackage value);
 
 } // DeclarativeService

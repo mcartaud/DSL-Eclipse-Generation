@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private editorJavaFile(anEditor : Editor)]
-[anEditor.eContainer(Bundle).genBundleJavaPath()/]/editors/[anEditor.name.replaceAll(' ', '').toUpperFirst()/].java
+[anEditor.eContainer(Bundle).genBundleJavaPath()/]/editors/[anEditor.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genEditorJavaFile(anEditor : Editor)]
@@ -39,7 +39,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 
 	private TableEditor tableEditor;
 
-	public [anEditor.name.replaceAll(' ', '').toUpperFirst()/]() {
+	public [anEditor.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
 	}
 

@@ -71,6 +71,8 @@ public interface Bundle extends Project {
 
 	/**
 	 * Returns the value of the '<em><b>Required Environment</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.gen.eclipse.JavaVersion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Required Environment</em>' attribute isn't clear,
@@ -78,22 +80,24 @@ public interface Bundle extends Project {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Environment</em>' attribute.
-	 * @see #setRequiredEnvironment(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaVersion
+	 * @see #setRequiredEnvironment(JavaVersion)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_RequiredEnvironment()
-	 * @model unique="false"
+	 * @model default="" unique="false"
 	 * @generated
 	 */
-	String getRequiredEnvironment();
+	JavaVersion getRequiredEnvironment();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredEnvironment <em>Required Environment</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Required Environment</em>' attribute.
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaVersion
 	 * @see #getRequiredEnvironment()
 	 * @generated
 	 */
-	void setRequiredEnvironment(String value);
+	void setRequiredEnvironment(JavaVersion value);
 
 	/**
 	 * Returns the value of the '<em><b>Vendor</b></em>' attribute.

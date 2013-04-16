@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private handlerJavaFile(anHandler : Handler)]
-[anHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[anHandler.name.replaceAll(' ', '').toUpperFirst()/].java
+[anHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[anHandler.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genHandlerJavaFile(anHandler : Handler)]
@@ -35,12 +35,12 @@ import org.eclipse.jface.dialogs.MessageDialog;
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
-public class [anHandler.name.replaceAll(' ', '').toUpperFirst()/] extends AbstractHandler {
+public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
 	
 	/**
 	 * The constructor.
 	 */
-	public [anHandler.name.replaceAll(' ', '').toUpperFirst()/]() {
+	public [anHandler.name.replaceAll(' ', '_').toUpperFirst()/]() {
 	}
 
 	/**

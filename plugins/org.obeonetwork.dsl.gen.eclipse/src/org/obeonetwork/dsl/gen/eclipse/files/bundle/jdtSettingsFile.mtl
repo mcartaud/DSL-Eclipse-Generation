@@ -32,5 +32,7 @@ org.eclipse.jdt.core.compiler.source=[aBundle.javaVersion()/]
 [/template]
 
 [template private javaVersion(aBundle : Bundle)]
-[if (not(aBundle.requiredEnvironment.oclIsUndefined()))][aBundle.requiredEnvironment.replaceAll('[A-Z][[a-z]*[0-9]*[A-Z]*]*\\-', '')/][else]1.5[/if]
+[if (aBundle.requiredEnvironment.toString() = 'JavaSE15')]1.5[elseif (aBundle.requiredEnvironment.toString() 
+= 'JavaSE14')]1.4[elseif (aBundle.requiredEnvironment.toString() = 'JavaSE16')]1.6[elseif (aBundle.requiredEnvironment.toString() 
+= 'JavaSE17')]1.7[/if]
 [/template]

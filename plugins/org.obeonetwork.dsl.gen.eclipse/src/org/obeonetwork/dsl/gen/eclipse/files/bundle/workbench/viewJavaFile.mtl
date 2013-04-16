@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private viewJavaFile(aView : View)]
-[aView.eContainer(Bundle).genBundleJavaPath()/]/views/[aView.name.replaceAll(' ', '').toUpperFirst()/].java
+[aView.eContainer(Bundle).genBundleJavaPath()/]/views/[aView.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
 [template public genViewJavaFile(aView : View)]
@@ -56,7 +56,7 @@ import org.eclipse.jface.viewers.TableViewer;
  * <p>
  */
 
-public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
+public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart {
 
 	/**
 	 * The ID of the view as specified by the extension.
@@ -92,7 +92,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 	/**
 	 * The constructor.
 	 */
-	public [aView.name.replaceAll(' ', '').toUpperFirst()/]() {
+	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class [aView.name.replaceAll(' ', '').toUpperFirst()/] extends ViewPart {
 
 		// Create the help context id for the viewer's control
 [if (aView.dynamicHelp->size() > 0)]
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
 [/if]
 	}
 

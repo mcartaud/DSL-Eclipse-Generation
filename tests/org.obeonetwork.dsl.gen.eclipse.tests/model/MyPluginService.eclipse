@@ -4,13 +4,12 @@
     <repositoryCategories label="Acceleo" description="contains all the project for the demo" ID="org.obeonetwork.acceleo.category" features="//@projects.1"/>
   </projects>
   <projects xsi:type="eclipse:Feature" name="feature pour demo" ID="feature" copyright="Obeo" description="contains all the bundle" version="1.0.0" license="EPL - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3"/>
-  <projects xsi:type="eclipse:Bundle" name="Projet 1" ID="project1" version="1.2.2" requiredEnvironment="J2SE-1.5" vendor="Mcartaud">
+  <projects xsi:type="eclipse:Bundle" name="Projet 1" ID="project1" version="1.2.2" requiredEnvironment="JavaSE14" vendor="Mcartaud">
     <declarativeServices serviceClassName="serviceFourni">
       <delegatorClass href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/bidule/Implem1"/>
       <providedServices>
         <interface href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/Interface1"/>
       </providedServices>
-      <serviceClassPackage href="My.genmodel#//org/obeonetwork/dsl/demo/project1"/>
     </declarativeServices>
     <perspectives name="vuesPerspectives" icon="persp1.gif" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <views name="permiereVue" icon="vue1.gif" isVisible="true" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
@@ -51,7 +50,6 @@
       <requiredServices>
         <reference href="MyProj.ecore#//obeonetwork/dsl/demo/project2/chouette/chose/Implem2/reference1"/>
       </requiredServices>
-      <serviceClassPackage href="MyProj.genmodel#//org/obeonetwork/dsl/demo/project2"/>
     </declarativeServices>
     <importedPackageDeclarations packageName="org.eclipse.emf.ecore" packageVersion="1.0.0"/>
     <wizards name="nouvellePageWizard" title="New Page" description="permet de creer des fichiers" icon="pageWizard1.gif" category="//@projects.3/@categories.0"/>
