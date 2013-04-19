@@ -69,17 +69,19 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RepositoryCategory_label_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryCategory_label_feature",
-						"_UI_RepositoryCategory_type"),
-				EclipsePackage.Literals.REPOSITORY_CATEGORY__LABEL, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryCategory_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryCategory_label_feature", "_UI_RepositoryCategory_type"),
+				 EclipsePackage.Literals.REPOSITORY_CATEGORY__LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,17 +91,19 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RepositoryCategory_description_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryCategory_description_feature",
-						"_UI_RepositoryCategory_type"),
-				EclipsePackage.Literals.REPOSITORY_CATEGORY__DESCRIPTION, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryCategory_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryCategory_description_feature", "_UI_RepositoryCategory_type"),
+				 EclipsePackage.Literals.REPOSITORY_CATEGORY__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -109,16 +113,19 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RepositoryCategory_ID_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryCategory_ID_feature",
-						"_UI_RepositoryCategory_type"),
-				EclipsePackage.Literals.REPOSITORY_CATEGORY__ID, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryCategory_ID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryCategory_ID_feature", "_UI_RepositoryCategory_type"),
+				 EclipsePackage.Literals.REPOSITORY_CATEGORY__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -128,16 +135,19 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addFeaturesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_RepositoryCategory_features_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryCategory_features_feature",
-						"_UI_RepositoryCategory_type"),
-				EclipsePackage.Literals.REPOSITORY_CATEGORY__FEATURES, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryCategory_features_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryCategory_features_feature", "_UI_RepositoryCategory_type"),
+				 EclipsePackage.Literals.REPOSITORY_CATEGORY__FEATURES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -148,8 +158,7 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/RepositoryCategory"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoryCategory"));
 	}
 
 	/**
@@ -177,12 +186,11 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RepositoryCategory.class)) {
-		case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
-		case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
-		case EclipsePackage.REPOSITORY_CATEGORY__ID:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
+			case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
+			case EclipsePackage.REPOSITORY_CATEGORY__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

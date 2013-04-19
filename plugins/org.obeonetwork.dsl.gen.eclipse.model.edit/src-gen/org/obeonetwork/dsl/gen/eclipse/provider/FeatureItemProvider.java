@@ -68,15 +68,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addCopyrightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_copyright_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_copyright_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__COPYRIGHT, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_copyright_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_copyright_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__COPYRIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,15 +90,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_description_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_description_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__DESCRIPTION, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_description_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,15 +112,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_version_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_version_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__VERSION, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_version_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -122,15 +134,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addLicensePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_license_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_license_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__LICENSE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_license_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_license_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__LICENSE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -140,15 +156,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addProviderPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_provider_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_provider_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__PROVIDER, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_provider_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_provider_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__PROVIDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -158,15 +178,19 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	protected void addBundlesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Feature_bundles_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Feature_bundles_feature", "_UI_Feature_type"),
-				EclipsePackage.Literals.FEATURE__BUNDLES, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_bundles_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_bundles_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__BUNDLES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -177,8 +201,7 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Feature"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Feature"));
 	}
 
 	/**
@@ -206,14 +229,13 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Feature.class)) {
-		case EclipsePackage.FEATURE__COPYRIGHT:
-		case EclipsePackage.FEATURE__DESCRIPTION:
-		case EclipsePackage.FEATURE__VERSION:
-		case EclipsePackage.FEATURE__LICENSE:
-		case EclipsePackage.FEATURE__PROVIDER:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.FEATURE__COPYRIGHT:
+			case EclipsePackage.FEATURE__DESCRIPTION:
+			case EclipsePackage.FEATURE__VERSION:
+			case EclipsePackage.FEATURE__LICENSE:
+			case EclipsePackage.FEATURE__PROVIDER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

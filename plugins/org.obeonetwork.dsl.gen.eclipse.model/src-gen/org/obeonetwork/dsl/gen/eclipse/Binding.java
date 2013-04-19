@@ -64,7 +64,7 @@ public interface Binding extends EObject {
 	 * @see #setCommand(Command)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBinding_Command()
 	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getBinding
-	 * @model opposite="binding"
+	 * @model opposite="binding" required="true"
 	 * @generated
 	 */
 	Command getCommand();

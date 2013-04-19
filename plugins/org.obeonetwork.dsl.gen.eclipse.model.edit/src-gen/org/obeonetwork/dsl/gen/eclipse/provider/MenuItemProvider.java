@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MenuItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MenuItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -70,15 +76,19 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Menu_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Menu_name_feature", "_UI_Menu_type"),
-				EclipsePackage.Literals.MENU__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Menu_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_name_feature", "_UI_Menu_type"),
+				 EclipsePackage.Literals.MENU__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -88,15 +98,19 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addMnemonicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Menu_mnemonic_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Menu_mnemonic_feature", "_UI_Menu_type"),
-				EclipsePackage.Literals.MENU__MNEMONIC, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Menu_mnemonic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_mnemonic_feature", "_UI_Menu_type"),
+				 EclipsePackage.Literals.MENU__MNEMONIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -106,15 +120,19 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addMenuContributionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Menu_menuContribution_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Menu_menuContribution_feature", "_UI_Menu_type"),
-				EclipsePackage.Literals.MENU__MENU_CONTRIBUTION, true, false,
-				false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Menu_menuContribution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_menuContribution_feature", "_UI_Menu_type"),
+				 EclipsePackage.Literals.MENU__MENU_CONTRIBUTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -124,18 +142,19 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addToolbarContributionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Menu_toolbarContribution_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Menu_toolbarContribution_feature",
-								"_UI_Menu_type"),
-						EclipsePackage.Literals.MENU__TOOLBAR_CONTRIBUTION,
-						true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Menu_toolbarContribution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_toolbarContribution_feature", "_UI_Menu_type"),
+				 EclipsePackage.Literals.MENU__TOOLBAR_CONTRIBUTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -145,15 +164,19 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCommandsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Menu_commands_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Menu_commands_feature", "_UI_Menu_type"),
-				EclipsePackage.Literals.MENU__COMMANDS, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Menu_commands_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_commands_feature", "_UI_Menu_type"),
+				 EclipsePackage.Literals.MENU__COMMANDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -164,8 +187,7 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Menu"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Menu"));
 	}
 
 	/**
@@ -176,9 +198,10 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Menu) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Menu_type")
-				: getString("_UI_Menu_type") + " " + label;
+		String label = ((Menu)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Menu_type") :
+			getString("_UI_Menu_type") + " " + label;
 	}
 
 	/**
@@ -193,13 +216,12 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Menu.class)) {
-		case EclipsePackage.MENU__NAME:
-		case EclipsePackage.MENU__MNEMONIC:
-		case EclipsePackage.MENU__MENU_CONTRIBUTION:
-		case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.MENU__NAME:
+			case EclipsePackage.MENU__MNEMONIC:
+			case EclipsePackage.MENU__MENU_CONTRIBUTION:
+			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -212,8 +234,7 @@ public class MenuItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

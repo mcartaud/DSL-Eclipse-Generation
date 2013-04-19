@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -25,9 +26,14 @@ import org.obeonetwork.dsl.gen.eclipse.ProjectWizard;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectWizardItemProvider extends WizardItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProjectWizardItemProvider
+	extends WizardItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,16 +67,19 @@ public class ProjectWizardItemProvider extends WizardItemProvider implements
 	 * @generated
 	 */
 	protected void addNaturesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ProjectWizard_natures_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ProjectWizard_natures_feature",
-						"_UI_ProjectWizard_type"),
-				EclipsePackage.Literals.PROJECT_WIZARD__NATURES, true, false,
-				true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProjectWizard_natures_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProjectWizard_natures_feature", "_UI_ProjectWizard_type"),
+				 EclipsePackage.Literals.PROJECT_WIZARD__NATURES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,8 +90,7 @@ public class ProjectWizardItemProvider extends WizardItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/ProjectWizard"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProjectWizard"));
 	}
 
 	/**
@@ -93,9 +101,10 @@ public class ProjectWizardItemProvider extends WizardItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProjectWizard) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ProjectWizard_type")
-				: getString("_UI_ProjectWizard_type") + " " + label;
+		String label = ((ProjectWizard)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ProjectWizard_type") :
+			getString("_UI_ProjectWizard_type") + " " + label;
 	}
 
 	/**
@@ -119,8 +128,7 @@ public class ProjectWizardItemProvider extends WizardItemProvider implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

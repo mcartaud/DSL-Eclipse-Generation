@@ -58,14 +58,14 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	protected static final boolean IS_PERSISTANT_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isIsPersistant() <em>Is Persistant</em>}' attribute.
+	 * The cached value of the '{@link #isIsPersistant() <em>Is Persistant</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isIsPersistant()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int IS_PERSISTANT_EFLAG = 1 << 8;
+	protected boolean isPersistant = IS_PERSISTANT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,8 +104,7 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MARKER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MARKER__NAME, oldName, name));
 	}
 
 	/**
@@ -114,7 +113,7 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	 * @generated
 	 */
 	public boolean isIsPersistant() {
-		return (eFlags & IS_PERSISTANT_EFLAG) != 0;
+		return isPersistant;
 	}
 
 	/**
@@ -123,15 +122,10 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	 * @generated
 	 */
 	public void setIsPersistant(boolean newIsPersistant) {
-		boolean oldIsPersistant = (eFlags & IS_PERSISTANT_EFLAG) != 0;
-		if (newIsPersistant)
-			eFlags |= IS_PERSISTANT_EFLAG;
-		else
-			eFlags &= ~IS_PERSISTANT_EFLAG;
+		boolean oldIsPersistant = isPersistant;
+		isPersistant = newIsPersistant;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MARKER__IS_PERSISTANT, oldIsPersistant,
-					newIsPersistant));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MARKER__IS_PERSISTANT, oldIsPersistant, isPersistant));
 	}
 
 	/**
@@ -142,12 +136,12 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.MARKER__NAME:
-			return getName();
-		case EclipsePackage.MARKER__IS_PERSISTANT:
-			return isIsPersistant();
+			case EclipsePackage.MARKER__NAME:
+				return getName();
+			case EclipsePackage.MARKER__IS_PERSISTANT:
+				return isIsPersistant();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -158,14 +152,14 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.MARKER__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.MARKER__IS_PERSISTANT:
-			setIsPersistant((Boolean) newValue);
-			return;
+			case EclipsePackage.MARKER__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.MARKER__IS_PERSISTANT:
+				setIsPersistant((Boolean)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -176,14 +170,14 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.MARKER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.MARKER__IS_PERSISTANT:
-			setIsPersistant(IS_PERSISTANT_EDEFAULT);
-			return;
+			case EclipsePackage.MARKER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.MARKER__IS_PERSISTANT:
+				setIsPersistant(IS_PERSISTANT_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -194,13 +188,12 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.MARKER__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.MARKER__IS_PERSISTANT:
-			return ((eFlags & IS_PERSISTANT_EFLAG) != 0) != IS_PERSISTANT_EDEFAULT;
+			case EclipsePackage.MARKER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.MARKER__IS_PERSISTANT:
+				return isPersistant != IS_PERSISTANT_EDEFAULT;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -210,14 +203,13 @@ public class MarkerImpl extends EObjectImpl implements Marker {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", isPersistant: ");
-		result.append((eFlags & IS_PERSISTANT_EFLAG) != 0);
+		result.append(isPersistant);
 		result.append(')');
 		return result.toString();
 	}

@@ -122,8 +122,7 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DYNAMIC_HELP__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -144,9 +143,7 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DYNAMIC_HELP__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DYNAMIC_HELP__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -156,8 +153,7 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	 */
 	public EList<HelpPage> getHelpPages() {
 		if (helpPages == null) {
-			helpPages = new EObjectResolvingEList<HelpPage>(HelpPage.class,
-					this, EclipsePackage.DYNAMIC_HELP__HELP_PAGES);
+			helpPages = new EObjectResolvingEList<HelpPage>(HelpPage.class, this, EclipsePackage.DYNAMIC_HELP__HELP_PAGES);
 		}
 		return helpPages;
 	}
@@ -170,14 +166,14 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.DYNAMIC_HELP__LABEL:
-			return getLabel();
-		case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
-			return getHelpPages();
+			case EclipsePackage.DYNAMIC_HELP__LABEL:
+				return getLabel();
+			case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+				return getHelpPages();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -189,18 +185,18 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.DYNAMIC_HELP__LABEL:
-			setLabel((String) newValue);
-			return;
-		case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
-			getHelpPages().clear();
-			getHelpPages().addAll((Collection<? extends HelpPage>) newValue);
-			return;
+			case EclipsePackage.DYNAMIC_HELP__LABEL:
+				setLabel((String)newValue);
+				return;
+			case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+				getHelpPages().clear();
+				getHelpPages().addAll((Collection<? extends HelpPage>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -211,17 +207,17 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DYNAMIC_HELP__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
-		case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
-			getHelpPages().clear();
-			return;
+			case EclipsePackage.DYNAMIC_HELP__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
+			case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+				getHelpPages().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -232,16 +228,14 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DYNAMIC_HELP__LABEL:
-			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT
-					.equals(label);
-		case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
-			return helpPages != null && !helpPages.isEmpty();
+			case EclipsePackage.DYNAMIC_HELP__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case EclipsePackage.DYNAMIC_HELP__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.DYNAMIC_HELP__HELP_PAGES:
+				return helpPages != null && !helpPages.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -251,8 +245,7 @@ public class DynamicHelpImpl extends EObjectImpl implements DynamicHelp {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: ");

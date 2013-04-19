@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
 import org.eclipse.emf.codegen.ecore.genmodel.provider.GenModelEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -39,8 +40,11 @@ public final class EclipseEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public EclipseEditPlugin() {
-		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE,
-				GenModelEditPlugin.INSTANCE, });
+		super
+		  (new ResourceLocator [] {
+		     EcoreEditPlugin.INSTANCE,
+		     GenModelEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**

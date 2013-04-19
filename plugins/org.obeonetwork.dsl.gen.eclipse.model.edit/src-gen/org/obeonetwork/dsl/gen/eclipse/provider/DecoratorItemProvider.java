@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DecoratorItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DecoratorItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -55,7 +61,6 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addIconPropertyDescriptor(object);
 			addIsLightweightPropertyDescriptor(object);
 			addIsAdaptablePropertyDescriptor(object);
 			addLocationPropertyDescriptor(object);
@@ -70,33 +75,19 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Decorator_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Decorator_name_feature", "_UI_Decorator_type"),
-				EclipsePackage.Literals.DECORATOR__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Icon feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIconPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Decorator_icon_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Decorator_icon_feature", "_UI_Decorator_type"),
-				EclipsePackage.Literals.DECORATOR__ICON, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_name_feature", "_UI_Decorator_type"),
+				 EclipsePackage.Literals.DECORATOR__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -106,16 +97,19 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addIsLightweightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Decorator_isLightweight_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Decorator_isLightweight_feature",
-						"_UI_Decorator_type"),
-				EclipsePackage.Literals.DECORATOR__IS_LIGHTWEIGHT, true, false,
-				false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_isLightweight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_isLightweight_feature", "_UI_Decorator_type"),
+				 EclipsePackage.Literals.DECORATOR__IS_LIGHTWEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -125,16 +119,19 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addIsAdaptablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Decorator_isAdaptable_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Decorator_isAdaptable_feature",
-						"_UI_Decorator_type"),
-				EclipsePackage.Literals.DECORATOR__IS_ADAPTABLE, true, false,
-				false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_isAdaptable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_isAdaptable_feature", "_UI_Decorator_type"),
+				 EclipsePackage.Literals.DECORATOR__IS_ADAPTABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -144,18 +141,19 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Decorator_location_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Decorator_location_feature",
-								"_UI_Decorator_type"),
-						EclipsePackage.Literals.DECORATOR__LOCATION, true,
-						false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Decorator_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decorator_location_feature", "_UI_Decorator_type"),
+				 EclipsePackage.Literals.DECORATOR__LOCATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -166,8 +164,7 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Decorator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Decorator"));
 	}
 
 	/**
@@ -178,9 +175,10 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Decorator) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Decorator_type")
-				: getString("_UI_Decorator_type") + " " + label;
+		String label = ((Decorator)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Decorator_type") :
+			getString("_UI_Decorator_type") + " " + label;
 	}
 
 	/**
@@ -195,14 +193,12 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Decorator.class)) {
-		case EclipsePackage.DECORATOR__NAME:
-		case EclipsePackage.DECORATOR__ICON:
-		case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
-		case EclipsePackage.DECORATOR__IS_ADAPTABLE:
-		case EclipsePackage.DECORATOR__LOCATION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.DECORATOR__NAME:
+			case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
+			case EclipsePackage.DECORATOR__IS_ADAPTABLE:
+			case EclipsePackage.DECORATOR__LOCATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -215,8 +211,7 @@ public class DecoratorItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

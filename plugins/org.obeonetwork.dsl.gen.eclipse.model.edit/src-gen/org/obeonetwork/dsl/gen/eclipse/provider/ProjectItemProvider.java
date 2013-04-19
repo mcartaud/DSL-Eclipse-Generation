@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProjectItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,15 +73,19 @@ public class ProjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Project_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Project_name_feature", "_UI_Project_type"),
-				EclipsePackage.Literals.PROJECT__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Project_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Project_name_feature", "_UI_Project_type"),
+				 EclipsePackage.Literals.PROJECT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -85,15 +95,19 @@ public class ProjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Project_ID_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Project_ID_feature", "_UI_Project_type"),
-				EclipsePackage.Literals.PROJECT__ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Project_ID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Project_ID_feature", "_UI_Project_type"),
+				 EclipsePackage.Literals.PROJECT__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,9 +118,10 @@ public class ProjectItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Project) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Project_type")
-				: getString("_UI_Project_type") + " " + label;
+		String label = ((Project)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Project_type") :
+			getString("_UI_Project_type") + " " + label;
 	}
 
 	/**
@@ -121,11 +136,10 @@ public class ProjectItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Project.class)) {
-		case EclipsePackage.PROJECT__NAME:
-		case EclipsePackage.PROJECT__ID:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.PROJECT__NAME:
+			case EclipsePackage.PROJECT__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -138,8 +152,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

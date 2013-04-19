@@ -87,7 +87,7 @@ Contributors :
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
             name="%Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Name"
-            icon="%Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon"
+            icon="Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon"
             class="[aPerspective.genPerspectivePath()/]"
             id="[aPerspective.genPerspectiveID()/]">
       </perspective>
@@ -162,7 +162,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/if]
             class="[aView.genViewPath()/]"
             id="[aView.genViewID()/]"
-            icon="%View-[aView.refactorViewName().toUpperFirst()/]-Icon"
+            icon="View-[aView.refactorViewName().toUpperFirst()/]-Icon"
 			name="%View-[aView.refactorViewName().toUpperFirst()/]-Name">
       </view>
 [/template]
@@ -170,7 +170,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [template private editorTemplate(anEditor : Editor)]
       <editor
             class="[anEditor.genEditorPath()/]"
-            icon="%Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon"
+            icon="Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon"
             id="[anEditor.genEditorID()/]"
             name="%Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name">
       </editor>

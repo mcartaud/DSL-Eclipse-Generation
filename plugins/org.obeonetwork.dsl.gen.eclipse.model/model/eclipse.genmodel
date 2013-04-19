@@ -2,28 +2,16 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.gen.eclipse.model/src-gen"
     editDirectory="/org.obeonetwork.dsl.gen.eclipse.model.edit/src-gen" editorDirectory="/org.obeonetwork.dsl.gen.eclipse.model.editor/src-gen"
-    modelPluginID="org.obeonetwork.dsl.gen.eclipse.model" runtimeJar="true" modelName="Eclipse"
-    modelPluginClass="" updateClasspath="false" codeFormatting="true" testsDirectory=""
-    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.importer.ecore"
-    containmentProxies="true" minimalReflectiveMethods="false" complianceLevel="5.0"
-    runtimeVersion="2.8" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel#//genmodel"
-    operationReflection="true">
-  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
-    <genAnnotations source="selectedPackages">
-      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
-    </genAnnotations>
-    <details key="directoryURI" value="."/>
-  </genAnnotations>
-  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
-    <genAnnotations source="selectedPackages">
-      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
-    </genAnnotations>
-    <details key="directoryURI" value="."/>
-  </genAnnotations>
+    modelPluginID="org.obeonetwork.dsl.gen.eclipse.model" modelName="Eclipse" testsDirectory="/org.obeonetwork.dsl.gen.eclipse.model.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel#//genmodel">
   <foreignModel>eclipse.ecore</foreignModel>
-  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
   <genPackages prefix="Eclipse" basePackage="org.obeonetwork.dsl.gen" disposableProviderFactory="true"
       ecorePackage="eclipse.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//ImportType">
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//ImportType/Package"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//ImportType/Bundle"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//JavaVersion">
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE15"/>
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE14"/>
@@ -87,7 +75,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/requiredEnvironment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/vendor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/declarativeServices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/importedPackageDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/importDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/natures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/builders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/wizards"/>
@@ -112,15 +100,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/providedServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//DeclarativeService/requiredServices"/>
     </genClasses>
+    <genClasses ecoreClass="eclipse.ecore#//ImportDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//ImportDeclaration/packageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//ImportDeclaration/packageVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//ImportDeclaration/importType"/>
+    </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//ProvidedService">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ProvidedService/interface"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//RequiredService">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//RequiredService/reference"/>
-    </genClasses>
-    <genClasses ecoreClass="eclipse.ecore#//ImportedPackageDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//ImportedPackageDeclaration/packageName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//ImportedPackageDeclaration/packageVersion"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Builder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Builder/name"/>
@@ -135,7 +124,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Wizard/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Wizard/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Wizard/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Wizard/icon"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Wizard/isProject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Wizard/category"/>
     </genClasses>
@@ -155,7 +143,6 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Decorator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Decorator/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Decorator/icon"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Decorator/isLightweight"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Decorator/isAdaptable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Decorator/location"/>
@@ -171,7 +158,6 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Perspective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Perspective/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Perspective/icon"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/menus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/wizards"/>
@@ -185,7 +171,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="eclipse.ecore#//Part">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Part/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Part/icon"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Part/dynamicHelp"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//View">
@@ -211,7 +196,6 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/icon"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/tooltip"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/handler"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/menu"/>

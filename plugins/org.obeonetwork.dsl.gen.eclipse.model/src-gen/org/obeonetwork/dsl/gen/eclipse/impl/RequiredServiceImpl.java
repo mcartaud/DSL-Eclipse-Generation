@@ -3,11 +3,14 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
 
@@ -61,13 +64,11 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 	 */
 	public EReference getReference() {
 		if (reference != null && reference.eIsProxy()) {
-			InternalEObject oldReference = (InternalEObject) reference;
-			reference = (EReference) eResolveProxy(oldReference);
+			InternalEObject oldReference = (InternalEObject)reference;
+			reference = (EReference)eResolveProxy(oldReference);
 			if (reference != oldReference) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							EclipsePackage.REQUIRED_SERVICE__REFERENCE,
-							oldReference, reference));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.REQUIRED_SERVICE__REFERENCE, oldReference, reference));
 			}
 		}
 		return reference;
@@ -91,9 +92,7 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 		EReference oldReference = reference;
 		reference = newReference;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.REQUIRED_SERVICE__REFERENCE, oldReference,
-					reference));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REQUIRED_SERVICE__REFERENCE, oldReference, reference));
 	}
 
 	/**
@@ -104,12 +103,11 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
-			if (resolve)
-				return getReference();
-			return basicGetReference();
+			case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
+				if (resolve) return getReference();
+				return basicGetReference();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -120,11 +118,11 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
-			setReference((EReference) newValue);
-			return;
+			case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
+				setReference((EReference)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -135,11 +133,11 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
-			setReference((EReference) null);
-			return;
+			case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
+				setReference((EReference)null);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -150,10 +148,10 @@ public class RequiredServiceImpl extends EObjectImpl implements RequiredService 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
-			return reference != null;
+			case EclipsePackage.REQUIRED_SERVICE__REFERENCE:
+				return reference != null;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 } //RequiredServiceImpl

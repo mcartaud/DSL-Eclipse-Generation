@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredEnvironment <em>Required Environment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices <em>Declarative Services</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportedPackageDeclarations <em>Imported Package Declarations</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportDeclarations <em>Import Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards <em>Wizards</em>}</li>
@@ -142,20 +143,20 @@ public interface Bundle extends Project {
 	EList<DeclarativeService> getDeclarativeServices();
 
 	/**
-	 * Returns the value of the '<em><b>Imported Package Declarations</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
+	 * Returns the value of the '<em><b>Import Declarations</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ImportDeclaration}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Imported Package Declarations</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Import Declarations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Imported Package Declarations</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ImportedPackageDeclarations()
+	 * @return the value of the '<em>Import Declarations</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ImportDeclarations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ImportedPackageDeclaration> getImportedPackageDeclarations();
+	EList<ImportDeclaration> getImportDeclarations();
 
 	/**
 	 * Returns the value of the '<em><b>Natures</b></em>' containment reference list.

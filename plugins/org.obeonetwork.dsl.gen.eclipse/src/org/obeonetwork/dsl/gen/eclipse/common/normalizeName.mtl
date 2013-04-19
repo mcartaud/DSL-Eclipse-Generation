@@ -183,7 +183,7 @@ Contributors :
 [/template]
 
 [template public refactorViewName(aView : View)]
-[aView.name.substituteAll(' ', '_')/]
+[aView.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genEditorID(anEditor : Editor)]
@@ -195,7 +195,7 @@ Contributors :
 [/template]
 
 [template public refactorEditorName(anEditor : Editor)]
-[anEditor.name.substituteAll(' ', '_')/]
+[anEditor.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genMenuID(aMenu : Menu)]
@@ -203,7 +203,7 @@ Contributors :
 [/template]
 
 [template public refactorMenuName(aMenu : Menu)]
-[aMenu.name.substituteAll(' ', '_')/]
+[aMenu.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genDefinitionID(aCommand : Command)]
@@ -211,7 +211,7 @@ Contributors :
 [/template]
 
 [template public refactorContextName(aContext : Context)]
-[aContext.name.substituteAll(' ', '_')/]
+[aContext.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genContextID(aContext : Context)]
@@ -219,16 +219,12 @@ Contributors :
 [/template]
 
 [template public genExtensionName(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '_').substitute('Extension', '')/]
+[anExtensionPoint.name.toUpperFirst().replaceAll(' ', '_').substitute('Extension', '')/]
 [/template]
 
 [query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
-anExtensionPoint.name.substituteAll(' ', '_').toUpper()
+anExtensionPoint.name.replaceAll(' ', '_').toUpper()
 /]
-
-[template public refactorEPackageName(anEPackage : EPackage)]
-[anEPackage.name.substituteAll(' ', '.').toLower()/]
-[/template]
 
 [template public genServicePackageName(aDeclarativeService : DeclarativeService)]
 [aDeclarativeService.ancestors(Bundle).genBundleID()/].services
@@ -242,34 +238,35 @@ anExtensionPoint.name.substituteAll(' ', '_').toUpper()
 [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/].[aProvidedService.interface.ecoreClass.name/]
 [/template]
 
-[template public genImplementationPath(aDeclarativeService : DeclarativeService)]
-[aDeclarativeService.delegatorClass.genPackage.basePackage.substituteAll('.', '/')/]/[aDeclarativeService.delegatorClass.ecoreClass.name/]
-[/template]
-
-[template public genInterfaceRequiredID(aRequiredService : RequiredService)]
-[aRequiredService.genPackageInterfaceRequiredID()/].[aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.name/]
-[/template]
-
-[query public genPackageInterfaceRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
-		Sequence{(aRequiredService.reference.eContainingClass.eGenericSuperTypes.eClassifier.ancestors(EPackage).name)->reverse()->sep('.')} /]
-
-[template public genImportPackageRequiredID(aRequiredService : RequiredService)]
-[aRequiredService.importPackageRequiredID()/].[aRequiredService.reference.eType.ePackage.name/]
-[/template]
-
-[query private importPackageRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
-		Sequence{(aRequiredService.reference.eType.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
-
 [template public genImplementationID(aDeclarativeService : DeclarativeService)]
 [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.eSuperTypes.name/]
-[/template]
-
-[template public genImportedPackageName(anImportedPackage : ImportedPackageDeclaration)]
-[anImportedPackage.packageName/][if (not(anImportedPackage.packageVersion.oclIsUndefined()))];bundle-version="[anImportedPackage.packageVersion/]"[/if]
 [/template]
 
 [template public genInterfaceID(aRequiredService : RequiredService)]
 [for (aProvidedService : ProvidedService | aRequiredService.ancestors(Application).eAllContents(ProvidedService))]
 [if (aRequiredService.reference.eType.name = aProvidedService.interface.ecoreClass.name)]
 [aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.ecoreClass.ePackage.name/].[aProvidedService.interface.ecoreClass.name/][/if][/for]
+[/template]
+
+[template public iconName(aView : View)]
+View-[aView.refactorViewName().toUpperFirst()/]-Icon.gif
+[/template]
+
+[template public iconName(anEditor : Editor)]
+Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Icon.gif
+[/template]
+
+[template public iconName(aWizard : Wizard)]
+Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon.gif
+[/template]
+
+[template public iconName(aPerspective : Perspective)]
+Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon.gif
+[/template]
+
+[template public iconName(aCommand : Command)]
+Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon.gif[/template]
+
+[template public iconName(aDecorator : Decorator)]
+Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon.gif
 [/template]

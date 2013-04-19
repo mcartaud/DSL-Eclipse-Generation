@@ -104,8 +104,7 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.BUILDER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUILDER__NAME, oldName, name));
 	}
 
 	/**
@@ -115,9 +114,7 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	 */
 	public EList<Nature> getNatures() {
 		if (natures == null) {
-			natures = new EObjectWithInverseResolvingEList.ManyInverse<Nature>(
-					Nature.class, this, EclipsePackage.BUILDER__NATURES,
-					EclipsePackage.NATURE__BUILDERS);
+			natures = new EObjectWithInverseResolvingEList.ManyInverse<Nature>(Nature.class, this, EclipsePackage.BUILDER__NATURES, EclipsePackage.NATURE__BUILDERS);
 		}
 		return natures;
 	}
@@ -129,14 +126,12 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NATURES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getNatures())
-					.basicAdd(otherEnd, msgs);
+			case EclipsePackage.BUILDER__NATURES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNatures()).basicAdd(otherEnd, msgs);
 		}
-		return eDynamicInverseAdd(otherEnd, featureID, msgs);
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -145,14 +140,12 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NATURES:
-			return ((InternalEList<?>) getNatures())
-					.basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUILDER__NATURES:
+				return ((InternalEList<?>)getNatures()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -163,12 +156,12 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NAME:
-			return getName();
-		case EclipsePackage.BUILDER__NATURES:
-			return getNatures();
+			case EclipsePackage.BUILDER__NAME:
+				return getName();
+			case EclipsePackage.BUILDER__NATURES:
+				return getNatures();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -180,15 +173,15 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.BUILDER__NATURES:
-			getNatures().clear();
-			getNatures().addAll((Collection<? extends Nature>) newValue);
-			return;
+			case EclipsePackage.BUILDER__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.BUILDER__NATURES:
+				getNatures().clear();
+				getNatures().addAll((Collection<? extends Nature>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -199,14 +192,14 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.BUILDER__NATURES:
-			getNatures().clear();
-			return;
+			case EclipsePackage.BUILDER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.BUILDER__NATURES:
+				getNatures().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -217,13 +210,12 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.BUILDER__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.BUILDER__NATURES:
-			return natures != null && !natures.isEmpty();
+			case EclipsePackage.BUILDER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.BUILDER__NATURES:
+				return natures != null && !natures.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -233,8 +225,7 @@ public class BuilderImpl extends EObjectImpl implements Builder {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

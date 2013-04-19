@@ -69,14 +69,14 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	protected static final boolean HAS_TOGGLE_NATURE_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isHasToggleNature() <em>Has Toggle Nature</em>}' attribute.
+	 * The cached value of the '{@link #isHasToggleNature() <em>Has Toggle Nature</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isHasToggleNature()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int HAS_TOGGLE_NATURE_EFLAG = 1 << 8;
+	protected boolean hasToggleNature = HAS_TOGGLE_NATURE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBuilders() <em>Builders</em>}' reference list.
@@ -125,8 +125,7 @@ public class NatureImpl extends EObjectImpl implements Nature {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.NATURE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__NAME, oldName, name));
 	}
 
 	/**
@@ -135,7 +134,7 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 * @generated
 	 */
 	public boolean isHasToggleNature() {
-		return (eFlags & HAS_TOGGLE_NATURE_EFLAG) != 0;
+		return hasToggleNature;
 	}
 
 	/**
@@ -144,15 +143,10 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 * @generated
 	 */
 	public void setHasToggleNature(boolean newHasToggleNature) {
-		boolean oldHasToggleNature = (eFlags & HAS_TOGGLE_NATURE_EFLAG) != 0;
-		if (newHasToggleNature)
-			eFlags |= HAS_TOGGLE_NATURE_EFLAG;
-		else
-			eFlags &= ~HAS_TOGGLE_NATURE_EFLAG;
+		boolean oldHasToggleNature = hasToggleNature;
+		hasToggleNature = newHasToggleNature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.NATURE__HAS_TOGGLE_NATURE,
-					oldHasToggleNature, newHasToggleNature));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.NATURE__HAS_TOGGLE_NATURE, oldHasToggleNature, hasToggleNature));
 	}
 
 	/**
@@ -162,9 +156,7 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 */
 	public EList<Builder> getBuilders() {
 		if (builders == null) {
-			builders = new EObjectWithInverseResolvingEList.ManyInverse<Builder>(
-					Builder.class, this, EclipsePackage.NATURE__BUILDERS,
-					EclipsePackage.BUILDER__NATURES);
+			builders = new EObjectWithInverseResolvingEList.ManyInverse<Builder>(Builder.class, this, EclipsePackage.NATURE__BUILDERS, EclipsePackage.BUILDER__NATURES);
 		}
 		return builders;
 	}
@@ -176,14 +168,12 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__BUILDERS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getBuilders())
-					.basicAdd(otherEnd, msgs);
+			case EclipsePackage.NATURE__BUILDERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBuilders()).basicAdd(otherEnd, msgs);
 		}
-		return eDynamicInverseAdd(otherEnd, featureID, msgs);
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -192,14 +182,12 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__BUILDERS:
-			return ((InternalEList<?>) getBuilders()).basicRemove(otherEnd,
-					msgs);
+			case EclipsePackage.NATURE__BUILDERS:
+				return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -210,14 +198,14 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__NAME:
-			return getName();
-		case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
-			return isHasToggleNature();
-		case EclipsePackage.NATURE__BUILDERS:
-			return getBuilders();
+			case EclipsePackage.NATURE__NAME:
+				return getName();
+			case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+				return isHasToggleNature();
+			case EclipsePackage.NATURE__BUILDERS:
+				return getBuilders();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -229,18 +217,18 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
-			setHasToggleNature((Boolean) newValue);
-			return;
-		case EclipsePackage.NATURE__BUILDERS:
-			getBuilders().clear();
-			getBuilders().addAll((Collection<? extends Builder>) newValue);
-			return;
+			case EclipsePackage.NATURE__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+				setHasToggleNature((Boolean)newValue);
+				return;
+			case EclipsePackage.NATURE__BUILDERS:
+				getBuilders().clear();
+				getBuilders().addAll((Collection<? extends Builder>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -251,17 +239,17 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
-			setHasToggleNature(HAS_TOGGLE_NATURE_EDEFAULT);
-			return;
-		case EclipsePackage.NATURE__BUILDERS:
-			getBuilders().clear();
-			return;
+			case EclipsePackage.NATURE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+				setHasToggleNature(HAS_TOGGLE_NATURE_EDEFAULT);
+				return;
+			case EclipsePackage.NATURE__BUILDERS:
+				getBuilders().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -272,15 +260,14 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.NATURE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
-			return ((eFlags & HAS_TOGGLE_NATURE_EFLAG) != 0) != HAS_TOGGLE_NATURE_EDEFAULT;
-		case EclipsePackage.NATURE__BUILDERS:
-			return builders != null && !builders.isEmpty();
+			case EclipsePackage.NATURE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.NATURE__HAS_TOGGLE_NATURE:
+				return hasToggleNature != HAS_TOGGLE_NATURE_EDEFAULT;
+			case EclipsePackage.NATURE__BUILDERS:
+				return builders != null && !builders.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -290,14 +277,13 @@ public class NatureImpl extends EObjectImpl implements Nature {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", hasToggleNature: ");
-		result.append((eFlags & HAS_TOGGLE_NATURE_EFLAG) != 0);
+		result.append(hasToggleNature);
 		result.append(')');
 		return result.toString();
 	}

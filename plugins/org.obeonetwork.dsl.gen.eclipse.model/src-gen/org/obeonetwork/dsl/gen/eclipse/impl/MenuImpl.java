@@ -91,14 +91,14 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	protected static final boolean MENU_CONTRIBUTION_EDEFAULT = true;
 
 	/**
-	 * The flag representing the value of the '{@link #isMenuContribution() <em>Menu Contribution</em>}' attribute.
+	 * The cached value of the '{@link #isMenuContribution() <em>Menu Contribution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isMenuContribution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MENU_CONTRIBUTION_EFLAG = 1 << 8;
+	protected boolean menuContribution = MENU_CONTRIBUTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isToolbarContribution() <em>Toolbar Contribution</em>}' attribute.
@@ -111,14 +111,14 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	protected static final boolean TOOLBAR_CONTRIBUTION_EDEFAULT = true;
 
 	/**
-	 * The flag representing the value of the '{@link #isToolbarContribution() <em>Toolbar Contribution</em>}' attribute.
+	 * The cached value of the '{@link #isToolbarContribution() <em>Toolbar Contribution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isToolbarContribution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int TOOLBAR_CONTRIBUTION_EFLAG = 1 << 9;
+	protected boolean toolbarContribution = TOOLBAR_CONTRIBUTION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCommands() <em>Commands</em>}' reference list.
@@ -137,8 +137,6 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 */
 	protected MenuImpl() {
 		super();
-		eFlags |= MENU_CONTRIBUTION_EFLAG;
-		eFlags |= TOOLBAR_CONTRIBUTION_EFLAG;
 	}
 
 	/**
@@ -169,8 +167,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MENU__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__NAME, oldName, name));
 	}
 
 	/**
@@ -191,8 +188,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 		String oldMnemonic = mnemonic;
 		mnemonic = newMnemonic;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MENU__MNEMONIC, oldMnemonic, mnemonic));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__MNEMONIC, oldMnemonic, mnemonic));
 	}
 
 	/**
@@ -201,7 +197,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 */
 	public boolean isMenuContribution() {
-		return (eFlags & MENU_CONTRIBUTION_EFLAG) != 0;
+		return menuContribution;
 	}
 
 	/**
@@ -210,15 +206,10 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 */
 	public void setMenuContribution(boolean newMenuContribution) {
-		boolean oldMenuContribution = (eFlags & MENU_CONTRIBUTION_EFLAG) != 0;
-		if (newMenuContribution)
-			eFlags |= MENU_CONTRIBUTION_EFLAG;
-		else
-			eFlags &= ~MENU_CONTRIBUTION_EFLAG;
+		boolean oldMenuContribution = menuContribution;
+		menuContribution = newMenuContribution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MENU__MENU_CONTRIBUTION,
-					oldMenuContribution, newMenuContribution));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__MENU_CONTRIBUTION, oldMenuContribution, menuContribution));
 	}
 
 	/**
@@ -227,7 +218,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 */
 	public boolean isToolbarContribution() {
-		return (eFlags & TOOLBAR_CONTRIBUTION_EFLAG) != 0;
+		return toolbarContribution;
 	}
 
 	/**
@@ -236,15 +227,10 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 */
 	public void setToolbarContribution(boolean newToolbarContribution) {
-		boolean oldToolbarContribution = (eFlags & TOOLBAR_CONTRIBUTION_EFLAG) != 0;
-		if (newToolbarContribution)
-			eFlags |= TOOLBAR_CONTRIBUTION_EFLAG;
-		else
-			eFlags &= ~TOOLBAR_CONTRIBUTION_EFLAG;
+		boolean oldToolbarContribution = toolbarContribution;
+		toolbarContribution = newToolbarContribution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.MENU__TOOLBAR_CONTRIBUTION,
-					oldToolbarContribution, newToolbarContribution));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.MENU__TOOLBAR_CONTRIBUTION, oldToolbarContribution, toolbarContribution));
 	}
 
 	/**
@@ -254,9 +240,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 */
 	public EList<Command> getCommands() {
 		if (commands == null) {
-			commands = new EObjectWithInverseResolvingEList<Command>(
-					Command.class, this, EclipsePackage.MENU__COMMANDS,
-					EclipsePackage.COMMAND__MENU);
+			commands = new EObjectWithInverseResolvingEList<Command>(Command.class, this, EclipsePackage.MENU__COMMANDS, EclipsePackage.COMMAND__MENU);
 		}
 		return commands;
 	}
@@ -268,14 +252,12 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.MENU__COMMANDS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCommands())
-					.basicAdd(otherEnd, msgs);
+			case EclipsePackage.MENU__COMMANDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCommands()).basicAdd(otherEnd, msgs);
 		}
-		return eDynamicInverseAdd(otherEnd, featureID, msgs);
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -284,14 +266,12 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.MENU__COMMANDS:
-			return ((InternalEList<?>) getCommands()).basicRemove(otherEnd,
-					msgs);
+			case EclipsePackage.MENU__COMMANDS:
+				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -302,18 +282,18 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.MENU__NAME:
-			return getName();
-		case EclipsePackage.MENU__MNEMONIC:
-			return getMnemonic();
-		case EclipsePackage.MENU__MENU_CONTRIBUTION:
-			return isMenuContribution();
-		case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-			return isToolbarContribution();
-		case EclipsePackage.MENU__COMMANDS:
-			return getCommands();
+			case EclipsePackage.MENU__NAME:
+				return getName();
+			case EclipsePackage.MENU__MNEMONIC:
+				return getMnemonic();
+			case EclipsePackage.MENU__MENU_CONTRIBUTION:
+				return isMenuContribution();
+			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
+				return isToolbarContribution();
+			case EclipsePackage.MENU__COMMANDS:
+				return getCommands();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -325,24 +305,24 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.MENU__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.MENU__MNEMONIC:
-			setMnemonic((String) newValue);
-			return;
-		case EclipsePackage.MENU__MENU_CONTRIBUTION:
-			setMenuContribution((Boolean) newValue);
-			return;
-		case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-			setToolbarContribution((Boolean) newValue);
-			return;
-		case EclipsePackage.MENU__COMMANDS:
-			getCommands().clear();
-			getCommands().addAll((Collection<? extends Command>) newValue);
-			return;
+			case EclipsePackage.MENU__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.MENU__MNEMONIC:
+				setMnemonic((String)newValue);
+				return;
+			case EclipsePackage.MENU__MENU_CONTRIBUTION:
+				setMenuContribution((Boolean)newValue);
+				return;
+			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
+				setToolbarContribution((Boolean)newValue);
+				return;
+			case EclipsePackage.MENU__COMMANDS:
+				getCommands().clear();
+				getCommands().addAll((Collection<? extends Command>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -353,23 +333,23 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.MENU__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.MENU__MNEMONIC:
-			setMnemonic(MNEMONIC_EDEFAULT);
-			return;
-		case EclipsePackage.MENU__MENU_CONTRIBUTION:
-			setMenuContribution(MENU_CONTRIBUTION_EDEFAULT);
-			return;
-		case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-			setToolbarContribution(TOOLBAR_CONTRIBUTION_EDEFAULT);
-			return;
-		case EclipsePackage.MENU__COMMANDS:
-			getCommands().clear();
-			return;
+			case EclipsePackage.MENU__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.MENU__MNEMONIC:
+				setMnemonic(MNEMONIC_EDEFAULT);
+				return;
+			case EclipsePackage.MENU__MENU_CONTRIBUTION:
+				setMenuContribution(MENU_CONTRIBUTION_EDEFAULT);
+				return;
+			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
+				setToolbarContribution(TOOLBAR_CONTRIBUTION_EDEFAULT);
+				return;
+			case EclipsePackage.MENU__COMMANDS:
+				getCommands().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -380,20 +360,18 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.MENU__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.MENU__MNEMONIC:
-			return MNEMONIC_EDEFAULT == null ? mnemonic != null
-					: !MNEMONIC_EDEFAULT.equals(mnemonic);
-		case EclipsePackage.MENU__MENU_CONTRIBUTION:
-			return ((eFlags & MENU_CONTRIBUTION_EFLAG) != 0) != MENU_CONTRIBUTION_EDEFAULT;
-		case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-			return ((eFlags & TOOLBAR_CONTRIBUTION_EFLAG) != 0) != TOOLBAR_CONTRIBUTION_EDEFAULT;
-		case EclipsePackage.MENU__COMMANDS:
-			return commands != null && !commands.isEmpty();
+			case EclipsePackage.MENU__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.MENU__MNEMONIC:
+				return MNEMONIC_EDEFAULT == null ? mnemonic != null : !MNEMONIC_EDEFAULT.equals(mnemonic);
+			case EclipsePackage.MENU__MENU_CONTRIBUTION:
+				return menuContribution != MENU_CONTRIBUTION_EDEFAULT;
+			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
+				return toolbarContribution != TOOLBAR_CONTRIBUTION_EDEFAULT;
+			case EclipsePackage.MENU__COMMANDS:
+				return commands != null && !commands.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -403,8 +381,7 @@ public class MenuImpl extends EObjectImpl implements Menu {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -412,9 +389,9 @@ public class MenuImpl extends EObjectImpl implements Menu {
 		result.append(", mnemonic: ");
 		result.append(mnemonic);
 		result.append(", menuContribution: ");
-		result.append((eFlags & MENU_CONTRIBUTION_EFLAG) != 0);
+		result.append(menuContribution);
 		result.append(", toolbarContribution: ");
-		result.append((eFlags & TOOLBAR_CONTRIBUTION_EFLAG) != 0);
+		result.append(toolbarContribution);
 		result.append(')');
 		return result.toString();
 	}

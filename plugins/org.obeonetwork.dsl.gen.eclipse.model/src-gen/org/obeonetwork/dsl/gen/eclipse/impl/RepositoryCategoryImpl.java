@@ -35,8 +35,7 @@ import org.obeonetwork.dsl.gen.eclipse.RepositoryCategory;
  *
  * @generated
  */
-public class RepositoryCategoryImpl extends EObjectImpl implements
-		RepositoryCategory {
+public class RepositoryCategoryImpl extends EObjectImpl implements RepositoryCategory {
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,8 +143,7 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.REPOSITORY_CATEGORY__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY_CATEGORY__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -166,9 +164,7 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -189,8 +185,7 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 		String oldID = id;
 		id = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.REPOSITORY_CATEGORY__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.REPOSITORY_CATEGORY__ID, oldID, id));
 	}
 
 	/**
@@ -200,8 +195,7 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	 */
 	public EList<Feature> getFeatures() {
 		if (features == null) {
-			features = new EObjectResolvingEList<Feature>(Feature.class, this,
-					EclipsePackage.REPOSITORY_CATEGORY__FEATURES);
+			features = new EObjectResolvingEList<Feature>(Feature.class, this, EclipsePackage.REPOSITORY_CATEGORY__FEATURES);
 		}
 		return features;
 	}
@@ -214,16 +208,16 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
-			return getLabel();
-		case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.REPOSITORY_CATEGORY__ID:
-			return getID();
-		case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
-			return getFeatures();
+			case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
+				return getLabel();
+			case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.REPOSITORY_CATEGORY__ID:
+				return getID();
+			case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
+				return getFeatures();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -235,21 +229,21 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
-			setLabel((String) newValue);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__ID:
-			setID((String) newValue);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
-			getFeatures().clear();
-			getFeatures().addAll((Collection<? extends Feature>) newValue);
-			return;
+			case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
+				setLabel((String)newValue);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__ID:
+				setID((String)newValue);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends Feature>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -260,20 +254,20 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__ID:
-			setID(ID_EDEFAULT);
-			return;
-		case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
-			getFeatures().clear();
-			return;
+			case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
+				getFeatures().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -284,18 +278,16 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
-			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT
-					.equals(label);
-		case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.REPOSITORY_CATEGORY__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
-			return features != null && !features.isEmpty();
+			case EclipsePackage.REPOSITORY_CATEGORY__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case EclipsePackage.REPOSITORY_CATEGORY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.REPOSITORY_CATEGORY__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case EclipsePackage.REPOSITORY_CATEGORY__FEATURES:
+				return features != null && !features.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -305,8 +297,7 @@ public class RepositoryCategoryImpl extends EObjectImpl implements
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: ");

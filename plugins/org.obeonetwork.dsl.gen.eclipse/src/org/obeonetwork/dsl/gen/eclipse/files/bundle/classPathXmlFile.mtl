@@ -32,7 +32,6 @@ Contributors :
 [/template]
 
 [template private javaVersion(aBundle : Bundle)]
-[if (aBundle.requiredEnvironment.toString() = 'JavaSE15')]J2SE-1.5[elseif (aBundle.requiredEnvironment.toString() 
-= 'JavaSE14')]J2SE-1.4[elseif (aBundle.requiredEnvironment.toString() = 'JavaSE16')]JavaSE-1.6[elseif (aBundle.requiredEnvironment.toString() 
-= 'JavaSE17')]JavaSE-1.7[/if]
+[if (aBundle.requiredEnvironment.toString().endsWith('5'))]J2SE-1.5[elseif (aBundle.requiredEnvironment.toString().endsWith('4'))]J2SE-1.4[elseif 
+(aBundle.requiredEnvironment.toString().endsWith('6'))]JavaSE-1.6[elseif (aBundle.requiredEnvironment.toString().endsWith('7'))]JavaSE-1.7[/if]
 [/template]

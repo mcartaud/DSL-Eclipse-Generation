@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -28,9 +29,14 @@ import org.obeonetwork.dsl.gen.eclipse.Repository;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RepositoryItemProvider extends ProjectItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RepositoryItemProvider
+	extends ProjectItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -65,12 +71,10 @@ public class RepositoryItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EclipsePackage.Literals.REPOSITORY__REPOSITORY_CATEGORIES);
+			childrenFeatures.add(EclipsePackage.Literals.REPOSITORY__REPOSITORY_CATEGORIES);
 		}
 		return childrenFeatures;
 	}
@@ -96,8 +100,7 @@ public class RepositoryItemProvider extends ProjectItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Repository"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Repository"));
 	}
 
 	/**
@@ -108,9 +111,10 @@ public class RepositoryItemProvider extends ProjectItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Repository) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Repository_type")
-				: getString("_UI_Repository_type") + " " + label;
+		String label = ((Repository)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Repository_type") :
+			getString("_UI_Repository_type") + " " + label;
 	}
 
 	/**
@@ -125,10 +129,9 @@ public class RepositoryItemProvider extends ProjectItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Repository.class)) {
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -141,13 +144,13 @@ public class RepositoryItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.REPOSITORY__REPOSITORY_CATEGORIES,
-				EclipseFactory.eINSTANCE.createRepositoryCategory()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.REPOSITORY__REPOSITORY_CATEGORIES,
+				 EclipseFactory.eINSTANCE.createRepositoryCategory()));
 	}
 
 }

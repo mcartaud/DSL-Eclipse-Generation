@@ -33,9 +33,15 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.core,
  org.junit
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: [if (aBundle.requiredEnvironment->size() > 0)][aBundle.requiredEnvironment/][else]J2SE-1.5[/if]
+Bundle-RequiredExecutionEnvironment: [aBundle.javaVersion()/]
 Bundle-Vendor: %Provider-Name
 Export-Package: [aBundle.genBundleID()/].tests.suite
 Bundle-Localization: plugin
 [/file]
+[/template]
+
+[template private javaVersion(aBundle : Bundle)]
+[if (aBundle.requiredEnvironment.toString() = 'JavaSE15')]J2SE-1.5[elseif (aBundle.requiredEnvironment.toString() 
+= 'JavaSE14')]J2SE-1.4[elseif (aBundle.requiredEnvironment.toString() = 'JavaSE16')]JavaSE-1.6[elseif (aBundle.requiredEnvironment.toString() 
+= 'JavaSE17')]JavaSE-1.7[/if]
 [/template]

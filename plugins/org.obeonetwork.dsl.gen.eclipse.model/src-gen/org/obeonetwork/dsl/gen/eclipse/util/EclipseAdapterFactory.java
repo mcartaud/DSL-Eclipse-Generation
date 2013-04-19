@@ -54,7 +54,7 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -65,168 +65,137 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EclipseSwitch<Adapter> modelSwitch = new EclipseSwitch<Adapter>() {
-		@Override
-		public Adapter caseApplication(Application object) {
-			return createApplicationAdapter();
-		}
-
-		@Override
-		public Adapter caseProject(Project object) {
-			return createProjectAdapter();
-		}
-
-		@Override
-		public Adapter caseRepository(Repository object) {
-			return createRepositoryAdapter();
-		}
-
-		@Override
-		public Adapter caseRepositoryCategory(RepositoryCategory object) {
-			return createRepositoryCategoryAdapter();
-		}
-
-		@Override
-		public Adapter caseFeature(Feature object) {
-			return createFeatureAdapter();
-		}
-
-		@Override
-		public Adapter caseBundle(Bundle object) {
-			return createBundleAdapter();
-		}
-
-		@Override
-		public Adapter caseDeclarativeService(DeclarativeService object) {
-			return createDeclarativeServiceAdapter();
-		}
-
-		@Override
-		public Adapter caseProvidedService(ProvidedService object) {
-			return createProvidedServiceAdapter();
-		}
-
-		@Override
-		public Adapter caseRequiredService(RequiredService object) {
-			return createRequiredServiceAdapter();
-		}
-
-		@Override
-		public Adapter caseImportedPackageDeclaration(
-				ImportedPackageDeclaration object) {
-			return createImportedPackageDeclarationAdapter();
-		}
-
-		@Override
-		public Adapter caseBuilder(Builder object) {
-			return createBuilderAdapter();
-		}
-
-		@Override
-		public Adapter caseNature(Nature object) {
-			return createNatureAdapter();
-		}
-
-		@Override
-		public Adapter caseWizard(Wizard object) {
-			return createWizardAdapter();
-		}
-
-		@Override
-		public Adapter caseProjectWizard(ProjectWizard object) {
-			return createProjectWizardAdapter();
-		}
-
-		@Override
-		public Adapter caseExtensionPoint(ExtensionPoint object) {
-			return createExtensionPointAdapter();
-		}
-
-		@Override
-		public Adapter caseAttribute(Attribute object) {
-			return createAttributeAdapter();
-		}
-
-		@Override
-		public Adapter caseDecorator(Decorator object) {
-			return createDecoratorAdapter();
-		}
-
-		@Override
-		public Adapter caseMarker(Marker object) {
-			return createMarkerAdapter();
-		}
-
-		@Override
-		public Adapter caseContext(Context object) {
-			return createContextAdapter();
-		}
-
-		@Override
-		public Adapter casePerspective(Perspective object) {
-			return createPerspectiveAdapter();
-		}
-
-		@Override
-		public Adapter caseCategory(Category object) {
-			return createCategoryAdapter();
-		}
-
-		@Override
-		public Adapter casePart(Part object) {
-			return createPartAdapter();
-		}
-
-		@Override
-		public Adapter caseView(View object) {
-			return createViewAdapter();
-		}
-
-		@Override
-		public Adapter caseEditor(Editor object) {
-			return createEditorAdapter();
-		}
-
-		@Override
-		public Adapter caseMenu(Menu object) {
-			return createMenuAdapter();
-		}
-
-		@Override
-		public Adapter caseCommand(Command object) {
-			return createCommandAdapter();
-		}
-
-		@Override
-		public Adapter caseHandler(Handler object) {
-			return createHandlerAdapter();
-		}
-
-		@Override
-		public Adapter caseHelpContents(HelpContents object) {
-			return createHelpContentsAdapter();
-		}
-
-		@Override
-		public Adapter caseHelpPage(HelpPage object) {
-			return createHelpPageAdapter();
-		}
-
-		@Override
-		public Adapter caseDynamicHelp(DynamicHelp object) {
-			return createDynamicHelpAdapter();
-		}
-
-		@Override
-		public Adapter caseBinding(Binding object) {
-			return createBindingAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected EclipseSwitch<Adapter> modelSwitch =
+		new EclipseSwitch<Adapter>() {
+			@Override
+			public Adapter caseApplication(Application object) {
+				return createApplicationAdapter();
+			}
+			@Override
+			public Adapter caseProject(Project object) {
+				return createProjectAdapter();
+			}
+			@Override
+			public Adapter caseRepository(Repository object) {
+				return createRepositoryAdapter();
+			}
+			@Override
+			public Adapter caseRepositoryCategory(RepositoryCategory object) {
+				return createRepositoryCategoryAdapter();
+			}
+			@Override
+			public Adapter caseFeature(Feature object) {
+				return createFeatureAdapter();
+			}
+			@Override
+			public Adapter caseBundle(Bundle object) {
+				return createBundleAdapter();
+			}
+			@Override
+			public Adapter caseDeclarativeService(DeclarativeService object) {
+				return createDeclarativeServiceAdapter();
+			}
+			@Override
+			public Adapter caseImportDeclaration(ImportDeclaration object) {
+				return createImportDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseProvidedService(ProvidedService object) {
+				return createProvidedServiceAdapter();
+			}
+			@Override
+			public Adapter caseRequiredService(RequiredService object) {
+				return createRequiredServiceAdapter();
+			}
+			@Override
+			public Adapter caseBuilder(Builder object) {
+				return createBuilderAdapter();
+			}
+			@Override
+			public Adapter caseNature(Nature object) {
+				return createNatureAdapter();
+			}
+			@Override
+			public Adapter caseWizard(Wizard object) {
+				return createWizardAdapter();
+			}
+			@Override
+			public Adapter caseProjectWizard(ProjectWizard object) {
+				return createProjectWizardAdapter();
+			}
+			@Override
+			public Adapter caseExtensionPoint(ExtensionPoint object) {
+				return createExtensionPointAdapter();
+			}
+			@Override
+			public Adapter caseAttribute(Attribute object) {
+				return createAttributeAdapter();
+			}
+			@Override
+			public Adapter caseDecorator(Decorator object) {
+				return createDecoratorAdapter();
+			}
+			@Override
+			public Adapter caseMarker(Marker object) {
+				return createMarkerAdapter();
+			}
+			@Override
+			public Adapter caseContext(Context object) {
+				return createContextAdapter();
+			}
+			@Override
+			public Adapter casePerspective(Perspective object) {
+				return createPerspectiveAdapter();
+			}
+			@Override
+			public Adapter caseCategory(Category object) {
+				return createCategoryAdapter();
+			}
+			@Override
+			public Adapter casePart(Part object) {
+				return createPartAdapter();
+			}
+			@Override
+			public Adapter caseView(View object) {
+				return createViewAdapter();
+			}
+			@Override
+			public Adapter caseEditor(Editor object) {
+				return createEditorAdapter();
+			}
+			@Override
+			public Adapter caseMenu(Menu object) {
+				return createMenuAdapter();
+			}
+			@Override
+			public Adapter caseCommand(Command object) {
+				return createCommandAdapter();
+			}
+			@Override
+			public Adapter caseHandler(Handler object) {
+				return createHandlerAdapter();
+			}
+			@Override
+			public Adapter caseHelpContents(HelpContents object) {
+				return createHelpContentsAdapter();
+			}
+			@Override
+			public Adapter caseHelpPage(HelpPage object) {
+				return createHelpPageAdapter();
+			}
+			@Override
+			public Adapter caseDynamicHelp(DynamicHelp object) {
+				return createDynamicHelpAdapter();
+			}
+			@Override
+			public Adapter caseBinding(Binding object) {
+				return createBindingAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -238,8 +207,9 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Application <em>Application</em>}'.
@@ -340,6 +310,20 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ImportDeclaration <em>Import Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ImportDeclaration
+	 * @generated
+	 */
+	public Adapter createImportDeclarationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ProvidedService <em>Provided Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -364,20 +348,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequiredServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration <em>Imported Package Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration
-	 * @generated
-	 */
-	public Adapter createImportedPackageDeclarationAdapter() {
 		return null;
 	}
 

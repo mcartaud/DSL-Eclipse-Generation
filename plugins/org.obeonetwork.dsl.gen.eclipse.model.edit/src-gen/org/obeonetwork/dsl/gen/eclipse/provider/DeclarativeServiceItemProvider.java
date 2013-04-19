@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeclarativeServiceItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DeclarativeServiceItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -70,19 +76,19 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addServiceClassNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_DeclarativeService_serviceClassName_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_DeclarativeService_serviceClassName_feature",
-								"_UI_DeclarativeService_type"),
-						EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DeclarativeService_serviceClassName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DeclarativeService_serviceClassName_feature", "_UI_DeclarativeService_type"),
+				 EclipsePackage.Literals.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -92,16 +98,19 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addDelegatorClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DeclarativeService_delegatorClass_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DeclarativeService_delegatorClass_feature",
-						"_UI_DeclarativeService_type"),
-				EclipsePackage.Literals.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DeclarativeService_delegatorClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DeclarativeService_delegatorClass_feature", "_UI_DeclarativeService_type"),
+				 EclipsePackage.Literals.DECLARATIVE_SERVICE__DELEGATOR_CLASS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -113,14 +122,11 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES);
-			childrenFeatures
-					.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES);
+			childrenFeatures.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES);
+			childrenFeatures.add(EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES);
 		}
 		return childrenFeatures;
 	}
@@ -146,8 +152,7 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/DeclarativeService"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DeclarativeService"));
 	}
 
 	/**
@@ -158,9 +163,10 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeclarativeService) object).getServiceClassName();
-		return label == null || label.length() == 0 ? getString("_UI_DeclarativeService_type")
-				: getString("_UI_DeclarativeService_type") + " " + label;
+		String label = ((DeclarativeService)object).getServiceClassName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DeclarativeService_type") :
+			getString("_UI_DeclarativeService_type") + " " + label;
 	}
 
 	/**
@@ -175,15 +181,13 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DeclarativeService.class)) {
-		case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
-		case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.DECLARATIVE_SERVICE__SERVICE_CLASS_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.DECLARATIVE_SERVICE__PROVIDED_SERVICES:
+			case EclipsePackage.DECLARATIVE_SERVICE__REQUIRED_SERVICES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -196,17 +200,18 @@ public class DeclarativeServiceItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES,
-				EclipseFactory.eINSTANCE.createProvidedService()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.DECLARATIVE_SERVICE__PROVIDED_SERVICES,
+				 EclipseFactory.eINSTANCE.createProvidedService()));
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES,
-				EclipseFactory.eINSTANCE.createRequiredService()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.DECLARATIVE_SERVICE__REQUIRED_SERVICES,
+				 EclipseFactory.eINSTANCE.createRequiredService()));
 	}
 
 	/**

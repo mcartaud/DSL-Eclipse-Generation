@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsLightweight <em>Is Lightweight</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#isIsAdaptable <em>Is Adaptable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getLocation <em>Location</em>}</li>
@@ -50,32 +49,6 @@ public interface Decorator extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Icon</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Icon</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Icon</em>' attribute.
-	 * @see #setIcon(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getDecorator_Icon()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getIcon();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Decorator#getIcon <em>Icon</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Icon</em>' attribute.
-	 * @see #getIcon()
-	 * @generated
-	 */
-	void setIcon(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Lightweight</b></em>' attribute.

@@ -128,8 +128,7 @@ public class CategoryImpl extends EObjectImpl implements Category {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.CATEGORY__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CATEGORY__NAME, oldName, name));
 	}
 
 	/**
@@ -139,9 +138,7 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 */
 	public EList<Command> getCommands() {
 		if (commands == null) {
-			commands = new EObjectWithInverseResolvingEList<Command>(
-					Command.class, this, EclipsePackage.CATEGORY__COMMANDS,
-					EclipsePackage.COMMAND__CATEGORY);
+			commands = new EObjectWithInverseResolvingEList<Command>(Command.class, this, EclipsePackage.CATEGORY__COMMANDS, EclipsePackage.COMMAND__CATEGORY);
 		}
 		return commands;
 	}
@@ -153,9 +150,7 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 */
 	public EList<View> getViews() {
 		if (views == null) {
-			views = new EObjectWithInverseResolvingEList<View>(View.class,
-					this, EclipsePackage.CATEGORY__VIEWS,
-					EclipsePackage.VIEW__CATEGORY);
+			views = new EObjectWithInverseResolvingEList<View>(View.class, this, EclipsePackage.CATEGORY__VIEWS, EclipsePackage.VIEW__CATEGORY);
 		}
 		return views;
 	}
@@ -167,9 +162,7 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 */
 	public EList<Wizard> getWizards() {
 		if (wizards == null) {
-			wizards = new EObjectWithInverseResolvingEList<Wizard>(
-					Wizard.class, this, EclipsePackage.CATEGORY__WIZARDS,
-					EclipsePackage.WIZARD__CATEGORY);
+			wizards = new EObjectWithInverseResolvingEList<Wizard>(Wizard.class, this, EclipsePackage.CATEGORY__WIZARDS, EclipsePackage.WIZARD__CATEGORY);
 		}
 		return wizards;
 	}
@@ -181,20 +174,16 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__COMMANDS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCommands())
-					.basicAdd(otherEnd, msgs);
-		case EclipsePackage.CATEGORY__VIEWS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getViews())
-					.basicAdd(otherEnd, msgs);
-		case EclipsePackage.CATEGORY__WIZARDS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getWizards())
-					.basicAdd(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__COMMANDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCommands()).basicAdd(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__VIEWS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__WIZARDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWizards()).basicAdd(otherEnd, msgs);
 		}
-		return eDynamicInverseAdd(otherEnd, featureID, msgs);
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -203,19 +192,16 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__COMMANDS:
-			return ((InternalEList<?>) getCommands()).basicRemove(otherEnd,
-					msgs);
-		case EclipsePackage.CATEGORY__VIEWS:
-			return ((InternalEList<?>) getViews()).basicRemove(otherEnd, msgs);
-		case EclipsePackage.CATEGORY__WIZARDS:
-			return ((InternalEList<?>) getWizards())
-					.basicRemove(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__COMMANDS:
+				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__VIEWS:
+				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.CATEGORY__WIZARDS:
+				return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -226,16 +212,16 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__NAME:
-			return getName();
-		case EclipsePackage.CATEGORY__COMMANDS:
-			return getCommands();
-		case EclipsePackage.CATEGORY__VIEWS:
-			return getViews();
-		case EclipsePackage.CATEGORY__WIZARDS:
-			return getWizards();
+			case EclipsePackage.CATEGORY__NAME:
+				return getName();
+			case EclipsePackage.CATEGORY__COMMANDS:
+				return getCommands();
+			case EclipsePackage.CATEGORY__VIEWS:
+				return getViews();
+			case EclipsePackage.CATEGORY__WIZARDS:
+				return getWizards();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -247,23 +233,23 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.CATEGORY__COMMANDS:
-			getCommands().clear();
-			getCommands().addAll((Collection<? extends Command>) newValue);
-			return;
-		case EclipsePackage.CATEGORY__VIEWS:
-			getViews().clear();
-			getViews().addAll((Collection<? extends View>) newValue);
-			return;
-		case EclipsePackage.CATEGORY__WIZARDS:
-			getWizards().clear();
-			getWizards().addAll((Collection<? extends Wizard>) newValue);
-			return;
+			case EclipsePackage.CATEGORY__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.CATEGORY__COMMANDS:
+				getCommands().clear();
+				getCommands().addAll((Collection<? extends Command>)newValue);
+				return;
+			case EclipsePackage.CATEGORY__VIEWS:
+				getViews().clear();
+				getViews().addAll((Collection<? extends View>)newValue);
+				return;
+			case EclipsePackage.CATEGORY__WIZARDS:
+				getWizards().clear();
+				getWizards().addAll((Collection<? extends Wizard>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -274,20 +260,20 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.CATEGORY__COMMANDS:
-			getCommands().clear();
-			return;
-		case EclipsePackage.CATEGORY__VIEWS:
-			getViews().clear();
-			return;
-		case EclipsePackage.CATEGORY__WIZARDS:
-			getWizards().clear();
-			return;
+			case EclipsePackage.CATEGORY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.CATEGORY__COMMANDS:
+				getCommands().clear();
+				return;
+			case EclipsePackage.CATEGORY__VIEWS:
+				getViews().clear();
+				return;
+			case EclipsePackage.CATEGORY__WIZARDS:
+				getWizards().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -298,17 +284,16 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.CATEGORY__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.CATEGORY__COMMANDS:
-			return commands != null && !commands.isEmpty();
-		case EclipsePackage.CATEGORY__VIEWS:
-			return views != null && !views.isEmpty();
-		case EclipsePackage.CATEGORY__WIZARDS:
-			return wizards != null && !wizards.isEmpty();
+			case EclipsePackage.CATEGORY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.CATEGORY__COMMANDS:
+				return commands != null && !commands.isEmpty();
+			case EclipsePackage.CATEGORY__VIEWS:
+				return views != null && !views.isEmpty();
+			case EclipsePackage.CATEGORY__WIZARDS:
+				return wizards != null && !wizards.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -318,8 +303,7 @@ public class CategoryImpl extends EObjectImpl implements Category {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

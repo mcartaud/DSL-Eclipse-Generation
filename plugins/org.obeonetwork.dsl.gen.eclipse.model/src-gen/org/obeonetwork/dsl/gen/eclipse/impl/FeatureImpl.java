@@ -184,8 +184,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		String oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.FEATURE__COPYRIGHT, oldCopyright, copyright));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__COPYRIGHT, oldCopyright, copyright));
 	}
 
 	/**
@@ -206,9 +205,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.FEATURE__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -229,8 +226,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.FEATURE__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -251,8 +247,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		String oldLicense = license;
 		license = newLicense;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.FEATURE__LICENSE, oldLicense, license));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__LICENSE, oldLicense, license));
 	}
 
 	/**
@@ -273,8 +268,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		String oldProvider = provider;
 		provider = newProvider;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.FEATURE__PROVIDER, oldProvider, provider));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__PROVIDER, oldProvider, provider));
 	}
 
 	/**
@@ -284,8 +278,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 */
 	public EList<Bundle> getBundles() {
 		if (bundles == null) {
-			bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this,
-					EclipsePackage.FEATURE__BUNDLES);
+			bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this, EclipsePackage.FEATURE__BUNDLES);
 		}
 		return bundles;
 	}
@@ -298,24 +291,20 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.FEATURE__NAME:
-			return getName();
-		case EclipsePackage.FEATURE__ID:
-			return getID();
-		case EclipsePackage.FEATURE__COPYRIGHT:
-			return getCopyright();
-		case EclipsePackage.FEATURE__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.FEATURE__VERSION:
-			return getVersion();
-		case EclipsePackage.FEATURE__LICENSE:
-			return getLicense();
-		case EclipsePackage.FEATURE__PROVIDER:
-			return getProvider();
-		case EclipsePackage.FEATURE__BUNDLES:
-			return getBundles();
+			case EclipsePackage.FEATURE__COPYRIGHT:
+				return getCopyright();
+			case EclipsePackage.FEATURE__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.FEATURE__VERSION:
+				return getVersion();
+			case EclipsePackage.FEATURE__LICENSE:
+				return getLicense();
+			case EclipsePackage.FEATURE__PROVIDER:
+				return getProvider();
+			case EclipsePackage.FEATURE__BUNDLES:
+				return getBundles();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -327,33 +316,27 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.FEATURE__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__ID:
-			setID((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__COPYRIGHT:
-			setCopyright((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__VERSION:
-			setVersion((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__LICENSE:
-			setLicense((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__PROVIDER:
-			setProvider((String) newValue);
-			return;
-		case EclipsePackage.FEATURE__BUNDLES:
-			getBundles().clear();
-			getBundles().addAll((Collection<? extends Bundle>) newValue);
-			return;
+			case EclipsePackage.FEATURE__COPYRIGHT:
+				setCopyright((String)newValue);
+				return;
+			case EclipsePackage.FEATURE__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.FEATURE__VERSION:
+				setVersion((String)newValue);
+				return;
+			case EclipsePackage.FEATURE__LICENSE:
+				setLicense((String)newValue);
+				return;
+			case EclipsePackage.FEATURE__PROVIDER:
+				setProvider((String)newValue);
+				return;
+			case EclipsePackage.FEATURE__BUNDLES:
+				getBundles().clear();
+				getBundles().addAll((Collection<? extends Bundle>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -364,32 +347,26 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.FEATURE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__ID:
-			setID(ID_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__COPYRIGHT:
-			setCopyright(COPYRIGHT_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__LICENSE:
-			setLicense(LICENSE_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__PROVIDER:
-			setProvider(PROVIDER_EDEFAULT);
-			return;
-		case EclipsePackage.FEATURE__BUNDLES:
-			getBundles().clear();
-			return;
+			case EclipsePackage.FEATURE__COPYRIGHT:
+				setCopyright(COPYRIGHT_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__LICENSE:
+				setLicense(LICENSE_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__PROVIDER:
+				setProvider(PROVIDER_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__BUNDLES:
+				getBundles().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -400,30 +377,20 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.FEATURE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.FEATURE__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case EclipsePackage.FEATURE__COPYRIGHT:
-			return COPYRIGHT_EDEFAULT == null ? copyright != null
-					: !COPYRIGHT_EDEFAULT.equals(copyright);
-		case EclipsePackage.FEATURE__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.FEATURE__VERSION:
-			return VERSION_EDEFAULT == null ? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case EclipsePackage.FEATURE__LICENSE:
-			return LICENSE_EDEFAULT == null ? license != null
-					: !LICENSE_EDEFAULT.equals(license);
-		case EclipsePackage.FEATURE__PROVIDER:
-			return PROVIDER_EDEFAULT == null ? provider != null
-					: !PROVIDER_EDEFAULT.equals(provider);
-		case EclipsePackage.FEATURE__BUNDLES:
-			return bundles != null && !bundles.isEmpty();
+			case EclipsePackage.FEATURE__COPYRIGHT:
+				return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
+			case EclipsePackage.FEATURE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.FEATURE__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case EclipsePackage.FEATURE__LICENSE:
+				return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
+			case EclipsePackage.FEATURE__PROVIDER:
+				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
+			case EclipsePackage.FEATURE__BUNDLES:
+				return bundles != null && !bundles.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -433,8 +400,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (copyright: ");

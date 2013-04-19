@@ -149,8 +149,14 @@ public enum Type implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Type[] VALUES_ARRAY = new Type[] { STRING, BOOLEAN,
-			JAVA, RESOURCE, IDENTIFIER, };
+	private static final Type[] VALUES_ARRAY =
+		new Type[] {
+			STRING,
+			BOOLEAN,
+			JAVA,
+			RESOURCE,
+			IDENTIFIER,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Type</b></em>' enumerators.
@@ -158,8 +164,7 @@ public enum Type implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<Type> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<Type> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Type</b></em>' literal with the specified literal value.
@@ -201,8 +206,7 @@ public enum Type implements Enumerator {
 	 */
 	public static Type get(int value) {
 		switch (value) {
-		case STRING_VALUE:
-			return STRING;
+			case STRING_VALUE: return STRING;
 		}
 		return null;
 	}
@@ -246,7 +250,7 @@ public enum Type implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -255,7 +259,7 @@ public enum Type implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -264,7 +268,7 @@ public enum Type implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
@@ -277,5 +281,5 @@ public enum Type implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
+	
 } //Type

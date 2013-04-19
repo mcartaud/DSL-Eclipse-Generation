@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.Handler;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HandlerItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class HandlerItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -68,15 +74,19 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Handler_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Handler_name_feature", "_UI_Handler_type"),
-				EclipsePackage.Literals.HANDLER__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Handler_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_name_feature", "_UI_Handler_type"),
+				 EclipsePackage.Literals.HANDLER__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,15 +96,19 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addMnemonicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Handler_mnemonic_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Handler_mnemonic_feature", "_UI_Handler_type"),
-				EclipsePackage.Literals.HANDLER__MNEMONIC, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Handler_mnemonic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_mnemonic_feature", "_UI_Handler_type"),
+				 EclipsePackage.Literals.HANDLER__MNEMONIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,15 +118,19 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCommandPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Handler_command_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Handler_command_feature", "_UI_Handler_type"),
-				EclipsePackage.Literals.HANDLER__COMMAND, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Handler_command_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_command_feature", "_UI_Handler_type"),
+				 EclipsePackage.Literals.HANDLER__COMMAND,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,8 +141,7 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Handler"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Handler"));
 	}
 
 	/**
@@ -135,9 +152,10 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Handler) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Handler_type")
-				: getString("_UI_Handler_type") + " " + label;
+		String label = ((Handler)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Handler_type") :
+			getString("_UI_Handler_type") + " " + label;
 	}
 
 	/**
@@ -152,11 +170,10 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Handler.class)) {
-		case EclipsePackage.HANDLER__NAME:
-		case EclipsePackage.HANDLER__MNEMONIC:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.HANDLER__NAME:
+			case EclipsePackage.HANDLER__MNEMONIC:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -169,8 +186,7 @@ public class HandlerItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

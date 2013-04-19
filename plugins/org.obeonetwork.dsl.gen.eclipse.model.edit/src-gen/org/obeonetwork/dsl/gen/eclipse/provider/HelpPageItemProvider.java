@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,14 @@ import org.obeonetwork.dsl.gen.eclipse.HelpPage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HelpPageItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class HelpPageItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -71,15 +77,19 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_HelpPage_label_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_HelpPage_label_feature", "_UI_HelpPage_type"),
-				EclipsePackage.Literals.HELP_PAGE__LABEL, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HelpPage_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_label_feature", "_UI_HelpPage_type"),
+				 EclipsePackage.Literals.HELP_PAGE__LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,18 +99,19 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_HelpPage_description_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_HelpPage_description_feature",
-								"_UI_HelpPage_type"),
-						EclipsePackage.Literals.HELP_PAGE__DESCRIPTION, true,
-						false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HelpPage_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_description_feature", "_UI_HelpPage_type"),
+				 EclipsePackage.Literals.HELP_PAGE__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -110,16 +121,19 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addExternalHelpPagesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_HelpPage_externalHelpPages_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_HelpPage_externalHelpPages_feature",
-						"_UI_HelpPage_type"),
-				EclipsePackage.Literals.HELP_PAGE__EXTERNAL_HELP_PAGES, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HelpPage_externalHelpPages_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HelpPage_externalHelpPages_feature", "_UI_HelpPage_type"),
+				 EclipsePackage.Literals.HELP_PAGE__EXTERNAL_HELP_PAGES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -131,8 +145,7 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EclipsePackage.Literals.HELP_PAGE__HELP_PAGES);
@@ -161,8 +174,7 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/HelpPage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HelpPage"));
 	}
 
 	/**
@@ -173,9 +185,10 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((HelpPage) object).getLabel();
-		return label == null || label.length() == 0 ? getString("_UI_HelpPage_type")
-				: getString("_UI_HelpPage_type") + " " + label;
+		String label = ((HelpPage)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_HelpPage_type") :
+			getString("_UI_HelpPage_type") + " " + label;
 	}
 
 	/**
@@ -190,15 +203,13 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(HelpPage.class)) {
-		case EclipsePackage.HELP_PAGE__LABEL:
-		case EclipsePackage.HELP_PAGE__DESCRIPTION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.HELP_PAGE__HELP_PAGES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.HELP_PAGE__LABEL:
+			case EclipsePackage.HELP_PAGE__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.HELP_PAGE__HELP_PAGES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -211,13 +222,13 @@ public class HelpPageItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.HELP_PAGE__HELP_PAGES,
-				EclipseFactory.eINSTANCE.createHelpPage()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.HELP_PAGE__HELP_PAGES,
+				 EclipseFactory.eINSTANCE.createHelpPage()));
 	}
 
 	/**

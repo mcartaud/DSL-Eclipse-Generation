@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
@@ -71,14 +70,14 @@ public class EditorImpl extends PartImpl implements Editor {
 	protected static final boolean DYNAMIC_MENU_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isDynamicMenu() <em>Dynamic Menu</em>}' attribute.
+	 * The cached value of the '{@link #isDynamicMenu() <em>Dynamic Menu</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isDynamicMenu()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int DYNAMIC_MENU_EFLAG = 1 << 8;
+	protected boolean dynamicMenu = DYNAMIC_MENU_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
@@ -137,8 +136,7 @@ public class EditorImpl extends PartImpl implements Editor {
 		String oldExtension = extension;
 		extension = newExtension;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.EDITOR__EXTENSION, oldExtension, extension));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__EXTENSION, oldExtension, extension));
 	}
 
 	/**
@@ -147,7 +145,7 @@ public class EditorImpl extends PartImpl implements Editor {
 	 * @generated
 	 */
 	public boolean isDynamicMenu() {
-		return (eFlags & DYNAMIC_MENU_EFLAG) != 0;
+		return dynamicMenu;
 	}
 
 	/**
@@ -156,15 +154,10 @@ public class EditorImpl extends PartImpl implements Editor {
 	 * @generated
 	 */
 	public void setDynamicMenu(boolean newDynamicMenu) {
-		boolean oldDynamicMenu = (eFlags & DYNAMIC_MENU_EFLAG) != 0;
-		if (newDynamicMenu)
-			eFlags |= DYNAMIC_MENU_EFLAG;
-		else
-			eFlags &= ~DYNAMIC_MENU_EFLAG;
+		boolean oldDynamicMenu = dynamicMenu;
+		dynamicMenu = newDynamicMenu;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.EDITOR__DYNAMIC_MENU, oldDynamicMenu,
-					newDynamicMenu));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__DYNAMIC_MENU, oldDynamicMenu, dynamicMenu));
 	}
 
 	/**
@@ -174,8 +167,7 @@ public class EditorImpl extends PartImpl implements Editor {
 	 */
 	public EList<Handler> getHandlers() {
 		if (handlers == null) {
-			handlers = new EObjectContainmentEList<Handler>(Handler.class,
-					this, EclipsePackage.EDITOR__HANDLERS);
+			handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.EDITOR__HANDLERS);
 		}
 		return handlers;
 	}
@@ -187,8 +179,7 @@ public class EditorImpl extends PartImpl implements Editor {
 	 */
 	public EList<Menu> getMenus() {
 		if (menus == null) {
-			menus = new EObjectContainmentEList<Menu>(Menu.class, this,
-					EclipsePackage.EDITOR__MENUS);
+			menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.EDITOR__MENUS);
 		}
 		return menus;
 	}
@@ -199,18 +190,14 @@ public class EditorImpl extends PartImpl implements Editor {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.EDITOR__DYNAMIC_HELP:
-			return basicSetDynamicHelp(null, msgs);
-		case EclipsePackage.EDITOR__HANDLERS:
-			return ((InternalEList<?>) getHandlers()).basicRemove(otherEnd,
-					msgs);
-		case EclipsePackage.EDITOR__MENUS:
-			return ((InternalEList<?>) getMenus()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.EDITOR__HANDLERS:
+				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.EDITOR__MENUS:
+				return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -221,22 +208,16 @@ public class EditorImpl extends PartImpl implements Editor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.EDITOR__NAME:
-			return getName();
-		case EclipsePackage.EDITOR__ICON:
-			return getIcon();
-		case EclipsePackage.EDITOR__DYNAMIC_HELP:
-			return getDynamicHelp();
-		case EclipsePackage.EDITOR__EXTENSION:
-			return getExtension();
-		case EclipsePackage.EDITOR__DYNAMIC_MENU:
-			return isDynamicMenu();
-		case EclipsePackage.EDITOR__HANDLERS:
-			return getHandlers();
-		case EclipsePackage.EDITOR__MENUS:
-			return getMenus();
+			case EclipsePackage.EDITOR__EXTENSION:
+				return getExtension();
+			case EclipsePackage.EDITOR__DYNAMIC_MENU:
+				return isDynamicMenu();
+			case EclipsePackage.EDITOR__HANDLERS:
+				return getHandlers();
+			case EclipsePackage.EDITOR__MENUS:
+				return getMenus();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -248,31 +229,22 @@ public class EditorImpl extends PartImpl implements Editor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.EDITOR__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.EDITOR__ICON:
-			setIcon((String) newValue);
-			return;
-		case EclipsePackage.EDITOR__DYNAMIC_HELP:
-			setDynamicHelp((DynamicHelp) newValue);
-			return;
-		case EclipsePackage.EDITOR__EXTENSION:
-			setExtension((String) newValue);
-			return;
-		case EclipsePackage.EDITOR__DYNAMIC_MENU:
-			setDynamicMenu((Boolean) newValue);
-			return;
-		case EclipsePackage.EDITOR__HANDLERS:
-			getHandlers().clear();
-			getHandlers().addAll((Collection<? extends Handler>) newValue);
-			return;
-		case EclipsePackage.EDITOR__MENUS:
-			getMenus().clear();
-			getMenus().addAll((Collection<? extends Menu>) newValue);
-			return;
+			case EclipsePackage.EDITOR__EXTENSION:
+				setExtension((String)newValue);
+				return;
+			case EclipsePackage.EDITOR__DYNAMIC_MENU:
+				setDynamicMenu((Boolean)newValue);
+				return;
+			case EclipsePackage.EDITOR__HANDLERS:
+				getHandlers().clear();
+				getHandlers().addAll((Collection<? extends Handler>)newValue);
+				return;
+			case EclipsePackage.EDITOR__MENUS:
+				getMenus().clear();
+				getMenus().addAll((Collection<? extends Menu>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -283,29 +255,20 @@ public class EditorImpl extends PartImpl implements Editor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.EDITOR__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.EDITOR__ICON:
-			setIcon(ICON_EDEFAULT);
-			return;
-		case EclipsePackage.EDITOR__DYNAMIC_HELP:
-			setDynamicHelp((DynamicHelp) null);
-			return;
-		case EclipsePackage.EDITOR__EXTENSION:
-			setExtension(EXTENSION_EDEFAULT);
-			return;
-		case EclipsePackage.EDITOR__DYNAMIC_MENU:
-			setDynamicMenu(DYNAMIC_MENU_EDEFAULT);
-			return;
-		case EclipsePackage.EDITOR__HANDLERS:
-			getHandlers().clear();
-			return;
-		case EclipsePackage.EDITOR__MENUS:
-			getMenus().clear();
-			return;
+			case EclipsePackage.EDITOR__EXTENSION:
+				setExtension(EXTENSION_EDEFAULT);
+				return;
+			case EclipsePackage.EDITOR__DYNAMIC_MENU:
+				setDynamicMenu(DYNAMIC_MENU_EDEFAULT);
+				return;
+			case EclipsePackage.EDITOR__HANDLERS:
+				getHandlers().clear();
+				return;
+			case EclipsePackage.EDITOR__MENUS:
+				getMenus().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -316,25 +279,16 @@ public class EditorImpl extends PartImpl implements Editor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.EDITOR__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.EDITOR__ICON:
-			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT
-					.equals(icon);
-		case EclipsePackage.EDITOR__DYNAMIC_HELP:
-			return dynamicHelp != null;
-		case EclipsePackage.EDITOR__EXTENSION:
-			return EXTENSION_EDEFAULT == null ? extension != null
-					: !EXTENSION_EDEFAULT.equals(extension);
-		case EclipsePackage.EDITOR__DYNAMIC_MENU:
-			return ((eFlags & DYNAMIC_MENU_EFLAG) != 0) != DYNAMIC_MENU_EDEFAULT;
-		case EclipsePackage.EDITOR__HANDLERS:
-			return handlers != null && !handlers.isEmpty();
-		case EclipsePackage.EDITOR__MENUS:
-			return menus != null && !menus.isEmpty();
+			case EclipsePackage.EDITOR__EXTENSION:
+				return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
+			case EclipsePackage.EDITOR__DYNAMIC_MENU:
+				return dynamicMenu != DYNAMIC_MENU_EDEFAULT;
+			case EclipsePackage.EDITOR__HANDLERS:
+				return handlers != null && !handlers.isEmpty();
+			case EclipsePackage.EDITOR__MENUS:
+				return menus != null && !menus.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -344,14 +298,13 @@ public class EditorImpl extends PartImpl implements Editor {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (extension: ");
 		result.append(extension);
 		result.append(", dynamicMenu: ");
-		result.append((eFlags & DYNAMIC_MENU_EFLAG) != 0);
+		result.append(dynamicMenu);
 		result.append(')');
 		return result.toString();
 	}

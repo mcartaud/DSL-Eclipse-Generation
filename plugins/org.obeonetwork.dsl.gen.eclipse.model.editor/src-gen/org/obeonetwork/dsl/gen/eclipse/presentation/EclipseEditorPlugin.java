@@ -41,8 +41,11 @@ public final class EclipseEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public EclipseEditorPlugin() {
-		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE,
-				GenModelEditPlugin.INSTANCE, });
+		super
+			(new ResourceLocator [] {
+				EcoreEditPlugin.INSTANCE,
+				GenModelEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -83,7 +86,7 @@ public final class EclipseEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

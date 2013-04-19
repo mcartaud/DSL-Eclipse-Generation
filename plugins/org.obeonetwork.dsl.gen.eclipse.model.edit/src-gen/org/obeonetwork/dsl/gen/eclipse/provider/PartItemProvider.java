@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,14 @@ import org.obeonetwork.dsl.gen.eclipse.Part;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PartItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PartItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -58,7 +64,6 @@ public class PartItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addIconPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -70,33 +75,19 @@ public class PartItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Part_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Part_name_feature", "_UI_Part_type"),
-				EclipsePackage.Literals.PART__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Icon feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIconPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Part_icon_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Part_icon_feature", "_UI_Part_type"),
-				EclipsePackage.Literals.PART__ICON, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Part_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Part_name_feature", "_UI_Part_type"),
+				 EclipsePackage.Literals.PART__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -108,8 +99,7 @@ public class PartItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EclipsePackage.Literals.PART__DYNAMIC_HELP);
@@ -138,9 +128,10 @@ public class PartItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Part) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Part_type")
-				: getString("_UI_Part_type") + " " + label;
+		String label = ((Part)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Part_type") :
+			getString("_UI_Part_type") + " " + label;
 	}
 
 	/**
@@ -155,15 +146,12 @@ public class PartItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Part.class)) {
-		case EclipsePackage.PART__NAME:
-		case EclipsePackage.PART__ICON:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.PART__DYNAMIC_HELP:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.PART__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.PART__DYNAMIC_HELP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -176,13 +164,13 @@ public class PartItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.PART__DYNAMIC_HELP,
-				EclipseFactory.eINSTANCE.createDynamicHelp()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.PART__DYNAMIC_HELP,
+				 EclipseFactory.eINSTANCE.createDynamicHelp()));
 	}
 
 	/**

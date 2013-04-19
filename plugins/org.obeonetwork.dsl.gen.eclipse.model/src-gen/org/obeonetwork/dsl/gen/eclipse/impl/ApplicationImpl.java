@@ -196,14 +196,14 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	protected static final boolean MAVEN_COMPILATION_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.
+	 * The cached value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isMavenCompilation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAVEN_COMPILATION_EFLAG = 1 << 8;
+	protected boolean mavenCompilation = MAVEN_COMPILATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' containment reference list.
@@ -226,14 +226,14 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	protected static final boolean GENERATE_TESTS_BUNDLE_EDEFAULT = true;
 
 	/**
-	 * The flag representing the value of the '{@link #isGenerateTestsBundle() <em>Generate Tests Bundle</em>}' attribute.
+	 * The cached value of the '{@link #isGenerateTestsBundle() <em>Generate Tests Bundle</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isGenerateTestsBundle()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int GENERATE_TESTS_BUNDLE_EFLAG = 1 << 9;
+	protected boolean generateTestsBundle = GENERATE_TESTS_BUNDLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,7 +242,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	protected ApplicationImpl() {
 		super();
-		eFlags |= GENERATE_TESTS_BUNDLE_EFLAG;
 	}
 
 	/**
@@ -273,9 +272,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldApplicationID = applicationID;
 		applicationID = newApplicationID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__APPLICATION_ID,
-					oldApplicationID, applicationID));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__APPLICATION_ID, oldApplicationID, applicationID));
 	}
 
 	/**
@@ -296,8 +293,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldProvider = provider;
 		provider = newProvider;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__PROVIDER, oldProvider, provider));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__PROVIDER, oldProvider, provider));
 	}
 
 	/**
@@ -318,9 +314,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldCopyright = copyright;
 		copyright = newCopyright;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__COPYRIGHT, oldCopyright,
-					copyright));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__COPYRIGHT, oldCopyright, copyright));
 	}
 
 	/**
@@ -341,8 +335,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldLicense = license;
 		license = newLicense;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__LICENSE, oldLicense, license));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__LICENSE, oldLicense, license));
 	}
 
 	/**
@@ -363,8 +356,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__VERSION, oldVersion, version));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -385,9 +377,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -408,9 +398,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		String oldBaseNamespace = baseNamespace;
 		baseNamespace = newBaseNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__BASE_NAMESPACE,
-					oldBaseNamespace, baseNamespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__BASE_NAMESPACE, oldBaseNamespace, baseNamespace));
 	}
 
 	/**
@@ -419,7 +407,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 */
 	public boolean isMavenCompilation() {
-		return (eFlags & MAVEN_COMPILATION_EFLAG) != 0;
+		return mavenCompilation;
 	}
 
 	/**
@@ -428,15 +416,10 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 */
 	public void setMavenCompilation(boolean newMavenCompilation) {
-		boolean oldMavenCompilation = (eFlags & MAVEN_COMPILATION_EFLAG) != 0;
-		if (newMavenCompilation)
-			eFlags |= MAVEN_COMPILATION_EFLAG;
-		else
-			eFlags &= ~MAVEN_COMPILATION_EFLAG;
+		boolean oldMavenCompilation = mavenCompilation;
+		mavenCompilation = newMavenCompilation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__MAVEN_COMPILATION,
-					oldMavenCompilation, newMavenCompilation));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__MAVEN_COMPILATION, oldMavenCompilation, mavenCompilation));
 	}
 
 	/**
@@ -446,8 +429,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	public EList<Project> getProjects() {
 		if (projects == null) {
-			projects = new EObjectContainmentEList<Project>(Project.class,
-					this, EclipsePackage.APPLICATION__PROJECTS);
+			projects = new EObjectContainmentEList<Project>(Project.class, this, EclipsePackage.APPLICATION__PROJECTS);
 		}
 		return projects;
 	}
@@ -458,7 +440,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 */
 	public boolean isGenerateTestsBundle() {
-		return (eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0;
+		return generateTestsBundle;
 	}
 
 	/**
@@ -467,15 +449,10 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 */
 	public void setGenerateTestsBundle(boolean newGenerateTestsBundle) {
-		boolean oldGenerateTestsBundle = (eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0;
-		if (newGenerateTestsBundle)
-			eFlags |= GENERATE_TESTS_BUNDLE_EFLAG;
-		else
-			eFlags &= ~GENERATE_TESTS_BUNDLE_EFLAG;
+		boolean oldGenerateTestsBundle = generateTestsBundle;
+		generateTestsBundle = newGenerateTestsBundle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE,
-					oldGenerateTestsBundle, newGenerateTestsBundle));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE, oldGenerateTestsBundle, generateTestsBundle));
 	}
 
 	/**
@@ -484,14 +461,12 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__PROJECTS:
-			return ((InternalEList<?>) getProjects()).basicRemove(otherEnd,
-					msgs);
+			case EclipsePackage.APPLICATION__PROJECTS:
+				return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -502,28 +477,28 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__APPLICATION_ID:
-			return getApplicationID();
-		case EclipsePackage.APPLICATION__PROVIDER:
-			return getProvider();
-		case EclipsePackage.APPLICATION__COPYRIGHT:
-			return getCopyright();
-		case EclipsePackage.APPLICATION__LICENSE:
-			return getLicense();
-		case EclipsePackage.APPLICATION__VERSION:
-			return getVersion();
-		case EclipsePackage.APPLICATION__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
-			return getBaseNamespace();
-		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
-			return isMavenCompilation();
-		case EclipsePackage.APPLICATION__PROJECTS:
-			return getProjects();
-		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
-			return isGenerateTestsBundle();
+			case EclipsePackage.APPLICATION__APPLICATION_ID:
+				return getApplicationID();
+			case EclipsePackage.APPLICATION__PROVIDER:
+				return getProvider();
+			case EclipsePackage.APPLICATION__COPYRIGHT:
+				return getCopyright();
+			case EclipsePackage.APPLICATION__LICENSE:
+				return getLicense();
+			case EclipsePackage.APPLICATION__VERSION:
+				return getVersion();
+			case EclipsePackage.APPLICATION__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+				return getBaseNamespace();
+			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+				return isMavenCompilation();
+			case EclipsePackage.APPLICATION__PROJECTS:
+				return getProjects();
+			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+				return isGenerateTestsBundle();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -535,39 +510,39 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__APPLICATION_ID:
-			setApplicationID((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__PROVIDER:
-			setProvider((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__COPYRIGHT:
-			setCopyright((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__LICENSE:
-			setLicense((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__VERSION:
-			setVersion((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
-			setBaseNamespace((String) newValue);
-			return;
-		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
-			setMavenCompilation((Boolean) newValue);
-			return;
-		case EclipsePackage.APPLICATION__PROJECTS:
-			getProjects().clear();
-			getProjects().addAll((Collection<? extends Project>) newValue);
-			return;
-		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
-			setGenerateTestsBundle((Boolean) newValue);
-			return;
+			case EclipsePackage.APPLICATION__APPLICATION_ID:
+				setApplicationID((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__PROVIDER:
+				setProvider((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__COPYRIGHT:
+				setCopyright((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__LICENSE:
+				setLicense((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__VERSION:
+				setVersion((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+				setBaseNamespace((String)newValue);
+				return;
+			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+				setMavenCompilation((Boolean)newValue);
+				return;
+			case EclipsePackage.APPLICATION__PROJECTS:
+				getProjects().clear();
+				getProjects().addAll((Collection<? extends Project>)newValue);
+				return;
+			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+				setGenerateTestsBundle((Boolean)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -578,38 +553,38 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__APPLICATION_ID:
-			setApplicationID(APPLICATION_ID_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__PROVIDER:
-			setProvider(PROVIDER_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__COPYRIGHT:
-			setCopyright(COPYRIGHT_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__LICENSE:
-			setLicense(LICENSE_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
-			setBaseNamespace(BASE_NAMESPACE_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
-			setMavenCompilation(MAVEN_COMPILATION_EDEFAULT);
-			return;
-		case EclipsePackage.APPLICATION__PROJECTS:
-			getProjects().clear();
-			return;
-		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
-			setGenerateTestsBundle(GENERATE_TESTS_BUNDLE_EDEFAULT);
-			return;
+			case EclipsePackage.APPLICATION__APPLICATION_ID:
+				setApplicationID(APPLICATION_ID_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__PROVIDER:
+				setProvider(PROVIDER_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__COPYRIGHT:
+				setCopyright(COPYRIGHT_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__LICENSE:
+				setLicense(LICENSE_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+				setBaseNamespace(BASE_NAMESPACE_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+				setMavenCompilation(MAVEN_COMPILATION_EDEFAULT);
+				return;
+			case EclipsePackage.APPLICATION__PROJECTS:
+				getProjects().clear();
+				return;
+			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+				setGenerateTestsBundle(GENERATE_TESTS_BUNDLE_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -620,35 +595,28 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.APPLICATION__APPLICATION_ID:
-			return APPLICATION_ID_EDEFAULT == null ? applicationID != null
-					: !APPLICATION_ID_EDEFAULT.equals(applicationID);
-		case EclipsePackage.APPLICATION__PROVIDER:
-			return PROVIDER_EDEFAULT == null ? provider != null
-					: !PROVIDER_EDEFAULT.equals(provider);
-		case EclipsePackage.APPLICATION__COPYRIGHT:
-			return COPYRIGHT_EDEFAULT == null ? copyright != null
-					: !COPYRIGHT_EDEFAULT.equals(copyright);
-		case EclipsePackage.APPLICATION__LICENSE:
-			return LICENSE_EDEFAULT == null ? license != null
-					: !LICENSE_EDEFAULT.equals(license);
-		case EclipsePackage.APPLICATION__VERSION:
-			return VERSION_EDEFAULT == null ? version != null
-					: !VERSION_EDEFAULT.equals(version);
-		case EclipsePackage.APPLICATION__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
-			return BASE_NAMESPACE_EDEFAULT == null ? baseNamespace != null
-					: !BASE_NAMESPACE_EDEFAULT.equals(baseNamespace);
-		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
-			return ((eFlags & MAVEN_COMPILATION_EFLAG) != 0) != MAVEN_COMPILATION_EDEFAULT;
-		case EclipsePackage.APPLICATION__PROJECTS:
-			return projects != null && !projects.isEmpty();
-		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
-			return ((eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0) != GENERATE_TESTS_BUNDLE_EDEFAULT;
+			case EclipsePackage.APPLICATION__APPLICATION_ID:
+				return APPLICATION_ID_EDEFAULT == null ? applicationID != null : !APPLICATION_ID_EDEFAULT.equals(applicationID);
+			case EclipsePackage.APPLICATION__PROVIDER:
+				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
+			case EclipsePackage.APPLICATION__COPYRIGHT:
+				return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
+			case EclipsePackage.APPLICATION__LICENSE:
+				return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
+			case EclipsePackage.APPLICATION__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case EclipsePackage.APPLICATION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+				return BASE_NAMESPACE_EDEFAULT == null ? baseNamespace != null : !BASE_NAMESPACE_EDEFAULT.equals(baseNamespace);
+			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+				return mavenCompilation != MAVEN_COMPILATION_EDEFAULT;
+			case EclipsePackage.APPLICATION__PROJECTS:
+				return projects != null && !projects.isEmpty();
+			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+				return generateTestsBundle != GENERATE_TESTS_BUNDLE_EDEFAULT;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -658,8 +626,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (applicationID: ");
@@ -677,9 +644,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		result.append(", baseNamespace: ");
 		result.append(baseNamespace);
 		result.append(", mavenCompilation: ");
-		result.append((eFlags & MAVEN_COMPILATION_EFLAG) != 0);
+		result.append(mavenCompilation);
 		result.append(", generateTestsBundle: ");
-		result.append((eFlags & GENERATE_TESTS_BUNDLE_EFLAG) != 0);
+		result.append(generateTestsBundle);
 		result.append(')');
 		return result.toString();
 	}

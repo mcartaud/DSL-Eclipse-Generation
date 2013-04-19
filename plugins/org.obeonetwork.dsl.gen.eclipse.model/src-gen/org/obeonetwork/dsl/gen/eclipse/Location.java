@@ -82,7 +82,7 @@ public enum Location implements Enumerator {
 	 * The '<em><b>BOTTOM RIGHT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bottom Right</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>BOTTOM RIGHT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -97,7 +97,7 @@ public enum Location implements Enumerator {
 	 * The '<em><b>BOTTOM LEFT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bottom Left</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>BOTTOM LEFT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -112,7 +112,7 @@ public enum Location implements Enumerator {
 	 * The '<em><b>TOP RIGHT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Top Right</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>TOP RIGHT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -127,7 +127,7 @@ public enum Location implements Enumerator {
 	 * The '<em><b>TOP LEFT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Top Left</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>TOP LEFT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -142,7 +142,7 @@ public enum Location implements Enumerator {
 	 * The '<em><b>UNDERLAY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Underlay</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>UNDERLAY</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -174,8 +174,15 @@ public enum Location implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Location[] VALUES_ARRAY = new Location[] {
-			BOTTOM_RIGHT, BOTTOM_LEFT, TOP_RIGHT, TOP_LEFT, UNDERLAY, REPLACE, };
+	private static final Location[] VALUES_ARRAY =
+		new Location[] {
+			BOTTOM_RIGHT,
+			BOTTOM_LEFT,
+			TOP_RIGHT,
+			TOP_LEFT,
+			UNDERLAY,
+			REPLACE,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Location</b></em>' enumerators.
@@ -183,8 +190,7 @@ public enum Location implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<Location> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<Location> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Location</b></em>' literal with the specified literal value.
@@ -226,8 +232,7 @@ public enum Location implements Enumerator {
 	 */
 	public static Location get(int value) {
 		switch (value) {
-		case BOTTOM_RIGHT_VALUE:
-			return BOTTOM_RIGHT;
+			case BOTTOM_RIGHT_VALUE: return BOTTOM_RIGHT;
 		}
 		return null;
 	}
@@ -271,7 +276,7 @@ public enum Location implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -280,7 +285,7 @@ public enum Location implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -289,7 +294,7 @@ public enum Location implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
@@ -302,5 +307,5 @@ public enum Location implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
+	
 } //Location

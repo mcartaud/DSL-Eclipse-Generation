@@ -61,14 +61,14 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	protected static final boolean REQUIRED_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isRequired()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int REQUIRED_EFLAG = 1 << 8;
+	protected boolean required = REQUIRED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isTranslatable() <em>Translatable</em>}' attribute.
@@ -81,14 +81,14 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	protected static final boolean TRANSLATABLE_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isTranslatable() <em>Translatable</em>}' attribute.
+	 * The cached value of the '{@link #isTranslatable() <em>Translatable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isTranslatable()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int TRANSLATABLE_EFLAG = 1 << 9;
+	protected boolean translatable = TRANSLATABLE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -147,8 +147,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.ATTRIBUTE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__NAME, oldName, name));
 	}
 
 	/**
@@ -157,7 +156,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 */
 	public boolean isRequired() {
-		return (eFlags & REQUIRED_EFLAG) != 0;
+		return required;
 	}
 
 	/**
@@ -166,15 +165,10 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 */
 	public void setRequired(boolean newRequired) {
-		boolean oldRequired = (eFlags & REQUIRED_EFLAG) != 0;
-		if (newRequired)
-			eFlags |= REQUIRED_EFLAG;
-		else
-			eFlags &= ~REQUIRED_EFLAG;
+		boolean oldRequired = required;
+		required = newRequired;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.ATTRIBUTE__REQUIRED, oldRequired,
-					newRequired));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__REQUIRED, oldRequired, required));
 	}
 
 	/**
@@ -183,7 +177,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 */
 	public boolean isTranslatable() {
-		return (eFlags & TRANSLATABLE_EFLAG) != 0;
+		return translatable;
 	}
 
 	/**
@@ -192,15 +186,10 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 */
 	public void setTranslatable(boolean newTranslatable) {
-		boolean oldTranslatable = (eFlags & TRANSLATABLE_EFLAG) != 0;
-		if (newTranslatable)
-			eFlags |= TRANSLATABLE_EFLAG;
-		else
-			eFlags &= ~TRANSLATABLE_EFLAG;
+		boolean oldTranslatable = translatable;
+		translatable = newTranslatable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.ATTRIBUTE__TRANSLATABLE, oldTranslatable,
-					newTranslatable));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__TRANSLATABLE, oldTranslatable, translatable));
 	}
 
 	/**
@@ -221,8 +210,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		Type oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.ATTRIBUTE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__TYPE, oldType, type));
 	}
 
 	/**
@@ -233,16 +221,16 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.ATTRIBUTE__NAME:
-			return getName();
-		case EclipsePackage.ATTRIBUTE__REQUIRED:
-			return isRequired();
-		case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
-			return isTranslatable();
-		case EclipsePackage.ATTRIBUTE__TYPE:
-			return getType();
+			case EclipsePackage.ATTRIBUTE__NAME:
+				return getName();
+			case EclipsePackage.ATTRIBUTE__REQUIRED:
+				return isRequired();
+			case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
+				return isTranslatable();
+			case EclipsePackage.ATTRIBUTE__TYPE:
+				return getType();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -253,20 +241,20 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.ATTRIBUTE__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.ATTRIBUTE__REQUIRED:
-			setRequired((Boolean) newValue);
-			return;
-		case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
-			setTranslatable((Boolean) newValue);
-			return;
-		case EclipsePackage.ATTRIBUTE__TYPE:
-			setType((Type) newValue);
-			return;
+			case EclipsePackage.ATTRIBUTE__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.ATTRIBUTE__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
+			case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
+				setTranslatable((Boolean)newValue);
+				return;
+			case EclipsePackage.ATTRIBUTE__TYPE:
+				setType((Type)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -277,20 +265,20 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.ATTRIBUTE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.ATTRIBUTE__REQUIRED:
-			setRequired(REQUIRED_EDEFAULT);
-			return;
-		case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
-			setTranslatable(TRANSLATABLE_EDEFAULT);
-			return;
-		case EclipsePackage.ATTRIBUTE__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
+			case EclipsePackage.ATTRIBUTE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.ATTRIBUTE__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
+				setTranslatable(TRANSLATABLE_EDEFAULT);
+				return;
+			case EclipsePackage.ATTRIBUTE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -301,17 +289,16 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.ATTRIBUTE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.ATTRIBUTE__REQUIRED:
-			return ((eFlags & REQUIRED_EFLAG) != 0) != REQUIRED_EDEFAULT;
-		case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
-			return ((eFlags & TRANSLATABLE_EFLAG) != 0) != TRANSLATABLE_EDEFAULT;
-		case EclipsePackage.ATTRIBUTE__TYPE:
-			return type != TYPE_EDEFAULT;
+			case EclipsePackage.ATTRIBUTE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.ATTRIBUTE__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
+			case EclipsePackage.ATTRIBUTE__TRANSLATABLE:
+				return translatable != TRANSLATABLE_EDEFAULT;
+			case EclipsePackage.ATTRIBUTE__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -321,16 +308,15 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", required: ");
-		result.append((eFlags & REQUIRED_EFLAG) != 0);
+		result.append(required);
 		result.append(", translatable: ");
-		result.append((eFlags & TRANSLATABLE_EFLAG) != 0);
+		result.append(translatable);
 		result.append(", type: ");
 		result.append(type);
 		result.append(')');

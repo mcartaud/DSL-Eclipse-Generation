@@ -124,8 +124,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.CONTEXT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXT__NAME, oldName, name));
 	}
 
 	/**
@@ -146,9 +145,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.CONTEXT__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXT__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -158,8 +155,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 */
 	public EList<Context> getContexts() {
 		if (contexts == null) {
-			contexts = new EObjectContainmentEList<Context>(Context.class,
-					this, EclipsePackage.CONTEXT__CONTEXTS);
+			contexts = new EObjectContainmentEList<Context>(Context.class, this, EclipsePackage.CONTEXT__CONTEXTS);
 		}
 		return contexts;
 	}
@@ -170,14 +166,12 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			return ((InternalEList<?>) getContexts()).basicRemove(otherEnd,
-					msgs);
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -188,14 +182,14 @@ public class ContextImpl extends EObjectImpl implements Context {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.CONTEXT__NAME:
-			return getName();
-		case EclipsePackage.CONTEXT__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			return getContexts();
+			case EclipsePackage.CONTEXT__NAME:
+				return getName();
+			case EclipsePackage.CONTEXT__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				return getContexts();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -207,18 +201,18 @@ public class ContextImpl extends EObjectImpl implements Context {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.CONTEXT__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.CONTEXT__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			getContexts().clear();
-			getContexts().addAll((Collection<? extends Context>) newValue);
-			return;
+			case EclipsePackage.CONTEXT__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.CONTEXT__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				getContexts().clear();
+				getContexts().addAll((Collection<? extends Context>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -229,17 +223,17 @@ public class ContextImpl extends EObjectImpl implements Context {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.CONTEXT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.CONTEXT__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			getContexts().clear();
-			return;
+			case EclipsePackage.CONTEXT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.CONTEXT__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				getContexts().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -250,16 +244,14 @@ public class ContextImpl extends EObjectImpl implements Context {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.CONTEXT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.CONTEXT__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			return contexts != null && !contexts.isEmpty();
+			case EclipsePackage.CONTEXT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.CONTEXT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				return contexts != null && !contexts.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -269,8 +261,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

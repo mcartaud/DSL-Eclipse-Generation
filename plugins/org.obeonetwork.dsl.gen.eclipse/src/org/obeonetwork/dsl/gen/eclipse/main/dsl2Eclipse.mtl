@@ -13,6 +13,9 @@ Contributors :
 /]
 [module dsl2Eclipse('http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::services::createIcons /]
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
 [import org::obeonetwork::dsl::gen::eclipse::files::projectXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
@@ -44,7 +47,6 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::helpPageHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::mainHelpPageHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::osgiServiceJavaFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::readMeIconsFolder /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::tests::activatorJavaTestFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::tests::buildPropertiesBundleTestFile /]
@@ -96,6 +98,7 @@ Contributors :
 [aBundle.genTestJavaFile()/]
 [aBundle.genTestSuiteJavaFile()/]
 [aBundle.genTestSuiteLaunchFile()/]
+[aBundle.genActivatorJavaFile()/]
 [/if]
 [if (anApplication.mavenCompilation)]
 [aBundle.genPomXmlFile()/]
@@ -125,6 +128,7 @@ Contributors :
 [/for]
 [for (aView : View | aBundle.views)]
 [aView.genViewJavaFile()/]
+[genIcon(aBundle.genBundlePath(), aView.iconName())/]
 [if (aView.dynamicHelp->size() > 0)]
 [aView.dynamicHelp.genDynamicHelpContextXmlFile()/]
 [/if][for (anHandler : Handler | aView.handlers)]
@@ -147,7 +151,6 @@ Contributors :
 or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.helpContents->size() > 0 or aBundle.categories->size() > 0 or aBundle.commands->size() > 0
 or aBundle.handlers->size() > 0)]
 [aBundle.genPluginXmlFile()/ ]
-[aBundle.genActivatorJavaFile()/]
 [/if]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
 [aWizard.gennewWizardJavaFile()/]
@@ -157,10 +160,6 @@ or aBundle.handlers->size() > 0)]
 [aWizard.genWizardNewFilePageJavaFile()/]
 [/if]
 [/for]
-[if (aBundle.eAllContents(Wizard)->size() > 0 or aBundle.eAllContents(View)->size() > 0 or aBundle.eAllContents(Command)->size() > 0 or
-aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.decorators->size() > 0)]
-[aBundle.genreadMeIconsFoler()/]
-[/if]
 [/for]
 
 

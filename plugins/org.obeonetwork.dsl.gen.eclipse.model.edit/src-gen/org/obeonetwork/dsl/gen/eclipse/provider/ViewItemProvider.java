@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewItemProvider extends PartItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ViewItemProvider
+	extends PartItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -69,15 +75,19 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	protected void addIsTreePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_View_isTree_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_View_isTree_feature", "_UI_View_type"),
-				EclipsePackage.Literals.VIEW__IS_TREE, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_View_isTree_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_View_isTree_feature", "_UI_View_type"),
+				 EclipsePackage.Literals.VIEW__IS_TREE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -87,15 +97,19 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	protected void addIsVisiblePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_View_isVisible_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_View_isVisible_feature", "_UI_View_type"),
-				EclipsePackage.Literals.VIEW__IS_VISIBLE, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_View_isVisible_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_View_isVisible_feature", "_UI_View_type"),
+				 EclipsePackage.Literals.VIEW__IS_VISIBLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -105,15 +119,19 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	protected void addPerspectivesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_View_perspectives_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_View_perspectives_feature", "_UI_View_type"),
-				EclipsePackage.Literals.VIEW__PERSPECTIVES, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_View_perspectives_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_View_perspectives_feature", "_UI_View_type"),
+				 EclipsePackage.Literals.VIEW__PERSPECTIVES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,15 +141,19 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	protected void addCategoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_View_category_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_View_category_feature", "_UI_View_type"),
-				EclipsePackage.Literals.VIEW__CATEGORY, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_View_category_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_View_category_feature", "_UI_View_type"),
+				 EclipsePackage.Literals.VIEW__CATEGORY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -143,8 +165,7 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EclipsePackage.Literals.VIEW__HANDLERS);
@@ -174,8 +195,7 @@ public class ViewItemProvider extends PartItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/View"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/View"));
 	}
 
 	/**
@@ -186,9 +206,10 @@ public class ViewItemProvider extends PartItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((View) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_View_type")
-				: getString("_UI_View_type") + " " + label;
+		String label = ((View)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_View_type") :
+			getString("_UI_View_type") + " " + label;
 	}
 
 	/**
@@ -203,16 +224,14 @@ public class ViewItemProvider extends PartItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(View.class)) {
-		case EclipsePackage.VIEW__IS_TREE:
-		case EclipsePackage.VIEW__IS_VISIBLE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.VIEW__HANDLERS:
-		case EclipsePackage.VIEW__MENUS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.VIEW__IS_TREE:
+			case EclipsePackage.VIEW__IS_VISIBLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.VIEW__HANDLERS:
+			case EclipsePackage.VIEW__MENUS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -225,17 +244,18 @@ public class ViewItemProvider extends PartItemProvider implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.VIEW__HANDLERS,
-				EclipseFactory.eINSTANCE.createHandler()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.VIEW__HANDLERS,
+				 EclipseFactory.eINSTANCE.createHandler()));
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.VIEW__MENUS,
-				EclipseFactory.eINSTANCE.createMenu()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.VIEW__MENUS,
+				 EclipseFactory.eINSTANCE.createMenu()));
 	}
 
 }

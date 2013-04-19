@@ -36,6 +36,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
+import org.obeonetwork.dsl.gen.eclipse.services.CreateIcons;
 import org.obeonetwork.dsl.gen.eclipse.ui.Activator;
 import org.obeonetwork.dsl.gen.eclipse.ui.common.GenerateAll;
 
@@ -83,6 +84,7 @@ public class AcceleoGenerateEclipseAction extends ActionDelegate implements
 							try {
 								IContainer target = model.getProject()
 										.getFolder("src-gen");
+								CreateIcons.setProjectPath(target);
 								GenerateAll generator = new GenerateAll(
 										modelURI, target, getArguments());
 

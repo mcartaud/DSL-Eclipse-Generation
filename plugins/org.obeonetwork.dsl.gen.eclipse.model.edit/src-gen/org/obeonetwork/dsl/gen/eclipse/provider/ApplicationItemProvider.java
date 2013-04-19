@@ -77,17 +77,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addApplicationIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_applicationID_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_applicationID_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__APPLICATION_ID, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_applicationID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_applicationID_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__APPLICATION_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -97,16 +99,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addProviderPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_provider_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_provider_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__PROVIDER, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_provider_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_provider_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__PROVIDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -116,16 +121,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCopyrightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_copyright_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_copyright_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__COPYRIGHT, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_copyright_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_copyright_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__COPYRIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -135,16 +143,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addLicensePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_license_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_license_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__LICENSE, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_license_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_license_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__LICENSE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -154,16 +165,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_version_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_version_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__VERSION, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_version_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -173,16 +187,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_description_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_description_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__DESCRIPTION, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_description_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -192,17 +209,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addBaseNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_baseNamespace_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_baseNamespace_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__BASE_NAMESPACE, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_baseNamespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_baseNamespace_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__BASE_NAMESPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -212,17 +231,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addMavenCompilationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_mavenCompilation_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_mavenCompilation_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__MAVEN_COMPILATION, true,
-				false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_mavenCompilation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_mavenCompilation_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__MAVEN_COMPILATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -232,17 +253,19 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addGenerateTestsBundlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Application_generateTestsBundle_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Application_generateTestsBundle_feature",
-						"_UI_Application_type"),
-				EclipsePackage.Literals.APPLICATION__GENERATE_TESTS_BUNDLE,
-				true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_generateTestsBundle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_generateTestsBundle_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__GENERATE_TESTS_BUNDLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -284,8 +307,7 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Application"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Application"));
 	}
 
 	/**
@@ -313,22 +335,20 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Application.class)) {
-		case EclipsePackage.APPLICATION__APPLICATION_ID:
-		case EclipsePackage.APPLICATION__PROVIDER:
-		case EclipsePackage.APPLICATION__COPYRIGHT:
-		case EclipsePackage.APPLICATION__LICENSE:
-		case EclipsePackage.APPLICATION__VERSION:
-		case EclipsePackage.APPLICATION__DESCRIPTION:
-		case EclipsePackage.APPLICATION__BASE_NAMESPACE:
-		case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
-		case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.APPLICATION__PROJECTS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.APPLICATION__APPLICATION_ID:
+			case EclipsePackage.APPLICATION__PROVIDER:
+			case EclipsePackage.APPLICATION__COPYRIGHT:
+			case EclipsePackage.APPLICATION__LICENSE:
+			case EclipsePackage.APPLICATION__VERSION:
+			case EclipsePackage.APPLICATION__DESCRIPTION:
+			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
+			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
+			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.APPLICATION__PROJECTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -345,17 +365,20 @@ public class ApplicationItemProvider extends ItemProviderAdapter implements
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.APPLICATION__PROJECTS,
-				EclipseFactory.eINSTANCE.createRepository()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.APPLICATION__PROJECTS,
+				 EclipseFactory.eINSTANCE.createRepository()));
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.APPLICATION__PROJECTS,
-				EclipseFactory.eINSTANCE.createFeature()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.APPLICATION__PROJECTS,
+				 EclipseFactory.eINSTANCE.createFeature()));
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.APPLICATION__PROJECTS,
-				EclipseFactory.eINSTANCE.createBundle()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.APPLICATION__PROJECTS,
+				 EclipseFactory.eINSTANCE.createBundle()));
 	}
 
 	/**

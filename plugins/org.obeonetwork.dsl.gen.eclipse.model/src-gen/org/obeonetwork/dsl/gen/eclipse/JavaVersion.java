@@ -124,8 +124,13 @@ public enum JavaVersion implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final JavaVersion[] VALUES_ARRAY = new JavaVersion[] {
-			JAVA_SE15, JAVA_SE14, JAVA_SE16, JAVA_SE17, };
+	private static final JavaVersion[] VALUES_ARRAY =
+		new JavaVersion[] {
+			JAVA_SE15,
+			JAVA_SE14,
+			JAVA_SE16,
+			JAVA_SE17,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Java Version</b></em>' enumerators.
@@ -133,8 +138,7 @@ public enum JavaVersion implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<JavaVersion> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<JavaVersion> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Java Version</b></em>' literal with the specified literal value.
@@ -176,14 +180,10 @@ public enum JavaVersion implements Enumerator {
 	 */
 	public static JavaVersion get(int value) {
 		switch (value) {
-		case JAVA_SE15_VALUE:
-			return JAVA_SE15;
-		case JAVA_SE14_VALUE:
-			return JAVA_SE14;
-		case JAVA_SE16_VALUE:
-			return JAVA_SE16;
-		case JAVA_SE17_VALUE:
-			return JAVA_SE17;
+			case JAVA_SE15_VALUE: return JAVA_SE15;
+			case JAVA_SE14_VALUE: return JAVA_SE14;
+			case JAVA_SE16_VALUE: return JAVA_SE16;
+			case JAVA_SE17_VALUE: return JAVA_SE17;
 		}
 		return null;
 	}
@@ -227,7 +227,7 @@ public enum JavaVersion implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -236,7 +236,7 @@ public enum JavaVersion implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -245,7 +245,7 @@ public enum JavaVersion implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
@@ -258,5 +258,5 @@ public enum JavaVersion implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
+	
 } //JavaVersion

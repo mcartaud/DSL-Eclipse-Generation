@@ -32,8 +32,7 @@ import org.obeonetwork.dsl.gen.eclipse.util.EclipseAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -135,8 +134,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	@Override
 	public Adapter createRepositoryCategoryAdapter() {
 		if (repositoryCategoryItemProvider == null) {
-			repositoryCategoryItemProvider = new RepositoryCategoryItemProvider(
-					this);
+			repositoryCategoryItemProvider = new RepositoryCategoryItemProvider(this);
 		}
 
 		return repositoryCategoryItemProvider;
@@ -205,11 +203,33 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	@Override
 	public Adapter createDeclarativeServiceAdapter() {
 		if (declarativeServiceItemProvider == null) {
-			declarativeServiceItemProvider = new DeclarativeServiceItemProvider(
-					this);
+			declarativeServiceItemProvider = new DeclarativeServiceItemProvider(this);
 		}
 
 		return declarativeServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ImportDeclaration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImportDeclarationItemProvider importDeclarationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImportDeclarationAdapter() {
+		if (importDeclarationItemProvider == null) {
+			importDeclarationItemProvider = new ImportDeclarationItemProvider(this);
+		}
+
+		return importDeclarationItemProvider;
 	}
 
 	/**
@@ -256,30 +276,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 		}
 
 		return requiredServiceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImportedPackageDeclarationItemProvider importedPackageDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImportedPackageDeclarationAdapter() {
-		if (importedPackageDeclarationItemProvider == null) {
-			importedPackageDeclarationItemProvider = new ImportedPackageDeclarationItemProvider(
-					this);
-		}
-
-		return importedPackageDeclarationItemProvider;
 	}
 
 	/**
@@ -749,8 +745,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory
-				.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
@@ -759,8 +754,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentAdapterFactory(
-			ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -794,8 +788,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>)
-					|| (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -844,64 +837,35 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (applicationItemProvider != null)
-			applicationItemProvider.dispose();
-		if (repositoryItemProvider != null)
-			repositoryItemProvider.dispose();
-		if (repositoryCategoryItemProvider != null)
-			repositoryCategoryItemProvider.dispose();
-		if (featureItemProvider != null)
-			featureItemProvider.dispose();
-		if (bundleItemProvider != null)
-			bundleItemProvider.dispose();
-		if (declarativeServiceItemProvider != null)
-			declarativeServiceItemProvider.dispose();
-		if (providedServiceItemProvider != null)
-			providedServiceItemProvider.dispose();
-		if (requiredServiceItemProvider != null)
-			requiredServiceItemProvider.dispose();
-		if (importedPackageDeclarationItemProvider != null)
-			importedPackageDeclarationItemProvider.dispose();
-		if (builderItemProvider != null)
-			builderItemProvider.dispose();
-		if (natureItemProvider != null)
-			natureItemProvider.dispose();
-		if (wizardItemProvider != null)
-			wizardItemProvider.dispose();
-		if (projectWizardItemProvider != null)
-			projectWizardItemProvider.dispose();
-		if (extensionPointItemProvider != null)
-			extensionPointItemProvider.dispose();
-		if (attributeItemProvider != null)
-			attributeItemProvider.dispose();
-		if (decoratorItemProvider != null)
-			decoratorItemProvider.dispose();
-		if (markerItemProvider != null)
-			markerItemProvider.dispose();
-		if (contextItemProvider != null)
-			contextItemProvider.dispose();
-		if (perspectiveItemProvider != null)
-			perspectiveItemProvider.dispose();
-		if (categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if (viewItemProvider != null)
-			viewItemProvider.dispose();
-		if (editorItemProvider != null)
-			editorItemProvider.dispose();
-		if (menuItemProvider != null)
-			menuItemProvider.dispose();
-		if (commandItemProvider != null)
-			commandItemProvider.dispose();
-		if (handlerItemProvider != null)
-			handlerItemProvider.dispose();
-		if (helpContentsItemProvider != null)
-			helpContentsItemProvider.dispose();
-		if (helpPageItemProvider != null)
-			helpPageItemProvider.dispose();
-		if (dynamicHelpItemProvider != null)
-			dynamicHelpItemProvider.dispose();
-		if (bindingItemProvider != null)
-			bindingItemProvider.dispose();
+		if (applicationItemProvider != null) applicationItemProvider.dispose();
+		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
+		if (repositoryCategoryItemProvider != null) repositoryCategoryItemProvider.dispose();
+		if (featureItemProvider != null) featureItemProvider.dispose();
+		if (bundleItemProvider != null) bundleItemProvider.dispose();
+		if (declarativeServiceItemProvider != null) declarativeServiceItemProvider.dispose();
+		if (importDeclarationItemProvider != null) importDeclarationItemProvider.dispose();
+		if (providedServiceItemProvider != null) providedServiceItemProvider.dispose();
+		if (requiredServiceItemProvider != null) requiredServiceItemProvider.dispose();
+		if (builderItemProvider != null) builderItemProvider.dispose();
+		if (natureItemProvider != null) natureItemProvider.dispose();
+		if (wizardItemProvider != null) wizardItemProvider.dispose();
+		if (projectWizardItemProvider != null) projectWizardItemProvider.dispose();
+		if (extensionPointItemProvider != null) extensionPointItemProvider.dispose();
+		if (attributeItemProvider != null) attributeItemProvider.dispose();
+		if (decoratorItemProvider != null) decoratorItemProvider.dispose();
+		if (markerItemProvider != null) markerItemProvider.dispose();
+		if (contextItemProvider != null) contextItemProvider.dispose();
+		if (perspectiveItemProvider != null) perspectiveItemProvider.dispose();
+		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (viewItemProvider != null) viewItemProvider.dispose();
+		if (editorItemProvider != null) editorItemProvider.dispose();
+		if (menuItemProvider != null) menuItemProvider.dispose();
+		if (commandItemProvider != null) commandItemProvider.dispose();
+		if (handlerItemProvider != null) handlerItemProvider.dispose();
+		if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
+		if (helpPageItemProvider != null) helpPageItemProvider.dispose();
+		if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();
+		if (bindingItemProvider != null) bindingItemProvider.dispose();
 	}
 
 }

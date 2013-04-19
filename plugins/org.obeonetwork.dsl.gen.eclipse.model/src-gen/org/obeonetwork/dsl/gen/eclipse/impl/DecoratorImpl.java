@@ -21,7 +21,6 @@ import org.obeonetwork.dsl.gen.eclipse.Location;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#isIsLightweight <em>Is Lightweight</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#isIsAdaptable <em>Is Adaptable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl#getLocation <em>Location</em>}</li>
@@ -52,26 +51,6 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIcon()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ICON_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIcon()
-	 * @generated
-	 * @ordered
-	 */
-	protected String icon = ICON_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isIsLightweight() <em>Is Lightweight</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,14 +61,14 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	protected static final boolean IS_LIGHTWEIGHT_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isIsLightweight() <em>Is Lightweight</em>}' attribute.
+	 * The cached value of the '{@link #isIsLightweight() <em>Is Lightweight</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isIsLightweight()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int IS_LIGHTWEIGHT_EFLAG = 1 << 8;
+	protected boolean isLightweight = IS_LIGHTWEIGHT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isIsAdaptable() <em>Is Adaptable</em>}' attribute.
@@ -102,14 +81,14 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	protected static final boolean IS_ADAPTABLE_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isIsAdaptable() <em>Is Adaptable</em>}' attribute.
+	 * The cached value of the '{@link #isIsAdaptable() <em>Is Adaptable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isIsAdaptable()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int IS_ADAPTABLE_EFLAG = 1 << 9;
+	protected boolean isAdaptable = IS_ADAPTABLE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -168,30 +147,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECORATOR__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getIcon() {
-		return icon;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIcon(String newIcon) {
-		String oldIcon = icon;
-		icon = newIcon;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECORATOR__ICON, oldIcon, icon));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__NAME, oldName, name));
 	}
 
 	/**
@@ -200,7 +156,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 */
 	public boolean isIsLightweight() {
-		return (eFlags & IS_LIGHTWEIGHT_EFLAG) != 0;
+		return isLightweight;
 	}
 
 	/**
@@ -209,15 +165,10 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 */
 	public void setIsLightweight(boolean newIsLightweight) {
-		boolean oldIsLightweight = (eFlags & IS_LIGHTWEIGHT_EFLAG) != 0;
-		if (newIsLightweight)
-			eFlags |= IS_LIGHTWEIGHT_EFLAG;
-		else
-			eFlags &= ~IS_LIGHTWEIGHT_EFLAG;
+		boolean oldIsLightweight = isLightweight;
+		isLightweight = newIsLightweight;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECORATOR__IS_LIGHTWEIGHT, oldIsLightweight,
-					newIsLightweight));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__IS_LIGHTWEIGHT, oldIsLightweight, isLightweight));
 	}
 
 	/**
@@ -226,7 +177,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 */
 	public boolean isIsAdaptable() {
-		return (eFlags & IS_ADAPTABLE_EFLAG) != 0;
+		return isAdaptable;
 	}
 
 	/**
@@ -235,15 +186,10 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 * @generated
 	 */
 	public void setIsAdaptable(boolean newIsAdaptable) {
-		boolean oldIsAdaptable = (eFlags & IS_ADAPTABLE_EFLAG) != 0;
-		if (newIsAdaptable)
-			eFlags |= IS_ADAPTABLE_EFLAG;
-		else
-			eFlags &= ~IS_ADAPTABLE_EFLAG;
+		boolean oldIsAdaptable = isAdaptable;
+		isAdaptable = newIsAdaptable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECORATOR__IS_ADAPTABLE, oldIsAdaptable,
-					newIsAdaptable));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__IS_ADAPTABLE, oldIsAdaptable, isAdaptable));
 	}
 
 	/**
@@ -264,8 +210,7 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 		Location oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.DECORATOR__LOCATION, oldLocation, location));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.DECORATOR__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -276,18 +221,16 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.DECORATOR__NAME:
-			return getName();
-		case EclipsePackage.DECORATOR__ICON:
-			return getIcon();
-		case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
-			return isIsLightweight();
-		case EclipsePackage.DECORATOR__IS_ADAPTABLE:
-			return isIsAdaptable();
-		case EclipsePackage.DECORATOR__LOCATION:
-			return getLocation();
+			case EclipsePackage.DECORATOR__NAME:
+				return getName();
+			case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
+				return isIsLightweight();
+			case EclipsePackage.DECORATOR__IS_ADAPTABLE:
+				return isIsAdaptable();
+			case EclipsePackage.DECORATOR__LOCATION:
+				return getLocation();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -298,23 +241,20 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.DECORATOR__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.DECORATOR__ICON:
-			setIcon((String) newValue);
-			return;
-		case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
-			setIsLightweight((Boolean) newValue);
-			return;
-		case EclipsePackage.DECORATOR__IS_ADAPTABLE:
-			setIsAdaptable((Boolean) newValue);
-			return;
-		case EclipsePackage.DECORATOR__LOCATION:
-			setLocation((Location) newValue);
-			return;
+			case EclipsePackage.DECORATOR__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
+				setIsLightweight((Boolean)newValue);
+				return;
+			case EclipsePackage.DECORATOR__IS_ADAPTABLE:
+				setIsAdaptable((Boolean)newValue);
+				return;
+			case EclipsePackage.DECORATOR__LOCATION:
+				setLocation((Location)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -325,23 +265,20 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DECORATOR__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.DECORATOR__ICON:
-			setIcon(ICON_EDEFAULT);
-			return;
-		case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
-			setIsLightweight(IS_LIGHTWEIGHT_EDEFAULT);
-			return;
-		case EclipsePackage.DECORATOR__IS_ADAPTABLE:
-			setIsAdaptable(IS_ADAPTABLE_EDEFAULT);
-			return;
-		case EclipsePackage.DECORATOR__LOCATION:
-			setLocation(LOCATION_EDEFAULT);
-			return;
+			case EclipsePackage.DECORATOR__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
+				setIsLightweight(IS_LIGHTWEIGHT_EDEFAULT);
+				return;
+			case EclipsePackage.DECORATOR__IS_ADAPTABLE:
+				setIsAdaptable(IS_ADAPTABLE_EDEFAULT);
+				return;
+			case EclipsePackage.DECORATOR__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -352,20 +289,16 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.DECORATOR__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.DECORATOR__ICON:
-			return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT
-					.equals(icon);
-		case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
-			return ((eFlags & IS_LIGHTWEIGHT_EFLAG) != 0) != IS_LIGHTWEIGHT_EDEFAULT;
-		case EclipsePackage.DECORATOR__IS_ADAPTABLE:
-			return ((eFlags & IS_ADAPTABLE_EFLAG) != 0) != IS_ADAPTABLE_EDEFAULT;
-		case EclipsePackage.DECORATOR__LOCATION:
-			return location != LOCATION_EDEFAULT;
+			case EclipsePackage.DECORATOR__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.DECORATOR__IS_LIGHTWEIGHT:
+				return isLightweight != IS_LIGHTWEIGHT_EDEFAULT;
+			case EclipsePackage.DECORATOR__IS_ADAPTABLE:
+				return isAdaptable != IS_ADAPTABLE_EDEFAULT;
+			case EclipsePackage.DECORATOR__LOCATION:
+				return location != LOCATION_EDEFAULT;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -375,18 +308,15 @@ public class DecoratorImpl extends EObjectImpl implements Decorator {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", icon: ");
-		result.append(icon);
 		result.append(", isLightweight: ");
-		result.append((eFlags & IS_LIGHTWEIGHT_EFLAG) != 0);
+		result.append(isLightweight);
 		result.append(", isAdaptable: ");
-		result.append((eFlags & IS_ADAPTABLE_EFLAG) != 0);
+		result.append(isAdaptable);
 		result.append(", location: ");
 		result.append(location);
 		result.append(')');

@@ -1,0 +1,12 @@
+[comment encoding = UTF-8 /]
+[module createIcons('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+
+[query public genIcon(bundlePath : String, IconName : String) : OclVoid = 
+	invoke('org.obeonetwork.dsl.gen.eclipse.services.CreateIcons',
+ 'copyImage(java.lang.String, java.lang.String)', 
+Sequence{bundlePath, IconName})
+/]
+

@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -22,24 +23,29 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
+import org.obeonetwork.dsl.gen.eclipse.ImportDeclaration;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ImportDeclaration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ImportDeclarationItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImportedPackageDeclarationItemProvider(AdapterFactory adapterFactory) {
+	public ImportDeclarationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,6 +62,7 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 
 			addPackageNamePropertyDescriptor(object);
 			addPackageVersionPropertyDescriptor(object);
+			addImportTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,19 +74,19 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addPackageNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ImportedPackageDeclaration_packageName_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_ImportedPackageDeclaration_packageName_feature",
-								"_UI_ImportedPackageDeclaration_type"),
-						EclipsePackage.Literals.IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ImportDeclaration_packageName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImportDeclaration_packageName_feature", "_UI_ImportDeclaration_type"),
+				 EclipsePackage.Literals.IMPORT_DECLARATION__PACKAGE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,33 +96,52 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addPackageVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ImportedPackageDeclaration_packageVersion_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_ImportedPackageDeclaration_packageVersion_feature",
-								"_UI_ImportedPackageDeclaration_type"),
-						EclipsePackage.Literals.IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ImportDeclaration_packageVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImportDeclaration_packageVersion_feature", "_UI_ImportDeclaration_type"),
+				 EclipsePackage.Literals.IMPORT_DECLARATION__PACKAGE_VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns ImportedPackageDeclaration.gif.
+	 * This adds a property descriptor for the Import Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImportTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ImportDeclaration_importType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImportDeclaration_importType_feature", "_UI_ImportDeclaration_type"),
+				 EclipsePackage.Literals.IMPORT_DECLARATION__IMPORT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ImportDeclaration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/ImportedPackageDeclaration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImportDeclaration"));
 	}
 
 	/**
@@ -126,10 +152,10 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ImportedPackageDeclaration) object).getPackageName();
-		return label == null || label.length() == 0 ? getString("_UI_ImportedPackageDeclaration_type")
-				: getString("_UI_ImportedPackageDeclaration_type") + " "
-						+ label;
+		String label = ((ImportDeclaration)object).getPackageName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ImportDeclaration_type") :
+			getString("_UI_ImportDeclaration_type") + " " + label;
 	}
 
 	/**
@@ -143,12 +169,12 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ImportedPackageDeclaration.class)) {
-		case EclipsePackage.IMPORTED_PACKAGE_DECLARATION__PACKAGE_NAME:
-		case EclipsePackage.IMPORTED_PACKAGE_DECLARATION__PACKAGE_VERSION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+		switch (notification.getFeatureID(ImportDeclaration.class)) {
+			case EclipsePackage.IMPORT_DECLARATION__PACKAGE_NAME:
+			case EclipsePackage.IMPORT_DECLARATION__PACKAGE_VERSION:
+			case EclipsePackage.IMPORT_DECLARATION__IMPORT_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -161,8 +187,7 @@ public class ImportedPackageDeclarationItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

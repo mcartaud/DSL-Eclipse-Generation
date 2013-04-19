@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BindingItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BindingItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -68,15 +74,19 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addKeySequencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Binding_keySequence_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Binding_keySequence_feature", "_UI_Binding_type"),
-				EclipsePackage.Literals.BINDING__KEY_SEQUENCE, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Binding_keySequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Binding_keySequence_feature", "_UI_Binding_type"),
+				 EclipsePackage.Literals.BINDING__KEY_SEQUENCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,15 +96,19 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCommandPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Binding_command_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Binding_command_feature", "_UI_Binding_type"),
-				EclipsePackage.Literals.BINDING__COMMAND, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Binding_command_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Binding_command_feature", "_UI_Binding_type"),
+				 EclipsePackage.Literals.BINDING__COMMAND,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,15 +118,19 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addContextsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Binding_contexts_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Binding_contexts_feature", "_UI_Binding_type"),
-				EclipsePackage.Literals.BINDING__CONTEXTS, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Binding_contexts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Binding_contexts_feature", "_UI_Binding_type"),
+				 EclipsePackage.Literals.BINDING__CONTEXTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,8 +141,7 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Binding"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Binding"));
 	}
 
 	/**
@@ -135,9 +152,10 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Binding) object).getKeySequence();
-		return label == null || label.length() == 0 ? getString("_UI_Binding_type")
-				: getString("_UI_Binding_type") + " " + label;
+		String label = ((Binding)object).getKeySequence();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Binding_type") :
+			getString("_UI_Binding_type") + " " + label;
 	}
 
 	/**
@@ -152,10 +170,9 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Binding.class)) {
-		case EclipsePackage.BINDING__KEY_SEQUENCE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.BINDING__KEY_SEQUENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -168,8 +185,7 @@ public class BindingItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

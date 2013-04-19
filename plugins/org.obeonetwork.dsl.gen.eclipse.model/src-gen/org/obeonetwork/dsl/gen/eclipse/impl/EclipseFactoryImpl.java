@@ -6,42 +6,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.obeonetwork.dsl.gen.eclipse.*;
-import org.obeonetwork.dsl.gen.eclipse.Application;
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
-import org.obeonetwork.dsl.gen.eclipse.Binding;
-import org.obeonetwork.dsl.gen.eclipse.Builder;
-import org.obeonetwork.dsl.gen.eclipse.Bundle;
-import org.obeonetwork.dsl.gen.eclipse.Category;
-import org.obeonetwork.dsl.gen.eclipse.Command;
-import org.obeonetwork.dsl.gen.eclipse.Context;
-import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
-import org.obeonetwork.dsl.gen.eclipse.Decorator;
-import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
-import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
-import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Editor;
-import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
-import org.obeonetwork.dsl.gen.eclipse.Feature;
-import org.obeonetwork.dsl.gen.eclipse.Handler;
-import org.obeonetwork.dsl.gen.eclipse.HelpContents;
-import org.obeonetwork.dsl.gen.eclipse.HelpPage;
-import org.obeonetwork.dsl.gen.eclipse.ImportedPackageDeclaration;
-import org.obeonetwork.dsl.gen.eclipse.Location;
-import org.obeonetwork.dsl.gen.eclipse.Marker;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
-import org.obeonetwork.dsl.gen.eclipse.Nature;
-import org.obeonetwork.dsl.gen.eclipse.Perspective;
-import org.obeonetwork.dsl.gen.eclipse.ProjectWizard;
-import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
-import org.obeonetwork.dsl.gen.eclipse.Repository;
-import org.obeonetwork.dsl.gen.eclipse.RepositoryCategory;
-import org.obeonetwork.dsl.gen.eclipse.RequiredService;
-import org.obeonetwork.dsl.gen.eclipse.Type;
-import org.obeonetwork.dsl.gen.eclipse.View;
-import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
 import com.google.common.base.Objects;
 
@@ -60,12 +30,12 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 */
 	public static EclipseFactory init() {
 		try {
-			EclipseFactory theEclipseFactory = (EclipseFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://www.obeonetwork.org/dsl/eclipse");
+			EclipseFactory theEclipseFactory = (EclipseFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/eclipse"); 
 			if (theEclipseFactory != null) {
 				return theEclipseFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EclipseFactoryImpl();
@@ -89,67 +59,37 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case EclipsePackage.APPLICATION:
-			return createApplication();
-		case EclipsePackage.REPOSITORY:
-			return createRepository();
-		case EclipsePackage.REPOSITORY_CATEGORY:
-			return createRepositoryCategory();
-		case EclipsePackage.FEATURE:
-			return createFeature();
-		case EclipsePackage.BUNDLE:
-			return createBundle();
-		case EclipsePackage.DECLARATIVE_SERVICE:
-			return createDeclarativeService();
-		case EclipsePackage.PROVIDED_SERVICE:
-			return createProvidedService();
-		case EclipsePackage.REQUIRED_SERVICE:
-			return createRequiredService();
-		case EclipsePackage.IMPORTED_PACKAGE_DECLARATION:
-			return createImportedPackageDeclaration();
-		case EclipsePackage.BUILDER:
-			return createBuilder();
-		case EclipsePackage.NATURE:
-			return createNature();
-		case EclipsePackage.WIZARD:
-			return createWizard();
-		case EclipsePackage.PROJECT_WIZARD:
-			return createProjectWizard();
-		case EclipsePackage.EXTENSION_POINT:
-			return createExtensionPoint();
-		case EclipsePackage.ATTRIBUTE:
-			return createAttribute();
-		case EclipsePackage.DECORATOR:
-			return createDecorator();
-		case EclipsePackage.MARKER:
-			return createMarker();
-		case EclipsePackage.CONTEXT:
-			return createContext();
-		case EclipsePackage.PERSPECTIVE:
-			return createPerspective();
-		case EclipsePackage.CATEGORY:
-			return createCategory();
-		case EclipsePackage.VIEW:
-			return createView();
-		case EclipsePackage.EDITOR:
-			return createEditor();
-		case EclipsePackage.MENU:
-			return createMenu();
-		case EclipsePackage.COMMAND:
-			return createCommand();
-		case EclipsePackage.HANDLER:
-			return createHandler();
-		case EclipsePackage.HELP_CONTENTS:
-			return createHelpContents();
-		case EclipsePackage.HELP_PAGE:
-			return createHelpPage();
-		case EclipsePackage.DYNAMIC_HELP:
-			return createDynamicHelp();
-		case EclipsePackage.BINDING:
-			return createBinding();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName()
-					+ "' is not a valid classifier");
+			case EclipsePackage.APPLICATION: return createApplication();
+			case EclipsePackage.REPOSITORY: return createRepository();
+			case EclipsePackage.REPOSITORY_CATEGORY: return createRepositoryCategory();
+			case EclipsePackage.FEATURE: return createFeature();
+			case EclipsePackage.BUNDLE: return createBundle();
+			case EclipsePackage.DECLARATIVE_SERVICE: return createDeclarativeService();
+			case EclipsePackage.IMPORT_DECLARATION: return createImportDeclaration();
+			case EclipsePackage.PROVIDED_SERVICE: return createProvidedService();
+			case EclipsePackage.REQUIRED_SERVICE: return createRequiredService();
+			case EclipsePackage.BUILDER: return createBuilder();
+			case EclipsePackage.NATURE: return createNature();
+			case EclipsePackage.WIZARD: return createWizard();
+			case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
+			case EclipsePackage.EXTENSION_POINT: return createExtensionPoint();
+			case EclipsePackage.ATTRIBUTE: return createAttribute();
+			case EclipsePackage.DECORATOR: return createDecorator();
+			case EclipsePackage.MARKER: return createMarker();
+			case EclipsePackage.CONTEXT: return createContext();
+			case EclipsePackage.PERSPECTIVE: return createPerspective();
+			case EclipsePackage.CATEGORY: return createCategory();
+			case EclipsePackage.VIEW: return createView();
+			case EclipsePackage.EDITOR: return createEditor();
+			case EclipsePackage.MENU: return createMenu();
+			case EclipsePackage.COMMAND: return createCommand();
+			case EclipsePackage.HANDLER: return createHandler();
+			case EclipsePackage.HELP_CONTENTS: return createHelpContents();
+			case EclipsePackage.HELP_PAGE: return createHelpPage();
+			case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
+			case EclipsePackage.BINDING: return createBinding();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -161,23 +101,24 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case EclipsePackage.JAVA_VERSION:
-			return createJavaVersionFromString(eDataType, initialValue);
-		case EclipsePackage.TYPE:
-			return createTypeFromString(eDataType, initialValue);
-		case EclipsePackage.LOCATION:
-			return createLocationFromString(eDataType, initialValue);
-		case EclipsePackage.VERSION:
-			return createVersionFromString(eDataType, initialValue);
-		case EclipsePackage.NAMESPACE:
-			return createNamespaceFromString(eDataType, initialValue);
-		case EclipsePackage.JAVA_NAME:
-			return createJavaNameFromString(eDataType, initialValue);
-		case EclipsePackage.NAME:
-			return createNameFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			case EclipsePackage.IMPORT_TYPE:
+				return createImportTypeFromString(eDataType, initialValue);
+			case EclipsePackage.JAVA_VERSION:
+				return createJavaVersionFromString(eDataType, initialValue);
+			case EclipsePackage.TYPE:
+				return createTypeFromString(eDataType, initialValue);
+			case EclipsePackage.LOCATION:
+				return createLocationFromString(eDataType, initialValue);
+			case EclipsePackage.VERSION:
+				return createVersionFromString(eDataType, initialValue);
+			case EclipsePackage.NAMESPACE:
+				return createNamespaceFromString(eDataType, initialValue);
+			case EclipsePackage.JAVA_NAME:
+				return createJavaNameFromString(eDataType, initialValue);
+			case EclipsePackage.NAME:
+				return createNameFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -189,23 +130,24 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case EclipsePackage.JAVA_VERSION:
-			return convertJavaVersionToString(eDataType, instanceValue);
-		case EclipsePackage.TYPE:
-			return convertTypeToString(eDataType, instanceValue);
-		case EclipsePackage.LOCATION:
-			return convertLocationToString(eDataType, instanceValue);
-		case EclipsePackage.VERSION:
-			return convertVersionToString(eDataType, instanceValue);
-		case EclipsePackage.NAMESPACE:
-			return convertNamespaceToString(eDataType, instanceValue);
-		case EclipsePackage.JAVA_NAME:
-			return convertJavaNameToString(eDataType, instanceValue);
-		case EclipsePackage.NAME:
-			return convertNameToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			case EclipsePackage.IMPORT_TYPE:
+				return convertImportTypeToString(eDataType, instanceValue);
+			case EclipsePackage.JAVA_VERSION:
+				return convertJavaVersionToString(eDataType, instanceValue);
+			case EclipsePackage.TYPE:
+				return convertTypeToString(eDataType, instanceValue);
+			case EclipsePackage.LOCATION:
+				return convertLocationToString(eDataType, instanceValue);
+			case EclipsePackage.VERSION:
+				return convertVersionToString(eDataType, instanceValue);
+			case EclipsePackage.NAMESPACE:
+				return convertNamespaceToString(eDataType, instanceValue);
+			case EclipsePackage.JAVA_NAME:
+				return convertJavaNameToString(eDataType, instanceValue);
+			case EclipsePackage.NAME:
+				return convertNameToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -274,6 +216,16 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImportDeclaration createImportDeclaration() {
+		ImportDeclarationImpl importDeclaration = new ImportDeclarationImpl();
+		return importDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProvidedService createProvidedService() {
 		ProvidedServiceImpl providedService = new ProvidedServiceImpl();
 		return providedService;
@@ -287,16 +239,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	public RequiredService createRequiredService() {
 		RequiredServiceImpl requiredService = new RequiredServiceImpl();
 		return requiredService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImportedPackageDeclaration createImportedPackageDeclaration() {
-		ImportedPackageDeclarationImpl importedPackageDeclaration = new ImportedPackageDeclarationImpl();
-		return importedPackageDeclaration;
 	}
 
 	/**
@@ -504,13 +446,9 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JavaVersion createJavaVersionFromString(EDataType eDataType,
-			String initialValue) {
-		JavaVersion result = JavaVersion.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+	public ImportType createImportTypeFromString(EDataType eDataType, String initialValue) {
+		ImportType result = ImportType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -519,8 +457,27 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertJavaVersionToString(EDataType eDataType,
-			Object instanceValue) {
+	public String convertImportTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaVersion createJavaVersionFromString(EDataType eDataType, String initialValue) {
+		JavaVersion result = JavaVersion.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJavaVersionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -531,10 +488,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 */
 	public Type createTypeFromString(EDataType eDataType, String initialValue) {
 		Type result = Type.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -552,13 +506,9 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Location createLocationFromString(EDataType eDataType,
-			String initialValue) {
+	public Location createLocationFromString(EDataType eDataType, String initialValue) {
 		Location result = Location.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -567,11 +517,91 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertLocationToString(EDataType eDataType,
-			Object instanceValue) {
+	public String convertLocationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @not-generated
+	 */
+	public String createVersionFromString(EDataType eDataType, String initialValue) {
+		return (String)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createNamespaceFromString(EDataType eDataType, String initialValue) {
+		return (String)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNamespaceToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createJavaNameFromString(EDataType eDataType, String initialValue) {
+		return (String)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJavaNameToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createNameFromString(EDataType eDataType, String initialValue) {
+		return (String)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNameToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EclipsePackage getEclipsePackage() {
+		return (EclipsePackage)getEPackage();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,27 +624,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 		}
 		return it;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createVersionFromString(EDataType eDataType,
-			String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertVersionToString(EDataType eDataType,
-			Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,27 +648,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 		}
 		return it;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createNamespaceFromString(EDataType eDataType,
-			String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNamespaceToString(EDataType eDataType,
-			Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -681,27 +671,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 		}
 		return it;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createJavaNameFromString(EDataType eDataType,
-			String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertJavaNameToString(EDataType eDataType,
-			Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,33 +694,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 			throw _runtimeException;
 		}
 		return it;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createNameFromString(EDataType eDataType, String initialValue) {
-		return (String) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNameToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EclipsePackage getEclipsePackage() {
-		return (EclipsePackage) getEPackage();
 	}
 
 	/**

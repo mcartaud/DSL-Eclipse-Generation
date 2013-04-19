@@ -137,8 +137,7 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.HELP_CONTENTS__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_CONTENTS__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -159,9 +158,7 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.HELP_CONTENTS__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HELP_CONTENTS__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -171,8 +168,7 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	 */
 	public EList<HelpPage> getHelpPages() {
 		if (helpPages == null) {
-			helpPages = new EObjectContainmentEList<HelpPage>(HelpPage.class,
-					this, EclipsePackage.HELP_CONTENTS__HELP_PAGES);
+			helpPages = new EObjectContainmentEList<HelpPage>(HelpPage.class, this, EclipsePackage.HELP_CONTENTS__HELP_PAGES);
 		}
 		return helpPages;
 	}
@@ -184,9 +180,7 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	 */
 	public EList<HelpPage> getExternalHelpPages() {
 		if (externalHelpPages == null) {
-			externalHelpPages = new EObjectResolvingEList<HelpPage>(
-					HelpPage.class, this,
-					EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES);
+			externalHelpPages = new EObjectResolvingEList<HelpPage>(HelpPage.class, this, EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES);
 		}
 		return externalHelpPages;
 	}
@@ -197,14 +191,12 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
-			return ((InternalEList<?>) getHelpPages()).basicRemove(otherEnd,
-					msgs);
+			case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
+				return ((InternalEList<?>)getHelpPages()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -215,16 +207,16 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.HELP_CONTENTS__LABEL:
-			return getLabel();
-		case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
-			return getDescription();
-		case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
-			return getHelpPages();
-		case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
-			return getExternalHelpPages();
+			case EclipsePackage.HELP_CONTENTS__LABEL:
+				return getLabel();
+			case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
+				return getDescription();
+			case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
+				return getHelpPages();
+			case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
+				return getExternalHelpPages();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -236,23 +228,22 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.HELP_CONTENTS__LABEL:
-			setLabel((String) newValue);
-			return;
-		case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
-			getHelpPages().clear();
-			getHelpPages().addAll((Collection<? extends HelpPage>) newValue);
-			return;
-		case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
-			getExternalHelpPages().clear();
-			getExternalHelpPages().addAll(
-					(Collection<? extends HelpPage>) newValue);
-			return;
+			case EclipsePackage.HELP_CONTENTS__LABEL:
+				setLabel((String)newValue);
+				return;
+			case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
+				getHelpPages().clear();
+				getHelpPages().addAll((Collection<? extends HelpPage>)newValue);
+				return;
+			case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
+				getExternalHelpPages().clear();
+				getExternalHelpPages().addAll((Collection<? extends HelpPage>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -263,20 +254,20 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.HELP_CONTENTS__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
-		case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
-			getHelpPages().clear();
-			return;
-		case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
-			getExternalHelpPages().clear();
-			return;
+			case EclipsePackage.HELP_CONTENTS__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
+			case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
+				getHelpPages().clear();
+				return;
+			case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
+				getExternalHelpPages().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -287,18 +278,16 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.HELP_CONTENTS__LABEL:
-			return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT
-					.equals(label);
-		case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
-			return helpPages != null && !helpPages.isEmpty();
-		case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
-			return externalHelpPages != null && !externalHelpPages.isEmpty();
+			case EclipsePackage.HELP_CONTENTS__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case EclipsePackage.HELP_CONTENTS__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case EclipsePackage.HELP_CONTENTS__HELP_PAGES:
+				return helpPages != null && !helpPages.isEmpty();
+			case EclipsePackage.HELP_CONTENTS__EXTERNAL_HELP_PAGES:
+				return externalHelpPages != null && !externalHelpPages.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -308,8 +297,7 @@ public class HelpContentsImpl extends EObjectImpl implements HelpContents {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: ");

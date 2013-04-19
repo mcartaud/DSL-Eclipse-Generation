@@ -2,12 +2,15 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -16,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 
 /**
@@ -24,9 +28,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedServiceItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProvidedServiceItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,16 +69,19 @@ public class ProvidedServiceItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ProvidedService_interface_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ProvidedService_interface_feature",
-						"_UI_ProvidedService_type"),
-				EclipsePackage.Literals.PROVIDED_SERVICE__INTERFACE, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedService_interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedService_interface_feature", "_UI_ProvidedService_type"),
+				 EclipsePackage.Literals.PROVIDED_SERVICE__INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,8 +92,7 @@ public class ProvidedServiceItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/ProvidedService"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProvidedService"));
 	}
 
 	/**
@@ -116,8 +127,7 @@ public class ProvidedServiceItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

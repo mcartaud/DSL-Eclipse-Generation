@@ -104,8 +104,7 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.PROJECT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__NAME, oldName, name));
 	}
 
 	/**
@@ -126,8 +125,7 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 		String oldID = id;
 		id = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.PROJECT__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROJECT__ID, oldID, id));
 	}
 
 	/**
@@ -138,12 +136,12 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.PROJECT__NAME:
-			return getName();
-		case EclipsePackage.PROJECT__ID:
-			return getID();
+			case EclipsePackage.PROJECT__NAME:
+				return getName();
+			case EclipsePackage.PROJECT__ID:
+				return getID();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -154,14 +152,14 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.PROJECT__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.PROJECT__ID:
-			setID((String) newValue);
-			return;
+			case EclipsePackage.PROJECT__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.PROJECT__ID:
+				setID((String)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -172,14 +170,14 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.PROJECT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.PROJECT__ID:
-			setID(ID_EDEFAULT);
-			return;
+			case EclipsePackage.PROJECT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.PROJECT__ID:
+				setID(ID_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -190,13 +188,12 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.PROJECT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.PROJECT__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case EclipsePackage.PROJECT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.PROJECT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -206,8 +203,7 @@ public abstract class ProjectImpl extends EObjectImpl implements Project {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

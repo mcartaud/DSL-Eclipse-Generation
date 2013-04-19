@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BuilderItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class BuilderItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,15 +73,19 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Builder_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Builder_name_feature", "_UI_Builder_type"),
-				EclipsePackage.Literals.BUILDER__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Builder_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Builder_name_feature", "_UI_Builder_type"),
+				 EclipsePackage.Literals.BUILDER__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -85,15 +95,19 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNaturesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Builder_natures_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Builder_natures_feature", "_UI_Builder_type"),
-				EclipsePackage.Literals.BUILDER__NATURES, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Builder_natures_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Builder_natures_feature", "_UI_Builder_type"),
+				 EclipsePackage.Literals.BUILDER__NATURES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,8 +118,7 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Builder"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Builder"));
 	}
 
 	/**
@@ -116,9 +129,10 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Builder) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Builder_type")
-				: getString("_UI_Builder_type") + " " + label;
+		String label = ((Builder)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Builder_type") :
+			getString("_UI_Builder_type") + " " + label;
 	}
 
 	/**
@@ -133,10 +147,9 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Builder.class)) {
-		case EclipsePackage.BUILDER__NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.BUILDER__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -149,8 +162,7 @@ public class BuilderItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

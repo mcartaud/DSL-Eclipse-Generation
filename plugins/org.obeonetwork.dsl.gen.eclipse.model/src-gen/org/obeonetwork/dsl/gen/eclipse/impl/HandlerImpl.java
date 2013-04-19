@@ -4,10 +4,13 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
@@ -115,8 +118,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.HANDLER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__NAME, oldName, name));
 	}
 
 	/**
@@ -137,8 +139,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		String oldMnemonic = mnemonic;
 		mnemonic = newMnemonic;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.HANDLER__MNEMONIC, oldMnemonic, mnemonic));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__MNEMONIC, oldMnemonic, mnemonic));
 	}
 
 	/**
@@ -148,13 +149,11 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 */
 	public Command getCommand() {
 		if (command != null && command.eIsProxy()) {
-			InternalEObject oldCommand = (InternalEObject) command;
-			command = (Command) eResolveProxy(oldCommand);
+			InternalEObject oldCommand = (InternalEObject)command;
+			command = (Command)eResolveProxy(oldCommand);
 			if (command != oldCommand) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							EclipsePackage.HANDLER__COMMAND, oldCommand,
-							command));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.HANDLER__COMMAND, oldCommand, command));
 			}
 		}
 		return command;
@@ -174,18 +173,12 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCommand(Command newCommand,
-			NotificationChain msgs) {
+	public NotificationChain basicSetCommand(Command newCommand, NotificationChain msgs) {
 		Command oldCommand = command;
 		command = newCommand;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, EclipsePackage.HANDLER__COMMAND,
-					oldCommand, newCommand);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, oldCommand, newCommand);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -199,17 +192,14 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		if (newCommand != command) {
 			NotificationChain msgs = null;
 			if (command != null)
-				msgs = ((InternalEObject) command).eInverseRemove(this,
-						EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
+				msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
 			if (newCommand != null)
-				msgs = ((InternalEObject) newCommand).eInverseAdd(this,
-						EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
+				msgs = ((InternalEObject)newCommand).eInverseAdd(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
 			msgs = basicSetCommand(newCommand, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.HANDLER__COMMAND, newCommand, newCommand));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, newCommand, newCommand));
 	}
 
 	/**
@@ -218,16 +208,14 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__COMMAND:
-			if (command != null)
-				msgs = ((InternalEObject) command).eInverseRemove(this,
-						EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
-			return basicSetCommand((Command) otherEnd, msgs);
+			case EclipsePackage.HANDLER__COMMAND:
+				if (command != null)
+					msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
+				return basicSetCommand((Command)otherEnd, msgs);
 		}
-		return eDynamicInverseAdd(otherEnd, featureID, msgs);
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -236,13 +224,12 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__COMMAND:
-			return basicSetCommand(null, msgs);
+			case EclipsePackage.HANDLER__COMMAND:
+				return basicSetCommand(null, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -253,16 +240,15 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__NAME:
-			return getName();
-		case EclipsePackage.HANDLER__MNEMONIC:
-			return getMnemonic();
-		case EclipsePackage.HANDLER__COMMAND:
-			if (resolve)
-				return getCommand();
-			return basicGetCommand();
+			case EclipsePackage.HANDLER__NAME:
+				return getName();
+			case EclipsePackage.HANDLER__MNEMONIC:
+				return getMnemonic();
+			case EclipsePackage.HANDLER__COMMAND:
+				if (resolve) return getCommand();
+				return basicGetCommand();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -273,17 +259,17 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.HANDLER__MNEMONIC:
-			setMnemonic((String) newValue);
-			return;
-		case EclipsePackage.HANDLER__COMMAND:
-			setCommand((Command) newValue);
-			return;
+			case EclipsePackage.HANDLER__NAME:
+				setName((String)newValue);
+				return;
+			case EclipsePackage.HANDLER__MNEMONIC:
+				setMnemonic((String)newValue);
+				return;
+			case EclipsePackage.HANDLER__COMMAND:
+				setCommand((Command)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -294,17 +280,17 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.HANDLER__MNEMONIC:
-			setMnemonic(MNEMONIC_EDEFAULT);
-			return;
-		case EclipsePackage.HANDLER__COMMAND:
-			setCommand((Command) null);
-			return;
+			case EclipsePackage.HANDLER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EclipsePackage.HANDLER__MNEMONIC:
+				setMnemonic(MNEMONIC_EDEFAULT);
+				return;
+			case EclipsePackage.HANDLER__COMMAND:
+				setCommand((Command)null);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -315,16 +301,14 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.HANDLER__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.HANDLER__MNEMONIC:
-			return MNEMONIC_EDEFAULT == null ? mnemonic != null
-					: !MNEMONIC_EDEFAULT.equals(mnemonic);
-		case EclipsePackage.HANDLER__COMMAND:
-			return command != null;
+			case EclipsePackage.HANDLER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.HANDLER__MNEMONIC:
+				return MNEMONIC_EDEFAULT == null ? mnemonic != null : !MNEMONIC_EDEFAULT.equals(mnemonic);
+			case EclipsePackage.HANDLER__COMMAND:
+				return command != null;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -334,8 +318,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,14 @@ import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtensionPointItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ExtensionPointItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -70,16 +76,19 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ExtensionPoint_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ExtensionPoint_name_feature",
-						"_UI_ExtensionPoint_type"),
-				EclipsePackage.Literals.EXTENSION_POINT__NAME, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtensionPoint_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_name_feature", "_UI_ExtensionPoint_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,16 +98,19 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addRequiredPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ExtensionPoint_required_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ExtensionPoint_required_feature",
-						"_UI_ExtensionPoint_type"),
-				EclipsePackage.Literals.EXTENSION_POINT__REQUIRED, true, false,
-				false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtensionPoint_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_required_feature", "_UI_ExtensionPoint_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -110,12 +122,10 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES);
+			childrenFeatures.add(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -141,8 +151,7 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/ExtensionPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionPoint"));
 	}
 
 	/**
@@ -153,9 +162,10 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExtensionPoint) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ExtensionPoint_type")
-				: getString("_UI_ExtensionPoint_type") + " " + label;
+		String label = ((ExtensionPoint)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtensionPoint_type") :
+			getString("_UI_ExtensionPoint_type") + " " + label;
 	}
 
 	/**
@@ -170,15 +180,13 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtensionPoint.class)) {
-		case EclipsePackage.EXTENSION_POINT__NAME:
-		case EclipsePackage.EXTENSION_POINT__REQUIRED:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.EXTENSION_POINT__NAME:
+			case EclipsePackage.EXTENSION_POINT__REQUIRED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -191,13 +199,13 @@ public class ExtensionPointItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES,
-				EclipseFactory.eINSTANCE.createAttribute()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES,
+				 EclipseFactory.eINSTANCE.createAttribute()));
 	}
 
 	/**

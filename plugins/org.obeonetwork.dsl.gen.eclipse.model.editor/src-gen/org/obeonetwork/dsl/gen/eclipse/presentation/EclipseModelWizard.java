@@ -70,10 +70,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections
-			.unmodifiableList(Arrays.asList(EclipseEditorPlugin.INSTANCE
-					.getString("_UI_EclipseEditorFilenameExtensions").split(
-							"\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -81,9 +78,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String FORMATTED_FILE_EXTENSIONS = EclipseEditorPlugin.INSTANCE
-			.getString("_UI_EclipseEditorFilenameExtensions").replaceAll(
-					"\\s*,\\s*", ", ");
+	public static final String FORMATTED_FILE_EXTENSIONS = EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -99,8 +94,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EclipseFactory eclipseFactory = eclipsePackage
-			.getEclipseFactory();
+	protected EclipseFactory eclipseFactory = eclipsePackage.getEclipseFactory();
 
 	/**
 	 * This is the file creation page.
@@ -151,11 +145,8 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
-				.getImageDescriptor(EclipseEditorPlugin.INSTANCE
-						.getImage("full/wizban/NewEclipse")));
+		setWindowTitle(EclipseEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(EclipseEditorPlugin.INSTANCE.getImage("full/wizban/NewEclipse")));
 	}
 
 	/**
@@ -182,9 +173,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass) eclipsePackage
-				.getEClassifier(initialObjectCreationPage
-						.getInitialObjectName());
+		EClass eClass = (EClass)eclipsePackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = eclipseFactory.create(eClass);
 		return rootObject;
 	}
@@ -204,83 +193,77 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-				@Override
-				protected void execute(IProgressMonitor progressMonitor) {
-					try {
-						// Create a resource set
-						//
-						ResourceSet resourceSet = new ResourceSetImpl();
+			WorkspaceModifyOperation operation =
+				new WorkspaceModifyOperation() {
+					@Override
+					protected void execute(IProgressMonitor progressMonitor) {
+						try {
+							// Create a resource set
+							//
+							ResourceSet resourceSet = new ResourceSetImpl();
 
-						// Get the URI of the model file.
-						//
-						URI fileURI = URI.createPlatformResourceURI(modelFile
-								.getFullPath().toString(), true);
+							// Get the URI of the model file.
+							//
+							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-						// Create a resource for this file.
-						//
-						Resource resource = resourceSet.createResource(fileURI);
+							// Create a resource for this file.
+							//
+							Resource resource = resourceSet.createResource(fileURI);
 
-						// Add the initial model object to the contents.
-						//
-						EObject rootObject = createInitialModel();
-						if (rootObject != null) {
-							resource.getContents().add(rootObject);
+							// Add the initial model object to the contents.
+							//
+							EObject rootObject = createInitialModel();
+							if (rootObject != null) {
+								resource.getContents().add(rootObject);
+							}
+
+							// Save the contents of the resource to the file system.
+							//
+							Map<Object, Object> options = new HashMap<Object, Object>();
+							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							resource.save(options);
 						}
-
-						// Save the contents of the resource to the file system.
-						//
-						Map<Object, Object> options = new HashMap<Object, Object>();
-						options.put(XMLResource.OPTION_ENCODING,
-								initialObjectCreationPage.getEncoding());
-						resource.save(options);
-					} catch (Exception exception) {
-						EclipseEditorPlugin.INSTANCE.log(exception);
-					} finally {
-						progressMonitor.done();
+						catch (Exception exception) {
+							EclipseEditorPlugin.INSTANCE.log(exception);
+						}
+						finally {
+							progressMonitor.done();
+						}
 					}
-				}
-			};
+				};
 
 			getContainer().run(false, false, operation);
 
 			// Select the new file resource in the current view.
 			//
-			IWorkbenchWindow workbenchWindow = workbench
-					.getActiveWorkbenchWindow();
+			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
-				final ISelection targetSelection = new StructuredSelection(
-						modelFile);
-				getShell().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						((ISetSelectionTarget) activePart)
-								.selectReveal(targetSelection);
-					}
-				});
+				final ISelection targetSelection = new StructuredSelection(modelFile);
+				getShell().getDisplay().asyncExec
+					(new Runnable() {
+						 public void run() {
+							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
+						 }
+					 });
 			}
 
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(
-						new FileEditorInput(modelFile),
-						workbench
-								.getEditorRegistry()
-								.getDefaultEditor(
-										modelFile.getFullPath().toString())
-								.getId());
-			} catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(),
-						EclipseEditorPlugin.INSTANCE
-								.getString("_UI_OpenEditorError_label"),
-						exception.getMessage());
+				page.openEditor
+					(new FileEditorInput(modelFile),
+					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+			}
+			catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(), EclipseEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EclipseEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -316,10 +299,8 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
-							: "_WARN_FilenameExtension";
-					setErrorMessage(EclipseEditorPlugin.INSTANCE.getString(key,
-							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(EclipseEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -333,8 +314,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot()
-					.getFile(getContainerFullPath().append(getFileName()));
+			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
 
@@ -382,8 +362,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -398,8 +377,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(EclipseEditorPlugin.INSTANCE
-						.getString("_UI_ModelObject"));
+				containerLabel.setText(EclipseEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -425,8 +403,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(EclipseEditorPlugin.INSTANCE
-						.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(EclipseEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -457,10 +434,10 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected ModifyListener validator = new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				setPageComplete(validatePage());
-			}
-		};
+				public void modifyText(ModifyEvent e) {
+					setPageComplete(validatePage());
+				}
+			};
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -468,8 +445,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			return getInitialObjectName() != null
-					&& getEncodings().contains(encodingField.getText());
+			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
 		/**
@@ -484,7 +460,8 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
-				} else {
+				}
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -524,9 +501,9 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return EclipseEditPlugin.INSTANCE.getString("_UI_" + typeName
-						+ "_type");
-			} catch (MissingResourceException mre) {
+				return EclipseEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			}
+			catch(MissingResourceException mre) {
 				EclipseEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -540,10 +517,7 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						EclipseEditorPlugin.INSTANCE
-								.getString("_UI_XMLEncodingChoices")); stringTokenizer
-						.hasMoreTokens();) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(EclipseEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -561,16 +535,10 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new EclipseModelWizardNewFileCreationPage(
-				"Whatever", selection);
-		newFileCreationPage.setTitle(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_EclipseModelWizard_label"));
-		newFileCreationPage.setDescription(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_EclipseModelWizard_description"));
-		newFileCreationPage.setFileName(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_EclipseEditorFilenameDefaultBase")
-				+ "."
-				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new EclipseModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseModelWizard_label"));
+		newFileCreationPage.setDescription(EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseModelWizard_description"));
+		newFileCreationPage.setFileName(EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -582,43 +550,33 @@ public class EclipseModelWizard extends Wizard implements INewWizard {
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource) selectedElement;
+				IResource selectedResource = (IResource)selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder
-						|| selectedResource instanceof IProject) {
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
-					newFileCreationPage.setContainerFullPath(selectedResource
-							.getFullPath());
+					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = EclipseEditorPlugin.INSTANCE
-							.getString("_UI_EclipseEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS
-							.get(0);
-					String modelFilename = defaultModelBaseFilename + "."
-							+ defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer) selectedResource)
-							.findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "."
-								+ defaultModelFilenameExtension;
+					String defaultModelBaseFilename = EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		initialObjectCreationPage = new EclipseModelWizardInitialObjectCreationPage(
-				"Whatever2");
-		initialObjectCreationPage.setTitle(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_EclipseModelWizard_label"));
-		initialObjectCreationPage.setDescription(EclipseEditorPlugin.INSTANCE
-				.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new EclipseModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(EclipseEditorPlugin.INSTANCE.getString("_UI_EclipseModelWizard_label"));
+		initialObjectCreationPage.setDescription(EclipseEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

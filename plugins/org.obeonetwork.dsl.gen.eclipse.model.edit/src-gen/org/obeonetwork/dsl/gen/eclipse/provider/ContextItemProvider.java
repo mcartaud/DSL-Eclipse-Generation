@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContextItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ContextItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -70,15 +76,19 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Context_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Context_name_feature", "_UI_Context_type"),
-				EclipsePackage.Literals.CONTEXT__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_name_feature", "_UI_Context_type"),
+				 EclipsePackage.Literals.CONTEXT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -88,15 +98,19 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Context_description_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Context_description_feature", "_UI_Context_type"),
-				EclipsePackage.Literals.CONTEXT__DESCRIPTION, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_description_feature", "_UI_Context_type"),
+				 EclipsePackage.Literals.CONTEXT__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -108,8 +122,7 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EclipsePackage.Literals.CONTEXT__CONTEXTS);
@@ -138,8 +151,7 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Context"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Context"));
 	}
 
 	/**
@@ -150,9 +162,10 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Context) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Context_type")
-				: getString("_UI_Context_type") + " " + label;
+		String label = ((Context)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Context_type") :
+			getString("_UI_Context_type") + " " + label;
 	}
 
 	/**
@@ -167,15 +180,13 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Context.class)) {
-		case EclipsePackage.CONTEXT__NAME:
-		case EclipsePackage.CONTEXT__DESCRIPTION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case EclipsePackage.CONTEXT__CONTEXTS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case EclipsePackage.CONTEXT__NAME:
+			case EclipsePackage.CONTEXT__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.CONTEXT__CONTEXTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -188,13 +199,13 @@ public class ContextItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EclipsePackage.Literals.CONTEXT__CONTEXTS,
-				EclipseFactory.eINSTANCE.createContext()));
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.CONTEXT__CONTEXTS,
+				 EclipseFactory.eINSTANCE.createContext()));
 	}
 
 	/**

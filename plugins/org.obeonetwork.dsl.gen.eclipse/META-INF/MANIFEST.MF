@@ -4,8 +4,9 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.gen.eclipse
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %providerName
-Require-Bundle: org.eclipse.core.runtime, 
- org.obeonetwork.dsl.gen.eclipse.model, 
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.obeonetwork.dsl.gen.eclipse.model,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.ocl,
@@ -18,5 +19,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Export-Package: org.obeonetwork.dsl.gen.eclipse.main
+Export-Package: org.obeonetwork.dsl.gen.eclipse.main,
+ org.obeonetwork.dsl.gen.eclipse.services
 

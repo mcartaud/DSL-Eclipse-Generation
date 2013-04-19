@@ -68,9 +68,7 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	 */
 	public EList<RepositoryCategory> getRepositoryCategories() {
 		if (repositoryCategories == null) {
-			repositoryCategories = new EObjectContainmentEList<RepositoryCategory>(
-					RepositoryCategory.class, this,
-					EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES);
+			repositoryCategories = new EObjectContainmentEList<RepositoryCategory>(RepositoryCategory.class, this, EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES);
 		}
 		return repositoryCategories;
 	}
@@ -81,14 +79,12 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			return ((InternalEList<?>) getRepositoryCategories()).basicRemove(
-					otherEnd, msgs);
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				return ((InternalEList<?>)getRepositoryCategories()).basicRemove(otherEnd, msgs);
 		}
-		return eDynamicInverseRemove(otherEnd, featureID, msgs);
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -99,14 +95,10 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY__NAME:
-			return getName();
-		case EclipsePackage.REPOSITORY__ID:
-			return getID();
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			return getRepositoryCategories();
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				return getRepositoryCategories();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -118,19 +110,12 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY__NAME:
-			setName((String) newValue);
-			return;
-		case EclipsePackage.REPOSITORY__ID:
-			setID((String) newValue);
-			return;
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			getRepositoryCategories().clear();
-			getRepositoryCategories().addAll(
-					(Collection<? extends RepositoryCategory>) newValue);
-			return;
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				getRepositoryCategories().clear();
+				getRepositoryCategories().addAll((Collection<? extends RepositoryCategory>)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -141,17 +126,11 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case EclipsePackage.REPOSITORY__ID:
-			setID(ID_EDEFAULT);
-			return;
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			getRepositoryCategories().clear();
-			return;
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				getRepositoryCategories().clear();
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -162,16 +141,10 @@ public class RepositoryImpl extends ProjectImpl implements Repository {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.REPOSITORY__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case EclipsePackage.REPOSITORY__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
-			return repositoryCategories != null
-					&& !repositoryCategories.isEmpty();
+			case EclipsePackage.REPOSITORY__REPOSITORY_CATEGORIES:
+				return repositoryCategories != null && !repositoryCategories.isEmpty();
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 } //RepositoryImpl

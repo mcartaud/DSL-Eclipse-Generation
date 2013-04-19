@@ -19,8 +19,7 @@ public interface EclipseFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	EclipseFactory eINSTANCE = org.obeonetwork.dsl.gen.eclipse.impl.EclipseFactoryImpl
-			.init();
+	EclipseFactory eINSTANCE = org.obeonetwork.dsl.gen.eclipse.impl.EclipseFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Application</em>'.
@@ -77,6 +76,15 @@ public interface EclipseFactory extends EFactory {
 	DeclarativeService createDeclarativeService();
 
 	/**
+	 * Returns a new object of class '<em>Import Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Import Declaration</em>'.
+	 * @generated
+	 */
+	ImportDeclaration createImportDeclaration();
+
+	/**
 	 * Returns a new object of class '<em>Provided Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,15 +101,6 @@ public interface EclipseFactory extends EFactory {
 	 * @generated
 	 */
 	RequiredService createRequiredService();
-
-	/**
-	 * Returns a new object of class '<em>Imported Package Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Imported Package Declaration</em>'.
-	 * @generated
-	 */
-	ImportedPackageDeclaration createImportedPackageDeclaration();
 
 	/**
 	 * Returns a new object of class '<em>Builder</em>'.

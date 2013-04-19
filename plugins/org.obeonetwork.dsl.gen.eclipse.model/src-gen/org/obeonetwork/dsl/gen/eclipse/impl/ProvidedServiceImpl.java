@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -64,13 +65,11 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 	 */
 	public GenClass getInterface() {
 		if (interface_ != null && interface_.eIsProxy()) {
-			InternalEObject oldInterface = (InternalEObject) interface_;
-			interface_ = (GenClass) eResolveProxy(oldInterface);
+			InternalEObject oldInterface = (InternalEObject)interface_;
+			interface_ = (GenClass)eResolveProxy(oldInterface);
 			if (interface_ != oldInterface) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							EclipsePackage.PROVIDED_SERVICE__INTERFACE,
-							oldInterface, interface_));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface, interface_));
 			}
 		}
 		return interface_;
@@ -94,9 +93,7 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 		GenClass oldInterface = interface_;
 		interface_ = newInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface,
-					interface_));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.PROVIDED_SERVICE__INTERFACE, oldInterface, interface_));
 	}
 
 	/**
@@ -107,12 +104,11 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-			if (resolve)
-				return getInterface();
-			return basicGetInterface();
+			case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+				if (resolve) return getInterface();
+				return basicGetInterface();
 		}
-		return eDynamicGet(featureID, resolve, coreType);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -123,11 +119,11 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-			setInterface((GenClass) newValue);
-			return;
+			case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+				setInterface((GenClass)newValue);
+				return;
 		}
-		eDynamicSet(featureID, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -138,11 +134,11 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-			setInterface((GenClass) null);
-			return;
+			case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+				setInterface((GenClass)null);
+				return;
 		}
-		eDynamicUnset(featureID);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -153,10 +149,10 @@ public class ProvidedServiceImpl extends EObjectImpl implements ProvidedService 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
-			return interface_ != null;
+			case EclipsePackage.PROVIDED_SERVICE__INTERFACE:
+				return interface_ != null;
 		}
-		return eDynamicIsSet(featureID);
+		return super.eIsSet(featureID);
 	}
 
 } //ProvidedServiceImpl

@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommandItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CommandItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -55,7 +61,6 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addIconPropertyDescriptor(object);
 			addTooltipPropertyDescriptor(object);
 			addHandlerPropertyDescriptor(object);
 			addMenuPropertyDescriptor(object);
@@ -72,33 +77,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_name_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Icon feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIconPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_icon_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_icon_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__ICON, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_name_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -108,15 +99,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addTooltipPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_tooltip_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_tooltip_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__TOOLTIP, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_tooltip_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_tooltip_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__TOOLTIP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -126,15 +121,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addHandlerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_handler_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_handler_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__HANDLER, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_handler_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_handler_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__HANDLER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -144,15 +143,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addMenuPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_menu_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_menu_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__MENU, true, false, true, null,
-				null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_menu_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_menu_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__MENU,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -162,15 +165,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCategoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_category_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_category_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__CATEGORY, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_category_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_category_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__CATEGORY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -180,15 +187,19 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addBindingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Command_binding_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Command_binding_feature", "_UI_Command_type"),
-				EclipsePackage.Literals.COMMAND__BINDING, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_binding_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_binding_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__BINDING,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -199,8 +210,7 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Command"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Command"));
 	}
 
 	/**
@@ -211,9 +221,10 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Command) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Command_type")
-				: getString("_UI_Command_type") + " " + label;
+		String label = ((Command)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Command_type") :
+			getString("_UI_Command_type") + " " + label;
 	}
 
 	/**
@@ -228,12 +239,10 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Command.class)) {
-		case EclipsePackage.COMMAND__NAME:
-		case EclipsePackage.COMMAND__ICON:
-		case EclipsePackage.COMMAND__TOOLTIP:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case EclipsePackage.COMMAND__NAME:
+			case EclipsePackage.COMMAND__TOOLTIP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -246,8 +255,7 @@ public class CommandItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
