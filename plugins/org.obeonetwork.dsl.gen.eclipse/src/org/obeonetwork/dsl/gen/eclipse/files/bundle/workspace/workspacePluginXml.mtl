@@ -130,7 +130,7 @@ false[/if]
 [template private wizardTemplate(aWizard : Wizard)]
       <wizard
             name="%Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Name"
-            icon="Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon"
+            icon="icons/[aWizard.iconName()/]"
 [if (aWizard.isProject)]
 			project="true"
 [/if][if (aWizard.category->size() > 0)]
@@ -147,7 +147,7 @@ false[/if]
             location="[aDecorator.location/]"
             adaptable="[aDecorator.isAdaptable/]"
             label="[aDecorator.name/]"
-            icon="Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon"
+            icon="icons/[aDecorator.iconName()/]"
             state="true"
             id="[aDecorator.genDecoratorID()/]">
          <enablement>
