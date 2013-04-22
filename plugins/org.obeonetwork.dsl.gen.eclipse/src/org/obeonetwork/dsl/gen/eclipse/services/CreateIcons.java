@@ -61,18 +61,19 @@ public class CreateIcons {
 
 		if (!(destFile.exists())) {
 			destFile.createNewFile();
-		}
-		FileOutputStream outputStream = new FileOutputStream(destFile);
-		try {
-			byte[] buf = new byte[512];
-			int len;
-			while ((len = sourceStream.read(buf)) > 0)
-				outputStream.write(buf, 0, len);
-			sourceStream.close();
-			outputStream.close();
-		} finally {
-			if (sourceStream != null)
+
+			FileOutputStream outputStream = new FileOutputStream(destFile);
+			try {
+				byte[] buf = new byte[512];
+				int len;
+				while ((len = sourceStream.read(buf)) > 0)
+					outputStream.write(buf, 0, len);
 				sourceStream.close();
+				outputStream.close();
+			} finally {
+				if (sourceStream != null)
+					sourceStream.close();
+			}
 		}
 	}
 

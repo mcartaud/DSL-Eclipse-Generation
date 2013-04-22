@@ -265,7 +265,8 @@ Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon.gif
 [/template]
 
 [template public iconName(aCommand : Command)]
-Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon.gif[/template]
+Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon.gif
+[/template]
 
 [template public iconName(aDecorator : Decorator)]
 Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon.gif
