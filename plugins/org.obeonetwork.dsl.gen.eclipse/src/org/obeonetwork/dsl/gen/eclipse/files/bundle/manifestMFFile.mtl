@@ -35,6 +35,7 @@ Bundle-Localization: plugin
 Bundle-Activator: [aBundle.genBundleID()/].Activator
 [if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + aBundle.lineSeparator() + ' ')/]
 [/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + aBundle.lineSeparator() + ' ')/]
+[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + aBundle.lineSeparator() + ' ')/]
 [/if][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml
 [/if]
 [/file]
@@ -47,8 +48,8 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.wizardRequiredBundles())
 ->union(aBundle.editorRequiredBundles())->union(aBundle.perspectiveRequiredBundles())->asSet() /]
 
-[query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()
-->union(aBundle.declarativeServiceDefaultImportPackages())->union(aBundle.declarativeServiceImportPackages())->asSet() /]
+[query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
+->union(aBundle.declarativeServiceImportPackages())->asSet() /]
 
 [query private allExportPackages(aBundle : Bundle) : Set(String) = aBundle.userExportedPackages()
 ->union(aBundle.exportedPackages())->asSet() /]
@@ -65,22 +66,27 @@ endif  /]
 
 [query private exportedPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.declarativeServices.providedServices->size() > 0) then
-	Sequence {aBundle.exportedPackages}
+	Sequence {aBundle.genDSExportPackage()}
 else
 	Sequence {}
 endif  /]
 
 [template private bundleExportedPackages(aBundle : Bundle)]
 [for (aGenPackage : GenPackage | aBundle.exportedPackages)]
-[if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.classPackageSuffix/]
-[/for]
+[if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.ecorePackage.name/][/for]
 [/template]
 
-[template private exportedPackage(aBundle : Bundle)]
+[template private genDSExportPackage(aBundle : Bundle)]
 [for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices)]
-[aProvidedService.interface.genPackage.basePackage/].[aProvidedService.interface.genPackage.ecorePackage.name/]
-[/for]
+[aProvidedService.genExportPackageRequiredID()/][/for]
 [/template]
+
+[template private genExportPackageRequiredID(aProvidedService : ProvidedService)]
+[aProvidedService.exportPackageProvidedID()/].[aProvidedService.interface.genPackage.ecorePackage.name/]
+[/template]
+
+[query private exportPackageProvidedID(aProvidedService : ProvidedService) : Sequence(EPackage) = 
+		Sequence{(aProvidedService.interface.genPackage.ecorePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
 
 
@@ -104,8 +110,7 @@ endif  /]
 
 [template private genDSImportPackage(aBundle : Bundle)]
 [for (aRequiredService : RequiredService | aBundle.declarativeServices.requiredServices)]
-[aRequiredService.genImportPackageRequiredID()/]
-[/for]
+[aRequiredService.genImportPackageRequiredID()/][/for]
 [/template]
 
 [template private genImportPackageRequiredID(aRequiredService : RequiredService)]
@@ -131,7 +136,7 @@ else
 endif  /]
 
 [query private wizardRequiredBundles(aBundle : Bundle) : Sequence(String) = 
-if (aBundle.eAllContents(Wizard)->size() > 0) then
+if (aBundle.eAllContents(Wizard)->size() > 0 and aBundle.eAllContents(View)->size() > 0) then
 	Sequence {'org.eclipse.jface;bundle-version="3.7.0"', 'org.eclipse.core.resources;bundle-version="3.7.101"',
 'org.eclipse.ui.ide;bundle-version="3.7.0"'}
 else
@@ -176,9 +181,5 @@ endif  /]
 [/template]
 
 [template private packageDeclarationManifestImport(imp : ImportDeclaration) post (trim())]
-[if (packageVersion = '')]
-[packageName/]
-[else]
-[packageName/];bundle-version="[packageVersion/]"
-[/if]
+[if (packageVersion = '')][packageName/][else][packageName/];bundle-version="[packageVersion/]"[/if]
 [/template]
