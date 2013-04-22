@@ -44,6 +44,7 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 
 
 
+
 [query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.wizardRequiredBundles())
 ->union(aBundle.editorRequiredBundles())->union(aBundle.perspectiveRequiredBundles())->asSet() /]
@@ -53,6 +54,7 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 
 [query private allExportPackages(aBundle : Bundle) : Set(String) = aBundle.userExportedPackages()
 ->union(aBundle.exportedPackages())->asSet() /]
+
 
 
 
@@ -91,6 +93,7 @@ endif  /]
 
 
 
+
 [query private declarativeServiceDefaultImportPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.declarativeServices->size() > 0) then
 	Sequence {'org.eclipse.osgi.framework.console;version="1.1.0"'}
@@ -119,6 +122,7 @@ endif  /]
 
 [query private importPackageRequiredID(aRequiredService : RequiredService) : Sequence(EPackage) = 
 		Sequence{(aRequiredService.reference.eType.ePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
+
 
 
 
@@ -173,6 +177,7 @@ endif  /]
 
 
 
+
 [template private javaVersion(aBundle : Bundle)]
 [if (aBundle.requiredEnvironment.toString().endsWith('5'))]J2SE-1.5[elseif 
 (aBundle.requiredEnvironment.toString().endsWith('4'))]J2SE-1.4[elseif 
@@ -180,6 +185,6 @@ endif  /]
 (aBundle.requiredEnvironment.toString().endsWith('7'))]JavaSE-1.7[/if]
 [/template]
 
-[template private packageDeclarationManifestImport(imp : ImportDeclaration) post (trim())]
-[if (packageVersion = '')][packageName/][else][packageName/];bundle-version="[packageVersion/]"[/if]
+[template private packageDeclarationManifestImport(anImportDeclaration : ImportDeclaration) post (trim())]
+[if (packageVersion = '')][anImportDeclaration.packageName/][else][anImportDeclaration.packageName/];bundle-version="[anImportDeclaration.packageVersion/]"[/if]
 [/template]

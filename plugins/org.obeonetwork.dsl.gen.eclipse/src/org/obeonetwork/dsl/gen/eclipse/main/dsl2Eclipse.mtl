@@ -16,6 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::services::createIcons /]
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
+
 [import org::obeonetwork::dsl::gen::eclipse::files::projectXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
