@@ -33,9 +33,9 @@ Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-Activator: [aBundle.genBundleID()/].Activator
-[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + aBundle.lineSeparator() + ' ')/]
-[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + aBundle.lineSeparator() + ' ')/]
-[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + aBundle.lineSeparator() + ' ')/]
+[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + '\n' + ' ')/]
+[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + '\n' + ' ')/]
+[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + '\n' + ' ')/]
 [/if][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml
 [/if]
 [/file]
