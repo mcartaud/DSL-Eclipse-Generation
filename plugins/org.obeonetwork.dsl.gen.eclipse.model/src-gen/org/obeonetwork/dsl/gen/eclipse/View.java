@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface View extends Part {
 	/**
 	 * Returns the value of the '<em><b>Is Tree</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Tree</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface View extends Part {
 	 * @return the value of the '<em>Is Tree</em>' attribute.
 	 * @see #setIsTree(boolean)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_IsTree()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	boolean isIsTree();

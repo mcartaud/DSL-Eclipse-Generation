@@ -193,7 +193,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MAVEN_COMPILATION_EDEFAULT = false;
+	protected static final boolean MAVEN_COMPILATION_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isMavenCompilation() <em>Maven Compilation</em>}' attribute.

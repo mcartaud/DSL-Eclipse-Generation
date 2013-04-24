@@ -216,6 +216,7 @@ public interface Application extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Maven Compilation</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Maven Compilation</em>' attribute isn't clear,
@@ -225,7 +226,7 @@ public interface Application extends EObject {
 	 * @return the value of the '<em>Maven Compilation</em>' attribute.
 	 * @see #setMavenCompilation(boolean)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_MavenCompilation()
-	 * @model unique="false"
+	 * @model default="true" unique="false"
 	 * @generated
 	 */
 	boolean isMavenCompilation();

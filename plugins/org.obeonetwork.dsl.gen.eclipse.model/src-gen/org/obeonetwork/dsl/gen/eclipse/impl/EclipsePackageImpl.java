@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
+import org.obeonetwork.dsl.gen.eclipse.BasedOn;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
@@ -275,6 +276,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EClass bindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum basedOnEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -853,6 +861,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 */
 	public EReference getBundle_ExportedPackages() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBundle_BasedOn() {
+		return (EAttribute)bundleEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -1850,6 +1867,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getBasedOn() {
+		return basedOnEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getImportType() {
 		return importTypeEEnum;
 	}
@@ -2001,6 +2027,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bundleEClass, BUNDLE__CATEGORIES);
 		createEReference(bundleEClass, BUNDLE__BINDINGS);
 		createEReference(bundleEClass, BUNDLE__EXPORTED_PACKAGES);
+		createEAttribute(bundleEClass, BUNDLE__BASED_ON);
 
 		declarativeServiceEClass = createEClass(DECLARATIVE_SERVICE);
 		createEAttribute(declarativeServiceEClass, DECLARATIVE_SERVICE__SERVICE_CLASS_NAME);
@@ -2138,6 +2165,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bindingEClass, BINDING__CONTEXTS);
 
 		// Create enums
+		basedOnEEnum = createEEnum(BASED_ON);
 		importTypeEEnum = createEEnum(IMPORT_TYPE);
 		javaVersionEEnum = createEEnum(JAVA_VERSION);
 		typeEEnum = createEEnum(TYPE);
@@ -2198,7 +2226,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEAttribute(getApplication_Version(), this.getVersion(), "version", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), theEcorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_BaseNamespace(), this.getNamespace(), "baseNamespace", null, 1, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getApplication_MavenCompilation(), theEcorePackage.getEBoolean(), "mavenCompilation", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_MavenCompilation(), theEcorePackage.getEBoolean(), "mavenCompilation", "true", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Projects(), this.getProject(), null, "projects", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_GenerateTestsBundle(), theEcorePackage.getEBoolean(), "generateTestsBundle", "true", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2246,6 +2274,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getBundle_Categories(), this.getCategory(), null, "categories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_ExportedPackages(), theGenModelPackage.getGenPackage(), null, "exportedPackages", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBundle_BasedOn(), this.getBasedOn(), "basedOn", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declarativeServiceEClass, DeclarativeService.class, "DeclarativeService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeclarativeService_ServiceClassName(), this.getJavaName(), "serviceClassName", null, 1, 1, DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2327,7 +2356,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getPart_DynamicHelp(), this.getDynamicHelp(), null, "dynamicHelp", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getView_IsTree(), theEcorePackage.getEBoolean(), "isTree", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getView_IsTree(), theEcorePackage.getEBoolean(), "isTree", "true", 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getView_IsVisible(), theEcorePackage.getEBoolean(), "isVisible", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Menus(), this.getMenu(), null, "menus", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2383,6 +2412,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getBinding_Contexts(), this.getContext(), null, "contexts", null, 0, -1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(basedOnEEnum, BasedOn.class, "BasedOn");
+		addEEnumLiteral(basedOnEEnum, BasedOn.ECORE);
+		addEEnumLiteral(basedOnEEnum, BasedOn.NOTHING);
+
 		initEEnum(importTypeEEnum, ImportType.class, "ImportType");
 		addEEnumLiteral(importTypeEEnum, ImportType.PACKAGE);
 		addEEnumLiteral(importTypeEEnum, ImportType.BUNDLE);

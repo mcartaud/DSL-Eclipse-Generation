@@ -101,6 +101,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case EclipsePackage.BASED_ON:
+				return createBasedOnFromString(eDataType, initialValue);
 			case EclipsePackage.IMPORT_TYPE:
 				return createImportTypeFromString(eDataType, initialValue);
 			case EclipsePackage.JAVA_VERSION:
@@ -130,6 +132,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case EclipsePackage.BASED_ON:
+				return convertBasedOnToString(eDataType, instanceValue);
 			case EclipsePackage.IMPORT_TYPE:
 				return convertImportTypeToString(eDataType, instanceValue);
 			case EclipsePackage.JAVA_VERSION:
@@ -439,6 +443,26 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	public Binding createBinding() {
 		BindingImpl binding = new BindingImpl();
 		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BasedOn createBasedOnFromString(EDataType eDataType, String initialValue) {
+		BasedOn result = BasedOn.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBasedOnToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

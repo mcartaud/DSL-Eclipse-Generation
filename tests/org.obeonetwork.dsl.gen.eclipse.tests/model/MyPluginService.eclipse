@@ -10,8 +10,7 @@
     license="Eclipse Public License - v 1.0"
     version="1.0.0"
     description="This application was created to introduce yourself about the dsl2Eclipse generator"
-    baseNamespace="org.obeonetwork.dsl.demo"
-    mavenCompilation="true">
+    baseNamespace="org.obeonetwork.dsl.demo">
   <projects
       xsi:type="eclipse:Repository"
       name="repository pour demo"
@@ -66,7 +65,6 @@
         name="vuesPerspectives"
         views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <views name="permiere Vue"
-        isTree="true"
         isVisible="true"
         perspectives="//@projects.2/@perspectives.0"
         category="//@projects.2/@categories.0">
@@ -153,7 +151,7 @@
         name="VuesDemo"
         views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <bindings
-        keySequence="CTRL+2"
+        keySequence="CTRL + ALT + g"
         command="//@projects.2/@commands.0"
         contexts="//@projects.2/@contexts.0"/>
     <bindings

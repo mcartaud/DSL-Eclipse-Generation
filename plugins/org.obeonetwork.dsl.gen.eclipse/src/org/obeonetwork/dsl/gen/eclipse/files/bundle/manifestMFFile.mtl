@@ -15,6 +15,7 @@ Contributors :
  'http://www.eclipse.org/emf/2002/GenModel')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::services::findPlatform /]
 
 [template private manifestMFFile(aBundle : Bundle)]
 [aBundle.genBundlePath()/]/META-INF/MANIFEST.MF
@@ -33,20 +34,35 @@ Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-Activator: [aBundle.genBundleID()/].Activator
-[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + '\n' + ' ')/]
-[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + '\n' + ' ')/]
-[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + '\n' + ' ')/]
-[/if][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml
+[aBundle.exteriorRelations()/][if (aBundle.declarativeServices->size() > 0)]Service-Component: OSGI-INF/*.xml
 [/if]
 [/file]
 [/template]
 
 
+[template private exteriorRelations(aBundle : Bundle)]
+[if (aBundle.findPlatform().toString().toLower() = 'linux')]
+[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + '\n' + ' ')/]
+[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + '\n' + ' ')/]
+[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + '\n' + ' ')/]
+[/if]
+[elseif (aBundle.findPlatform().toString().toLower() = 'windows')]
+[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + '\r\n' + ' ')/]
+[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + '\r\n' + ' ')/]
+[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + '\r\n' + ' ')/]
+[/if]
+[else]
+[if (aBundle.allImportPackages()->size() > 0)]Import-Package: [aBundle.allImportPackages()->sep(',' + '\r' + ' ')/]
+[/if][if (aBundle.allRequiredBundles()->size() > 0)]Require-Bundle: [aBundle.allRequiredBundles()->sep(',' + '\r' + ' ')/]
+[/if][if (aBundle.allExportPackages()->size() > 0)]Export-Package: [aBundle.allExportPackages()->sep(',' + '\r' + ' ')/]
+[/if]
+[/if]
+[/template]
 
 
 
 [query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
-->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.wizardRequiredBundles())
+->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.viewWizardRequiredBundles())->union(aBundle.wizardRequiredBundles())
 ->union(aBundle.editorRequiredBundles())->union(aBundle.perspectiveRequiredBundles())->asSet() /]
 
 [query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
@@ -128,21 +144,32 @@ endif  /]
 
 
 
-[query private defaultRequireBundle(aBundle : Bundle) : Sequence(String) = 
-Sequence {'org.eclipse.emf.ecore;visibility:=reexport'}
+[query private defaultRequireBundle(aBundle : Bundle) : Sequence(String) =
+if (aBundle.basedOn.toString().matches('Ecore')) then
+	Sequence {'org.eclipse.emf.ecore;visibility:=reexport'}
+else
+	Sequence {}
+endif 
 /]
 
 [query private viewRequiredBundles(aBundle : Bundle) : Sequence(String) = 
-if (aBundle.eAllContents(View)->size() > 0) then
+if (aBundle.eAllContents(View)->size() > 0 and aBundle.eAllContents(Wizard)->size() = 0 and (aBundle.basedOn.toString().matches('Ecore'))) then
 	Sequence {'org.eclipse.emf.edit;bundle-version="2.3.0"', 'org.eclipse.emf.edit.ui;bundle-version="2.3.0"'}
 else
 	Sequence {}
 endif  /]
 
-[query private wizardRequiredBundles(aBundle : Bundle) : Sequence(String) = 
+[query private viewWizardRequiredBundles(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.eAllContents(Wizard)->size() > 0 and aBundle.eAllContents(View)->size() > 0) then
 	Sequence {'org.eclipse.jface;bundle-version="3.7.0"', 'org.eclipse.core.resources;bundle-version="3.7.101"',
 'org.eclipse.ui.ide;bundle-version="3.7.0"'}
+else
+	Sequence {}
+endif  /]
+
+[query private wizardRequiredBundles(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.eAllContents(Wizard)->size() > 0 and aBundle.eAllContents(View)->size() = 0) then
+	Sequence {'org.eclipse.core.resources;bundle-version="3.7.101"', 'org.eclipse.ui.ide;bundle-version="3.7.0"'}
 else
 	Sequence {}
 endif  /]

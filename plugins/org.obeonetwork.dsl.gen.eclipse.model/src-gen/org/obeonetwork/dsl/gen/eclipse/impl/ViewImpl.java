@@ -52,7 +52,7 @@ public class ViewImpl extends PartImpl implements View {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_TREE_EDEFAULT = false;
+	protected static final boolean IS_TREE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isIsTree() <em>Is Tree</em>}' attribute.

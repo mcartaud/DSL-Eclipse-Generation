@@ -15,6 +15,7 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::menuPluginXml /]
+[import org::obeonetwork::dsl::gen::eclipse::services::findPlatform /]
 
 
 
@@ -151,8 +152,22 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/template]
 
 [template private bindingKey(aBinding : Binding)]
-[if (aBinding.keySequence.toLower().contains('ctrl'))]
-[aBinding.keySequence.toLower().replace('ctrl', 'M1')/][else][aBinding.keySequence/][/if]
+[aBinding.keySequence.replaceAll(' ', '').tokenize('+').genSpecialCharater()->sep('+')/]
+[/template]
+
+[template private genSpecialCharater(aString : String)]
+[if ((aString.findPlatform().toString().toLower() = 'linux') or (aString.findPlatform().toString().toLower() = 'windows'))]
+[if (aString.toLower().contains('ctrl'))]
+[aString.toLower().replace('ctrl', 'M1')/][elseif (aString.toLower().contains('shift'))]
+[aString.toLower().replace('shift', 'M2')/][elseif (aString.toLower().contains('alt'))]
+[aString.toLower().replace('alt', 'M3')/][else][aString.toLower()/][/if]
+[elseif (aString.findPlatform().toString().toLower().startsWith('mac'))]
+[if (aString.toLower().contains('command'))]
+[aString.toLower().replace('command', 'M1')/][elseif (aString.toLower().contains('shift'))]
+[aString.toLower().replace('shift', 'M2')/][elseif (aString.toLower().contains('alt'))]
+[aString.toLower().replace('alt', 'M3')/][elseif (aString.toLower().contains('ctrl'))]
+[aString.toLower().replace('ctrl', 'M4')/][else][aString.toLower()/][/if]
+[/if]
 [/template]
 
 [template private viewTemplate(aView : View)]

@@ -11,9 +11,11 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module viewJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module viewJavaFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::noTreeView /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::treeView /]
 
 [template private viewJavaFile(aView : View)]
 [aView.eContainer(Bundle).genBundleJavaPath()/]/views/[aView.name.replaceAll(' ', '_').toUpperFirst()/].java
@@ -21,156 +23,10 @@ Contributors :
 
 [template public genViewJavaFile(aView : View)]
 [file (viewJavaFile(), false, 'UTF-8')]
-package [aView.eContainer(Bundle).genBundleID()/].views;
-
-
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.SWT;
-import org.eclipse.ui.part.ViewPart;
-[if (aView.isTree)]import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-[else]
-import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerSorter;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.jface.viewers.TableViewer;[/if][if (aView.dynamicHelp->size() > 0)]
-import org.eclipse.ui.PlatformUI;
-[/if]
-
-
-
-/**
- * <p>
- * The view uses a label provider to define how model
- * objects should be presented in the view. Each
- * view can present the same model objects using
- * different labels and icons, if needed. Alternatively,
- * a single label provider can be shared between views
- * in order to ensure that objects of the same type are
- * presented in the same way everywhere.
- * <p>
- */
-
-public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart {
-
-	/**
-	 * The ID of the view as specified by the extension.
-	 */
-	public static final String ID = "[aView.genViewID()/]";
-
 [if (aView.isTree)]
-	private TreeViewer viewer;
+[aView.treeView()/]
 [else]
-	private TableViewer viewer;
+[aView.noTreeView()/]
 [/if]
-	 
-[if (not(aView.isTree))]
-[basicView()/]
-
-
-	class NameSorter extends ViewerSorter {
-	}
-[else]
-	/**
-	 * This is the one adapter factory used for providing views of the model.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected ComposedAdapterFactory adapterFactory;
-[/if]
-
-	/**
-	 * The constructor.
-	 */
-	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
-	}
-
-	/**
-	 * This is a callback that will allow us
-	 * to create the viewer and initialize it.
-	 */
-	public void createPartControl(Composite parent) {
-[if (aView.isTree)]
-		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		viewer.setContentProvider(new AdapterFactoryContentProvider(
-				adapterFactory));
-		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		viewer.setInput(retrieveModelInstance());
-[else]
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		viewer.setContentProvider(new ViewContentProvider());
-		viewer.setLabelProvider(new ViewLabelProvider());
-		viewer.setSorter(new NameSorter());
-		viewer.setInput(getViewSite());
-[/if]
-
-		// Create the help context id for the viewer's control
-[if (aView.dynamicHelp->size() > 0)]
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
-[/if]
-	}
-
-[if (aView.isTree)]
-	private Notifier retrieveModelInstance() {
-		Resource res = new ResourceImpl();
-		/*
-		 * That's just an example of data to display
-		 */
-		ChocoApp app = ViewsFactory.eINSTANCE.createChocoApp();
-		res.getContents().add(app);
-		return res;
-	}
-[/if]
-
-	/**
-	 * Passing the focus request to the viewer's control.
-	 */
-	public void setFocus() {
-		viewer.getControl().setFocus();
-	}
-}
 [/file]
-[/template]
-
-[template private basicView(aView : View)]
-
-	class ViewContentProvider implements IStructuredContentProvider {
-		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		}
-		public void dispose() {
-		}
-
-	/*
-	 * We will set up a dummy model to initialize the view.
-	 */
-		public Object['['/]] getElements(Object parent) {
-			return new String['['/]] { "One", "Two", "Three" };
-		}
-	}
-	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
-		public String getColumnText(Object obj, int index) {
-			return getText(obj);
-		}
-		public Image getColumnImage(Object obj, int index) {
-			return getImage(obj);
-		}
-		public Image getImage(Object obj) {
-			return PlatformUI.getWorkbench().
-					getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-		}
-	}
-
 [/template]

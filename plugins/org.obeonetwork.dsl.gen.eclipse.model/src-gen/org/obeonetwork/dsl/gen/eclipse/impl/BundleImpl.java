@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.gen.eclipse.BasedOn;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
@@ -65,6 +66,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBasedOn <em>Based On</em>}</li>
  * </ul>
  * </p>
  *
@@ -320,6 +322,26 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @ordered
 	 */
 	protected EList<GenPackage> exportedPackages;
+
+	/**
+	 * The default value of the '{@link #getBasedOn() <em>Based On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final BasedOn BASED_ON_EDEFAULT = BasedOn.ECORE;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected BasedOn basedOn = BASED_ON_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -636,6 +658,27 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BasedOn getBasedOn() {
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBasedOn(BasedOn newBasedOn) {
+		BasedOn oldBasedOn = basedOn;
+		basedOn = newBasedOn == null ? BASED_ON_EDEFAULT : newBasedOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__BASED_ON, oldBasedOn, basedOn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -731,6 +774,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getBindings();
 			case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 				return getExportedPackages();
+			case EclipsePackage.BUNDLE__BASED_ON:
+				return getBasedOn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -829,6 +874,9 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				getExportedPackages().clear();
 				getExportedPackages().addAll((Collection<? extends GenPackage>)newValue);
 				return;
+			case EclipsePackage.BUNDLE__BASED_ON:
+				setBasedOn((BasedOn)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -907,6 +955,9 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 				getExportedPackages().clear();
 				return;
+			case EclipsePackage.BUNDLE__BASED_ON:
+				setBasedOn(BASED_ON_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -963,6 +1014,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return bindings != null && !bindings.isEmpty();
 			case EclipsePackage.BUNDLE__EXPORTED_PACKAGES:
 				return exportedPackages != null && !exportedPackages.isEmpty();
+			case EclipsePackage.BUNDLE__BASED_ON:
+				return basedOn != BASED_ON_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -983,6 +1036,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 		result.append(requiredEnvironment);
 		result.append(", vendor: ");
 		result.append(vendor);
+		result.append(", basedOn: ");
+		result.append(basedOn);
 		result.append(')');
 		return result.toString();
 	}

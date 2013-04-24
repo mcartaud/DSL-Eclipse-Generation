@@ -623,13 +623,22 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>Based On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__BASED_ON = PROJECT_FEATURE_COUNT + 22;
+
+	/**
 	 * The number of structural features of the '<em>Bundle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 22;
+	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 23;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -1953,6 +1962,16 @@ public interface EclipsePackage extends EPackage {
 	int BINDING_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.BasedOn
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
+	 * @generated
+	 */
+	int BASED_ON = 31;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1960,7 +1979,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 31;
+	int IMPORT_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
@@ -1970,7 +1989,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 32;
+	int JAVA_VERSION = 33;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -1980,7 +1999,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 33;
+	int TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -1990,7 +2009,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 34;
+	int LOCATION = 35;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2000,7 +2019,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 35;
+	int VERSION = 36;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2010,7 +2029,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 36;
+	int NAMESPACE = 37;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2020,7 +2039,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 37;
+	int JAVA_NAME = 38;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2030,7 +2049,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 38;
+	int NAME = 39;
 
 
 	/**
@@ -2587,6 +2606,17 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBundle_ExportedPackages();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasedOn <em>Based On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Based On</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getBasedOn()
+	 * @see #getBundle()
+	 * @generated
+	 */
+	EAttribute getBundle_BasedOn();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
@@ -3774,6 +3804,16 @@ public interface EclipsePackage extends EPackage {
 	EReference getBinding_Contexts();
 
 	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Based On</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.BasedOn
+	 * @generated
+	 */
+	EEnum getBasedOn();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4298,6 +4338,14 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUNDLE__EXPORTED_PACKAGES = eINSTANCE.getBundle_ExportedPackages();
+
+		/**
+		 * The meta object literal for the '<em><b>Based On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUNDLE__BASED_ON = eINSTANCE.getBundle_BasedOn();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -5228,6 +5276,16 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINDING__CONTEXTS = eINSTANCE.getBinding_Contexts();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.BasedOn
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
+		 * @generated
+		 */
+		EEnum BASED_ON = eINSTANCE.getBasedOn();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.

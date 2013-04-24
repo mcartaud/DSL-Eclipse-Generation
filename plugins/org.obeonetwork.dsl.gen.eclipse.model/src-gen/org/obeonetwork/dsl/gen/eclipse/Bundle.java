@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasedOn <em>Based On</em>}</li>
  * </ul>
  * </p>
  *
@@ -429,5 +430,34 @@ public interface Bundle extends Project {
 	 * @generated
 	 */
 	EList<GenPackage> getExportedPackages();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.gen.eclipse.BasedOn}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Based On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Based On</em>' attribute.
+	 * @see org.obeonetwork.dsl.gen.eclipse.BasedOn
+	 * @see #setBasedOn(BasedOn)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_BasedOn()
+	 * @model
+	 * @generated
+	 */
+	BasedOn getBasedOn();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasedOn <em>Based On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Based On</em>' attribute.
+	 * @see org.obeonetwork.dsl.gen.eclipse.BasedOn
+	 * @see #getBasedOn()
+	 * @generated
+	 */
+	void setBasedOn(BasedOn value);
 
 } // Bundle

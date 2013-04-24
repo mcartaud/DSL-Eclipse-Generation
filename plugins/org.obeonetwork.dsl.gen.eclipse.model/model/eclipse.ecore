@@ -22,7 +22,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseNamespace" unique="false"
         lowerBound="1" eType="#//Namespace"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mavenCompilation" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateTestsBundle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
@@ -106,6 +107,7 @@
         eType="#//Binding" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exportedPackages" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore#//GenPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basedOn" eType="#//BasedOn"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarativeService">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassName" unique="false"
@@ -231,7 +233,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTree" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVisible" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
@@ -323,6 +326,10 @@
         eType="#//Command" eOpposite="#//Command/binding"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//Context"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BasedOn">
+    <eLiterals name="Ecore"/>
+    <eLiterals name="Nothing" literal="Nothing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ImportType">
     <eLiterals name="Package"/>

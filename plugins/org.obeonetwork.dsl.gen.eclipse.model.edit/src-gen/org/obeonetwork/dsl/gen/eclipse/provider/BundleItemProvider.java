@@ -64,6 +64,7 @@ public class BundleItemProvider
 			addRequiredEnvironmentPropertyDescriptor(object);
 			addVendorPropertyDescriptor(object);
 			addExportedPackagesPropertyDescriptor(object);
+			addBasedOnPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class BundleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Based On feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBasedOnPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Bundle_basedOn_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_basedOn_feature", "_UI_Bundle_type"),
+				 EclipsePackage.Literals.BUNDLE__BASED_ON,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -243,6 +266,7 @@ public class BundleItemProvider
 			case EclipsePackage.BUNDLE__VERSION:
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
 			case EclipsePackage.BUNDLE__VENDOR:
+			case EclipsePackage.BUNDLE__BASED_ON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
