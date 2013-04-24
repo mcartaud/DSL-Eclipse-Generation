@@ -1453,7 +1453,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getView_IsTree() {
+	public EAttribute getView_IsVisible() {
 		return (EAttribute)viewEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1462,17 +1462,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getView_IsVisible() {
-		return (EAttribute)viewEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getView_Handlers() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(2);
+		return (EReference)viewEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1481,7 +1472,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getView_Menus() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(3);
+		return (EReference)viewEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1490,7 +1481,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getView_Perspectives() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(4);
+		return (EReference)viewEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1499,7 +1490,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getView_Category() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(5);
+		return (EReference)viewEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2109,7 +2100,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(partEClass, PART__DYNAMIC_HELP);
 
 		viewEClass = createEClass(VIEW);
-		createEAttribute(viewEClass, VIEW__IS_TREE);
 		createEAttribute(viewEClass, VIEW__IS_VISIBLE);
 		createEReference(viewEClass, VIEW__HANDLERS);
 		createEReference(viewEClass, VIEW__MENUS);
@@ -2356,7 +2346,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getPart_DynamicHelp(), this.getDynamicHelp(), null, "dynamicHelp", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getView_IsTree(), theEcorePackage.getEBoolean(), "isTree", "true", 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getView_IsVisible(), theEcorePackage.getEBoolean(), "isVisible", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Menus(), this.getMenu(), null, "menus", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

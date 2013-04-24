@@ -1441,22 +1441,13 @@ public interface EclipsePackage extends EPackage {
 	int VIEW__DYNAMIC_HELP = PART__DYNAMIC_HELP;
 
 	/**
-	 * The feature id for the '<em><b>Is Tree</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW__IS_TREE = PART_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__IS_VISIBLE = PART_FEATURE_COUNT + 1;
+	int VIEW__IS_VISIBLE = PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
@@ -1465,7 +1456,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__HANDLERS = PART_FEATURE_COUNT + 2;
+	int VIEW__HANDLERS = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
@@ -1474,7 +1465,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__MENUS = PART_FEATURE_COUNT + 3;
+	int VIEW__MENUS = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Perspectives</b></em>' reference list.
@@ -1483,7 +1474,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 4;
+	int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1492,7 +1483,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__CATEGORY = PART_FEATURE_COUNT + 5;
+	int VIEW__CATEGORY = PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>View</em>' class.
@@ -1501,7 +1492,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 6;
+	int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
@@ -3306,17 +3297,6 @@ public interface EclipsePackage extends EPackage {
 	EClass getView();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Tree</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.View#isIsTree()
-	 * @see #getView()
-	 * @generated
-	 */
-	EAttribute getView_IsTree();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4892,14 +4872,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EClass VIEW = eINSTANCE.getView();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Tree</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VIEW__IS_TREE = eINSTANCE.getView_IsTree();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Visible</b></em>' attribute feature.

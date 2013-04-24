@@ -179,7 +179,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Part/dynamicHelp"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//View">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//View/isTree"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//View/isVisible"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/menus"/>

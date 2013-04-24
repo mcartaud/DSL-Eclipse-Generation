@@ -14,8 +14,7 @@ Contributors :
 [module viewJavaFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::noTreeView /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::treeView /]
+
 
 [template private viewJavaFile(aView : View)]
 [aView.eContainer(Bundle).genBundleJavaPath()/]/views/[aView.name.replaceAll(' ', '_').toUpperFirst()/].java
@@ -23,10 +22,364 @@ Contributors :
 
 [template public genViewJavaFile(aView : View)]
 [file (viewJavaFile(), false, 'UTF-8')]
-[if (aView.isTree)]
-[aView.treeView()/]
+[if (aView.eContainer(Bundle).basedOn.toString().matches('Ecore'))]
+[aView.ecoreTreeView()/]
 [else]
-[aView.noTreeView()/]
+[aView.viewTree()/]
 [/if]
 [/file]
+[/template]
+
+
+[template private ecoreTreeView(aView : View)]
+package [aView.eContainer(Bundle).genBundleID()/].views;
+
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.SWT;
+import org.eclipse.ui.part.ViewPart;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+[if (aView.dynamicHelp->size() > 0)]
+import org.eclipse.ui.PlatformUI;
+[/if]
+
+
+
+/**
+ * <p>
+ * The view uses a label provider to define how model
+ * objects should be presented in the view. Each
+ * view can present the same model objects using
+ * different labels and icons, if needed. Alternatively,
+ * a single label provider can be shared between views
+ * in order to ensure that objects of the same type are
+ * presented in the same way everywhere.
+ * <p>
+ */
+
+public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart {
+
+	/**
+	 * The ID of the view as specified by the extension.
+	 */
+	public static final String ID = "[aView.genViewID()/]";
+
+
+	private TreeViewer viewer;
+
+
+
+	class NameSorter extends ViewerSorter {
+	}
+
+	/**
+	 * This is the one adapter factory used for providing views of the model.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ComposedAdapterFactory adapterFactory;
+
+
+	/**
+	 * The constructor.
+	 */
+	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
+		adapterFactory = new ComposedAdapterFactory(
+								ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+	}
+
+	/**
+	 * This is a callback that will allow us
+	 * to create the viewer and initialize it.
+	 */
+	public void createPartControl(Composite parent) {
+		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		viewer.setContentProvider(new AdapterFactoryContentProvider(
+				adapterFactory));
+		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+		viewer.setInput(retrieveModelInstance());
+
+
+		// Create the help context id for the viewer's control
+[if (aView.dynamicHelp->size() > 0)]
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
+[/if]
+	}
+
+
+	private Notifier retrieveModelInstance() {
+		Resource res = new ResourceImpl();
+		/*
+		 * That's just an example of data to display
+		 */
+
+[if (aView.eContainer(Bundle).exportedPackages->size() > 0)]
+[for (anEClass : EClass | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass))]
+		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = ViewsFactory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
+		res.getContents().add([anEClass.name.toLowerFirst()/]);
+[/for]
+[/if][if (aView.eContainer(Bundle).declarativeServices->size() > 0)]
+[for (anEClass : EClass | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass))]
+		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = ViewsFactory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
+		res.getContents().add([anEClass.name.toLowerFirst()/]);
+[/for]
+[/if][if (aView.eContainer(Bundle).exportedPackages->size() = 0 and aView.eContainer(Bundle).declarativeServices->size() = 0)]
+		//YourApp yourApp = ViewsFactory.eINSTANCE.createYourApp();
+		//res.getContents().add(yourApp);
+[/if]
+		return res;
+	}
+
+
+	/**
+	 * Passing the focus request to the viewer's control.
+	 */
+	public void setFocus() {
+		viewer.getControl().setFocus();
+	}
+}
+[/template]
+
+[template private viewTree(aView : View)]
+package [aView.eContainer(Bundle).genBundleID()/].views;
+
+
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.ViewPart;
+import java.util.ArrayList;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.ui.part.DrillDownAdapter;
+
+
+
+/**
+ * <p>
+ * The view uses a label provider to define how model
+ * objects should be presented in the view. Each
+ * view can present the same model objects using
+ * different labels and icons, if needed. Alternatively,
+ * a single label provider can be shared between views
+ * in order to ensure that objects of the same type are
+ * presented in the same way everywhere.
+ * <p>
+ */
+
+public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart {
+
+	/**
+	 * The ID of the view as specified by the extension.
+	 */
+	public static final String ID = "[aView.genViewID()/]";
+
+
+ 	private TreeViewer viewer;
+	private DrillDownAdapter drillDownAdapter;
+	
+
+    /*
+    * The content provider class is responsible for
+    * providing objects to the view. It can wrap
+    * existing objects in adapters or simply return
+    * objects as-is. These objects may be sensitive
+    * to the current input of the view, or ignore
+    * it and always show the same content 
+    * (like Task List, for example).
+    */
+
+
+	class TreeObject implements IAdaptable {
+    	private String name;
+    	private TreeParent parent;
+     
+    	public TreeObject(String name) {
+       		this.name = name;
+     	}
+
+     	public String getName() {
+       		return name;
+     	}
+
+     	public void setParent(TreeParent parent) {
+       		this.parent = parent;
+     	}
+     	
+		public TreeParent getParent() {
+       		return parent;
+     	}
+    
+		public String toString() {
+       		return getName();
+     	}
+
+	    public Object getAdapter(Class key) {
+       		return null;
+     	}
+   	}
+   
+
+   	class TreeParent extends TreeObject {
+    	private ArrayList children;
+     
+		public TreeParent(String name) {
+       		super(name);
+       		children = new ArrayList();
+     	}
+     
+		public void addChild(TreeObject child) {
+       		children.add(child);
+       		child.setParent(this);
+     	}
+
+     	public void removeChild(TreeObject child) {
+       		children.remove(child);
+       		child.setParent(null);
+     	}
+
+     	public TreeObject ['['/]] getChildren() {
+       		return (TreeObject ['['/]])children.toArray(new TreeObject['['/]children.size()]);
+     	}
+
+     	public boolean hasChildren() {
+       		return children.size()>0;
+     	}
+   	}
+ 
+   	class ViewContentProvider implements IStructuredContentProvider, 
+                        ITreeContentProvider {
+     	private TreeParent invisibleRoot;
+ 
+     	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
+     	}
+
+     	public void dispose() {
+     	}
+
+     	public Object['['/]] getElements(Object parent) {
+       		if (parent.equals(getViewSite())) {
+         		if (invisibleRoot==null) initialize();
+         		return getChildren(invisibleRoot);
+       		}
+       		return getChildren(parent);
+    	}
+
+     	public Object getParent(Object child) {
+       		if (child instanceof TreeObject) {
+         		return ((TreeObject)child).getParent();
+       		}
+       		return null;
+     	}
+
+     	public Object ['['/]] getChildren(Object parent) {
+       		if (parent instanceof TreeParent) {
+         		return ((TreeParent)parent).getChildren();
+       		}
+       		return new Object['['/]0];
+     	}
+
+     	public boolean hasChildren(Object parent) {
+       		if (parent instanceof TreeParent)
+         		return ((TreeParent)parent).hasChildren();
+       		return false;
+     	}
+
+/*
+ * We will set up a dummy model to initialize tree heararchy.
+ * In a real code, you will connect to a real model and
+ * expose its hierarchy.
+ */
+		private void initialize() {
+       		TreeObject to1 = new TreeObject("Leaf 1");
+       		TreeObject to2 = new TreeObject("Leaf 2");
+       		TreeObject to3 = new TreeObject("Leaf 3");
+       		TreeParent p1 = new TreeParent("Parent 1");
+       		p1.addChild(to1);
+       		p1.addChild(to2);
+       		p1.addChild(to3);
+      
+       		TreeObject to4 = new TreeObject("Leaf 4");
+       		TreeParent p2 = new TreeParent("Parent 2");
+       		p2.addChild(to4);
+      
+      		TreeParent root = new TreeParent("Root");
+       		root.addChild(p1);
+       		root.addChild(p2);
+       
+       		invisibleRoot = new TreeParent("");
+       		invisibleRoot.addChild(root);
+     	}
+   	}
+
+
+   	class ViewLabelProvider extends LabelProvider {
+ 
+     	public String getText(Object obj) {
+      		return obj.toString();
+     	}
+
+     	public Image getImage(Object obj) {
+       		String imageKey = ISharedImages.IMG_OBJ_ELEMENT;
+       		if (obj instanceof TreeParent)
+          		imageKey = ISharedImages.IMG_OBJ_FOLDER;
+       		return PlatformUI.getWorkbench().getSharedImages().getImage(imageKey);
+     	}
+   	}
+
+
+	class NameSorter extends ViewerSorter {
+   	}
+
+	/**
+	 * The constructor.
+	 */
+	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
+	}
+
+	/**
+	 * This is a callback that will allow us
+	 * to create the viewer and initialize it.
+	 */
+   	public void createPartControl(Composite parent) {
+
+    	viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+     	drillDownAdapter = new DrillDownAdapter(viewer);
+     	viewer.setContentProvider(new ViewContentProvider());
+     	viewer.setLabelProvider(new ViewLabelProvider());
+     	viewer.setSorter(new NameSorter());
+     	viewer.setInput(getViewSite());
+		// Create the help context id for the viewer's control
+[if (aView.dynamicHelp->size() > 0)]
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
+[/if]
+	}
+
+	/**
+	 * Passing the focus request to the viewer's control.
+	 */
+	public void setFocus() {
+		viewer.getControl().setFocus();
+	}
+
+}
 [/template]

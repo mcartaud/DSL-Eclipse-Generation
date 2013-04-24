@@ -54,13 +54,6 @@
     <importDeclarations
         packageName="org.eclipse.truc"
         packageVersion="2.1.0"/>
-    <importDeclarations
-        packageName="org.chose.chouette"
-        packageVersion=""/>
-    <importDeclarations
-        packageName="plepe.rfgrgrgr"
-        packageVersion=""
-        importType="Bundle"/>
     <perspectives
         name="vuesPerspectives"
         views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>

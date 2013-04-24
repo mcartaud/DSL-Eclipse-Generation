@@ -60,34 +60,11 @@ public class ViewItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsTreePropertyDescriptor(object);
 			addIsVisiblePropertyDescriptor(object);
 			addPerspectivesPropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Tree feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsTreePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_View_isTree_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_View_isTree_feature", "_UI_View_type"),
-				 EclipsePackage.Literals.VIEW__IS_TREE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -224,7 +201,6 @@ public class ViewItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(View.class)) {
-			case EclipsePackage.VIEW__IS_TREE:
 			case EclipsePackage.VIEW__IS_VISIBLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

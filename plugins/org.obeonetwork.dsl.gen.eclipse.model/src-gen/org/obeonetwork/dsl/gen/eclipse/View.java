@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#isIsVisible <em>Is Visible</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}</li>
@@ -26,33 +25,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface View extends Part {
-	/**
-	 * Returns the value of the '<em><b>Is Tree</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Tree</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Tree</em>' attribute.
-	 * @see #setIsTree(boolean)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getView_IsTree()
-	 * @model default="true" unique="false"
-	 * @generated
-	 */
-	boolean isIsTree();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.View#isIsTree <em>Is Tree</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Tree</em>' attribute.
-	 * @see #isIsTree()
-	 * @generated
-	 */
-	void setIsTree(boolean value);
-
 	/**
 	 * Returns the value of the '<em><b>Is Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
