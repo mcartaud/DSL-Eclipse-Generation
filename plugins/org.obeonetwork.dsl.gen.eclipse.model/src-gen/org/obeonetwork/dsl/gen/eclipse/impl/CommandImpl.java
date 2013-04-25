@@ -2,15 +2,19 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
@@ -78,14 +82,14 @@ public class CommandImpl extends EObjectImpl implements Command {
 	protected String tooltip = TOOLTIP_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHandler() <em>Handler</em>}' reference.
+	 * The cached value of the '{@link #getHandler() <em>Handler</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHandler()
 	 * @generated
 	 * @ordered
 	 */
-	protected Handler handler;
+	protected EList<Handler> handler;
 
 	/**
 	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
@@ -183,59 +187,11 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Handler getHandler() {
-		if (handler != null && handler.eIsProxy()) {
-			InternalEObject oldHandler = (InternalEObject)handler;
-			handler = (Handler)eResolveProxy(oldHandler);
-			if (handler != oldHandler) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__HANDLER, oldHandler, handler));
-			}
+	public EList<Handler> getHandler() {
+		if (handler == null) {
+			handler = new EObjectWithInverseResolvingEList<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLER, EclipsePackage.HANDLER__COMMAND);
 		}
 		return handler;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Handler basicGetHandler() {
-		return handler;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHandler(Handler newHandler, NotificationChain msgs) {
-		Handler oldHandler = handler;
-		handler = newHandler;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__HANDLER, oldHandler, newHandler);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHandler(Handler newHandler) {
-		if (newHandler != handler) {
-			NotificationChain msgs = null;
-			if (handler != null)
-				msgs = ((InternalEObject)handler).eInverseRemove(this, EclipsePackage.HANDLER__COMMAND, Handler.class, msgs);
-			if (newHandler != null)
-				msgs = ((InternalEObject)newHandler).eInverseAdd(this, EclipsePackage.HANDLER__COMMAND, Handler.class, msgs);
-			msgs = basicSetHandler(newHandler, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__HANDLER, newHandler, newHandler));
 	}
 
 	/**
@@ -423,13 +379,12 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EclipsePackage.COMMAND__HANDLER:
-				if (handler != null)
-					msgs = ((InternalEObject)handler).eInverseRemove(this, EclipsePackage.HANDLER__COMMAND, Handler.class, msgs);
-				return basicSetHandler((Handler)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHandler()).basicAdd(otherEnd, msgs);
 			case EclipsePackage.COMMAND__MENU:
 				if (menu != null)
 					msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
@@ -455,7 +410,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EclipsePackage.COMMAND__HANDLER:
-				return basicSetHandler(null, msgs);
+				return ((InternalEList<?>)getHandler()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.COMMAND__MENU:
 				return basicSetMenu(null, msgs);
 			case EclipsePackage.COMMAND__CATEGORY:
@@ -479,8 +434,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__TOOLTIP:
 				return getTooltip();
 			case EclipsePackage.COMMAND__HANDLER:
-				if (resolve) return getHandler();
-				return basicGetHandler();
+				return getHandler();
 			case EclipsePackage.COMMAND__MENU:
 				if (resolve) return getMenu();
 				return basicGetMenu();
@@ -499,6 +453,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -509,7 +464,8 @@ public class CommandImpl extends EObjectImpl implements Command {
 				setTooltip((String)newValue);
 				return;
 			case EclipsePackage.COMMAND__HANDLER:
-				setHandler((Handler)newValue);
+				getHandler().clear();
+				getHandler().addAll((Collection<? extends Handler>)newValue);
 				return;
 			case EclipsePackage.COMMAND__MENU:
 				setMenu((Menu)newValue);
@@ -539,7 +495,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 				setTooltip(TOOLTIP_EDEFAULT);
 				return;
 			case EclipsePackage.COMMAND__HANDLER:
-				setHandler((Handler)null);
+				getHandler().clear();
 				return;
 			case EclipsePackage.COMMAND__MENU:
 				setMenu((Menu)null);
@@ -567,7 +523,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__TOOLTIP:
 				return TOOLTIP_EDEFAULT == null ? tooltip != null : !TOOLTIP_EDEFAULT.equals(tooltip);
 			case EclipsePackage.COMMAND__HANDLER:
-				return handler != null;
+				return handler != null && !handler.isEmpty();
 			case EclipsePackage.COMMAND__MENU:
 				return menu != null;
 			case EclipsePackage.COMMAND__CATEGORY:

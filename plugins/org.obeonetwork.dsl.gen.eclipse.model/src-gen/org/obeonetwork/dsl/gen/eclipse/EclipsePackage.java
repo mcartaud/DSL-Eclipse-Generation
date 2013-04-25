@@ -1660,7 +1660,7 @@ public interface EclipsePackage extends EPackage {
 	int COMMAND__TOOLTIP = 1;
 
 	/**
-	 * The feature id for the '<em><b>Handler</b></em>' reference.
+	 * The feature id for the '<em><b>Handler</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2013,6 +2013,16 @@ public interface EclipsePackage extends EPackage {
 	int VERSION = 36;
 
 	/**
+	 * The meta object id for the '<em>Mnemonic</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Character
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMnemonic()
+	 * @generated
+	 */
+	int MNEMONIC = 37;
+
+	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2020,7 +2030,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 37;
+	int NAMESPACE = 38;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2030,7 +2040,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 38;
+	int JAVA_NAME = 39;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2040,7 +2050,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 39;
+	int NAME = 40;
 
 
 	/**
@@ -3503,10 +3513,10 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getCommand_Tooltip();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}'.
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Handler</em>'.
+	 * @return the meta object for the reference list '<em>Handler</em>'.
 	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandler()
 	 * @see #getCommand()
 	 * @generated
@@ -3843,6 +3853,17 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getVersion();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.Character <em>Mnemonic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Mnemonic</em>'.
+	 * @see java.lang.Character
+	 * @model instanceClass="java.lang.Character"
+	 * @generated
+	 */
+	EDataType getMnemonic();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>Namespace</em>}'.
@@ -5032,7 +5053,7 @@ public interface EclipsePackage extends EPackage {
 		EAttribute COMMAND__TOOLTIP = eINSTANCE.getCommand_Tooltip();
 
 		/**
-		 * The meta object literal for the '<em><b>Handler</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Handler</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5308,6 +5329,16 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType VERSION = eINSTANCE.getVersion();
+
+		/**
+		 * The meta object literal for the '<em>Mnemonic</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Character
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMnemonic()
+		 * @generated
+		 */
+		EDataType MNEMONIC = eINSTANCE.getMnemonic();
 
 		/**
 		 * The meta object literal for the '<em>Namespace</em>' data type.

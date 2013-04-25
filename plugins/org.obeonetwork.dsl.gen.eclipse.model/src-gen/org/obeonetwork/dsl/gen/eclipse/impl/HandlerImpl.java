@@ -59,7 +59,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MNEMONIC_EDEFAULT = null;
+	protected static final Character MNEMONIC_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
@@ -69,7 +69,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @generated
 	 * @ordered
 	 */
-	protected String mnemonic = MNEMONIC_EDEFAULT;
+	protected Character mnemonic = MNEMONIC_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCommand() <em>Command</em>}' reference.
@@ -126,7 +126,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMnemonic() {
+	public Character getMnemonic() {
 		return mnemonic;
 	}
 
@@ -135,8 +135,8 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMnemonic(String newMnemonic) {
-		String oldMnemonic = mnemonic;
+	public void setMnemonic(Character newMnemonic) {
+		Character oldMnemonic = mnemonic;
 		mnemonic = newMnemonic;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__MNEMONIC, oldMnemonic, mnemonic));
@@ -263,7 +263,7 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 				setName((String)newValue);
 				return;
 			case EclipsePackage.HANDLER__MNEMONIC:
-				setMnemonic((String)newValue);
+				setMnemonic((Character)newValue);
 				return;
 			case EclipsePackage.HANDLER__COMMAND:
 				setCommand((Command)newValue);

@@ -324,6 +324,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType mnemonicEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType namespaceEDataType = null;
 
 	/**
@@ -1912,6 +1919,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getMnemonic() {
+		return mnemonicEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getNamespace() {
 		return namespaceEDataType;
 	}
@@ -2163,6 +2179,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		// Create data types
 		versionEDataType = createEDataType(VERSION);
+		mnemonicEDataType = createEDataType(MNEMONIC);
 		namespaceEDataType = createEDataType(NAMESPACE);
 		javaNameEDataType = createEDataType(JAVA_NAME);
 		nameEDataType = createEDataType(NAME);
@@ -2368,14 +2385,14 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Name(), this.getName_(), "name", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommand_Tooltip(), theEcorePackage.getEString(), "tooltip", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_Handler(), this.getHandler(), this.getHandler_Command(), "handler", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_Handler(), this.getHandler(), this.getHandler_Command(), "handler", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Menu(), this.getMenu(), this.getMenu_Commands(), "menu", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Category(), this.getCategory(), this.getCategory_Commands(), "category", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Binding(), this.getBinding(), this.getBinding_Command(), "binding", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHandler_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHandler_Mnemonic(), this.getMnemonic(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHandler_Command(), this.getCommand(), this.getCommand_Handler(), "command", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2432,6 +2449,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		// Initialize data types
 		initEDataType(versionEDataType, String.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(mnemonicEDataType, Character.class, "Mnemonic", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(namespaceEDataType, String.class, "Namespace", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaNameEDataType, String.class, "JavaName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(nameEDataType, String.class, "Name", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

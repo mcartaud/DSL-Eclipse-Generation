@@ -38,6 +38,7 @@
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Location/REPLACE"/>
     </genEnums>
     <genDataTypes ecoreDataType="eclipse.ecore#//Version"/>
+    <genDataTypes ecoreDataType="eclipse.ecore#//Mnemonic"/>
     <genDataTypes ecoreDataType="eclipse.ecore#//Namespace"/>
     <genDataTypes ecoreDataType="eclipse.ecore#//JavaName"/>
     <genDataTypes ecoreDataType="eclipse.ecore#//Name"/>

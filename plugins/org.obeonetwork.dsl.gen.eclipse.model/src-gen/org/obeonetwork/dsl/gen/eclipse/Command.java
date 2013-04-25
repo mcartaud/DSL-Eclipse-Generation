@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -79,7 +80,8 @@ public interface Command extends EObject {
 	void setTooltip(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Handler</b></em>' reference.
+	 * Returns the value of the '<em><b>Handler</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
 	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -87,24 +89,13 @@ public interface Command extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handler</em>' reference.
-	 * @see #setHandler(Handler)
+	 * @return the value of the '<em>Handler</em>' reference list.
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Handler()
 	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommand
 	 * @model opposite="command"
 	 * @generated
 	 */
-	Handler getHandler();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Handler</em>' reference.
-	 * @see #getHandler()
-	 * @generated
-	 */
-	void setHandler(Handler value);
+	EList<Handler> getHandler();
 
 	/**
 	 * Returns the value of the '<em><b>Menu</b></em>' reference.

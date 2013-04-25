@@ -58,12 +58,12 @@ public interface Handler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mnemonic</em>' attribute.
-	 * @see #setMnemonic(String)
+	 * @see #setMnemonic(Character)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Mnemonic()
-	 * @model unique="false"
+	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Mnemonic"
 	 * @generated
 	 */
-	String getMnemonic();
+	Character getMnemonic();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}' attribute.
@@ -73,7 +73,7 @@ public interface Handler extends EObject {
 	 * @see #getMnemonic()
 	 * @generated
 	 */
-	void setMnemonic(String value);
+	void setMnemonic(Character value);
 
 	/**
 	 * Returns the value of the '<em><b>Command</b></em>' reference.

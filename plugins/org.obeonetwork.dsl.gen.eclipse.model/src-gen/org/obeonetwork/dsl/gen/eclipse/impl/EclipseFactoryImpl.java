@@ -113,6 +113,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return createLocationFromString(eDataType, initialValue);
 			case EclipsePackage.VERSION:
 				return createVersionFromString(eDataType, initialValue);
+			case EclipsePackage.MNEMONIC:
+				return createMnemonicFromString(eDataType, initialValue);
 			case EclipsePackage.NAMESPACE:
 				return createNamespaceFromString(eDataType, initialValue);
 			case EclipsePackage.JAVA_NAME:
@@ -144,6 +146,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return convertLocationToString(eDataType, instanceValue);
 			case EclipsePackage.VERSION:
 				return convertVersionToString(eDataType, instanceValue);
+			case EclipsePackage.MNEMONIC:
+				return convertMnemonicToString(eDataType, instanceValue);
 			case EclipsePackage.NAMESPACE:
 				return convertNamespaceToString(eDataType, instanceValue);
 			case EclipsePackage.JAVA_NAME:
@@ -560,6 +564,24 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * @generated
 	 */
 	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Character createMnemonicFromString(EDataType eDataType, String initialValue) {
+		return (Character)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMnemonicToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
