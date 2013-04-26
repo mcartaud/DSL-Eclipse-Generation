@@ -30,7 +30,6 @@ Contributors :
 [/file]
 [/template]
 
-
 [template private ecoreTreeView(aView : View)]
 package [aView.eContainer(Bundle).genBundleID()/].views;
 
@@ -51,7 +50,12 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 [if (aView.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
-
+[if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
+import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
+[/for][/if]
+[if (aView.eContainer(Bundle).declarativeServices->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass).eContainer(EPackage))]
+import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
+[/for][/if]
 
 
 /**
@@ -127,16 +131,16 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 
 [if (aView.eContainer(Bundle).exportedPackages->size() > 0)]
 [for (anEClass : EClass | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass))]
-		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = ViewsFactory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
+		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = [anEClass.eContainer(EPackage).name.toUpperFirst()/]Factory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
 		res.getContents().add([anEClass.name.toLowerFirst()/]);
 [/for]
 [/if][if (aView.eContainer(Bundle).declarativeServices->size() > 0)]
 [for (anEClass : EClass | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass))]
-		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = ViewsFactory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
+		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = [anEClass.eContainer(EPackage).name.toUpperFirst()/]Factory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
 		res.getContents().add([anEClass.name.toLowerFirst()/]);
 [/for]
 [/if][if (aView.eContainer(Bundle).exportedPackages->size() = 0 and aView.eContainer(Bundle).declarativeServices->size() = 0)]
-		//YourApp yourApp = ViewsFactory.eINSTANCE.createYourApp();
+		//YourApp yourApp = YourAppFactory.eINSTANCE.createYourApp();
 		//res.getContents().add(yourApp);
 [/if]
 		return res;
