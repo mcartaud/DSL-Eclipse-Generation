@@ -388,13 +388,40 @@ public interface EclipsePackage extends EPackage {
 	int FEATURE__BUNDLES = PROJECT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Generate Sdk Feature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__GENERATE_SDK_FEATURE = PROJECT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Exclude Bundle For Sdk</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__EXCLUDE_BUNDLE_FOR_SDK = PROJECT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Included Features</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__INCLUDED_FEATURES = PROJECT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 6;
+	int FEATURE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl <em>Bundle</em>}' class.
@@ -2013,16 +2040,6 @@ public interface EclipsePackage extends EPackage {
 	int VERSION = 36;
 
 	/**
-	 * The meta object id for the '<em>Mnemonic</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Character
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMnemonic()
-	 * @generated
-	 */
-	int MNEMONIC = 37;
-
-	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2030,7 +2047,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 38;
+	int NAMESPACE = 37;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2040,7 +2057,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 39;
+	int JAVA_NAME = 38;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2050,7 +2067,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 40;
+	int NAME = 39;
 
 
 	/**
@@ -2355,6 +2372,39 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFeature_Bundles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#isGenerateSdkFeature <em>Generate Sdk Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Sdk Feature</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Feature#isGenerateSdkFeature()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EAttribute getFeature_GenerateSdkFeature();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getExcludeBundleForSdk <em>Exclude Bundle For Sdk</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Exclude Bundle For Sdk</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Feature#getExcludeBundleForSdk()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_ExcludeBundleForSdk();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getIncludedFeatures <em>Included Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Included Features</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Feature#getIncludedFeatures()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_IncludedFeatures();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Bundle <em>Bundle</em>}'.
@@ -3855,17 +3905,6 @@ public interface EclipsePackage extends EPackage {
 	EDataType getVersion();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Character <em>Mnemonic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Mnemonic</em>'.
-	 * @see java.lang.Character
-	 * @model instanceClass="java.lang.Character"
-	 * @generated
-	 */
-	EDataType getMnemonic();
-
-	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4153,6 +4192,30 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference FEATURE__BUNDLES = eINSTANCE.getFeature_Bundles();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Sdk Feature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FEATURE__GENERATE_SDK_FEATURE = eINSTANCE.getFeature_GenerateSdkFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclude Bundle For Sdk</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__EXCLUDE_BUNDLE_FOR_SDK = eINSTANCE.getFeature_ExcludeBundleForSdk();
+
+		/**
+		 * The meta object literal for the '<em><b>Included Features</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__INCLUDED_FEATURES = eINSTANCE.getFeature_IncludedFeatures();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl <em>Bundle</em>}' class.
@@ -5329,16 +5392,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType VERSION = eINSTANCE.getVersion();
-
-		/**
-		 * The meta object literal for the '<em>Mnemonic</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Character
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMnemonic()
-		 * @generated
-		 */
-		EDataType MNEMONIC = eINSTANCE.getMnemonic();
 
 		/**
 		 * The meta object literal for the '<em>Namespace</em>' data type.

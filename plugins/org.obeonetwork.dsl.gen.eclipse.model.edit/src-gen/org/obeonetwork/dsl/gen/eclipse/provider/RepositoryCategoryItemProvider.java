@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,9 +31,14 @@ import org.obeonetwork.dsl.gen.eclipse.RepositoryCategory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RepositoryCategoryItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RepositoryCategoryItemProvider
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -165,13 +171,14 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated-NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RepositoryCategory) object).getLabel();
-		return label == null || label.length() == 0 ? getString("_UI_RepositoryCategory_type")
-				: getString("_UI_RepositoryCategory_type") + " " + label;
+		String label = ((RepositoryCategory)object).getID();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RepositoryCategory_type") :
+			getString("_UI_RepositoryCategory_type") + " " + label;
 	}
 
 	/**
@@ -203,8 +210,7 @@ public class RepositoryCategoryItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

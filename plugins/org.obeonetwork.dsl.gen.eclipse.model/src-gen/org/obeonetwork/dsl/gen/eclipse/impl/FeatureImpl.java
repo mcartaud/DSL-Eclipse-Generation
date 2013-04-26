@@ -5,15 +5,10 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
@@ -31,6 +26,9 @@ import org.obeonetwork.dsl.gen.eclipse.Feature;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getBundles <em>Bundles</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#isGenerateSdkFeature <em>Generate Sdk Feature</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getExcludeBundleForSdk <em>Exclude Bundle For Sdk</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getIncludedFeatures <em>Included Features</em>}</li>
  * </ul>
  * </p>
  *
@@ -146,6 +144,46 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 * @ordered
 	 */
 	protected EList<Bundle> bundles;
+
+	/**
+	 * The default value of the '{@link #isGenerateSdkFeature() <em>Generate Sdk Feature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateSdkFeature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GENERATE_SDK_FEATURE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGenerateSdkFeature() <em>Generate Sdk Feature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGenerateSdkFeature()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean generateSdkFeature = GENERATE_SDK_FEATURE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getExcludeBundleForSdk() <em>Exclude Bundle For Sdk</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExcludeBundleForSdk()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Bundle> excludeBundleForSdk;
+
+	/**
+	 * The cached value of the '{@link #getIncludedFeatures() <em>Included Features</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncludedFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Feature> includedFeatures;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -288,6 +326,51 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isGenerateSdkFeature() {
+		return generateSdkFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenerateSdkFeature(boolean newGenerateSdkFeature) {
+		boolean oldGenerateSdkFeature = generateSdkFeature;
+		generateSdkFeature = newGenerateSdkFeature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__GENERATE_SDK_FEATURE, oldGenerateSdkFeature, generateSdkFeature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Bundle> getExcludeBundleForSdk() {
+		if (excludeBundleForSdk == null) {
+			excludeBundleForSdk = new EObjectResolvingEList<Bundle>(Bundle.class, this, EclipsePackage.FEATURE__EXCLUDE_BUNDLE_FOR_SDK);
+		}
+		return excludeBundleForSdk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Feature> getIncludedFeatures() {
+		if (includedFeatures == null) {
+			includedFeatures = new EObjectResolvingEList<Feature>(Feature.class, this, EclipsePackage.FEATURE__INCLUDED_FEATURES);
+		}
+		return includedFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -303,6 +386,12 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 				return getProvider();
 			case EclipsePackage.FEATURE__BUNDLES:
 				return getBundles();
+			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
+				return isGenerateSdkFeature();
+			case EclipsePackage.FEATURE__EXCLUDE_BUNDLE_FOR_SDK:
+				return getExcludeBundleForSdk();
+			case EclipsePackage.FEATURE__INCLUDED_FEATURES:
+				return getIncludedFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -335,6 +424,17 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 				getBundles().clear();
 				getBundles().addAll((Collection<? extends Bundle>)newValue);
 				return;
+			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
+				setGenerateSdkFeature((Boolean)newValue);
+				return;
+			case EclipsePackage.FEATURE__EXCLUDE_BUNDLE_FOR_SDK:
+				getExcludeBundleForSdk().clear();
+				getExcludeBundleForSdk().addAll((Collection<? extends Bundle>)newValue);
+				return;
+			case EclipsePackage.FEATURE__INCLUDED_FEATURES:
+				getIncludedFeatures().clear();
+				getIncludedFeatures().addAll((Collection<? extends Feature>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -365,6 +465,15 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 			case EclipsePackage.FEATURE__BUNDLES:
 				getBundles().clear();
 				return;
+			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
+				setGenerateSdkFeature(GENERATE_SDK_FEATURE_EDEFAULT);
+				return;
+			case EclipsePackage.FEATURE__EXCLUDE_BUNDLE_FOR_SDK:
+				getExcludeBundleForSdk().clear();
+				return;
+			case EclipsePackage.FEATURE__INCLUDED_FEATURES:
+				getIncludedFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +498,12 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
 			case EclipsePackage.FEATURE__BUNDLES:
 				return bundles != null && !bundles.isEmpty();
+			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
+				return generateSdkFeature != GENERATE_SDK_FEATURE_EDEFAULT;
+			case EclipsePackage.FEATURE__EXCLUDE_BUNDLE_FOR_SDK:
+				return excludeBundleForSdk != null && !excludeBundleForSdk.isEmpty();
+			case EclipsePackage.FEATURE__INCLUDED_FEATURES:
+				return includedFeatures != null && !includedFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -413,6 +528,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		result.append(license);
 		result.append(", provider: ");
 		result.append(provider);
+		result.append(", generateSdkFeature: ");
+		result.append(generateSdkFeature);
 		result.append(')');
 		return result.toString();
 	}

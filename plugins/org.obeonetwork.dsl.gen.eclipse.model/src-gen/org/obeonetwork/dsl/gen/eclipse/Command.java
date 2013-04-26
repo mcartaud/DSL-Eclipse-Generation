@@ -3,6 +3,7 @@
 package org.obeonetwork.dsl.gen.eclipse;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -85,7 +86,7 @@ public interface Command extends EObject {
 	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Handler</em>' reference isn't clear,
+	 * If the meaning of the '<em>Handler</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

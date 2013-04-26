@@ -61,6 +61,11 @@
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bundles" lowerBound="1"
         upperBound="-1" eType="#//Bundle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateSdkFeature" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excludeBundleForSdk" upperBound="-1"
+        eType="#//Bundle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includedFeatures" upperBound="-1"
+        eType="#//Feature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" unique="false"
@@ -284,7 +289,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mnemonic" unique="false"
-        eType="#//Mnemonic"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EChar"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="command" eType="#//Command"
         eOpposite="#//Command/handler"/>
   </eClassifiers>
@@ -354,7 +359,6 @@
     <eLiterals name="REPLACE" literal="REPLACE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="java.lang.String"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Mnemonic" instanceClassName="java.lang.Character"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Namespace" instanceClassName="java.lang.String"/>
   <eClassifiers xsi:type="ecore:EDataType" name="JavaName" instanceClassName="java.lang.String"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Name" instanceClassName="java.lang.String"/>

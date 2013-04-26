@@ -324,13 +324,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType mnemonicEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType namespaceEDataType = null;
 
 	/**
@@ -661,6 +654,33 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 */
 	public EReference getFeature_Bundles() {
 		return (EReference)featureEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFeature_GenerateSdkFeature() {
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeature_ExcludeBundleForSdk() {
+		return (EReference)featureEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeature_IncludedFeatures() {
+		return (EReference)featureEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1919,15 +1939,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getMnemonic() {
-		return mnemonicEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getNamespace() {
 		return namespaceEDataType;
 	}
@@ -2010,6 +2021,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEAttribute(featureEClass, FEATURE__LICENSE);
 		createEAttribute(featureEClass, FEATURE__PROVIDER);
 		createEReference(featureEClass, FEATURE__BUNDLES);
+		createEAttribute(featureEClass, FEATURE__GENERATE_SDK_FEATURE);
+		createEReference(featureEClass, FEATURE__EXCLUDE_BUNDLE_FOR_SDK);
+		createEReference(featureEClass, FEATURE__INCLUDED_FEATURES);
 
 		bundleEClass = createEClass(BUNDLE);
 		createEAttribute(bundleEClass, BUNDLE__VERSION);
@@ -2179,7 +2193,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		// Create data types
 		versionEDataType = createEDataType(VERSION);
-		mnemonicEDataType = createEDataType(MNEMONIC);
 		namespaceEDataType = createEDataType(NAMESPACE);
 		javaNameEDataType = createEDataType(JAVA_NAME);
 		nameEDataType = createEDataType(NAME);
@@ -2257,6 +2270,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEAttribute(getFeature_License(), theEcorePackage.getEString(), "license", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Provider(), theEcorePackage.getEString(), "provider", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeature_Bundles(), this.getBundle(), null, "bundles", null, 1, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_GenerateSdkFeature(), theEcorePackage.getEBoolean(), "generateSdkFeature", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFeature_ExcludeBundleForSdk(), this.getBundle(), null, "excludeBundleForSdk", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFeature_IncludedFeatures(), this.getFeature(), null, "includedFeatures", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBundle_Version(), this.getVersion(), "version", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2392,7 +2408,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHandler_Mnemonic(), this.getMnemonic(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHandler_Mnemonic(), theEcorePackage.getEChar(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHandler_Command(), this.getCommand(), this.getCommand_Handler(), "command", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2449,7 +2465,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		// Initialize data types
 		initEDataType(versionEDataType, String.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(mnemonicEDataType, Character.class, "Mnemonic", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(namespaceEDataType, String.class, "Namespace", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaNameEDataType, String.class, "JavaName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(nameEDataType, String.class, "Name", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

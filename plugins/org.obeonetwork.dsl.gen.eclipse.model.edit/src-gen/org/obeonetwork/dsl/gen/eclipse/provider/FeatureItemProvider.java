@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -27,9 +28,14 @@ import org.obeonetwork.dsl.gen.eclipse.Feature;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FeatureItemProvider extends ProjectItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class FeatureItemProvider
+	extends ProjectItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -57,6 +63,9 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 			addLicensePropertyDescriptor(object);
 			addProviderPropertyDescriptor(object);
 			addBundlesPropertyDescriptor(object);
+			addGenerateSdkFeaturePropertyDescriptor(object);
+			addExcludeBundleForSdkPropertyDescriptor(object);
+			addIncludedFeaturesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -194,6 +203,72 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Generate Sdk Feature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGenerateSdkFeaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_generateSdkFeature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_generateSdkFeature_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__GENERATE_SDK_FEATURE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Exclude Bundle For Sdk feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExcludeBundleForSdkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_excludeBundleForSdk_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_excludeBundleForSdk_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__EXCLUDE_BUNDLE_FOR_SDK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Included Features feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludedFeaturesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Feature_includedFeatures_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_includedFeatures_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__INCLUDED_FEATURES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Feature.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,13 +283,14 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated-NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Feature) object).getID();
-		return label == null || label.length() == 0 ? getString("_UI_Feature_type")
-				: getString("_UI_Feature_type") + " " + label;
+		String label = ((Feature)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Feature_type") :
+			getString("_UI_Feature_type") + " " + label;
 	}
 
 	/**
@@ -234,6 +310,7 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 			case EclipsePackage.FEATURE__VERSION:
 			case EclipsePackage.FEATURE__LICENSE:
 			case EclipsePackage.FEATURE__PROVIDER:
+			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -248,8 +325,7 @@ public class FeatureItemProvider extends ProjectItemProvider implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

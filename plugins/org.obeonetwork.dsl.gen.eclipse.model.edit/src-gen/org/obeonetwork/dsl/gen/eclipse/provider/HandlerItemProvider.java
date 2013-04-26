@@ -106,7 +106,7 @@ public class HandlerItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
 				 null,
 				 null));
 	}

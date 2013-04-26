@@ -1,208 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eclipse:Application
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse"
-    applicationID="demoDSL"
-    provider="Mathieu Cartaud"
-    copyright="Obeo"
-    license="Eclipse Public License - v 1.0"
-    version="1.0.0"
-    description="This application was created to introduce yourself about the dsl2Eclipse generator"
-    baseNamespace="org.obeonetwork.dsl.demo">
-  <projects
-      xsi:type="eclipse:Repository"
-      name="repository pour demo"
-      ID="repository">
-    <repositoryCategories
-        label="Acceleo"
-        description="contains all the project for the demo"
-        ID="org.obeonetwork.acceleo.category"
-        features="//@projects.1"/>
+<eclipse:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eclipse="http://www.obeonetwork.org/dsl/eclipse" applicationID="demoDSL" provider="Mathieu Cartaud" copyright="Obeo" license="Eclipse Public License - v 1.0" version="1.0.0" description="This application was created to introduce yourself about the dsl2Eclipse generator" baseNamespace="org.obeonetwork.dsl.demo">
+  <projects xsi:type="eclipse:Repository" name="repository pour demo" ID="repository">
+    <repositoryCategories label="Acceleo" description="contains all the project for the demo" ID="org.obeonetwork.acceleo.category" features="//@projects.1"/>
   </projects>
-  <projects
-      xsi:type="eclipse:Feature"
-      name="feature pour demo"
-      ID="feature"
-      copyright="Obeo"
-      description="contains all the bundle"
-      version="1.0.0"
-      license="EPL - v 1.0"
-      provider="Mathieu Cartaud"
-      bundles="//@projects.2 //@projects.3"/>
-  <projects
-      xsi:type="eclipse:Bundle"
-      name="Projet 1"
-      ID="project1"
-      version="1.2.2"
-      requiredEnvironment="JavaSE14"
-      vendor="Mcartaud">
-    <declarativeServices
-        serviceClassName="serviceFourni">
-      <delegatorClass
-          href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/bidule/Implem1"/>
+  <projects xsi:type="eclipse:Feature" name="feature pour demo" ID="feature" copyright="Obeo" description="contains all the bundle" version="1.0.0" license="EPL - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3" generateSdkFeature="true" excludBundleForSdk="//@projects.2"/>
+  <projects xsi:type="eclipse:Bundle" name="Projet 1" ID="project1" version="1.2.2" requiredEnvironment="JavaSE14" vendor="Mcartaud">
+    <declarativeServices serviceClassName="serviceFourni">
+      <delegatorClass href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/bidule/Implem1"/>
       <providedServices>
-        <interface
-            href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/Interface1"/>
+        <interface href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/Interface1"/>
       </providedServices>
     </declarativeServices>
-    <importDeclarations
-        packageName="org.truc.chose.chouette"
-        packageVersion=""
-        importType="Bundle"/>
-    <importDeclarations
-        packageName="org.eclipse.truc"
-        packageVersion="2.1.0"/>
-    <perspectives
-        name="vuesPerspectives"
-        views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
-    <views name="permiere Vue"
-        isVisible="true"
-        perspectives="//@projects.2/@perspectives.0"
-        category="//@projects.2/@categories.0">
-      <dynamicHelp
-          label="aide pour premiereVue"
-          description="cette page offre de l'aide pour la première vue"/>
-      <handlers
-          name="bouton1Vue"
-          command="//@projects.2/@commands.0"/>
-      <handlers
-          name="bouton2Vue"
-          mnemonic=""
-          command="//@projects.2/@commands.1"/>
-      <menus
-          name="menuVue1"
-          commands="//@projects.2/@commands.1 //@projects.2/@commands.0"/>
+    <importDeclarations packageName="org.truc.chose.chouette" packageVersion="" importType="Bundle"/>
+    <importDeclarations packageName="org.eclipse.truc" packageVersion="2.1.0"/>
+    <perspectives name="vuesPerspectives" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
+    <views name="permiere Vue" isVisible="true" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
+      <dynamicHelp label="aide pour premiereVue" description="cette page offre de l'aide pour la première vue"/>
+      <handlers name="bouton1Vue" command="//@projects.2/@commands.0"/>
+      <handlers name="bouton2Vue" command="//@projects.2/@commands.1"/>
+      <menus name="menuVue1" mnemonic="" commands="//@projects.2/@commands.1 //@projects.2/@commands.0"/>
     </views>
-    <views name="deuxiemeVue"
-        isVisible="true"
-        perspectives="//@projects.2/@perspectives.0"
-        category="//@projects.2/@categories.0">
-      <dynamicHelp
-          label="aide pour deuxieme vue"
-          description="cette page donne de l'aide pour la deuxième vue"/>
-      <handlers
-          name="boutonVue2"
-          command="//@projects.2/@commands.2"/>
-      <menus
-          name="menuVue2"
-          commands="//@projects.2/@commands.2"/>
+    <views name="deuxiemeVue" isVisible="true" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
+      <dynamicHelp label="aide pour deuxieme vue" description="cette page donne de l'aide pour la deuxième vue"/>
+      <handlers name="boutonVue2" command="//@projects.2/@commands.2"/>
+      <menus name="menuVue2" commands="//@projects.2/@commands.2"/>
     </views>
-    <views name="troisiemeVue"
-        perspectives="//@projects.2/@perspectives.0"
-        category="//@projects.2/@categories.0">
-      <handlers
-          name="boutonVue3"
-          mnemonic=""
-          command="//@projects.2/@commands.3"/>
-      <menus
-          name="menuVue3"
-          commands="//@projects.2/@commands.3"/>
+    <views name="troisiemeVue" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
+      <handlers name="boutonVue3" command="//@projects.2/@commands.3"/>
+      <menus name="menuVue3" commands="//@projects.2/@commands.3"/>
     </views>
-    <helpContents
-        label="aide pour le premier bundle"
-        description="cette page donne l'aide pour l'ensemble du premier bundle">
-      <helpPages
-          label="premiere Page"
-          description="donne l'aide pour la vue 1">
-        <helpPages
-            label="page1-2"
-            description="cette page est specifique pour la perspective"/>
+    <helpContents label="aide pour le premier bundle" description="cette page donne l'aide pour l'ensemble du premier bundle">
+      <helpPages label="premiere Page" description="donne l'aide pour la vue 1">
+        <helpPages label="page1-2" description="cette page est specifique pour la perspective"/>
       </helpPages>
-      <helpPages
-          label="deuxieme Page"
-          description="donne l'aide pour les vues 2 et 3">
-        <helpPages
-            label="page2-2"
-            description="cette page est specifique pour les boutons des vues 2 et 3"/>
+      <helpPages label="deuxieme Page" description="donne l'aide pour les vues 2 et 3">
+        <helpPages label="page2-2" description="cette page est specifique pour les boutons des vues 2 et 3"/>
       </helpPages>
     </helpContents>
-    <commands
-        name="bouton1Vue1"
-        handler="//@projects.2/@views.0/@handlers.0"
-        menu="//@projects.2/@views.0/@menus.0"
-        binding="//@projects.2/@bindings.0"/>
-    <commands
-        name="bouton2Vue1"
-        handler="//@projects.2/@views.0/@handlers.1"
-        menu="//@projects.2/@views.0/@menus.0"/>
-    <commands
-        name="bouton1Vue2"
-        tooltip=""
-        handler="//@projects.2/@views.1/@handlers.0"
-        menu="//@projects.2/@views.1/@menus.0"
-        binding="//@projects.2/@bindings.1"/>
-    <commands
-        name="bouton1Vue3"
-        handler="//@projects.2/@views.2/@handlers.0"
-        menu="//@projects.2/@views.2/@menus.0"/>
-    <contexts
-        name="context1"
-        description="donne un context"/>
-    <categories
-        name="VuesDemo"
-        views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
-    <bindings
-        keySequence="CTRL + ALT + g"
-        command="//@projects.2/@commands.0"
-        contexts="//@projects.2/@contexts.0"/>
-    <bindings
-        keySequence="CTRL+5"
-        command="//@projects.2/@commands.2"
-        contexts="//@projects.2/@contexts.0"/>
+    <commands name="bouton1Vue1" handler="//@projects.2/@views.0/@handlers.0" menu="//@projects.2/@views.0/@menus.0" binding="//@projects.2/@bindings.0"/>
+    <commands name="bouton2Vue1" handler="//@projects.2/@views.0/@handlers.1" menu="//@projects.2/@views.0/@menus.0"/>
+    <commands name="bouton1Vue2" tooltip="" handler="//@projects.2/@views.1/@handlers.0" menu="//@projects.2/@views.1/@menus.0" binding="//@projects.2/@bindings.1"/>
+    <commands name="bouton1Vue3" handler="//@projects.2/@views.2/@handlers.0" menu="//@projects.2/@views.2/@menus.0"/>
+    <contexts name="context1" description="donne un context"/>
+    <categories name="VuesDemo" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
+    <bindings keySequence="CTRL + ALT + g" command="//@projects.2/@commands.0" contexts="//@projects.2/@contexts.0"/>
+    <bindings keySequence="CTRL+5" command="//@projects.2/@commands.2" contexts="//@projects.2/@contexts.0"/>
   </projects>
-  <projects
-      xsi:type="eclipse:Bundle"
-      name="Projet 2"
-      ID="project2">
-    <declarativeServices
-        serviceClassName="ServiceRequis">
-      <delegatorClass
-          href="MyProj.genmodel#//org/obeonetwork/dsl/demo/project2/chouette/chose/Implem2"/>
+  <projects xsi:type="eclipse:Bundle" name="Projet 2" ID="project2">
+    <declarativeServices serviceClassName="ServiceRequis">
+      <delegatorClass href="MyProj.genmodel#//org/obeonetwork/dsl/demo/project2/chouette/chose/Implem2"/>
       <requiredServices>
-        <reference
-            href="MyProj.ecore#//obeonetwork/dsl/demo/project2/chouette/chose/Implem2/reference1"/>
+        <reference href="MyProj.ecore#//obeonetwork/dsl/demo/project2/chouette/chose/Implem2/reference1"/>
       </requiredServices>
     </declarativeServices>
-    <wizards
-        name="nouvellePageWizard"
-        title="New Page"
-        description="permet de creer des fichiers"
-        category="//@projects.3/@categories.0"/>
-    <wizards
-        xsi:type="eclipse:ProjectWizard"
-        name="nouveauProjetWizard"
-        title="Nouveau Projet"
-        description="permet de creer des nouveaux projets"
-        category="//@projects.3/@categories.0"/>
-    <editors
-        name="nouvelEditeur">
-      <dynamicHelp
-          label="aide Editeur"
-          description="donne de l'aide pour l'éditeur"/>
-      <handlers
-          name="editorBouton"
-          mnemonic=""
-          command="//@projects.3/@commands.0"/>
-      <menus
-          name="menuEditor"
-          commands="//@projects.3/@commands.0"/>
+    <wizards name="nouvellePageWizard" title="New Page" description="permet de creer des fichiers" category="//@projects.3/@categories.0"/>
+    <wizards xsi:type="eclipse:ProjectWizard" name="nouveauProjetWizard" title="Nouveau Projet" description="permet de creer des nouveaux projets" category="//@projects.3/@categories.0"/>
+    <editors name="nouvelEditeur">
+      <dynamicHelp label="aide Editeur" description="donne de l'aide pour l'éditeur"/>
+      <handlers name="editorBouton" command="//@projects.3/@commands.0"/>
+      <menus name="menuEditor" commands="//@projects.3/@commands.0"/>
     </editors>
-    <commands
-        name="BoutonDuMenu"
-        handler="//@projects.3/@editors.0/@handlers.0"
-        menu="//@projects.3/@editors.0/@menus.0"
-        binding="//@projects.3/@bindings.0"/>
-    <contexts
-        name="context2"
-        description="active le binding en fonction du context"/>
-    <categories
-        name="WizardDemo"
-        wizards="//@projects.3/@wizards.0 //@projects.3/@wizards.1"/>
-    <bindings
-        keySequence="CTRL+2"
-        command="//@projects.3/@commands.0"
-        contexts="//@projects.3/@contexts.0"/>
+    <commands name="BoutonDuMenu" handler="//@projects.3/@editors.0/@handlers.0" menu="//@projects.3/@editors.0/@menus.0" binding="//@projects.3/@bindings.0"/>
+    <contexts name="context2" description="active le binding en fonction du context"/>
+    <categories name="WizardDemo" wizards="//@projects.3/@wizards.0 //@projects.3/@wizards.1"/>
+    <bindings keySequence="CTRL+2" command="//@projects.3/@commands.0" contexts="//@projects.3/@contexts.0"/>
   </projects>
 </eclipse:Application>

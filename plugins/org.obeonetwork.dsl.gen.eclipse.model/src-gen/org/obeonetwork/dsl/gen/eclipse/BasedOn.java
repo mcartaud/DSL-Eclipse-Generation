@@ -26,7 +26,9 @@ public enum BasedOn implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ECORE(0, "Ecore", "Ecore"), /**
+	ECORE(0, "Ecore", "Ecore"),
+
+	/**
 	 * The '<em><b>Nothing</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
