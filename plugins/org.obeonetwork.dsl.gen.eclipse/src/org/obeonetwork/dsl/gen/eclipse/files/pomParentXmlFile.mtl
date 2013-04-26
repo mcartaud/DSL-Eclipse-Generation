@@ -51,7 +51,8 @@ Contributors :
 
   <properties>
     <acceleo-version>3.3.0-SNAPSHOT</acceleo-version>
-    <tycho-version>0.14.1</tycho-version>
+    <tycho-version>0.17.0</tycho-version>
+    <tycho-extras-version>0.17.0</tycho-extras-version>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
 	<orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
   </properties>
@@ -143,9 +144,40 @@ Contributors :
         <configuration>
           <resolver>p2</resolver>
           <pomDependencies>consider</pomDependencies>
+		   <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
         </configuration>
       </plugin>
+[if (anApplication.eAllContents(Feature).generateSdkFeature->size() > 0)]
+[anApplication.sdkPlugin()/]
+[/if]
     </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -163,11 +195,13 @@ Contributors :
           <version>${tycho-version}</version>
           <executions>
             <execution>
+[if (anApplication.eAllContents(Feature).generateSdkFeature->size() > 0)]
               <id>attach-source</id>
               <phase>process-classes</phase>
               <goals>
                 <goal>plugin-source</goal>
               </goals>
+[/if]
             </execution>
           </executions>
         </plugin>
@@ -209,16 +243,73 @@ Contributors :
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>plugins/[aBundle.genBundleID()/]</module>
 [/for]
+
 [if (anApplication.generateTestsBundle)]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>tests/[aBundle.genBundleID()/].tests</module>
 [/for]
 [/if]
+
+
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 <module>features/[aFeature.genFeatureID()/]</module>
 [/for]
 
+
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
 <module>repositories/[aRepository.genRepositoryID()/]</module>
 [/for]
+[/template]
+
+[template private sdkPlugin(anApplication : Application)]
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <id>plugin-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-source-feature-plugin</artifactId>
+        <version>${tycho-extras-version}</version>
+        <executions>
+          <execution>
+            <id>source-feature</id>
+            <phase>package</phase>
+            <goals>
+              <goal>source-feature</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <!-- These two should allow us not to get "duplicate artifact" warnings during the build. -->
+          <execution>
+            <!-- Don't attach (default) metadata before the source-feature execution.-->
+            <id>default-p2-metadata-default</id>
+            <configuration>
+              <attachP2Metadata>false</attachP2Metadata>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Do attach metadata after the source-feature execution.-->
+            <id>attach-p2-metadata</id>
+            <goals>
+              <goal>p2-metadata</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
 [/template]

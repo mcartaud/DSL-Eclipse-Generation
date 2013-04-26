@@ -40,6 +40,12 @@ Contributors :
       [aFeature.license/]
    </license>
 
+[for (anIncludedFeature : Feature | aFeature.includedFeatures)]
+   <includes
+		 id="[anIncludedFeature.genFeatureID()/]"
+		 version="[anIncludedFeature.featureVersion()/]"/>
+
+[/for]
 [for (aBundle : Bundle | aFeature.bundles)]
    <plugin
          id="[aBundle.genBundleID()/]"
@@ -48,6 +54,7 @@ Contributors :
          version="0.0.0"
          unpack="false"/>
 [/for]
+
 </feature>
 [/file]
 [/template]

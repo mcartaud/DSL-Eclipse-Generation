@@ -93,8 +93,34 @@ Contributors :
 <packaging>eclipse-feature</packaging>
 
 <name>[aFeature.name/] Feature</name>
-[/template]
 
+[if (aFeature.generateSdkFeature)]
+  <build>
+     <plugins>
+       <plugin>
+         <groupId>org.eclipse.tycho.extras</groupId>
+         <artifactId>tycho-source-feature-plugin</artifactId>
+         <executions>
+           <execution>
+             <phase>package</phase>
+             <id>source-feature</id>
+             <goals>
+               <goal>source-feature</goal>
+             </goals>
+             <configuration>
+               <excludes>
+[for (anExcludedBundle : Bundle | aFeature.excludeBundleForSdk)]
+                 <plugin id="[anExcludedBundle.genBundleID()/]"/>
+[/for]
+               </excludes>
+             </configuration>
+           </execution>
+         </executions>
+       </plugin>
+    </plugins>
+  </build>
+[/if]
+[/template]
 
 [template private pomBundle(aBundle : Bundle)]
 <artifactId>[aBundle.genBundleID()/]</artifactId>
