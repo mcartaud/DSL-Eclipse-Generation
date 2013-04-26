@@ -39,7 +39,7 @@
 
   <properties>
     <acceleo-version>3.3.0-SNAPSHOT</acceleo-version>
-    <tycho-version>0.14.1</tycho-version>
+    <tycho-version>0.17.0</tycho-version>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
 	<orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
   </properties>

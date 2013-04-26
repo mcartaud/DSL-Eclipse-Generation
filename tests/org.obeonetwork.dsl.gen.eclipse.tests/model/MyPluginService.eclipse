@@ -3,7 +3,7 @@
   <projects xsi:type="eclipse:Repository" name="repository pour demo" ID="repository">
     <repositoryCategories label="Acceleo" description="contains all the project for the demo" ID="org.obeonetwork.acceleo.category" features="//@projects.1"/>
   </projects>
-  <projects xsi:type="eclipse:Feature" name="feature pour demo" ID="feature" copyright="Obeo" description="contains all the bundle" version="1.0.0" license="EPL - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3" generateSdkFeature="true" excludBundleForSdk="//@projects.2"/>
+  <projects xsi:type="eclipse:Feature" name="feature pour demo" ID="feature" copyright="Obeo" description="contains all the bundle" version="1.0.0" license="EPL - v 1.0" provider="Mathieu Cartaud" bundles="//@projects.2 //@projects.3" generateSdkFeature="true"/>
   <projects xsi:type="eclipse:Bundle" name="Projet 1" ID="project1" version="1.2.2" requiredEnvironment="JavaSE14" vendor="Mcartaud">
     <declarativeServices serviceClassName="serviceFourni">
       <delegatorClass href="My.genmodel#//org/obeonetwork/dsl/demo/project1/truc/bidule/Implem1"/>

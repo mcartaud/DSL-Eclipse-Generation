@@ -119,6 +119,29 @@ Contributors :
        </plugin>
     </plugins>
   </build>
+[elseif (aFeature.siblings(Feature).generateSdkFeature->size() > 0)]
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-source-feature-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <id>source-feature</id>
+            <goals>
+              <goal>source-feature</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <feature id="[aFeature.genFeatureID()/].source"/>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 [/if]
 [/template]
 

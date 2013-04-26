@@ -27,6 +27,11 @@ Contributors :
    <feature url="features/[aFeature.genFeatureID()/]_[aFeature.featureVersion()/].jar" id="[aFeature.genFeatureID()/]" version="[aFeature.featureVersion()/]">
       <category name="[aCategory.ID/]"/>
    </feature>
+[if (aFeature.generateSdkFeature)]
+   <feature url="features/[aFeature.genFeatureID()/]_[aFeature.featureVersion()/].jar" id="[aFeature.genFeatureID()/]" version="[aFeature.featureVersion()/]">
+      <category name="[aCategory.ID/]"/>
+   </feature>
+[/if]
 [/for][/for][for (aCategory : RepositoryCategory | aRepository.repositoryCategories)]
    <category-def name="[aCategory.ID/]" label="[aCategory.label/]">
       <description>

@@ -28,11 +28,8 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::featureXmlFile /]
 
 
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::indexHtmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::repository::categoryXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteCssFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::repository::siteXslFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::repository::p2XmlFile /]
 
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::buildPropertiesBundleFile /]
@@ -186,11 +183,8 @@ or aBundle.handlers->size() > 0)]
 
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
 [aRepository.genCategoryXmlFile()/]
-[aRepository.genIndexHtmlFile()/]
 [aRepository.genProjectXmlFile()/]
-[aRepository.genSiteCssFile()/]
-[aRepository.genSiteXlsFile()/]
-[aRepository.genSiteXmlFile()/]
+[aRepository.genP2XmlFile()/]
 [if (anApplication.mavenCompilation)]
 [aRepository.genPomXmlFile()/]
 [/if]
