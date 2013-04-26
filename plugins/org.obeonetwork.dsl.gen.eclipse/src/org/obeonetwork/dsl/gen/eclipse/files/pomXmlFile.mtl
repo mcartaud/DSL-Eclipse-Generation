@@ -134,7 +134,7 @@ Contributors :
             </goals>
             <configuration>
               <excludes>
-                <feature id="[aFeature.genFeatureID()/].source"/>
+                <feature id="[aFeature.genFeatureID()/]-source"/>
               </excludes>
             </configuration>
           </execution>
