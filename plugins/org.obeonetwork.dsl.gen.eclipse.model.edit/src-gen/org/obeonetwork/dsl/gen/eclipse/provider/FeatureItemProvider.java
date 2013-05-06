@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,7 +17,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
 
@@ -290,14 +289,23 @@ public class FeatureItemProvider
 	public String getText(Object object) {
 		String label = ((Feature)object).getName();
 		String id = ((Feature)object).getID();
-		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Feature_type") + " " + id + " - " + label;
+		String baseID = "";
+		if ((((Application)((Feature)object).eContainer()).getBaseNamespace().length() == 0) || 
+				(((Application)((Feature)object).eContainer()).getBaseNamespace() == null)) {
+			baseID = " complete the baseNamespace field";
+		} else {
+			baseID = ((Application)((Feature)object).eContainer()).getBaseNamespace();			
+		}
+		
+		if ((label == null || label.length() == 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Feature_type");			
 		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Feature_type") + " " + id;
-		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
-			return getString("_UI_Feature_type") + " - " + label;
-		} else
-			return getString("_UI_Feature_type");
+			return getString("_UI_Feature_type") + " " + baseID + "." + id + " -- no name define";
+		} else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Feature_type") + " no ID define -- " + label;
+		} else {
+			return getString("_UI_Feature_type") + " " + baseID + "." + id + " -- " + label;
+		}
 	}
 
 	/**

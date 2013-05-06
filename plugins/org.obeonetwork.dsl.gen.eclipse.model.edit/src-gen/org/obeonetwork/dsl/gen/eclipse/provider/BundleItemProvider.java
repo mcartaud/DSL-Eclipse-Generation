@@ -18,6 +18,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -238,21 +239,30 @@ public class BundleItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated-NOT
 	 */
 	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Bundle)object).getName();
 		String id = ((Bundle)object).getID();
-		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Bundle_type") + " " + id + " - " + label;
+		String baseID = "";
+		if ((((Application)((Bundle)object).eContainer()).getBaseNamespace().length() == 0) || 
+				(((Application)((Bundle)object).eContainer()).getBaseNamespace() == null)) {
+			baseID = " complete the baseNamespace field";
+		} else {
+			baseID = ((Application)((Bundle)object).eContainer()).getBaseNamespace();			
+		}
+		
+		if ((label == null || label.length() == 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Bundle_type");			
 		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Bundle_type") + " " + id;
-		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
-			return getString("_UI_Bundle_type") + " - " + label;
-		} else
-			return getString("_UI_Bundle_type");
+			return getString("_UI_Bundle_type") + " " + baseID + "." + id + " -- no name define";
+		} else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Bundle_type") + " no ID define -- " + label;
+		} else {
+			return getString("_UI_Bundle_type") + " " + baseID + "." + id + " -- " + label;
+		}
 	}
 
 	/**

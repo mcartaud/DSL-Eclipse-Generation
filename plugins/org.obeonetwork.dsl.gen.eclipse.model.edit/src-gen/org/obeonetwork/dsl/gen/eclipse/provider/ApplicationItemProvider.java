@@ -321,20 +321,12 @@ public class ApplicationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
-		String id = ((Application)object).getBaseNamespace();
 		String label = ((Application)object).getApplicationID();
-		
-		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Application_type") + " " + id + " - " + label;
-		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Application_type") + " " + id;
-		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
-			return getString("_UI_Application_type") + " - " + label;
-		} else
-			return getString("_UI_Application_type");
+		return label == null || label.length() == 0 ?
+				getString("_UI_Application_type") :
+				getString("_UI_Application_type") + " " + label;
 	}
 
 	/**
