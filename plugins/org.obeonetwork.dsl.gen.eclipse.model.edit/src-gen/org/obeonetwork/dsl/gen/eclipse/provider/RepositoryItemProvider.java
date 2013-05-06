@@ -106,12 +106,20 @@ public class RepositoryItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Repository)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Repository_type") :
-			getString("_UI_Repository_type") + " " + label;
+		String id = ((Repository)object).getID();
+		
+		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Repository_type") + " " + id + " - " + label;
+		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Repository_type") + " " + id;
+		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Repository_type") + " - " + label;
+		} else
+			return getString("_UI_Repository_type");
 	}
 
 	/**

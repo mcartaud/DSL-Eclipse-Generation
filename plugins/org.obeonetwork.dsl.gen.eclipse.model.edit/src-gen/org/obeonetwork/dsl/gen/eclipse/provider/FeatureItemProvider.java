@@ -283,14 +283,21 @@ public class FeatureItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated-NOT
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Feature)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Feature_type") :
-			getString("_UI_Feature_type") + " " + label;
+		String id = ((Feature)object).getID();
+		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Feature_type") + " " + id + " - " + label;
+		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Feature_type") + " " + id;
+		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Feature_type") + " - " + label;
+		} else
+			return getString("_UI_Feature_type");
 	}
 
 	/**

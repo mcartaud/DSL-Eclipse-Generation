@@ -8,9 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,7 +18,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -243,12 +240,19 @@ public class BundleItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Bundle)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Bundle_type") :
-			getString("_UI_Bundle_type") + " " + label;
+		String id = ((Bundle)object).getID();
+		if ((label != null || label.length() != 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Bundle_type") + " " + id + " - " + label;
+		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Bundle_type") + " " + id;
+		}  else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Bundle_type") + " - " + label;
+		} else
+			return getString("_UI_Bundle_type");
 	}
 
 	/**

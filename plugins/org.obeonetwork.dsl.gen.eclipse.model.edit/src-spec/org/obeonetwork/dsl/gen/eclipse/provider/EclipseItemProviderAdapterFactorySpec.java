@@ -20,4 +20,13 @@ public class EclipseItemProviderAdapterFactorySpec extends EclipseItemProviderAd
 
 		return declarativeServiceItemProvider;
 	}
+	
+	@Override
+	public Adapter createFeatureAdapter() {
+		if (featureItemProvider == null) {
+			featureItemProvider = new FeatureItemProviderSpec(this);
+		}
+
+		return featureItemProvider;
+	}
 }

@@ -353,7 +353,7 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		}
 		return excludeBundleForSdk;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
