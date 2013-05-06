@@ -113,8 +113,7 @@ public class RepositoryItemProvider
 		String label = ((Repository)object).getName();
 		String id = ((Repository)object).getID();
 		String baseID = "";
-		if ((((Application)((Repository)object).eContainer()).getBaseNamespace().length() == 0) || 
-				(((Application)((Repository)object).eContainer()).getBaseNamespace() == null)) {
+		if (((Application)((Repository)object).eContainer()).getBaseNamespace() == null) {
 			baseID = " complete the baseNamespace field";
 		} else {
 			baseID = ((Application)((Repository)object).eContainer()).getBaseNamespace();			

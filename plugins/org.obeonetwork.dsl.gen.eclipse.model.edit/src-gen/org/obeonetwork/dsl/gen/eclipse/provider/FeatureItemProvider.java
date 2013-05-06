@@ -290,8 +290,7 @@ public class FeatureItemProvider
 		String label = ((Feature)object).getName();
 		String id = ((Feature)object).getID();
 		String baseID = "";
-		if ((((Application)((Feature)object).eContainer()).getBaseNamespace().length() == 0) || 
-				(((Application)((Feature)object).eContainer()).getBaseNamespace() == null)) {
+		if (((Application)((Feature)object).eContainer()).getBaseNamespace() == null) {
 			baseID = " complete the baseNamespace field";
 		} else {
 			baseID = ((Application)((Feature)object).eContainer()).getBaseNamespace();			

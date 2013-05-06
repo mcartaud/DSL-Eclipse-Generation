@@ -247,8 +247,7 @@ public class BundleItemProvider
 		String label = ((Bundle)object).getName();
 		String id = ((Bundle)object).getID();
 		String baseID = "";
-		if ((((Application)((Bundle)object).eContainer()).getBaseNamespace().length() == 0) || 
-				(((Application)((Bundle)object).eContainer()).getBaseNamespace() == null)) {
+		if (((Application)((Bundle)object).eContainer()).getBaseNamespace() == null) {
 			baseID = " complete the baseNamespace field";
 		} else {
 			baseID = ((Application)((Bundle)object).eContainer()).getBaseNamespace();			
