@@ -6,22 +6,16 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
@@ -35,7 +29,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getHandlers <em>Handlers</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getWizards <em>Wizards</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.PerspectiveImpl#getViews <em>Views</em>}</li>
  * </ul>
@@ -73,16 +66,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 	 * @ordered
 	 */
 	protected EList<Handler> handlers;
-
-	/**
-	 * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMenus()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Menu> menus;
 
 	/**
 	 * The cached value of the '{@link #getWizards() <em>Wizards</em>}' containment reference list.
@@ -161,18 +144,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Menu> getMenus() {
-		if (menus == null) {
-			menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.PERSPECTIVE__MENUS);
-		}
-		return menus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Wizard> getWizards() {
 		if (wizards == null) {
 			wizards = new EObjectContainmentEList<Wizard>(Wizard.class, this, EclipsePackage.PERSPECTIVE__WIZARDS);
@@ -217,8 +188,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 		switch (featureID) {
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
 				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.PERSPECTIVE__MENUS:
-				return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.PERSPECTIVE__VIEWS:
@@ -239,8 +208,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 				return getName();
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
 				return getHandlers();
-			case EclipsePackage.PERSPECTIVE__MENUS:
-				return getMenus();
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				return getWizards();
 			case EclipsePackage.PERSPECTIVE__VIEWS:
@@ -264,10 +231,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
 				getHandlers().clear();
 				getHandlers().addAll((Collection<? extends Handler>)newValue);
-				return;
-			case EclipsePackage.PERSPECTIVE__MENUS:
-				getMenus().clear();
-				getMenus().addAll((Collection<? extends Menu>)newValue);
 				return;
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				getWizards().clear();
@@ -295,9 +258,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
 				getHandlers().clear();
 				return;
-			case EclipsePackage.PERSPECTIVE__MENUS:
-				getMenus().clear();
-				return;
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				getWizards().clear();
 				return;
@@ -320,8 +280,6 @@ public class PerspectiveImpl extends EObjectImpl implements Perspective {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
 				return handlers != null && !handlers.isEmpty();
-			case EclipsePackage.PERSPECTIVE__MENUS:
-				return menus != null && !menus.isEmpty();
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				return wizards != null && !wizards.isEmpty();
 			case EclipsePackage.PERSPECTIVE__VIEWS:

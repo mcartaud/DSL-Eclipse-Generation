@@ -8,6 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -15,19 +18,18 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.View;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.View} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.popupMenuContribution} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewItemProvider
-	extends PartItemProvider
+public class popupMenuContributionItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -40,7 +42,7 @@ public class ViewItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ViewItemProvider(AdapterFactory adapterFactory) {
+	public popupMenuContributionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,49 +57,26 @@ public class ViewItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsVisiblePropertyDescriptor(object);
-			addPerspectivesPropertyDescriptor(object);
-			addCategoryPropertyDescriptor(object);
+			addCommandsPropertyDescriptor(object);
+			addMenusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Visible feature.
+	 * This adds a property descriptor for the Commands feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsVisiblePropertyDescriptor(Object object) {
+	protected void addCommandsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_View_isVisible_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_View_isVisible_feature", "_UI_View_type"),
-				 EclipsePackage.Literals.VIEW__IS_VISIBLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Perspectives feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPerspectivesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_View_perspectives_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_View_perspectives_feature", "_UI_View_type"),
-				 EclipsePackage.Literals.VIEW__PERSPECTIVES,
+				 getString("_UI_popupMenuContribution_commands_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_popupMenuContribution_commands_feature", "_UI_popupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__COMMANDS,
 				 true,
 				 false,
 				 true,
@@ -107,19 +86,19 @@ public class ViewItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Category feature.
+	 * This adds a property descriptor for the Menus feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCategoryPropertyDescriptor(Object object) {
+	protected void addMenusPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_View_category_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_View_category_feature", "_UI_View_type"),
-				 EclipsePackage.Literals.VIEW__CATEGORY,
+				 getString("_UI_popupMenuContribution_menus_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_popupMenuContribution_menus_feature", "_UI_popupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__MENUS,
 				 true,
 				 false,
 				 true,
@@ -129,14 +108,14 @@ public class ViewItemProvider
 	}
 
 	/**
-	 * This returns View.gif.
+	 * This returns popupMenuContribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/View"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/popupMenuContribution"));
 	}
 
 	/**
@@ -147,10 +126,7 @@ public class ViewItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((View)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_View_type") :
-			getString("_UI_View_type") + " " + label;
+		return getString("_UI_popupMenuContribution_type");
 	}
 
 	/**
@@ -163,12 +139,6 @@ public class ViewItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(View.class)) {
-			case EclipsePackage.VIEW__IS_VISIBLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -182,6 +152,17 @@ public class ViewItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return EclipseEditPlugin.INSTANCE;
 	}
 
 }

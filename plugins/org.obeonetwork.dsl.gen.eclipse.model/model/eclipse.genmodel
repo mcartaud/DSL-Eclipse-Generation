@@ -94,13 +94,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/views"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/helpContents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/commands"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/menus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/handlers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/contexts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/categories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/bindings"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/exportedPackages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/basedOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/menuContributions"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/toolbarContributions"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/popupMenuContributions"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//DeclarativeService">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//DeclarativeService/serviceClassName"/>
@@ -167,7 +169,6 @@
     <genClasses ecoreClass="eclipse.ecore#//Perspective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Perspective/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/handlers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/menus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/wizards"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Perspective/views"/>
     </genClasses>
@@ -183,37 +184,46 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//View">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//View/isVisible"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/handlers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/menus"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/perspectives"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//View/category"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Editor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/extension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/dynamicMenu"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Editor/handlers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Editor/menus"/>
-    </genClasses>
-    <genClasses ecoreClass="eclipse.ecore#//Menu">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Menu/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Menu/mnemonic"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Menu/menuContribution"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Menu/toolbarContribution"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Menu/commands"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/tooltip"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/handler"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/menu"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/handlers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/category"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/binding"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Command/defaultHandler"/>
+    </genClasses>
+    <genClasses ecoreClass="eclipse.ecore#//MenuContribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//MenuContribution/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//MenuContribution/commands"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//MenuContribution/menuContributions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//MenuContribution/mnemonic"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//MenuContribution/perspectives"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//MenuContribution/views"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//MenuContribution/editors"/>
+    </genClasses>
+    <genClasses ecoreClass="eclipse.ecore#//ToolbarContribution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ToolbarContribution/commands"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ToolbarContribution/perspectives"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ToolbarContribution/views"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//ToolbarContribution/editors"/>
+    </genClasses>
+    <genClasses ecoreClass="eclipse.ecore#//PopupMenuContribution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//PopupMenuContribution/commands"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//PopupMenuContribution/menus"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Handler">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Handler/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Handler/mnemonic"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eclipse.ecore#//Handler/command"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference eclipse.ecore#//Handler/command"/>
     </genClasses>
+    <genClasses ecoreClass="eclipse.ecore#//ContextualHandler"/>
     <genClasses ecoreClass="eclipse.ecore#//HelpContents">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//HelpContents/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//HelpContents/description"/>

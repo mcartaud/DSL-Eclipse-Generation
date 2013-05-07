@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getHandlers <em>Handlers</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getWizards <em>Wizards</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getViews <em>Views</em>}</li>
  * </ul>
@@ -68,22 +67,6 @@ public interface Perspective extends EObject {
 	 * @generated
 	 */
 	EList<Handler> getHandlers();
-
-	/**
-	 * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Menus</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getPerspective_Menus()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Menu> getMenus();
 
 	/**
 	 * Returns the value of the '<em><b>Wizards</b></em>' containment reference list.

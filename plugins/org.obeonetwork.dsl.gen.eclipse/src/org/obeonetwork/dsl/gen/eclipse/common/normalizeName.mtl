@@ -162,10 +162,6 @@ Contributors :
 [anHandler.eContainer(Bundle).genBundleID()/].handlers.[anHandler.refactorHandlerName().toUpperFirst()/]
 [/template]
 
-[template public genHandlerID(anHandler : Handler)]
-[anHandler.eContainer(Bundle).genBundleID()/].handler-id.[anHandler.refactorHandlerName().toLowerFirst()/]
-[/template]
-
 [template public refactorHandlerName(anHandler : Handler)]
 [anHandler.name.substituteAll(' ', '_')/]
 [/template]
@@ -198,11 +194,11 @@ Contributors :
 [anEditor.name.replaceAll(' ', '_')/]
 [/template]
 
-[template public genMenuID(aMenu : Menu)]
+[template public genMenuID(aMenu : MenuContribution)]
 [aMenu.eContainer(Bundle).genBundleID()/].menu-id.[aMenu.refactorMenuName().toLowerFirst()/]
 [/template]
 
-[template public refactorMenuName(aMenu : Menu)]
+[template public refactorMenuName(aMenu : MenuContribution)]
 [aMenu.name.replaceAll(' ', '_')/]
 [/template]
 

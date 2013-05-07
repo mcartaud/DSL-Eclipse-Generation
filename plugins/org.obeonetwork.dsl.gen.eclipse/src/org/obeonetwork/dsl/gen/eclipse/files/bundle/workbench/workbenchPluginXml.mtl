@@ -28,10 +28,10 @@ Contributors :
 [for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.eAllContents(Handler)->size() > 0)]
+[/if][if (aBundle.handlers->size() > 0)]
    <extension
          point="org.eclipse.ui.handlers">
-[for (anHandler : Handler | aBundle.eAllContents(Handler))][anHandler.handlerTemplate()/]
+[for (anHandler : Handler | aBundle.handlers)][anHandler.handlerTemplate()/]
 [/for]
    </extension>
 [/if][if (aBundle.bindings->size() > 0)]
@@ -112,6 +112,7 @@ Contributors :
 [template private commandTemplate(aCommand : Command)]
       <command
             name="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
+			defaultHandler="[aCommand.defaultHandler.genHandlerPath()/]"
 [if (aCommand.category->size() > 0)]
             categoryId="[aCommand.category.genCategoryID()/]"
 [/if]

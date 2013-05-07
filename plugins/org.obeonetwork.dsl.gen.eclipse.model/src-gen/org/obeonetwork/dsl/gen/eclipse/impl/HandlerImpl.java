@@ -3,14 +3,10 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
@@ -173,70 +169,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCommand(Command newCommand, NotificationChain msgs) {
-		Command oldCommand = command;
-		command = newCommand;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, oldCommand, newCommand);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCommand(Command newCommand) {
-		if (newCommand != command) {
-			NotificationChain msgs = null;
-			if (command != null)
-				msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
-			if (newCommand != null)
-				msgs = ((InternalEObject)newCommand).eInverseAdd(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
-			msgs = basicSetCommand(newCommand, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__COMMAND, newCommand, newCommand));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EclipsePackage.HANDLER__COMMAND:
-				if (command != null)
-					msgs = ((InternalEObject)command).eInverseRemove(this, EclipsePackage.COMMAND__HANDLER, Command.class, msgs);
-				return basicSetCommand((Command)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EclipsePackage.HANDLER__COMMAND:
-				return basicSetCommand(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -265,9 +197,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 			case EclipsePackage.HANDLER__MNEMONIC:
 				setMnemonic((Character)newValue);
 				return;
-			case EclipsePackage.HANDLER__COMMAND:
-				setCommand((Command)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,9 +214,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 				return;
 			case EclipsePackage.HANDLER__MNEMONIC:
 				setMnemonic(MNEMONIC_EDEFAULT);
-				return;
-			case EclipsePackage.HANDLER__COMMAND:
-				setCommand((Command)null);
 				return;
 		}
 		super.eUnset(featureID);

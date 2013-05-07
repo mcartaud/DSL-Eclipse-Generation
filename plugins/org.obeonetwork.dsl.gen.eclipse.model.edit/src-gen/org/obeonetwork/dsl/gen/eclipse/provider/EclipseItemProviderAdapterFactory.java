@@ -578,29 +578,6 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Menu} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MenuItemProvider menuItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMenuAdapter() {
-		if (menuItemProvider == null) {
-			menuItemProvider = new MenuItemProvider(this);
-		}
-
-		return menuItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Command} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,6 +601,75 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.MenuContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MenuContributionItemProvider menuContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.MenuContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMenuContributionAdapter() {
+		if (menuContributionItemProvider == null) {
+			menuContributionItemProvider = new MenuContributionItemProvider(this);
+		}
+
+		return menuContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToolbarContributionItemProvider toolbarContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToolbarContributionAdapter() {
+		if (toolbarContributionItemProvider == null) {
+			toolbarContributionItemProvider = new ToolbarContributionItemProvider(this);
+		}
+
+		return toolbarContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PopupMenuContributionItemProvider popupMenuContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPopupMenuContributionAdapter() {
+		if (popupMenuContributionItemProvider == null) {
+			popupMenuContributionItemProvider = new PopupMenuContributionItemProvider(this);
+		}
+
+		return popupMenuContributionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Handler} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,6 +690,29 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 		}
 
 		return handlerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContextualHandlerItemProvider contextualHandlerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContextualHandlerAdapter() {
+		if (contextualHandlerItemProvider == null) {
+			contextualHandlerItemProvider = new ContextualHandlerItemProvider(this);
+		}
+
+		return contextualHandlerItemProvider;
 	}
 
 	/**
@@ -859,9 +928,12 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
 		if (viewItemProvider != null) viewItemProvider.dispose();
 		if (editorItemProvider != null) editorItemProvider.dispose();
-		if (menuItemProvider != null) menuItemProvider.dispose();
 		if (commandItemProvider != null) commandItemProvider.dispose();
+		if (menuContributionItemProvider != null) menuContributionItemProvider.dispose();
+		if (toolbarContributionItemProvider != null) toolbarContributionItemProvider.dispose();
+		if (popupMenuContributionItemProvider != null) popupMenuContributionItemProvider.dispose();
 		if (handlerItemProvider != null) handlerItemProvider.dispose();
+		if (contextualHandlerItemProvider != null) contextualHandlerItemProvider.dispose();
 		if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
 		if (helpPageItemProvider != null) helpPageItemProvider.dispose();
 		if (dynamicHelpItemProvider != null) dynamicHelpItemProvider.dispose();

@@ -103,7 +103,7 @@ Contributors :
                   icon="icons/[aCommand.iconName()/]"
                   tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].toolbars.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (anHandler : Handler | aCommand.handler)][if (anHandler.eContainer().oclIsKindOf(Editor))]
+[for (anHandler : Handler | aCommand.contextHandlers)][if (anHandler.eContainer().oclIsKindOf(Editor))]
 [anHandler.activateEditorHandler()/]
 [/if][/for]
             </command>
@@ -115,7 +115,7 @@ Contributors :
                   icon="icons/[aCommand.iconName()/]"
 				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (anHandler : Handler | aCommand.handler)][if (anHandler.eContainer().oclIsKindOf(Editor))]
+[for (anHandler : Handler | aCommand.contextHandlers)][if (anHandler.eContainer().oclIsKindOf(Editor))]
 [anHandler.activateEditorHandler()/]
 [/if][/for]
             </command>

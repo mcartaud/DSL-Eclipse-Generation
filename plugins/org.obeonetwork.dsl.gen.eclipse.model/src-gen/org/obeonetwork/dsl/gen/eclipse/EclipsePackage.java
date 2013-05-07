@@ -596,22 +596,13 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__COMMANDS = PROJECT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__MENUS = PROJECT_FEATURE_COUNT + 16;
-
-	/**
 	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 17;
+	int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -620,7 +611,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 18;
+	int BUNDLE__CONTEXTS = PROJECT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
@@ -629,7 +620,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 19;
+	int BUNDLE__CATEGORIES = PROJECT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
@@ -638,7 +629,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 20;
+	int BUNDLE__BINDINGS = PROJECT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Exported Packages</b></em>' reference list.
@@ -647,7 +638,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 21;
+	int BUNDLE__EXPORTED_PACKAGES = PROJECT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Based On</b></em>' attribute.
@@ -656,7 +647,34 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__BASED_ON = PROJECT_FEATURE_COUNT + 22;
+	int BUNDLE__BASED_ON = PROJECT_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Menu Contributions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__MENU_CONTRIBUTIONS = PROJECT_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Toolbar Contributions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__TOOLBAR_CONTRIBUTIONS = PROJECT_FEATURE_COUNT + 23;
+
+	/**
+	 * The feature id for the '<em><b>Popup Menu Contributions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__POPUP_MENU_CONTRIBUTIONS = PROJECT_FEATURE_COUNT + 24;
 
 	/**
 	 * The number of structural features of the '<em>Bundle</em>' class.
@@ -665,7 +683,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 23;
+	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 25;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -1312,22 +1330,13 @@ public interface EclipsePackage extends EPackage {
 	int PERSPECTIVE__HANDLERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSPECTIVE__MENUS = 2;
-
-	/**
 	 * The feature id for the '<em><b>Wizards</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE__WIZARDS = 3;
+	int PERSPECTIVE__WIZARDS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' reference list.
@@ -1336,7 +1345,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE__VIEWS = 4;
+	int PERSPECTIVE__VIEWS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Perspective</em>' class.
@@ -1345,7 +1354,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSPECTIVE_FEATURE_COUNT = 5;
+	int PERSPECTIVE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CategoryImpl <em>Category</em>}' class.
@@ -1477,31 +1486,13 @@ public interface EclipsePackage extends EPackage {
 	int VIEW__IS_VISIBLE = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW__HANDLERS = PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW__MENUS = PART_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Perspectives</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 3;
+	int VIEW__PERSPECTIVES = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1510,7 +1501,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__CATEGORY = PART_FEATURE_COUNT + 4;
+	int VIEW__CATEGORY = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>View</em>' class.
@@ -1519,7 +1510,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 5;
+	int VIEW_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl <em>Editor</em>}' class.
@@ -1568,95 +1559,13 @@ public interface EclipsePackage extends EPackage {
 	int EDITOR__DYNAMIC_MENU = PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDITOR__HANDLERS = PART_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Menus</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDITOR__MENUS = PART_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Editor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
-	 * @generated
-	 */
-	int MENU = 24;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__MNEMONIC = 1;
-
-	/**
-	 * The feature id for the '<em><b>Menu Contribution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__MENU_CONTRIBUTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Toolbar Contribution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__TOOLBAR_CONTRIBUTION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Commands</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU__COMMANDS = 4;
-
-	/**
-	 * The number of structural features of the '<em>Menu</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MENU_FEATURE_COUNT = 5;
+	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.
@@ -1666,7 +1575,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 25;
+	int COMMAND = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1687,22 +1596,13 @@ public interface EclipsePackage extends EPackage {
 	int COMMAND__TOOLTIP = 1;
 
 	/**
-	 * The feature id for the '<em><b>Handler</b></em>' reference list.
+	 * The feature id for the '<em><b>Handlers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__HANDLER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Menu</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMAND__MENU = 3;
+	int COMMAND__HANDLERS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1711,7 +1611,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__CATEGORY = 4;
+	int COMMAND__CATEGORY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Binding</b></em>' reference.
@@ -1720,7 +1620,16 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__BINDING = 5;
+	int COMMAND__BINDING = 4;
+
+	/**
+	 * The feature id for the '<em><b>Default Handler</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__DEFAULT_HANDLER = 5;
 
 	/**
 	 * The number of structural features of the '<em>Command</em>' class.
@@ -1732,6 +1641,180 @@ public interface EclipsePackage extends EPackage {
 	int COMMAND_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuContributionImpl <em>Menu Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuContributionImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenuContribution()
+	 * @generated
+	 */
+	int MENU_CONTRIBUTION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Commands</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__COMMANDS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Menu Contributions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__MENU_CONTRIBUTIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__MNEMONIC = 3;
+
+	/**
+	 * The feature id for the '<em><b>Perspectives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__PERSPECTIVES = 4;
+
+	/**
+	 * The feature id for the '<em><b>Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__VIEWS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Editors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION__EDITORS = 6;
+
+	/**
+	 * The number of structural features of the '<em>Menu Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_CONTRIBUTION_FEATURE_COUNT = 7;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl <em>Toolbar Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getToolbarContribution()
+	 * @generated
+	 */
+	int TOOLBAR_CONTRIBUTION = 26;
+
+	/**
+	 * The feature id for the '<em><b>Commands</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_CONTRIBUTION__COMMANDS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Perspectives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_CONTRIBUTION__PERSPECTIVES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_CONTRIBUTION__VIEWS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Editors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_CONTRIBUTION__EDITORS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Toolbar Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLBAR_CONTRIBUTION_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PopupMenuContributionImpl <em>Popup Menu Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.PopupMenuContributionImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPopupMenuContribution()
+	 * @generated
+	 */
+	int POPUP_MENU_CONTRIBUTION = 27;
+
+	/**
+	 * The feature id for the '<em><b>Commands</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__COMMANDS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Menus</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__MENUS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Popup Menu Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1739,7 +1822,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHandler()
 	 * @generated
 	 */
-	int HANDLER = 26;
+	int HANDLER = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1778,6 +1861,52 @@ public interface EclipsePackage extends EPackage {
 	int HANDLER_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl <em>Contextual Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHandler()
+	 * @generated
+	 */
+	int CONTEXTUAL_HANDLER = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXTUAL_HANDLER__NAME = HANDLER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXTUAL_HANDLER__MNEMONIC = HANDLER__MNEMONIC;
+
+	/**
+	 * The feature id for the '<em><b>Command</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXTUAL_HANDLER__COMMAND = HANDLER__COMMAND;
+
+	/**
+	 * The number of structural features of the '<em>Contextual Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXTUAL_HANDLER_FEATURE_COUNT = HANDLER_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1785,7 +1914,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
 	 * @generated
 	 */
-	int HELP_CONTENTS = 27;
+	int HELP_CONTENTS = 30;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1840,7 +1969,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
 	 * @generated
 	 */
-	int HELP_PAGE = 28;
+	int HELP_PAGE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1895,7 +2024,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
 	 * @generated
 	 */
-	int DYNAMIC_HELP = 29;
+	int DYNAMIC_HELP = 32;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1941,7 +2070,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
 	 * @generated
 	 */
-	int BINDING = 30;
+	int BINDING = 33;
 
 	/**
 	 * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -1987,7 +2116,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
 	 * @generated
 	 */
-	int BASED_ON = 31;
+	int BASED_ON = 34;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.
@@ -1997,7 +2126,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 32;
+	int IMPORT_TYPE = 35;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
@@ -2007,7 +2136,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 33;
+	int JAVA_VERSION = 36;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -2017,7 +2146,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 34;
+	int TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2027,7 +2156,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 35;
+	int LOCATION = 38;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2037,7 +2166,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 36;
+	int VERSION = 39;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2047,7 +2176,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 37;
+	int NAMESPACE = 40;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2057,7 +2186,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 38;
+	int JAVA_NAME = 41;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2067,7 +2196,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 39;
+	int NAME = 42;
 
 
 	/**
@@ -2593,17 +2722,6 @@ public interface EclipsePackage extends EPackage {
 	EReference getBundle_Commands();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus <em>Menus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Menus</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus()
-	 * @see #getBundle()
-	 * @generated
-	 */
-	EReference getBundle_Menus();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers <em>Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2668,6 +2786,39 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBundle_BasedOn();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenuContributions <em>Menu Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Menu Contributions</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getMenuContributions()
+	 * @see #getBundle()
+	 * @generated
+	 */
+	EReference getBundle_MenuContributions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getToolbarContributions <em>Toolbar Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Toolbar Contributions</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getToolbarContributions()
+	 * @see #getBundle()
+	 * @generated
+	 */
+	EReference getBundle_ToolbarContributions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPopupMenuContributions <em>Popup Menu Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Popup Menu Contributions</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getPopupMenuContributions()
+	 * @see #getBundle()
+	 * @generated
+	 */
+	EReference getBundle_PopupMenuContributions();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
@@ -3228,17 +3379,6 @@ public interface EclipsePackage extends EPackage {
 	EReference getPerspective_Handlers();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getMenus <em>Menus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Menus</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Perspective#getMenus()
-	 * @see #getPerspective()
-	 * @generated
-	 */
-	EReference getPerspective_Menus();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Perspective#getWizards <em>Wizards</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3368,28 +3508,6 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getView_IsVisible();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getHandlers <em>Handlers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Handlers</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.View#getHandlers()
-	 * @see #getView()
-	 * @generated
-	 */
-	EReference getView_Handlers();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getMenus <em>Menus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Menus</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.View#getMenus()
-	 * @see #getView()
-	 * @generated
-	 */
-	EReference getView_Menus();
-
-	/**
 	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.View#getPerspectives <em>Perspectives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3444,93 +3562,6 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getEditor_DynamicMenu();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getHandlers <em>Handlers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Handlers</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Editor#getHandlers()
-	 * @see #getEditor()
-	 * @generated
-	 */
-	EReference getEditor_Handlers();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getMenus <em>Menus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Menus</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Editor#getMenus()
-	 * @see #getEditor()
-	 * @generated
-	 */
-	EReference getEditor_Menus();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Menu <em>Menu</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Menu</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu
-	 * @generated
-	 */
-	EClass getMenu();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#getName()
-	 * @see #getMenu()
-	 * @generated
-	 */
-	EAttribute getMenu_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic <em>Mnemonic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mnemonic</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#getMnemonic()
-	 * @see #getMenu()
-	 * @generated
-	 */
-	EAttribute getMenu_Mnemonic();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#isMenuContribution <em>Menu Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Menu Contribution</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#isMenuContribution()
-	 * @see #getMenu()
-	 * @generated
-	 */
-	EAttribute getMenu_MenuContribution();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Menu#isToolbarContribution <em>Toolbar Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Toolbar Contribution</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#isToolbarContribution()
-	 * @see #getMenu()
-	 * @generated
-	 */
-	EAttribute getMenu_ToolbarContribution();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getCommands <em>Commands</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Commands</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#getCommands()
-	 * @see #getMenu()
-	 * @generated
-	 */
-	EReference getMenu_Commands();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Command <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3563,26 +3594,15 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getCommand_Tooltip();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}'.
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandlers <em>Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Handler</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandler()
+	 * @return the meta object for the reference list '<em>Handlers</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandlers()
 	 * @see #getCommand()
 	 * @generated
 	 */
-	EReference getCommand_Handler();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Menu</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getMenu()
-	 * @see #getCommand()
-	 * @generated
-	 */
-	EReference getCommand_Menu();
+	EReference getCommand_Handlers();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}'.
@@ -3605,6 +3625,190 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCommand_Binding();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler <em>Default Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Default Handler</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EReference getCommand_DefaultHandler();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution <em>Menu Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu Contribution</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution
+	 * @generated
+	 */
+	EClass getMenuContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getName()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EAttribute getMenuContribution_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getCommands <em>Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Commands</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getCommands()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EReference getMenuContribution_Commands();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getMenuContributions <em>Menu Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Menu Contributions</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getMenuContributions()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EReference getMenuContribution_MenuContributions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getMnemonic <em>Mnemonic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mnemonic</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getMnemonic()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EAttribute getMenuContribution_Mnemonic();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getPerspectives <em>Perspectives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Perspectives</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getPerspectives()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EReference getMenuContribution_Perspectives();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Views</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getViews()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EReference getMenuContribution_Views();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution#getEditors <em>Editors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Editors</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution#getEditors()
+	 * @see #getMenuContribution()
+	 * @generated
+	 */
+	EReference getMenuContribution_Editors();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution <em>Toolbar Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Toolbar Contribution</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution
+	 * @generated
+	 */
+	EClass getToolbarContribution();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getCommands <em>Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Commands</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getCommands()
+	 * @see #getToolbarContribution()
+	 * @generated
+	 */
+	EReference getToolbarContribution_Commands();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getPerspectives <em>Perspectives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Perspectives</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getPerspectives()
+	 * @see #getToolbarContribution()
+	 * @generated
+	 */
+	EReference getToolbarContribution_Perspectives();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Views</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getViews()
+	 * @see #getToolbarContribution()
+	 * @generated
+	 */
+	EReference getToolbarContribution_Views();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getEditors <em>Editors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Editors</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getEditors()
+	 * @see #getToolbarContribution()
+	 * @generated
+	 */
+	EReference getToolbarContribution_Editors();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution <em>Popup Menu Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Popup Menu Contribution</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution
+	 * @generated
+	 */
+	EClass getPopupMenuContribution();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getCommands <em>Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Commands</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getCommands()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EReference getPopupMenuContribution_Commands();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getMenus <em>Menus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Menus</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getMenus()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EReference getPopupMenuContribution_Menus();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
@@ -3648,6 +3852,16 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getHandler_Command();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler <em>Contextual Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contextual Handler</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ContextualHandler
+	 * @generated
+	 */
+	EClass getContextualHandler();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
@@ -4356,14 +4570,6 @@ public interface EclipsePackage extends EPackage {
 		EReference BUNDLE__COMMANDS = eINSTANCE.getBundle_Commands();
 
 		/**
-		 * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUNDLE__MENUS = eINSTANCE.getBundle_Menus();
-
-		/**
 		 * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4410,6 +4616,30 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUNDLE__BASED_ON = eINSTANCE.getBundle_BasedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu Contributions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUNDLE__MENU_CONTRIBUTIONS = eINSTANCE.getBundle_MenuContributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Toolbar Contributions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUNDLE__TOOLBAR_CONTRIBUTIONS = eINSTANCE.getBundle_ToolbarContributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Popup Menu Contributions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUNDLE__POPUP_MENU_CONTRIBUTIONS = eINSTANCE.getBundle_PopupMenuContributions();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -4856,14 +5086,6 @@ public interface EclipsePackage extends EPackage {
 		EReference PERSPECTIVE__HANDLERS = eINSTANCE.getPerspective_Handlers();
 
 		/**
-		 * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSPECTIVE__MENUS = eINSTANCE.getPerspective_Menus();
-
-		/**
 		 * The meta object literal for the '<em><b>Wizards</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4966,22 +5188,6 @@ public interface EclipsePackage extends EPackage {
 		EAttribute VIEW__IS_VISIBLE = eINSTANCE.getView_IsVisible();
 
 		/**
-		 * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIEW__HANDLERS = eINSTANCE.getView_Handlers();
-
-		/**
-		 * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIEW__MENUS = eINSTANCE.getView_Menus();
-
-		/**
 		 * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5024,72 +5230,6 @@ public interface EclipsePackage extends EPackage {
 		EAttribute EDITOR__DYNAMIC_MENU = eINSTANCE.getEditor_DynamicMenu();
 
 		/**
-		 * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EDITOR__HANDLERS = eINSTANCE.getEditor_Handlers();
-
-		/**
-		 * The meta object literal for the '<em><b>Menus</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EDITOR__MENUS = eINSTANCE.getEditor_Menus();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl <em>Menu</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuImpl
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenu()
-		 * @generated
-		 */
-		EClass MENU = eINSTANCE.getMenu();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MENU__NAME = eINSTANCE.getMenu_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Mnemonic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MENU__MNEMONIC = eINSTANCE.getMenu_Mnemonic();
-
-		/**
-		 * The meta object literal for the '<em><b>Menu Contribution</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MENU__MENU_CONTRIBUTION = eINSTANCE.getMenu_MenuContribution();
-
-		/**
-		 * The meta object literal for the '<em><b>Toolbar Contribution</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MENU__TOOLBAR_CONTRIBUTION = eINSTANCE.getMenu_ToolbarContribution();
-
-		/**
-		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MENU__COMMANDS = eINSTANCE.getMenu_Commands();
-
-		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5116,20 +5256,12 @@ public interface EclipsePackage extends EPackage {
 		EAttribute COMMAND__TOOLTIP = eINSTANCE.getCommand_Tooltip();
 
 		/**
-		 * The meta object literal for the '<em><b>Handler</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Handlers</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMMAND__HANDLER = eINSTANCE.getCommand_Handler();
-
-		/**
-		 * The meta object literal for the '<em><b>Menu</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMMAND__MENU = eINSTANCE.getCommand_Menu();
+		EReference COMMAND__HANDLERS = eINSTANCE.getCommand_Handlers();
 
 		/**
 		 * The meta object literal for the '<em><b>Category</b></em>' reference feature.
@@ -5146,6 +5278,148 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMMAND__BINDING = eINSTANCE.getCommand_Binding();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Handler</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMAND__DEFAULT_HANDLER = eINSTANCE.getCommand_DefaultHandler();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.MenuContributionImpl <em>Menu Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.MenuContributionImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenuContribution()
+		 * @generated
+		 */
+		EClass MENU_CONTRIBUTION = eINSTANCE.getMenuContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_CONTRIBUTION__NAME = eINSTANCE.getMenuContribution_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_CONTRIBUTION__COMMANDS = eINSTANCE.getMenuContribution_Commands();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu Contributions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_CONTRIBUTION__MENU_CONTRIBUTIONS = eINSTANCE.getMenuContribution_MenuContributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Mnemonic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU_CONTRIBUTION__MNEMONIC = eINSTANCE.getMenuContribution_Mnemonic();
+
+		/**
+		 * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_CONTRIBUTION__PERSPECTIVES = eINSTANCE.getMenuContribution_Perspectives();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_CONTRIBUTION__VIEWS = eINSTANCE.getMenuContribution_Views();
+
+		/**
+		 * The meta object literal for the '<em><b>Editors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU_CONTRIBUTION__EDITORS = eINSTANCE.getMenuContribution_Editors();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl <em>Toolbar Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getToolbarContribution()
+		 * @generated
+		 */
+		EClass TOOLBAR_CONTRIBUTION = eINSTANCE.getToolbarContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOOLBAR_CONTRIBUTION__COMMANDS = eINSTANCE.getToolbarContribution_Commands();
+
+		/**
+		 * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOOLBAR_CONTRIBUTION__PERSPECTIVES = eINSTANCE.getToolbarContribution_Perspectives();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOOLBAR_CONTRIBUTION__VIEWS = eINSTANCE.getToolbarContribution_Views();
+
+		/**
+		 * The meta object literal for the '<em><b>Editors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOOLBAR_CONTRIBUTION__EDITORS = eINSTANCE.getToolbarContribution_Editors();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.PopupMenuContributionImpl <em>Popup Menu Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.PopupMenuContributionImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPopupMenuContribution()
+		 * @generated
+		 */
+		EClass POPUP_MENU_CONTRIBUTION = eINSTANCE.getPopupMenuContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POPUP_MENU_CONTRIBUTION__COMMANDS = eINSTANCE.getPopupMenuContribution_Commands();
+
+		/**
+		 * The meta object literal for the '<em><b>Menus</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POPUP_MENU_CONTRIBUTION__MENUS = eINSTANCE.getPopupMenuContribution_Menus();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
@@ -5180,6 +5454,16 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference HANDLER__COMMAND = eINSTANCE.getHandler_Command();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl <em>Contextual Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHandler()
+		 * @generated
+		 */
+		EClass CONTEXTUAL_HANDLER = eINSTANCE.getContextualHandler();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.

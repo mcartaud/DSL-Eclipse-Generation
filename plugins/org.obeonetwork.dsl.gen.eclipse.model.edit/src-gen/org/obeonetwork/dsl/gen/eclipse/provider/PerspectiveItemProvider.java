@@ -126,7 +126,6 @@ public class PerspectiveItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__HANDLERS);
-			childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__MENUS);
 			childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__WIZARDS);
 		}
 		return childrenFeatures;
@@ -186,7 +185,6 @@ public class PerspectiveItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EclipsePackage.PERSPECTIVE__HANDLERS:
-			case EclipsePackage.PERSPECTIVE__MENUS:
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -212,8 +210,8 @@ public class PerspectiveItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EclipsePackage.Literals.PERSPECTIVE__MENUS,
-				 EclipseFactory.eINSTANCE.createMenu()));
+				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
+				 EclipseFactory.eINSTANCE.createContextualHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter

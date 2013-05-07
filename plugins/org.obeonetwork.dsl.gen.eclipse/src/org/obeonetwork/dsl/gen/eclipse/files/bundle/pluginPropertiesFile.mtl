@@ -52,7 +52,7 @@ Bundle-Provider = [aBundle.vendor/]
 [if (aBundle.markers->size() > 0)]
 [aBundle.markerInformation()/]
 [/if]
-[if (aBundle.eAllContents(Menu)->size() > 0)]
+[if (aBundle.menusContributions->size() > 0)]
 [aBundle.mnemonicInformation()/]
 [/if]
 [/file]
@@ -151,12 +151,12 @@ Marker-[aMarker.refactorMarkerName().toUpperFirst()/]-Name = [aMarker.name/]
 [template private mnemonicInformation(aBundle : Bundle)]
 
 #User information for the Menu's mnemonic
-[for (aMenu : Menu | aBundle.eAllContents(Menu))][if (not(aMenu.eContainer().oclIsKindOf(View)))]
+[for (aMenu : MenuContribution | aBundle.menusContributions)][if (not(aMenu.eContainer().oclIsKindOf(View)))]
 Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic = [aMenu.mnemonic/]
 [/if][/for]
 
 #User information for the Action's mnemonic
-[for (anHandler : Handler | aBundle.eAllContents(Handler))]
+[for (anHandler : Handler | aBundle.handlers)]
 Command-[anHandler.command.refactorCommandName().toUpperFirst()/]-Mnemonic = [anHandler.mnemonic/]
 [/for]
 [/template]

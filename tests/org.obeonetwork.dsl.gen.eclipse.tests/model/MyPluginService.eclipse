@@ -37,10 +37,10 @@
         <helpPages label="page2-2" description="cette page est specifique pour les boutons des vues 2 et 3"/>
       </helpPages>
     </helpContents>
-    <commands name="bouton1Vue1" handler="//@projects.2/@views.0/@handlers.0" menu="//@projects.2/@views.0/@menus.0" binding="//@projects.2/@bindings.0"/>
-    <commands name="bouton2Vue1" handler="//@projects.2/@views.0/@handlers.1" menu="//@projects.2/@views.0/@menus.0"/>
-    <commands name="bouton1Vue2" tooltip="" handler="//@projects.2/@views.1/@handlers.0" menu="//@projects.2/@views.1/@menus.0" binding="//@projects.2/@bindings.1"/>
-    <commands name="bouton1Vue3" handler="//@projects.2/@views.2/@handlers.0" menu="//@projects.2/@views.2/@menus.0"/>
+    <commands name="bouton1Vue1" contextHandlers="//@projects.2/@views.0/@handlers.0" menu="//@projects.2/@views.0/@menus.0" binding="//@projects.2/@bindings.0"/>
+    <commands name="bouton2Vue1" contextHandlers="//@projects.2/@views.0/@handlers.1" menu="//@projects.2/@views.0/@menus.0"/>
+    <commands name="bouton1Vue2" tooltip="" contextHandlers="//@projects.2/@views.1/@handlers.0" menu="//@projects.2/@views.1/@menus.0" binding="//@projects.2/@bindings.1"/>
+    <commands name="bouton1Vue3" contextHandlers="//@projects.2/@views.2/@handlers.0" menu="//@projects.2/@views.2/@menus.0"/>
     <contexts name="context1" description="donne un context"/>
     <categories name="VuesDemo" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <bindings keySequence="CTRL + ALT + g" command="//@projects.2/@commands.0" contexts="//@projects.2/@contexts.0"/>
@@ -60,7 +60,7 @@
       <handlers name="editorBouton" command="//@projects.3/@commands.0"/>
       <menus name="menuEditor" commands="//@projects.3/@commands.0"/>
     </editors>
-    <commands name="BoutonDuMenu" handler="//@projects.3/@editors.0/@handlers.0" menu="//@projects.3/@editors.0/@menus.0" binding="//@projects.3/@bindings.0"/>
+    <commands name="BoutonDuMenu" contextHandlers="//@projects.3/@editors.0/@handlers.0" menu="//@projects.3/@editors.0/@menus.0" binding="//@projects.3/@bindings.0"/>
     <contexts name="context2" description="active le binding en fonction du context"/>
     <categories name="WizardDemo" wizards="//@projects.3/@wizards.0 //@projects.3/@wizards.1"/>
     <bindings keySequence="CTRL+2" command="//@projects.3/@commands.0" contexts="//@projects.3/@contexts.0"/>

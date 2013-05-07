@@ -81,9 +81,12 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 			case EclipsePackage.CATEGORY: return createCategory();
 			case EclipsePackage.VIEW: return createView();
 			case EclipsePackage.EDITOR: return createEditor();
-			case EclipsePackage.MENU: return createMenu();
 			case EclipsePackage.COMMAND: return createCommand();
+			case EclipsePackage.MENU_CONTRIBUTION: return createMenuContribution();
+			case EclipsePackage.TOOLBAR_CONTRIBUTION: return createToolbarContribution();
+			case EclipsePackage.POPUP_MENU_CONTRIBUTION: return createPopupMenuContribution();
 			case EclipsePackage.HANDLER: return createHandler();
+			case EclipsePackage.CONTEXTUAL_HANDLER: return createContextualHandler();
 			case EclipsePackage.HELP_CONTENTS: return createHelpContents();
 			case EclipsePackage.HELP_PAGE: return createHelpPage();
 			case EclipsePackage.DYNAMIC_HELP: return createDynamicHelp();
@@ -380,16 +383,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Menu createMenu() {
-		MenuImpl menu = new MenuImpl();
-		return menu;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Command createCommand() {
 		CommandImpl command = new CommandImpl();
 		return command;
@@ -400,9 +393,49 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MenuContribution createMenuContribution() {
+		MenuContributionImpl menuContribution = new MenuContributionImpl();
+		return menuContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToolbarContribution createToolbarContribution() {
+		ToolbarContributionImpl toolbarContribution = new ToolbarContributionImpl();
+		return toolbarContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PopupMenuContribution createPopupMenuContribution() {
+		PopupMenuContributionImpl popupMenuContribution = new PopupMenuContributionImpl();
+		return popupMenuContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Handler createHandler() {
 		HandlerImpl handler = new HandlerImpl();
 		return handler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContextualHandler createContextualHandler() {
+		ContextualHandlerImpl contextualHandler = new ContextualHandlerImpl();
+		return contextualHandler;
 	}
 
 	/**

@@ -63,6 +63,8 @@ public class BundleItemProvider
 			addVendorPropertyDescriptor(object);
 			addExportedPackagesPropertyDescriptor(object);
 			addBasedOnPropertyDescriptor(object);
+			addToolbarContributionsPropertyDescriptor(object);
+			addPopupMenuContributionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -178,6 +180,50 @@ public class BundleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Toolbar Contributions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addToolbarContributionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Bundle_toolbarContributions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_toolbarContributions_feature", "_UI_Bundle_type"),
+				 EclipsePackage.Literals.BUNDLE__TOOLBAR_CONTRIBUTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Popup Menu Contributions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPopupMenuContributionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Bundle_popupMenuContributions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_popupMenuContributions_feature", "_UI_Bundle_type"),
+				 EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -202,11 +248,13 @@ public class BundleItemProvider
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
-			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENUS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HANDLERS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BINDINGS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENU_CONTRIBUTIONS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__TOOLBAR_CONTRIBUTIONS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -295,11 +343,13 @@ public class BundleItemProvider
 			case EclipsePackage.BUNDLE__VIEWS:
 			case EclipsePackage.BUNDLE__HELP_CONTENTS:
 			case EclipsePackage.BUNDLE__COMMANDS:
-			case EclipsePackage.BUNDLE__MENUS:
 			case EclipsePackage.BUNDLE__HANDLERS:
 			case EclipsePackage.BUNDLE__CONTEXTS:
 			case EclipsePackage.BUNDLE__CATEGORIES:
 			case EclipsePackage.BUNDLE__BINDINGS:
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -389,13 +439,13 @@ public class BundleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EclipsePackage.Literals.BUNDLE__MENUS,
-				 EclipseFactory.eINSTANCE.createMenu()));
+				(EclipsePackage.Literals.BUNDLE__HANDLERS,
+				 EclipseFactory.eINSTANCE.createHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EclipsePackage.Literals.BUNDLE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createHandler()));
+				 EclipseFactory.eINSTANCE.createContextualHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -411,6 +461,21 @@ public class BundleItemProvider
 			(createChildParameter
 				(EclipsePackage.Literals.BUNDLE__BINDINGS,
 				 EclipseFactory.eINSTANCE.createBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.BUNDLE__MENU_CONTRIBUTIONS,
+				 EclipseFactory.eINSTANCE.createMenuContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.BUNDLE__TOOLBAR_CONTRIBUTIONS,
+				 EclipseFactory.eINSTANCE.createToolbarContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS,
+				 EclipseFactory.eINSTANCE.createPopupMenuContribution()));
 	}
 
 }

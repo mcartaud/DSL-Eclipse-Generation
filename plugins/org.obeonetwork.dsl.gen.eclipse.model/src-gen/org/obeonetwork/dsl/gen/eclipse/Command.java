@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getTooltip <em>Tooltip</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler <em>Default Handler</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,50 +81,20 @@ public interface Command extends EObject {
 	void setTooltip(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Handler</b></em>' reference list.
+	 * Returns the value of the '<em><b>Handlers</b></em>' reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Handler</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Handlers</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handler</em>' reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Handler()
-	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommand
-	 * @model opposite="command"
+	 * @return the value of the '<em>Handlers</em>' reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Handlers()
+	 * @model
 	 * @generated
 	 */
-	EList<Handler> getHandler();
-
-	/**
-	 * Returns the value of the '<em><b>Menu</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Menu#getCommands <em>Commands</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Menu</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Menu</em>' reference.
-	 * @see #setMenu(Menu)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Menu()
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu#getCommands
-	 * @model opposite="commands"
-	 * @generated
-	 */
-	Menu getMenu();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getMenu <em>Menu</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Menu</em>' reference.
-	 * @see #getMenu()
-	 * @generated
-	 */
-	void setMenu(Menu value);
+	EList<Handler> getHandlers();
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' reference.
@@ -181,5 +151,31 @@ public interface Command extends EObject {
 	 * @generated
 	 */
 	void setBinding(Binding value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Handler</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Handler</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Handler</em>' reference.
+	 * @see #setDefaultHandler(Handler)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_DefaultHandler()
+	 * @model required="true"
+	 * @generated
+	 */
+	Handler getDefaultHandler();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler <em>Default Handler</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Handler</em>' reference.
+	 * @see #getDefaultHandler()
+	 * @generated
+	 */
+	void setDefaultHandler(Handler value);
 
 } // Command

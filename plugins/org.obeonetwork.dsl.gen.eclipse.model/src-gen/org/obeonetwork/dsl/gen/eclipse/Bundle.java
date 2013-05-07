@@ -30,13 +30,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenuContributions <em>Menu Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getToolbarContributions <em>Toolbar Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPopupMenuContributions <em>Popup Menu Contributions</em>}</li>
  * </ul>
  * </p>
  *
@@ -336,22 +338,6 @@ public interface Bundle extends Project {
 	EList<Command> getCommands();
 
 	/**
-	 * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Menus</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Menus()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Menu> getMenus();
-
-	/**
 	 * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
 	 * <!-- begin-user-doc -->
@@ -459,5 +445,53 @@ public interface Bundle extends Project {
 	 * @generated
 	 */
 	void setBasedOn(BasedOn value);
+
+	/**
+	 * Returns the value of the '<em><b>Menu Contributions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.MenuContribution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Menu Contributions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Menu Contributions</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_MenuContributions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MenuContribution> getMenuContributions();
+
+	/**
+	 * Returns the value of the '<em><b>Toolbar Contributions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Toolbar Contributions</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Toolbar Contributions</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ToolbarContributions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ToolbarContribution> getToolbarContributions();
+
+	/**
+	 * Returns the value of the '<em><b>Popup Menu Contributions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Popup Menu Contributions</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Popup Menu Contributions</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_PopupMenuContributions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<PopupMenuContribution> getPopupMenuContributions();
 
 } // Bundle

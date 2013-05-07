@@ -6,24 +6,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,10 +27,10 @@ import org.obeonetwork.dsl.gen.eclipse.Menu;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getTooltip <em>Tooltip</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getHandler <em>Handler</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMenu <em>Menu</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getDefaultHandler <em>Default Handler</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,24 +78,14 @@ public class CommandImpl extends EObjectImpl implements Command {
 	protected String tooltip = TOOLTIP_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHandler() <em>Handler</em>}' reference list.
+	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHandler()
+	 * @see #getHandlers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Handler> handler;
-
-	/**
-	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMenu()
-	 * @generated
-	 * @ordered
-	 */
-	protected Menu menu;
+	protected EList<Handler> handlers;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
@@ -123,6 +106,16 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * @ordered
 	 */
 	protected Binding binding;
+
+	/**
+	 * The cached value of the '{@link #getDefaultHandler() <em>Default Handler</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultHandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected Handler defaultHandler;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,71 +183,11 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Handler> getHandler() {
-		if (handler == null) {
-			handler = new EObjectWithInverseResolvingEList<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLER, EclipsePackage.HANDLER__COMMAND);
+	public EList<Handler> getHandlers() {
+		if (handlers == null) {
+			handlers = new EObjectResolvingEList<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLERS);
 		}
-		return handler;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Menu getMenu() {
-		if (menu != null && menu.eIsProxy()) {
-			InternalEObject oldMenu = (InternalEObject)menu;
-			menu = (Menu)eResolveProxy(oldMenu);
-			if (menu != oldMenu) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__MENU, oldMenu, menu));
-			}
-		}
-		return menu;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Menu basicGetMenu() {
-		return menu;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMenu(Menu newMenu, NotificationChain msgs) {
-		Menu oldMenu = menu;
-		menu = newMenu;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__MENU, oldMenu, newMenu);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMenu(Menu newMenu) {
-		if (newMenu != menu) {
-			NotificationChain msgs = null;
-			if (menu != null)
-				msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
-			if (newMenu != null)
-				msgs = ((InternalEObject)newMenu).eInverseAdd(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
-			msgs = basicSetMenu(newMenu, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__MENU, newMenu, newMenu));
+		return handlers;
 	}
 
 	/**
@@ -382,16 +315,47 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
+	public Handler getDefaultHandler() {
+		if (defaultHandler != null && defaultHandler.eIsProxy()) {
+			InternalEObject oldDefaultHandler = (InternalEObject)defaultHandler;
+			defaultHandler = (Handler)eResolveProxy(oldDefaultHandler);
+			if (defaultHandler != oldDefaultHandler) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, defaultHandler));
+			}
+		}
+		return defaultHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Handler basicGetDefaultHandler() {
+		return defaultHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultHandler(Handler newDefaultHandler) {
+		Handler oldDefaultHandler = defaultHandler;
+		defaultHandler = newDefaultHandler;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, defaultHandler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EclipsePackage.COMMAND__HANDLER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHandler()).basicAdd(otherEnd, msgs);
-			case EclipsePackage.COMMAND__MENU:
-				if (menu != null)
-					msgs = ((InternalEObject)menu).eInverseRemove(this, EclipsePackage.MENU__COMMANDS, Menu.class, msgs);
-				return basicSetMenu((Menu)otherEnd, msgs);
 			case EclipsePackage.COMMAND__CATEGORY:
 				if (category != null)
 					msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__COMMANDS, Category.class, msgs);
@@ -412,10 +376,6 @@ public class CommandImpl extends EObjectImpl implements Command {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EclipsePackage.COMMAND__HANDLER:
-				return ((InternalEList<?>)getHandler()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.COMMAND__MENU:
-				return basicSetMenu(null, msgs);
 			case EclipsePackage.COMMAND__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case EclipsePackage.COMMAND__BINDING:
@@ -436,17 +396,17 @@ public class CommandImpl extends EObjectImpl implements Command {
 				return getName();
 			case EclipsePackage.COMMAND__TOOLTIP:
 				return getTooltip();
-			case EclipsePackage.COMMAND__HANDLER:
-				return getHandler();
-			case EclipsePackage.COMMAND__MENU:
-				if (resolve) return getMenu();
-				return basicGetMenu();
+			case EclipsePackage.COMMAND__HANDLERS:
+				return getHandlers();
 			case EclipsePackage.COMMAND__CATEGORY:
 				if (resolve) return getCategory();
 				return basicGetCategory();
 			case EclipsePackage.COMMAND__BINDING:
 				if (resolve) return getBinding();
 				return basicGetBinding();
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				if (resolve) return getDefaultHandler();
+				return basicGetDefaultHandler();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -466,18 +426,18 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__TOOLTIP:
 				setTooltip((String)newValue);
 				return;
-			case EclipsePackage.COMMAND__HANDLER:
-				getHandler().clear();
-				getHandler().addAll((Collection<? extends Handler>)newValue);
-				return;
-			case EclipsePackage.COMMAND__MENU:
-				setMenu((Menu)newValue);
+			case EclipsePackage.COMMAND__HANDLERS:
+				getHandlers().clear();
+				getHandlers().addAll((Collection<? extends Handler>)newValue);
 				return;
 			case EclipsePackage.COMMAND__CATEGORY:
 				setCategory((Category)newValue);
 				return;
 			case EclipsePackage.COMMAND__BINDING:
 				setBinding((Binding)newValue);
+				return;
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				setDefaultHandler((Handler)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -497,17 +457,17 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__TOOLTIP:
 				setTooltip(TOOLTIP_EDEFAULT);
 				return;
-			case EclipsePackage.COMMAND__HANDLER:
-				getHandler().clear();
-				return;
-			case EclipsePackage.COMMAND__MENU:
-				setMenu((Menu)null);
+			case EclipsePackage.COMMAND__HANDLERS:
+				getHandlers().clear();
 				return;
 			case EclipsePackage.COMMAND__CATEGORY:
 				setCategory((Category)null);
 				return;
 			case EclipsePackage.COMMAND__BINDING:
 				setBinding((Binding)null);
+				return;
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				setDefaultHandler((Handler)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -525,14 +485,14 @@ public class CommandImpl extends EObjectImpl implements Command {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EclipsePackage.COMMAND__TOOLTIP:
 				return TOOLTIP_EDEFAULT == null ? tooltip != null : !TOOLTIP_EDEFAULT.equals(tooltip);
-			case EclipsePackage.COMMAND__HANDLER:
-				return handler != null && !handler.isEmpty();
-			case EclipsePackage.COMMAND__MENU:
-				return menu != null;
+			case EclipsePackage.COMMAND__HANDLERS:
+				return handlers != null && !handlers.isEmpty();
 			case EclipsePackage.COMMAND__CATEGORY:
 				return category != null;
 			case EclipsePackage.COMMAND__BINDING:
 				return binding != null;
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				return defaultHandler != null;
 		}
 		return super.eIsSet(featureID);
 	}

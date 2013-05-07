@@ -8,26 +8,24 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Editor;
+
+import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Editor} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EditorItemProvider
-	extends PartItemProvider
+public class ContextualHandlerItemProvider
+	extends HandlerItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -40,7 +38,7 @@ public class EditorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EditorItemProvider(AdapterFactory adapterFactory) {
+	public ContextualHandlerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,65 +53,19 @@ public class EditorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExtensionPropertyDescriptor(object);
-			addDynamicMenuPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Extension feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtensionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Editor_extension_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Editor_extension_feature", "_UI_Editor_type"),
-				 EclipsePackage.Literals.EDITOR__EXTENSION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dynamic Menu feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDynamicMenuPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Editor_dynamicMenu_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Editor_dynamicMenu_feature", "_UI_Editor_type"),
-				 EclipsePackage.Literals.EDITOR__DYNAMIC_MENU,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Editor.gif.
+	 * This returns ContextualHandler.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Editor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContextualHandler"));
 	}
 
 	/**
@@ -124,10 +76,10 @@ public class EditorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Editor)object).getName();
+		String label = ((ContextualHandler)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Editor_type") :
-			getString("_UI_Editor_type") + " " + label;
+			getString("_UI_ContextualHandler_type") :
+			getString("_UI_ContextualHandler_type") + " " + label;
 	}
 
 	/**
@@ -140,13 +92,6 @@ public class EditorItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Editor.class)) {
-			case EclipsePackage.EDITOR__EXTENSION:
-			case EclipsePackage.EDITOR__DYNAMIC_MENU:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

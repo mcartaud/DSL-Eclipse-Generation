@@ -3,7 +3,6 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -11,9 +10,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.BasedOn;
@@ -23,6 +20,7 @@ import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.Context;
+import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
@@ -39,16 +37,18 @@ import org.obeonetwork.dsl.gen.eclipse.ImportType;
 import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
 import org.obeonetwork.dsl.gen.eclipse.Location;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
+import org.obeonetwork.dsl.gen.eclipse.MenuContribution;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.Part;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
+import org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution;
 import org.obeonetwork.dsl.gen.eclipse.Project;
 import org.obeonetwork.dsl.gen.eclipse.ProjectWizard;
 import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 import org.obeonetwork.dsl.gen.eclipse.Repository;
 import org.obeonetwork.dsl.gen.eclipse.RepositoryCategory;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
+import org.obeonetwork.dsl.gen.eclipse.ToolbarContribution;
 import org.obeonetwork.dsl.gen.eclipse.Type;
 import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
@@ -233,13 +233,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass menuEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass commandEClass = null;
 
 	/**
@@ -247,7 +240,35 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass menuContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toolbarContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass popupMenuContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass handlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contextualHandlerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -841,7 +862,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Menus() {
+	public EReference getBundle_Handlers() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -850,7 +871,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Handlers() {
+	public EReference getBundle_Contexts() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -859,7 +880,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Contexts() {
+	public EReference getBundle_Categories() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -868,7 +889,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Categories() {
+	public EReference getBundle_Bindings() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -877,7 +898,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Bindings() {
+	public EReference getBundle_ExportedPackages() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -886,8 +907,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_ExportedPackages() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(21);
+	public EAttribute getBundle_BasedOn() {
+		return (EAttribute)bundleEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -895,8 +916,26 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBundle_BasedOn() {
-		return (EAttribute)bundleEClass.getEStructuralFeatures().get(22);
+	public EReference getBundle_MenuContributions() {
+		return (EReference)bundleEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBundle_ToolbarContributions() {
+		return (EReference)bundleEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBundle_PopupMenuContributions() {
+		return (EReference)bundleEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -1372,7 +1411,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerspective_Menus() {
+	public EReference getPerspective_Wizards() {
 		return (EReference)perspectiveEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1381,17 +1420,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerspective_Wizards() {
-		return (EReference)perspectiveEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getPerspective_Views() {
-		return (EReference)perspectiveEClass.getEStructuralFeatures().get(4);
+		return (EReference)perspectiveEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1489,7 +1519,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getView_Handlers() {
+	public EReference getView_Perspectives() {
 		return (EReference)viewEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1498,26 +1528,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getView_Menus() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getView_Perspectives() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getView_Category() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(4);
+		return (EReference)viewEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1552,78 +1564,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEditor_Handlers() {
-		return (EReference)editorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEditor_Menus() {
-		return (EReference)editorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMenu() {
-		return menuEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMenu_Name() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMenu_Mnemonic() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMenu_MenuContribution() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMenu_ToolbarContribution() {
-		return (EAttribute)menuEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMenu_Commands() {
-		return (EReference)menuEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCommand() {
 		return commandEClass;
 	}
@@ -1651,7 +1591,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommand_Handler() {
+	public EReference getCommand_Handlers() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1660,7 +1600,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommand_Menu() {
+	public EReference getCommand_Category() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1669,7 +1609,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommand_Category() {
+	public EReference getCommand_Binding() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1678,8 +1618,152 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommand_Binding() {
+	public EReference getCommand_DefaultHandler() {
 		return (EReference)commandEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMenuContribution() {
+		return menuContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMenuContribution_Name() {
+		return (EAttribute)menuContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuContribution_Commands() {
+		return (EReference)menuContributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuContribution_MenuContributions() {
+		return (EReference)menuContributionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMenuContribution_Mnemonic() {
+		return (EAttribute)menuContributionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuContribution_Perspectives() {
+		return (EReference)menuContributionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuContribution_Views() {
+		return (EReference)menuContributionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenuContribution_Editors() {
+		return (EReference)menuContributionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getToolbarContribution() {
+		return toolbarContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToolbarContribution_Commands() {
+		return (EReference)toolbarContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToolbarContribution_Perspectives() {
+		return (EReference)toolbarContributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToolbarContribution_Views() {
+		return (EReference)toolbarContributionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToolbarContribution_Editors() {
+		return (EReference)toolbarContributionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPopupMenuContribution() {
+		return popupMenuContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPopupMenuContribution_Commands() {
+		return (EReference)popupMenuContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPopupMenuContribution_Menus() {
+		return (EReference)popupMenuContributionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1716,6 +1800,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 */
 	public EReference getHandler_Command() {
 		return (EReference)handlerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContextualHandler() {
+		return contextualHandlerEClass;
 	}
 
 	/**
@@ -2042,13 +2135,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bundleEClass, BUNDLE__VIEWS);
 		createEReference(bundleEClass, BUNDLE__HELP_CONTENTS);
 		createEReference(bundleEClass, BUNDLE__COMMANDS);
-		createEReference(bundleEClass, BUNDLE__MENUS);
 		createEReference(bundleEClass, BUNDLE__HANDLERS);
 		createEReference(bundleEClass, BUNDLE__CONTEXTS);
 		createEReference(bundleEClass, BUNDLE__CATEGORIES);
 		createEReference(bundleEClass, BUNDLE__BINDINGS);
 		createEReference(bundleEClass, BUNDLE__EXPORTED_PACKAGES);
 		createEAttribute(bundleEClass, BUNDLE__BASED_ON);
+		createEReference(bundleEClass, BUNDLE__MENU_CONTRIBUTIONS);
+		createEReference(bundleEClass, BUNDLE__TOOLBAR_CONTRIBUTIONS);
+		createEReference(bundleEClass, BUNDLE__POPUP_MENU_CONTRIBUTIONS);
 
 		declarativeServiceEClass = createEClass(DECLARATIVE_SERVICE);
 		createEAttribute(declarativeServiceEClass, DECLARATIVE_SERVICE__SERVICE_CLASS_NAME);
@@ -2115,7 +2210,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		perspectiveEClass = createEClass(PERSPECTIVE);
 		createEAttribute(perspectiveEClass, PERSPECTIVE__NAME);
 		createEReference(perspectiveEClass, PERSPECTIVE__HANDLERS);
-		createEReference(perspectiveEClass, PERSPECTIVE__MENUS);
 		createEReference(perspectiveEClass, PERSPECTIVE__WIZARDS);
 		createEReference(perspectiveEClass, PERSPECTIVE__VIEWS);
 
@@ -2131,36 +2225,46 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		viewEClass = createEClass(VIEW);
 		createEAttribute(viewEClass, VIEW__IS_VISIBLE);
-		createEReference(viewEClass, VIEW__HANDLERS);
-		createEReference(viewEClass, VIEW__MENUS);
 		createEReference(viewEClass, VIEW__PERSPECTIVES);
 		createEReference(viewEClass, VIEW__CATEGORY);
 
 		editorEClass = createEClass(EDITOR);
 		createEAttribute(editorEClass, EDITOR__EXTENSION);
 		createEAttribute(editorEClass, EDITOR__DYNAMIC_MENU);
-		createEReference(editorEClass, EDITOR__HANDLERS);
-		createEReference(editorEClass, EDITOR__MENUS);
-
-		menuEClass = createEClass(MENU);
-		createEAttribute(menuEClass, MENU__NAME);
-		createEAttribute(menuEClass, MENU__MNEMONIC);
-		createEAttribute(menuEClass, MENU__MENU_CONTRIBUTION);
-		createEAttribute(menuEClass, MENU__TOOLBAR_CONTRIBUTION);
-		createEReference(menuEClass, MENU__COMMANDS);
 
 		commandEClass = createEClass(COMMAND);
 		createEAttribute(commandEClass, COMMAND__NAME);
 		createEAttribute(commandEClass, COMMAND__TOOLTIP);
-		createEReference(commandEClass, COMMAND__HANDLER);
-		createEReference(commandEClass, COMMAND__MENU);
+		createEReference(commandEClass, COMMAND__HANDLERS);
 		createEReference(commandEClass, COMMAND__CATEGORY);
 		createEReference(commandEClass, COMMAND__BINDING);
+		createEReference(commandEClass, COMMAND__DEFAULT_HANDLER);
+
+		menuContributionEClass = createEClass(MENU_CONTRIBUTION);
+		createEAttribute(menuContributionEClass, MENU_CONTRIBUTION__NAME);
+		createEReference(menuContributionEClass, MENU_CONTRIBUTION__COMMANDS);
+		createEReference(menuContributionEClass, MENU_CONTRIBUTION__MENU_CONTRIBUTIONS);
+		createEAttribute(menuContributionEClass, MENU_CONTRIBUTION__MNEMONIC);
+		createEReference(menuContributionEClass, MENU_CONTRIBUTION__PERSPECTIVES);
+		createEReference(menuContributionEClass, MENU_CONTRIBUTION__VIEWS);
+		createEReference(menuContributionEClass, MENU_CONTRIBUTION__EDITORS);
+
+		toolbarContributionEClass = createEClass(TOOLBAR_CONTRIBUTION);
+		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__COMMANDS);
+		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__PERSPECTIVES);
+		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__VIEWS);
+		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__EDITORS);
+
+		popupMenuContributionEClass = createEClass(POPUP_MENU_CONTRIBUTION);
+		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__COMMANDS);
+		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__MENUS);
 
 		handlerEClass = createEClass(HANDLER);
 		createEAttribute(handlerEClass, HANDLER__NAME);
 		createEAttribute(handlerEClass, HANDLER__MNEMONIC);
 		createEReference(handlerEClass, HANDLER__COMMAND);
+
+		contextualHandlerEClass = createEClass(CONTEXTUAL_HANDLER);
 
 		helpContentsEClass = createEClass(HELP_CONTENTS);
 		createEAttribute(helpContentsEClass, HELP_CONTENTS__LABEL);
@@ -2236,6 +2340,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		projectWizardEClass.getESuperTypes().add(this.getWizard());
 		viewEClass.getESuperTypes().add(this.getPart());
 		editorEClass.getESuperTypes().add(this.getPart());
+		contextualHandlerEClass.getESuperTypes().add(this.getHandler());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2291,13 +2396,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getBundle_Views(), this.getView(), null, "views", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_HelpContents(), this.getHelpContents(), null, "helpContents", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Commands(), this.getCommand(), null, "commands", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBundle_Menus(), this.getMenu(), null, "menus", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Contexts(), this.getContext(), null, "contexts", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Categories(), this.getCategory(), null, "categories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_ExportedPackages(), theGenModelPackage.getGenPackage(), null, "exportedPackages", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBundle_BasedOn(), this.getBasedOn(), "basedOn", null, 0, 1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBundle_MenuContributions(), this.getMenuContribution(), null, "menuContributions", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBundle_ToolbarContributions(), this.getToolbarContribution(), null, "toolbarContributions", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBundle_PopupMenuContributions(), this.getPopupMenuContribution(), null, "popupMenuContributions", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declarativeServiceEClass, DeclarativeService.class, "DeclarativeService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeclarativeService_ServiceClassName(), this.getJavaName(), "serviceClassName", null, 1, 1, DeclarativeService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2364,7 +2471,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(perspectiveEClass, Perspective.class, "Perspective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerspective_Name(), this.getName_(), "name", null, 1, 1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerspective_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerspective_Menus(), this.getMenu(), null, "menus", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerspective_Wizards(), this.getWizard(), null, "wizards", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerspective_Views(), this.getView(), this.getView_Perspectives(), "views", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2380,36 +2486,46 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getView_IsVisible(), theEcorePackage.getEBoolean(), "isVisible", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getView_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getView_Menus(), this.getMenu(), null, "menus", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Perspectives(), this.getPerspective(), this.getPerspective_Views(), "perspectives", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getView_Category(), this.getCategory(), this.getCategory_Views(), "category", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editorEClass, Editor.class, "Editor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEditor_Extension(), theEcorePackage.getEString(), "extension", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEditor_DynamicMenu(), theEcorePackage.getEBoolean(), "dynamicMenu", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEditor_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEditor_Menus(), this.getMenu(), null, "menus", null, 0, -1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMenu_Name(), this.getName_(), "name", null, 1, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMenu_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMenu_MenuContribution(), theEcorePackage.getEBoolean(), "menuContribution", "true", 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMenu_ToolbarContribution(), theEcorePackage.getEBoolean(), "toolbarContribution", "true", 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMenu_Commands(), this.getCommand(), this.getCommand_Menu(), "commands", null, 0, -1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Name(), this.getName_(), "name", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommand_Tooltip(), theEcorePackage.getEString(), "tooltip", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_Handler(), this.getHandler(), this.getHandler_Command(), "handler", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_Menu(), this.getMenu(), this.getMenu_Commands(), "menu", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Category(), this.getCategory(), this.getCategory_Commands(), "category", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Binding(), this.getBinding(), this.getBinding_Command(), "binding", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_DefaultHandler(), this.getHandler(), null, "defaultHandler", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(menuContributionEClass, MenuContribution.class, "MenuContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMenuContribution_Name(), this.getName_(), "name", null, 1, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuContribution_MenuContributions(), this.getMenuContribution(), null, "menuContributions", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenuContribution_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuContribution_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuContribution_Views(), this.getView(), null, "views", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenuContribution_Editors(), this.getEditor(), null, "editors", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(toolbarContributionEClass, ToolbarContribution.class, "ToolbarContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getToolbarContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToolbarContribution_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToolbarContribution_Views(), this.getView(), null, "views", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToolbarContribution_Editors(), this.getEditor(), null, "editors", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(popupMenuContributionEClass, PopupMenuContribution.class, "PopupMenuContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPopupMenuContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPopupMenuContribution_Menus(), this.getMenuContribution(), null, "menus", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHandler_Mnemonic(), theEcorePackage.getEChar(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHandler_Command(), this.getCommand(), this.getCommand_Handler(), "command", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHandler_Command(), this.getCommand(), null, "command", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contextualHandlerEClass, ContextualHandler.class, "ContextualHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHelpContents_Label(), this.getName_(), "label", null, 1, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

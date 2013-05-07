@@ -323,10 +323,10 @@ public class ApplicationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Application)object).getApplicationID();
+		String label = ((Application)object).getBaseNamespace();
 		return label == null || label.length() == 0 ?
-				getString("_UI_Application_type") :
-				getString("_UI_Application_type") + " " + label;
+			getString("_UI_Application_type") :
+			getString("_UI_Application_type") + " " + label;
 	}
 
 	/**

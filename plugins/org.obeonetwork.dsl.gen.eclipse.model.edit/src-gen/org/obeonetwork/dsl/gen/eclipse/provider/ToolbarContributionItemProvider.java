@@ -18,20 +18,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Menu} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MenuItemProvider
+public class ToolbarContributionItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +42,7 @@ public class MenuItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MenuItemProvider(AdapterFactory adapterFactory) {
+	public ToolbarContributionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,101 +57,12 @@ public class MenuItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addMnemonicPropertyDescriptor(object);
-			addMenuContributionPropertyDescriptor(object);
-			addToolbarContributionPropertyDescriptor(object);
 			addCommandsPropertyDescriptor(object);
+			addPerspectivesPropertyDescriptor(object);
+			addViewsPropertyDescriptor(object);
+			addEditorsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_name_feature", "_UI_Menu_type"),
-				 EclipsePackage.Literals.MENU__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Mnemonic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMnemonicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_mnemonic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_mnemonic_feature", "_UI_Menu_type"),
-				 EclipsePackage.Literals.MENU__MNEMONIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Menu Contribution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMenuContributionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_menuContribution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_menuContribution_feature", "_UI_Menu_type"),
-				 EclipsePackage.Literals.MENU__MENU_CONTRIBUTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Toolbar Contribution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToolbarContributionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Menu_toolbarContribution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_toolbarContribution_feature", "_UI_Menu_type"),
-				 EclipsePackage.Literals.MENU__TOOLBAR_CONTRIBUTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -168,9 +76,9 @@ public class MenuItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Menu_commands_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Menu_commands_feature", "_UI_Menu_type"),
-				 EclipsePackage.Literals.MENU__COMMANDS,
+				 getString("_UI_ToolbarContribution_commands_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolbarContribution_commands_feature", "_UI_ToolbarContribution_type"),
+				 EclipsePackage.Literals.TOOLBAR_CONTRIBUTION__COMMANDS,
 				 true,
 				 false,
 				 true,
@@ -180,14 +88,80 @@ public class MenuItemProvider
 	}
 
 	/**
-	 * This returns Menu.gif.
+	 * This adds a property descriptor for the Perspectives feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPerspectivesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolbarContribution_perspectives_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolbarContribution_perspectives_feature", "_UI_ToolbarContribution_type"),
+				 EclipsePackage.Literals.TOOLBAR_CONTRIBUTION__PERSPECTIVES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Views feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addViewsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolbarContribution_views_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolbarContribution_views_feature", "_UI_ToolbarContribution_type"),
+				 EclipsePackage.Literals.TOOLBAR_CONTRIBUTION__VIEWS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Editors feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEditorsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolbarContribution_editors_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolbarContribution_editors_feature", "_UI_ToolbarContribution_type"),
+				 EclipsePackage.Literals.TOOLBAR_CONTRIBUTION__EDITORS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ToolbarContribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Menu"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ToolbarContribution"));
 	}
 
 	/**
@@ -198,10 +172,7 @@ public class MenuItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Menu)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Menu_type") :
-			getString("_UI_Menu_type") + " " + label;
+		return getString("_UI_ToolbarContribution_type");
 	}
 
 	/**
@@ -214,15 +185,6 @@ public class MenuItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Menu.class)) {
-			case EclipsePackage.MENU__NAME:
-			case EclipsePackage.MENU__MNEMONIC:
-			case EclipsePackage.MENU__MENU_CONTRIBUTION:
-			case EclipsePackage.MENU__TOOLBAR_CONTRIBUTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

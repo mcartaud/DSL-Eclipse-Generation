@@ -220,15 +220,6 @@ public interface EclipseFactory extends EFactory {
 	Editor createEditor();
 
 	/**
-	 * Returns a new object of class '<em>Menu</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Menu</em>'.
-	 * @generated
-	 */
-	Menu createMenu();
-
-	/**
 	 * Returns a new object of class '<em>Command</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -238,6 +229,33 @@ public interface EclipseFactory extends EFactory {
 	Command createCommand();
 
 	/**
+	 * Returns a new object of class '<em>Menu Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu Contribution</em>'.
+	 * @generated
+	 */
+	MenuContribution createMenuContribution();
+
+	/**
+	 * Returns a new object of class '<em>Toolbar Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Toolbar Contribution</em>'.
+	 * @generated
+	 */
+	ToolbarContribution createToolbarContribution();
+
+	/**
+	 * Returns a new object of class '<em>Popup Menu Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Popup Menu Contribution</em>'.
+	 * @generated
+	 */
+	PopupMenuContribution createPopupMenuContribution();
+
+	/**
 	 * Returns a new object of class '<em>Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,6 +263,15 @@ public interface EclipseFactory extends EFactory {
 	 * @generated
 	 */
 	Handler createHandler();
+
+	/**
+	 * Returns a new object of class '<em>Contextual Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contextual Handler</em>'.
+	 * @generated
+	 */
+	ContextualHandler createContextualHandler();
 
 	/**
 	 * Returns a new object of class '<em>Help Contents</em>'.

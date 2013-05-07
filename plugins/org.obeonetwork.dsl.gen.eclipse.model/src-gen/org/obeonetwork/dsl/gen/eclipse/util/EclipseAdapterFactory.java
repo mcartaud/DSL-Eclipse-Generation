@@ -164,16 +164,28 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 				return createEditorAdapter();
 			}
 			@Override
-			public Adapter caseMenu(Menu object) {
-				return createMenuAdapter();
-			}
-			@Override
 			public Adapter caseCommand(Command object) {
 				return createCommandAdapter();
 			}
 			@Override
+			public Adapter caseMenuContribution(MenuContribution object) {
+				return createMenuContributionAdapter();
+			}
+			@Override
+			public Adapter caseToolbarContribution(ToolbarContribution object) {
+				return createToolbarContributionAdapter();
+			}
+			@Override
+			public Adapter casePopupMenuContribution(PopupMenuContribution object) {
+				return createPopupMenuContributionAdapter();
+			}
+			@Override
 			public Adapter caseHandler(Handler object) {
 				return createHandlerAdapter();
+			}
+			@Override
+			public Adapter caseContextualHandler(ContextualHandler object) {
+				return createContextualHandlerAdapter();
 			}
 			@Override
 			public Adapter caseHelpContents(HelpContents object) {
@@ -548,20 +560,6 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Menu <em>Menu</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Menu
-	 * @generated
-	 */
-	public Adapter createMenuAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Command <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -576,6 +574,48 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.MenuContribution <em>Menu Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.MenuContribution
+	 * @generated
+	 */
+	public Adapter createMenuContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution <em>Toolbar Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ToolbarContribution
+	 * @generated
+	 */
+	public Adapter createToolbarContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution <em>Popup Menu Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution
+	 * @generated
+	 */
+	public Adapter createPopupMenuContributionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -586,6 +626,20 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHandlerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler <em>Contextual Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ContextualHandler
+	 * @generated
+	 */
+	public Adapter createContextualHandlerAdapter() {
 		return null;
 	}
 

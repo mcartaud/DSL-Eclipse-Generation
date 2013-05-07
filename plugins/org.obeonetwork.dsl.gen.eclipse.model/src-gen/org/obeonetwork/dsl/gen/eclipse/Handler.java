@@ -77,7 +77,6 @@ public interface Handler extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Command</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandler <em>Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Command</em>' reference isn't clear,
@@ -85,22 +84,10 @@ public interface Handler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Command</em>' reference.
-	 * @see #setCommand(Command)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Command()
-	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandler
-	 * @model opposite="handler"
+	 * @model required="true" changeable="false"
 	 * @generated
 	 */
 	Command getCommand();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Command</em>' reference.
-	 * @see #getCommand()
-	 * @generated
-	 */
-	void setCommand(Command value);
 
 } // Handler

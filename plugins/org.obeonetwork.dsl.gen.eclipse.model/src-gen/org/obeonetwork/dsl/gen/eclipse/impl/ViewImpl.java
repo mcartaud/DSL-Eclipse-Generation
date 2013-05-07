@@ -6,22 +6,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Handler;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
 import org.obeonetwork.dsl.gen.eclipse.View;
 
@@ -33,8 +25,6 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#isIsVisible <em>Is Visible</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getHandlers <em>Handlers</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ViewImpl#getCategory <em>Category</em>}</li>
  * </ul>
@@ -62,26 +52,6 @@ public class ViewImpl extends PartImpl implements View {
 	 * @ordered
 	 */
 	protected boolean isVisible = IS_VISIBLE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHandlers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Handler> handlers;
-
-	/**
-	 * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMenus()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Menu> menus;
 
 	/**
 	 * The cached value of the '{@link #getPerspectives() <em>Perspectives</em>}' reference list.
@@ -141,30 +111,6 @@ public class ViewImpl extends PartImpl implements View {
 		isVisible = newIsVisible;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.VIEW__IS_VISIBLE, oldIsVisible, isVisible));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Handler> getHandlers() {
-		if (handlers == null) {
-			handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.VIEW__HANDLERS);
-		}
-		return handlers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Menu> getMenus() {
-		if (menus == null) {
-			menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.VIEW__MENUS);
-		}
-		return menus;
 	}
 
 	/**
@@ -266,10 +212,6 @@ public class ViewImpl extends PartImpl implements View {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EclipsePackage.VIEW__HANDLERS:
-				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.VIEW__MENUS:
-				return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.VIEW__PERSPECTIVES:
 				return ((InternalEList<?>)getPerspectives()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.VIEW__CATEGORY:
@@ -288,10 +230,6 @@ public class ViewImpl extends PartImpl implements View {
 		switch (featureID) {
 			case EclipsePackage.VIEW__IS_VISIBLE:
 				return isIsVisible();
-			case EclipsePackage.VIEW__HANDLERS:
-				return getHandlers();
-			case EclipsePackage.VIEW__MENUS:
-				return getMenus();
 			case EclipsePackage.VIEW__PERSPECTIVES:
 				return getPerspectives();
 			case EclipsePackage.VIEW__CATEGORY:
@@ -312,14 +250,6 @@ public class ViewImpl extends PartImpl implements View {
 		switch (featureID) {
 			case EclipsePackage.VIEW__IS_VISIBLE:
 				setIsVisible((Boolean)newValue);
-				return;
-			case EclipsePackage.VIEW__HANDLERS:
-				getHandlers().clear();
-				getHandlers().addAll((Collection<? extends Handler>)newValue);
-				return;
-			case EclipsePackage.VIEW__MENUS:
-				getMenus().clear();
-				getMenus().addAll((Collection<? extends Menu>)newValue);
 				return;
 			case EclipsePackage.VIEW__PERSPECTIVES:
 				getPerspectives().clear();
@@ -343,12 +273,6 @@ public class ViewImpl extends PartImpl implements View {
 			case EclipsePackage.VIEW__IS_VISIBLE:
 				setIsVisible(IS_VISIBLE_EDEFAULT);
 				return;
-			case EclipsePackage.VIEW__HANDLERS:
-				getHandlers().clear();
-				return;
-			case EclipsePackage.VIEW__MENUS:
-				getMenus().clear();
-				return;
 			case EclipsePackage.VIEW__PERSPECTIVES:
 				getPerspectives().clear();
 				return;
@@ -369,10 +293,6 @@ public class ViewImpl extends PartImpl implements View {
 		switch (featureID) {
 			case EclipsePackage.VIEW__IS_VISIBLE:
 				return isVisible != IS_VISIBLE_EDEFAULT;
-			case EclipsePackage.VIEW__HANDLERS:
-				return handlers != null && !handlers.isEmpty();
-			case EclipsePackage.VIEW__MENUS:
-				return menus != null && !menus.isEmpty();
 			case EclipsePackage.VIEW__PERSPECTIVES:
 				return perspectives != null && !perspectives.isEmpty();
 			case EclipsePackage.VIEW__CATEGORY:

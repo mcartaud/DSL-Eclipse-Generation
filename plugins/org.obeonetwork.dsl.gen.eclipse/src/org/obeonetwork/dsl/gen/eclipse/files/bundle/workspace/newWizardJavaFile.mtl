@@ -19,7 +19,7 @@ Contributors :
 [aWizard.eContainer(Bundle).genBundleJavaPath()/]/wizards/[aWizard.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
-[template public gennewWizardJavaFile(aWizard : Wizard)]
+[template public genNewWizardJavaFile(aWizard : Wizard)]
 [file (newWizardJavaFile(), false, 'UTF-8')]
 package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 

@@ -125,9 +125,9 @@ public class HandlerItemProvider
 				 getString("_UI_Handler_command_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_command_feature", "_UI_Handler_type"),
 				 EclipsePackage.Literals.HANDLER__COMMAND,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

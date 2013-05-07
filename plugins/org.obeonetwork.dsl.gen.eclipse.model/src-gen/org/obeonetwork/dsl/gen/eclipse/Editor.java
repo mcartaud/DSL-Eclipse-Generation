@@ -2,7 +2,6 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#isDynamicMenu <em>Dynamic Menu</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getHandlers <em>Handlers</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getMenus <em>Menus</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,37 +72,5 @@ public interface Editor extends Part {
 	 * @generated
 	 */
 	void setDynamicMenu(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Handlers</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handlers</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_Handlers()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Handler> getHandlers();
-
-	/**
-	 * Returns the value of the '<em><b>Menus</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Menu}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Menus</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Menus</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_Menus()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Menu> getMenus();
 
 } // Editor

@@ -22,16 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.MenuContribution;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Command} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.MenuContribution} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommandItemProvider
+public class MenuContributionItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class CommandItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommandItemProvider(AdapterFactory adapterFactory) {
+	public MenuContributionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,11 +61,12 @@ public class CommandItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addTooltipPropertyDescriptor(object);
-			addHandlersPropertyDescriptor(object);
-			addCategoryPropertyDescriptor(object);
-			addBindingPropertyDescriptor(object);
-			addDefaultHandlerPropertyDescriptor(object);
+			addCommandsPropertyDescriptor(object);
+			addMenuContributionsPropertyDescriptor(object);
+			addMnemonicPropertyDescriptor(object);
+			addPerspectivesPropertyDescriptor(object);
+			addViewsPropertyDescriptor(object);
+			addEditorsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,9 +82,9 @@ public class CommandItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_name_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__NAME,
+				 getString("_UI_MenuContribution_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_name_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__NAME,
 				 true,
 				 false,
 				 false,
@@ -93,19 +94,63 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Tooltip feature.
+	 * This adds a property descriptor for the Commands feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTooltipPropertyDescriptor(Object object) {
+	protected void addCommandsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_tooltip_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_tooltip_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__TOOLTIP,
+				 getString("_UI_MenuContribution_commands_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_commands_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__COMMANDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Menu Contributions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMenuContributionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuContribution_menuContributions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_menuContributions_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__MENU_CONTRIBUTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mnemonic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMnemonicPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MenuContribution_mnemonic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_mnemonic_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__MNEMONIC,
 				 true,
 				 false,
 				 false,
@@ -115,19 +160,19 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Handlers feature.
+	 * This adds a property descriptor for the Perspectives feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHandlersPropertyDescriptor(Object object) {
+	protected void addPerspectivesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_handlers_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_handlers_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__HANDLERS,
+				 getString("_UI_MenuContribution_perspectives_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_perspectives_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__PERSPECTIVES,
 				 true,
 				 false,
 				 true,
@@ -137,19 +182,19 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Category feature.
+	 * This adds a property descriptor for the Views feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCategoryPropertyDescriptor(Object object) {
+	protected void addViewsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_category_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_category_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__CATEGORY,
+				 getString("_UI_MenuContribution_views_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_views_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__VIEWS,
 				 true,
 				 false,
 				 true,
@@ -159,19 +204,19 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Binding feature.
+	 * This adds a property descriptor for the Editors feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBindingPropertyDescriptor(Object object) {
+	protected void addEditorsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_binding_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_binding_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__BINDING,
+				 getString("_UI_MenuContribution_editors_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MenuContribution_editors_feature", "_UI_MenuContribution_type"),
+				 EclipsePackage.Literals.MENU_CONTRIBUTION__EDITORS,
 				 true,
 				 false,
 				 true,
@@ -181,36 +226,14 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Default Handler feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDefaultHandlerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Command_defaultHandler_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_defaultHandler_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__DEFAULT_HANDLER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Command.gif.
+	 * This returns MenuContribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Command"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MenuContribution"));
 	}
 
 	/**
@@ -221,10 +244,10 @@ public class CommandItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Command)object).getName();
+		String label = ((MenuContribution)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Command_type") :
-			getString("_UI_Command_type") + " " + label;
+			getString("_UI_MenuContribution_type") :
+			getString("_UI_MenuContribution_type") + " " + label;
 	}
 
 	/**
@@ -238,9 +261,9 @@ public class CommandItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Command.class)) {
-			case EclipsePackage.COMMAND__NAME:
-			case EclipsePackage.COMMAND__TOOLTIP:
+		switch (notification.getFeatureID(MenuContribution.class)) {
+			case EclipsePackage.MENU_CONTRIBUTION__NAME:
+			case EclipsePackage.MENU_CONTRIBUTION__MNEMONIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -5,21 +5,15 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.gen.eclipse.BasedOn;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
@@ -37,9 +31,11 @@ import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
-import org.obeonetwork.dsl.gen.eclipse.Menu;
+import org.obeonetwork.dsl.gen.eclipse.MenuContribution;
 import org.obeonetwork.dsl.gen.eclipse.Nature;
 import org.obeonetwork.dsl.gen.eclipse.Perspective;
+import org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution;
+import org.obeonetwork.dsl.gen.eclipse.ToolbarContribution;
 import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
@@ -66,13 +62,15 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenus <em>Menus</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExportedPackages <em>Exported Packages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenuContributions <em>Menu Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getToolbarContributions <em>Toolbar Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPopupMenuContributions <em>Popup Menu Contributions</em>}</li>
  * </ul>
  * </p>
  *
@@ -270,16 +268,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	protected EList<Command> commands;
 
 	/**
-	 * The cached value of the '{@link #getMenus() <em>Menus</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMenus()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Menu> menus;
-
-	/**
 	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,6 +336,36 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @ordered
 	 */
 	protected BasedOn basedOn = BASED_ON_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMenuContributions() <em>Menu Contributions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMenuContributions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MenuContribution> menuContributions;
+
+	/**
+	 * The cached value of the '{@link #getToolbarContributions() <em>Toolbar Contributions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolbarContributions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ToolbarContribution> toolbarContributions;
+
+	/**
+	 * The cached value of the '{@link #getPopupMenuContributions() <em>Popup Menu Contributions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPopupMenuContributions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PopupMenuContribution> popupMenuContributions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -592,18 +610,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Menu> getMenus() {
-		if (menus == null) {
-			menus = new EObjectContainmentEList<Menu>(Menu.class, this, EclipsePackage.BUNDLE__MENUS);
-		}
-		return menus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Handler> getHandlers() {
 		if (handlers == null) {
 			handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.BUNDLE__HANDLERS);
@@ -685,6 +691,42 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MenuContribution> getMenuContributions() {
+		if (menuContributions == null) {
+			menuContributions = new EObjectContainmentEList<MenuContribution>(MenuContribution.class, this, EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS);
+		}
+		return menuContributions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ToolbarContribution> getToolbarContributions() {
+		if (toolbarContributions == null) {
+			toolbarContributions = new EObjectContainmentEList<ToolbarContribution>(ToolbarContribution.class, this, EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS);
+		}
+		return toolbarContributions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PopupMenuContribution> getPopupMenuContributions() {
+		if (popupMenuContributions == null) {
+			popupMenuContributions = new EObjectContainmentEList<PopupMenuContribution>(PopupMenuContribution.class, this, EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS);
+		}
+		return popupMenuContributions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -714,8 +756,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getHelpContents()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.BUNDLE__MENUS:
-				return ((InternalEList<?>)getMenus()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__HANDLERS:
 				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__CONTEXTS:
@@ -724,6 +764,12 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__BINDINGS:
 				return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+				return ((InternalEList<?>)getMenuContributions()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+				return ((InternalEList<?>)getToolbarContributions()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+				return ((InternalEList<?>)getPopupMenuContributions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -768,8 +814,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getHelpContents();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return getCommands();
-			case EclipsePackage.BUNDLE__MENUS:
-				return getMenus();
 			case EclipsePackage.BUNDLE__HANDLERS:
 				return getHandlers();
 			case EclipsePackage.BUNDLE__CONTEXTS:
@@ -782,6 +826,12 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getExportedPackages();
 			case EclipsePackage.BUNDLE__BASED_ON:
 				return getBasedOn();
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+				return getMenuContributions();
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+				return getToolbarContributions();
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+				return getPopupMenuContributions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -856,10 +906,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				getCommands().clear();
 				getCommands().addAll((Collection<? extends Command>)newValue);
 				return;
-			case EclipsePackage.BUNDLE__MENUS:
-				getMenus().clear();
-				getMenus().addAll((Collection<? extends Menu>)newValue);
-				return;
 			case EclipsePackage.BUNDLE__HANDLERS:
 				getHandlers().clear();
 				getHandlers().addAll((Collection<? extends Handler>)newValue);
@@ -882,6 +928,18 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return;
 			case EclipsePackage.BUNDLE__BASED_ON:
 				setBasedOn((BasedOn)newValue);
+				return;
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+				getMenuContributions().clear();
+				getMenuContributions().addAll((Collection<? extends MenuContribution>)newValue);
+				return;
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+				getToolbarContributions().clear();
+				getToolbarContributions().addAll((Collection<? extends ToolbarContribution>)newValue);
+				return;
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+				getPopupMenuContributions().clear();
+				getPopupMenuContributions().addAll((Collection<? extends PopupMenuContribution>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -943,9 +1001,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__COMMANDS:
 				getCommands().clear();
 				return;
-			case EclipsePackage.BUNDLE__MENUS:
-				getMenus().clear();
-				return;
 			case EclipsePackage.BUNDLE__HANDLERS:
 				getHandlers().clear();
 				return;
@@ -963,6 +1018,15 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return;
 			case EclipsePackage.BUNDLE__BASED_ON:
 				setBasedOn(BASED_ON_EDEFAULT);
+				return;
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+				getMenuContributions().clear();
+				return;
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+				getToolbarContributions().clear();
+				return;
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+				getPopupMenuContributions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1008,8 +1072,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return helpContents != null && !helpContents.isEmpty();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return commands != null && !commands.isEmpty();
-			case EclipsePackage.BUNDLE__MENUS:
-				return menus != null && !menus.isEmpty();
 			case EclipsePackage.BUNDLE__HANDLERS:
 				return handlers != null && !handlers.isEmpty();
 			case EclipsePackage.BUNDLE__CONTEXTS:
@@ -1022,6 +1084,12 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return exportedPackages != null && !exportedPackages.isEmpty();
 			case EclipsePackage.BUNDLE__BASED_ON:
 				return basedOn != BASED_ON_EDEFAULT;
+			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
+				return menuContributions != null && !menuContributions.isEmpty();
+			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
+				return toolbarContributions != null && !toolbarContributions.isEmpty();
+			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+				return popupMenuContributions != null && !popupMenuContributions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

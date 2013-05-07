@@ -216,21 +216,40 @@ public class EclipseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EclipsePackage.MENU: {
-				Menu menu = (Menu)theEObject;
-				T result = caseMenu(menu);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EclipsePackage.COMMAND: {
 				Command command = (Command)theEObject;
 				T result = caseCommand(command);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EclipsePackage.MENU_CONTRIBUTION: {
+				MenuContribution menuContribution = (MenuContribution)theEObject;
+				T result = caseMenuContribution(menuContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EclipsePackage.TOOLBAR_CONTRIBUTION: {
+				ToolbarContribution toolbarContribution = (ToolbarContribution)theEObject;
+				T result = caseToolbarContribution(toolbarContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EclipsePackage.POPUP_MENU_CONTRIBUTION: {
+				PopupMenuContribution popupMenuContribution = (PopupMenuContribution)theEObject;
+				T result = casePopupMenuContribution(popupMenuContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EclipsePackage.HANDLER: {
 				Handler handler = (Handler)theEObject;
 				T result = caseHandler(handler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EclipsePackage.CONTEXTUAL_HANDLER: {
+				ContextualHandler contextualHandler = (ContextualHandler)theEObject;
+				T result = caseContextualHandler(contextualHandler);
+				if (result == null) result = caseHandler(contextualHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -623,21 +642,6 @@ public class EclipseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMenu(Menu object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -653,6 +657,51 @@ public class EclipseSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenuContribution(MenuContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Toolbar Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Toolbar Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToolbarContribution(ToolbarContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Popup Menu Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Popup Menu Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePopupMenuContribution(PopupMenuContribution object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -664,6 +713,21 @@ public class EclipseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHandler(Handler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contextual Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contextual Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextualHandler(ContextualHandler object) {
 		return null;
 	}
 
