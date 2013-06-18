@@ -18,9 +18,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.ToolbarContribution;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution} object.
@@ -61,6 +64,7 @@ public class ToolbarContributionItemProvider
 			addPerspectivesPropertyDescriptor(object);
 			addViewsPropertyDescriptor(object);
 			addEditorsPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -154,6 +158,28 @@ public class ToolbarContributionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ToolbarContribution_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ToolbarContribution_name_feature", "_UI_ToolbarContribution_type"),
+				 EclipsePackage.Literals.TOOLBAR_CONTRIBUTION__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ToolbarContribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,7 +198,10 @@ public class ToolbarContributionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ToolbarContribution_type");
+		String label = ((ToolbarContribution)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ToolbarContribution_type") :
+			getString("_UI_ToolbarContribution_type") + " " + label;
 	}
 
 	/**
@@ -185,6 +214,12 @@ public class ToolbarContributionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ToolbarContribution.class)) {
+			case EclipsePackage.TOOLBAR_CONTRIBUTION__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

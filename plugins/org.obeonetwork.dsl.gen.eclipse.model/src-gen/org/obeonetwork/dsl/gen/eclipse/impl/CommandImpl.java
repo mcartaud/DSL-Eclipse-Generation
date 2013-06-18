@@ -11,7 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
@@ -185,7 +186,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 */
 	public EList<Handler> getHandlers() {
 		if (handlers == null) {
-			handlers = new EObjectResolvingEList<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLERS);
+			handlers = new EObjectWithInverseResolvingEList.ManyInverse<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLERS, EclipsePackage.HANDLER__COMMANDS);
 		}
 		return handlers;
 	}
@@ -341,11 +342,14 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefaultHandler(Handler newDefaultHandler) {
+	public NotificationChain basicSetDefaultHandler(Handler newDefaultHandler, NotificationChain msgs) {
 		Handler oldDefaultHandler = defaultHandler;
 		defaultHandler = newDefaultHandler;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, defaultHandler));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, newDefaultHandler);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -353,9 +357,31 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setDefaultHandler(Handler newDefaultHandler) {
+		if (newDefaultHandler != defaultHandler) {
+			NotificationChain msgs = null;
+			if (defaultHandler != null)
+				msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
+			if (newDefaultHandler != null)
+				msgs = ((InternalEObject)newDefaultHandler).eInverseAdd(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
+			msgs = basicSetDefaultHandler(newDefaultHandler, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, newDefaultHandler, newDefaultHandler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EclipsePackage.COMMAND__HANDLERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHandlers()).basicAdd(otherEnd, msgs);
 			case EclipsePackage.COMMAND__CATEGORY:
 				if (category != null)
 					msgs = ((InternalEObject)category).eInverseRemove(this, EclipsePackage.CATEGORY__COMMANDS, Category.class, msgs);
@@ -364,6 +390,10 @@ public class CommandImpl extends EObjectImpl implements Command {
 				if (binding != null)
 					msgs = ((InternalEObject)binding).eInverseRemove(this, EclipsePackage.BINDING__COMMAND, Binding.class, msgs);
 				return basicSetBinding((Binding)otherEnd, msgs);
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				if (defaultHandler != null)
+					msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
+				return basicSetDefaultHandler((Handler)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -376,10 +406,14 @@ public class CommandImpl extends EObjectImpl implements Command {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EclipsePackage.COMMAND__HANDLERS:
+				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.COMMAND__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case EclipsePackage.COMMAND__BINDING:
 				return basicSetBinding(null, msgs);
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				return basicSetDefaultHandler(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

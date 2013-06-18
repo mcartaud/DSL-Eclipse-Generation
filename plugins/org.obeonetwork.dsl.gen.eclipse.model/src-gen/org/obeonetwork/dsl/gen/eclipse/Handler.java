@@ -2,6 +2,7 @@
  */
 package org.obeonetwork.dsl.gen.eclipse;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand <em>Default Command</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommands <em>Commands</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,18 +78,49 @@ public interface Handler extends EObject {
 	void setMnemonic(char value);
 
 	/**
-	 * Returns the value of the '<em><b>Command</b></em>' reference.
+	 * Returns the value of the '<em><b>Default Command</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler <em>Default Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Command</em>' reference isn't clear,
+	 * If the meaning of the '<em>Default Command</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Command</em>' reference.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Command()
-	 * @model required="true" changeable="false"
+	 * @return the value of the '<em>Default Command</em>' reference.
+	 * @see #setDefaultCommand(Command)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_DefaultCommand()
+	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getDefaultHandler
+	 * @model opposite="defaultHandler" required="true"
 	 * @generated
 	 */
-	Command getCommand();
+	Command getDefaultCommand();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand <em>Default Command</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Command</em>' reference.
+	 * @see #getDefaultCommand()
+	 * @generated
+	 */
+	void setDefaultCommand(Command value);
+
+	/**
+	 * Returns the value of the '<em><b>Commands</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Command}.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Command#getHandlers <em>Handlers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Commands</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commands</em>' reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Commands()
+	 * @see org.obeonetwork.dsl.gen.eclipse.Command#getHandlers
+	 * @model opposite="handlers"
+	 * @generated
+	 */
+	EList<Command> getCommands();
 
 } // Handler

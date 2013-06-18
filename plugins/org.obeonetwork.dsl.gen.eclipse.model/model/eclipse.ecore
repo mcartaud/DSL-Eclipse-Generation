@@ -258,16 +258,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
-        eType="#//Handler"/>
+        eType="#//Handler" eOpposite="#//Handler/commands"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//Category"
         eOpposite="#//Category/commands"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
         eOpposite="#//Binding/command"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandler" lowerBound="1"
-        eType="#//Handler"/>
+        eType="#//Handler" eOpposite="#//Handler/defaultCommand"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuContribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="menuContributions" upperBound="-1"
@@ -289,6 +289,7 @@
         eType="#//View"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1"
         eType="#//Editor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PopupMenuContribution">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
@@ -301,8 +302,10 @@
         eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mnemonic" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EChar"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="command" lowerBound="1"
-        eType="#//Command" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCommand" lowerBound="1"
+        eType="#//Command" eOpposite="#//Command/defaultHandler"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
+        eType="#//Command" eOpposite="#//Command/handlers"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextualHandler" eSuperTypes="#//Handler"/>
   <eClassifiers xsi:type="ecore:EClass" name="HelpContents">

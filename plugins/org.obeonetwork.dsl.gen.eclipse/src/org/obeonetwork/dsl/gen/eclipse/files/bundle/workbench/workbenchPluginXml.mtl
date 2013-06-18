@@ -28,10 +28,10 @@ Contributors :
 [for (aCommand : Command | aBundle.commands)][aCommand.commandTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.handlers->size() > 0)]
+[/if][if (aBundle.commands.handlers->size() > 0)]
    <extension
          point="org.eclipse.ui.handlers">
-[for (anHandler : Handler | aBundle.handlers)][anHandler.handlerTemplate()/]
+[for (aCommand : Command | aBundle.commands)][aCommand.handlerTemplate()/]
 [/for]
    </extension>
 [/if][if (aBundle.bindings->size() > 0)]
@@ -55,7 +55,7 @@ Contributors :
 [for (anEditor : Editor | aBundle.editors)][anEditor.editorTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.eAllContents(Menu)->size() > 0)]
+[/if][if (aBundle.menuContributions->size() > 0 or aBundle.toolbarContributions->size() > 0 or aBundle.popupMenuContributions->size() > 0)]
 [aBundle.menuTemplate()/]
 [/if][if (aBundle.perspectives->size() > 0)]
    <extension
@@ -68,13 +68,13 @@ Contributors :
          point="org.eclipse.ui.perspectiveExtensions">
 [aBundle.perspectives->select(aPerspective : Perspective | not(aPerspective.views.eContainer(Bundle)=aPerspective.eContainer(Bundle)) or aPerspective.wizards->size() > 0).perspectiveExtensionTemplate()/]
    </extension>
-[/if][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).handlers->size() > 0)]
+[/if][comment][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).handlers->size() > 0)]
    <extension
          point = "org.eclipse.core.expressions.definitions">
 [for (anHandler : Handler | aBundle.eAllContents(Editor).eAllContents(Handler))][anHandler.editorActionDefinition()/]
 [/for]
    </extension>
-[/if][if (aBundle.contexts->size() > 0)]
+[/if][/comment][if (aBundle.contexts->size() > 0)]
    <extension
 		 point="org.eclipse.ui.contexts">
 [for (aContext : Context | aBundle.eAllContents(Context))][aContext.contextDefinition()/]
@@ -134,11 +134,13 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [elseif (aCategory.wizards->size() > 0)]Wizard-[aCategory.wizards->first().refactorWizardName().toUpperFirst()/]-Category-Name[/if]
 [/template]
 
-[template private handlerTemplate(anHandler : Handler)]
+[template private handlerTemplate(aCommand : Command)]
+[for (anHandler : Handler | aCommand.handlers)]
       <handler
-            commandId="[anHandler.command.genCommandID()/]"
+            commandId="[aCommand.genCommandID()/]"
             class="[anHandler.genHandlerPath()/]">
       </handler>
+[/for]
 [/template]
 
 [template private bindingTemplate(aBinding : Binding)]
@@ -193,7 +195,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/template]
 
 [template private editorActionDefinition(anHandler : Handler)]
-      <definition id="[anHandler.command.genDefinitionID()/]">    
+      <definition id="[anHandler.defaultCommand.genDefinitionID()/]">    
          <with variable="activeEditorId">
             <equals value="[anHandler.eContainer(Editor).genEditorID()/]"/>
          </with>

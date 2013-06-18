@@ -19,78 +19,161 @@ Contributors :
 [template public menuTemplate(aBundle : Bundle)]
    <extension
          point="org.eclipse.ui.menus">
-[for (aMenu : Menu | aBundle.eAllContents(Menu))]
-[if (aMenu.menuContribution and not(aMenu.eContainer().oclIsKindOf(View)))]
-[aMenu.menuContribution()/]
-[/if][if (aMenu.toolbarContribution and not(aMenu.eContainer().oclIsKindOf(View)))]
-[aMenu.toolbarContribution()/]
-[/if][if (aMenu.menuContribution and (aMenu.eContainer().oclIsKindOf(View)))]
+[for (aMenu : MenuContribution | aBundle.menuContributions)]
+[if (aMenu.perspectives->size() > 0)]
+[aMenu.perspectiveMenuContribution()/]
+[/if][if (aMenu.editors->size() > 0)]
+[aMenu.editorMenuContribution()/]
+[/if][if (aMenu.views->size() > 0)]
 [aMenu.viewMenuContribution()/]
-[/if][if (aMenu.toolbarContribution and (aMenu.eContainer().oclIsKindOf(View)))]
-[aMenu.viewToolbarContribution()/]
+[/if][if (aMenu.perspectives->size() = 0 and aMenu.editors->size() = 0 and aMenu.views->size() = 0)]
+[aMenu.globalMenuContribution()/]
 [/if]
+[/for][for (aToolbar : ToolbarContribution | aBundle.toolbarContributions)]
+[if (aToolbar.perspectives->size() > 0)]
+[aToolbar.perspectiveToolbarContribution()/]
+[/if][if (aToolbar.editors->size() > 0)]
+[aToolbar.editorToolbarContribution()/]
+[/if][if (aToolbar.views->size() > 0)]
+[aToolbar.viewToolbarContribution()/]
+[/if][if (aToolbar.perspectives->size() = 0 and aToolbar.editors->size() = 0 and aToolbar.views->size() = 0)]
+[aToolbar.globalToolbarContribution()/]
+[/if]
+[/for][for (aPopup : PopupMenuContribution | aBundle.popupMenuContributions)]
+[aPopup/]
 [/for]
    </extension>
 [/template]
 
-[template private menuContribution(aMenu : Menu)]
-[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+[comment][template private popupMenuContribution(aPopup : PopupMenuContribution)]
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-[/if]
-[aMenu.genMenuContribution()/]
-[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+            locationURI="popup:org.eclipse.ui.main.toolbar?after=additions">
+[aToolbar.genToolbarContribution()/]
       </menuContribution>
-[/if]
-[/template]
+[/template][/comment]
 
-[template private toolbarContribution(aMenu : Menu)]
-[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+[template private globalToolbarContribution(aToolbar : ToolbarContribution)]
       <menuContribution
             locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-[/if]
-[aMenu.genToolbarContribution()/]
-[if (not(aMenu.eContainer().oclIsKindOf(Menu)))]
+[aToolbar.genGlobalToolbarContribution()/]
       </menuContribution>
-[/if]
 [/template]
 
-[template private viewMenuContribution(aMenu : Menu)]
-      <menuContribution
-            locationURI="menu:[aMenu.eContainer(View).genViewID()/]?after=additions">
-[for (aCommand : Command | aMenu.commands)]
-[aCommand.genMenuCommand()/]
+[template private genGlobalToolbarContribution(aToolbar : ToolbarContribution)]
+[for (aToolbar)]
+         <toolbar
+               id="[aToolbar.genToolbarID()/]">
+[for (aCommand : Command | aToolbar.commands)]
+[aCommand.genGlobalToolbarCommand()/]
 [/for]
-      </menuContribution>
-[/template]
-
-[template private viewToolbarContribution(aMenu : Menu)]
-      <menuContribution
-            locationURI="toolbar:[aMenu.eContainer(View).genViewID()/]?after=additions">
-[for (aCommand : Command | aMenu.commands)]
-[aCommand.genToolbarCommand()/]
+         </toolbar>
 [/for]
+[/template]
+
+[template private genGlobalToolbarCommand(aCommand : Command)]
+            <command
+                  commandId="[aCommand.genCommandID()/]"
+                  icon="icons/[aCommand.iconName()/]"
+                  tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
+                  id="[aCommand.eContainer(Bundle).genBundleID()/].toobars.[aCommand.refactorCommandName().toLowerFirst()/]">
+            </command>
+[/template]
+
+[template private globalMenuContribution(aMenu : MenuContribution)]
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+[aMenu.genGlobalMenuContribution()/]
       </menuContribution>
 [/template]
 
-[template private genMenuContribution(aMenu : Menu)]
-[for (aMenu)]
+[template private genGlobalMenuContribution(aMenu : MenuContribution)]
+[for (aMenu)][if (not(aMenu.name.oclIsUndefined()))]
          <menu
                label="[aMenu.name/]"
                mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
-               id="[aMenu.eContainer(Bundle).genBundleID()/].menus.[aMenu.refactorMenuName().toLowerFirst()/]">
-[for (aCommand : Command | aMenu.commands)]
-[aCommand.genMenuCommand()/]
+               id="[aMenu.genMenuID()/]">
+[/if][for (aCommand : Command | aMenu.commands)]
+[aCommand.genGlobalMenuCommand()/]
 [/for]
+[for (aSecondMenu : MenuContribution | aMenu.menuContributions)]
+[aSecondMenu.genMenuContribution()/]
+[/for]
+[if (not(aMenu.name.oclIsUndefined()))]
          </menu>
+[/if][/for]
+[/template]
+
+[template private genGlobalMenuCommand(aCommand : Command)]
+            <command
+                  commandId="[aCommand.genCommandID()/]"
+                  icon="icons/[aCommand.iconName()/]"
+				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
+                  id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
+            </command>
+[/template]
+
+[template private perspectiveToolbarContribution(aToolbar : ToolbarContribution)]
+[for (aPerspective : Perspective | aToolbar.perspectives)]
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+[aToolbar.genToolbarContribution()/]
+      </menuContribution>
 [/for]
 [/template]
 
-[template private genToolbarContribution(aMenu : Menu)]
-[for (aMenu)]
+[template private editorToolbarContribution(aToolbar : ToolbarContribution)]
+[for (anEditor : Editor | aToolbar.editors)]
+      <menuContribution
+            locationURI="toolbar:[anEditor.genEditorID()/]?after=additions">
+[aToolbar.genToolbarContribution()/]
+      </menuContribution>
+[/for]
+[/template]
+
+[template private viewToolbarContribution(aToolbar : ToolbarContribution)]
+[for (aView : View | aToolbar.views)]
+      <menuContribution
+            locationURI="toolbar:[aView.genViewID()/]?after=additions">
+[for (aCommand : Command | aToolbar.commands)]
+[aCommand.genToolbarCommand()/]
+[/for]
+      </menuContribution>
+[/for]
+[/template]
+
+[template private perspectiveMenuContribution(aMenu : MenuContribution)]
+[for (aPerspective : Perspective | aMenu.perspectives)]
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+[aMenu.genMenuContribution()/]
+      </menuContribution>
+[/for]
+[/template]
+
+[template private editorMenuContribution(aMenu : MenuContribution)]
+[for (anEditor : Editor | aMenu.editors)]
+      <menuContribution
+            locationURI="menu:[anEditor.genEditorID()/]?after=additions">
+[aMenu.genMenuContribution()/]
+      </menuContribution>
+[/for]
+[/template]
+
+[template private viewMenuContribution(aMenu : MenuContribution)]
+[for (aView : View | aMenu.views)]
+      <menuContribution
+            locationURI="menu:[aView.genViewID()/]?after=additions">
+[aMenu.genMenuContribution()/]
+      </menuContribution>
+[/for]
+[/template]
+
+
+[template private genToolbarContribution(aToolbar : ToolbarContribution)]
+[for (aToolbar)]
          <toolbar
-               id="[aMenu.eContainer(Bundle).genBundleID()/].toolbars.[aMenu.refactorMenuName().toLowerFirst()/]">
-[for (aCommand : Command | aMenu.commands)]
+               id="[aToolbar.genToolbarID()/]">
+[for (aCommand : Command | aToolbar.commands)]
 [aCommand.genToolbarCommand()/]
 [/for]
          </toolbar>
@@ -102,11 +185,28 @@ Contributors :
                   commandId="[aCommand.genCommandID()/]"
                   icon="icons/[aCommand.iconName()/]"
                   tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
-                  id="[aCommand.eContainer(Bundle).genBundleID()/].toolbars.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (anHandler : Handler | aCommand.contextHandlers)][if (anHandler.eContainer().oclIsKindOf(Editor))]
-[anHandler.activateEditorHandler()/]
-[/if][/for]
+                  id="[aCommand.eContainer(Bundle).genBundleID()/].toobars.[aCommand.refactorCommandName().toLowerFirst()/]">
+[for (anHandler : Handler | aCommand.defaultHandler)]
+[anHandler.activateHandler()/]
+[/for]
             </command>
+[/template]
+
+[template private genMenuContribution(aMenu : MenuContribution)]
+[for (aMenu)][if (not(aMenu.name.oclIsUndefined()))]
+         <menu
+               label="[aMenu.name/]"
+               mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
+               id="[aMenu.genMenuID()/]">
+[/if][for (aCommand : Command | aMenu.commands)]
+[aCommand.genMenuCommand()/]
+[/for]
+[for (aSecondMenu : MenuContribution | aMenu.menuContributions)]
+[aSecondMenu.genMenuContribution()/]
+[/for]
+[if (not(aMenu.name.oclIsUndefined()))]
+         </menu>
+[/if][/for]
 [/template]
 
 [template private genMenuCommand(aCommand : Command)]
@@ -115,15 +215,52 @@ Contributors :
                   icon="icons/[aCommand.iconName()/]"
 				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (anHandler : Handler | aCommand.contextHandlers)][if (anHandler.eContainer().oclIsKindOf(Editor))]
-[anHandler.activateEditorHandler()/]
-[/if][/for]
+[for (aHandler : Handler | aCommand.defaultHandler)]
+[aHandler.activateHandler()/]
+[/for]
             </command>
 [/template]
 
-[template private activateEditorHandler(anHandler : Handler)]
-			<visibleWhen
-					checkEnabled="true">
-     				<reference definitionId="[anHandler.command.genDefinitionID()/]"/>
-			</visibleWhen>
+[template private activateHandler(aHandler : Handler)]
+[if (aHandler.defaultCommand.eInverse(MenuContribution)->size() > 0)]
+[aHandler.activateMenuHandler()/]
+[elseif (aHandler.defaultCommand.eInverse(ToolbarContribution)->size() > 0)]
+[aHandler.activateToolbarHandler()/]
+[/if]
+[/template]
+
+[template private activateMenuHandler(aHandler : Handler)]
+            <visibleWhen checkEnabled="false">
+[if (aHandler.defaultCommand.eInverse(MenuContribution).perspectives->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activePerspective">
+[for (aPerspective : Perspective | aHandler.defaultCommand.eInverse(MenuContribution).perspectives)]
+                	<equals value="[aPerspective.genPerspectiveID()/]"/>
+[/for]
+            	</with>
+[/if][if (aHandler.defaultCommand.eInverse(MenuContribution).editors->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activeEditor">
+[for (anEditor : Editor | aHandler.defaultCommand.eInverse(MenuContribution).editors)]
+                	<equals value="[anEditor.genEditorID()/]"/>
+[/for]
+            	</with>
+[/if]
+         	</visibleWhen>
+[/template]
+
+[template private activateToolbarHandler(aHandler : Handler)]
+            <visibleWhen checkEnabled="false">
+[if (aHandler.defaultCommand.eInverse(ToolbarContribution).perspectives->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activePerspective">
+[for (aPerspective : Perspective | aHandler.defaultCommand.eInverse(ToolbarContribution).perspectives)]
+                	<equals value="[aPerspective.genPerspectiveID()/]"/>
+[/for]
+            	</with>
+[/if][if (aHandler.defaultCommand.eInverse(ToolbarContribution).editors->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activeEditor">
+[for (anEditor : Editor | aHandler.defaultCommand.eInverse(ToolbarContribution).editors)]
+                	<equals value="[anEditor.genEditorID()/]"/>
+[/for]
+            	</with>
+[/if]
+         	</visibleWhen>
 [/template]

@@ -63,8 +63,6 @@ public class BundleItemProvider
 			addVendorPropertyDescriptor(object);
 			addExportedPackagesPropertyDescriptor(object);
 			addBasedOnPropertyDescriptor(object);
-			addToolbarContributionsPropertyDescriptor(object);
-			addPopupMenuContributionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -175,50 +173,6 @@ public class BundleItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Toolbar Contributions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToolbarContributionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Bundle_toolbarContributions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_toolbarContributions_feature", "_UI_Bundle_type"),
-				 EclipsePackage.Literals.BUNDLE__TOOLBAR_CONTRIBUTIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Popup Menu Contributions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPopupMenuContributionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Bundle_popupMenuContributions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_popupMenuContributions_feature", "_UI_Bundle_type"),
-				 EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

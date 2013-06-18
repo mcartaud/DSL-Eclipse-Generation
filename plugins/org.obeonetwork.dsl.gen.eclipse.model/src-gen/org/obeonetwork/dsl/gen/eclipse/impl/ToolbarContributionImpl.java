@@ -4,10 +4,12 @@ package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -30,6 +32,7 @@ import org.obeonetwork.dsl.gen.eclipse.View;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl#getEditors <em>Editors</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ToolbarContributionImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +78,26 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 	 * @ordered
 	 */
 	protected EList<Editor> editors;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +171,27 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.TOOLBAR_CONTRIBUTION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -159,6 +203,8 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 				return getViews();
 			case EclipsePackage.TOOLBAR_CONTRIBUTION__EDITORS:
 				return getEditors();
+			case EclipsePackage.TOOLBAR_CONTRIBUTION__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -188,6 +234,9 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 				getEditors().clear();
 				getEditors().addAll((Collection<? extends Editor>)newValue);
 				return;
+			case EclipsePackage.TOOLBAR_CONTRIBUTION__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -212,6 +261,9 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 			case EclipsePackage.TOOLBAR_CONTRIBUTION__EDITORS:
 				getEditors().clear();
 				return;
+			case EclipsePackage.TOOLBAR_CONTRIBUTION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -232,8 +284,26 @@ public class ToolbarContributionImpl extends EObjectImpl implements ToolbarContr
 				return views != null && !views.isEmpty();
 			case EclipsePackage.TOOLBAR_CONTRIBUTION__EDITORS:
 				return editors != null && !editors.isEmpty();
+			case EclipsePackage.TOOLBAR_CONTRIBUTION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ToolbarContributionImpl

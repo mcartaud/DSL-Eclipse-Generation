@@ -40,7 +40,7 @@ public interface MenuContribution extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getMenuContribution_Name()
-	 * @model dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
+	 * @model dataType="org.obeonetwork.dsl.gen.eclipse.Name"
 	 * @generated
 	 */
 	String getName();

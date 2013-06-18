@@ -16,18 +16,11 @@
     <perspectives name="vuesPerspectives" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <views name="permiere Vue" isVisible="true" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
       <dynamicHelp label="aide pour premiereVue" description="cette page offre de l'aide pour la première vue"/>
-      <handlers name="bouton1Vue" command="//@projects.2/@commands.0"/>
-      <handlers name="bouton2Vue" command="//@projects.2/@commands.1"/>
-      <menus name="menuVue1" mnemonic="" commands="//@projects.2/@commands.1 //@projects.2/@commands.0"/>
     </views>
     <views name="deuxiemeVue" isVisible="true" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
       <dynamicHelp label="aide pour deuxieme vue" description="cette page donne de l'aide pour la deuxième vue"/>
-      <handlers name="boutonVue2" command="//@projects.2/@commands.2"/>
-      <menus name="menuVue2" commands="//@projects.2/@commands.2"/>
     </views>
     <views name="troisiemeVue" perspectives="//@projects.2/@perspectives.0" category="//@projects.2/@categories.0">
-      <handlers name="boutonVue3" command="//@projects.2/@commands.3"/>
-      <menus name="menuVue3" commands="//@projects.2/@commands.3"/>
     </views>
     <helpContents label="aide pour le premier bundle" description="cette page donne l'aide pour l'ensemble du premier bundle">
       <helpPages label="premiere Page" description="donne l'aide pour la vue 1">
@@ -37,10 +30,6 @@
         <helpPages label="page2-2" description="cette page est specifique pour les boutons des vues 2 et 3"/>
       </helpPages>
     </helpContents>
-    <commands name="bouton1Vue1" contextHandlers="//@projects.2/@views.0/@handlers.0" menu="//@projects.2/@views.0/@menus.0" binding="//@projects.2/@bindings.0"/>
-    <commands name="bouton2Vue1" contextHandlers="//@projects.2/@views.0/@handlers.1" menu="//@projects.2/@views.0/@menus.0"/>
-    <commands name="bouton1Vue2" tooltip="" contextHandlers="//@projects.2/@views.1/@handlers.0" menu="//@projects.2/@views.1/@menus.0" binding="//@projects.2/@bindings.1"/>
-    <commands name="bouton1Vue3" contextHandlers="//@projects.2/@views.2/@handlers.0" menu="//@projects.2/@views.2/@menus.0"/>
     <contexts name="context1" description="donne un context"/>
     <categories name="VuesDemo" views="//@projects.2/@views.1 //@projects.2/@views.0 //@projects.2/@views.2"/>
     <bindings keySequence="CTRL + ALT + g" command="//@projects.2/@commands.0" contexts="//@projects.2/@contexts.0"/>
@@ -57,10 +46,7 @@
     <wizards xsi:type="eclipse:ProjectWizard" name="nouveauProjetWizard" title="Nouveau Projet" description="permet de creer des nouveaux projets" category="//@projects.3/@categories.0"/>
     <editors name="nouvelEditeur">
       <dynamicHelp label="aide Editeur" description="donne de l'aide pour l'éditeur"/>
-      <handlers name="editorBouton" command="//@projects.3/@commands.0"/>
-      <menus name="menuEditor" commands="//@projects.3/@commands.0"/>
     </editors>
-    <commands name="BoutonDuMenu" contextHandlers="//@projects.3/@editors.0/@handlers.0" menu="//@projects.3/@editors.0/@menus.0" binding="//@projects.3/@bindings.0"/>
     <contexts name="context2" description="active le binding en fonction du context"/>
     <categories name="WizardDemo" wizards="//@projects.3/@wizards.0 //@projects.3/@wizards.1"/>
     <bindings keySequence="CTRL+2" command="//@projects.3/@commands.0" contexts="//@projects.3/@contexts.0"/>

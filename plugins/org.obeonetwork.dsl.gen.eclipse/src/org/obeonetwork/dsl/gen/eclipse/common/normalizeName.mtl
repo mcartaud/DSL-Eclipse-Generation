@@ -202,6 +202,14 @@ Contributors :
 [aMenu.name.replaceAll(' ', '_')/]
 [/template]
 
+[template public genToolbarID(aToolbar : ToolbarContribution)]
+[aToolbar.eContainer(Bundle).genBundleID()/].toolbar-id.[aToolbar.refactorToolbarName().toLowerFirst()/]
+[/template]
+
+[template public refactorToolbarName(aToolbar : ToolbarContribution)]
+[aToolbar.name.replaceAll(' ', '_')/]
+[/template]
+
 [template public genDefinitionID(aCommand : Command)]
 [aCommand.eContainer(Bundle).genBundleID()/].definition-id.[aCommand.refactorCommandName().toLowerFirst()/]
 [/template]

@@ -83,6 +83,7 @@ public interface Command extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Handlers</b></em>' reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommands <em>Commands</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Handlers</em>' reference list isn't clear,
@@ -91,7 +92,8 @@ public interface Command extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Handlers</em>' reference list.
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_Handlers()
-	 * @model
+	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommands
+	 * @model opposite="commands"
 	 * @generated
 	 */
 	EList<Handler> getHandlers();
@@ -154,6 +156,7 @@ public interface Command extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Default Handler</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand <em>Default Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Default Handler</em>' reference isn't clear,
@@ -163,7 +166,8 @@ public interface Command extends EObject {
 	 * @return the value of the '<em>Default Handler</em>' reference.
 	 * @see #setDefaultHandler(Handler)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getCommand_DefaultHandler()
-	 * @model required="true"
+	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand
+	 * @model opposite="defaultCommand" required="true"
 	 * @generated
 	 */
 	Handler getDefaultHandler();

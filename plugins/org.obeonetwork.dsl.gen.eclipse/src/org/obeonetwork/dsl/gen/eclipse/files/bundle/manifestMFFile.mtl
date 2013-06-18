@@ -107,6 +107,14 @@ endif  /]
 [query private exportPackageProvidedID(aProvidedService : ProvidedService) : Sequence(EPackage) = 
 		Sequence{(aProvidedService.interface.genPackage.ecorePackage.ancestors(EPackage).name)->reverse()->sep('.')} /]
 
+[query private exportView(aMenu : MenuContribution) : Sequence(String) =  
+if (aMenu.eContainer(Bundle).ID = aMenu.views.eContainer(Bundle).ID) then
+	Sequence {}
+else
+	Sequence {}
+endif
+/]
+
 
 
 

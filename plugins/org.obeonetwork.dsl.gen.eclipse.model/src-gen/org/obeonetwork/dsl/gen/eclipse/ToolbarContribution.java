@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getPerspectives <em>Perspectives</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getEditors <em>Editors</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,5 +90,31 @@ public interface ToolbarContribution extends EObject {
 	 * @generated
 	 */
 	EList<Editor> getEditors();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getToolbarContribution_Name()
+	 * @model dataType="org.obeonetwork.dsl.gen.eclipse.Name" required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.ToolbarContribution#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // ToolbarContribution

@@ -1744,6 +1744,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getToolbarContribution_Name() {
+		return (EAttribute)toolbarContributionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPopupMenuContribution() {
 		return popupMenuContributionEClass;
 	}
@@ -1798,8 +1807,17 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHandler_Command() {
+	public EReference getHandler_DefaultCommand() {
 		return (EReference)handlerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHandler_Commands() {
+		return (EReference)handlerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2254,6 +2272,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__PERSPECTIVES);
 		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__VIEWS);
 		createEReference(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__EDITORS);
+		createEAttribute(toolbarContributionEClass, TOOLBAR_CONTRIBUTION__NAME);
 
 		popupMenuContributionEClass = createEClass(POPUP_MENU_CONTRIBUTION);
 		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__COMMANDS);
@@ -2262,7 +2281,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		handlerEClass = createEClass(HANDLER);
 		createEAttribute(handlerEClass, HANDLER__NAME);
 		createEAttribute(handlerEClass, HANDLER__MNEMONIC);
-		createEReference(handlerEClass, HANDLER__COMMAND);
+		createEReference(handlerEClass, HANDLER__DEFAULT_COMMAND);
+		createEReference(handlerEClass, HANDLER__COMMANDS);
 
 		contextualHandlerEClass = createEClass(CONTEXTUAL_HANDLER);
 
@@ -2496,13 +2516,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Name(), this.getName_(), "name", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommand_Tooltip(), theEcorePackage.getEString(), "tooltip", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_Handlers(), this.getHandler(), this.getHandler_Commands(), "handlers", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Category(), this.getCategory(), this.getCategory_Commands(), "category", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Binding(), this.getBinding(), this.getBinding_Command(), "binding", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_DefaultHandler(), this.getHandler(), null, "defaultHandler", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_DefaultHandler(), this.getHandler(), this.getHandler_DefaultCommand(), "defaultHandler", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuContributionEClass, MenuContribution.class, "MenuContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMenuContribution_Name(), this.getName_(), "name", null, 1, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenuContribution_Name(), this.getName_(), "name", null, 0, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMenuContribution_MenuContributions(), this.getMenuContribution(), null, "menuContributions", null, 0, -1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMenuContribution_Mnemonic(), theEcorePackage.getEString(), "mnemonic", null, 0, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2515,6 +2535,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getToolbarContribution_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getToolbarContribution_Views(), this.getView(), null, "views", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getToolbarContribution_Editors(), this.getEditor(), null, "editors", null, 0, -1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolbarContribution_Name(), this.getName_(), "name", null, 1, 1, ToolbarContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(popupMenuContributionEClass, PopupMenuContribution.class, "PopupMenuContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPopupMenuContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2523,7 +2544,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHandler_Mnemonic(), theEcorePackage.getEChar(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHandler_Command(), this.getCommand(), null, "command", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHandler_DefaultCommand(), this.getCommand(), this.getCommand_DefaultHandler(), "defaultCommand", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHandler_Commands(), this.getCommand(), this.getCommand_Handlers(), "commands", null, 0, -1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextualHandlerEClass, ContextualHandler.class, "ContextualHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
