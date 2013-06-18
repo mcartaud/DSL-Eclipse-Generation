@@ -105,7 +105,10 @@ Contributors :
 [aDeclarativeService.genOsgiServiceXmlFile()/]
 [aDeclarativeService.genOsgiServiceJavaFile()/]
 [/for]
-[for (aHandler : Handler | aBundle.eAllContents(Handler))]
+[for (aHandler : DefaultHandler | aBundle.eAllContents(DefaultHandler))]
+[aHandler.genHandlerJavaFile() /]
+[/for]
+[for (aHandler : ContextualHandler | aBundle.eAllContents(ContextualHandler))]
 [aHandler.genHandlerJavaFile() /]
 [/for]
 [for (aNature : Nature | aBundle.natures)]
@@ -142,7 +145,7 @@ Contributors :
 [/if][/for]
 [if (aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.wizards->size() > 0 or aBundle.decorators->size() > 0 or aBundle.views->size() > 0 
 or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.helpContents->size() > 0 or aBundle.categories->size() > 0 or aBundle.commands->size() > 0
-or aBundle.handlers->size() > 0)]
+or aBundle.defaultHandlers->size() > 0 or aBundle.contextualHandlers->size() > 0)]
 [aBundle.genPluginXmlFile()/ ]
 [/if]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]

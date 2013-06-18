@@ -184,6 +184,10 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 				return createHandlerAdapter();
 			}
 			@Override
+			public Adapter caseDefaultHandler(DefaultHandler object) {
+				return createDefaultHandlerAdapter();
+			}
+			@Override
 			public Adapter caseContextualHandler(ContextualHandler object) {
 				return createContextualHandlerAdapter();
 			}
@@ -626,6 +630,20 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHandlerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler <em>Default Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DefaultHandler
+	 * @generated
+	 */
+	public Adapter createDefaultHandlerAdapter() {
 		return null;
 	}
 

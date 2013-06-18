@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
+import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
+import org.obeonetwork.dsl.gen.eclipse.DefaultHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Handler;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,7 +87,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Handler> handlers;
+	protected EList<ContextualHandler> handlers;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
@@ -116,7 +117,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * @generated
 	 * @ordered
 	 */
-	protected Handler defaultHandler;
+	protected DefaultHandler defaultHandler;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,9 +185,9 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Handler> getHandlers() {
+	public EList<ContextualHandler> getHandlers() {
 		if (handlers == null) {
-			handlers = new EObjectWithInverseResolvingEList.ManyInverse<Handler>(Handler.class, this, EclipsePackage.COMMAND__HANDLERS, EclipsePackage.HANDLER__COMMANDS);
+			handlers = new EObjectWithInverseResolvingEList.ManyInverse<ContextualHandler>(ContextualHandler.class, this, EclipsePackage.COMMAND__HANDLERS, EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS);
 		}
 		return handlers;
 	}
@@ -316,10 +317,10 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Handler getDefaultHandler() {
+	public DefaultHandler getDefaultHandler() {
 		if (defaultHandler != null && defaultHandler.eIsProxy()) {
 			InternalEObject oldDefaultHandler = (InternalEObject)defaultHandler;
-			defaultHandler = (Handler)eResolveProxy(oldDefaultHandler);
+			defaultHandler = (DefaultHandler)eResolveProxy(oldDefaultHandler);
 			if (defaultHandler != oldDefaultHandler) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, defaultHandler));
@@ -333,7 +334,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Handler basicGetDefaultHandler() {
+	public DefaultHandler basicGetDefaultHandler() {
 		return defaultHandler;
 	}
 
@@ -342,8 +343,8 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultHandler(Handler newDefaultHandler, NotificationChain msgs) {
-		Handler oldDefaultHandler = defaultHandler;
+	public NotificationChain basicSetDefaultHandler(DefaultHandler newDefaultHandler, NotificationChain msgs) {
+		DefaultHandler oldDefaultHandler = defaultHandler;
 		defaultHandler = newDefaultHandler;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, newDefaultHandler);
@@ -357,13 +358,13 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefaultHandler(Handler newDefaultHandler) {
+	public void setDefaultHandler(DefaultHandler newDefaultHandler) {
 		if (newDefaultHandler != defaultHandler) {
 			NotificationChain msgs = null;
 			if (defaultHandler != null)
-				msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
+				msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
 			if (newDefaultHandler != null)
-				msgs = ((InternalEObject)newDefaultHandler).eInverseAdd(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
+				msgs = ((InternalEObject)newDefaultHandler).eInverseAdd(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
 			msgs = basicSetDefaultHandler(newDefaultHandler, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -392,8 +393,8 @@ public class CommandImpl extends EObjectImpl implements Command {
 				return basicSetBinding((Binding)otherEnd, msgs);
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
 				if (defaultHandler != null)
-					msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.HANDLER__DEFAULT_COMMAND, Handler.class, msgs);
-				return basicSetDefaultHandler((Handler)otherEnd, msgs);
+					msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
+				return basicSetDefaultHandler((DefaultHandler)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -462,7 +463,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 				return;
 			case EclipsePackage.COMMAND__HANDLERS:
 				getHandlers().clear();
-				getHandlers().addAll((Collection<? extends Handler>)newValue);
+				getHandlers().addAll((Collection<? extends ContextualHandler>)newValue);
 				return;
 			case EclipsePackage.COMMAND__CATEGORY:
 				setCategory((Category)newValue);
@@ -471,7 +472,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 				setBinding((Binding)newValue);
 				return;
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
-				setDefaultHandler((Handler)newValue);
+				setDefaultHandler((DefaultHandler)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -501,7 +502,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 				setBinding((Binding)null);
 				return;
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
-				setDefaultHandler((Handler)null);
+				setDefaultHandler((DefaultHandler)null);
 				return;
 		}
 		super.eUnset(featureID);

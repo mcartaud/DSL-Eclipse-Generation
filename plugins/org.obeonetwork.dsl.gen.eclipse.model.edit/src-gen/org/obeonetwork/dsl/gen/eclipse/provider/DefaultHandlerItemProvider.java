@@ -9,8 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,21 +16,18 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.gen.eclipse.DefaultHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Handler;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Handler} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HandlerItemProvider
-	extends ItemProviderAdapter
+public class DefaultHandlerItemProvider
+	extends HandlerItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -45,7 +40,7 @@ public class HandlerItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HandlerItemProvider(AdapterFactory adapterFactory) {
+	public DefaultHandlerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,65 +55,42 @@ public class HandlerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addMnemonicPropertyDescriptor(object);
+			addDefaultCommandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Default Command feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addDefaultCommandPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Handler_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_name_feature", "_UI_Handler_type"),
-				 EclipsePackage.Literals.HANDLER__NAME,
+				 getString("_UI_DefaultHandler_defaultCommand_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefaultHandler_defaultCommand_feature", "_UI_DefaultHandler_type"),
+				 EclipsePackage.Literals.DEFAULT_HANDLER__DEFAULT_COMMAND,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Mnemonic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMnemonicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Handler_mnemonic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_mnemonic_feature", "_UI_Handler_type"),
-				 EclipsePackage.Literals.HANDLER__MNEMONIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Handler.gif.
+	 * This returns DefaultHandler.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Handler"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DefaultHandler"));
 	}
 
 	/**
@@ -129,10 +101,10 @@ public class HandlerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Handler)object).getName();
+		String label = ((DefaultHandler)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Handler_type") :
-			getString("_UI_Handler_type") + " " + label;
+			getString("_UI_DefaultHandler_type") :
+			getString("_UI_DefaultHandler_type") + " " + label;
 	}
 
 	/**
@@ -145,13 +117,6 @@ public class HandlerItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Handler.class)) {
-			case EclipsePackage.HANDLER__NAME:
-			case EclipsePackage.HANDLER__MNEMONIC:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -165,17 +130,6 @@ public class HandlerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return EclipseEditPlugin.INSTANCE;
 	}
 
 }

@@ -68,16 +68,16 @@ Contributors :
          point="org.eclipse.ui.perspectiveExtensions">
 [aBundle.perspectives->select(aPerspective : Perspective | not(aPerspective.views.eContainer(Bundle)=aPerspective.eContainer(Bundle)) or aPerspective.wizards->size() > 0).perspectiveExtensionTemplate()/]
    </extension>
-[/if][comment][if (aBundle.eAllContents(Editor).menus->size() > 0 or aBundle.eAllContents(Editor).handlers->size() > 0)]
-   <extension
-         point = "org.eclipse.core.expressions.definitions">
-[for (anHandler : Handler | aBundle.eAllContents(Editor).eAllContents(Handler))][anHandler.editorActionDefinition()/]
-[/for]
-   </extension>
-[/if][/comment][if (aBundle.contexts->size() > 0)]
+[/if][if (aBundle.contexts->size() > 0)]
    <extension
 		 point="org.eclipse.ui.contexts">
 [for (aContext : Context | aBundle.eAllContents(Context))][aContext.contextDefinition()/]
+[/for]
+   </extension>
+[/if][if (aBundle.popupMenuContributions->size() > 0)]
+   <extension
+		 point="org.eclipse.ui.popupMenus">
+[for (aPopup : PopupMenuContribution | aBundle.popupMenuContributions)][aPopup.popupDefinition()/]
 [/for]
    </extension>
 [/if]
@@ -112,8 +112,9 @@ Contributors :
 [template private commandTemplate(aCommand : Command)]
       <command
             name="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
+[if (aCommand.defaultHandler->size() > 0)]
 			defaultHandler="[aCommand.defaultHandler.genHandlerPath()/]"
-[if (aCommand.category->size() > 0)]
+[/if][if (aCommand.category->size() > 0)]
             categoryId="[aCommand.category.genCategoryID()/]"
 [/if]
             id="[aCommand.genCommandID()/]">
@@ -194,14 +195,6 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
       </editor>
 [/template]
 
-[template private editorActionDefinition(anHandler : Handler)]
-      <definition id="[anHandler.defaultCommand.genDefinitionID()/]">    
-         <with variable="activeEditorId">
-            <equals value="[anHandler.eContainer(Editor).genEditorID()/]"/>
-         </with>
-      </definition>
-[/template]
-
 [template private contextDefinition(aContext : Context)]
 	  <context
 		 name="%Context-[aContext.refactorContextName().toUpperFirst()/]-Name"
@@ -211,4 +204,38 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 	     parentId="[aContext.eContainer(Context).genContextID()/]">
 [/if]
 	  </context>
+[/template]
+
+[template private popupDefinition(aPopup : PopupMenuContribution)]
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="[aPopup.genPopupID()/]">
+[for (aMenu : MenuContribution | aPopup.menus)]
+         <menu
+               label="[aMenu.name/]"
+               path="additions"
+               id="[aMenu.genMenuID()/]">
+            <separator
+                  name="group[aMenu.name.substituteAll(' ', '_')/]">
+            </separator>
+         </menu>
+[for (aCommand : Command | aMenu.commands)]
+         <action
+               label="[aCommand.name/]"
+               class="[aCommand.defaultHandler.genHandlerPath()/]"
+               menubarPath="[aMenu.genMenuID()/]/group[aMenu.name.substituteAll(' ', '_')/]"
+               enablesFor="1"
+               id="[aCommand.genCommandID()/]">
+         </action>
+[/for]
+[/for]
+[for (aCommand : Command | aPopup.commands)]
+         <action
+               label="[aCommand.name/]"
+               class="[aCommand.defaultHandler.genHandlerPath()/]"
+               enablesFor="1"
+               id="[aCommand.genCommandID()/]">
+         </action>
+[/for]
+      </objectContribution>
 [/template]

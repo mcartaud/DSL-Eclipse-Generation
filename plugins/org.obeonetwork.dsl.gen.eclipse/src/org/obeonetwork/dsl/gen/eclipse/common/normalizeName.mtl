@@ -158,6 +158,14 @@ Contributors :
 [aCommand.name.substituteAll(' ', '_')/]
 [/template]
 
+[template public genPopupID(aPopup : PopupMenuContribution)]
+[aPopup.eContainer(Bundle).genBundleID()/].popup-id.[aPopup.refactorPopupName().toLowerFirst()/]
+[/template]
+
+[template private refactorPopupName(aPopup : PopupMenuContribution)]
+[aPopup.name.substituteAll(' ', '_')/]
+[/template]
+
 [template public genHandlerPath(anHandler : Handler)]
 [anHandler.eContainer(Bundle).genBundleID()/].handlers.[anHandler.refactorHandlerName().toUpperFirst()/]
 [/template]

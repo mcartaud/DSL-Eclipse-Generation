@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers <em>Handlers</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultHandlers <em>Default Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBindings <em>Bindings</em>}</li>
@@ -39,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMenuContributions <em>Menu Contributions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getToolbarContributions <em>Toolbar Contributions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPopupMenuContributions <em>Popup Menu Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContextualHandlers <em>Contextual Handlers</em>}</li>
  * </ul>
  * </p>
  *
@@ -338,20 +339,20 @@ public interface Bundle extends Project {
 	EList<Command> getCommands();
 
 	/**
-	 * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Handler}.
+	 * Returns the value of the '<em><b>Default Handlers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Handlers</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Default Handlers</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handlers</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Handlers()
+	 * @return the value of the '<em>Default Handlers</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_DefaultHandlers()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Handler> getHandlers();
+	EList<DefaultHandler> getDefaultHandlers();
 
 	/**
 	 * Returns the value of the '<em><b>Contexts</b></em>' containment reference list.
@@ -493,5 +494,21 @@ public interface Bundle extends Project {
 	 * @generated
 	 */
 	EList<PopupMenuContribution> getPopupMenuContributions();
+
+	/**
+	 * Returns the value of the '<em><b>Contextual Handlers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contextual Handlers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contextual Handlers</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ContextualHandlers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ContextualHandler> getContextualHandlers();
 
 } // Bundle

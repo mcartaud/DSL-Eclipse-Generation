@@ -86,6 +86,7 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 			case EclipsePackage.TOOLBAR_CONTRIBUTION: return createToolbarContribution();
 			case EclipsePackage.POPUP_MENU_CONTRIBUTION: return createPopupMenuContribution();
 			case EclipsePackage.HANDLER: return createHandler();
+			case EclipsePackage.DEFAULT_HANDLER: return createDefaultHandler();
 			case EclipsePackage.CONTEXTUAL_HANDLER: return createContextualHandler();
 			case EclipsePackage.HELP_CONTENTS: return createHelpContents();
 			case EclipsePackage.HELP_PAGE: return createHelpPage();
@@ -426,6 +427,16 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	public Handler createHandler() {
 		HandlerImpl handler = new HandlerImpl();
 		return handler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DefaultHandler createDefaultHandler() {
+		DefaultHandlerImpl defaultHandler = new DefaultHandlerImpl();
+		return defaultHandler;
 	}
 
 	/**

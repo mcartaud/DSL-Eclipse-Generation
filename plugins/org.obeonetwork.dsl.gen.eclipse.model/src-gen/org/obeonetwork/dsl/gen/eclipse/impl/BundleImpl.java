@@ -21,12 +21,13 @@ import org.obeonetwork.dsl.gen.eclipse.Bundle;
 import org.obeonetwork.dsl.gen.eclipse.Category;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.Context;
+import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
+import org.obeonetwork.dsl.gen.eclipse.DefaultHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
-import org.obeonetwork.dsl.gen.eclipse.Handler;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
@@ -62,7 +63,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHandlers <em>Handlers</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDefaultHandlers <em>Default Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
@@ -71,6 +72,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMenuContributions <em>Menu Contributions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getToolbarContributions <em>Toolbar Contributions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPopupMenuContributions <em>Popup Menu Contributions</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContextualHandlers <em>Contextual Handlers</em>}</li>
  * </ul>
  * </p>
  *
@@ -268,14 +270,14 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	protected EList<Command> commands;
 
 	/**
-	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
+	 * The cached value of the '{@link #getDefaultHandlers() <em>Default Handlers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHandlers()
+	 * @see #getDefaultHandlers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Handler> handlers;
+	protected EList<DefaultHandler> defaultHandlers;
 
 	/**
 	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
@@ -366,6 +368,16 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @ordered
 	 */
 	protected EList<PopupMenuContribution> popupMenuContributions;
+
+	/**
+	 * The cached value of the '{@link #getContextualHandlers() <em>Contextual Handlers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextualHandlers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContextualHandler> contextualHandlers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -610,11 +622,11 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Handler> getHandlers() {
-		if (handlers == null) {
-			handlers = new EObjectContainmentEList<Handler>(Handler.class, this, EclipsePackage.BUNDLE__HANDLERS);
+	public EList<DefaultHandler> getDefaultHandlers() {
+		if (defaultHandlers == null) {
+			defaultHandlers = new EObjectContainmentEList<DefaultHandler>(DefaultHandler.class, this, EclipsePackage.BUNDLE__DEFAULT_HANDLERS);
 		}
-		return handlers;
+		return defaultHandlers;
 	}
 
 	/**
@@ -727,6 +739,18 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ContextualHandler> getContextualHandlers() {
+		if (contextualHandlers == null) {
+			contextualHandlers = new EObjectContainmentEList<ContextualHandler>(ContextualHandler.class, this, EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS);
+		}
+		return contextualHandlers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -756,8 +780,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getHelpContents()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.BUNDLE__HANDLERS:
-				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
+				return ((InternalEList<?>)getDefaultHandlers()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__CATEGORIES:
@@ -770,6 +794,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getToolbarContributions()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				return ((InternalEList<?>)getPopupMenuContributions()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
+				return ((InternalEList<?>)getContextualHandlers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -814,8 +840,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getHelpContents();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return getCommands();
-			case EclipsePackage.BUNDLE__HANDLERS:
-				return getHandlers();
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
+				return getDefaultHandlers();
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return getContexts();
 			case EclipsePackage.BUNDLE__CATEGORIES:
@@ -832,6 +858,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getToolbarContributions();
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				return getPopupMenuContributions();
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
+				return getContextualHandlers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -906,9 +934,9 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				getCommands().clear();
 				getCommands().addAll((Collection<? extends Command>)newValue);
 				return;
-			case EclipsePackage.BUNDLE__HANDLERS:
-				getHandlers().clear();
-				getHandlers().addAll((Collection<? extends Handler>)newValue);
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
+				getDefaultHandlers().clear();
+				getDefaultHandlers().addAll((Collection<? extends DefaultHandler>)newValue);
 				return;
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				getContexts().clear();
@@ -940,6 +968,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				getPopupMenuContributions().clear();
 				getPopupMenuContributions().addAll((Collection<? extends PopupMenuContribution>)newValue);
+				return;
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
+				getContextualHandlers().clear();
+				getContextualHandlers().addAll((Collection<? extends ContextualHandler>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1001,8 +1033,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__COMMANDS:
 				getCommands().clear();
 				return;
-			case EclipsePackage.BUNDLE__HANDLERS:
-				getHandlers().clear();
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
+				getDefaultHandlers().clear();
 				return;
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				getContexts().clear();
@@ -1027,6 +1059,9 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return;
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				getPopupMenuContributions().clear();
+				return;
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
+				getContextualHandlers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1072,8 +1107,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return helpContents != null && !helpContents.isEmpty();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return commands != null && !commands.isEmpty();
-			case EclipsePackage.BUNDLE__HANDLERS:
-				return handlers != null && !handlers.isEmpty();
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
+				return defaultHandlers != null && !defaultHandlers.isEmpty();
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return contexts != null && !contexts.isEmpty();
 			case EclipsePackage.BUNDLE__CATEGORIES:
@@ -1090,6 +1125,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return toolbarContributions != null && !toolbarContributions.isEmpty();
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
 				return popupMenuContributions != null && !popupMenuContributions.isEmpty();
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
+				return contextualHandlers != null && !contextualHandlers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

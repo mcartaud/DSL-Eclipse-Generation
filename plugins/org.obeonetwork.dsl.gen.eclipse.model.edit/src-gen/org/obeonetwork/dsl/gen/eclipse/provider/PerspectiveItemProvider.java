@@ -211,6 +211,11 @@ public class PerspectiveItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
+				 EclipseFactory.eINSTANCE.createDefaultHandler()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
 				 EclipseFactory.eINSTANCE.createContextualHandler()));
 
 		newChildDescriptors.add

@@ -156,10 +156,10 @@ Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic = [aMenu.mnemonic/]
 [/if][/for]
 
 #User information for the Action's mnemonic
-[for (anHandler : Handler | aBundle.handlers)]
+[for (anHandler : DefaultHandler | aBundle.defaultHandlers)]
 Command-[anHandler.defaultCommand.refactorCommandName().toUpperFirst()/]-Mnemonic = [anHandler.mnemonic/]
-[for (aCommand : Command | anHandler.commands)]
+[for (anHandler : ContextualHandler | aBundle.contextualHandlers)][for (aCommand : Command | anHandler.commands)]
 Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic = [anHandler.mnemonic/]
-[/for]
+[/for][/for]
 [/for]
 [/template]

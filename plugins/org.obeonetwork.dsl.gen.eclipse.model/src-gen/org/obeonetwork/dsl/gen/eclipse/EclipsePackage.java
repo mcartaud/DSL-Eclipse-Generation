@@ -596,13 +596,13 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__COMMANDS = PROJECT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Default Handlers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__HANDLERS = PROJECT_FEATURE_COUNT + 16;
+	int BUNDLE__DEFAULT_HANDLERS = PROJECT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -677,13 +677,22 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__POPUP_MENU_CONTRIBUTIONS = PROJECT_FEATURE_COUNT + 24;
 
 	/**
+	 * The feature id for the '<em><b>Contextual Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__CONTEXTUAL_HANDLERS = PROJECT_FEATURE_COUNT + 25;
+
+	/**
 	 * The number of structural features of the '<em>Bundle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 25;
+	int BUNDLE_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 26;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -1815,13 +1824,22 @@ public interface EclipsePackage extends EPackage {
 	int POPUP_MENU_CONTRIBUTION__MENUS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Popup Menu Contribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPUP_MENU_CONTRIBUTION_FEATURE_COUNT = 2;
+	int POPUP_MENU_CONTRIBUTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
@@ -1852,31 +1870,59 @@ public interface EclipsePackage extends EPackage {
 	int HANDLER__MNEMONIC = 1;
 
 	/**
-	 * The feature id for the '<em><b>Default Command</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HANDLER__DEFAULT_COMMAND = 2;
-
-	/**
-	 * The feature id for the '<em><b>Commands</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HANDLER__COMMANDS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HANDLER_FEATURE_COUNT = 4;
+	int HANDLER_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DefaultHandlerImpl <em>Default Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.DefaultHandlerImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDefaultHandler()
+	 * @generated
+	 */
+	int DEFAULT_HANDLER = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_HANDLER__NAME = HANDLER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Mnemonic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_HANDLER__MNEMONIC = HANDLER__MNEMONIC;
+
+	/**
+	 * The feature id for the '<em><b>Default Command</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_HANDLER__DEFAULT_COMMAND = HANDLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Default Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_HANDLER_FEATURE_COUNT = HANDLER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl <em>Contextual Handler</em>}' class.
@@ -1886,7 +1932,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHandler()
 	 * @generated
 	 */
-	int CONTEXTUAL_HANDLER = 29;
+	int CONTEXTUAL_HANDLER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1907,22 +1953,13 @@ public interface EclipsePackage extends EPackage {
 	int CONTEXTUAL_HANDLER__MNEMONIC = HANDLER__MNEMONIC;
 
 	/**
-	 * The feature id for the '<em><b>Default Command</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXTUAL_HANDLER__DEFAULT_COMMAND = HANDLER__DEFAULT_COMMAND;
-
-	/**
 	 * The feature id for the '<em><b>Commands</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXTUAL_HANDLER__COMMANDS = HANDLER__COMMANDS;
+	int CONTEXTUAL_HANDLER__COMMANDS = HANDLER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Contextual Handler</em>' class.
@@ -1931,7 +1968,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXTUAL_HANDLER_FEATURE_COUNT = HANDLER_FEATURE_COUNT + 0;
+	int CONTEXTUAL_HANDLER_FEATURE_COUNT = HANDLER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.
@@ -1941,7 +1978,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
 	 * @generated
 	 */
-	int HELP_CONTENTS = 30;
+	int HELP_CONTENTS = 31;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1996,7 +2033,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
 	 * @generated
 	 */
-	int HELP_PAGE = 31;
+	int HELP_PAGE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2051,7 +2088,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
 	 * @generated
 	 */
-	int DYNAMIC_HELP = 32;
+	int DYNAMIC_HELP = 33;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2097,7 +2134,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
 	 * @generated
 	 */
-	int BINDING = 33;
+	int BINDING = 34;
 
 	/**
 	 * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -2143,7 +2180,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
 	 * @generated
 	 */
-	int BASED_ON = 34;
+	int BASED_ON = 35;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.
@@ -2153,7 +2190,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 35;
+	int IMPORT_TYPE = 36;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
@@ -2163,7 +2200,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 36;
+	int JAVA_VERSION = 37;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -2173,7 +2210,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 37;
+	int TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2183,7 +2220,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 38;
+	int LOCATION = 39;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2193,7 +2230,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 39;
+	int VERSION = 40;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2203,7 +2240,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 40;
+	int NAMESPACE = 41;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2213,7 +2250,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 41;
+	int JAVA_NAME = 42;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2223,7 +2260,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 42;
+	int NAME = 43;
 
 
 	/**
@@ -2749,15 +2786,15 @@ public interface EclipsePackage extends EPackage {
 	EReference getBundle_Commands();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers <em>Handlers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultHandlers <em>Default Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Handlers</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getHandlers()
+	 * @return the meta object for the containment reference list '<em>Default Handlers</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultHandlers()
 	 * @see #getBundle()
 	 * @generated
 	 */
-	EReference getBundle_Handlers();
+	EReference getBundle_DefaultHandlers();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContexts <em>Contexts</em>}'.
@@ -2846,6 +2883,17 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBundle_PopupMenuContributions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getContextualHandlers <em>Contextual Handlers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contextual Handlers</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getContextualHandlers()
+	 * @see #getBundle()
+	 * @generated
+	 */
+	EReference getBundle_ContextualHandlers();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DeclarativeService <em>Declarative Service</em>}'.
@@ -3849,6 +3897,17 @@ public interface EclipsePackage extends EPackage {
 	EReference getPopupMenuContribution_Menus();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getName()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EAttribute getPopupMenuContribution_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3881,26 +3940,25 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getHandler_Mnemonic();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand <em>Default Command</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler <em>Default Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Default Handler</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.DefaultHandler
+	 * @generated
+	 */
+	EClass getDefaultHandler();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler#getDefaultCommand <em>Default Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Default Command</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getDefaultCommand()
-	 * @see #getHandler()
+	 * @see org.obeonetwork.dsl.gen.eclipse.DefaultHandler#getDefaultCommand()
+	 * @see #getDefaultHandler()
 	 * @generated
 	 */
-	EReference getHandler_DefaultCommand();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getCommands <em>Commands</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Commands</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Handler#getCommands()
-	 * @see #getHandler()
-	 * @generated
-	 */
-	EReference getHandler_Commands();
+	EReference getDefaultHandler_DefaultCommand();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler <em>Contextual Handler</em>}'.
@@ -3911,6 +3969,17 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContextualHandler();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler#getCommands <em>Commands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Commands</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ContextualHandler#getCommands()
+	 * @see #getContextualHandler()
+	 * @generated
+	 */
+	EReference getContextualHandler_Commands();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.HelpContents <em>Help Contents</em>}'.
@@ -4619,12 +4688,12 @@ public interface EclipsePackage extends EPackage {
 		EReference BUNDLE__COMMANDS = eINSTANCE.getBundle_Commands();
 
 		/**
-		 * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Default Handlers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUNDLE__HANDLERS = eINSTANCE.getBundle_Handlers();
+		EReference BUNDLE__DEFAULT_HANDLERS = eINSTANCE.getBundle_DefaultHandlers();
 
 		/**
 		 * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
@@ -4689,6 +4758,14 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUNDLE__POPUP_MENU_CONTRIBUTIONS = eINSTANCE.getBundle_PopupMenuContributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Contextual Handlers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUNDLE__CONTEXTUAL_HANDLERS = eINSTANCE.getBundle_ContextualHandlers();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DeclarativeServiceImpl <em>Declarative Service</em>}' class.
@@ -5479,6 +5556,14 @@ public interface EclipsePackage extends EPackage {
 		EReference POPUP_MENU_CONTRIBUTION__MENUS = eINSTANCE.getPopupMenuContribution_Menus();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPUP_MENU_CONTRIBUTION__NAME = eINSTANCE.getPopupMenuContribution_Name();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5505,20 +5590,22 @@ public interface EclipsePackage extends EPackage {
 		EAttribute HANDLER__MNEMONIC = eINSTANCE.getHandler_Mnemonic();
 
 		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DefaultHandlerImpl <em>Default Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.DefaultHandlerImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDefaultHandler()
+		 * @generated
+		 */
+		EClass DEFAULT_HANDLER = eINSTANCE.getDefaultHandler();
+
+		/**
 		 * The meta object literal for the '<em><b>Default Command</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference HANDLER__DEFAULT_COMMAND = eINSTANCE.getHandler_DefaultCommand();
-
-		/**
-		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference HANDLER__COMMANDS = eINSTANCE.getHandler_Commands();
+		EReference DEFAULT_HANDLER__DEFAULT_COMMAND = eINSTANCE.getDefaultHandler_DefaultCommand();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl <em>Contextual Handler</em>}' class.
@@ -5529,6 +5616,14 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTEXTUAL_HANDLER = eINSTANCE.getContextualHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Commands</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXTUAL_HANDLER__COMMANDS = eINSTANCE.getContextualHandler_Commands();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HelpContentsImpl <em>Help Contents</em>}' class.

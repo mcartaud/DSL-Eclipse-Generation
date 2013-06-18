@@ -265,6 +265,15 @@ public interface EclipseFactory extends EFactory {
 	Handler createHandler();
 
 	/**
+	 * Returns a new object of class '<em>Default Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Default Handler</em>'.
+	 * @generated
+	 */
+	DefaultHandler createDefaultHandler();
+
+	/**
 	 * Returns a new object of class '<em>Contextual Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

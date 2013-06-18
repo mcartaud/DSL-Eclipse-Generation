@@ -202,13 +202,14 @@ public class BundleItemProvider
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
-			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HANDLERS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DEFAULT_HANDLERS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BINDINGS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MENU_CONTRIBUTIONS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__TOOLBAR_CONTRIBUTIONS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTUAL_HANDLERS);
 		}
 		return childrenFeatures;
 	}
@@ -297,13 +298,14 @@ public class BundleItemProvider
 			case EclipsePackage.BUNDLE__VIEWS:
 			case EclipsePackage.BUNDLE__HELP_CONTENTS:
 			case EclipsePackage.BUNDLE__COMMANDS:
-			case EclipsePackage.BUNDLE__HANDLERS:
+			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
 			case EclipsePackage.BUNDLE__CONTEXTS:
 			case EclipsePackage.BUNDLE__CATEGORIES:
 			case EclipsePackage.BUNDLE__BINDINGS:
 			case EclipsePackage.BUNDLE__MENU_CONTRIBUTIONS:
 			case EclipsePackage.BUNDLE__TOOLBAR_CONTRIBUTIONS:
 			case EclipsePackage.BUNDLE__POPUP_MENU_CONTRIBUTIONS:
+			case EclipsePackage.BUNDLE__CONTEXTUAL_HANDLERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -393,13 +395,8 @@ public class BundleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EclipsePackage.Literals.BUNDLE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createHandler()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.BUNDLE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createContextualHandler()));
+				(EclipsePackage.Literals.BUNDLE__DEFAULT_HANDLERS,
+				 EclipseFactory.eINSTANCE.createDefaultHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -430,6 +427,11 @@ public class BundleItemProvider
 			(createChildParameter
 				(EclipsePackage.Literals.BUNDLE__POPUP_MENU_CONTRIBUTIONS,
 				 EclipseFactory.eINSTANCE.createPopupMenuContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.BUNDLE__CONTEXTUAL_HANDLERS,
+				 EclipseFactory.eINSTANCE.createContextualHandler()));
 	}
 
 }

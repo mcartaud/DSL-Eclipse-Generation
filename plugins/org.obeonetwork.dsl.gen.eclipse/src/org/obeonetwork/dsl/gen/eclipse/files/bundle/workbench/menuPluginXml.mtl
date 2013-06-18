@@ -39,18 +39,9 @@ Contributors :
 [/if][if (aToolbar.perspectives->size() = 0 and aToolbar.editors->size() = 0 and aToolbar.views->size() = 0)]
 [aToolbar.globalToolbarContribution()/]
 [/if]
-[/for][for (aPopup : PopupMenuContribution | aBundle.popupMenuContributions)]
-[aPopup/]
 [/for]
    </extension>
 [/template]
-
-[comment][template private popupMenuContribution(aPopup : PopupMenuContribution)]
-      <menuContribution
-            locationURI="popup:org.eclipse.ui.main.toolbar?after=additions">
-[aToolbar.genToolbarContribution()/]
-      </menuContribution>
-[/template][/comment]
 
 [template private globalToolbarContribution(aToolbar : ToolbarContribution)]
       <menuContribution
@@ -186,9 +177,15 @@ Contributors :
                   icon="icons/[aCommand.iconName()/]"
                   tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].toobars.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (anHandler : Handler | aCommand.defaultHandler)]
+[if (aCommand.defaultHandler->size() > 0)]
+[for (anHandler : DefaultHandler | aCommand.defaultHandler)]
 [anHandler.activateHandler()/]
 [/for]
+[elseif (aCommand.handlers->size() > 0)]
+[for (anHandler : ContextualHandler | aCommand.handlers)]
+[anHandler.activateHandler()/]
+[/for]
+[/if]
             </command>
 [/template]
 
@@ -215,13 +212,19 @@ Contributors :
                   icon="icons/[aCommand.iconName()/]"
 				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
-[for (aHandler : Handler | aCommand.defaultHandler)]
+[if (aCommand.defaultHandler->size() > 0)]
+[for (aHandler : DefaultHandler | aCommand.defaultHandler)]
 [aHandler.activateHandler()/]
 [/for]
+[elseif (aCommand.handlers->size() > 0)]
+[for (aHandler : ContextualHandler | aCommand.handlers)]
+[aHandler.activateHandler()/]
+[/for]
+[/if]
             </command>
 [/template]
 
-[template private activateHandler(aHandler : Handler)]
+[template private activateHandler(aHandler : DefaultHandler)]
 [if (aHandler.defaultCommand.eInverse(MenuContribution)->size() > 0)]
 [aHandler.activateMenuHandler()/]
 [elseif (aHandler.defaultCommand.eInverse(ToolbarContribution)->size() > 0)]
@@ -229,7 +232,15 @@ Contributors :
 [/if]
 [/template]
 
-[template private activateMenuHandler(aHandler : Handler)]
+[template private activateHandler(aHandler : ContextualHandler)]
+[if (aHandler.commands.eInverse(MenuContribution)->size() > 0)]
+[aHandler.activateMenuHandler()/]
+[elseif (aHandler.commands.eInverse(ToolbarContribution)->size() > 0)]
+[aHandler.activateToolbarHandler()/]
+[/if]
+[/template]
+
+[template private activateMenuHandler(aHandler : DefaultHandler)]
             <visibleWhen checkEnabled="false">
 [if (aHandler.defaultCommand.eInverse(MenuContribution).perspectives->size() > 0)]
             	<with variable="activeWorkbenchWindow.activePerspective">
@@ -247,7 +258,7 @@ Contributors :
          	</visibleWhen>
 [/template]
 
-[template private activateToolbarHandler(aHandler : Handler)]
+[template private activateToolbarHandler(aHandler : DefaultHandler)]
             <visibleWhen checkEnabled="false">
 [if (aHandler.defaultCommand.eInverse(ToolbarContribution).perspectives->size() > 0)]
             	<with variable="activeWorkbenchWindow.activePerspective">
@@ -258,6 +269,42 @@ Contributors :
 [/if][if (aHandler.defaultCommand.eInverse(ToolbarContribution).editors->size() > 0)]
             	<with variable="activeWorkbenchWindow.activeEditor">
 [for (anEditor : Editor | aHandler.defaultCommand.eInverse(ToolbarContribution).editors)]
+                	<equals value="[anEditor.genEditorID()/]"/>
+[/for]
+            	</with>
+[/if]
+         	</visibleWhen>
+[/template]
+
+[template private activateMenuHandler(aHandler : ContextualHandler)]
+            <visibleWhen checkEnabled="false">
+[if (aHandler.commands.eInverse(MenuContribution).perspectives->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activePerspective">
+[for (aPerspective : Perspective | aHandler.commands.eInverse(MenuContribution).perspectives)]
+                	<equals value="[aPerspective.genPerspectiveID()/]"/>
+[/for]
+            	</with>
+[/if][if (aHandler.commands.eInverse(MenuContribution).editors->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activeEditor">
+[for (anEditor : Editor | aHandler.commands.eInverse(MenuContribution).editors)]
+                	<equals value="[anEditor.genEditorID()/]"/>
+[/for]
+            	</with>
+[/if]
+         	</visibleWhen>
+[/template]
+
+[template private activateToolbarHandler(aHandler : ContextualHandler)]
+            <visibleWhen checkEnabled="false">
+[if (aHandler.commands.eInverse(ToolbarContribution).perspectives->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activePerspective">
+[for (aPerspective : Perspective | aHandler.commands.eInverse(ToolbarContribution).perspectives)]
+                	<equals value="[aPerspective.genPerspectiveID()/]"/>
+[/for]
+            	</with>
+[/if][if (aHandler.commands.eInverse(ToolbarContribution).editors->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activeEditor">
+[for (anEditor : Editor | aHandler.commands.eInverse(ToolbarContribution).editors)]
                 	<equals value="[anEditor.genEditorID()/]"/>
 [/for]
             	</with>

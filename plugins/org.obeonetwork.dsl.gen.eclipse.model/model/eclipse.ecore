@@ -100,8 +100,8 @@
         eType="#//HelpContents" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
-        eType="#//Handler" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandlers" upperBound="-1"
+        eType="#//DefaultHandler" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//Context" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
@@ -117,6 +117,8 @@
         eType="#//ToolbarContribution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="popupMenuContributions"
         upperBound="-1" eType="#//PopupMenuContribution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextualHandlers" upperBound="-1"
+        eType="#//ContextualHandler" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarativeService">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceClassName" unique="false"
@@ -258,13 +260,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
-        eType="#//Handler" eOpposite="#//Handler/commands"/>
+        eType="#//ContextualHandler" eOpposite="#//ContextualHandler/commands"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//Category"
         eOpposite="#//Category/commands"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
         eOpposite="#//Binding/command"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandler" lowerBound="1"
-        eType="#//Handler" eOpposite="#//Handler/defaultCommand"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandler" eType="#//DefaultHandler"
+        eOpposite="#//DefaultHandler/defaultCommand"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuContribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
@@ -296,18 +298,22 @@
         eType="#//Command"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
         eType="#//MenuContribution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Handler">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mnemonic" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EChar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultHandler" eSuperTypes="#//Handler">
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCommand" lowerBound="1"
         eType="#//Command" eOpposite="#//Command/defaultHandler"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
-        eType="#//Command" eOpposite="#//Command/handlers"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContextualHandler" eSuperTypes="#//Handler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextualHandler" eSuperTypes="#//Handler">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" lowerBound="1"
+        upperBound="-1" eType="#//Command" eOpposite="#//Command/handlers"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HelpContents">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" unique="false" lowerBound="1"
         eType="#//Name"/>

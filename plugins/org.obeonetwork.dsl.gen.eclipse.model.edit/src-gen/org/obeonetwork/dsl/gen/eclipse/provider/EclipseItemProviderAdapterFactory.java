@@ -693,6 +693,29 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DefaultHandlerItemProvider defaultHandlerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.DefaultHandler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDefaultHandlerAdapter() {
+		if (defaultHandlerItemProvider == null) {
+			defaultHandlerItemProvider = new DefaultHandlerItemProvider(this);
+		}
+
+		return defaultHandlerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -933,6 +956,7 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 		if (toolbarContributionItemProvider != null) toolbarContributionItemProvider.dispose();
 		if (popupMenuContributionItemProvider != null) popupMenuContributionItemProvider.dispose();
 		if (handlerItemProvider != null) handlerItemProvider.dispose();
+		if (defaultHandlerItemProvider != null) defaultHandlerItemProvider.dispose();
 		if (contextualHandlerItemProvider != null) contextualHandlerItemProvider.dispose();
 		if (helpContentsItemProvider != null) helpContentsItemProvider.dispose();
 		if (helpPageItemProvider != null) helpPageItemProvider.dispose();
