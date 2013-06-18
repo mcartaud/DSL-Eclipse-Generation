@@ -224,15 +224,16 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
                label="[aCommand.name/]"
                class="[aCommand.defaultHandler.genHandlerPath()/]"
                menubarPath="[aMenu.genMenuID()/]/group[aMenu.name.substituteAll(' ', '_')/]"
+			   icon="icons/[aCommand.iconName()/]"
                enablesFor="1"
                id="[aCommand.genCommandID()/]">
          </action>
-[/for]
-[/for]
+[/for][/for]
 [for (aCommand : Command | aPopup.commands)]
          <action
                label="[aCommand.name/]"
                class="[aCommand.defaultHandler.genHandlerPath()/]"
+			   icon="icons/[aCommand.iconName()/]"
                enablesFor="1"
                id="[aCommand.genCommandID()/]">
          </action>

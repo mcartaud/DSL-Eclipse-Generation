@@ -195,9 +195,9 @@ Contributors :
                label="[aMenu.name/]"
                mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
                id="[aMenu.genMenuID()/]">
-[/if][for (aCommand : Command | aMenu.commands)]
+[/if][if (aMenu.eInverse(MenuContribution)->size() = 0)][for (aCommand : Command | aMenu.commands)]
 [aCommand.genMenuCommand()/]
-[/for]
+[/for][/if]
 [for (aSecondMenu : MenuContribution | aMenu.menuContributions)]
 [aSecondMenu.genMenuContribution()/]
 [/for]
