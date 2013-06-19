@@ -61,7 +61,6 @@ public class HandlerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addMnemonicPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,28 +83,6 @@ public class HandlerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Mnemonic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMnemonicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Handler_mnemonic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Handler_mnemonic_feature", "_UI_Handler_type"),
-				 EclipsePackage.Literals.HANDLER__MNEMONIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -148,7 +125,6 @@ public class HandlerItemProvider
 
 		switch (notification.getFeatureID(Handler.class)) {
 			case EclipsePackage.HANDLER__NAME:
-			case EclipsePackage.HANDLER__MNEMONIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

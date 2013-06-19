@@ -125,7 +125,6 @@ public class PerspectiveItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__HANDLERS);
 			childrenFeatures.add(EclipsePackage.Literals.PERSPECTIVE__WIZARDS);
 		}
 		return childrenFeatures;
@@ -184,7 +183,6 @@ public class PerspectiveItemProvider
 			case EclipsePackage.PERSPECTIVE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EclipsePackage.PERSPECTIVE__HANDLERS:
 			case EclipsePackage.PERSPECTIVE__WIZARDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -202,21 +200,6 @@ public class PerspectiveItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createHandler()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createDefaultHandler()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.PERSPECTIVE__HANDLERS,
-				 EclipseFactory.eINSTANCE.createContextualHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter

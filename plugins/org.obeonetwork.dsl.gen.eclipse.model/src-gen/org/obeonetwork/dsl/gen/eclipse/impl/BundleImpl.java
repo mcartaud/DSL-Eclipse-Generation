@@ -24,7 +24,6 @@ import org.obeonetwork.dsl.gen.eclipse.Context;
 import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
-import org.obeonetwork.dsl.gen.eclipse.DefaultHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
 import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
@@ -63,7 +62,6 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getHelpContents <em>Help Contents</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDefaultHandlers <em>Default Handlers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getContexts <em>Contexts</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getCategories <em>Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBindings <em>Bindings</em>}</li>
@@ -268,16 +266,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * @ordered
 	 */
 	protected EList<Command> commands;
-
-	/**
-	 * The cached value of the '{@link #getDefaultHandlers() <em>Default Handlers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefaultHandlers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DefaultHandler> defaultHandlers;
 
 	/**
 	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
@@ -622,18 +610,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DefaultHandler> getDefaultHandlers() {
-		if (defaultHandlers == null) {
-			defaultHandlers = new EObjectContainmentEList<DefaultHandler>(DefaultHandler.class, this, EclipsePackage.BUNDLE__DEFAULT_HANDLERS);
-		}
-		return defaultHandlers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Context> getContexts() {
 		if (contexts == null) {
 			contexts = new EObjectContainmentEList<Context>(Context.class, this, EclipsePackage.BUNDLE__CONTEXTS);
@@ -780,8 +756,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getHelpContents()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
-				return ((InternalEList<?>)getDefaultHandlers()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__CATEGORIES:
@@ -840,8 +814,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getHelpContents();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return getCommands();
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
-				return getDefaultHandlers();
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return getContexts();
 			case EclipsePackage.BUNDLE__CATEGORIES:
@@ -933,10 +905,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__COMMANDS:
 				getCommands().clear();
 				getCommands().addAll((Collection<? extends Command>)newValue);
-				return;
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
-				getDefaultHandlers().clear();
-				getDefaultHandlers().addAll((Collection<? extends DefaultHandler>)newValue);
 				return;
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				getContexts().clear();
@@ -1033,9 +1001,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__COMMANDS:
 				getCommands().clear();
 				return;
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
-				getDefaultHandlers().clear();
-				return;
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				getContexts().clear();
 				return;
@@ -1107,8 +1072,6 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return helpContents != null && !helpContents.isEmpty();
 			case EclipsePackage.BUNDLE__COMMANDS:
 				return commands != null && !commands.isEmpty();
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
-				return defaultHandlers != null && !defaultHandlers.isEmpty();
 			case EclipsePackage.BUNDLE__CONTEXTS:
 				return contexts != null && !contexts.isEmpty();
 			case EclipsePackage.BUNDLE__CATEGORIES:

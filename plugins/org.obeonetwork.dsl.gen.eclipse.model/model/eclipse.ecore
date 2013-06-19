@@ -100,8 +100,6 @@
         eType="#//HelpContents" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandlers" upperBound="-1"
-        eType="#//DefaultHandler" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//Context" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
@@ -217,8 +215,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Perspective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
-        eType="#//Handler" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wizards" upperBound="-1"
         eType="#//Wizard" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
@@ -266,7 +262,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
         eOpposite="#//Binding/command"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultHandler" eType="#//DefaultHandler"
-        eOpposite="#//DefaultHandler/defaultCommand"/>
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mnemonic" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EChar"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuContribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
@@ -303,16 +300,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Handler">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mnemonic" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EChar"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefaultHandler" eSuperTypes="#//Handler">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCommand" lowerBound="1"
-        eType="#//Command" eOpposite="#//Command/defaultHandler"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultHandler" eSuperTypes="#//Handler"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContextualHandler" eSuperTypes="#//Handler">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" lowerBound="1"
         upperBound="-1" eType="#//Command" eOpposite="#//Command/handlers"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activateWith" unique="false"
+        eType="#//Activation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associatedWith" upperBound="-1"
+        eType="#//Part"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HelpContents">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" unique="false" lowerBound="1"
@@ -357,6 +353,11 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ImportType">
     <eLiterals name="Package"/>
     <eLiterals name="Bundle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Activation">
+    <eLiterals name="EObject"/>
+    <eLiterals name="String"/>
+    <eLiterals name="EcoreFile"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JavaVersion">
     <eLiterals name="JavaSE15" literal="JavaSE15"/>

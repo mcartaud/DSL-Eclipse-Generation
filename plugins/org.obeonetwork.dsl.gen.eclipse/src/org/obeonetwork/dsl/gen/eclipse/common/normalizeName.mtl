@@ -147,7 +147,7 @@ Contributors :
 [/template]
 
 [template public refactorPerspectiveName(aPerspective : Perspective)]
-[aPerspective.name.substituteAll(' ', '_')/]
+[aPerspective.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genCommandID(aCommand : Command)]
@@ -155,7 +155,7 @@ Contributors :
 [/template]
 
 [template public refactorCommandName(aCommand : Command)]
-[aCommand.name.substituteAll(' ', '_')/]
+[aCommand.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genPopupID(aPopup : PopupMenuContribution)]
@@ -163,15 +163,23 @@ Contributors :
 [/template]
 
 [template private refactorPopupName(aPopup : PopupMenuContribution)]
-[aPopup.name.substituteAll(' ', '_')/]
+[aPopup.name.replaceAll(' ', '_')/]
 [/template]
 
-[template public genHandlerPath(anHandler : Handler)]
+[template public genHandlerPath(anHandler : DefaultHandler)]
 [anHandler.eContainer(Bundle).genBundleID()/].handlers.[anHandler.refactorHandlerName().toUpperFirst()/]
 [/template]
 
-[template public refactorHandlerName(anHandler : Handler)]
-[anHandler.name.substituteAll(' ', '_')/]
+[template public genHandlerPath(anHandler : ContextualHandler)]
+[anHandler.eContainer(Bundle).genBundleID()/].handlers.[anHandler.refactorHandlerName().toUpperFirst()/]
+[/template]
+
+[template public refactorHandlerName(anHandler : DefaultHandler)]
+[anHandler.name.replaceAll(' ', '_')/]
+[/template]
+
+[template public refactorHandlerName(anHandler : ContextualHandler)]
+[anHandler.name.replaceAll(' ', '_')/]
 [/template]
 
 [template public genViewID(aView : View)]
@@ -196,6 +204,10 @@ Contributors :
 
 [template public genEditorPath(anEditor : Editor)]
 [anEditor.eContainer(Bundle).genBundleID()/].editors.[anEditor.refactorEditorName().toUpperFirst()/]
+[/template]
+
+[template public genMenuEditorID(anEditor : Editor)]
+[anEditor.eContainer(Bundle).genBundleID()/].menuEditor-id.[anEditor.refactorEditorName().toLowerFirst()/]
 [/template]
 
 [template public refactorEditorName(anEditor : Editor)]
@@ -274,6 +286,10 @@ Wizard-[aWizard.refactorWizardName().toUpperFirst()/]-Icon.gif
 
 [template public iconName(aPerspective : Perspective)]
 Perspective-[aPerspective.refactorPerspectiveName().toUpperFirst()/]-Icon.gif
+[/template]
+
+[template public iconName(aMenu : MenuContribution)]
+Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Icon.gif
 [/template]
 
 [template public iconName(aCommand : Command)]

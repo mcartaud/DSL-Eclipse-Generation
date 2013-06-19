@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.obeonetwork.dsl.gen.eclipse.Activation;
 import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.BasedOn;
@@ -319,6 +320,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EEnum importTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum activationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -870,7 +878,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_DefaultHandlers() {
+	public EReference getBundle_Contexts() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -879,7 +887,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Contexts() {
+	public EReference getBundle_Categories() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -888,7 +896,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Categories() {
+	public EReference getBundle_Bindings() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -897,7 +905,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_Bindings() {
+	public EReference getBundle_ExportedPackages() {
 		return (EReference)bundleEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -906,17 +914,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBundle_ExportedPackages() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBundle_BasedOn() {
-		return (EAttribute)bundleEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)bundleEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -925,7 +924,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getBundle_MenuContributions() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(22);
+		return (EReference)bundleEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -934,7 +933,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getBundle_ToolbarContributions() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(23);
+		return (EReference)bundleEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -943,7 +942,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getBundle_PopupMenuContributions() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(24);
+		return (EReference)bundleEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -952,7 +951,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	public EReference getBundle_ContextualHandlers() {
-		return (EReference)bundleEClass.getEStructuralFeatures().get(25);
+		return (EReference)bundleEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -1419,7 +1418,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerspective_Handlers() {
+	public EReference getPerspective_Wizards() {
 		return (EReference)perspectiveEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1428,17 +1427,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerspective_Wizards() {
-		return (EReference)perspectiveEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getPerspective_Views() {
-		return (EReference)perspectiveEClass.getEStructuralFeatures().get(3);
+		return (EReference)perspectiveEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1644,6 +1634,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCommand_Mnemonic() {
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMenuContribution() {
 		return menuContributionEClass;
 	}
@@ -1824,26 +1823,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHandler_Mnemonic() {
-		return (EAttribute)handlerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDefaultHandler() {
 		return defaultHandlerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDefaultHandler_DefaultCommand() {
-		return (EReference)defaultHandlerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1862,6 +1843,24 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 */
 	public EReference getContextualHandler_Commands() {
 		return (EReference)contextualHandlerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContextualHandler_ActivateWith() {
+		return (EAttribute)contextualHandlerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContextualHandler_AssociatedWith() {
+		return (EReference)contextualHandlerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2049,6 +2048,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getActivation() {
+		return activationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJavaVersion() {
 		return javaVersionEEnum;
 	}
@@ -2188,7 +2196,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bundleEClass, BUNDLE__VIEWS);
 		createEReference(bundleEClass, BUNDLE__HELP_CONTENTS);
 		createEReference(bundleEClass, BUNDLE__COMMANDS);
-		createEReference(bundleEClass, BUNDLE__DEFAULT_HANDLERS);
 		createEReference(bundleEClass, BUNDLE__CONTEXTS);
 		createEReference(bundleEClass, BUNDLE__CATEGORIES);
 		createEReference(bundleEClass, BUNDLE__BINDINGS);
@@ -2263,7 +2270,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		perspectiveEClass = createEClass(PERSPECTIVE);
 		createEAttribute(perspectiveEClass, PERSPECTIVE__NAME);
-		createEReference(perspectiveEClass, PERSPECTIVE__HANDLERS);
 		createEReference(perspectiveEClass, PERSPECTIVE__WIZARDS);
 		createEReference(perspectiveEClass, PERSPECTIVE__VIEWS);
 
@@ -2293,6 +2299,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(commandEClass, COMMAND__CATEGORY);
 		createEReference(commandEClass, COMMAND__BINDING);
 		createEReference(commandEClass, COMMAND__DEFAULT_HANDLER);
+		createEAttribute(commandEClass, COMMAND__MNEMONIC);
 
 		menuContributionEClass = createEClass(MENU_CONTRIBUTION);
 		createEAttribute(menuContributionEClass, MENU_CONTRIBUTION__NAME);
@@ -2317,13 +2324,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		handlerEClass = createEClass(HANDLER);
 		createEAttribute(handlerEClass, HANDLER__NAME);
-		createEAttribute(handlerEClass, HANDLER__MNEMONIC);
 
 		defaultHandlerEClass = createEClass(DEFAULT_HANDLER);
-		createEReference(defaultHandlerEClass, DEFAULT_HANDLER__DEFAULT_COMMAND);
 
 		contextualHandlerEClass = createEClass(CONTEXTUAL_HANDLER);
 		createEReference(contextualHandlerEClass, CONTEXTUAL_HANDLER__COMMANDS);
+		createEAttribute(contextualHandlerEClass, CONTEXTUAL_HANDLER__ACTIVATE_WITH);
+		createEReference(contextualHandlerEClass, CONTEXTUAL_HANDLER__ASSOCIATED_WITH);
 
 		helpContentsEClass = createEClass(HELP_CONTENTS);
 		createEAttribute(helpContentsEClass, HELP_CONTENTS__LABEL);
@@ -2350,6 +2357,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		// Create enums
 		basedOnEEnum = createEEnum(BASED_ON);
 		importTypeEEnum = createEEnum(IMPORT_TYPE);
+		activationEEnum = createEEnum(ACTIVATION);
 		javaVersionEEnum = createEEnum(JAVA_VERSION);
 		typeEEnum = createEEnum(TYPE);
 		locationEEnum = createEEnum(LOCATION);
@@ -2456,7 +2464,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getBundle_Views(), this.getView(), null, "views", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_HelpContents(), this.getHelpContents(), null, "helpContents", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Commands(), this.getCommand(), null, "commands", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBundle_DefaultHandlers(), this.getDefaultHandler(), null, "defaultHandlers", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Contexts(), this.getContext(), null, "contexts", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Categories(), this.getCategory(), null, "categories", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBundle_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Bundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2531,7 +2538,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(perspectiveEClass, Perspective.class, "Perspective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerspective_Name(), this.getName_(), "name", null, 1, 1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerspective_Handlers(), this.getHandler(), null, "handlers", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerspective_Wizards(), this.getWizard(), null, "wizards", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerspective_Views(), this.getView(), this.getView_Perspectives(), "views", null, 0, -1, Perspective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2560,7 +2566,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getCommand_Handlers(), this.getContextualHandler(), this.getContextualHandler_Commands(), "handlers", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Category(), this.getCategory(), this.getCategory_Commands(), "category", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Binding(), this.getBinding(), this.getBinding_Command(), "binding", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommand_DefaultHandler(), this.getDefaultHandler(), this.getDefaultHandler_DefaultCommand(), "defaultHandler", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommand_DefaultHandler(), this.getDefaultHandler(), null, "defaultHandler", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommand_Mnemonic(), theEcorePackage.getEChar(), "mnemonic", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(menuContributionEClass, MenuContribution.class, "MenuContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMenuContribution_Name(), this.getName_(), "name", null, 0, 1, MenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2585,13 +2592,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHandler_Mnemonic(), theEcorePackage.getEChar(), "mnemonic", null, 0, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defaultHandlerEClass, DefaultHandler.class, "DefaultHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDefaultHandler_DefaultCommand(), this.getCommand(), this.getCommand_DefaultHandler(), "defaultCommand", null, 1, 1, DefaultHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextualHandlerEClass, ContextualHandler.class, "ContextualHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextualHandler_Commands(), this.getCommand(), this.getCommand_Handlers(), "commands", null, 1, -1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContextualHandler_ActivateWith(), this.getActivation(), "activateWith", null, 0, 1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContextualHandler_AssociatedWith(), this.getPart(), null, "associatedWith", null, 0, -1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHelpContents_Label(), this.getName_(), "label", null, 1, 1, HelpContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2623,6 +2630,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEEnum(importTypeEEnum, ImportType.class, "ImportType");
 		addEEnumLiteral(importTypeEEnum, ImportType.PACKAGE);
 		addEEnumLiteral(importTypeEEnum, ImportType.BUNDLE);
+
+		initEEnum(activationEEnum, Activation.class, "Activation");
+		addEEnumLiteral(activationEEnum, Activation.EOBJECT);
+		addEEnumLiteral(activationEEnum, Activation.JAVA_CLASS);
+		addEEnumLiteral(activationEEnum, Activation.ECORE_FILE);
 
 		initEEnum(javaVersionEEnum, JavaVersion.class, "JavaVersion");
 		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE15);

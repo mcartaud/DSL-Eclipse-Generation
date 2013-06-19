@@ -17,6 +17,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 
@@ -56,6 +58,8 @@ public class ContextualHandlerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCommandsPropertyDescriptor(object);
+			addActivateWithPropertyDescriptor(object);
+			addAssociatedWithPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +78,50 @@ public class ContextualHandlerItemProvider
 				 getString("_UI_ContextualHandler_commands_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ContextualHandler_commands_feature", "_UI_ContextualHandler_type"),
 				 EclipsePackage.Literals.CONTEXTUAL_HANDLER__COMMANDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activate With feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivateWithPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContextualHandler_activateWith_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContextualHandler_activateWith_feature", "_UI_ContextualHandler_type"),
+				 EclipsePackage.Literals.CONTEXTUAL_HANDLER__ACTIVATE_WITH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Associated With feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociatedWithPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContextualHandler_associatedWith_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContextualHandler_associatedWith_feature", "_UI_ContextualHandler_type"),
+				 EclipsePackage.Literals.CONTEXTUAL_HANDLER__ASSOCIATED_WITH,
 				 true,
 				 false,
 				 true,
@@ -117,6 +165,12 @@ public class ContextualHandlerItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ContextualHandler.class)) {
+			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

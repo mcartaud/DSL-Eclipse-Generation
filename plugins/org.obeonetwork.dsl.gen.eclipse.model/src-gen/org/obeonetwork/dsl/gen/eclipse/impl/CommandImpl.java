@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getDefaultHandler <em>Default Handler</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl#getMnemonic <em>Mnemonic</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,7 +111,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	protected Binding binding;
 
 	/**
-	 * The cached value of the '{@link #getDefaultHandler() <em>Default Handler</em>}' reference.
+	 * The cached value of the '{@link #getDefaultHandler() <em>Default Handler</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDefaultHandler()
@@ -118,6 +119,26 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * @ordered
 	 */
 	protected DefaultHandler defaultHandler;
+
+	/**
+	 * The default value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMnemonic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final char MNEMONIC_EDEFAULT = '\u0000';
+
+	/**
+	 * The cached value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMnemonic()
+	 * @generated
+	 * @ordered
+	 */
+	protected char mnemonic = MNEMONIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,23 +339,6 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * @generated
 	 */
 	public DefaultHandler getDefaultHandler() {
-		if (defaultHandler != null && defaultHandler.eIsProxy()) {
-			InternalEObject oldDefaultHandler = (InternalEObject)defaultHandler;
-			defaultHandler = (DefaultHandler)eResolveProxy(oldDefaultHandler);
-			if (defaultHandler != oldDefaultHandler) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EclipsePackage.COMMAND__DEFAULT_HANDLER, oldDefaultHandler, defaultHandler));
-			}
-		}
-		return defaultHandler;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DefaultHandler basicGetDefaultHandler() {
 		return defaultHandler;
 	}
 
@@ -362,14 +366,35 @@ public class CommandImpl extends EObjectImpl implements Command {
 		if (newDefaultHandler != defaultHandler) {
 			NotificationChain msgs = null;
 			if (defaultHandler != null)
-				msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
+				msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.COMMAND__DEFAULT_HANDLER, null, msgs);
 			if (newDefaultHandler != null)
-				msgs = ((InternalEObject)newDefaultHandler).eInverseAdd(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
+				msgs = ((InternalEObject)newDefaultHandler).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EclipsePackage.COMMAND__DEFAULT_HANDLER, null, msgs);
 			msgs = basicSetDefaultHandler(newDefaultHandler, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__DEFAULT_HANDLER, newDefaultHandler, newDefaultHandler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public char getMnemonic() {
+		return mnemonic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMnemonic(char newMnemonic) {
+		char oldMnemonic = mnemonic;
+		mnemonic = newMnemonic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.COMMAND__MNEMONIC, oldMnemonic, mnemonic));
 	}
 
 	/**
@@ -391,10 +416,6 @@ public class CommandImpl extends EObjectImpl implements Command {
 				if (binding != null)
 					msgs = ((InternalEObject)binding).eInverseRemove(this, EclipsePackage.BINDING__COMMAND, Binding.class, msgs);
 				return basicSetBinding((Binding)otherEnd, msgs);
-			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
-				if (defaultHandler != null)
-					msgs = ((InternalEObject)defaultHandler).eInverseRemove(this, EclipsePackage.DEFAULT_HANDLER__DEFAULT_COMMAND, DefaultHandler.class, msgs);
-				return basicSetDefaultHandler((DefaultHandler)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -440,8 +461,9 @@ public class CommandImpl extends EObjectImpl implements Command {
 				if (resolve) return getBinding();
 				return basicGetBinding();
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
-				if (resolve) return getDefaultHandler();
-				return basicGetDefaultHandler();
+				return getDefaultHandler();
+			case EclipsePackage.COMMAND__MNEMONIC:
+				return getMnemonic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -474,6 +496,9 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
 				setDefaultHandler((DefaultHandler)newValue);
 				return;
+			case EclipsePackage.COMMAND__MNEMONIC:
+				setMnemonic((Character)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -504,6 +529,9 @@ public class CommandImpl extends EObjectImpl implements Command {
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
 				setDefaultHandler((DefaultHandler)null);
 				return;
+			case EclipsePackage.COMMAND__MNEMONIC:
+				setMnemonic(MNEMONIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -528,6 +556,8 @@ public class CommandImpl extends EObjectImpl implements Command {
 				return binding != null;
 			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
 				return defaultHandler != null;
+			case EclipsePackage.COMMAND__MNEMONIC:
+				return mnemonic != MNEMONIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -546,6 +576,8 @@ public class CommandImpl extends EObjectImpl implements Command {
 		result.append(name);
 		result.append(", tooltip: ");
 		result.append(tooltip);
+		result.append(", mnemonic: ");
+		result.append(mnemonic);
 		result.append(')');
 		return result.toString();
 	}

@@ -3,9 +3,12 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
 
@@ -17,7 +20,6 @@ import org.obeonetwork.dsl.gen.eclipse.Handler;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl#getMnemonic <em>Mnemonic</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,26 +45,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMnemonic()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final char MNEMONIC_EDEFAULT = '\u0000';
-
-	/**
-	 * The cached value of the '{@link #getMnemonic() <em>Mnemonic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMnemonic()
-	 * @generated
-	 * @ordered
-	 */
-	protected char mnemonic = MNEMONIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,34 +91,11 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public char getMnemonic() {
-		return mnemonic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMnemonic(char newMnemonic) {
-		char oldMnemonic = mnemonic;
-		mnemonic = newMnemonic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.HANDLER__MNEMONIC, oldMnemonic, mnemonic));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EclipsePackage.HANDLER__NAME:
 				return getName();
-			case EclipsePackage.HANDLER__MNEMONIC:
-				return getMnemonic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,9 +110,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		switch (featureID) {
 			case EclipsePackage.HANDLER__NAME:
 				setName((String)newValue);
-				return;
-			case EclipsePackage.HANDLER__MNEMONIC:
-				setMnemonic((Character)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -170,9 +126,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 			case EclipsePackage.HANDLER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EclipsePackage.HANDLER__MNEMONIC:
-				setMnemonic(MNEMONIC_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -187,8 +140,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		switch (featureID) {
 			case EclipsePackage.HANDLER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EclipsePackage.HANDLER__MNEMONIC:
-				return mnemonic != MNEMONIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -205,8 +156,6 @@ public class HandlerImpl extends EObjectImpl implements Handler {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", mnemonic: ");
-		result.append(mnemonic);
 		result.append(')');
 		return result.toString();
 	}

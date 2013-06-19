@@ -202,7 +202,6 @@ public class BundleItemProvider
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__VIEWS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__HELP_CONTENTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__COMMANDS);
-			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DEFAULT_HANDLERS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CONTEXTS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__CATEGORIES);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BINDINGS);
@@ -298,7 +297,6 @@ public class BundleItemProvider
 			case EclipsePackage.BUNDLE__VIEWS:
 			case EclipsePackage.BUNDLE__HELP_CONTENTS:
 			case EclipsePackage.BUNDLE__COMMANDS:
-			case EclipsePackage.BUNDLE__DEFAULT_HANDLERS:
 			case EclipsePackage.BUNDLE__CONTEXTS:
 			case EclipsePackage.BUNDLE__CATEGORIES:
 			case EclipsePackage.BUNDLE__BINDINGS:
@@ -392,11 +390,6 @@ public class BundleItemProvider
 			(createChildParameter
 				(EclipsePackage.Literals.BUNDLE__COMMANDS,
 				 EclipseFactory.eINSTANCE.createCommand()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.BUNDLE__DEFAULT_HANDLERS,
-				 EclipseFactory.eINSTANCE.createDefaultHandler()));
 
 		newChildDescriptors.add
 			(createChildParameter

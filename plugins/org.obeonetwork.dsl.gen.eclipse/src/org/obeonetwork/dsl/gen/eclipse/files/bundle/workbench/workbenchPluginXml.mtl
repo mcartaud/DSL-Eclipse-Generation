@@ -55,6 +55,12 @@ Contributors :
 [for (anEditor : Editor | aBundle.editors)][anEditor.editorTemplate()/]
 [/for]
    </extension>
+[/if][if (aBundle.menuContributions.editors->size() > 0 or aBundle.toolbarContributions.editors->size() > 0)]
+   <extension
+         point = "org.eclipse.ui.editorActions">
+[for (anEditor : Editor | aBundle.editors)][if (anEditor.eInverse(MenuContribution)->size() > 0 or anEditor.eInverse(ToolbarContribution)->size() > 0)][anEditor.buttonEditorTemplate()/][/if]
+[/for]
+   </extension>
 [/if][if (aBundle.menuContributions->size() > 0 or aBundle.toolbarContributions->size() > 0 or aBundle.popupMenuContributions->size() > 0)]
 [aBundle.menuTemplate()/]
 [/if][if (aBundle.perspectives->size() > 0)]
@@ -84,6 +90,56 @@ Contributors :
 [/template]
 
 
+
+
+[template private buttonEditorTemplate(anEditor : Editor)]
+      <editorContribution
+            id="[anEditor.genMenuEditorID()/]"
+            targetID="[anEditor.genEditorID()/]">
+[for (aMenu : MenuContribution | anEditor.eInverse(MenuContribution))][aMenu.menuEditorTemplate()/]
+[aMenu.actionEditorTemplate()/]
+[/for][for (aToolbar : ToolbarContribution | anEditor.eInverse(ToolbarContribution))][aToolbar.actionEditorTemplate()/]
+[/for]
+      </editorContribution>
+[/template]
+
+[template private menuEditorTemplate(aMenu : MenuContribution)]
+         <menu
+               id="[aMenu.genMenuID()/]-editor"
+               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
+               path="additions">
+            <groupMarker
+                  name="[aMenu.refactorMenuName()/]">
+            </groupMarker>
+         </menu>
+[/template]
+
+[template private actionEditorTemplate(aMenu : MenuContribution)]
+[for (aCommand : Command | aMenu.commands)]
+         <action
+               class="[aCommand.defaultHandler.genHandlerPath()/]"
+               id="[aCommand.genCommandID()/]"
+               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
+			   icon="icons/[aCommand.iconName()/]"
+               menubarPath="[aMenu.genMenuID()/]-editor/[aMenu.refactorMenuName()/]"
+               state="true"
+               toolbarPath="normal/additions">
+         </action>
+[/for]
+[/template]
+
+[template private actionEditorTemplate(aToolbar : ToolbarContribution)]
+[for (aCommand : Command | aToolbar.commands)]
+         <action
+               class="[aCommand.defaultHandler.genHandlerPath()/]"
+               id="[aCommand.genCommandID()/]"
+			   icon="icons/[aCommand.iconName()/]"
+               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
+               state="true"
+               toolbarPath="normal/additions">
+         </action>
+[/for]
+[/template]
 
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
@@ -136,12 +192,52 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/template]
 
 [template private handlerTemplate(aCommand : Command)]
-[for (anHandler : Handler | aCommand.handlers)]
+[for (anHandler : ContextualHandler | aCommand.handlers)]
       <handler
             commandId="[aCommand.genCommandID()/]"
             class="[anHandler.genHandlerPath()/]">
+		<activeWhen>
+[if (anHandler.associatedWith->size() > 0)]
+            <and>
+[/if]
+               <with
+                     variable="[anHandler.selectionType()/]">
+                  <count
+                        value="+">
+                  </count>
+               </with>
+[if (anHandler.associatedWith->size() > 0)]
+[anHandler.associateHandler()/]
+            </and>
+[/if]
+         </activeWhen>
       </handler>
 [/for]
+[/template]
+
+[template private selectionType(anHandler : ContextualHandler)]
+[if (anHandler.activateWith.toString().matches('EObject'))]org.eclipse.emf.ecore.EObject[elseif 
+(anHandler.activateWith.toString().matches('String'))]java.lang.String[elseif 
+(anHandler.activateWith.toString().matches('EcoreFile'))][/if]
+[/template]
+
+[template private associateHandler(anHandler : ContextualHandler)]
+             <with
+                  variable="activePartId">
+[if (anHandler.associatedWith->size() > 1)]
+			   <or>
+[/if][for (aPart : Part | anHandler.associatedWith)]
+                  <equals
+                         value="[aPart.findAssociation()/]">
+                  </equals>
+[/for][if (anHandler.associatedWith->size() > 1)]
+			   </or>
+[/if]
+             </with>
+[/template]
+
+[template private findAssociation(aPart : Part)]
+[if (aPart.oclIsKindOf(View))][aPart.oclAsType(View).genViewID()/][elseif (aPart.oclIsTypeOf(Editor))][aPart.oclAsType(Editor).genEditorID()/][/if]
 [/template]
 
 [template private bindingTemplate(aBinding : Binding)]
@@ -212,18 +308,18 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
             id="[aPopup.genPopupID()/]">
 [for (aMenu : MenuContribution | aPopup.menus)]
          <menu
-               label="[aMenu.name/]"
+               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
                path="additions"
                id="[aMenu.genMenuID()/]">
             <separator
-                  name="group[aMenu.name.substituteAll(' ', '_')/]">
+                  name="%PopupGroup-[aMenu.refactorMenuName().toUpperFirst()/]-Name">
             </separator>
          </menu>
 [for (aCommand : Command | aMenu.commands)]
          <action
-               label="[aCommand.name/]"
+               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
                class="[aCommand.defaultHandler.genHandlerPath()/]"
-               menubarPath="[aMenu.genMenuID()/]/group[aMenu.name.substituteAll(' ', '_')/]"
+               menubarPath="[aMenu.genMenuID()/]/group[aMenu.name.replaceAll(' ', '_')/]"
 			   icon="icons/[aCommand.iconName()/]"
                enablesFor="1"
                id="[aCommand.genCommandID()/]">
@@ -231,7 +327,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/for][/for]
 [for (aCommand : Command | aPopup.commands)]
          <action
-               label="[aCommand.name/]"
+               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
                class="[aCommand.defaultHandler.genHandlerPath()/]"
 			   icon="icons/[aCommand.iconName()/]"
                enablesFor="1"

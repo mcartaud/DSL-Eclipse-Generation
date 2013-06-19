@@ -3,16 +3,21 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.gen.eclipse.Activation;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.Part;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +27,8 @@ import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl#getCommands <em>Commands</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl#getActivateWith <em>Activate With</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ContextualHandlerImpl#getAssociatedWith <em>Associated With</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,6 +44,35 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * @ordered
 	 */
 	protected EList<Command> commands;
+
+	/**
+	 * The default value of the '{@link #getActivateWith() <em>Activate With</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivateWith()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Activation ACTIVATE_WITH_EDEFAULT = Activation.EOBJECT;
+	/**
+	 * The cached value of the '{@link #getActivateWith() <em>Activate With</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivateWith()
+	 * @generated
+	 * @ordered
+	 */
+	protected Activation activateWith = ACTIVATE_WITH_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAssociatedWith() <em>Associated With</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociatedWith()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Part> associatedWith;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,6 +103,39 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 			commands = new EObjectWithInverseResolvingEList.ManyInverse<Command>(Command.class, this, EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS, EclipsePackage.COMMAND__HANDLERS);
 		}
 		return commands;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Activation getActivateWith() {
+		return activateWith;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActivateWith(Activation newActivateWith) {
+		Activation oldActivateWith = activateWith;
+		activateWith = newActivateWith == null ? ACTIVATE_WITH_EDEFAULT : newActivateWith;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH, oldActivateWith, activateWith));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Part> getAssociatedWith() {
+		if (associatedWith == null) {
+			associatedWith = new EObjectResolvingEList<Part>(Part.class, this, EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH);
+		}
+		return associatedWith;
 	}
 
 	/**
@@ -108,6 +177,10 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 		switch (featureID) {
 			case EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS:
 				return getCommands();
+			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
+				return getActivateWith();
+			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
+				return getAssociatedWith();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,6 +198,13 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 				getCommands().clear();
 				getCommands().addAll((Collection<? extends Command>)newValue);
 				return;
+			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
+				setActivateWith((Activation)newValue);
+				return;
+			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
+				getAssociatedWith().clear();
+				getAssociatedWith().addAll((Collection<? extends Part>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,6 +220,12 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 			case EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS:
 				getCommands().clear();
 				return;
+			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
+				setActivateWith(ACTIVATE_WITH_EDEFAULT);
+				return;
+			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
+				getAssociatedWith().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,8 +240,28 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 		switch (featureID) {
 			case EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS:
 				return commands != null && !commands.isEmpty();
+			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
+				return activateWith != ACTIVATE_WITH_EDEFAULT;
+			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
+				return associatedWith != null && !associatedWith.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (activateWith: ");
+		result.append(activateWith);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ContextualHandlerImpl

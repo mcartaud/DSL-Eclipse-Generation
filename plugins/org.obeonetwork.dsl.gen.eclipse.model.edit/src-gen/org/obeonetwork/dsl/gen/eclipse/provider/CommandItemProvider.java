@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,6 +24,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.obeonetwork.dsl.gen.eclipse.Command;
+import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 
 /**
@@ -65,7 +67,7 @@ public class CommandItemProvider
 			addHandlersPropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 			addBindingPropertyDescriptor(object);
-			addDefaultHandlerPropertyDescriptor(object);
+			addMnemonicPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -181,25 +183,55 @@ public class CommandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Default Handler feature.
+	 * This adds a property descriptor for the Mnemonic feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDefaultHandlerPropertyDescriptor(Object object) {
+	protected void addMnemonicPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Command_defaultHandler_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_defaultHandler_feature", "_UI_Command_type"),
-				 EclipsePackage.Literals.COMMAND__DEFAULT_HANDLER,
+				 getString("_UI_Command_mnemonic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_mnemonic_feature", "_UI_Command_type"),
+				 EclipsePackage.Literals.COMMAND__MNEMONIC,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EclipsePackage.Literals.COMMAND__DEFAULT_HANDLER);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -241,7 +273,11 @@ public class CommandItemProvider
 		switch (notification.getFeatureID(Command.class)) {
 			case EclipsePackage.COMMAND__NAME:
 			case EclipsePackage.COMMAND__TOOLTIP:
+			case EclipsePackage.COMMAND__MNEMONIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.COMMAND__DEFAULT_HANDLER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -257,6 +293,11 @@ public class CommandItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.COMMAND__DEFAULT_HANDLER,
+				 EclipseFactory.eINSTANCE.createDefaultHandler()));
 	}
 
 	/**

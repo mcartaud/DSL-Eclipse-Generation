@@ -80,7 +80,7 @@ Contributors :
 [template private genGlobalMenuContribution(aMenu : MenuContribution)]
 [for (aMenu)][if (not(aMenu.name.oclIsUndefined()))]
          <menu
-               label="[aMenu.name/]"
+               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
                mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
                id="[aMenu.genMenuID()/]">
 [/if][for (aCommand : Command | aMenu.commands)]
@@ -192,7 +192,7 @@ Contributors :
 [template private genMenuContribution(aMenu : MenuContribution)]
 [for (aMenu)][if (not(aMenu.name.oclIsUndefined()))]
          <menu
-               label="[aMenu.name/]"
+               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
                mnemonic="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Mnemonic"
                id="[aMenu.genMenuID()/]">
 [/if][if (aMenu.eInverse(MenuContribution)->size() = 0)][for (aCommand : Command | aMenu.commands)]
@@ -225,32 +225,32 @@ Contributors :
 [/template]
 
 [template private activateHandler(aHandler : DefaultHandler)]
-[if (aHandler.defaultCommand.eInverse(MenuContribution)->size() > 0)]
+[if (aHandler.eContainer(Command).eInverse(MenuContribution).perspectives->size() > 0 or aHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0)]
 [aHandler.activateMenuHandler()/]
-[elseif (aHandler.defaultCommand.eInverse(ToolbarContribution)->size() > 0)]
+[elseif (aHandler.eContainer(Command).eInverse(ToolbarContribution).perspectives->size() > 0 or aHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
 [aHandler.activateToolbarHandler()/]
 [/if]
 [/template]
 
 [template private activateHandler(aHandler : ContextualHandler)]
-[if (aHandler.commands.eInverse(MenuContribution)->size() > 0)]
+[if (aHandler.commands.eInverse(MenuContribution).perspectives->size() > 0 or aHandler.commands.eInverse(MenuContribution).editors->size() > 0)]
 [aHandler.activateMenuHandler()/]
-[elseif (aHandler.commands.eInverse(ToolbarContribution)->size() > 0)]
+[elseif (aHandler.commands.eInverse(ToolbarContribution).perspectives->size() > 0 or aHandler.commands.eInverse(ToolbarContribution).editors->size() > 0)]
 [aHandler.activateToolbarHandler()/]
 [/if]
 [/template]
 
 [template private activateMenuHandler(aHandler : DefaultHandler)]
             <visibleWhen checkEnabled="false">
-[if (aHandler.defaultCommand.eInverse(MenuContribution).perspectives->size() > 0)]
+[if (aHandler.eContainer(Command).eInverse(MenuContribution).perspectives->size() > 0)]
             	<with variable="activeWorkbenchWindow.activePerspective">
-[for (aPerspective : Perspective | aHandler.defaultCommand.eInverse(MenuContribution).perspectives)]
+[for (aPerspective : Perspective | aHandler.eContainer(Command).eInverse(MenuContribution).perspectives)]
                 	<equals value="[aPerspective.genPerspectiveID()/]"/>
 [/for]
             	</with>
-[/if][if (aHandler.defaultCommand.eInverse(MenuContribution).editors->size() > 0)]
+[/if][if (aHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0)]
             	<with variable="activeWorkbenchWindow.activeEditor">
-[for (anEditor : Editor | aHandler.defaultCommand.eInverse(MenuContribution).editors)]
+[for (anEditor : Editor | aHandler.eContainer(Command).eInverse(MenuContribution).editors)]
                 	<equals value="[anEditor.genEditorID()/]"/>
 [/for]
             	</with>
@@ -260,15 +260,15 @@ Contributors :
 
 [template private activateToolbarHandler(aHandler : DefaultHandler)]
             <visibleWhen checkEnabled="false">
-[if (aHandler.defaultCommand.eInverse(ToolbarContribution).perspectives->size() > 0)]
+[if (aHandler.eContainer(Command).eInverse(ToolbarContribution).perspectives->size() > 0)]
             	<with variable="activeWorkbenchWindow.activePerspective">
-[for (aPerspective : Perspective | aHandler.defaultCommand.eInverse(ToolbarContribution).perspectives)]
+[for (aPerspective : Perspective | aHandler.eContainer(Command).eInverse(ToolbarContribution).perspectives)]
                 	<equals value="[aPerspective.genPerspectiveID()/]"/>
 [/for]
             	</with>
-[/if][if (aHandler.defaultCommand.eInverse(ToolbarContribution).editors->size() > 0)]
+[/if][if (aHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
             	<with variable="activeWorkbenchWindow.activeEditor">
-[for (anEditor : Editor | aHandler.defaultCommand.eInverse(ToolbarContribution).editors)]
+[for (anEditor : Editor | aHandler.eContainer(Command).eInverse(ToolbarContribution).editors)]
                 	<equals value="[anEditor.genEditorID()/]"/>
 [/for]
             	</with>

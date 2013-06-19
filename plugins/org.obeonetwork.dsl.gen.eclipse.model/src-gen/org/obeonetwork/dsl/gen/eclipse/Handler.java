@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,31 +46,5 @@ public interface Handler extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Mnemonic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Mnemonic</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mnemonic</em>' attribute.
-	 * @see #setMnemonic(char)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getHandler_Mnemonic()
-	 * @model unique="false"
-	 * @generated
-	 */
-	char getMnemonic();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Handler#getMnemonic <em>Mnemonic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mnemonic</em>' attribute.
-	 * @see #getMnemonic()
-	 * @generated
-	 */
-	void setMnemonic(char value);
 
 } // Handler

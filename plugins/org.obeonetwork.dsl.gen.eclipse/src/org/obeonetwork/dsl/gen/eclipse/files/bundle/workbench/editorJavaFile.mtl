@@ -23,11 +23,13 @@ Contributors :
 [file (editorJavaFile(), false, 'UTF-8')]
 package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
+[if (anEditor.dynamicHelp->size() > 0)]
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+[/if]
 
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
 

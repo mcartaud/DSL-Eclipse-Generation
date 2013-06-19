@@ -24,14 +24,12 @@ Contributors :
 package [anHandler.eContainer(Bundle).genBundleID()/].handlers;
 
 
-import org.eclipse.swt.widgets.Shell;
+import org.eclipse.jface.dialogs.MessageDialog;
 [anHandler.genImport()/]
 
 
 [anHandler.genHeader()/]
 	
-	private Shell shell;
-
 	/**
 	 * The constructor.
 	 */
@@ -52,15 +50,20 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.jface.dialogs.MessageDialog;
-[/if]
-[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)]
-import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.dialogs.MessageDialog;
+[/if][if (anHandler.oclIsKindOf(ContextualHandler))]
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IObjectActionDelegate;
+[/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 
+or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.IWorkbenchPart;
+[/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)]
+import org.eclipse.ui.IObjectActionDelegate;
+[/if][if (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
+import org.eclipse.ui.IEditorActionDelegate;
+import org.eclipse.ui.IEditorPart;
 [/if]
+
 [/template]
 
 [template private genHeader(anHandler : Handler)]
@@ -71,21 +74,30 @@ import org.eclipse.ui.IWorkbenchPart;
  * @see org.eclipse.core.commands.AbstractHandler
  */
 [/if]
-public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/][anHandler.genSuperType()/]{
+public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/] [anHandler.genSuperType()/]{
 [/template]
 
 [template private genSuperType(anHandler : Handler)]
-[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)] extends AbstractHandler [/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)] implements IObjectActionDelegate [/if]
+[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]extends AbstractHandler [/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]implements[anHandler.genImplementSuperType()/][/if]
+[/template]
+
+[template private genImplementSuperType(anHandler : Handler)]
+[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 and (anHandler.eInverse(MenuContribution).editors->size() > 0 
+or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0))] IObjectActionDelegate, IEditorActionDelegate [elseif (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 
+or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)] IEditorActionDelegate [elseif (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)] IObjectActionDelegate [/if]
 [/template]
 
 [template private genBody(anHandler : Handler)]
-[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)]
+[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or 
+anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
+
+	private IWorkbenchPart targetPart;
 
 	/**
 	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
 	 */
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		shell = targetPart.getSite().getShell();
+	public void setActivePart(IAction action, IWorkbenchPart part) {
+		this.targetPart = part;
 	}
 
 	/**
@@ -93,18 +105,27 @@ public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/][anHandler.gen
 	 */
 	public void run(IAction action) {
 		MessageDialog.openInformation(
-			shell,
+			targetPart.getSite().getShell(),
 			"[anHandler.eContainer(Bundle).genBundleID()/]",
 			"Running [anHandler.name/]!");
 	}
+[/if]
 
+[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or 
+anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
 	/**
 	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
 	 */
 	public void selectionChanged(IAction action, ISelection selection) {
 	}
-
 [/if]
+
+[if (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
+	public void setActiveEditor(IAction action, IEditorPart editor) {
+		this.targetPart = editor;
+	}
+[/if]
+
 [if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]
 
 	/**
@@ -113,9 +134,8 @@ public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/][anHandler.gen
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		shell = window.getShell();
 		MessageDialog.openInformation(
-				shell,
+				window.getShell(),
 				"[anHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [anHandler.name/]!");
 		return null;
