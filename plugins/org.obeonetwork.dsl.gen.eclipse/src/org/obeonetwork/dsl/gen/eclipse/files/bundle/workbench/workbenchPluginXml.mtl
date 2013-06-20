@@ -196,21 +196,27 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
       <handler
             commandId="[aCommand.genCommandID()/]"
             class="[anHandler.genHandlerPath()/]">
+[if (anHandler.associatedWith->size() > 0 or not(anHandler.activateWith.toString().matches('null')))]
 		<activeWhen>
-[if (anHandler.associatedWith->size() > 0)]
+[if (anHandler.associatedWith->size() > 0 and not(anHandler.activateWith.toString().matches('null')))]
             <and>
-[/if]
+[/if][if (not(anHandler.activateWith.toString().matches('null')))]
                <with
-                     variable="[anHandler.selectionType()/]">
+                     variable="selection">
+                  <instanceof
+                        value="[anHandler.selectionType()/]">
+                  </instanceof>
                   <count
                         value="+">
                   </count>
                </with>
-[if (anHandler.associatedWith->size() > 0)]
+[/if][if (anHandler.associatedWith->size() > 0)]
 [anHandler.associateHandler()/]
+[/if][if (anHandler.associatedWith->size() > 0 and not(anHandler.activateWith.toString().matches('null')))]
             </and>
 [/if]
          </activeWhen>
+[/if]
       </handler>
 [/for]
 [/template]

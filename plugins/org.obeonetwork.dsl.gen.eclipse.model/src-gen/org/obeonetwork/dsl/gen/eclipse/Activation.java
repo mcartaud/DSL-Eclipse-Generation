@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Activation implements Enumerator {
 	/**
+	 * The '<em><b>Null</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NULL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NULL(0, "null", "null"), /**
 	 * The '<em><b>EObject</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,16 +37,14 @@ public enum Activation implements Enumerator {
 	EOBJECT(0, "EObject", "EObject"),
 
 	/**
-	 * The '<em><b>Java Class</b></em>' literal object.
+	 * The '<em><b>String</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #JAVA_CLASS_VALUE
+	 * @see #STRING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	JAVA_CLASS(0, "JavaClass", "JavaClass"),
-
-	/**
+	STRING(0, "String", "String"), /**
 	 * The '<em><b>Ecore File</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +53,21 @@ public enum Activation implements Enumerator {
 	 * @ordered
 	 */
 	ECORE_FILE(0, "EcoreFile", "EcoreFile");
+
+	/**
+	 * The '<em><b>Null</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Null</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NULL
+	 * @model name="null"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NULL_VALUE = 0;
 
 	/**
 	 * The '<em><b>EObject</b></em>' literal value.
@@ -64,19 +85,19 @@ public enum Activation implements Enumerator {
 	public static final int EOBJECT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Java Class</b></em>' literal value.
+	 * The '<em><b>String</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Java Class</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>String</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #JAVA_CLASS
-	 * @model name="JavaClass"
+	 * @see #STRING
+	 * @model name="String"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int JAVA_CLASS_VALUE = 0;
+	public static final int STRING_VALUE = 0;
 
 	/**
 	 * The '<em><b>Ecore File</b></em>' literal value.
@@ -101,8 +122,9 @@ public enum Activation implements Enumerator {
 	 */
 	private static final Activation[] VALUES_ARRAY =
 		new Activation[] {
+			NULL,
 			EOBJECT,
-			JAVA_CLASS,
+			STRING,
 			ECORE_FILE,
 		};
 
@@ -154,7 +176,7 @@ public enum Activation implements Enumerator {
 	 */
 	public static Activation get(int value) {
 		switch (value) {
-			case EOBJECT_VALUE: return EOBJECT;
+			case NULL_VALUE: return NULL;
 		}
 		return null;
 	}

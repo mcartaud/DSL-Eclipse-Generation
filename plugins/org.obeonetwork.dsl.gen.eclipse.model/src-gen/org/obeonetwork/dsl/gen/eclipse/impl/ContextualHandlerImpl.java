@@ -53,7 +53,7 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Activation ACTIVATE_WITH_EDEFAULT = Activation.EOBJECT;
+	protected static final Activation ACTIVATE_WITH_EDEFAULT = Activation.NULL;
 	/**
 	 * The cached value of the '{@link #getActivateWith() <em>Activate With</em>}' attribute.
 	 * <!-- begin-user-doc -->

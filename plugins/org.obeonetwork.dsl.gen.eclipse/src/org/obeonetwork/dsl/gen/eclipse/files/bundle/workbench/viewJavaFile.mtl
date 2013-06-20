@@ -50,11 +50,12 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 [if (aView.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
-[if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
+[comment][if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
 import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
-[/for][/if]
+[/for][/if][/comment]
 [if (aView.eContainer(Bundle).declarativeServices->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass).eContainer(EPackage))]
-import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
+import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.name/];
+import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[anEPackage.name.toUpperFirst()/]Factory;
 [/for][/if]
 
 

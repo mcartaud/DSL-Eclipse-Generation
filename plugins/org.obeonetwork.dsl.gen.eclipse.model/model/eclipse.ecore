@@ -355,6 +355,7 @@
     <eLiterals name="Bundle"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Activation">
+    <eLiterals name="null"/>
     <eLiterals name="EObject"/>
     <eLiterals name="String"/>
     <eLiterals name="EcoreFile"/>

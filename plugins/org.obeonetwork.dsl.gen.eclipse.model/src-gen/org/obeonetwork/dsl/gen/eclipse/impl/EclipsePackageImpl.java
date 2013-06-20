@@ -2632,8 +2632,9 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		addEEnumLiteral(importTypeEEnum, ImportType.BUNDLE);
 
 		initEEnum(activationEEnum, Activation.class, "Activation");
+		addEEnumLiteral(activationEEnum, Activation.NULL);
 		addEEnumLiteral(activationEEnum, Activation.EOBJECT);
-		addEEnumLiteral(activationEEnum, Activation.JAVA_CLASS);
+		addEEnumLiteral(activationEEnum, Activation.STRING);
 		addEEnumLiteral(activationEEnum, Activation.ECORE_FILE);
 
 		initEEnum(javaVersionEEnum, JavaVersion.class, "JavaVersion");
