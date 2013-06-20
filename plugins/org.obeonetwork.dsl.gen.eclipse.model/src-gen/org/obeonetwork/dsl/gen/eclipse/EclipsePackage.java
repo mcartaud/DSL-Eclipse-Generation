@@ -2166,16 +2166,6 @@ public interface EclipsePackage extends EPackage {
 	int IMPORT_TYPE = 36;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Activation <em>Activation</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.gen.eclipse.Activation
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActivation()
-	 * @generated
-	 */
-	int ACTIVATION = 37;
-
-	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2183,7 +2173,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 38;
+	int JAVA_VERSION = 37;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -2193,7 +2183,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 39;
+	int TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2203,7 +2193,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 40;
+	int LOCATION = 39;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2213,7 +2203,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 41;
+	int VERSION = 40;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2223,7 +2213,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 42;
+	int NAMESPACE = 41;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2233,7 +2223,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 43;
+	int JAVA_NAME = 42;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2243,7 +2233,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 44;
+	int NAME = 43;
 
 
 	/**
@@ -4168,16 +4158,6 @@ public interface EclipsePackage extends EPackage {
 	EEnum getImportType();
 
 	/**
-	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Activation <em>Activation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Activation</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Activation
-	 * @generated
-	 */
-	EEnum getActivation();
-
-	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5770,16 +5750,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum IMPORT_TYPE = eINSTANCE.getImportType();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Activation <em>Activation</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.gen.eclipse.Activation
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getActivation()
-		 * @generated
-		 */
-		EEnum ACTIVATION = eINSTANCE.getActivation();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.

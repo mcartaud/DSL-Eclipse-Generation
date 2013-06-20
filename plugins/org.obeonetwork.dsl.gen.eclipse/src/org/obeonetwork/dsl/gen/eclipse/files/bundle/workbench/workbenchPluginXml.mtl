@@ -204,7 +204,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
                <with
                      variable="selection">
                   <instanceof
-                        value="[anHandler.selectionType()/]">
+                        value="[anHandler.activateWith/]">
                   </instanceof>
                   <count
                         value="+">
@@ -219,12 +219,6 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [/if]
       </handler>
 [/for]
-[/template]
-
-[template private selectionType(anHandler : ContextualHandler)]
-[if (anHandler.activateWith.toString().matches('EObject'))]org.eclipse.emf.ecore.EObject[elseif 
-(anHandler.activateWith.toString().matches('String'))]java.lang.String[elseif 
-(anHandler.activateWith.toString().matches('EcoreFile'))][/if]
 [/template]
 
 [template private associateHandler(anHandler : ContextualHandler)]

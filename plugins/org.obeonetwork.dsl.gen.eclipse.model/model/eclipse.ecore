@@ -306,7 +306,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" lowerBound="1"
         upperBound="-1" eType="#//Command" eOpposite="#//Command/handlers"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activateWith" unique="false"
-        eType="#//Activation"/>
+        eType="#//Namespace"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associatedWith" upperBound="-1"
         eType="#//Part"/>
   </eClassifiers>
@@ -353,12 +353,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ImportType">
     <eLiterals name="Package"/>
     <eLiterals name="Bundle"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Activation">
-    <eLiterals name="null"/>
-    <eLiterals name="EObject"/>
-    <eLiterals name="String"/>
-    <eLiterals name="EcoreFile"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JavaVersion">
     <eLiterals name="JavaSE15" literal="JavaSE15"/>

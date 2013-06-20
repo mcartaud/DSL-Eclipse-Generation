@@ -16,12 +16,6 @@
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//ImportType/Package"/>
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//ImportType/Bundle"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//Activation">
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Activation/null"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Activation/EObject"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Activation/String"/>
-      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//Activation/EcoreFile"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//JavaVersion">
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE15"/>
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//JavaVersion/JavaSE14"/>

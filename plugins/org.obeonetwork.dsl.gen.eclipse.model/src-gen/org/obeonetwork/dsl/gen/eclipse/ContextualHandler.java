@@ -43,7 +43,6 @@ public interface ContextualHandler extends Handler {
 
 	/**
 	 * Returns the value of the '<em><b>Activate With</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.obeonetwork.dsl.gen.eclipse.Activation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Activate With</em>' attribute isn't clear,
@@ -51,24 +50,22 @@ public interface ContextualHandler extends Handler {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Activate With</em>' attribute.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Activation
-	 * @see #setActivateWith(Activation)
+	 * @see #setActivateWith(String)
 	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getContextualHandler_ActivateWith()
-	 * @model unique="false"
+	 * @model unique="false" dataType="org.obeonetwork.dsl.gen.eclipse.Namespace"
 	 * @generated
 	 */
-	Activation getActivateWith();
+	String getActivateWith();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.ContextualHandler#getActivateWith <em>Activate With</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Activate With</em>' attribute.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Activation
 	 * @see #getActivateWith()
 	 * @generated
 	 */
-	void setActivateWith(Activation value);
+	void setActivateWith(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Associated With</b></em>' reference list.

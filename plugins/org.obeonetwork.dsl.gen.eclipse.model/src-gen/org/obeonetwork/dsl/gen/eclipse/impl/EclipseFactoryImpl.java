@@ -109,8 +109,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return createBasedOnFromString(eDataType, initialValue);
 			case EclipsePackage.IMPORT_TYPE:
 				return createImportTypeFromString(eDataType, initialValue);
-			case EclipsePackage.ACTIVATION:
-				return createActivationFromString(eDataType, initialValue);
 			case EclipsePackage.JAVA_VERSION:
 				return createJavaVersionFromString(eDataType, initialValue);
 			case EclipsePackage.TYPE:
@@ -142,8 +140,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return convertBasedOnToString(eDataType, instanceValue);
 			case EclipsePackage.IMPORT_TYPE:
 				return convertImportTypeToString(eDataType, instanceValue);
-			case EclipsePackage.ACTIVATION:
-				return convertActivationToString(eDataType, instanceValue);
 			case EclipsePackage.JAVA_VERSION:
 				return convertJavaVersionToString(eDataType, instanceValue);
 			case EclipsePackage.TYPE:
@@ -530,26 +526,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * @generated
 	 */
 	public String convertImportTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Activation createActivationFromString(EDataType eDataType, String initialValue) {
-		Activation result = Activation.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertActivationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

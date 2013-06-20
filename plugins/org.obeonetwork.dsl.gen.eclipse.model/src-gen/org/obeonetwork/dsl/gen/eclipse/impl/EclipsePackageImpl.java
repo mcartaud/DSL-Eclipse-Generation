@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.obeonetwork.dsl.gen.eclipse.Activation;
 import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.BasedOn;
@@ -320,13 +319,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EEnum importTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum activationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2048,15 +2040,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getActivation() {
-		return activationEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getJavaVersion() {
 		return javaVersionEEnum;
 	}
@@ -2357,7 +2340,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		// Create enums
 		basedOnEEnum = createEEnum(BASED_ON);
 		importTypeEEnum = createEEnum(IMPORT_TYPE);
-		activationEEnum = createEEnum(ACTIVATION);
 		javaVersionEEnum = createEEnum(JAVA_VERSION);
 		typeEEnum = createEEnum(TYPE);
 		locationEEnum = createEEnum(LOCATION);
@@ -2597,7 +2579,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(contextualHandlerEClass, ContextualHandler.class, "ContextualHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextualHandler_Commands(), this.getCommand(), this.getCommand_Handlers(), "commands", null, 1, -1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContextualHandler_ActivateWith(), this.getActivation(), "activateWith", null, 0, 1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContextualHandler_ActivateWith(), this.getNamespace(), "activateWith", null, 0, 1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContextualHandler_AssociatedWith(), this.getPart(), null, "associatedWith", null, 0, -1, ContextualHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(helpContentsEClass, HelpContents.class, "HelpContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2630,12 +2612,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEEnum(importTypeEEnum, ImportType.class, "ImportType");
 		addEEnumLiteral(importTypeEEnum, ImportType.PACKAGE);
 		addEEnumLiteral(importTypeEEnum, ImportType.BUNDLE);
-
-		initEEnum(activationEEnum, Activation.class, "Activation");
-		addEEnumLiteral(activationEEnum, Activation.NULL);
-		addEEnumLiteral(activationEEnum, Activation.EOBJECT);
-		addEEnumLiteral(activationEEnum, Activation.STRING);
-		addEEnumLiteral(activationEEnum, Activation.ECORE_FILE);
 
 		initEEnum(javaVersionEEnum, JavaVersion.class, "JavaVersion");
 		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE15);

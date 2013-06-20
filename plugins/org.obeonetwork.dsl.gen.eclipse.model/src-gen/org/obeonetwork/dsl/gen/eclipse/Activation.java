@@ -19,14 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Activation implements Enumerator {
 	/**
-	 * The '<em><b>Null</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NULL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NULL(0, "null", "null"), /**
 	 * The '<em><b>EObject</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,21 +45,6 @@ public enum Activation implements Enumerator {
 	 * @ordered
 	 */
 	ECORE_FILE(0, "EcoreFile", "EcoreFile");
-
-	/**
-	 * The '<em><b>Null</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Null</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NULL
-	 * @model name="null"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NULL_VALUE = 0;
 
 	/**
 	 * The '<em><b>EObject</b></em>' literal value.
@@ -122,7 +99,6 @@ public enum Activation implements Enumerator {
 	 */
 	private static final Activation[] VALUES_ARRAY =
 		new Activation[] {
-			NULL,
 			EOBJECT,
 			STRING,
 			ECORE_FILE,
@@ -176,7 +152,7 @@ public enum Activation implements Enumerator {
 	 */
 	public static Activation get(int value) {
 		switch (value) {
-			case NULL_VALUE: return NULL;
+			case EOBJECT_VALUE: return EOBJECT;
 		}
 		return null;
 	}

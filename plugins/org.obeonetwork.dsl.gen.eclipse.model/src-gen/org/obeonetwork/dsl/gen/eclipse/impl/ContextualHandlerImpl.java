@@ -3,17 +3,16 @@
 package org.obeonetwork.dsl.gen.eclipse.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.obeonetwork.dsl.gen.eclipse.Activation;
 import org.obeonetwork.dsl.gen.eclipse.Command;
 import org.obeonetwork.dsl.gen.eclipse.ContextualHandler;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
@@ -53,7 +52,8 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Activation ACTIVATE_WITH_EDEFAULT = Activation.NULL;
+	protected static final String ACTIVATE_WITH_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getActivateWith() <em>Activate With</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * @generated
 	 * @ordered
 	 */
-	protected Activation activateWith = ACTIVATE_WITH_EDEFAULT;
+	protected String activateWith = ACTIVATE_WITH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAssociatedWith() <em>Associated With</em>}' reference list.
@@ -110,7 +110,7 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Activation getActivateWith() {
+	public String getActivateWith() {
 		return activateWith;
 	}
 
@@ -119,9 +119,9 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActivateWith(Activation newActivateWith) {
-		Activation oldActivateWith = activateWith;
-		activateWith = newActivateWith == null ? ACTIVATE_WITH_EDEFAULT : newActivateWith;
+	public void setActivateWith(String newActivateWith) {
+		String oldActivateWith = activateWith;
+		activateWith = newActivateWith;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH, oldActivateWith, activateWith));
 	}
@@ -199,7 +199,7 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 				getCommands().addAll((Collection<? extends Command>)newValue);
 				return;
 			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
-				setActivateWith((Activation)newValue);
+				setActivateWith((String)newValue);
 				return;
 			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
 				getAssociatedWith().clear();
@@ -241,7 +241,7 @@ public class ContextualHandlerImpl extends HandlerImpl implements ContextualHand
 			case EclipsePackage.CONTEXTUAL_HANDLER__COMMANDS:
 				return commands != null && !commands.isEmpty();
 			case EclipsePackage.CONTEXTUAL_HANDLER__ACTIVATE_WITH:
-				return activateWith != ACTIVATE_WITH_EDEFAULT;
+				return ACTIVATE_WITH_EDEFAULT == null ? activateWith != null : !ACTIVATE_WITH_EDEFAULT.equals(activateWith);
 			case EclipsePackage.CONTEXTUAL_HANDLER__ASSOCIATED_WITH:
 				return associatedWith != null && !associatedWith.isEmpty();
 		}
