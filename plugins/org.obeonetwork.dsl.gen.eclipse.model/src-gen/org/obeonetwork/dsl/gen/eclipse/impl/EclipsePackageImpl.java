@@ -1797,6 +1797,42 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPopupMenuContribution_Views() {
+		return (EReference)popupMenuContributionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPopupMenuContribution_Editors() {
+		return (EReference)popupMenuContributionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPopupMenuContribution_Perspectives() {
+		return (EReference)popupMenuContributionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPopupMenuContribution_ActivateWith() {
+		return (EAttribute)popupMenuContributionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHandler() {
 		return handlerEClass;
 	}
@@ -2304,6 +2340,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__COMMANDS);
 		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__MENUS);
 		createEAttribute(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__NAME);
+		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__VIEWS);
+		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__EDITORS);
+		createEReference(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__PERSPECTIVES);
+		createEAttribute(popupMenuContributionEClass, POPUP_MENU_CONTRIBUTION__ACTIVATE_WITH);
 
 		handlerEClass = createEClass(HANDLER);
 		createEAttribute(handlerEClass, HANDLER__NAME);
@@ -2571,6 +2611,10 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getPopupMenuContribution_Commands(), this.getCommand(), null, "commands", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPopupMenuContribution_Menus(), this.getMenuContribution(), null, "menus", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPopupMenuContribution_Name(), this.getName_(), "name", null, 0, 1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPopupMenuContribution_Views(), this.getView(), null, "views", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPopupMenuContribution_Editors(), this.getEditor(), null, "editors", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPopupMenuContribution_Perspectives(), this.getPerspective(), null, "perspectives", null, 0, -1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPopupMenuContribution_ActivateWith(), this.getNamespace(), "activateWith", null, 0, 1, PopupMenuContribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(handlerEClass, Handler.class, "Handler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHandler_Name(), this.getName_(), "name", null, 1, 1, Handler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

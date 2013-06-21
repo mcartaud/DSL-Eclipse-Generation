@@ -129,12 +129,6 @@ Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic = [aCommand.mn
 #User information for the menus
 [for (aMenu : MenuContribution | aBundle.menuContributions)]
 Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name = [aMenu.name/]
-[/for][for (aPopup : PopupMenuContribution | aBundle.popupMenuContributions)][for (aMenu : MenuContribution | aPopup.menus)]
-PopupGroup-[aMenu.refactorMenuName().toUpperFirst()/]-Name = group[aMenu.refactorMenuName().toUpperFirst()/]
-[if (not(aMenu.eContainer(Bundle) = aPopup.eContainer(Bundle)))]
-Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name = [aMenu.name/]
-[/if]
-[/for]
 [/for]
 [/template]
 

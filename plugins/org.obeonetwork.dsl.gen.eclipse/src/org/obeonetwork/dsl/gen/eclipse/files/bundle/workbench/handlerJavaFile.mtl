@@ -15,162 +15,89 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private handlerJavaFile(anHandler : Handler)]
-[anHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[anHandler.name.replaceAll(' ', '_').toUpperFirst()/].java
+[template private handlerJavaFile(aHandler : Handler)]
+[aHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[aHandler.name.replaceAll(' ', '_').toUpperFirst()/].java
 [/template]
 
-[template public genHandlerJavaFile(anHandler : Handler)]
+[template public genHandlerJavaFile(aHandler : Handler)]
 [file (handlerJavaFile(), false, 'UTF-8')]
-package [anHandler.eContainer(Bundle).genBundleID()/].handlers;
+package [aHandler.eContainer(Bundle).genBundleID()/].handlers;
 
 
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
-[if (anHandler.oclIsTypeOf(ContextualHandler))][anHandler.oclAsType(ContextualHandler).genImport()/]
-[elseif (anHandler.oclIsTypeOf(DefaultHandler))][anHandler.oclAsType(DefaultHandler).genImport()/][/if]
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
+[if (aHandler.oclIsTypeOf(ContextualHandler))][if (not(aHandler.oclAsType(ContextualHandler).activateWith.toString().tokenize()->isEmpty()))]
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 
-[if (anHandler.oclIsKindOf(ContextualHandler))][anHandler.oclAsType(ContextualHandler).genHeader()/]
-[elseif (anHandler.oclIsKindOf(DefaultHandler))][anHandler.oclAsType(DefaultHandler).genHeader()/][/if]
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+[/if][/if]
+
+
+public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
 	
 	/**
 	 * The constructor.
 	 */
-	public [anHandler.name.replaceAll(' ', '_').toUpperFirst()/]() {
+	public [aHandler.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
 	}
 
-[if (anHandler.oclIsKindOf(ContextualHandler))][anHandler.oclAsType(ContextualHandler).genBody()/]
-[elseif (anHandler.oclIsKindOf(DefaultHandler))][anHandler.oclAsType(DefaultHandler).genBody()/][/if]
+
+[if (aHandler.oclIsTypeOf(ContextualHandler))]
+[aHandler.oclAsType(ContextualHandler).genBody()/]
+[else]
+[aHandler.oclAsType(DefaultHandler).genBody()/]
+[/if]
+
 
 }
 [/file]
 [/template]
 
-[template private genImport(anHandler : DefaultHandler)]
-[if (anHandler.eContainer(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution)->size() > 0)]
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
-[/if][if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.action.IAction;
-import org.eclipse.ui.IWorkbenchPart;
-[/if][if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0)]
-import org.eclipse.ui.IObjectActionDelegate;
-[/if][if (anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-import org.eclipse.ui.IEditorActionDelegate;
-import org.eclipse.ui.IEditorPart;
-[/if]
-
-[/template]
-
-[template private genImport(anHandler : ContextualHandler)]
-import org.eclipse.jface.viewers.ISelection;
-[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
-[/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.action.IAction;
-import org.eclipse.ui.IWorkbenchPart;
-[/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)]
-import org.eclipse.ui.IObjectActionDelegate;
-[/if][if (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-import org.eclipse.ui.IEditorActionDelegate;
-import org.eclipse.ui.IEditorPart;
-[/if]
-
-[/template]
-
-[template private genHeader(anHandler : DefaultHandler)]
-[if (anHandler.eContainer(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution)->size() > 0)]
-/**
- * Our sample handler extends AbstractHandler, an IHandler base class.
- * @see org.eclipse.core.commands.IHandler
- * @see org.eclipse.core.commands.AbstractHandler
- */
-[/if]
-public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/] [anHandler.genSuperType()/]{
-[/template]
-
-[template private genSuperType(anHandler : DefaultHandler)]
-[if (anHandler.eContainer(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution)->size() > 0)]extends AbstractHandler [/if][if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]implements[anHandler.genImplementSuperType()/][/if]
-[/template]
-
-[template private genImplementSuperType(anHandler : DefaultHandler)]
-[if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0 and (anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0))] IObjectActionDelegate, IEditorActionDelegate [elseif (anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)] IEditorActionDelegate [elseif (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0)] IObjectActionDelegate [/if]
-[/template]
-
-[template private genHeader(anHandler : ContextualHandler)]
-[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]
-/**
- * Our sample handler extends AbstractHandler, an IHandler base class.
- * @see org.eclipse.core.commands.IHandler
- * @see org.eclipse.core.commands.AbstractHandler
- */
-[/if]
-public class [anHandler.name.replaceAll(' ', '_').toUpperFirst()/] [anHandler.genSuperType()/]{
-[/template]
-
-[template private genSuperType(anHandler : ContextualHandler)]
-[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]extends AbstractHandler [/if][if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]implements[anHandler.genImplementSuperType()/][/if]
-[/template]
-
-[template private genImplementSuperType(anHandler : ContextualHandler)]
-[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 and (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0))] IObjectActionDelegate, IEditorActionDelegate [elseif (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 
-or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)] IEditorActionDelegate [elseif (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0)] IObjectActionDelegate [/if]
-[/template]
-
-[template private genBody(anHandler : DefaultHandler)]
-[if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0 or 
-anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-
-	private IWorkbenchPart targetPart;
-
+[template private genBody(aHandler : ContextualHandler)]
+[if (not(aHandler.activateWith.toString().tokenize()->isEmpty()))]
 	/**
-	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
+	 * the command has been executed, so extract extract the needed information
+	 * from the application context.
 	 */
-	public void setActivePart(IAction action, IWorkbenchPart part) {
-		this.targetPart = part;
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
+				.getActivePage().getSelection();
+		if (selection != null & selection instanceof IStructuredSelection) {
+			List<[aHandler.activateWith/]> selected = new ArrayList<[aHandler.activateWith/]>();
+			IStructuredSelection strucSelection = (IStructuredSelection) selection;
+			for (Iterator<Object> iterator = strucSelection.iterator(); iterator
+					.hasNext();) {
+				Object element = iterator.next();
+				if (element instanceof [aHandler.activateWith/]) {
+					selected.add(([aHandler.activateWith/]) element);
+				}
+				doExecute(selected,event);
+			}
+		}
+		return null;
 	}
 
-	/**
-	 * @see IActionDelegate#run(IAction)
-	 */
-	public void run(IAction action) {
+
+	private Object doExecute(List<[aHandler.activateWith/]> selected, ExecutionEvent event) throws ExecutionException {		
+		// [protected ('(user code)')]
+		// TODO : replace this by your code
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
-			targetPart.getSite().getShell(),
-			"[anHandler.eContainer(Bundle).genBundleID()/]",
-			"Running [anHandler.name/]!");
+				window.getShell(),
+				"[aHandler.eContainer(Bundle).genBundleID()/]",
+				"Running [aHandler.name/]!");
+		return null;
+		// [/protected]		
 	}
-[/if]
-
-[if (anHandler.eContainer(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 or 
-anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-	/**
-	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-	}
-[/if]
-
-[if (anHandler.eContainer(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-	public void setActiveEditor(IAction action, IEditorPart editor) {
-		this.targetPart = editor;
-	}
-[/if]
-
-[if (anHandler.eContainer(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eContainer(Command).eInverse(MenuContribution)->size() > 0)]
-
+[else]
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
@@ -179,55 +106,14 @@ anHandler.eContainer(Command).eInverse(ToolbarContribution).editors->size() > 0)
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
-				"[anHandler.eContainer(Bundle).genBundleID()/]",
-				"Running [anHandler.name/]!");
+				"[aHandler.eContainer(Bundle).genBundleID()/]",
+				"Running [aHandler.name/]!");
 		return null;
 	}
-
 [/if]
 [/template]
 
-[template private genBody(anHandler : ContextualHandler)]
-[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or 
-anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-
-	private IWorkbenchPart targetPart;
-
-	/**
-	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
-	 */
-	public void setActivePart(IAction action, IWorkbenchPart part) {
-		this.targetPart = part;
-	}
-
-	/**
-	 * @see IActionDelegate#run(IAction)
-	 */
-	public void run(IAction action) {
-		MessageDialog.openInformation(
-			targetPart.getSite().getShell(),
-			"[anHandler.eContainer(Bundle).genBundleID()/]",
-			"Running [anHandler.name/]!");
-	}
-[/if]
-
-[if (anHandler.eInverse(Command).eInverse(PopupMenuContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or 
-anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-	/**
-	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-	}
-[/if]
-
-[if (anHandler.eInverse(Command).eInverse(MenuContribution).editors->size() > 0 or anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
-	public void setActiveEditor(IAction action, IEditorPart editor) {
-		this.targetPart = editor;
-	}
-[/if]
-
-[if (anHandler.eInverse(Command).eInverse(ToolbarContribution)->size() > 0 or anHandler.eInverse(Command).eInverse(MenuContribution)->size() > 0)]
-
+[template private genBody(aHandler : DefaultHandler)]
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
@@ -236,10 +122,8 @@ anHandler.eInverse(Command).eInverse(ToolbarContribution).editors->size() > 0)]
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
-				"[anHandler.eContainer(Bundle).genBundleID()/]",
-				"Running [anHandler.name/]!");
+				"[aHandler.eContainer(Bundle).genBundleID()/]",
+				"Running [aHandler.name/]!");
 		return null;
 	}
-
-[/if]
 [/template]

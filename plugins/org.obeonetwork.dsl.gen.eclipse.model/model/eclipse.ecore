@@ -296,6 +296,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="menus" upperBound="-1"
         eType="#//MenuContribution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        eType="#//View"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1"
+        eType="#//Editor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="perspectives" upperBound="-1"
+        eType="#//Perspective"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activateWith" eType="#//Namespace"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Handler">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"

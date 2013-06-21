@@ -1824,13 +1824,49 @@ public interface EclipsePackage extends EPackage {
 	int POPUP_MENU_CONTRIBUTION__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__VIEWS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Editors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__EDITORS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Perspectives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__PERSPECTIVES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Activate With</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP_MENU_CONTRIBUTION__ACTIVATE_WITH = 6;
+
+	/**
 	 * The number of structural features of the '<em>Popup Menu Contribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POPUP_MENU_CONTRIBUTION_FEATURE_COUNT = 3;
+	int POPUP_MENU_CONTRIBUTION_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.
@@ -3870,6 +3906,50 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getPopupMenuContribution_Name();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Views</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getViews()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EReference getPopupMenuContribution_Views();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getEditors <em>Editors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Editors</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getEditors()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EReference getPopupMenuContribution_Editors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getPerspectives <em>Perspectives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Perspectives</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getPerspectives()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EReference getPopupMenuContribution_Perspectives();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getActivateWith <em>Activate With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activate With</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.PopupMenuContribution#getActivateWith()
+	 * @see #getPopupMenuContribution()
+	 * @generated
+	 */
+	EAttribute getPopupMenuContribution_ActivateWith();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Handler <em>Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5516,6 +5596,38 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POPUP_MENU_CONTRIBUTION__NAME = eINSTANCE.getPopupMenuContribution_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POPUP_MENU_CONTRIBUTION__VIEWS = eINSTANCE.getPopupMenuContribution_Views();
+
+		/**
+		 * The meta object literal for the '<em><b>Editors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POPUP_MENU_CONTRIBUTION__EDITORS = eINSTANCE.getPopupMenuContribution_Editors();
+
+		/**
+		 * The meta object literal for the '<em><b>Perspectives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POPUP_MENU_CONTRIBUTION__PERSPECTIVES = eINSTANCE.getPopupMenuContribution_Perspectives();
+
+		/**
+		 * The meta object literal for the '<em><b>Activate With</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POPUP_MENU_CONTRIBUTION__ACTIVATE_WITH = eINSTANCE.getPopupMenuContribution_ActivateWith();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.HandlerImpl <em>Handler</em>}' class.

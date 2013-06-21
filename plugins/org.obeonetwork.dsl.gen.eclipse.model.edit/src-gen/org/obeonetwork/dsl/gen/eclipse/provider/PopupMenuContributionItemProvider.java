@@ -60,6 +60,10 @@ public class PopupMenuContributionItemProvider
 			addCommandsPropertyDescriptor(object);
 			addMenusPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addViewsPropertyDescriptor(object);
+			addEditorsPropertyDescriptor(object);
+			addPerspectivesPropertyDescriptor(object);
+			addActivateWithPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,6 +135,94 @@ public class PopupMenuContributionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Views feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addViewsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopupMenuContribution_views_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopupMenuContribution_views_feature", "_UI_PopupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__VIEWS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Editors feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEditorsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopupMenuContribution_editors_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopupMenuContribution_editors_feature", "_UI_PopupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__EDITORS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Perspectives feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPerspectivesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopupMenuContribution_perspectives_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopupMenuContribution_perspectives_feature", "_UI_PopupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__PERSPECTIVES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activate With feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivateWithPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PopupMenuContribution_activateWith_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PopupMenuContribution_activateWith_feature", "_UI_PopupMenuContribution_type"),
+				 EclipsePackage.Literals.POPUP_MENU_CONTRIBUTION__ACTIVATE_WITH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns PopupMenuContribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,6 +260,7 @@ public class PopupMenuContributionItemProvider
 
 		switch (notification.getFeatureID(PopupMenuContribution.class)) {
 			case EclipsePackage.POPUP_MENU_CONTRIBUTION__NAME:
+			case EclipsePackage.POPUP_MENU_CONTRIBUTION__ACTIVATE_WITH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -55,12 +55,6 @@ Contributors :
 [for (anEditor : Editor | aBundle.editors)][anEditor.editorTemplate()/]
 [/for]
    </extension>
-[/if][if (aBundle.menuContributions.editors->size() > 0 or aBundle.toolbarContributions.editors->size() > 0)]
-   <extension
-         point = "org.eclipse.ui.editorActions">
-[for (anEditor : Editor | aBundle.editors)][if (anEditor.eInverse(MenuContribution)->size() > 0 or anEditor.eInverse(ToolbarContribution)->size() > 0)][anEditor.buttonEditorTemplate()/][/if]
-[/for]
-   </extension>
 [/if][if (aBundle.menuContributions->size() > 0 or aBundle.toolbarContributions->size() > 0 or aBundle.popupMenuContributions->size() > 0)]
 [aBundle.menuTemplate()/]
 [/if][if (aBundle.perspectives->size() > 0)]
@@ -80,66 +74,10 @@ Contributors :
 [for (aContext : Context | aBundle.eAllContents(Context))][aContext.contextDefinition()/]
 [/for]
    </extension>
-[/if][if (aBundle.popupMenuContributions->size() > 0)]
-   <extension
-		 point="org.eclipse.ui.popupMenus">
-[for (aPopup : PopupMenuContribution | aBundle.popupMenuContributions)][aPopup.popupDefinition()/]
-[/for]
-   </extension>
 [/if]
 [/template]
 
 
-
-
-[template private buttonEditorTemplate(anEditor : Editor)]
-      <editorContribution
-            id="[anEditor.genMenuEditorID()/]"
-            targetID="[anEditor.genEditorID()/]">
-[for (aMenu : MenuContribution | anEditor.eInverse(MenuContribution))][aMenu.menuEditorTemplate()/]
-[aMenu.actionEditorTemplate()/]
-[/for][for (aToolbar : ToolbarContribution | anEditor.eInverse(ToolbarContribution))][aToolbar.actionEditorTemplate()/]
-[/for]
-      </editorContribution>
-[/template]
-
-[template private menuEditorTemplate(aMenu : MenuContribution)]
-         <menu
-               id="[aMenu.genMenuID()/]-editor"
-               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
-               path="additions">
-            <groupMarker
-                  name="[aMenu.refactorMenuName()/]">
-            </groupMarker>
-         </menu>
-[/template]
-
-[template private actionEditorTemplate(aMenu : MenuContribution)]
-[for (aCommand : Command | aMenu.commands)]
-         <action
-               class="[aCommand.defaultHandler.genHandlerPath()/]"
-               id="[aCommand.genCommandID()/]"
-               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
-			   icon="icons/[aCommand.iconName()/]"
-               menubarPath="[aMenu.genMenuID()/]-editor/[aMenu.refactorMenuName()/]"
-               state="true"
-               toolbarPath="normal/additions">
-         </action>
-[/for]
-[/template]
-
-[template private actionEditorTemplate(aToolbar : ToolbarContribution)]
-[for (aCommand : Command | aToolbar.commands)]
-         <action
-               class="[aCommand.defaultHandler.genHandlerPath()/]"
-               id="[aCommand.genCommandID()/]"
-			   icon="icons/[aCommand.iconName()/]"
-               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
-               state="true"
-               toolbarPath="normal/additions">
-         </action>
-[/for]
-[/template]
 
 [template private perspectiveTemplate(aPerspective : Perspective)]
       <perspective
@@ -196,11 +134,11 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
       <handler
             commandId="[aCommand.genCommandID()/]"
             class="[anHandler.genHandlerPath()/]">
-[if (anHandler.associatedWith->size() > 0 or not(anHandler.activateWith.toString().matches('null')))]
+[if (anHandler.associatedWith->size() > 0 or anHandler.activateWith.contains('.'))]
 		<activeWhen>
-[if (anHandler.associatedWith->size() > 0 and not(anHandler.activateWith.toString().matches('null')))]
+[if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.contains('.'))]
             <and>
-[/if][if (not(anHandler.activateWith.toString().matches('null')))]
+[/if][if (anHandler.activateWith.contains('.'))]
                <with
                      variable="selection">
                   <instanceof
@@ -212,7 +150,7 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
                </with>
 [/if][if (anHandler.associatedWith->size() > 0)]
 [anHandler.associateHandler()/]
-[/if][if (anHandler.associatedWith->size() > 0 and not(anHandler.activateWith.toString().matches('null')))]
+[/if][if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.contains('.'))]
             </and>
 [/if]
          </activeWhen>
@@ -300,39 +238,4 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 	     parentId="[aContext.eContainer(Context).genContextID()/]">
 [/if]
 	  </context>
-[/template]
-
-[template private popupDefinition(aPopup : PopupMenuContribution)]
-      <objectContribution
-            objectClass="org.eclipse.core.resources.IFile"
-            id="[aPopup.genPopupID()/]">
-[for (aMenu : MenuContribution | aPopup.menus)]
-         <menu
-               label="%Menu-[aMenu.refactorMenuName().toUpperFirst()/]-Name"
-               path="additions"
-               id="[aMenu.genMenuID()/]">
-            <separator
-                  name="%PopupGroup-[aMenu.refactorMenuName().toUpperFirst()/]-Name">
-            </separator>
-         </menu>
-[for (aCommand : Command | aMenu.commands)]
-         <action
-               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
-               class="[aCommand.defaultHandler.genHandlerPath()/]"
-               menubarPath="[aMenu.genMenuID()/]/group[aMenu.name.replaceAll(' ', '_')/]"
-			   icon="icons/[aCommand.iconName()/]"
-               enablesFor="1"
-               id="[aCommand.genCommandID()/]">
-         </action>
-[/for][/for]
-[for (aCommand : Command | aPopup.commands)]
-         <action
-               label="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Name"
-               class="[aCommand.defaultHandler.genHandlerPath()/]"
-			   icon="icons/[aCommand.iconName()/]"
-               enablesFor="1"
-               id="[aCommand.genCommandID()/]">
-         </action>
-[/for]
-      </objectContribution>
 [/template]

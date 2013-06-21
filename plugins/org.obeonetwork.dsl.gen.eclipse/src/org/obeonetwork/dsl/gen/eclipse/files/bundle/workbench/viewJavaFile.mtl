@@ -34,22 +34,28 @@ Contributors :
 package [aView.eContainer(Bundle).genBundleID()/].views;
 
 
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.SWT;
-import org.eclipse.ui.part.ViewPart;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.part.ViewPart;
+
 [if (aView.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
+
 [comment][if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
 import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
 [/for][/if][/comment]
@@ -115,10 +121,10 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 				adapterFactory));
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 		viewer.setInput(retrieveModelInstance());
+		createContextMenu();
 
-
-		// Create the help context id for the viewer's control
 [if (aView.dynamicHelp->size() > 0)]
+		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
 [/if]
 	}
@@ -148,6 +154,33 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	}
 
 
+	//Create the view's menu
+   	private void createContextMenu() {
+		// Create menu manager
+   		MenuManager menuManager = new MenuManager();
+   		menuManager.setRemoveAllWhenShown(true);
+   		menuManager.addMenuListener(new IMenuListener() {
+			
+			public void menuAboutToShow(IMenuManager manager) {
+				fillContextMenu(manager);		
+			}
+		});
+   		
+		// Create menu
+   		Menu menu = menuManager.createContextMenu(viewer.getControl());
+   		viewer.getControl().setMenu(menu);
+   		
+		// Register menu for extension
+   		getSite().registerContextMenu(menuManager, viewer);
+   	}
+   	
+	// fill the menu programmatically
+   	private void fillContextMenu(IMenuManager mgr) {
+
+   	}
+
+
+
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
@@ -161,21 +194,26 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 package [aView.eContainer(Bundle).genBundleID()/].views;
 
 
+import java.util.ArrayList;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.part.ViewPart;
-import java.util.ArrayList;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.ui.part.DrillDownAdapter;
+import org.eclipse.ui.part.ViewPart;
 
 
 
@@ -373,11 +411,40 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
      	viewer.setLabelProvider(new ViewLabelProvider());
      	viewer.setSorter(new NameSorter());
      	viewer.setInput(getViewSite());
-		// Create the help context id for the viewer's control
+		createContextMenu();
+
 [if (aView.dynamicHelp->size() > 0)]
+		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "[aView.ancestors(Bundle).genBundleID()/].dynamic[aView.dynamicHelp.label.substituteAll(' ', '_').toUpperFirst()/]");
 [/if]
 	}
+
+
+	//Create the view's menu
+   	private void createContextMenu() {
+		// Create menu manager
+   		MenuManager menuManager = new MenuManager();
+   		menuManager.setRemoveAllWhenShown(true);
+   		menuManager.addMenuListener(new IMenuListener() {
+			
+			public void menuAboutToShow(IMenuManager manager) {
+				fillContextMenu(manager);		
+			}
+		});
+   		
+		// Create menu
+   		Menu menu = menuManager.createContextMenu(viewer.getControl());
+   		viewer.getControl().setMenu(menu);
+   		
+		// Register menu for extension
+   		getSite().registerContextMenu(menuManager, viewer);
+   	}
+   	
+	// fill the menu programmatically
+   	private void fillContextMenu(IMenuManager mgr) {
+
+   	}
+
 
 	/**
 	 * Passing the focus request to the viewer's control.
