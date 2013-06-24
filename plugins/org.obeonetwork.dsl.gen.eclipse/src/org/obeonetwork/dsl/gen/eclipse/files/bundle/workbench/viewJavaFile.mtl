@@ -121,6 +121,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 				adapterFactory));
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 		viewer.setInput(retrieveModelInstance());
+     	getSite().setSelectionProvider(viewer);
 		createContextMenu();
 
 [if (aView.dynamicHelp->size() > 0)]
@@ -411,6 +412,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
      	viewer.setLabelProvider(new ViewLabelProvider());
      	viewer.setSorter(new NameSorter());
      	viewer.setInput(getViewSite());
+     	getSite().setSelectionProvider(viewer);
 		createContextMenu();
 
 [if (aView.dynamicHelp->size() > 0)]

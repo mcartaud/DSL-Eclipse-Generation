@@ -32,12 +32,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 [if (aHandler.oclIsTypeOf(ContextualHandler))][if (not(aHandler.oclAsType(ContextualHandler).activateWith.toString().tokenize()->isEmpty()))]
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
+[if (aHandler.oclAsType(ContextualHandler).activateWith.matches('java.lang.String'))]import org.eclipse.jface.text.ITextSelection;
+[else]import org.eclipse.jface.viewers.IStructuredSelection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-[/if][/if]
+[/if][/if][/if]
 
 
 public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
@@ -70,7 +71,7 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
 				.getActivePage().getSelection();
-		if (selection != null & selection instanceof IStructuredSelection) {
+[if (not(aHandler.activateWith.matches('java.lang.String')))]		if (selection != null & selection instanceof IStructuredSelection) {
 			List<[aHandler.activateWith/]> selected = new ArrayList<[aHandler.activateWith/]>();
 			IStructuredSelection strucSelection = (IStructuredSelection) selection;
 			for (Iterator<Object> iterator = strucSelection.iterator(); iterator
@@ -81,13 +82,19 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 				}
 				doExecute(selected,event);
 			}
-		}
+		}[/if][if (aHandler.activateWith.matches('java.lang.String'))]		if (selection != null & selection instanceof ITextSelection) {
+			ITextSelection textSelection = (ITextSelection) selection;
+			String selected;
+			selected = textSelection.toString();
+			doExecute(selected,event);
+		}[/if]
 		return null;
 	}
 
 
-	private Object doExecute(List<[aHandler.activateWith/]> selected, ExecutionEvent event) throws ExecutionException {		
-		// [protected ('(user code)')]
+[if (aHandler.activateWith.matches('java.lang.String'))]
+	private Object doExecute(String selected, ExecutionEvent event) throws ExecutionException {		
+		// [protected ('(user code ITextSelection)')]
 		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
@@ -97,18 +104,37 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 		return null;
 		// [/protected]		
 	}
-[else]
-	/**
-	 * the command has been executed, so extract extract the needed information
-	 * from the application context.
-	 */
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+[/if]
+
+
+[if (not(aHandler.activateWith.matches('java.lang.String')))]
+	private Object doExecute(List<[aHandler.activateWith/]> selected, ExecutionEvent event) throws ExecutionException {		
+		// [protected ('(user code IStructuredSelection)')]
+		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
 		return null;
+		// [/protected]		
+	}
+[/if]
+[else]
+	/**
+	 * the command has been executed, so extract extract the needed information
+	 * from the application context.
+	 */
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		// [protected ('(user code execute)')]
+		// TODO : replace this by your code
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		MessageDialog.openInformation(
+				window.getShell(),
+				"[aHandler.eContainer(Bundle).genBundleID()/]",
+				"Running [aHandler.name/]!");
+		return null;
+		// [/protected]
 	}
 [/if]
 [/template]
@@ -119,11 +145,14 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		// [protected ('(user code)')]
+		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
 		return null;
+		// [/protected]
 	}
 [/template]
