@@ -1541,22 +1541,13 @@ public interface EclipsePackage extends EPackage {
 	int EDITOR__EXTENSION = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dynamic Menu</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDITOR__DYNAMIC_MENU = PART_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Editor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.
@@ -3613,17 +3604,6 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getEditor_Extension();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#isDynamicMenu <em>Dynamic Menu</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dynamic Menu</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Editor#isDynamicMenu()
-	 * @see #getEditor()
-	 * @generated
-	 */
-	EAttribute getEditor_DynamicMenu();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Command <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5372,14 +5352,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EDITOR__EXTENSION = eINSTANCE.getEditor_Extension();
-
-		/**
-		 * The meta object literal for the '<em><b>Dynamic Menu</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EDITOR__DYNAMIC_MENU = eINSTANCE.getEditor_DynamicMenu();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.

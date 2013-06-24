@@ -12,7 +12,6 @@ package org.obeonetwork.dsl.gen.eclipse;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#getExtension <em>Extension</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Editor#isDynamicMenu <em>Dynamic Menu</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,31 +45,5 @@ public interface Editor extends Part {
 	 * @generated
 	 */
 	void setExtension(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Dynamic Menu</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dynamic Menu</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dynamic Menu</em>' attribute.
-	 * @see #setDynamicMenu(boolean)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getEditor_DynamicMenu()
-	 * @model unique="false"
-	 * @generated
-	 */
-	boolean isDynamicMenu();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Editor#isDynamicMenu <em>Dynamic Menu</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dynamic Menu</em>' attribute.
-	 * @see #isDynamicMenu()
-	 * @generated
-	 */
-	void setDynamicMenu(boolean value);
 
 } // Editor

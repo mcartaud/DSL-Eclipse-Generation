@@ -188,7 +188,6 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Editor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/extension"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/dynamicMenu"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/name"/>

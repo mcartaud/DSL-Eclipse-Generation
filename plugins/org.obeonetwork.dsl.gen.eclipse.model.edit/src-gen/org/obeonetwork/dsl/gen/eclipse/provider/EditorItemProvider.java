@@ -56,7 +56,6 @@ public class EditorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtensionPropertyDescriptor(object);
-			addDynamicMenuPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,28 +78,6 @@ public class EditorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dynamic Menu feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDynamicMenuPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Editor_dynamicMenu_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Editor_dynamicMenu_feature", "_UI_Editor_type"),
-				 EclipsePackage.Literals.EDITOR__DYNAMIC_MENU,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -143,7 +120,6 @@ public class EditorItemProvider
 
 		switch (notification.getFeatureID(Editor.class)) {
 			case EclipsePackage.EDITOR__EXTENSION:
-			case EclipsePackage.EDITOR__DYNAMIC_MENU:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
