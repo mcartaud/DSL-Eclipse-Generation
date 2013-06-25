@@ -247,6 +247,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Editor" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extension" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="editorType" eType="#//EditorType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
@@ -350,6 +351,11 @@
         eType="#//Command" eOpposite="#//Command/binding"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//Context"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EditorType">
+    <eLiterals name="EMF"/>
+    <eLiterals name="Text"/>
+    <eLiterals name="MultiPages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BasedOn">
     <eLiterals name="Ecore"/>

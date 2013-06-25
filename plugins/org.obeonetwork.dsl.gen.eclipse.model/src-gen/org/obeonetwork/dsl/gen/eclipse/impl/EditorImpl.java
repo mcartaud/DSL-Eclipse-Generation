@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
+import org.obeonetwork.dsl.gen.eclipse.EditorType;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ import org.obeonetwork.dsl.gen.eclipse.Editor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getExtension <em>Extension</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.EditorImpl#getEditorType <em>Editor Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +43,26 @@ public class EditorImpl extends PartImpl implements Editor {
 	 * @ordered
 	 */
 	protected String extension = EXTENSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEditorType() <em>Editor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEditorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EditorType EDITOR_TYPE_EDEFAULT = EditorType.EMF;
+
+	/**
+	 * The cached value of the '{@link #getEditorType() <em>Editor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEditorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EditorType editorType = EDITOR_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,11 +109,34 @@ public class EditorImpl extends PartImpl implements Editor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EditorType getEditorType() {
+		return editorType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEditorType(EditorType newEditorType) {
+		EditorType oldEditorType = editorType;
+		editorType = newEditorType == null ? EDITOR_TYPE_EDEFAULT : newEditorType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EDITOR__EDITOR_TYPE, oldEditorType, editorType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EclipsePackage.EDITOR__EXTENSION:
 				return getExtension();
+			case EclipsePackage.EDITOR__EDITOR_TYPE:
+				return getEditorType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,6 +151,9 @@ public class EditorImpl extends PartImpl implements Editor {
 		switch (featureID) {
 			case EclipsePackage.EDITOR__EXTENSION:
 				setExtension((String)newValue);
+				return;
+			case EclipsePackage.EDITOR__EDITOR_TYPE:
+				setEditorType((EditorType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,6 +170,9 @@ public class EditorImpl extends PartImpl implements Editor {
 			case EclipsePackage.EDITOR__EXTENSION:
 				setExtension(EXTENSION_EDEFAULT);
 				return;
+			case EclipsePackage.EDITOR__EDITOR_TYPE:
+				setEditorType(EDITOR_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -136,6 +187,8 @@ public class EditorImpl extends PartImpl implements Editor {
 		switch (featureID) {
 			case EclipsePackage.EDITOR__EXTENSION:
 				return EXTENSION_EDEFAULT == null ? extension != null : !EXTENSION_EDEFAULT.equals(extension);
+			case EclipsePackage.EDITOR__EDITOR_TYPE:
+				return editorType != EDITOR_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,6 +205,8 @@ public class EditorImpl extends PartImpl implements Editor {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (extension: ");
 		result.append(extension);
+		result.append(", editorType: ");
+		result.append(editorType);
 		result.append(')');
 		return result.toString();
 	}

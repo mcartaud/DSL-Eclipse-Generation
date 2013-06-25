@@ -1541,13 +1541,22 @@ public interface EclipsePackage extends EPackage {
 	int EDITOR__EXTENSION = PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Editor Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITOR__EDITOR_TYPE = PART_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Editor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
+	int EDITOR_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.
@@ -2173,6 +2182,16 @@ public interface EclipsePackage extends EPackage {
 	int BINDING_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.EditorType <em>Editor Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.EditorType
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditorType()
+	 * @generated
+	 */
+	int EDITOR_TYPE = 35;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2180,7 +2199,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
 	 * @generated
 	 */
-	int BASED_ON = 35;
+	int BASED_ON = 36;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.
@@ -2190,7 +2209,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 36;
+	int IMPORT_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
@@ -2200,7 +2219,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 37;
+	int JAVA_VERSION = 38;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
@@ -2210,7 +2229,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 38;
+	int TYPE = 39;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -2220,7 +2239,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 39;
+	int LOCATION = 40;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2230,7 +2249,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 40;
+	int VERSION = 41;
 
 	/**
 	 * The meta object id for the '<em>Namespace</em>' data type.
@@ -2240,7 +2259,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 41;
+	int NAMESPACE = 42;
 
 	/**
 	 * The meta object id for the '<em>Java Name</em>' data type.
@@ -2250,7 +2269,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaName()
 	 * @generated
 	 */
-	int JAVA_NAME = 42;
+	int JAVA_NAME = 43;
 
 	/**
 	 * The meta object id for the '<em>Name</em>' data type.
@@ -2260,7 +2279,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getName_()
 	 * @generated
 	 */
-	int NAME = 43;
+	int NAME = 44;
 
 
 	/**
@@ -3604,6 +3623,17 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getEditor_Extension();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Editor#getEditorType <em>Editor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Editor Type</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Editor#getEditorType()
+	 * @see #getEditor()
+	 * @generated
+	 */
+	EAttribute getEditor_EditorType();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Command <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4196,6 +4226,16 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBinding_Contexts();
+
+	/**
+	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.EditorType <em>Editor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Editor Type</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EditorType
+	 * @generated
+	 */
+	EEnum getEditorType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}'.
@@ -5354,6 +5394,14 @@ public interface EclipsePackage extends EPackage {
 		EAttribute EDITOR__EXTENSION = eINSTANCE.getEditor_Extension();
 
 		/**
+		 * The meta object literal for the '<em><b>Editor Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDITOR__EDITOR_TYPE = eINSTANCE.getEditor_EditorType();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.CommandImpl <em>Command</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5814,6 +5862,16 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINDING__CONTEXTS = eINSTANCE.getBinding_Contexts();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.EditorType <em>Editor Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.EditorType
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditorType()
+		 * @generated
+		 */
+		EEnum EDITOR_TYPE = eINSTANCE.getEditorType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}' enum.

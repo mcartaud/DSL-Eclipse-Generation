@@ -14,6 +14,8 @@ Contributors :
 [module editorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::multiPageEditorJavaFile /]
+
 
 [template private editorJavaFile(anEditor : Editor)]
 [anEditor.eContainer(Bundle).genBundleJavaPath()/]/editors/[anEditor.name.replaceAll(' ', '_').toUpperFirst()/].java
@@ -23,6 +25,18 @@ Contributors :
 [file (editorJavaFile(), false, 'UTF-8')]
 package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 
+[if (anEditor.editorType.toString().matches('Text'))]
+[anEditor.textType()/]
+[elseif (anEditor.editorType.toString().matches('EMF'))]
+[anEditor/]
+[elseif (anEditor.editorType.toString().matches('MultiPages'))]
+[anEditor.genMultiPageEditorJavaFile()/]
+[/if]
+
+[/file]
+[/template]
+
+[template private textType(anEditor : Editor)]
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
 [if (anEditor.dynamicHelp->size() > 0)]
@@ -37,7 +51,6 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	 * The ID of the editor as specified by the extension.
 	 */
 	public static final String ID = "[anEditor.genEditorID()/]";
-
 
 	private TableEditor tableEditor;
 
@@ -54,5 +67,4 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 [/if]
 
 }
-[/file]
 [/template]

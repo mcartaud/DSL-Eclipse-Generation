@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.gen.eclipse.DynamicHelp;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
+import org.obeonetwork.dsl.gen.eclipse.EditorType;
 import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
 import org.obeonetwork.dsl.gen.eclipse.Handler;
@@ -305,6 +306,13 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EClass bindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum editorTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1554,6 +1562,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEditor_EditorType() {
+		return (EAttribute)editorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCommand() {
 		return commandEClass;
 	}
@@ -2049,6 +2066,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getEditorType() {
+		return editorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBasedOn() {
 		return basedOnEEnum;
 	}
@@ -2300,6 +2326,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		editorEClass = createEClass(EDITOR);
 		createEAttribute(editorEClass, EDITOR__EXTENSION);
+		createEAttribute(editorEClass, EDITOR__EDITOR_TYPE);
 
 		commandEClass = createEClass(COMMAND);
 		createEAttribute(commandEClass, COMMAND__NAME);
@@ -2368,6 +2395,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(bindingEClass, BINDING__CONTEXTS);
 
 		// Create enums
+		editorTypeEEnum = createEEnum(EDITOR_TYPE);
 		basedOnEEnum = createEEnum(BASED_ON);
 		importTypeEEnum = createEEnum(IMPORT_TYPE);
 		javaVersionEEnum = createEEnum(JAVA_VERSION);
@@ -2570,6 +2598,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 
 		initEClass(editorEClass, Editor.class, "Editor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEditor_Extension(), theEcorePackage.getEString(), "extension", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditor_EditorType(), this.getEditorType(), "editorType", null, 0, 1, Editor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Name(), this.getName_(), "name", null, 1, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2638,6 +2667,11 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getBinding_Contexts(), this.getContext(), null, "contexts", null, 0, -1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(editorTypeEEnum, EditorType.class, "EditorType");
+		addEEnumLiteral(editorTypeEEnum, EditorType.EMF);
+		addEEnumLiteral(editorTypeEEnum, EditorType.TEXT);
+		addEEnumLiteral(editorTypeEEnum, EditorType.MULTI_PAGES);
+
 		initEEnum(basedOnEEnum, BasedOn.class, "BasedOn");
 		addEEnumLiteral(basedOnEEnum, BasedOn.ECORE);
 		addEEnumLiteral(basedOnEEnum, BasedOn.NOTHING);

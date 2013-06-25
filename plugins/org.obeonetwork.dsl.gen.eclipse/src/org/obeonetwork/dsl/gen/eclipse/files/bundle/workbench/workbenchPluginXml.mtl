@@ -223,6 +223,8 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
 [template private editorTemplate(anEditor : Editor)]
       <editor
             class="[anEditor.genEditorPath()/]"
+[if (anEditor.editorType.toString().matches('MultiPages'))]
+            contributorClass="[anEditor.genEditorPath()/]ActionBarContributor" [/if]
             icon="icons/[anEditor.iconName()/]"
             id="[anEditor.genEditorID()/]"
             name="%Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name">

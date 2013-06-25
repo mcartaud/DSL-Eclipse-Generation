@@ -8,6 +8,11 @@
   <foreignModel>eclipse.ecore</foreignModel>
   <genPackages prefix="Eclipse" basePackage="org.obeonetwork.dsl.gen" disposableProviderFactory="true"
       ecorePackage="eclipse.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//EditorType">
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//EditorType/EMF"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//EditorType/Text"/>
+      <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//EditorType/MultiPages"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eclipse.ecore#//BasedOn">
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//BasedOn/Ecore"/>
       <genEnumLiterals ecoreEnumLiteral="eclipse.ecore#//BasedOn/Nothing"/>
@@ -188,6 +193,7 @@
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Editor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Editor/editorType"/>
     </genClasses>
     <genClasses ecoreClass="eclipse.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Command/name"/>

@@ -56,6 +56,7 @@ public class EditorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtensionPropertyDescriptor(object);
+			addEditorTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +75,28 @@ public class EditorItemProvider
 				 getString("_UI_Editor_extension_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Editor_extension_feature", "_UI_Editor_type"),
 				 EclipsePackage.Literals.EDITOR__EXTENSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Editor Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEditorTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Editor_editorType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Editor_editorType_feature", "_UI_Editor_type"),
+				 EclipsePackage.Literals.EDITOR__EDITOR_TYPE,
 				 true,
 				 false,
 				 false,
@@ -120,6 +143,7 @@ public class EditorItemProvider
 
 		switch (notification.getFeatureID(Editor.class)) {
 			case EclipsePackage.EDITOR__EXTENSION:
+			case EclipsePackage.EDITOR__EDITOR_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

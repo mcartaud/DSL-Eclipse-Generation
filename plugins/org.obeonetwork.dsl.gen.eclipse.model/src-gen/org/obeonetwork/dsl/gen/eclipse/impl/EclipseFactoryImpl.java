@@ -105,6 +105,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case EclipsePackage.EDITOR_TYPE:
+				return createEditorTypeFromString(eDataType, initialValue);
 			case EclipsePackage.BASED_ON:
 				return createBasedOnFromString(eDataType, initialValue);
 			case EclipsePackage.IMPORT_TYPE:
@@ -136,6 +138,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case EclipsePackage.EDITOR_TYPE:
+				return convertEditorTypeToString(eDataType, instanceValue);
 			case EclipsePackage.BASED_ON:
 				return convertBasedOnToString(eDataType, instanceValue);
 			case EclipsePackage.IMPORT_TYPE:
@@ -487,6 +491,26 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	public Binding createBinding() {
 		BindingImpl binding = new BindingImpl();
 		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EditorType createEditorTypeFromString(EDataType eDataType, String initialValue) {
+		EditorType result = EditorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEditorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

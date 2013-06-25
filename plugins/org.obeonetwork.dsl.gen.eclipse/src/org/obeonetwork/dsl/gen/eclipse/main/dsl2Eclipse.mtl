@@ -71,6 +71,8 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::perspectiveJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorActionBarContributorJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::editorPluginJavaFile /]
 
 
 [template public generatePlugIn(anApplication : Application)]
@@ -139,6 +141,10 @@ Contributors :
 [/for]
 [for (anEditor : Editor | aBundle.editors)]
 [anEditor.genEditorJavaFile()/]
+[if (anEditor.editorType.toString().matches('MultiPages') or anEditor.editorType.toString().matches('EMF'))]
+[anEditor.genEditorPluginJavaFile()/]
+[anEditor.genEditorActionBarContributorJavaFile()/]
+[/if]
 [genIcon(aBundle.genBundlePath(), anEditor.iconName())/]
 [if (anEditor.dynamicHelp->size() > 0)]
 [anEditor.dynamicHelp.genDynamicHelpContextXmlFile()/]

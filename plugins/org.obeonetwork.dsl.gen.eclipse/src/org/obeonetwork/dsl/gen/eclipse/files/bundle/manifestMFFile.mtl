@@ -64,7 +64,8 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 
 [query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.viewWizardRequiredBundles())->union(aBundle.wizardRequiredBundles())
-->union(aBundle.editorRequiredBundles())->union(aBundle.perspectiveRequiredBundles())->asSet() /]
+->union(aBundle.editorRequiredBundles())->union(aBundle.emfEditorRequiredBundles())->union(aBundle.textEditorRequiredBundles())
+->union(aBundle.perspectiveRequiredBundles())->asSet() /]
 
 [query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
 ->union(aBundle.declarativeServiceImportPackages())->asSet() /]
@@ -183,9 +184,25 @@ else
 	Sequence {}
 endif  /]
 
+[query private emfEditorRequiredBundles(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.eAllContents(Editor).editorType.toString().matches('MultiPages')->size() > 0 
+or aBundle.eAllContents(Editor).editorType.toString().matches('EMF')->size() > 0) then
+	Sequence {'org.eclipse.core.runtime;bundle-version="3.7.0"', 'org.eclipse.core.resources;visibility:=reexport',
+ 'org.eclipse.emf.codegen.ecore', 'org.eclipse.emf.codegen.ecore.ui'}
+else
+	Sequence {}
+endif  /]
+
+[query private textEditorRequiredBundles(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.eAllContents(Editor).editorType.toString().matches('Text')->size() > 0) then
+	Sequence {'org.eclipse.ui.editors'}
+else
+	Sequence {}
+endif  /]
+
 [query private editorRequiredBundles(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.eAllContents(Editor)->size() > 0) then
-	Sequence {'org.eclipse.jface.text', 'org.eclipse.ui.editors'}
+	Sequence {'org.eclipse.jface.text'}
 else
 	Sequence {}
 endif  /]
