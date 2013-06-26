@@ -14,7 +14,7 @@ Contributors :
 [module editorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
-[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::multiPageEditorJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::emfEditorJavaFile /]
 
 
 [template private editorJavaFile(anEditor : Editor)]
@@ -28,9 +28,7 @@ package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 [if (anEditor.editorType.toString().matches('Text'))]
 [anEditor.textType()/]
 [elseif (anEditor.editorType.toString().matches('EMF'))]
-[anEditor/]
-[elseif (anEditor.editorType.toString().matches('MultiPages'))]
-[anEditor.genMultiPageEditorJavaFile()/]
+[anEditor.genEmfEditorJavaFile()/]
 [/if]
 
 [/file]
@@ -39,10 +37,10 @@ package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 [template private textType(anEditor : Editor)]
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
-[if (anEditor.dynamicHelp->size() > 0)]
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+[if (anEditor.dynamicHelp->size() > 0)]
+import org.eclipse.ui.PlatformUI;
 [/if]
 
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
@@ -59,12 +57,12 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	}
 
 
-[if (anEditor.dynamicHelp->size() > 0)]
 	public void createPartControl(Composite parent) {
 		tableEditor = new TableEditor(new Table(parent, PROP_TITLE));
+[if (anEditor.dynamicHelp->size() > 0)]
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(tableEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
-	}
 [/if]
+	}
 
 }
 [/template]

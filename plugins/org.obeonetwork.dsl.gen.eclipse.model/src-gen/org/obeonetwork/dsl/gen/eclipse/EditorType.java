@@ -36,17 +36,7 @@ public enum EditorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEXT(0, "Text", "Text"),
-
-	/**
-	 * The '<em><b>Multi Pages</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MULTI_PAGES_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MULTI_PAGES(0, "MultiPages", "MultiPages");
+	TEXT(0, "Text", "Text");
 
 	/**
 	 * The '<em><b>EMF</b></em>' literal value.
@@ -79,21 +69,6 @@ public enum EditorType implements Enumerator {
 	public static final int TEXT_VALUE = 0;
 
 	/**
-	 * The '<em><b>Multi Pages</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Multi Pages</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #MULTI_PAGES
-	 * @model name="MultiPages"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MULTI_PAGES_VALUE = 0;
-
-	/**
 	 * An array of all the '<em><b>Editor Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +78,6 @@ public enum EditorType implements Enumerator {
 		new EditorType[] {
 			EMF,
 			TEXT,
-			MULTI_PAGES,
 		};
 
 	/**

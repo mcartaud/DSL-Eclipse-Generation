@@ -355,7 +355,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EditorType">
     <eLiterals name="EMF"/>
     <eLiterals name="Text"/>
-    <eLiterals name="MultiPages"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BasedOn">
     <eLiterals name="Ecore"/>

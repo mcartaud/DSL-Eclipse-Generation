@@ -141,7 +141,7 @@ Contributors :
 [/for]
 [for (anEditor : Editor | aBundle.editors)]
 [anEditor.genEditorJavaFile()/]
-[if (anEditor.editorType.toString().matches('MultiPages') or anEditor.editorType.toString().matches('EMF'))]
+[if (anEditor.editorType.toString().matches('EMF'))]
 [anEditor.genEditorPluginJavaFile()/]
 [anEditor.genEditorActionBarContributorJavaFile()/]
 [/if]

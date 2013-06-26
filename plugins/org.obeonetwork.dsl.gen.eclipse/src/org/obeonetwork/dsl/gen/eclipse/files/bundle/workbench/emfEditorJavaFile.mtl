@@ -11,12 +11,12 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module multiPageEditorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module emfEditorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
-[template public genMultiPageEditorJavaFile(anEditor : Editor)]
+[template public genEmfEditorJavaFile(anEditor : Editor)]
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -126,6 +126,9 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+[if (anEditor.dynamicHelp->size() > 0)]
+import org.eclipse.ui.PlatformUI;
+[/if]
 
 /**
  * This is an example of a [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
@@ -1061,6 +1064,11 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 					 updateProblemIndication();
 				 }
 			 });
+
+[if (anEditor.dynamicHelp->size() > 0)]
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(currentViewer.getControl(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
+[/if]
+
 	}
 
 	/**
@@ -1640,5 +1648,6 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 	protected boolean showOutlineView() {
 		return true;
 	}
+
 }
 [/template]

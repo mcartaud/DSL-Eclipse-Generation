@@ -108,8 +108,8 @@ View-[aView.category.refactorCategoryName().toUpperFirst()/]-Category-Name = [aV
 [for (anEditor : Editor | aBundle.editors)]
 Editor-[anEditor.refactorEditorName().toUpperFirst()/]-Name = [anEditor.name/]
 
-[if (anEditor.editorType.toString().matches('MultiPages'))]
-//Informations for EMF editor
+[if (anEditor.editorType.toString().matches('EMF'))]
+#Informations for EMF editor
 
 _UI_[anEditor.name.replaceAll(' ', '').toUpperFirst()/]Editor_menu = [anEditor.name.replaceAll(' ', '').toUpperFirst()/] Editor
 

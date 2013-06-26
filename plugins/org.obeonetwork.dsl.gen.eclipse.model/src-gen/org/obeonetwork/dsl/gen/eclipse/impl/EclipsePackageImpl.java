@@ -2670,7 +2670,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEEnum(editorTypeEEnum, EditorType.class, "EditorType");
 		addEEnumLiteral(editorTypeEEnum, EditorType.EMF);
 		addEEnumLiteral(editorTypeEEnum, EditorType.TEXT);
-		addEEnumLiteral(editorTypeEEnum, EditorType.MULTI_PAGES);
 
 		initEEnum(basedOnEEnum, BasedOn.class, "BasedOn");
 		addEEnumLiteral(basedOnEEnum, BasedOn.ECORE);
