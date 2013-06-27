@@ -61,9 +61,16 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvid
 [/file]
 [/template]
 
+[template private monitorSuperType(aDeclarativeService : DeclarativeService)]
+[if (aDeclarativeService.providedServices->size() > 0)][for (aProvidedService : ProvidedService 
+| aDeclarativeService.providedServices)][aProvidedService.superType()/][/for][elseif (aDeclarativeService.
+requiredServices->size() > 0)] extends [aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/]Impl[/if]
+[/template]
+
+
 [template private superType(aProvidedService : ProvidedService)]
 [if (aProvidedService.interface.ecoreClass.abstract and not(aProvidedService.interface.ecoreClass.interface))]
- extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.ecoreClass.instanceClassName.toUpperFirst()/][/for][/if]
+ extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
 [if (aProvidedService.interface.ecoreClass.abstract and aProvidedService.interface.ecoreClass.interface)]
  implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
 [/template]
