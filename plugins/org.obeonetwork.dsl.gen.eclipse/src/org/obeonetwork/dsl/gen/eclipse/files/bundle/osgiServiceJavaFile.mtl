@@ -28,7 +28,7 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 [/if][if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.interfaceID()/][/for][/if]
 
 // referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
-public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
+public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarativeService.monitorSuperType()/] {
 
 [if (aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations->size() > 0)]
 	// Provided Services
@@ -91,17 +91,17 @@ void[else][anEOperation.eType.name.toUpperFirst()/]
 
 [template private addMethodBody(aRequiredService : RequiredService)]
 [if (aRequiredService.reference.upperBound = 1)]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [else]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [/if]
 [/template]
 
 [template private removeMethodBody(aRequiredService : RequiredService)]
 [if (aRequiredService.reference.upperBound = 1)]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].set[aRequiredService.reference.name.toUpperFirst()/](null);
+set[aRequiredService.reference.name.toUpperFirst()/](null);
 [else]
-this.a[aRequiredService.eContainer(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/].get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
+get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [/if]
 [/template]
 
