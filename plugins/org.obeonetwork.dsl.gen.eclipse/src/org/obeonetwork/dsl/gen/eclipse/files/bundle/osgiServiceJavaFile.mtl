@@ -23,7 +23,11 @@ Contributors :
 [file (aDeclarativeService.osgiServiceJavaFile(), false, 'UTF-8')]
 package [aDeclarativeService.genServicePackageName()/];
 
+[if (aDeclarativeService.requiredServices->size() > 0)]
+import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.ePackage.name/].impl.[aDeclarativeService.delegatorClass.ecoreClass.name/]Impl;
+[elseif (aDeclarativeService.providedServices->size() > 0)]
 import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativeService.delegatorClass.ecoreClass.ePackage.name/].[aDeclarativeService.delegatorClass.ecoreClass.name/];
+[/if]
 [if (aDeclarativeService.providedServices->size() > 0)]import [aDeclarativeService.genImplementationID()/];
 [/if][if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.interfaceID()/][/for][/if]
 
