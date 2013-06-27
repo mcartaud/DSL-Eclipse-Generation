@@ -30,12 +30,6 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 // referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)][aProvidedService.superType()/][/for] {
 
-[for (aProvidedService : ProvidedService | aDeclarativeService.providedServices)]
-	private [aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/] a[aProvidedService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/];
-[/for][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
-	private [aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/] a[aRequiredService.ancestors(DeclarativeService).delegatorClass.ecoreClass.name.toUpperFirst()/];
-[/for]
-
 [if (aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations->size() > 0)]
 	// Provided Services
 [for (anEOperation : EOperation | aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations)]
@@ -46,6 +40,11 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvid
 [/if]
 
 [if (aDeclarativeService.requiredServices->size() > 0)]
+	public [aDeclarativeService.serviceClassName.toUpperFirst()/]() {
+		super();
+	}
+
+
 	// Required Services
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
 	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
@@ -64,7 +63,7 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][for (aProvid
 
 [template private superType(aProvidedService : ProvidedService)]
 [if (aProvidedService.interface.ecoreClass.abstract and not(aProvidedService.interface.ecoreClass.interface))]
- extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
+ extends [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.ecoreClass.instanceClassName.toUpperFirst()/][/for][/if]
 [if (aProvidedService.interface.ecoreClass.abstract and aProvidedService.interface.ecoreClass.interface)]
  implements [for (aGenClass : GenClass | aProvidedService.interface) separator (', ')][aGenClass.genSuperType()/][/for][/if]
 [/template]
