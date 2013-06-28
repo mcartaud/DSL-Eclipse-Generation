@@ -32,6 +32,8 @@ Contributors :
 <body>
 <h1>[anHelpContent.description/]</h1> 
 Please enter your text here.
+<!--[protected (': please fill your main help page "' + anHelpContent.label + '" here-->')]
+<!--[/protected]-->
 </body>
 </html>
 [/file]

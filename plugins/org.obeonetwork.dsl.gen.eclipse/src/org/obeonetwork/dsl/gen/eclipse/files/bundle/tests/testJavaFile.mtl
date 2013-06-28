@@ -24,8 +24,16 @@ Contributors :
 package [aBundle.genBundleID()/].tests.unit.utils;
 
 import junit.framework.TestCase;
+//[protected (': add imports for ' + aBundle.name +'Test')]
+//[/protected]
 
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends TestCase {
+
+	//[protected (': add attributes for ' + aBundle.name +'Test')]
+	//[/protected]
+
+	//[protected (': add methods for ' + aBundle.name +'Test')]
+	//[/protected]
 
 }
 [/file]

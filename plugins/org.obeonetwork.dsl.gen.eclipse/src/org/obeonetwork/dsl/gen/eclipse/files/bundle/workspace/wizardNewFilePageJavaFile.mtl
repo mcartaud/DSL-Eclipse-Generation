@@ -25,12 +25,24 @@ package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+//[protected (': add newFile imports for ' + aWizard.name)]
+//[/protected]
+
 
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
 
+	//[protected (': add newFile attributes for ' + aWizard.name)]
+	//[/protected]
+
+	/**
+	 * @generated
+	 */
 	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
 		super(pageName, selection);
 	}
+
+	//[protected (': add newFile methods for ' + aWizard.name)]
+	//[/protected]
 }
 [/file]
 [/template]

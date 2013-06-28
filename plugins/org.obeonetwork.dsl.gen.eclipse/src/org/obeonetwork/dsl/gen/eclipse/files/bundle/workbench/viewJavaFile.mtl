@@ -55,7 +55,6 @@ import org.eclipse.ui.part.ViewPart;
 [if (aView.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
-
 [comment][if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
 import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
 [/for][/if][/comment]
@@ -63,6 +62,8 @@ import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.n
 import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.name/];
 import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[anEPackage.name.toUpperFirst()/]Factory;
 [/for][/if]
+//[protected (': add ecoreTreeView imports for ' + aView.name)]
+//[/protected]
 
 
 /**
@@ -84,11 +85,13 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	 */
 	public static final String ID = "[aView.genViewID()/]";
 
-
 	private TreeViewer viewer;
+	//[protected (': add ecoreTreeView attributes for ' + aView.name)]
+	//[/protected]
 
-
-
+	/**
+	 * @generated
+	 */
 	class NameSorter extends ViewerSorter {
 	}
 
@@ -103,6 +106,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 
 	/**
 	 * The constructor.
+	 * @generated
 	 */
 	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		adapterFactory = new ComposedAdapterFactory(
@@ -114,6 +118,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	/**
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
+	 * @generated
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
@@ -130,7 +135,9 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 [/if]
 	}
 
-
+	/**
+	 * @generated
+	 */
 	private Notifier retrieveModelInstance() {
 		Resource res = new ResourceImpl();
 		/*
@@ -154,14 +161,19 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 		return res;
 	}
 
-
-	//Create the view's menu
+	/**
+	 * Create the view's menu
+	 * @generated
+	 */
    	private void createContextMenu() {
 		// Create menu manager
    		MenuManager menuManager = new MenuManager();
    		menuManager.setRemoveAllWhenShown(true);
    		menuManager.addMenuListener(new IMenuListener() {
 			
+			/**
+			 * @generated
+			 */
 			public void menuAboutToShow(IMenuManager manager) {
 				fillContextMenu(manager);		
 			}
@@ -175,7 +187,10 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
    		getSite().registerContextMenu(menuManager, viewer);
    	}
    	
-	// fill the menu programmatically
+	/**
+	 * fill the menu programmatically
+	 * @generated
+	 */
    	private void fillContextMenu(IMenuManager mgr) {
 
    	}
@@ -184,10 +199,15 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 
 	/**
 	 * Passing the focus request to the viewer's control.
+	 * @generated
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
+
+	//[protected (': add ecoreTreeView methods for ' + aView.name)]
+	//[/protected]
+
 }
 [/template]
 
@@ -215,7 +235,8 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
-
+//[protected (': add treeView imports for ' + aView.name)]
+//[/protected]
 
 
 /**
@@ -237,9 +258,10 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	 */
 	public static final String ID = "[aView.genViewID()/]";
 
-
  	private TreeViewer viewer;
 	private DrillDownAdapter drillDownAdapter;
+	//[protected (': add treeView attributes for ' + aView.name)]
+	//[/protected]
 	
 
     /*
@@ -252,74 +274,129 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
     * (like Task List, for example).
     */
 
-
+	/**
+	 * @generated
+	 */
 	class TreeObject implements IAdaptable {
     	private String name;
     	private TreeParent parent;
+		//[protected (': add TreeObject attributes for ' + aView.name)]
+		//[/protected] 
      
+		/**
+		 * @generated
+		 */
     	public TreeObject(String name) {
        		this.name = name;
      	}
 
+		/**
+		 * @generated
+		 */
      	public String getName() {
        		return name;
      	}
 
+		/**
+		 * @generated
+		 */
      	public void setParent(TreeParent parent) {
        		this.parent = parent;
      	}
      	
+		/**
+		 * @generated
+		 */
 		public TreeParent getParent() {
        		return parent;
      	}
     
+		/**
+		 * @generated
+		 */
 		public String toString() {
        		return getName();
      	}
 
+		/**
+		 * @generated
+		 */
 	    public Object getAdapter(Class key) {
        		return null;
      	}
    	}
    
-
+	/**
+	 * @generated
+	 */
    	class TreeParent extends TreeObject {
     	private ArrayList children;
+		//[protected (': add TreeParent attributes for ' + aView.name)]
+		//[/protected] 
      
+		/**
+		 * @generated
+		 */
 		public TreeParent(String name) {
        		super(name);
        		children = new ArrayList();
      	}
-     
+
+     	/**
+		 * @generated
+		 */
 		public void addChild(TreeObject child) {
        		children.add(child);
        		child.setParent(this);
      	}
 
+		/**
+		 * @generated
+		 */
      	public void removeChild(TreeObject child) {
        		children.remove(child);
        		child.setParent(null);
      	}
 
+		/**
+		 * @generated
+		 */
      	public TreeObject ['['/]] getChildren() {
        		return (TreeObject ['['/]])children.toArray(new TreeObject['['/]children.size()]);
      	}
 
+		/**
+		 * @generated
+		 */
      	public boolean hasChildren() {
        		return children.size()>0;
      	}
    	}
- 
+
+	/**
+	 * @generated
+	 */ 
    	class ViewContentProvider implements IStructuredContentProvider, 
                         ITreeContentProvider {
      	private TreeParent invisibleRoot;
- 
+		//[protected (': add ViewContentProvider attributes for ' + aView.name)]
+		//[/protected] 
+
+		/**
+		 * @generated
+		 */
      	public void inputChanged(Viewer v, Object oldInput, Object newInput) {
      	}
 
+		/**
+		 * @generated
+		 */
      	public void dispose() {
      	}
 
+		/**
+		 * @generated
+		 */
      	public Object['['/]] getElements(Object parent) {
        		if (parent.equals(getViewSite())) {
          		if (invisibleRoot==null) initialize();
@@ -328,6 +405,9 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
        		return getChildren(parent);
     	}
 
+		/**
+		 * @generated
+		 */
      	public Object getParent(Object child) {
        		if (child instanceof TreeObject) {
          		return ((TreeObject)child).getParent();
@@ -335,6 +415,9 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
        		return null;
      	}
 
+		/**
+		 * @generated
+		 */
      	public Object ['['/]] getChildren(Object parent) {
        		if (parent instanceof TreeParent) {
          		return ((TreeParent)parent).getChildren();
@@ -342,17 +425,21 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
        		return new Object['['/]0];
      	}
 
+		/**
+		 * @generated
+		 */
      	public boolean hasChildren(Object parent) {
        		if (parent instanceof TreeParent)
          		return ((TreeParent)parent).hasChildren();
        		return false;
      	}
 
-/*
- * We will set up a dummy model to initialize tree heararchy.
- * In a real code, you will connect to a real model and
- * expose its hierarchy.
- */
+		/*
+ 		 * We will set up a dummy model to initialize tree heararchy.
+		 * In a real code, you will connect to a real model and
+		 * expose its hierarchy.
+		 * @generated
+		 */
 		private void initialize() {
        		TreeObject to1 = new TreeObject("Leaf 1");
        		TreeObject to2 = new TreeObject("Leaf 2");
@@ -375,13 +462,24 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
      	}
    	}
 
-
+	/**
+	 * @generated
+	 */
    	class ViewLabelProvider extends LabelProvider {
- 
+
+		//[protected (': add ViewLabelProvider attributes for ' + aView.name)]
+		//[/protected] 
+
+		/**
+		 * @generated
+		 */
      	public String getText(Object obj) {
       		return obj.toString();
      	}
 
+		/**
+		 * @generated
+		 */
      	public Image getImage(Object obj) {
        		String imageKey = ISharedImages.IMG_OBJ_ELEMENT;
        		if (obj instanceof TreeParent)
@@ -390,12 +488,15 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
      	}
    	}
 
-
+	/**
+	 * @generated
+	 */
 	class NameSorter extends ViewerSorter {
    	}
 
 	/**
 	 * The constructor.
+	 * @generated
 	 */
 	public [aView.name.replaceAll(' ', '_').toUpperFirst()/]() {
 	}
@@ -403,6 +504,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	/**
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
+	 * @generated
 	 */
    	public void createPartControl(Composite parent) {
 
@@ -422,7 +524,10 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	}
 
 
-	//Create the view's menu
+	/**
+	 * Create the view's menu
+	 * @generated
+	 */
    	private void createContextMenu() {
 		// Create menu manager
    		MenuManager menuManager = new MenuManager();
@@ -442,7 +547,10 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
    		getSite().registerContextMenu(menuManager, viewer);
    	}
    	
-	// fill the menu programmatically
+	/**
+	 * fill the menu programmatically
+	 * @generated
+	 */
    	private void fillContextMenu(IMenuManager mgr) {
 
    	}
@@ -450,10 +558,14 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 
 	/**
 	 * Passing the focus request to the viewer's control.
+	 * @generated
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
+
+	//[protected (': add treeView methods for ' + aView.name)]
+	//[/protected]
 
 }
 [/template]

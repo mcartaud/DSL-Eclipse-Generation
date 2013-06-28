@@ -42,6 +42,8 @@ import org.eclipse.swt.widgets.Table;
 [if (anEditor.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
+//[protected (': textEditor imports for ' + anEditor.name)]
+//[/protected]
 
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
 
@@ -51,18 +53,28 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	public static final String ID = "[anEditor.genEditorID()/]";
 
 	private TableEditor tableEditor;
+	//[protected (': add textEditor attributes for ' + anEditor.name)]
+	//[/protected]
 
+	/**
+	 * @generated
+	 */
 	public [anEditor.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
 	}
 
-
+	/**
+	 * @generated
+	 */
 	public void createPartControl(Composite parent) {
 		tableEditor = new TableEditor(new Table(parent, PROP_TITLE));
 [if (anEditor.dynamicHelp->size() > 0)]
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(tableEditor.getEditor(), "[anEditor.ancestors(Bundle).genBundleID()/].dynamic[anEditor.dynamicHelp.label.substituteAll(' ', '').toUpperFirst()/]");
 [/if]
 	}
+
+	//[protected (': add textEditor methods for ' + anEditor.name)]
+	//[/protected]
 
 }
 [/template]

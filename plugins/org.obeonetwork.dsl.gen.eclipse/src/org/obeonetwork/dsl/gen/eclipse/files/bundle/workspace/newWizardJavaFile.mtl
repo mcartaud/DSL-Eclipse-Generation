@@ -44,6 +44,9 @@ import java.io.InputStream;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.resources.IFile;
 [/if]
+//[protected (': add wizard imports for ' + aWizard.name)]
+//[/protected]
+
 
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard implements INewWizard{
 
@@ -53,13 +56,21 @@ public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard 
 	private [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage [aWizard.name.replaceAll(' ', '_').toLowerFirst()/]FilePage;
 	private IStructuredSelection selection;
 [/if]
+//[protected (': add wizard attributes for ' + aWizard.name)]
+//[/protected]
 
+	/**
+	 * @generated
+	 */
 	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();		
 		setNeedsProgressMonitor(true);
 		setWindowTitle("[aWizard.title/]");
 	}
 	
+	/**
+	 * @generated
+	 */
 	@Override
 	public void addPages() {
 [if (aWizard.oclIsKindOf(ProjectWizard))]
@@ -71,6 +82,9 @@ public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard 
 [/if]	
 	}
 
+	/**
+	 * @generated
+	 */
 	@Override
 	public boolean performFinish() {
 [if (aWizard.oclIsKindOf(ProjectWizard))]
@@ -114,7 +128,9 @@ public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard 
 		return true;
 	}
 
-
+	/**
+	 * @generated
+	 */
 	public void init(IWorkbench arg0, IStructuredSelection selection) {
 		[if (aWizard.oclIsKindOf(ProjectWizard))]
 		// TODO Auto-generated method stub	
@@ -123,6 +139,8 @@ public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard 
 		[/if]
 	}
 
+	//[protected (': add wizard methods for ' + aWizard.name)]
+	//[/protected]
 }
 [/file]
 [/template]

@@ -26,6 +26,8 @@ package [aPerspective.eContainer(Bundle).genBundleID()/].perspectives;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
+//[protected (': add perspective imports for ' + aPerspective.name)]
+//[/protected]
 
 
 /**
@@ -36,9 +38,13 @@ import org.eclipse.ui.IPerspectiveFactory;
  */
 public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements IPerspectiveFactory {
 
+	//[protected (': add perspective attributes for ' + aPerspective.name)]
+	//[/protected]
+
 
 	/**
 	 * Constructor.
+	 * @generated
 	 */
 	public [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
@@ -46,7 +52,7 @@ public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 * @generated
 	 * @see org.eclipse.ui.IPerspectiveFactory#createInitialLayout(org.eclipse.ui.IPageLayout)
 	 */
 	public void createInitialLayout(IPageLayout layout) {
@@ -71,6 +77,9 @@ public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements
 				"right", IPageLayout.RIGHT, threeQuarter, editorArea); //$NON-NLS-1$
 
 	}
+
+	//[protected (': add perspective methods for ' + aPerspective.name)]
+	//[/protected]
 
 }
 [/file]

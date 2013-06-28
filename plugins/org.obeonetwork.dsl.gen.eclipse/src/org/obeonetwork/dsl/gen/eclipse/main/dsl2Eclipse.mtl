@@ -66,6 +66,10 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::newWizardJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::wizardNewProjectPageJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::wizardNewFilePageJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionDescriptorJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionExsdFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionInterfaceJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionRegistryJavaFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::handlerJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]

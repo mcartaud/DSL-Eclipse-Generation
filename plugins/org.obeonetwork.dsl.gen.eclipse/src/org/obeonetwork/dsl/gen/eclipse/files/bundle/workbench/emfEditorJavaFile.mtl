@@ -129,6 +129,8 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 [if (anEditor.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
+//[protected (': add emfEditor imports for ' + anEditor.name)]
+//[/protected]
 
 /**
  * This is an example of a [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
@@ -139,6 +141,10 @@ import org.eclipse.ui.PlatformUI;
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPageEditorPart implements
 		IEditingDomainProvider, ISelectionProvider, IMenuListener,
 		IViewerProvider, IGotoMarker {
+
+	//[protected (': add emfEditor attributes for ' + anEditor.name)]
+	//[/protected]
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -200,6 +206,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 	 * This is the viewer that shadows text
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected TextViewer textViewer;
 
@@ -616,7 +623,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generatedNOT
+	 * @generated
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -870,8 +877,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 
 	/**
 	 * This creates a context menu for the textViewer.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	private void createContextMenu() {
 		// Create menu manager
@@ -883,7 +889,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 				fillContextMenu(manager);		
 			}
 		});
-   		
+
 		// Create menu
    		Menu menu = menuManager.createContextMenu(textViewer.getControl());
    		textViewer.getControl().setMenu(menu);
@@ -892,8 +898,10 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
    		getSite().registerContextMenu(menuManager, textViewer);
    	}
 	
-	
-	// fill the menu programmatically
+	/**
+	 * fill the menu programmatically
+	 * @generated
+	 */
    	private void fillContextMenu(IMenuManager mgr) {}
 
 
@@ -1648,6 +1656,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPa
 	protected boolean showOutlineView() {
 		return true;
 	}
+
+	//[protected (': add emfEditor methods for ' + anEditor.name)]
+	//[/protected]
 
 }
 [/template]

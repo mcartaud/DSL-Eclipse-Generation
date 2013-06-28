@@ -87,6 +87,8 @@ Contributors :
             	</with>
 [/if]
 			   </or>
+<!--[protected (': add your own visibility rules for the menus ' + aMenu.name + '-->')]
+<!--[/protected]-->
          	</visibleWhen>
 [/template]
 
@@ -128,7 +130,7 @@ Contributors :
 [aCommand.genActionMenuPopupContribution()/]
 [/for]
 [if (aPopup.editors->size() > 0 or aPopup.views->size() > 0 or aPopup.perspectives->size() > 0)]
-[aPopup.genPopupActivation()/]
+[aPopup.genPopupActivation(aMenu)/]
 [/if]
          </menu>
 [/for]
@@ -151,13 +153,13 @@ Contributors :
 				  mnemonic="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Mnemonic"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].menus.[aCommand.refactorCommandName().toLowerFirst()/]">
 [if (aPopup.views->size() > 0 or aPopup.editors->size() > 0 or aPopup.perspectives->size() > 0)]
-[aPopup.genPopupActivation()/]
+[aPopup.genPopupActivation(aCommand)/]
 [/if]
             </command>
 [/for]
 [/template]
 
-[template private genPopupActivation(aPopup : PopupMenuContribution)]
+[template private genPopupActivation(aPopup : PopupMenuContribution, aCommand : Command)]
 			<visibleWhen checkEnabled="false">
 			  <and>
 			   <or>
@@ -193,10 +195,51 @@ Contributors :
                </with>
 [/if]
 			  </and>
+<!--[protected (': add here your own visibility rules for the popup command ' + aCommand.name + '-->')]
+<!--[/protected]-->
          	</visibleWhen>
 [/template]
 
-
+[template private genPopupActivation(aPopup : PopupMenuContribution, aMenu : MenuContribution)]
+			<visibleWhen checkEnabled="false">
+			  <and>
+			   <or>
+[if (aPopup.perspectives->size() > 0)]
+            	<with variable="activeWorkbenchWindow.activePerspective">
+				  <or>
+[for (aPerspective : Perspective | aPopup.perspectives)]
+                	<equals value="[aPerspective.genPerspectiveID()/]"/>
+[/for]
+				  </or>
+            	</with>
+[/if][if (aPopup.editors->size() > 0 or aPopup.views->size() > 0)]
+            	<with variable="activePartId">
+				  <or>
+[for (anEditor : Editor | aPopup.editors)]
+                	<equals value="[anEditor.genEditorID()/]"/>
+[/for][for (aView : View | aPopup.views)]
+                	<equals value="[aView.genViewID()/]"/>
+[/for]
+				  </or>
+            	</with>
+[/if]
+			   </or>
+[if (aPopup.activateWith.toString().contains('.'))]
+               <with
+                     variable="selection">
+                  <instanceof
+                        value="[aPopup.activateWith/]">
+                  </instanceof>
+                  <count
+                        value="+">
+                  </count>
+               </with>
+[/if]
+			  </and>
+<!--[protected (': add here your own visibility rules for the popup menu ' + aMenu.name + '-->')]
+<!--[/protected]-->
+         	</visibleWhen>
+[/template]
 
 
 
@@ -223,13 +266,13 @@ Contributors :
                   tooltip="%Command-[aCommand.refactorCommandName().toUpperFirst()/]-Tooltip"
                   id="[aCommand.eContainer(Bundle).genBundleID()/].toobars.[aCommand.refactorCommandName().toLowerFirst()/]">
 [if (aToolbar.editors->size() > 0 or aToolbar.perspectives->size() > 0)]
-[aToolbar.genToolbarActivation()/]
+[aToolbar.genToolbarActivation(aCommand)/]
 [/if]
             </command>
 [/for]
 [/template]
 
-[template private genToolbarActivation(aToolbar : ToolbarContribution)]
+[template private genToolbarActivation(aToolbar : ToolbarContribution, aCommand : Command)]
 			<visibleWhen checkEnabled="false">
 			   <or>
 [if (aToolbar.perspectives->size() > 0)]
@@ -250,6 +293,8 @@ Contributors :
             	</with>
 [/if]
 			   </or>
+<!--[protected (': add here your own visibility rules for the toolbar command ' + aCommand.name + '-->')]
+<!--[/protected]-->
          	</visibleWhen>
 [/template]
 

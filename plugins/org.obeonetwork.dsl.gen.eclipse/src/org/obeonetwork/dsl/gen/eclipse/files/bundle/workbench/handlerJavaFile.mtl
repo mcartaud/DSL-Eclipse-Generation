@@ -39,12 +39,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 [/if][/if][/if]
-
+//[protected (': add handler imports for ' + aHandler.name)]
+//[/protected]
 
 public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
 	
+	//[protected (': add handler attributes for ' + aHandler.name)]
+	//[/protected]
+
+
 	/**
 	 * The constructor.
+	 * @generated
 	 */
 	public [aHandler.name.replaceAll(' ', '_').toUpperFirst()/]() {
 		super();
@@ -57,6 +63,8 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 [aHandler.oclAsType(DefaultHandler).genBody()/]
 [/if]
 
+	//[protected (': add handler methods for ' + aHandler.name)]
+	//[/protected]
 
 }
 [/file]
@@ -67,6 +75,7 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
@@ -93,48 +102,46 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 
 
 [if (aHandler.activateWith.matches('java.lang.String'))]
+	/**
+	 * @generated
+	 */
 	private Object doExecute(String selected, ExecutionEvent event) throws ExecutionException {		
-		// [protected ('(user code ITextSelection)')]
-		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
-		return null;
-		// [/protected]		
+		return null;		
 	}
 [/if]
 
 
 [if (not(aHandler.activateWith.matches('java.lang.String')))]
+	/**
+	 * @generated
+	 */
 	private Object doExecute(List<[aHandler.activateWith/]> selected, ExecutionEvent event) throws ExecutionException {		
-		// [protected ('(user code IStructuredSelection)')]
-		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
 		return null;
-		// [/protected]		
 	}
 [/if]
 [else]
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// [protected ('(user code execute)')]
-		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
 		return null;
-		// [/protected]
 	}
 [/if]
 [/template]
@@ -143,16 +150,14 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// [protected ('(user code)')]
-		// TODO : replace this by your code
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(
 				window.getShell(),
 				"[aHandler.eContainer(Bundle).genBundleID()/]",
 				"Running [aHandler.name/]!");
 		return null;
-		// [/protected]
 	}
 [/template]

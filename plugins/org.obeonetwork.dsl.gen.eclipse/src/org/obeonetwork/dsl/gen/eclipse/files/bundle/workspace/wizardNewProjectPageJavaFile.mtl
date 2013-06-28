@@ -24,14 +24,26 @@ Contributors :
 package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+//[protected (': add newProject imports for ' + aWizard.name)]
+//[/protected]
 
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
 	
+	//[protected (': add newProject attributes for ' + aWizard.name)]
+	//[/protected]
+
+	/**
+	 * @generated
+	 */
 	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage() {
 		super("[aWizard.name/]");
 		this.setTitle("[aWizard.title/]");
 		this.setDescription("[aWizard.description/]");
 	}
+
+	//[protected (': add newProject methods for ' + aWizard.name)]
+	//[/protected]
+
 }
 [/file]
 [/template]

@@ -20,6 +20,8 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+//[protected (': add editorPlugin imports for ' + anEditor.name)]
+//[/protected]
 
 /**
  * This is the central singleton for the [anEditor.name.replaceAll(' ', '').toUpperFirst()/] editor plugin.
@@ -28,6 +30,10 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
  * @generated
  */
 public final class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin extends EMFPlugin {
+
+	//[protected (': add editorPlugin attributes for ' + anEditor.name)]
+	//[/protected]
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -102,6 +108,9 @@ public final class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin ext
 			plugin = this;
 		}
 	}
+
+	//[protected (': add editorPlugin methods for ' + anEditor.name)]
+	//[/protected]
 
 }
 

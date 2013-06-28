@@ -25,9 +25,9 @@ Contributors :
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/[aBundle.javaVersion()/]"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<!--[protected (': add your source folders for ' + aBundle.name + '-->')]
 	<classpathentry kind="src" path="src"/>
-	[protected (': add your source folders')]
-	[/protected]
+	<!--[/protected]-->
 	<classpathentry kind="output" path="bin"/>
 </classpath>
 [/file]

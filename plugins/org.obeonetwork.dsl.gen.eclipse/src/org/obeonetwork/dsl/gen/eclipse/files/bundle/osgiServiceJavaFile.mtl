@@ -30,13 +30,22 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 [/if]
 [if (aDeclarativeService.providedServices->size() > 0)]import [aDeclarativeService.genImplementationID()/];
 [/if][if (aDeclarativeService.requiredServices->size() > 0)][for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)][aRequiredService.interfaceID()/][/for][/if]
+//[protected (': add declarative service imports for ' + aDeclarativeService.serviceClassName.toUpperFirst())]
+//[/protected]
+
 
 // referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarativeService.monitorSuperType()/] {
 
+//[protected (': add declarative service attributes for ' + aDeclarativeService.serviceClassName.toUpperFirst())]
+//[/protected]
+
 [if (aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations->size() > 0)]
 	// Provided Services
 [for (anEOperation : EOperation | aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations)]
+	/**
+	 * @generated
+	 */
 	public [anEOperation.genReturn()/] [anEOperation.name.toLowerFirst()/]([anEOperation.eParameters.genDeclaration()->sep(', ')/]) {
 		this.a[aDeclarativeService.delegatorClass.ecoreClass.name.toUpperFirst()/].[anEOperation.name/]();
 	}
@@ -44,6 +53,9 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 [/if]
 
 [if (aDeclarativeService.requiredServices->size() > 0)]
+	/**
+	 * @generated
+	 */
 	public [aDeclarativeService.serviceClassName.toUpperFirst()/]() {
 		super();
 	}
@@ -51,15 +63,24 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 
 	// Required Services
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
+	/**
+	 * @generated
+	 */
 	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
 		[aRequiredService.addMethodBody()/]
 	}
 
+	/**
+	 * @generated
+	 */
 	public void remove[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
 		[aRequiredService.removeMethodBody()/]
 	}
 [/for]
 [/if]
+
+//[protected (': add declarative service methods for ' + aDeclarativeService.serviceClassName.toUpperFirst())]
+//[/protected]
 
 }
 [/file]

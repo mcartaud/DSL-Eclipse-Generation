@@ -49,6 +49,9 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
+//[protected (': add actionBarContributor imports for ' + anEditor.name )]
+//[/protected]
+
 /**
  * This is the action bar contributor for the [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
  * <!-- begin-user-doc -->
@@ -72,6 +75,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * @generated
 	 */
 	protected ISelectionProvider selectionProvider;
+
+	//[protected (': add actionBarContributor attributes for ' + anEditor.name)]
+	//[/protected]
 
 	/**
 	 * This action opens the Properties view.
@@ -429,6 +435,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}
+
+	//[protected (': add actionBarContributor methods for ' + anEditor.name)]
+	//[/protected]
 
 }
 

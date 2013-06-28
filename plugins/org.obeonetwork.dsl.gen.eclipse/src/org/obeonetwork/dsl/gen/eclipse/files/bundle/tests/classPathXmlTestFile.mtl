@@ -25,7 +25,9 @@ Contributors :
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<!--[protected (': add your source folders for ' + aBundle.name + 'Test-->')]
 	<classpathentry kind="src" path="src"/>
+	<!--[/protected]-->
 	<classpathentry kind="output" path="bin"/>
 </classpath>
 [/file]

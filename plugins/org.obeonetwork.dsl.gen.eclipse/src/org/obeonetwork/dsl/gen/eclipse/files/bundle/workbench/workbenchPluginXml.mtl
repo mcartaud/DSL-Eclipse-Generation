@@ -150,7 +150,10 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
                </with>
 [/if][if (anHandler.associatedWith->size() > 0)]
 [anHandler.associateHandler()/]
-[/if][if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.contains('.'))]
+[/if]
+<!--[protected (': add here your own activation rules for the handler ' + anHandler.name + '-->')]
+<!--[/protected]-->
+[if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.contains('.'))]
             </and>
 [/if]
          </activeWhen>
