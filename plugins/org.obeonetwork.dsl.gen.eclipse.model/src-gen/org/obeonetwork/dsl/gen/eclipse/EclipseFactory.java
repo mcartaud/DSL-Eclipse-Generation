@@ -139,13 +139,22 @@ public interface EclipseFactory extends EFactory {
 	ProjectWizard createProjectWizard();
 
 	/**
-	 * Returns a new object of class '<em>Extension Point</em>'.
+	 * Returns a new object of class '<em>Extension Point Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extension Point</em>'.
+	 * @return a new object of class '<em>Extension Point Provider</em>'.
 	 * @generated
 	 */
-	ExtensionPoint createExtensionPoint();
+	ExtensionPointProvider createExtensionPointProvider();
+
+	/**
+	 * Returns a new object of class '<em>Extension Point Client</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extension Point Client</em>'.
+	 * @generated
+	 */
+	ExtensionPointClient createExtensionPointClient();
 
 	/**
 	 * Returns a new object of class '<em>Attribute</em>'.

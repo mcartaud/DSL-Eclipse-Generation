@@ -18,6 +18,10 @@ Contributors :
 [anApplication.baseNamespace/].[anApplication.applicationID/]
 [/template]
 
+[template public genApplicationPath(anApplication : Application)]
+[anApplication.genApplicationName()/]/[anApplication.genApplicationID()/]-parent
+[/template]
+
 [template public genApplicationName(anApplication : Application)]
 [anApplication.applicationID.substituteAll('.', '-')/]
 [/template]
@@ -242,11 +246,15 @@ Contributors :
 [aContext.eContainer(Bundle).genBundleID()/].context-id.[aContext.refactorContextName().toLowerFirst()/]
 [/template]
 
-[template public genExtensionName(anExtensionPoint : ExtensionPoint)]
+[template public genExtensionName(anExtensionPoint : ExtensionPointProvider)]
 [anExtensionPoint.name.toUpperFirst().replaceAll(' ', '_').substitute('Extension', '')/]
 [/template]
 
-[query public staticExtensionName(anExtensionPoint : ExtensionPoint) : String = 
+[template public genAttributeClassName(anAttribute : Attribute)]
+[anAttribute.nonQualifiedName.toUpperFirst().replaceAll(' ', '')/]
+[/template]
+
+[query public staticExtensionName(anExtensionPoint : ExtensionPointProvider) : String = 
 anExtensionPoint.name.replaceAll(' ', '_').toUpper()
 /]
 

@@ -371,26 +371,49 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint} instances.
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtensionPointItemProvider extensionPointItemProvider;
+	protected ExtensionPointProviderItemProvider extensionPointProviderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint}.
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExtensionPointAdapter() {
-		if (extensionPointItemProvider == null) {
-			extensionPointItemProvider = new ExtensionPointItemProvider(this);
+	public Adapter createExtensionPointProviderAdapter() {
+		if (extensionPointProviderItemProvider == null) {
+			extensionPointProviderItemProvider = new ExtensionPointProviderItemProvider(this);
 		}
 
-		return extensionPointItemProvider;
+		return extensionPointProviderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtensionPointClientItemProvider extensionPointClientItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtensionPointClientAdapter() {
+		if (extensionPointClientItemProvider == null) {
+			extensionPointClientItemProvider = new ExtensionPointClientItemProvider(this);
+		}
+
+		return extensionPointClientItemProvider;
 	}
 
 	/**
@@ -942,7 +965,8 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 		if (natureItemProvider != null) natureItemProvider.dispose();
 		if (wizardItemProvider != null) wizardItemProvider.dispose();
 		if (projectWizardItemProvider != null) projectWizardItemProvider.dispose();
-		if (extensionPointItemProvider != null) extensionPointItemProvider.dispose();
+		if (extensionPointProviderItemProvider != null) extensionPointProviderItemProvider.dispose();
+		if (extensionPointClientItemProvider != null) extensionPointClientItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (decoratorItemProvider != null) decoratorItemProvider.dispose();
 		if (markerItemProvider != null) markerItemProvider.dispose();

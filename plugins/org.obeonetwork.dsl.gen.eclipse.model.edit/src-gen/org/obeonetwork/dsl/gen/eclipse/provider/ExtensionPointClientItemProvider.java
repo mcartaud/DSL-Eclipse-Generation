@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,17 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtensionPointItemProvider
+public class ExtensionPointClientItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +45,7 @@ public class ExtensionPointItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionPointItemProvider(AdapterFactory adapterFactory) {
+	public ExtensionPointClientItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,95 +60,65 @@ public class ExtensionPointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addRequiredPropertyDescriptor(object);
+			addProviderPropertyDescriptor(object);
+			addSequenceIterationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Provider feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addProviderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExtensionPoint_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_name_feature", "_UI_ExtensionPoint_type"),
-				 EclipsePackage.Literals.EXTENSION_POINT__NAME,
+				 getString("_UI_ExtensionPointClient_provider_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointClient_provider_feature", "_UI_ExtensionPointClient_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT_CLIENT__PROVIDER,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Required feature.
+	 * This adds a property descriptor for the Sequence Iteration feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredPropertyDescriptor(Object object) {
+	protected void addSequenceIterationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExtensionPoint_required_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPoint_required_feature", "_UI_ExtensionPoint_type"),
-				 EclipsePackage.Literals.EXTENSION_POINT__REQUIRED,
+				 getString("_UI_ExtensionPointClient_sequenceIteration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointClient_sequenceIteration_feature", "_UI_ExtensionPointClient_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ExtensionPoint.gif.
+	 * This returns ExtensionPointClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionPointClient"));
 	}
 
 	/**
@@ -162,10 +129,8 @@ public class ExtensionPointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExtensionPoint)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ExtensionPoint_type") :
-			getString("_UI_ExtensionPoint_type") + " " + label;
+		ExtensionPointClient extensionPointClient = (ExtensionPointClient)object;
+		return getString("_UI_ExtensionPointClient_type") + " " + extensionPointClient.getSequenceIteration();
 	}
 
 	/**
@@ -179,13 +144,9 @@ public class ExtensionPointItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ExtensionPoint.class)) {
-			case EclipsePackage.EXTENSION_POINT__NAME:
-			case EclipsePackage.EXTENSION_POINT__REQUIRED:
+		switch (notification.getFeatureID(ExtensionPointClient.class)) {
+			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -201,11 +162,6 @@ public class ExtensionPointItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EclipsePackage.Literals.EXTENSION_POINT__ATTRIBUTES,
-				 EclipseFactory.eINSTANCE.createAttribute()));
 	}
 
 	/**

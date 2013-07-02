@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,16 +24,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
+import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Attribute} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeItemProvider
+public class ExtensionPointProviderItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +48,7 @@ public class AttributeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeItemProvider(AdapterFactory adapterFactory) {
+	public ExtensionPointProviderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,26 +63,26 @@ public class AttributeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNonQualifiedNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addClassNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Non Qualified Name feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNonQualifiedNamePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_nonQualifiedName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_nonQualifiedName_feature", "_UI_Attribute_type"),
-				 EclipsePackage.Literals.ATTRIBUTE__NON_QUALIFIED_NAME,
+				 getString("_UI_ExtensionPointProvider_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointProvider_name_feature", "_UI_ExtensionPointProvider_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT_PROVIDER__NAME,
 				 true,
 				 false,
 				 false,
@@ -89,19 +92,19 @@ public class AttributeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Class Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addClassNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-				 EclipsePackage.Literals.ATTRIBUTE__TYPE,
+				 getString("_UI_ExtensionPointProvider_className_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointProvider_className_feature", "_UI_ExtensionPointProvider_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT_PROVIDER__CLASS_NAME,
 				 true,
 				 false,
 				 false,
@@ -111,14 +114,44 @@ public class AttributeItemProvider
 	}
 
 	/**
-	 * This returns Attribute.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EclipsePackage.Literals.EXTENSION_POINT_PROVIDER__ATTRIBUTES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ExtensionPointProvider.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Attribute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtensionPointProvider"));
 	}
 
 	/**
@@ -129,10 +162,10 @@ public class AttributeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Attribute)object).getNonQualifiedName();
+		String label = ((ExtensionPointProvider)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Attribute_type") :
-			getString("_UI_Attribute_type") + " " + label;
+			getString("_UI_ExtensionPointProvider_type") :
+			getString("_UI_ExtensionPointProvider_type") + " " + label;
 	}
 
 	/**
@@ -146,10 +179,13 @@ public class AttributeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Attribute.class)) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
-			case EclipsePackage.ATTRIBUTE__TYPE:
+		switch (notification.getFeatureID(ExtensionPointProvider.class)) {
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__NAME:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -165,6 +201,11 @@ public class AttributeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.EXTENSION_POINT_PROVIDER__ATTRIBUTES,
+				 EclipseFactory.eINSTANCE.createAttribute()));
 	}
 
 	/**

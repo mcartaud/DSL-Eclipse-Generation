@@ -84,8 +84,10 @@
         eType="#//Builder" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wizards" upperBound="-1"
         eType="#//Wizard" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionPoints" upperBound="-1"
-        eType="#//ExtensionPoint" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionPointProvider"
+        upperBound="-1" eType="#//ExtensionPointProvider" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionPointClient" upperBound="-1"
+        eType="#//ExtensionPointClient" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decorators" upperBound="-1"
         eType="#//Decorator" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="markers" upperBound="-1"
@@ -171,21 +173,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="natures" upperBound="-1"
         eType="#//Nature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtensionPoint">
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionPointProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
+        eType="#//JavaName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" lowerBound="1"
+        upperBound="-1" eType="#//Attribute" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionPointClient">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
+        eType="#//ExtensionPointProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceIteration" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
-        eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="translatable" unique="false"
-        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nonQualifiedName" unique="false"
+        lowerBound="1" eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decorator">
@@ -372,10 +376,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="string"/>
-    <eLiterals name="boolean"/>
     <eLiterals name="java"/>
-    <eLiterals name="resource"/>
-    <eLiterals name="identifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Location">
     <eLiterals name="BOTTOM_RIGHT" literal="BOTTOM_RIGHT"/>

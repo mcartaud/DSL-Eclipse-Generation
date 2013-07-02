@@ -194,7 +194,8 @@ public class BundleItemProvider
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__NATURES);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__BUILDERS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__WIZARDS);
-			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSION_POINTS);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSION_POINT_PROVIDER);
+			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__EXTENSION_POINT_CLIENT);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__DECORATORS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__MARKERS);
 			childrenFeatures.add(EclipsePackage.Literals.BUNDLE__PERSPECTIVES);
@@ -289,7 +290,8 @@ public class BundleItemProvider
 			case EclipsePackage.BUNDLE__NATURES:
 			case EclipsePackage.BUNDLE__BUILDERS:
 			case EclipsePackage.BUNDLE__WIZARDS:
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
 			case EclipsePackage.BUNDLE__DECORATORS:
 			case EclipsePackage.BUNDLE__MARKERS:
 			case EclipsePackage.BUNDLE__PERSPECTIVES:
@@ -353,8 +355,13 @@ public class BundleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EclipsePackage.Literals.BUNDLE__EXTENSION_POINTS,
-				 EclipseFactory.eINSTANCE.createExtensionPoint()));
+				(EclipsePackage.Literals.BUNDLE__EXTENSION_POINT_PROVIDER,
+				 EclipseFactory.eINSTANCE.createExtensionPointProvider()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EclipsePackage.Literals.BUNDLE__EXTENSION_POINT_CLIENT,
+				 EclipseFactory.eINSTANCE.createExtensionPointClient()));
 
 		newChildDescriptors.add
 			(createChildParameter

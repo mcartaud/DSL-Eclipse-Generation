@@ -26,7 +26,8 @@ import org.obeonetwork.dsl.gen.eclipse.DeclarativeService;
 import org.obeonetwork.dsl.gen.eclipse.Decorator;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Editor;
-import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
 import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.ImportDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
@@ -54,7 +55,8 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensionPoints <em>Extension Points</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensionPointProvider <em>Extension Point Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getExtensionPointClient <em>Extension Point Client</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDecorators <em>Decorators</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getPerspectives <em>Perspectives</em>}</li>
@@ -188,14 +190,24 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	protected EList<Wizard> wizards;
 
 	/**
-	 * The cached value of the '{@link #getExtensionPoints() <em>Extension Points</em>}' containment reference list.
+	 * The cached value of the '{@link #getExtensionPointProvider() <em>Extension Point Provider</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExtensionPoints()
+	 * @see #getExtensionPointProvider()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExtensionPoint> extensionPoints;
+	protected EList<ExtensionPointProvider> extensionPointProvider;
+
+	/**
+	 * The cached value of the '{@link #getExtensionPointClient() <em>Extension Point Client</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensionPointClient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExtensionPointClient> extensionPointClient;
 
 	/**
 	 * The cached value of the '{@link #getDecorators() <em>Decorators</em>}' containment reference list.
@@ -514,11 +526,23 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExtensionPoint> getExtensionPoints() {
-		if (extensionPoints == null) {
-			extensionPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, EclipsePackage.BUNDLE__EXTENSION_POINTS);
+	public EList<ExtensionPointProvider> getExtensionPointProvider() {
+		if (extensionPointProvider == null) {
+			extensionPointProvider = new EObjectContainmentEList<ExtensionPointProvider>(ExtensionPointProvider.class, this, EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER);
 		}
-		return extensionPoints;
+		return extensionPointProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExtensionPointClient> getExtensionPointClient() {
+		if (extensionPointClient == null) {
+			extensionPointClient = new EObjectContainmentEList<ExtensionPointClient>(ExtensionPointClient.class, this, EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT);
+		}
+		return extensionPointClient;
 	}
 
 	/**
@@ -740,8 +764,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__WIZARDS:
 				return ((InternalEList<?>)getWizards()).basicRemove(otherEnd, msgs);
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
-				return ((InternalEList<?>)getExtensionPoints()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+				return ((InternalEList<?>)getExtensionPointProvider()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
+				return ((InternalEList<?>)getExtensionPointClient()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__DECORATORS:
 				return ((InternalEList<?>)getDecorators()).basicRemove(otherEnd, msgs);
 			case EclipsePackage.BUNDLE__MARKERS:
@@ -798,8 +824,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getBuilders();
 			case EclipsePackage.BUNDLE__WIZARDS:
 				return getWizards();
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
-				return getExtensionPoints();
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+				return getExtensionPointProvider();
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
+				return getExtensionPointClient();
 			case EclipsePackage.BUNDLE__DECORATORS:
 				return getDecorators();
 			case EclipsePackage.BUNDLE__MARKERS:
@@ -874,9 +902,13 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				getWizards().clear();
 				getWizards().addAll((Collection<? extends Wizard>)newValue);
 				return;
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
-				getExtensionPoints().clear();
-				getExtensionPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+				getExtensionPointProvider().clear();
+				getExtensionPointProvider().addAll((Collection<? extends ExtensionPointProvider>)newValue);
+				return;
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
+				getExtensionPointClient().clear();
+				getExtensionPointClient().addAll((Collection<? extends ExtensionPointClient>)newValue);
 				return;
 			case EclipsePackage.BUNDLE__DECORATORS:
 				getDecorators().clear();
@@ -977,8 +1009,11 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__WIZARDS:
 				getWizards().clear();
 				return;
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
-				getExtensionPoints().clear();
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+				getExtensionPointProvider().clear();
+				return;
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
+				getExtensionPointClient().clear();
 				return;
 			case EclipsePackage.BUNDLE__DECORATORS:
 				getDecorators().clear();
@@ -1056,8 +1091,10 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return builders != null && !builders.isEmpty();
 			case EclipsePackage.BUNDLE__WIZARDS:
 				return wizards != null && !wizards.isEmpty();
-			case EclipsePackage.BUNDLE__EXTENSION_POINTS:
-				return extensionPoints != null && !extensionPoints.isEmpty();
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_PROVIDER:
+				return extensionPointProvider != null && !extensionPointProvider.isEmpty();
+			case EclipsePackage.BUNDLE__EXTENSION_POINT_CLIENT:
+				return extensionPointClient != null && !extensionPointClient.isEmpty();
 			case EclipsePackage.BUNDLE__DECORATORS:
 				return decorators != null && !decorators.isEmpty();
 			case EclipsePackage.BUNDLE__MARKERS:

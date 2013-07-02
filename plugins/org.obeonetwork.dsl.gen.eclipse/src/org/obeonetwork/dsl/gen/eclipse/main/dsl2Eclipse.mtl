@@ -18,9 +18,11 @@ Contributors :
 
 
 [import org::obeonetwork::dsl::gen::eclipse::files::projectXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::pomParentXmlFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::pomXmlFile /]
-[import org::obeonetwork::dsl::gen::eclipse::files::applicationReadMeTextileFile /]
+
+
+[import org::obeonetwork::dsl::gen::eclipse::files::parent::pomParentXmlFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::parent::applicationReadMeTextileFile /]
 
 
 [import org::obeonetwork::dsl::gen::eclipse::files::feature::buildPropertiesFeatureFile /]

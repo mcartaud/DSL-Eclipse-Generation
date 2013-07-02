@@ -20,24 +20,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.ExtensionPoint;
+import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extension Point</b></em>'.
+ * An implementation of the model object '<em><b>Extension Point Provider</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#isRequired <em>Required</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
+public class ExtensionPointProviderImpl extends EObjectImpl implements ExtensionPointProvider {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,24 +59,24 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isRequired()
+	 * @see #getClassName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean REQUIRED_EDEFAULT = false;
+	protected static final String CLASS_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isRequired()
+	 * @see #getClassName()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean required = REQUIRED_EDEFAULT;
+	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -93,7 +93,7 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtensionPointImpl() {
+	protected ExtensionPointProviderImpl() {
 		super();
 	}
 
@@ -104,7 +104,7 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EclipsePackage.Literals.EXTENSION_POINT;
+		return EclipsePackage.Literals.EXTENSION_POINT_PROVIDER;
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT_PROVIDER__NAME, oldName, name));
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRequired() {
-		return required;
+	public String getClassName() {
+		return className;
 	}
 
 	/**
@@ -142,11 +142,11 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequired(boolean newRequired) {
-		boolean oldRequired = required;
-		required = newRequired;
+	public void setClassName(String newClassName) {
+		String oldClassName = className;
+		className = newClassName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT__REQUIRED, oldRequired, required));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME, oldClassName, className));
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	 */
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
-			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION_POINT__ATTRIBUTES);
+			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES);
 		}
 		return attributes;
 	}
@@ -169,7 +169,7 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -183,11 +183,11 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT__NAME:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__NAME:
 				return getName();
-			case EclipsePackage.EXTENSION_POINT__REQUIRED:
-				return isRequired();
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
+				return getClassName();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
 				return getAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -202,13 +202,13 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT__NAME:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__NAME:
 				setName((String)newValue);
 				return;
-			case EclipsePackage.EXTENSION_POINT__REQUIRED:
-				setRequired((Boolean)newValue);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
+				setClassName((String)newValue);
 				return;
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
@@ -224,13 +224,13 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT__NAME:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EclipsePackage.EXTENSION_POINT__REQUIRED:
-				setRequired(REQUIRED_EDEFAULT);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
 				return;
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
 				getAttributes().clear();
 				return;
 		}
@@ -245,11 +245,11 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT__NAME:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EclipsePackage.EXTENSION_POINT__REQUIRED:
-				return required != REQUIRED_EDEFAULT;
-			case EclipsePackage.EXTENSION_POINT__ATTRIBUTES:
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -267,10 +267,10 @@ public class ExtensionPointImpl extends EObjectImpl implements ExtensionPoint {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", required: ");
-		result.append(required);
+		result.append(", className: ");
+		result.append(className);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ExtensionPointImpl
+} //ExtensionPointProviderImpl

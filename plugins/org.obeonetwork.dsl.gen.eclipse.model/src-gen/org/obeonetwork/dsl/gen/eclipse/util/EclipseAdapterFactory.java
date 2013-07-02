@@ -124,8 +124,12 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 				return createProjectWizardAdapter();
 			}
 			@Override
-			public Adapter caseExtensionPoint(ExtensionPoint object) {
-				return createExtensionPointAdapter();
+			public Adapter caseExtensionPointProvider(ExtensionPointProvider object) {
+				return createExtensionPointProviderAdapter();
+			}
+			@Override
+			public Adapter caseExtensionPointClient(ExtensionPointClient object) {
+				return createExtensionPointClientAdapter();
 			}
 			@Override
 			public Adapter caseAttribute(Attribute object) {
@@ -424,16 +428,30 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint <em>Extension Point</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider <em>Extension Point Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPoint
+	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider
 	 * @generated
 	 */
-	public Adapter createExtensionPointAdapter() {
+	public Adapter createExtensionPointProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient <em>Extension Point Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient
+	 * @generated
+	 */
+	public Adapter createExtensionPointClientAdapter() {
 		return null;
 	}
 

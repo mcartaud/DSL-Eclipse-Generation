@@ -22,7 +22,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getWizards <em>Wizards</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPoints <em>Extension Points</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPointProvider <em>Extension Point Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getExtensionPointClient <em>Extension Point Client</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDecorators <em>Decorators</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getMarkers <em>Markers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getPerspectives <em>Perspectives</em>}</li>
@@ -210,20 +211,36 @@ public interface Bundle extends Project {
 	EList<Wizard> getWizards();
 
 	/**
-	 * Returns the value of the '<em><b>Extension Points</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPoint}.
+	 * Returns the value of the '<em><b>Extension Point Provider</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Extension Points</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Extension Point Provider</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extension Points</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ExtensionPoints()
+	 * @return the value of the '<em>Extension Point Provider</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ExtensionPointProvider()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExtensionPoint> getExtensionPoints();
+	EList<ExtensionPointProvider> getExtensionPointProvider();
+
+	/**
+	 * Returns the value of the '<em><b>Extension Point Client</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extension Point Client</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extension Point Client</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_ExtensionPointClient()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ExtensionPointClient> getExtensionPointClient();
 
 	/**
 	 * Returns the value of the '<em><b>Decorators</b></em>' containment reference list.

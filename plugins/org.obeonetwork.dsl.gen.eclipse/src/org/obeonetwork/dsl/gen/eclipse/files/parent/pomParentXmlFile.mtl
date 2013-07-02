@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pomParentXmlFile(anApplication : Application)]
-[anApplication.genApplicationName()/]/pom.xml
+[anApplication.genApplicationPath()/]/pom.xml
 [/template]
 
 [template public genPomParentXmlFile(anApplication : Application)]
@@ -241,23 +241,23 @@ Contributors :
 
 [template private modulesLocation(anApplication : Application) post(trim())]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
-<module>plugins/[aBundle.genBundleID()/]</module>
+<module>../plugins/[aBundle.genBundleID()/]</module>
 [/for]
 
 [if (anApplication.generateTestsBundle)]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
-<module>tests/[aBundle.genBundleID()/].tests</module>
+<module>../tests/[aBundle.genBundleID()/].tests</module>
 [/for]
 [/if]
 
 
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
-<module>features/[aFeature.genFeatureID()/]</module>
+<module>../features/[aFeature.genFeatureID()/]</module>
 [/for]
 
 
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
-<module>repositories/[aRepository.genRepositoryID()/]</module>
+<module>../repositories/[aRepository.genRepositoryID()/]</module>
 [/for]
 [/template]
 

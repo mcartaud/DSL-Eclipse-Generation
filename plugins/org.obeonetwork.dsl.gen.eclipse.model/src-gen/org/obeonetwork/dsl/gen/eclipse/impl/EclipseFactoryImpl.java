@@ -72,7 +72,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 			case EclipsePackage.NATURE: return createNature();
 			case EclipsePackage.WIZARD: return createWizard();
 			case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
-			case EclipsePackage.EXTENSION_POINT: return createExtensionPoint();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER: return createExtensionPointProvider();
+			case EclipsePackage.EXTENSION_POINT_CLIENT: return createExtensionPointClient();
 			case EclipsePackage.ATTRIBUTE: return createAttribute();
 			case EclipsePackage.DECORATOR: return createDecorator();
 			case EclipsePackage.MARKER: return createMarker();
@@ -298,9 +299,19 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionPoint createExtensionPoint() {
-		ExtensionPointImpl extensionPoint = new ExtensionPointImpl();
-		return extensionPoint;
+	public ExtensionPointProvider createExtensionPointProvider() {
+		ExtensionPointProviderImpl extensionPointProvider = new ExtensionPointProviderImpl();
+		return extensionPointProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtensionPointClient createExtensionPointClient() {
+		ExtensionPointClientImpl extensionPointClient = new ExtensionPointClientImpl();
+		return extensionPointClient;
 	}
 
 	/**

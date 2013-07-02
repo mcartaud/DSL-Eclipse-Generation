@@ -15,11 +15,11 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private extensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
+[template private extensionDescriptorJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName()/]ExtensionDescriptor.java
 [/template]
 
-[template public genExtensionDescriptorJavaFile(anExtensionPoint : ExtensionPoint)]
+[template public genExtensionDescriptorJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
 package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry;
 
@@ -31,17 +31,33 @@ import org.eclipse.core.runtime.IConfigurationElement;
  * 
  */
 public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
-	/** Name of the [anExtensionPoint.name/] extension point's tag "extension" attribute. */
-	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION = "extension"; //$NON-NLS-1$
+
+	/** Name of the [anExtensionPoint.name/] extension point's tag "[anExtensionPoint.className/]" attribute. */
+	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper()/] = "[anExtensionPoint.className/]"; //$NON-NLS-1$
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+
+	/** Name of the [anExtensionPoint.name/] extension point's tag "[anAttribute.nonQualifiedName/]" attribute. */
+	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.nonQualifiedName.toUpper()/] = "[anAttribute.nonQualifiedName/]"; //$NON-NLS-1$
+[/for]
 
 	/** Configuration element of this descriptor. */
 	private final IConfigurationElement element;
 
-	/** Qualified class name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions. */
-	private final String extensionClassName;
+	/** Qualified [anExtensionPoint.className/] name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions. */
+	private final String extension[anExtensionPoint.className.toUpperFirst()/];
 
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+
+	/** Qualified [anAttribute.nonQualifiedName/] name of the [anExtensionPoint.name/] extension. */
+	private final String extension[anAttribute.nonQualifiedName.toUpperFirst()/];
+
+[if (anAttribute.type.toString().matches('java'))]
 	/** We only need to create the instance once, this will keep reference to it. */
-	private I[anExtensionPoint.genExtensionName()/]Extension extension;
+	private I[anAttribute.genAttributeClassName()/]Extension extension;
+
+[/if]
+[/for]
+
 
 	/**
 	 * Instantiates a descriptor with all information.
@@ -51,18 +67,32 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 */
 	public [anExtensionPoint.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
 		element = configuration;
-		extensionClassName = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_EXTENSION);
+		extension[anExtensionPoint.className.toUpperFirst()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper()/]);
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+		extension[anAttribute.nonQualifiedName.toUpperFirst()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.nonQualifiedName.toUpper()/]);
+[/for]
 	}
 
 	/**
-	 * Returns this descriptor's "extension" class name.
+	 * Returns this descriptor's "[anExtensionPoint.className/]" class name.
 	 * 
-	 * @return This descriptor's "extension" class name.
+	 * @return This descriptor's "[anExtensionPoint.className/]" class name.
 	 */
-	public String getExtensionClassName() {
-		return extensionClassName;
+	public String getExtension[anExtensionPoint.className.toUpperFirst()/]() {
+		return extension[anExtensionPoint.className.toUpperFirst()/];
 	}
 
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+	/**
+	 * Returns this descriptor's "[anAttribute.nonQualifiedName/]" class name.
+	 * 
+	 * @return This descriptor's "[anAttribute.nonQualifiedName/]" class name.
+	 */
+	public String getExtension[anAttribute.nonQualifiedName.toUpperFirst()/]() {
+		return extensionextension[anAttribute.nonQualifiedName.toUpperFirst()/];
+	}
+[/for]
+[
 	/**
 	 * Creates an instance of this descriptor's {@link I[anExtensionPoint.genExtensionName()/]Extension}.
 	 * 

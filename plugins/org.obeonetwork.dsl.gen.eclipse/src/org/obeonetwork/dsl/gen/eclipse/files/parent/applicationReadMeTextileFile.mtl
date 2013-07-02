@@ -17,7 +17,7 @@ Contributors :
 
 
 [template private applicationReadMeTextileFile(anApplication : Application)]
-[anApplication.genApplicationName()/]/README.textile
+[anApplication.genApplicationPath()/]/README.textile
 [/template]
 
 [template public genApplicationReadMeTextileFile(anApplication : Application)]

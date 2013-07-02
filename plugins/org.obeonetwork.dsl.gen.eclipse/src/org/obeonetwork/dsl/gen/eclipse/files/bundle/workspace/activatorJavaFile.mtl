@@ -26,9 +26,9 @@ package [aBundle.genBundleID()/];
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-[if (aBundle.extensionPoints->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
+[if (aBundle.extensionPointProvider->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-[/if][for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
+[/if][for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]
@@ -43,9 +43,9 @@ public class Activator extends AbstractUIPlugin {
 	/** The shared instance */
 	private static Activator plugin;
 	
-[for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
+[for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
 	/** The registry listener that will be used to listen to [anExtensionPoint.name/] extension changes. */
-	private [anExtensionPoint.genExtensionName()/]RegistryListener registryListener = new [anExtensionPoint.genExtensionName()/]RegistryListener();
+	private [anExtensionPoint.genExtensionName()/]RegistryListener registryListener[anExtensionPoint.genExtensionName()/] = new [anExtensionPoint.genExtensionName()/]RegistryListener();
 [/for]
 
 	/**
@@ -62,11 +62,15 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-[for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
+[if (aBundle.extensionPointProvider->size() > 0)]
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		registry.addListener(registryListener, [anExtensionPoint.genExtensionName()/]RegistryListener.[anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT);
+
+[for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
+		registry.addListener(registryListener[anExtensionPoint.genExtensionName()/], [anExtensionPoint.genExtensionName()/]RegistryListener.[anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT);
 		registryListener.parseInitialContributions();
+
 [/for]
+[/if]
 	}
 
 	/**
@@ -77,11 +81,14 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
-[for (anExtensionPoint : ExtensionPoint | aBundle.extensionPoints)]
+[if (aBundle.extensionPointProvider->size() > 0)]
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		registry.removeListener(registryListener);
+
+[for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
+		registry.removeListener(registryListener[anExtensionPoint.genExtensionName()/]);
 		[anExtensionPoint.genExtensionName()/]ExtensionRegistry.clearRegistry();
 [/for]
+[/if]
 	}
 
 	/**

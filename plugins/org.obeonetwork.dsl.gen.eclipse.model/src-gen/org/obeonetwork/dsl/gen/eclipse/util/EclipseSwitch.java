@@ -154,9 +154,15 @@ public class EclipseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EclipsePackage.EXTENSION_POINT: {
-				ExtensionPoint extensionPoint = (ExtensionPoint)theEObject;
-				T result = caseExtensionPoint(extensionPoint);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER: {
+				ExtensionPointProvider extensionPointProvider = (ExtensionPointProvider)theEObject;
+				T result = caseExtensionPointProvider(extensionPointProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EclipsePackage.EXTENSION_POINT_CLIENT: {
+				ExtensionPointClient extensionPointClient = (ExtensionPointClient)theEObject;
+				T result = caseExtensionPointClient(extensionPointClient);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -499,17 +505,32 @@ public class EclipseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Extension Point</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Extension Point Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Extension Point</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Extension Point Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExtensionPoint(ExtensionPoint object) {
+	public T caseExtensionPointProvider(ExtensionPointProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extension Point Client</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extension Point Client</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtensionPointClient(ExtensionPointClient object) {
 		return null;
 	}
 

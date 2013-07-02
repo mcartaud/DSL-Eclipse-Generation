@@ -29,16 +29,6 @@ public enum Type implements Enumerator {
 	STRING(0, "string", "string"),
 
 	/**
-	 * The '<em><b>Boolean</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	BOOLEAN(0, "boolean", "boolean"),
-
-	/**
 	 * The '<em><b>Java</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,27 +36,7 @@ public enum Type implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JAVA(0, "java", "java"),
-
-	/**
-	 * The '<em><b>Resource</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RESOURCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	RESOURCE(0, "resource", "resource"),
-
-	/**
-	 * The '<em><b>Identifier</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #IDENTIFIER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	IDENTIFIER(0, "identifier", "identifier");
+	JAVA(0, "java", "java");
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -84,21 +54,6 @@ public enum Type implements Enumerator {
 	public static final int STRING_VALUE = 0;
 
 	/**
-	 * The '<em><b>Boolean</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN
-	 * @model name="boolean"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int BOOLEAN_VALUE = 0;
-
-	/**
 	 * The '<em><b>Java</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -114,36 +69,6 @@ public enum Type implements Enumerator {
 	public static final int JAVA_VALUE = 0;
 
 	/**
-	 * The '<em><b>Resource</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Resource</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #RESOURCE
-	 * @model name="resource"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int RESOURCE_VALUE = 0;
-
-	/**
-	 * The '<em><b>Identifier</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Identifier</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #IDENTIFIER
-	 * @model name="identifier"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int IDENTIFIER_VALUE = 0;
-
-	/**
 	 * An array of all the '<em><b>Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,10 +77,7 @@ public enum Type implements Enumerator {
 	private static final Type[] VALUES_ARRAY =
 		new Type[] {
 			STRING,
-			BOOLEAN,
 			JAVA,
-			RESOURCE,
-			IDENTIFIER,
 		};
 
 	/**
