@@ -157,13 +157,22 @@ public interface EclipseFactory extends EFactory {
 	ExtensionPointClient createExtensionPointClient();
 
 	/**
-	 * Returns a new object of class '<em>Attribute</em>'.
+	 * Returns a new object of class '<em>String Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Attribute</em>'.
+	 * @return a new object of class '<em>String Attribute</em>'.
 	 * @generated
 	 */
-	Attribute createAttribute();
+	StringAttribute createStringAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Java Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Attribute</em>'.
+	 * @generated
+	 */
+	JavaAttribute createJavaAttribute();
 
 	/**
 	 * Returns a new object of class '<em>Decorator</em>'.

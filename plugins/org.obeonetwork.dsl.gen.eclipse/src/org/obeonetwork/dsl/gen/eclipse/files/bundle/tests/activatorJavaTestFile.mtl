@@ -25,20 +25,33 @@ package [aBundle.genBundleID()/].tests;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+//[protected (': add Activator imports for ' + aBundle.ID + 'Test')]
+//[/protected]
+
 
 /**
  * The activator class controls the plug-in life cycle.
- * 
+ * @generated
  */
 public class Activator extends AbstractUIPlugin {
-	/** The plug-in ID. */
+	/** 
+	 * The plug-in ID.
+	 * @generated
+	 */
 	public static final String PLUGIN_ID = "[aBundle.genBundleID()/].tests"; //$NON-NLS-1$
 
-	/** This plug-in's shared instance. */
+	/** 
+	 * This plug-in's shared instance.
+	 * @generated
+	 */
 	private static Activator plugin;
+
+//[protected (': add Activator attributes for ' + aBundle.ID + 'Test')]
+//[/protected]
 
 	/**
 	 * Default constructor for the plugin.
+	 * @generated
 	 */
 	public Activator() {
 		// Empty implementation
@@ -48,6 +61,7 @@ public class Activator extends AbstractUIPlugin {
 	 * Returns the shared instance.
 	 * 
 	 * @return the shared instance
+	 * @generated
 	 */
 	public static Activator getDefault() {
 		return plugin;
@@ -57,6 +71,7 @@ public class Activator extends AbstractUIPlugin {
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.core.runtime.Plugin#start(org.osgi.framework.BundleContext)
+	 * @generated
 	 */
 	@Override
 	public void start(BundleContext context) throws Exception {
@@ -68,12 +83,17 @@ public class Activator extends AbstractUIPlugin {
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
+	 * @generated
 	 */
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
 	}
+
+//[protected (': add Activator methods for ' + aBundle.ID + 'Test')]
+//[/protected]
+
 }
 [/file]
 [/template]

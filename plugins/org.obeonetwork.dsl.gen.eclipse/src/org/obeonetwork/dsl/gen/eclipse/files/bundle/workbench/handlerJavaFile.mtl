@@ -42,6 +42,11 @@ import java.util.List;
 //[protected (': add handler imports for ' + aHandler.name)]
 //[/protected]
 
+
+/**
+ * the implementation class of the handler
+ * @generated
+ */
 public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
 	
 	//[protected (': add handler attributes for ' + aHandler.name)]

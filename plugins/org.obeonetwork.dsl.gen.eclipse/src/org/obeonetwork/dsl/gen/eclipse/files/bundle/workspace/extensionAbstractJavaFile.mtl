@@ -1,21 +1,48 @@
-[comment encoding = UTF-8 /]
+[comment encoding = UTF-8 
+
+Copyright (c) 2012 Obeo
+All rights reserved.  This program and the accompanying materials
+are made available under the terms of the Eclipse Public License 1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+You can apply any license to the files generated with this module and Acceleo.
+
+Contributors :
+	Mathieu Cartaud (Obeo) - initial API and implementation
+/]
 [module extensionAbstractJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
-[template private extensionAbstractJavaFile(anAttribute : Attribute)]
+[template private extensionAbstractJavaFile(anAttribute : JavaAttribute)]
 [anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/Abstract[anAttribute.genAttributeClassName()/]Extension.java
 [/template]
 
-[template public genExtensionAbstractJavaFile(anAttribute : Attribute)]
+[template public genExtensionAbstractJavaFile(anAttribute : JavaAttribute)]
 [file (anAttribute.extensionAbstractJavaFile(), false, 'UTF-8')]
 package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
 
+//[protected (': add imports for Abstract' + anAttribute.genAttributeClassName() + 'Extension')]
+//[/protected]
 
+/**
+ * Clients should extend this abstract class to extend the extensionPoint mechanism 
+ * @generated
+ */
 public abstract class Abstract[anAttribute.genAttributeClassName()/]Extension implements I[anAttribute.genAttributeClassName()/]Extension {
 	
+	//[protected (': add attributes for Abstract' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[/protected]
+
+	/**
+	 * @generated
+	 */
 	public abstract String getName();
+
+	//[protected (': add methods for Abstract' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[/protected]
 
 }
 [/file]
@@ -29,10 +56,25 @@ public abstract class Abstract[anAttribute.genAttributeClassName()/]Extension im
 [file (anExtensionPoint.extensionAbstractJavaFile(), false, 'UTF-8')]
 package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
+//[protected (': add imports for Abstract' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+//[/protected]
 
+/**
+ * Clients should implements this abstract class to implements the extensionPoint mechanism 
+ * @generated
+ */
 public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension implements I[anExtensionPoint.refactorExtensionClassName()/]Extension {
 	
+	//[protected (': add attributes for Abstract' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[/protected]
+
+	/**
+	 * @generated
+	 */
 	public abstract String getName();
+
+	//[protected (': add methods for Abstract' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[/protected]
 
 }
 [/file]

@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getClassName <em>Class Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getStringAttributes <em>String Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getJavaAttributes <em>Java Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,19 +79,35 @@ public interface ExtensionPointProvider extends EObject {
 	void setClassName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.Attribute}.
+	 * Returns the value of the '<em><b>String Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.StringAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>String Attributes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attributes</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPointProvider_Attributes()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>String Attributes</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPointProvider_StringAttributes()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Attribute> getAttributes();
+	EList<StringAttribute> getStringAttributes();
+
+	/**
+	 * Returns the value of the '<em><b>Java Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Java Attributes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Java Attributes</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getExtensionPointProvider_JavaAttributes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<JavaAttribute> getJavaAttributes();
 
 } // ExtensionPointProvider

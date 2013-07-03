@@ -27,6 +27,10 @@ import junit.framework.TestCase;
 //[protected (': add imports for ' + aBundle.name +'Test')]
 //[/protected]
 
+/**
+ * a testCase
+ * @generated
+ */
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends TestCase {
 
 	//[protected (': add attributes for ' + aBundle.name +'Test')]

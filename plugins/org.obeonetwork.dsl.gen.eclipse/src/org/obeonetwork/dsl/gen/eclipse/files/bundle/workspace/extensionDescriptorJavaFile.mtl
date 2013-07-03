@@ -26,40 +26,81 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensio
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'ExtensionDescriptor')]
+//[/protected]
+
 
 /**
  * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
- * 
+ * @generated
  */
 public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 
-	/** Name of the [anExtensionPoint.name/] extension point's tag "[anExtensionPoint.className/]" attribute. */
+	/** 
+	 * Name of the [anExtensionPoint.name/] extension point's tag "[anExtensionPoint.className/]" attribute. 
+	 * @generated
+	 */
 	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper().substituteAll(' ', '_')/] = "[anExtensionPoint.className/]"; //$NON-NLS-1$
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
 
-	/** Name of the [anExtensionPoint.name/] extension point's tag "[anAttribute.nonQualifiedName/]" attribute. */
-	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.nonQualifiedName.toUpper().substituteAll(' ', '_')/] = "[anAttribute.nonQualifiedName/]"; //$NON-NLS-1$
+	/** 
+	 * Name of the [anExtensionPoint.name/] extension point's tag "[anAttribute.name/]" attribute.
+	 * @generated
+	 */
+	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/] = "[anAttribute.name/]"; //$NON-NLS-1$
 [/for]
+[for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
 
-	/** Configuration element of this descriptor. */
+	/** 
+	 * Name of the [anExtensionPoint.name/] extension point's tag "[anAttribute.name/]" attribute.
+	 * @generated
+	 */
+	public static final String [anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticStringAttributeName()/] = "[anAttribute.name/]"; //$NON-NLS-1$
+[/for]
+	/** 
+	 * Configuration element of this descriptor.
+	 * @generated
+	 */
 	private final IConfigurationElement element;
 
-	/** Qualified [anExtensionPoint.className/] name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions. */
+	/**
+	 * Qualified [anExtensionPoint.className/] name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions.
+	 * @generated
+	 */
 	private final String extension[anExtensionPoint.className.toUpperFirst()/];
 
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+[for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
 
-	/** Qualified [anAttribute.nonQualifiedName/] name of the [anExtensionPoint.name/] extension. */
-	private final String extension[anAttribute.nonQualifiedName.toUpperFirst()/];
-
-[if (anAttribute.type.toString().matches('java'))]
-	/** We only need to create the instance once, this will keep reference to it. */
-	private I[anAttribute.genAttributeClassName()/]Extension [anAttribute.genAttributeClassName().toLowerFirst()/]Extension;
-
-[/if]
+	/**
+	 * Qualified [anAttribute.name/] name of the [anExtensionPoint.name/] extension. 
+	 * @generated
+	 */
+	private final String extension[anAttribute.refactorAttributeName()/];
 [/for]
-	/** We only need to create the instance once, this will keep reference to it. */
+
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
+
+	/**
+	 * Qualified [anAttribute.name/] name of the [anExtensionPoint.name/] extension. 
+	 * @generated
+	 */
+	private final String extension[anAttribute.refactorAttributeName()/];
+
+	/**
+	 * We only need to create the instance once, this will keep reference to it. 
+	 * @generated
+	 */
+	private I[anAttribute.genAttributeClassName()/]Extension [anAttribute.genAttributeClassName().toLowerFirst()/]Extension;
+[/for]
+
+	/**
+	 * We only need to create the instance once, this will keep reference to it. 
+	 * @generated
+	 */
 	private I[anExtensionPoint.refactorExtensionClassName()/]Extension [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension;
+
+//[protected (': add attributes for ' + anExtensionPoint.genExtensionName() + 'ExtensionDescriptor')]
+//[/protected]
 
 
 	/**
@@ -67,12 +108,16 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * 
 	 * @param configuration
 	 *            Configuration element from which to create this descriptor.
+	 * @generated
 	 */
 	public [anExtensionPoint.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
 		element = configuration;
 		extension[anExtensionPoint.className.toUpperFirst()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper()/]);
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
-		extension[anAttribute.nonQualifiedName.toUpperFirst()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.nonQualifiedName.toUpper()/]);
+[for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
+		extension[anAttribute.refactorAttributeName()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticStringAttributeName()/]);
+[/for]
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
+		extension[anAttribute.refactorAttributeName()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/]);
 [/for]
 	}
 
@@ -80,19 +125,33 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * Returns this descriptor's "[anExtensionPoint.className/]" class name.
 	 * 
 	 * @return This descriptor's "[anExtensionPoint.className/]" class name.
+	 * @generated
 	 */
 	public String getExtension[anExtensionPoint.className.toUpperFirst()/]() {
 		return extension[anExtensionPoint.className.toUpperFirst()/];
 	}
 
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
 	/**
-	 * Returns this descriptor's "[anAttribute.nonQualifiedName/]" class name.
+	 * Returns this descriptor's "[anAttribute.name/]" class name.
 	 * 
-	 * @return This descriptor's "[anAttribute.nonQualifiedName/]" class name.
+	 * @return This descriptor's "[anAttribute.name/]" class name.
+	 * @generated
 	 */
-	public String getExtension[anAttribute.nonQualifiedName.toUpperFirst()/]() {
-		return extension[anAttribute.nonQualifiedName.toUpperFirst()/];
+	public String getExtension[anAttribute.refactorAttributeName()/]() {
+		return extension[anAttribute.refactorAttributeName()/];
+	}
+[/for]
+
+[for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
+	/**
+	 * Returns this descriptor's "[anAttribute.name/]" field name.
+	 * 
+	 * @return This descriptor's "[anAttribute.name/]" field name.
+	 * @generated
+	 */
+	public String getExtension[anAttribute.refactorAttributeName()/]() {
+		return extension[anAttribute.refactorAttributeName()/];
 	}
 [/for]
 
@@ -100,6 +159,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * Creates an instance of this descriptor's {@link I[anExtensionPoint.refactorExtensionClassName()/]Extension}.
 	 * 
 	 * @return A new instance of this descriptor's {@link I[anExtensionPoint.refactorExtensionClassName()/]Extension}.
+	 * @generated
 	 */
 	public I[anExtensionPoint.refactorExtensionClassName()/]Extension get[anExtensionPoint.refactorExtensionClassName()/]Extension() {
 		if ([anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension == null) {
@@ -113,26 +173,28 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 		return [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension;
 	}
 
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
-[if (anAttribute.type.toString().matches('java'))]
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
 	/**
 	 * Creates an instance of this descriptor's {@link I[anAttribute.genAttributeClassName()/]Extension}.
 	 * 
 	 * @return A new instance of this descriptor's {@link I[anAttribute.genAttributeClassName()/]Extension}.
+	 * @generated
 	 */
 	public I[anAttribute.genAttributeClassName()/]Extension get[anAttribute.genAttributeClassName()/]Extension() {
 		if ([anAttribute.genAttributeClassName().toLowerFirst()/]Extension == null) {
 			try {
 				[anAttribute.genAttributeClassName().toLowerFirst()/]Extension = (I[anAttribute.genAttributeClassName()/]Extension)element
-						.createExecutableExtension([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.nonQualifiedName.toUpper().substituteAll(' ', '_')/]);
+						.createExecutableExtension([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/]);
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
 		return [anAttribute.genAttributeClassName().toLowerFirst()/]Extension;
 	}
-[/if]
 [/for]
+
+//[protected (': add methods for ' + anExtensionPoint.genExtensionName() + 'ExtensionDescriptor')]
+//[/protected]
 
 }
 [/file]

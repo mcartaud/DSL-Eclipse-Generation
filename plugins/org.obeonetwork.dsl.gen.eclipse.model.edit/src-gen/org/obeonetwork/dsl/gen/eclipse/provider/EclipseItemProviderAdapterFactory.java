@@ -417,26 +417,49 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.Attribute} instances.
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.StringAttribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeItemProvider attributeItemProvider;
+	protected StringAttributeItemProvider stringAttributeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Attribute}.
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.StringAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAttributeAdapter() {
-		if (attributeItemProvider == null) {
-			attributeItemProvider = new AttributeItemProvider(this);
+	public Adapter createStringAttributeAdapter() {
+		if (stringAttributeItemProvider == null) {
+			stringAttributeItemProvider = new StringAttributeItemProvider(this);
 		}
 
-		return attributeItemProvider;
+		return stringAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JavaAttributeItemProvider javaAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJavaAttributeAdapter() {
+		if (javaAttributeItemProvider == null) {
+			javaAttributeItemProvider = new JavaAttributeItemProvider(this);
+		}
+
+		return javaAttributeItemProvider;
 	}
 
 	/**
@@ -967,7 +990,8 @@ public class EclipseItemProviderAdapterFactory extends EclipseAdapterFactory imp
 		if (projectWizardItemProvider != null) projectWizardItemProvider.dispose();
 		if (extensionPointProviderItemProvider != null) extensionPointProviderItemProvider.dispose();
 		if (extensionPointClientItemProvider != null) extensionPointClientItemProvider.dispose();
-		if (attributeItemProvider != null) attributeItemProvider.dispose();
+		if (stringAttributeItemProvider != null) stringAttributeItemProvider.dispose();
+		if (javaAttributeItemProvider != null) javaAttributeItemProvider.dispose();
 		if (decoratorItemProvider != null) decoratorItemProvider.dispose();
 		if (markerItemProvider != null) markerItemProvider.dispose();
 		if (contextItemProvider != null) contextItemProvider.dispose();

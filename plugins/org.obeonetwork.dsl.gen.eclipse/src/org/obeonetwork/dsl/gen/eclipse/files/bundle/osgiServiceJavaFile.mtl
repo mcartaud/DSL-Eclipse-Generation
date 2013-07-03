@@ -34,7 +34,10 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 //[/protected]
 
 
-// referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
+/**
+ * referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
+ * @generated
+ */
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarativeService.monitorSuperType()/] {
 
 //[protected (': add declarative service attributes for ' + aDeclarativeService.serviceClassName.toUpperFirst())]

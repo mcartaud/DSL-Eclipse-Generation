@@ -132,8 +132,12 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 				return createExtensionPointClientAdapter();
 			}
 			@Override
-			public Adapter caseAttribute(Attribute object) {
-				return createAttributeAdapter();
+			public Adapter caseStringAttribute(StringAttribute object) {
+				return createStringAttributeAdapter();
+			}
+			@Override
+			public Adapter caseJavaAttribute(JavaAttribute object) {
+				return createJavaAttributeAdapter();
 			}
 			@Override
 			public Adapter caseDecorator(Decorator object) {
@@ -456,16 +460,30 @@ public class EclipseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.Attribute <em>Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.StringAttribute <em>String Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Attribute
+	 * @see org.obeonetwork.dsl.gen.eclipse.StringAttribute
 	 * @generated
 	 */
-	public Adapter createAttributeAdapter() {
+	public Adapter createStringAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute <em>Java Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaAttribute
+	 * @generated
+	 */
+	public Adapter createJavaAttributeAdapter() {
 		return null;
 	}
 

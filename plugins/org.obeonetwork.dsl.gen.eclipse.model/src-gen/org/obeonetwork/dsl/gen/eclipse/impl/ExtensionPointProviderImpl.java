@@ -6,21 +6,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
+import org.obeonetwork.dsl.gen.eclipse.JavaAttribute;
+import org.obeonetwork.dsl.gen.eclipse.StringAttribute;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +27,8 @@ import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getClassName <em>Class Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getStringAttributes <em>String Attributes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointProviderImpl#getJavaAttributes <em>Java Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,14 +76,24 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+	 * The cached value of the '{@link #getStringAttributes() <em>String Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAttributes()
+	 * @see #getStringAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Attribute> attributes;
+	protected EList<StringAttribute> stringAttributes;
+
+	/**
+	 * The cached value of the '{@link #getJavaAttributes() <em>Java Attributes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJavaAttributes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<JavaAttribute> javaAttributes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,11 +161,23 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Attribute> getAttributes() {
-		if (attributes == null) {
-			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES);
+	public EList<StringAttribute> getStringAttributes() {
+		if (stringAttributes == null) {
+			stringAttributes = new EObjectContainmentEList<StringAttribute>(StringAttribute.class, this, EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES);
 		}
-		return attributes;
+		return stringAttributes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<JavaAttribute> getJavaAttributes() {
+		if (javaAttributes == null) {
+			javaAttributes = new EObjectContainmentEList<JavaAttribute>(JavaAttribute.class, this, EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES);
+		}
+		return javaAttributes;
 	}
 
 	/**
@@ -169,8 +188,10 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
-				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES:
+				return ((InternalEList<?>)getStringAttributes()).basicRemove(otherEnd, msgs);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES:
+				return ((InternalEList<?>)getJavaAttributes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -187,8 +208,10 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 				return getName();
 			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
 				return getClassName();
-			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
-				return getAttributes();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES:
+				return getStringAttributes();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES:
+				return getJavaAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,9 +231,13 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
 				setClassName((String)newValue);
 				return;
-			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
-				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends Attribute>)newValue);
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES:
+				getStringAttributes().clear();
+				getStringAttributes().addAll((Collection<? extends StringAttribute>)newValue);
+				return;
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES:
+				getJavaAttributes().clear();
+				getJavaAttributes().addAll((Collection<? extends JavaAttribute>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,8 +257,11 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
 				setClassName(CLASS_NAME_EDEFAULT);
 				return;
-			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
-				getAttributes().clear();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES:
+				getStringAttributes().clear();
+				return;
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES:
+				getJavaAttributes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -249,8 +279,10 @@ public class ExtensionPointProviderImpl extends EObjectImpl implements Extension
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EclipsePackage.EXTENSION_POINT_PROVIDER__CLASS_NAME:
 				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
-			case EclipsePackage.EXTENSION_POINT_PROVIDER__ATTRIBUTES:
-				return attributes != null && !attributes.isEmpty();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES:
+				return stringAttributes != null && !stringAttributes.isEmpty();
+			case EclipsePackage.EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES:
+				return javaAttributes != null && !javaAttributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

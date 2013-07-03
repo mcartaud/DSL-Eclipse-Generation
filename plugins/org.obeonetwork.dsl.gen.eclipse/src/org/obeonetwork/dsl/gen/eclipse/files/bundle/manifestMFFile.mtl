@@ -64,7 +64,8 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 
 [query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.viewWizardRequiredBundles())->union(aBundle.wizardRequiredBundles())
-->union(aBundle.emfEditorRequiredBundles())->union(aBundle.textEditorRequiredBundles())->union(aBundle.perspectiveRequiredBundles())->asSet() /]
+->union(aBundle.emfEditorRequiredBundles())->union(aBundle.textEditorRequiredBundles())->union(aBundle.extensionPointClient())
+->union(aBundle.perspectiveRequiredBundles())->asSet() /]
 
 [query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
 ->union(aBundle.declarativeServiceImportPackages())->union(aBundle.editorImportPackages())->asSet() /]
@@ -237,7 +238,17 @@ endif  /]
 [query private myRequiredBundles(aBundle : Bundle) : Sequence(String) = aBundle.importDeclarations->select
 (importType = ImportType::Bundle).packageDeclarationManifestImport() /]
 
+[query private extensionPointClient(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.extensionPointClient->size() > 0) then
+	Sequence {aBundle.genExtensionImportBundle()}
+else
+	Sequence {}
+endif  /]
 
+[template private genExtensionImportBundle(aBundle : Bundle)]
+[for (anExtensionPoint : ExtensionPointClient | aBundle.extensionPointClient)]
+[anExtensionPoint.provider.eContainer(Bundle).genBundleID()/];bundle-version="[aBundle.bundleVersion().replace('.qualifier', '')/]"[/for]
+[/template]
 
 
 

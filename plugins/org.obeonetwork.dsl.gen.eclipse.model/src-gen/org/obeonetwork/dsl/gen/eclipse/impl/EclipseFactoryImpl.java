@@ -74,7 +74,8 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 			case EclipsePackage.PROJECT_WIZARD: return createProjectWizard();
 			case EclipsePackage.EXTENSION_POINT_PROVIDER: return createExtensionPointProvider();
 			case EclipsePackage.EXTENSION_POINT_CLIENT: return createExtensionPointClient();
-			case EclipsePackage.ATTRIBUTE: return createAttribute();
+			case EclipsePackage.STRING_ATTRIBUTE: return createStringAttribute();
+			case EclipsePackage.JAVA_ATTRIBUTE: return createJavaAttribute();
 			case EclipsePackage.DECORATOR: return createDecorator();
 			case EclipsePackage.MARKER: return createMarker();
 			case EclipsePackage.CONTEXT: return createContext();
@@ -114,8 +115,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return createImportTypeFromString(eDataType, initialValue);
 			case EclipsePackage.JAVA_VERSION:
 				return createJavaVersionFromString(eDataType, initialValue);
-			case EclipsePackage.TYPE:
-				return createTypeFromString(eDataType, initialValue);
 			case EclipsePackage.LOCATION:
 				return createLocationFromString(eDataType, initialValue);
 			case EclipsePackage.VERSION:
@@ -147,8 +146,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 				return convertImportTypeToString(eDataType, instanceValue);
 			case EclipsePackage.JAVA_VERSION:
 				return convertJavaVersionToString(eDataType, instanceValue);
-			case EclipsePackage.TYPE:
-				return convertTypeToString(eDataType, instanceValue);
 			case EclipsePackage.LOCATION:
 				return convertLocationToString(eDataType, instanceValue);
 			case EclipsePackage.VERSION:
@@ -319,9 +316,19 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute createAttribute() {
-		AttributeImpl attribute = new AttributeImpl();
-		return attribute;
+	public StringAttribute createStringAttribute() {
+		StringAttributeImpl stringAttribute = new StringAttributeImpl();
+		return stringAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaAttribute createJavaAttribute() {
+		JavaAttributeImpl javaAttribute = new JavaAttributeImpl();
+		return javaAttribute;
 	}
 
 	/**
@@ -581,26 +588,6 @@ public class EclipseFactoryImpl extends EFactoryImpl implements EclipseFactory {
 	 * @generated
 	 */
 	public String convertJavaVersionToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type createTypeFromString(EDataType eDataType, String initialValue) {
-		Type result = Type.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

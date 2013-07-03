@@ -254,13 +254,29 @@ Contributors :
 [anExtensionPoint.className.toUpperFirst().substituteAll(' ', '')/]
 [/template]
 
-[template public genAttributeClassName(anAttribute : Attribute)]
+[template public genAttributeClassName(anAttribute : JavaAttribute)]
 [anAttribute.nonQualifiedName.toUpperFirst().replaceAll(' ', '')/]
 [/template]
 
 [query public staticExtensionName(anExtensionPoint : ExtensionPointProvider) : String = 
 anExtensionPoint.name.replaceAll(' ', '_').toUpper()
 /]
+
+[template public staticJavaAttributeName(anAttribute : JavaAttribute)]
+[anAttribute.name.replaceAll(' ', '_').toUpper()/]
+[/template]
+
+[template public staticStringAttributeName(anAttribute : StringAttribute)]
+[anAttribute.name.replaceAll(' ', '_').toUpper()/]
+[/template]
+
+[template public refactorAttributeName(anAttribute : StringAttribute)]
+[anAttribute.name.toUpperFirst().substituteAll(' ', '')/]
+[/template]
+
+[template public refactorAttributeName(anAttribute : JavaAttribute)]
+[anAttribute.name.toUpperFirst().substituteAll(' ', '')/]
+[/template]
 
 [template public genServicePackageName(aDeclarativeService : DeclarativeService)]
 [aDeclarativeService.ancestors(Bundle).genBundleID()/].services

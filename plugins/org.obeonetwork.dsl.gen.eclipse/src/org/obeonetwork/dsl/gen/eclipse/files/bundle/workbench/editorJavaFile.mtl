@@ -42,13 +42,18 @@ import org.eclipse.swt.widgets.Table;
 [if (anEditor.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
-//[protected (': textEditor imports for ' + anEditor.name)]
+//[protected (': add textEditor imports for ' + anEditor.name)]
 //[/protected]
 
+/**
+ * the implementation class of the editor
+ * @generated
+ */
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
 
 	/**
 	 * The ID of the editor as specified by the extension.
+	 * @generated
 	 */
 	public static final String ID = "[anEditor.genEditorID()/]";
 
@@ -57,6 +62,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	//[/protected]
 
 	/**
+	 * Default constructor
 	 * @generated
 	 */
 	public [anEditor.name.replaceAll(' ', '_').toUpperFirst()/]() {

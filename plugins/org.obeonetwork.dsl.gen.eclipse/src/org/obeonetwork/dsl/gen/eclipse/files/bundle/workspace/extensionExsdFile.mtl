@@ -81,17 +81,23 @@ Contributors :
                </appinfo>
             </annotation>
          </attribute>
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
-         <attribute name="[anAttribute.nonQualifiedName/]" type="string" use="required">
+[for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
+         <attribute name="[anAttribute.name/]" type="string" use="required">
             <annotation>
                <documentation>
                   
                </documentation>
-[if (anAttribute.type.toString().matches('java'))]
                <appinfo>
                   <meta.attribute kind="java" basedOn="[anAttribute.eContainer(Bundle).genBundleID()/].registry.Abstract[anExtensionPoint.genExtensionName()/]Extension:[anAttribute.eContainer(Bundle).genBundleID()/].registry.I[anExtensionPoint.genExtensionName()/]Extension"/>
                </appinfo>
-[/if]
+            </annotation>
+         </attribute>
+[/for][for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
+         <attribute name="[anAttribute.name/]" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
 [/for]

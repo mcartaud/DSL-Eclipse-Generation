@@ -178,8 +178,10 @@
         eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
         eType="#//JavaName"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" lowerBound="1"
-        upperBound="-1" eType="#//Attribute" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringAttributes" upperBound="-1"
+        eType="#//StringAttribute" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaAttributes" upperBound="-1"
+        eType="#//JavaAttribute" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtensionPointClient">
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
@@ -187,10 +189,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceIteration" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nonQualifiedName" unique="false"
-        lowerBound="1" eType="#//Name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" eType="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="#//Name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nonQualifiedName" eType="#//JavaName"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decorator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
@@ -373,10 +378,6 @@
     <eLiterals name="JavaSE14" value="1"/>
     <eLiterals name="JavaSE16" value="2" literal="JavaSE16"/>
     <eLiterals name="JavaSE17" value="3"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Type">
-    <eLiterals name="string"/>
-    <eLiterals name="java"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Location">
     <eLiterals name="BOTTOM_RIGHT" literal="BOTTOM_RIGHT"/>

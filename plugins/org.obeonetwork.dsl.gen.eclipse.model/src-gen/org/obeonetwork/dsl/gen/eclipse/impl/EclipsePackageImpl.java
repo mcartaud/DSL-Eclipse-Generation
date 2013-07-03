@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.gen.eclipse.Application;
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.BasedOn;
 import org.obeonetwork.dsl.gen.eclipse.Binding;
 import org.obeonetwork.dsl.gen.eclipse.Builder;
@@ -37,6 +36,7 @@ import org.obeonetwork.dsl.gen.eclipse.HelpContents;
 import org.obeonetwork.dsl.gen.eclipse.HelpPage;
 import org.obeonetwork.dsl.gen.eclipse.ImportDeclaration;
 import org.obeonetwork.dsl.gen.eclipse.ImportType;
+import org.obeonetwork.dsl.gen.eclipse.JavaAttribute;
 import org.obeonetwork.dsl.gen.eclipse.JavaVersion;
 import org.obeonetwork.dsl.gen.eclipse.Location;
 import org.obeonetwork.dsl.gen.eclipse.Marker;
@@ -51,8 +51,8 @@ import org.obeonetwork.dsl.gen.eclipse.ProvidedService;
 import org.obeonetwork.dsl.gen.eclipse.Repository;
 import org.obeonetwork.dsl.gen.eclipse.RepositoryCategory;
 import org.obeonetwork.dsl.gen.eclipse.RequiredService;
+import org.obeonetwork.dsl.gen.eclipse.StringAttribute;
 import org.obeonetwork.dsl.gen.eclipse.ToolbarContribution;
-import org.obeonetwork.dsl.gen.eclipse.Type;
 import org.obeonetwork.dsl.gen.eclipse.View;
 import org.obeonetwork.dsl.gen.eclipse.Wizard;
 
@@ -180,7 +180,14 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass attributeEClass = null;
+	private EClass stringAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass javaAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -342,13 +349,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * @generated
 	 */
 	private EEnum javaVersionEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum typeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1255,8 +1255,17 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExtensionPointProvider_Attributes() {
+	public EReference getExtensionPointProvider_StringAttributes() {
 		return (EReference)extensionPointProviderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExtensionPointProvider_JavaAttributes() {
+		return (EReference)extensionPointProviderEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1291,8 +1300,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttribute() {
-		return attributeEClass;
+	public EClass getStringAttribute() {
+		return stringAttributeEClass;
 	}
 
 	/**
@@ -1300,8 +1309,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_NonQualifiedName() {
-		return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStringAttribute_Name() {
+		return (EAttribute)stringAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1309,8 +1318,26 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_Type() {
-		return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
+	public EClass getJavaAttribute() {
+		return javaAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaAttribute_Name() {
+		return (EAttribute)javaAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaAttribute_NonQualifiedName() {
+		return (EAttribute)javaAttributeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2128,15 +2155,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getType() {
-		return typeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getLocation() {
 		return locationEEnum;
 	}
@@ -2308,15 +2326,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		extensionPointProviderEClass = createEClass(EXTENSION_POINT_PROVIDER);
 		createEAttribute(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__NAME);
 		createEAttribute(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__CLASS_NAME);
-		createEReference(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__ATTRIBUTES);
+		createEReference(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES);
+		createEReference(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES);
 
 		extensionPointClientEClass = createEClass(EXTENSION_POINT_CLIENT);
 		createEReference(extensionPointClientEClass, EXTENSION_POINT_CLIENT__PROVIDER);
 		createEAttribute(extensionPointClientEClass, EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION);
 
-		attributeEClass = createEClass(ATTRIBUTE);
-		createEAttribute(attributeEClass, ATTRIBUTE__NON_QUALIFIED_NAME);
-		createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
+		stringAttributeEClass = createEClass(STRING_ATTRIBUTE);
+		createEAttribute(stringAttributeEClass, STRING_ATTRIBUTE__NAME);
+
+		javaAttributeEClass = createEClass(JAVA_ATTRIBUTE);
+		createEAttribute(javaAttributeEClass, JAVA_ATTRIBUTE__NAME);
+		createEAttribute(javaAttributeEClass, JAVA_ATTRIBUTE__NON_QUALIFIED_NAME);
 
 		decoratorEClass = createEClass(DECORATOR);
 		createEAttribute(decoratorEClass, DECORATOR__NAME);
@@ -2428,7 +2450,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		basedOnEEnum = createEEnum(BASED_ON);
 		importTypeEEnum = createEEnum(IMPORT_TYPE);
 		javaVersionEEnum = createEEnum(JAVA_VERSION);
-		typeEEnum = createEEnum(TYPE);
 		locationEEnum = createEEnum(LOCATION);
 
 		// Create data types
@@ -2583,15 +2604,19 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEClass(extensionPointProviderEClass, ExtensionPointProvider.class, "ExtensionPointProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExtensionPointProvider_Name(), this.getName_(), "name", null, 1, 1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExtensionPointProvider_ClassName(), this.getJavaName(), "className", null, 1, 1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExtensionPointProvider_Attributes(), this.getAttribute(), null, "attributes", null, 1, -1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExtensionPointProvider_StringAttributes(), this.getStringAttribute(), null, "stringAttributes", null, 0, -1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExtensionPointProvider_JavaAttributes(), this.getJavaAttribute(), null, "javaAttributes", null, 0, -1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(extensionPointClientEClass, ExtensionPointClient.class, "ExtensionPointClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExtensionPointClient_Provider(), this.getExtensionPointProvider(), null, "provider", null, 1, 1, ExtensionPointClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExtensionPointClient_SequenceIteration(), theEcorePackage.getEInt(), "sequenceIteration", "1", 0, 1, ExtensionPointClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttribute_NonQualifiedName(), this.getName_(), "nonQualifiedName", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Type(), this.getType(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringAttribute_Name(), this.getName_(), "name", null, 1, 1, StringAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(javaAttributeEClass, JavaAttribute.class, "JavaAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJavaAttribute_Name(), this.getName_(), "name", null, 0, 1, JavaAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJavaAttribute_NonQualifiedName(), this.getJavaName(), "nonQualifiedName", null, 0, 1, JavaAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(decoratorEClass, Decorator.class, "Decorator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDecorator_Name(), this.getName_(), "name", null, 1, 1, Decorator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2716,10 +2741,6 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE14);
 		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE16);
 		addEEnumLiteral(javaVersionEEnum, JavaVersion.JAVA_SE17);
-
-		initEEnum(typeEEnum, Type.class, "Type");
-		addEEnumLiteral(typeEEnum, Type.STRING);
-		addEEnumLiteral(typeEEnum, Type.JAVA);
 
 		initEEnum(locationEEnum, Location.class, "Location");
 		addEEnumLiteral(locationEEnum, Location.BOTTOM_RIGHT);

@@ -54,7 +54,7 @@ help/
 [if ((aBundle.eContents(Wizard)->size() > 0) or aBundle.eContents(Decorator)->size() > 0 or aBundle.eContents(Perspective)->size() > 0 
 or aBundle.eContents(View)->size() > 0 or aBundle.eContents(Editor)->size() > 0 or aBundle.eContents(Command)->size() > 0
 )],\[aBundle.buildPropertiesWorkbench()/][elseif ((aBundle.eContents(Nature)->size() > 0) 
-or (aBundle.eContents(Builder)->size() > 0
+or (aBundle.eContents(Builder)->size() > 0 or (aBundle.extensionPointClient->size() > 0)
 or aBundle.eContents(HelpContents)->size() > 0))],\[aBundle.buildPropertiesWorkspace()/][/if][if 
 (aBundle.declarativeServices->size() > 0)],\[aBundle.buildPropertiesOSGi()/][/if][if (aBundle.helpContents->size() > 0)],\[aBundle.buildPropertiesHelp()/][/if]
 [/template]

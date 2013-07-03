@@ -7,27 +7,46 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
-import org.obeonetwork.dsl.gen.eclipse.Type;
+import org.obeonetwork.dsl.gen.eclipse.JavaAttribute;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute</b></em>'.
+ * An implementation of the model object '<em><b>Java Attribute</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl#getNonQualifiedName <em>Non Qualified Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl#getNonQualifiedName <em>Non Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AttributeImpl extends EObjectImpl implements Attribute {
+public class JavaAttributeImpl extends EObjectImpl implements JavaAttribute {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getNonQualifiedName() <em>Non Qualified Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,31 +68,11 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	protected String nonQualifiedName = NON_QUALIFIED_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type TYPE_EDEFAULT = Type.STRING;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type = TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeImpl() {
+	protected JavaAttributeImpl() {
 		super();
 	}
 
@@ -84,7 +83,28 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EclipsePackage.Literals.ATTRIBUTE;
+		return EclipsePackage.Literals.JAVA_ATTRIBUTE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.JAVA_ATTRIBUTE__NAME, oldName, name));
 	}
 
 	/**
@@ -105,28 +125,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		String oldNonQualifiedName = nonQualifiedName;
 		nonQualifiedName = newNonQualifiedName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME, oldNonQualifiedName, nonQualifiedName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.ATTRIBUTE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME, oldNonQualifiedName, nonQualifiedName));
 	}
 
 	/**
@@ -137,10 +136,10 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
+			case EclipsePackage.JAVA_ATTRIBUTE__NAME:
+				return getName();
+			case EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME:
 				return getNonQualifiedName();
-			case EclipsePackage.ATTRIBUTE__TYPE:
-				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,11 +152,11 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
-				setNonQualifiedName((String)newValue);
+			case EclipsePackage.JAVA_ATTRIBUTE__NAME:
+				setName((String)newValue);
 				return;
-			case EclipsePackage.ATTRIBUTE__TYPE:
-				setType((Type)newValue);
+			case EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME:
+				setNonQualifiedName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,11 +170,11 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
-				setNonQualifiedName(NON_QUALIFIED_NAME_EDEFAULT);
+			case EclipsePackage.JAVA_ATTRIBUTE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
-			case EclipsePackage.ATTRIBUTE__TYPE:
-				setType(TYPE_EDEFAULT);
+			case EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME:
+				setNonQualifiedName(NON_QUALIFIED_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -189,10 +188,10 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
+			case EclipsePackage.JAVA_ATTRIBUTE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME:
 				return NON_QUALIFIED_NAME_EDEFAULT == null ? nonQualifiedName != null : !NON_QUALIFIED_NAME_EDEFAULT.equals(nonQualifiedName);
-			case EclipsePackage.ATTRIBUTE__TYPE:
-				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -207,12 +206,12 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nonQualifiedName: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", nonQualifiedName: ");
 		result.append(nonQualifiedName);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}
 
-} //AttributeImpl
+} //JavaAttributeImpl

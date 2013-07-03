@@ -32,8 +32,12 @@ import org.eclipse.core.runtime.Platform;
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
 import [aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]
+//[protected (': add Activator imports')]
+//[/protected]
+
 /**
  * The activator class controls the plug-in life cycle
+ * @generated
  */
 public class Activator extends AbstractUIPlugin {
 
@@ -48,8 +52,12 @@ public class Activator extends AbstractUIPlugin {
 	private [anExtensionPoint.genExtensionName()/]RegistryListener [anExtensionPoint.genExtensionName().toLowerFirst()/]RegistryListener = new [anExtensionPoint.genExtensionName()/]RegistryListener();
 [/for]
 
+	//[protected (': add Activator attributes')]
+	//[/protected]
+
 	/**
 	 * The constructor
+	 * @generated
 	 */
 	public Activator() {
 	}
@@ -58,6 +66,7 @@ public class Activator extends AbstractUIPlugin {
 	 * {@inheritDoc}
 	 *
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * @generated
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -77,6 +86,7 @@ public class Activator extends AbstractUIPlugin {
 	 * {@inheritDoc}
 	 *
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * @generated
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
@@ -95,6 +105,7 @@ public class Activator extends AbstractUIPlugin {
 	 * Returns the shared instance
 	 *
 	 * @return the shared instance
+	 * @generated
 	 */
 	public static Activator getDefault() {
 		return plugin;
@@ -106,10 +117,15 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @param path the path
 	 * @return the image descriptor
+	 * @generated
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
+
+	//[protected (': add activator methods')]
+	//[/protected]
+
 }
 [/file]
 [/template]

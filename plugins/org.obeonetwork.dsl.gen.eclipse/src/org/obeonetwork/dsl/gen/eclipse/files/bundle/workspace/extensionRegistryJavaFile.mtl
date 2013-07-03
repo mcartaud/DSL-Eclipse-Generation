@@ -25,17 +25,26 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensio
 
 import java.util.ArrayList;
 import java.util.List;
+//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'ExtensionRegistry')]
+//[/protected]
 
 /**
  * This will contain all [anExtensionPoint.name/] extension that have been parsed from the extension point.
- * 
+ * @generated
  */
 public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
-	/** List of extensions created from the extension point contributions. */
+	/** 
+	 * List of extensions created from the extension point contributions. 
+	 * @generated
+	 */
 	private static final List<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor> EXTENSIONS = new ArrayList<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor>();
+
+//[protected (': add attributes for ' + anExtensionPoint.genExtensionName() + 'ExtensionRegistry')]
+//[/protected]
 
 	/**
 	 * Utility classes don't need a default constructor.
+	 * @generated
 	 */
 	private [anExtensionPoint.genExtensionName()/]ExtensionRegistry() {
 		// hides constructor
@@ -46,6 +55,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 * 
 	 * @param extension
 	 *            The extension that is to be added to the registry.
+	 * @generated
 	 */
 	public static void addExtension([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension) {
 		EXTENSIONS.add(extension);
@@ -53,6 +63,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 
 	/**
 	 * Removes all extensions from the registry. This will be called at plugin stopping.
+	 * @generated
 	 */
 	public static void clearRegistry() {
 		EXTENSIONS.clear();
@@ -62,6 +73,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 * Returns a copy of the registered extensions list.
 	 * 
 	 * @return A copy of the registered extensions list.
+	 * @generated
 	 */
 	public static List<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor> getRegisteredExtensions() {
 		return new ArrayList<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor>(EXTENSIONS);
@@ -73,6 +85,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 * @param syncElementClassName
 	 *            Qualified class name of the sync element which corresponding phantom is to be removed from
 	 *            the registry.
+	 * @generated
 	 */
 	public static void removeExtension(String extensionClassName) {
 		for ([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension : getRegisteredExtensions()) {
@@ -81,6 +94,10 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 			}
 		}
 	}
+
+//[protected (': add methods for ' + anExtensionPoint.genExtensionName() + 'ExtensionRegistry')]
+//[/protected]
+
 }
 [/file]
 [/template]

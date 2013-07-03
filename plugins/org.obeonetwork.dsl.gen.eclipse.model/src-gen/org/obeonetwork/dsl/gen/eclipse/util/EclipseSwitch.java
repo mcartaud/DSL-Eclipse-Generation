@@ -166,9 +166,15 @@ public class EclipseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EclipsePackage.ATTRIBUTE: {
-				Attribute attribute = (Attribute)theEObject;
-				T result = caseAttribute(attribute);
+			case EclipsePackage.STRING_ATTRIBUTE: {
+				StringAttribute stringAttribute = (StringAttribute)theEObject;
+				T result = caseStringAttribute(stringAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EclipsePackage.JAVA_ATTRIBUTE: {
+				JavaAttribute javaAttribute = (JavaAttribute)theEObject;
+				T result = caseJavaAttribute(javaAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -535,17 +541,32 @@ public class EclipseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>String Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>String Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAttribute(Attribute object) {
+	public T caseStringAttribute(StringAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaAttribute(JavaAttribute object) {
 		return null;
 	}
 

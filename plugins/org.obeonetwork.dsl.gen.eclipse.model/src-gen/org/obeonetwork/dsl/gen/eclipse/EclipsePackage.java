@@ -1100,13 +1100,22 @@ public interface EclipsePackage extends EPackage {
 	int EXTENSION_POINT_PROVIDER__CLASS_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>String Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENSION_POINT_PROVIDER__ATTRIBUTES = 2;
+	int EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Java Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Extension Point Provider</em>' class.
@@ -1115,7 +1124,7 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENSION_POINT_PROVIDER_FEATURE_COUNT = 3;
+	int EXTENSION_POINT_PROVIDER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointClientImpl <em>Extension Point Client</em>}' class.
@@ -1155,14 +1164,51 @@ public interface EclipsePackage extends EPackage {
 	int EXTENSION_POINT_CLIENT_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.StringAttributeImpl <em>String Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.StringAttributeImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getStringAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 16;
+	int STRING_ATTRIBUTE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>String Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl <em>Java Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl
+	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaAttribute()
+	 * @generated
+	 */
+	int JAVA_ATTRIBUTE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_ATTRIBUTE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Non Qualified Name</b></em>' attribute.
@@ -1171,25 +1217,16 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__NON_QUALIFIED_NAME = 0;
+	int JAVA_ATTRIBUTE__NON_QUALIFIED_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The number of structural features of the '<em>Java Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_FEATURE_COUNT = 2;
+	int JAVA_ATTRIBUTE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl <em>Decorator</em>}' class.
@@ -1199,7 +1236,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDecorator()
 	 * @generated
 	 */
-	int DECORATOR = 17;
+	int DECORATOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1254,7 +1291,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMarker()
 	 * @generated
 	 */
-	int MARKER = 18;
+	int MARKER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1291,7 +1328,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 19;
+	int CONTEXT = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1337,7 +1374,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPerspective()
 	 * @generated
 	 */
-	int PERSPECTIVE = 20;
+	int PERSPECTIVE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1383,7 +1420,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 21;
+	int CATEGORY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1438,7 +1475,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPart()
 	 * @generated
 	 */
-	int PART = 22;
+	int PART = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1475,7 +1512,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getView()
 	 * @generated
 	 */
-	int VIEW = 23;
+	int VIEW = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1539,7 +1576,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditor()
 	 * @generated
 	 */
-	int EDITOR = 24;
+	int EDITOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1594,7 +1631,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 25;
+	int COMMAND = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1676,7 +1713,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getMenuContribution()
 	 * @generated
 	 */
-	int MENU_CONTRIBUTION = 26;
+	int MENU_CONTRIBUTION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1758,7 +1795,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getToolbarContribution()
 	 * @generated
 	 */
-	int TOOLBAR_CONTRIBUTION = 27;
+	int TOOLBAR_CONTRIBUTION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Commands</b></em>' reference list.
@@ -1822,7 +1859,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getPopupMenuContribution()
 	 * @generated
 	 */
-	int POPUP_MENU_CONTRIBUTION = 28;
+	int POPUP_MENU_CONTRIBUTION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Commands</b></em>' reference list.
@@ -1904,7 +1941,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHandler()
 	 * @generated
 	 */
-	int HANDLER = 29;
+	int HANDLER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1932,7 +1969,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDefaultHandler()
 	 * @generated
 	 */
-	int DEFAULT_HANDLER = 30;
+	int DEFAULT_HANDLER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1960,7 +1997,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getContextualHandler()
 	 * @generated
 	 */
-	int CONTEXTUAL_HANDLER = 31;
+	int CONTEXTUAL_HANDLER = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2015,7 +2052,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpContents()
 	 * @generated
 	 */
-	int HELP_CONTENTS = 32;
+	int HELP_CONTENTS = 33;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2070,7 +2107,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getHelpPage()
 	 * @generated
 	 */
-	int HELP_PAGE = 33;
+	int HELP_PAGE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2125,7 +2162,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getDynamicHelp()
 	 * @generated
 	 */
-	int DYNAMIC_HELP = 34;
+	int DYNAMIC_HELP = 35;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2171,7 +2208,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBinding()
 	 * @generated
 	 */
-	int BINDING = 35;
+	int BINDING = 36;
 
 	/**
 	 * The feature id for the '<em><b>Key Sequence</b></em>' attribute.
@@ -2217,7 +2254,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getEditorType()
 	 * @generated
 	 */
-	int EDITOR_TYPE = 36;
+	int EDITOR_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.BasedOn <em>Based On</em>}' enum.
@@ -2227,7 +2264,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getBasedOn()
 	 * @generated
 	 */
-	int BASED_ON = 37;
+	int BASED_ON = 38;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.ImportType <em>Import Type</em>}' enum.
@@ -2237,7 +2274,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 38;
+	int IMPORT_TYPE = 39;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.JavaVersion <em>Java Version</em>}' enum.
@@ -2247,17 +2284,7 @@ public interface EclipsePackage extends EPackage {
 	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaVersion()
 	 * @generated
 	 */
-	int JAVA_VERSION = 39;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.gen.eclipse.Type
-	 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
-	 * @generated
-	 */
-	int TYPE = 40;
+	int JAVA_VERSION = 40;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.
@@ -3275,15 +3302,26 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getExtensionPointProvider_ClassName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getStringAttributes <em>String Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getAttributes()
+	 * @return the meta object for the containment reference list '<em>String Attributes</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getStringAttributes()
 	 * @see #getExtensionPointProvider()
 	 * @generated
 	 */
-	EReference getExtensionPointProvider_Attributes();
+	EReference getExtensionPointProvider_StringAttributes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getJavaAttributes <em>Java Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Java Attributes</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider#getJavaAttributes()
+	 * @see #getExtensionPointProvider()
+	 * @generated
+	 */
+	EReference getExtensionPointProvider_JavaAttributes();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient <em>Extension Point Client</em>}'.
@@ -3318,36 +3356,57 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getExtensionPointClient_SequenceIteration();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Attribute <em>Attribute</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.StringAttribute <em>String Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Attribute</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Attribute
+	 * @return the meta object for class '<em>String Attribute</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.StringAttribute
 	 * @generated
 	 */
-	EClass getAttribute();
+	EClass getStringAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#getNonQualifiedName <em>Non Qualified Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.StringAttribute#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.StringAttribute#getName()
+	 * @see #getStringAttribute()
+	 * @generated
+	 */
+	EAttribute getStringAttribute_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute <em>Java Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Java Attribute</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaAttribute
+	 * @generated
+	 */
+	EClass getJavaAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaAttribute#getName()
+	 * @see #getJavaAttribute()
+	 * @generated
+	 */
+	EAttribute getJavaAttribute_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute#getNonQualifiedName <em>Non Qualified Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Non Qualified Name</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Attribute#getNonQualifiedName()
-	 * @see #getAttribute()
+	 * @see org.obeonetwork.dsl.gen.eclipse.JavaAttribute#getNonQualifiedName()
+	 * @see #getJavaAttribute()
 	 * @generated
 	 */
-	EAttribute getAttribute_NonQualifiedName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Attribute#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Attribute#getType()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EAttribute getAttribute_Type();
+	EAttribute getJavaAttribute_NonQualifiedName();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Decorator <em>Decorator</em>}'.
@@ -4317,16 +4376,6 @@ public interface EclipsePackage extends EPackage {
 	EEnum getJavaVersion();
 
 	/**
-	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Type</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Type
-	 * @generated
-	 */
-	EEnum getType();
-
-	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5145,12 +5194,20 @@ public interface EclipsePackage extends EPackage {
 		EAttribute EXTENSION_POINT_PROVIDER__CLASS_NAME = eINSTANCE.getExtensionPointProvider_ClassName();
 
 		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>String Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTENSION_POINT_PROVIDER__ATTRIBUTES = eINSTANCE.getExtensionPointProvider_Attributes();
+		EReference EXTENSION_POINT_PROVIDER__STRING_ATTRIBUTES = eINSTANCE.getExtensionPointProvider_StringAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Java Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES = eINSTANCE.getExtensionPointProvider_JavaAttributes();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointClientImpl <em>Extension Point Client</em>}' class.
@@ -5179,14 +5236,40 @@ public interface EclipsePackage extends EPackage {
 		EAttribute EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION = eINSTANCE.getExtensionPointClient_SequenceIteration();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl <em>Attribute</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.StringAttributeImpl <em>String Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.AttributeImpl
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getAttribute()
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.StringAttributeImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getStringAttribute()
 		 * @generated
 		 */
-		EClass ATTRIBUTE = eINSTANCE.getAttribute();
+		EClass STRING_ATTRIBUTE = eINSTANCE.getStringAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_ATTRIBUTE__NAME = eINSTANCE.getStringAttribute_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl <em>Java Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.JavaAttributeImpl
+		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getJavaAttribute()
+		 * @generated
+		 */
+		EClass JAVA_ATTRIBUTE = eINSTANCE.getJavaAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_ATTRIBUTE__NAME = eINSTANCE.getJavaAttribute_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Non Qualified Name</b></em>' attribute feature.
@@ -5194,15 +5277,7 @@ public interface EclipsePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ATTRIBUTE__NON_QUALIFIED_NAME = eINSTANCE.getAttribute_NonQualifiedName();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+		EAttribute JAVA_ATTRIBUTE__NON_QUALIFIED_NAME = eINSTANCE.getJavaAttribute_NonQualifiedName();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.DecoratorImpl <em>Decorator</em>}' class.
@@ -5969,16 +6044,6 @@ public interface EclipsePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum JAVA_VERSION = eINSTANCE.getJavaVersion();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Type <em>Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.gen.eclipse.Type
-		 * @see org.obeonetwork.dsl.gen.eclipse.impl.EclipsePackageImpl#getType()
-		 * @generated
-		 */
-		EEnum TYPE = eINSTANCE.getType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.Location <em>Location</em>}' enum.

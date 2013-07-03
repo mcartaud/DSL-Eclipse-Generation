@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,16 +21,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.obeonetwork.dsl.gen.eclipse.Attribute;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
+import org.obeonetwork.dsl.gen.eclipse.JavaAttribute;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.Attribute} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.gen.eclipse.JavaAttribute} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AttributeItemProvider
+public class JavaAttributeItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +44,7 @@ public class AttributeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttributeItemProvider(AdapterFactory adapterFactory) {
+	public JavaAttributeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,10 +59,32 @@ public class AttributeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addNonQualifiedNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaAttribute_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaAttribute_name_feature", "_UI_JavaAttribute_type"),
+				 EclipsePackage.Literals.JAVA_ATTRIBUTE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,9 +98,9 @@ public class AttributeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_nonQualifiedName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_nonQualifiedName_feature", "_UI_Attribute_type"),
-				 EclipsePackage.Literals.ATTRIBUTE__NON_QUALIFIED_NAME,
+				 getString("_UI_JavaAttribute_nonQualifiedName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaAttribute_nonQualifiedName_feature", "_UI_JavaAttribute_type"),
+				 EclipsePackage.Literals.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME,
 				 true,
 				 false,
 				 false,
@@ -89,36 +110,14 @@ public class AttributeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Attribute_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-				 EclipsePackage.Literals.ATTRIBUTE__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Attribute.gif.
+	 * This returns JavaAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Attribute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaAttribute"));
 	}
 
 	/**
@@ -129,10 +128,10 @@ public class AttributeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Attribute)object).getNonQualifiedName();
+		String label = ((JavaAttribute)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Attribute_type") :
-			getString("_UI_Attribute_type") + " " + label;
+			getString("_UI_JavaAttribute_type") :
+			getString("_UI_JavaAttribute_type") + " " + label;
 	}
 
 	/**
@@ -146,9 +145,9 @@ public class AttributeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Attribute.class)) {
-			case EclipsePackage.ATTRIBUTE__NON_QUALIFIED_NAME:
-			case EclipsePackage.ATTRIBUTE__TYPE:
+		switch (notification.getFeatureID(JavaAttribute.class)) {
+			case EclipsePackage.JAVA_ATTRIBUTE__NAME:
+			case EclipsePackage.JAVA_ATTRIBUTE__NON_QUALIFIED_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

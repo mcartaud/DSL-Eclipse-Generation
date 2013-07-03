@@ -15,18 +15,33 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private extensionInterfaceJavaFile(anAttribute : Attribute)]
+[template private extensionInterfaceJavaFile(anAttribute : JavaAttribute)]
 [anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/I[anAttribute.genAttributeClassName()/]Extension.java
 [/template]
 
-[template public genExtensionInterfaceJavaFile(anAttribute : Attribute)]
+[template public genExtensionInterfaceJavaFile(anAttribute : JavaAttribute)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
 package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
 
+//[protected (': add imports for I' + anAttribute.genAttributeClassName() + 'Extension')]
+//[/protected]
 
+/**
+ * Clients should extend this interface to extend the extensionPoint mechanism 
+ * @generated
+ */
 public interface I[anAttribute.genAttributeClassName()/]Extension {
+
+	//[protected (': add attributes for I' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[/protected]
 	
+	/**
+	 * @generated
+	 */
 	String getName();
+
+	//[protected (': add methods for I' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[/protected]
 
 }
 
@@ -42,11 +57,26 @@ public interface I[anAttribute.genAttributeClassName()/]Extension {
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
 package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
+//[protected (': add imports for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+//[/protected]
 
+
+/**
+ * Clients should extend this interface to extend the extensionPoint mechanism 
+ * @generated
+ */
 public interface I[anExtensionPoint.refactorExtensionClassName()/]Extension {
 	
+	//[protected (': add attributes for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[/protected]
+	
+	/**
+	 * @generated
+	 */
 	String getName();
 
+	//[protected (': add methods for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[/protected]
 }
 
 [/file]

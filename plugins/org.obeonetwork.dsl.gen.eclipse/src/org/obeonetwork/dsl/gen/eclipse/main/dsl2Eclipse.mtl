@@ -75,6 +75,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionAbstractJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionImplementationJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionRegistryListenerJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::files::bundle::workspace::extensionClientJavaFile /]
 
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::handlerJavaFile /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::viewJavaFile /]
@@ -160,7 +161,8 @@ Contributors :
 [/if][/for]
 [if (aBundle.natures->size() > 0 or aBundle.builders->size() > 0 or aBundle.wizards->size() > 0 or aBundle.decorators->size() > 0 or aBundle.views->size() > 0 
 or aBundle.perspectives->size() > 0 or aBundle.editors->size() > 0 or aBundle.helpContents->size() > 0 or aBundle.categories->size() > 0 or aBundle.commands->size() > 0
-or aBundle.commands.defaultHandler->size() > 0 or aBundle.contextualHandlers->size() > 0)]
+or aBundle.commands.defaultHandler->size() > 0 or aBundle.contextualHandlers->size() > 0 or aBundle.extensionPointClient->size() > 0
+or aBundle.extensionPointProvider->size() > 0)]
 [aBundle.genPluginXmlFile()/ ]
 [/if]
 [for (aWizard : Wizard | aBundle.eAllContents(Wizard))]
@@ -189,11 +191,17 @@ or aBundle.commands.defaultHandler->size() > 0 or aBundle.contextualHandlers->si
 [anExtensionPointProvider.genExtensionRegistryJavaFile()/]
 [anExtensionPointProvider.genRegistryListenerJavaFile()/]
 [anExtensionPointProvider.genExtensionImplementationJavaFile()/]
-[for (anAttribute : Attribute | anExtensionPointProvider.attributes)]
-[if (anAttribute.type.toString().matches('java'))]
+[for (anAttribute : JavaAttribute | anExtensionPointProvider.javaAttributes)]
 [anAttribute.genExtensionAbstractJavaFile()/]
 [anAttribute.genExtensionInterfaceJavaFile()/]
-[/if]
+[/for]
+[/for]
+[for (anExtensionPointClient : ExtensionPointClient | aBundle.extensionPointClient)]
+[for (counter : Integer | Sequence{1..anExtensionPointClient.sequenceIteration})]
+[anExtensionPointClient.genExtensionClientJavaFile(counter)/]
+[for (anAttribute : JavaAttribute | anExtensionPointClient.provider.javaAttributes)]
+[anExtensionPointClient.genExtensionClientJavaFile(anAttribute, counter)/]
+[/for]
 [/for]
 [/for]
 [/for]
