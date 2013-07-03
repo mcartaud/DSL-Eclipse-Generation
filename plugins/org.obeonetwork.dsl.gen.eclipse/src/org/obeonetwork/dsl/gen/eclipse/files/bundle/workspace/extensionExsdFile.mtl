@@ -15,11 +15,11 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private extensionExsdFile(anExtensionPoint : ExtensionPoint)]
+[template private extensionExsdFile(anExtensionPoint : ExtensionPointProvider)]
 [anExtensionPoint.eContainer(Bundle).genBundlePath()/]/schema/[anExtensionPoint.genExtensionName()/]Extension.exsd
 [/template]
 
-[template public genExtensionExsdFile(anExtensionPoint : ExtensionPoint)]
+[template public genExtensionExsdFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionExsdFile(), false, 'UTF-8')]
 <!-- Schema file written by PDE -->
 <schema targetNamespace="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -32,42 +32,69 @@ Contributors :
       </documentation>
    </annotation>
 
-   <element name="extension">
+     <element name="extension">
       <annotation>
          <appinfo>
             <meta.element />
          </appinfo>
       </annotation>
       <complexType>
-         <sequence minOccurs="1" maxOccurs="unbounded">
-            <element ref="[anExtensionPoint.genExtensionName()/]Extension"/>
-         </sequence>  
-[for (anAttribute : Attribute | anExtensionPoint.attributes)]
-         <attribute name="[anAttribute.name/]" type="[anAttribute.type/] [if (anAttribute.required)]use="required"[/if]">
+         <sequence>
+            <element ref="[anExtensionPoint.genExtensionName()/]" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
                   
                </documentation>
-[if (anAttribute.translatable)][anAttribute.isTranslatable()/][/if]
             </annotation>
          </attribute>
-                 
-[/for]
-      </complexType>
-   </element>
-
-   <element name="[anExtensionPoint.genExtensionName()/]Extension">
-      <complexType>
-         <attribute name="extension" type="[anExtensionPoint.attributes.type/]" [if (anExtensionPoint.required)]use="required"[/if]">
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
             <annotation>
                <documentation>
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":[anExtensionPoint.ancestors(Bundle).genBundleID()/].I[anExtensionPoint.genExtensionName()/]Extension"/>
+                  <meta.attribute translatable="true"/>
                </appinfo>
             </annotation>
          </attribute>
+      </complexType>
+   </element>
+
+   <element name="[anExtensionPoint.genExtensionName()/]">
+      <complexType>
+         <attribute name="[anExtensionPoint.className/]" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="[anExtensionPoint.eContainer(Bundle).genBundleID()/].registry.Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension:[anExtensionPoint.eContainer(Bundle).genBundleID()/].registry.I[anExtensionPoint.refactorExtensionClassName()/]Extension"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+         <attribute name="[anAttribute.nonQualifiedName/]" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+[if (anAttribute.type.toString().matches('java'))]
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="[anAttribute.eContainer(Bundle).genBundleID()/].registry.Abstract[anExtensionPoint.genExtensionName()/]Extension:[anAttribute.eContainer(Bundle).genBundleID()/].registry.I[anExtensionPoint.genExtensionName()/]Extension"/>
+               </appinfo>
+[/if]
+            </annotation>
+         </attribute>
+[/for]
       </complexType>
    </element>
 
@@ -105,15 +132,9 @@ Contributors :
       <documentation>
          ['['/]Enter information about supplied implementation of this extension point.]
       </documentation>
-   </annotation>
+   </annotation> 
 
 
 </schema>
 [/file]
-[/template]
-
-[template private isTranslatable(anAttribute : Attribute)]
-               <appinfo>
-                  <meta.attribute translatable="true"/>
-               </appinfo>
 [/template]

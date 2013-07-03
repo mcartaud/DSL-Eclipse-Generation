@@ -250,6 +250,10 @@ Contributors :
 [anExtensionPoint.name.toUpperFirst().replaceAll(' ', '_').substitute('Extension', '')/]
 [/template]
 
+[template public refactorExtensionClassName(anExtensionPoint : ExtensionPointProvider)]
+[anExtensionPoint.className.toUpperFirst().substituteAll(' ', '')/]
+[/template]
+
 [template public genAttributeClassName(anAttribute : Attribute)]
 [anAttribute.nonQualifiedName.toUpperFirst().replaceAll(' ', '')/]
 [/template]

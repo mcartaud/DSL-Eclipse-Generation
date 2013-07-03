@@ -15,13 +15,13 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private extensionRegistryJavaFile(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName()/]ExtensionRegistry.java
+[template private extensionRegistryJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.genExtensionName()/]ExtensionRegistry.java
 [/template]
 
-[template public genExtensionRegistryJavaFile(anExtensionPoint : ExtensionPoint)]
+[template public genExtensionRegistryJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionRegistryJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry;
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +76,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 */
 	public static void removeExtension(String extensionClassName) {
 		for ([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension : getRegisteredExtensions()) {
-			if (extension.getExtensionClassName().equals(extensionClassName)) {
+			if (extension.getExtension[anExtensionPoint.className.toUpperFirst()/]().equals(extensionClassName)) {
 				EXTENSIONS.remove(extension);
 			}
 		}

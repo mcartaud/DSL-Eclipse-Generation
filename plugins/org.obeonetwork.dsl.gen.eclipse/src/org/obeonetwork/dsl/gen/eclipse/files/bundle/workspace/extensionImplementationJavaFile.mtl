@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module extensionImplementationJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+
+[template private extensionImplementationjavaFile(anExtensionPoint : ExtensionPointProvider)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/impl/[anExtensionPoint.genExtensionName()/]Extension.java
+[/template]
+
+[template public genExtensionImplementationJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[file (anExtensionPoint.extensionImplementationjavaFile(), false, 'UTF-8')]
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/].impl;
+
+import [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]ExtensionDescriptor;
+import [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]ExtensionRegistry;
+
+public class [anExtensionPoint.genExtensionName()/]Extension {
+	public void sayHi() {
+		System.out.println("Hello World!");
+		for ([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension : [anExtensionPoint.genExtensionName()/]ExtensionRegistry.getRegisteredExtensions()) {
+			System.out.println("Hello " + extension.get[anExtensionPoint.refactorExtensionClassName()/]Extension().getName());
+[for (anAttribute : Attribute | anExtensionPoint.attributes)]
+[if (anAttribute.type.toString().matches('java'))]
+			System.out.println("Hello " + extension.get[anAttribute.genAttributeClassName()/]Extension().getName());			
+[/if]
+[/for]				
+		}
+	}
+}
+[/file]
+[/template]

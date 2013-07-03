@@ -1,0 +1,39 @@
+[comment encoding = UTF-8 /]
+[module extensionAbstractJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+
+[import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+
+
+[template private extensionAbstractJavaFile(anAttribute : Attribute)]
+[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/Abstract[anAttribute.genAttributeClassName()/]Extension.java
+[/template]
+
+[template public genExtensionAbstractJavaFile(anAttribute : Attribute)]
+[file (anAttribute.extensionAbstractJavaFile(), false, 'UTF-8')]
+package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
+
+
+public abstract class Abstract[anAttribute.genAttributeClassName()/]Extension implements I[anAttribute.genAttributeClassName()/]Extension {
+	
+	public abstract String getName();
+
+}
+[/file]
+[/template]
+
+[template private extensionAbstractJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension.java
+[/template]
+
+[template public genExtensionAbstractJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[file (anExtensionPoint.extensionAbstractJavaFile(), false, 'UTF-8')]
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+
+
+public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension implements I[anExtensionPoint.refactorExtensionClassName()/]Extension {
+	
+	public abstract String getName();
+
+}
+[/file]
+[/template]

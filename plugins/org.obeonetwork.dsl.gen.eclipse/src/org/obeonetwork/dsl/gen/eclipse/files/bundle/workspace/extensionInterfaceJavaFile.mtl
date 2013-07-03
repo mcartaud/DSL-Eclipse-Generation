@@ -15,16 +15,35 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
-[template private extensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/I[anExtensionPoint.genExtensionName()/]Extension.java
+[template private extensionInterfaceJavaFile(anAttribute : Attribute)]
+[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/I[anAttribute.genAttributeClassName()/]Extension.java
 [/template]
 
-[template public genExtensionInterfaceJavaFile(anExtensionPoint : ExtensionPoint)]
+[template public genExtensionInterfaceJavaFile(anAttribute : Attribute)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry;
+package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
 
 
-public interface I[anExtensionPoint.genExtensionName()/]Extension {
+public interface I[anAttribute.genAttributeClassName()/]Extension {
+	
+	String getName();
+
+}
+
+[/file]
+[/template]
+
+
+[template private extensionInterfaceJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/I[anExtensionPoint.refactorExtensionClassName()/]Extension.java
+[/template]
+
+[template public genExtensionInterfaceJavaFile(anExtensionPoint : ExtensionPointProvider)]
+[file (extensionInterfaceJavaFile(), false, 'UTF-8')]
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+
+
+public interface I[anExtensionPoint.refactorExtensionClassName()/]Extension {
 	
 	String getName();
 

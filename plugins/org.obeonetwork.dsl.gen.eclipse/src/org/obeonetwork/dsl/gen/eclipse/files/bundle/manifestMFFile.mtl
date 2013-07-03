@@ -70,7 +70,7 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 ->union(aBundle.declarativeServiceImportPackages())->union(aBundle.editorImportPackages())->asSet() /]
 
 [query private allExportPackages(aBundle : Bundle) : Set(String) = aBundle.userExportedPackages()
-->union(aBundle.exportedPackages())->asSet() /]
+->union(aBundle.exportedPackages())->union(aBundle.extensionExportedPackages())->asSet() /]
 
 
 
@@ -89,6 +89,19 @@ if (aBundle.declarativeServices.providedServices->size() > 0) then
 else
 	Sequence {}
 endif  /]
+
+[query private extensionExportedPackages(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.extensionPointProvider->size() > 0) then
+	Sequence {aBundle.genExtensionExport()}
+else
+	Sequence {}
+endif  /]
+
+[template private genExtensionExport(aBundle : Bundle)]
+[for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
+[aBundle.genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/]
+[/for]
+[/template]
 
 [template private bundleExportedPackages(aBundle : Bundle)]
 [for (aGenPackage : GenPackage | aBundle.exportedPackages)]
