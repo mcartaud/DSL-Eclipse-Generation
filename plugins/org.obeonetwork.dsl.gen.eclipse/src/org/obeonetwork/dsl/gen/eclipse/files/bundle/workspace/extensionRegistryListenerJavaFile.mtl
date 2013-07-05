@@ -42,7 +42,7 @@ public class [anExtensionPoint.genExtensionName()/]RegistryListener implements I
 	 * Name of the extension point to parse for extensions.
 	 * @generated
 	 */
-	public static final String [anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT = "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension"; //$NON-NLS-1$
+	public static final String [anExtensionPoint.staticExtensionName()/]_EXTENSION_POINT = "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]"; //$NON-NLS-1$
 	
 	/** 
 	 * Name of the extension point's "[anExtensionPoint.genExtensionName()/]" tag.
