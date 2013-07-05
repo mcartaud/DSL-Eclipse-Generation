@@ -5,7 +5,7 @@
 
 
 [template private checkstyleParentXmlFile(anApplication : Application)]
-[anApplication.genApplicationPath()/]/codeStyle/[anApplication.applicationID.replaceAll(' ', '').toUpperFirst()/]Checkstyle5Configuration.xml
+[anApplication.genApplicationParentPath()/]/codeStyle/[anApplication.applicationID.replaceAll(' ', '').toUpperFirst()/]Checkstyle5Configuration.xml
 [/template]
 
 [template public genCheckstyleParentXmlFile(anApplication : Application)]
@@ -16,6 +16,7 @@
 <!--
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
+<!--[protected (': user code for checkstyle configuration -->')]
 <!--
     Checkstyle-Configuration: [anApplication.applicationID/]
     Description: none
@@ -351,5 +352,6 @@
   </module>
   <module name="SuppressionCommentFilter"/>
 </module>
+<!--[/protected]-->
 [/file]
 [/template]

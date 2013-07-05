@@ -72,6 +72,7 @@ public class ApplicationItemProvider
 			addBaseNamespacePropertyDescriptor(object);
 			addMavenCompilationPropertyDescriptor(object);
 			addGenerateTestsBundlePropertyDescriptor(object);
+			addGenerateCheckStylePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -275,6 +276,28 @@ public class ApplicationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Generate Check Style feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGenerateCheckStylePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_generateCheckStyle_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_generateCheckStyle_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__GENERATE_CHECK_STYLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -350,6 +373,7 @@ public class ApplicationItemProvider
 			case EclipsePackage.APPLICATION__BASE_NAMESPACE:
 			case EclipsePackage.APPLICATION__MAVEN_COMPILATION:
 			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
+			case EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EclipsePackage.APPLICATION__PROJECTS:

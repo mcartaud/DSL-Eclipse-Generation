@@ -16,23 +16,23 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private extensionInterfaceJavaFile(anAttribute : JavaAttribute)]
-[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/I[anAttribute.genAttributeClassName()/]Extension.java
+[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/extension/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/[anAttribute.genAttributeClassName()/].java
 [/template]
 
 [template public genExtensionInterfaceJavaFile(anAttribute : JavaAttribute)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
+package [anAttribute.ancestors(Bundle).genBundleID()/].extension.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
 
-//[protected (': add imports for I' + anAttribute.genAttributeClassName() + 'Extension')]
+//[protected (': add imports for ' + anAttribute.genAttributeClassName())]
 //[/protected]
 
 /**
  * Clients should extend this interface to extend the extensionPoint mechanism 
  * @generated
  */
-public interface I[anAttribute.genAttributeClassName()/]Extension {
+public interface [anAttribute.genAttributeClassName()/] {
 
-	//[protected (': add attributes for I' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[protected (': add attributes for ' + anAttribute.genAttributeClassName())]
 	//[/protected]
 	
 	/**
@@ -40,7 +40,7 @@ public interface I[anAttribute.genAttributeClassName()/]Extension {
 	 */
 	String getName();
 
-	//[protected (': add methods for I' + anAttribute.genAttributeClassName() + 'Extension')]
+	//[protected (': add methods for ' + anAttribute.genAttributeClassName())]
 	//[/protected]
 
 }
@@ -50,14 +50,14 @@ public interface I[anAttribute.genAttributeClassName()/]Extension {
 
 
 [template private extensionInterfaceJavaFile(anExtensionPoint : ExtensionPointProvider)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/I[anExtensionPoint.refactorExtensionClassName()/]Extension.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/extension/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.refactorExtensionClassName()/].java
 [/template]
 
 [template public genExtensionInterfaceJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionInterfaceJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
-//[protected (': add imports for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+//[protected (': add imports for ' + anExtensionPoint.refactorExtensionClassName())]
 //[/protected]
 
 
@@ -65,9 +65,9 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensio
  * Clients should extend this interface to extend the extensionPoint mechanism 
  * @generated
  */
-public interface I[anExtensionPoint.refactorExtensionClassName()/]Extension {
+public interface [anExtensionPoint.refactorExtensionClassName()/] {
 	
-	//[protected (': add attributes for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[protected (': add attributes for ' + anExtensionPoint.refactorExtensionClassName())]
 	//[/protected]
 	
 	/**
@@ -75,7 +75,7 @@ public interface I[anExtensionPoint.refactorExtensionClassName()/]Extension {
 	 */
 	String getName();
 
-	//[protected (': add methods for I' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
+	//[protected (': add methods for ' + anExtensionPoint.refactorExtensionClassName())]
 	//[/protected]
 }
 

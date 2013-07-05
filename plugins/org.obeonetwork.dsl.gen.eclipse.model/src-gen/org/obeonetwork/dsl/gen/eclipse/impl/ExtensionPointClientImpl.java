@@ -21,14 +21,34 @@ import org.obeonetwork.dsl.gen.eclipse.ExtensionPointProvider;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointClientImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointClientImpl#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ExtensionPointClientImpl#getSequenceIteration <em>Sequence Iteration</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPointClient {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -38,26 +58,6 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	 * @ordered
 	 */
 	protected ExtensionPointProvider provider;
-
-	/**
-	 * The default value of the '{@link #getSequenceIteration() <em>Sequence Iteration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequenceIteration()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int SEQUENCE_ITERATION_EDEFAULT = 1;
-
-	/**
-	 * The cached value of the '{@link #getSequenceIteration() <em>Sequence Iteration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSequenceIteration()
-	 * @generated
-	 * @ordered
-	 */
-	protected int sequenceIteration = SEQUENCE_ITERATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,6 +76,27 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	@Override
 	protected EClass eStaticClass() {
 		return EclipsePackage.Literals.EXTENSION_POINT_CLIENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT_CLIENT__NAME, oldName, name));
 	}
 
 	/**
@@ -121,35 +142,14 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSequenceIteration() {
-		return sequenceIteration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSequenceIteration(int newSequenceIteration) {
-		int oldSequenceIteration = sequenceIteration;
-		sequenceIteration = newSequenceIteration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION, oldSequenceIteration, sequenceIteration));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case EclipsePackage.EXTENSION_POINT_CLIENT__NAME:
+				return getName();
 			case EclipsePackage.EXTENSION_POINT_CLIENT__PROVIDER:
 				if (resolve) return getProvider();
 				return basicGetProvider();
-			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
-				return getSequenceIteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +162,11 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case EclipsePackage.EXTENSION_POINT_CLIENT__NAME:
+				setName((String)newValue);
+				return;
 			case EclipsePackage.EXTENSION_POINT_CLIENT__PROVIDER:
 				setProvider((ExtensionPointProvider)newValue);
-				return;
-			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
-				setSequenceIteration((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +180,11 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case EclipsePackage.EXTENSION_POINT_CLIENT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case EclipsePackage.EXTENSION_POINT_CLIENT__PROVIDER:
 				setProvider((ExtensionPointProvider)null);
-				return;
-			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
-				setSequenceIteration(SEQUENCE_ITERATION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,10 +198,10 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case EclipsePackage.EXTENSION_POINT_CLIENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EclipsePackage.EXTENSION_POINT_CLIENT__PROVIDER:
 				return provider != null;
-			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
-				return sequenceIteration != SEQUENCE_ITERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,8 +216,8 @@ public class ExtensionPointClientImpl extends EObjectImpl implements ExtensionPo
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sequenceIteration: ");
-		result.append(sequenceIteration);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

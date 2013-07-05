@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private pomParentXmlFile(anApplication : Application)]
-[anApplication.genApplicationPath()/]/pom.xml
+[anApplication.genApplicationParentPath()/]/pom.xml
 [/template]
 
 [template public genPomParentXmlFile(anApplication : Application)]
@@ -72,6 +72,36 @@ Contributors :
         <platform-version>['['/]3.7,3.8)</platform-version>
       </properties>
     </profile>
+[if (anApplication.generateCheckStyle)]
+	<profile>
+        <id>checkstyle</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>2.6</version>
+                    <executions>
+                        <execution>
+                            <id>check my sources</id>
+                            <goals>
+                                <goal>checkstyle</goal>
+                            </goals>
+                            <phase>verify</phase>
+                            <configuration>
+                                <failOnErrors>false</failOnErrors>
+                                <consoleOutput>true</consoleOutput>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+[/if]
   </profiles>
 
   <dependencies>
@@ -235,6 +265,7 @@ Contributors :
       </plugins>
     </pluginManagement>
   </build>
+
 </project>
 [/file]
 [/template]

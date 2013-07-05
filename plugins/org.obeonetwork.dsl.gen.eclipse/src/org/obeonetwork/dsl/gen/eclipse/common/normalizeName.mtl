@@ -18,7 +18,7 @@ Contributors :
 [anApplication.baseNamespace/].[anApplication.applicationID/]
 [/template]
 
-[template public genApplicationPath(anApplication : Application)]
+[template public genApplicationParentPath(anApplication : Application)]
 [anApplication.genApplicationName()/]/[anApplication.genApplicationID()/]-parent
 [/template]
 
@@ -252,6 +252,10 @@ Contributors :
 
 [template public refactorExtensionClassName(anExtensionPoint : ExtensionPointProvider)]
 [anExtensionPoint.className.toUpperFirst().substituteAll(' ', '')/]
+[/template]
+
+[template public genExtensionClientClass(anExtensionPoint : ExtensionPointClient)]
+[anExtensionPoint.name.toUpperFirst().substituteAll(' ', '')/]
 [/template]
 
 [template public genAttributeClassName(anAttribute : JavaAttribute)]

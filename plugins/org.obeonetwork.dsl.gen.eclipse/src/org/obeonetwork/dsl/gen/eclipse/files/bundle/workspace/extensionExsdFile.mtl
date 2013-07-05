@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private extensionExsdFile(anExtensionPoint : ExtensionPointProvider)]
-[anExtensionPoint.eContainer(Bundle).genBundlePath()/]/schema/[anExtensionPoint.genExtensionName()/]Extension.exsd
+[anExtensionPoint.eContainer(Bundle).genBundlePath()/]/schema/[anExtensionPoint.genExtensionName()/].exsd
 [/template]
 
 [template public genExtensionExsdFile(anExtensionPoint : ExtensionPointProvider)]
@@ -25,7 +25,7 @@ Contributors :
 <schema targetNamespace="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" id="[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" name="[anExtensionPoint.genExtensionName()/]Extension"/>
+         <meta.schema plugin="[anExtensionPoint.ancestors(Bundle).genBundleID()/]" id="[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]" name="[anExtensionPoint.genExtensionName()/]"/>
       </appinfo>
       <documentation>
          ['['/]Enter description of this extension point.]

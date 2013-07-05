@@ -159,13 +159,22 @@ public interface EclipsePackage extends EPackage {
 	int APPLICATION__GENERATE_TESTS_BUNDLE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Generate Check Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__GENERATE_CHECK_STYLE = 10;
+
+	/**
 	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 10;
+	int APPLICATION_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl <em>Project</em>}' class.
@@ -1137,22 +1146,22 @@ public interface EclipsePackage extends EPackage {
 	int EXTENSION_POINT_CLIENT = 15;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_POINT_CLIENT__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENSION_POINT_CLIENT__PROVIDER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Iteration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION = 1;
+	int EXTENSION_POINT_CLIENT__PROVIDER = 1;
 
 	/**
 	 * The number of structural features of the '<em>Extension Point Client</em>' class.
@@ -2458,6 +2467,17 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getApplication_GenerateTestsBundle();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getGenerateCheckStyle <em>Generate Check Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generate Check Style</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Application#getGenerateCheckStyle()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_GenerateCheckStyle();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.Project <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3334,6 +3354,17 @@ public interface EclipsePackage extends EPackage {
 	EClass getExtensionPointClient();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient#getName()
+	 * @see #getExtensionPointClient()
+	 * @generated
+	 */
+	EAttribute getExtensionPointClient_Name();
+
+	/**
 	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3343,17 +3374,6 @@ public interface EclipsePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExtensionPointClient_Provider();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient#getSequenceIteration <em>Sequence Iteration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sequence Iteration</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.ExtensionPointClient#getSequenceIteration()
-	 * @see #getExtensionPointClient()
-	 * @generated
-	 */
-	EAttribute getExtensionPointClient_SequenceIteration();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.gen.eclipse.StringAttribute <em>String Attribute</em>}'.
@@ -4542,6 +4562,14 @@ public interface EclipsePackage extends EPackage {
 		EAttribute APPLICATION__GENERATE_TESTS_BUNDLE = eINSTANCE.getApplication_GenerateTestsBundle();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Check Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__GENERATE_CHECK_STYLE = eINSTANCE.getApplication_GenerateCheckStyle();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.ProjectImpl <em>Project</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5220,20 +5248,20 @@ public interface EclipsePackage extends EPackage {
 		EClass EXTENSION_POINT_CLIENT = eINSTANCE.getExtensionPointClient();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTENSION_POINT_CLIENT__NAME = eINSTANCE.getExtensionPointClient_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Provider</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference EXTENSION_POINT_CLIENT__PROVIDER = eINSTANCE.getExtensionPointClient_Provider();
-
-		/**
-		 * The meta object literal for the '<em><b>Sequence Iteration</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION = eINSTANCE.getExtensionPointClient_SequenceIteration();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.gen.eclipse.impl.StringAttributeImpl <em>String Attribute</em>}' class.

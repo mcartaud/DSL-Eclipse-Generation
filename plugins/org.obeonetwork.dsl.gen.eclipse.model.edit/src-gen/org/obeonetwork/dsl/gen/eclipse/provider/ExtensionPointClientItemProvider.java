@@ -60,10 +60,32 @@ public class ExtensionPointClientItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addProviderPropertyDescriptor(object);
-			addSequenceIterationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtensionPointClient_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointClient_name_feature", "_UI_ExtensionPointClient_type"),
+				 EclipsePackage.Literals.EXTENSION_POINT_CLIENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,28 +111,6 @@ public class ExtensionPointClientItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Sequence Iteration feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSequenceIterationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExtensionPointClient_sequenceIteration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExtensionPointClient_sequenceIteration_feature", "_UI_ExtensionPointClient_type"),
-				 EclipsePackage.Literals.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns ExtensionPointClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,8 +129,10 @@ public class ExtensionPointClientItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ExtensionPointClient extensionPointClient = (ExtensionPointClient)object;
-		return getString("_UI_ExtensionPointClient_type") + " " + extensionPointClient.getSequenceIteration();
+		String label = ((ExtensionPointClient)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtensionPointClient_type") :
+			getString("_UI_ExtensionPointClient_type") + " " + label;
 	}
 
 	/**
@@ -145,7 +147,7 @@ public class ExtensionPointClientItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtensionPointClient.class)) {
-			case EclipsePackage.EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION:
+			case EclipsePackage.EXTENSION_POINT_CLIENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

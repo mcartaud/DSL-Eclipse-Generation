@@ -17,16 +17,16 @@ Contributors :
 
 
 [template private extensionDescriptorJavaFile(anExtensionPoint : ExtensionPointProvider)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.genExtensionName()/]ExtensionDescriptor.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/extension/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.genExtensionName()/]Descriptor.java
 [/template]
 
 [template public genExtensionDescriptorJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionDescriptorJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'ExtensionDescriptor')]
+//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'Descriptor')]
 //[/protected]
 
 
@@ -34,7 +34,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
  * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
  * @generated
  */
-public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
+public class [anExtensionPoint.genExtensionName()/]Descriptor {
 
 	/** 
 	 * Name of the [anExtensionPoint.name/] extension point's tag "[anExtensionPoint.className/]" attribute. 
@@ -67,7 +67,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * Qualified [anExtensionPoint.className/] name of the [anExtensionPoint.name/] extension. This will be used as an id to remove contributions.
 	 * @generated
 	 */
-	private final String extension[anExtensionPoint.className.toUpperFirst()/];
+	private final String [anExtensionPoint.className.toLowerFirst()/]Attribute;
 
 [for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
 
@@ -75,7 +75,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * Qualified [anAttribute.name/] name of the [anExtensionPoint.name/] extension. 
 	 * @generated
 	 */
-	private final String extension[anAttribute.refactorAttributeName()/];
+	private final String [anAttribute.refactorAttributeName().toLowerFirst()/]Attribute;
 [/for]
 
 [for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
@@ -84,20 +84,20 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * Qualified [anAttribute.name/] name of the [anExtensionPoint.name/] extension. 
 	 * @generated
 	 */
-	private final String extension[anAttribute.refactorAttributeName()/];
+	private final String [anAttribute.refactorAttributeName().toLowerFirst()/]Attribute;
 
 	/**
 	 * We only need to create the instance once, this will keep reference to it. 
 	 * @generated
 	 */
-	private I[anAttribute.genAttributeClassName()/]Extension [anAttribute.genAttributeClassName().toLowerFirst()/]Extension;
+	private [anAttribute.genAttributeClassName()/] [anAttribute.genAttributeClassName().toLowerFirst()/];
 [/for]
 
 	/**
 	 * We only need to create the instance once, this will keep reference to it. 
 	 * @generated
 	 */
-	private I[anExtensionPoint.refactorExtensionClassName()/]Extension [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension;
+	private [anExtensionPoint.refactorExtensionClassName()/] [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/];
 
 //[protected (': add attributes for ' + anExtensionPoint.genExtensionName() + 'ExtensionDescriptor')]
 //[/protected]
@@ -110,14 +110,14 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 *            Configuration element from which to create this descriptor.
 	 * @generated
 	 */
-	public [anExtensionPoint.genExtensionName()/]ExtensionDescriptor(IConfigurationElement configuration) {
+	public [anExtensionPoint.genExtensionName()/]Descriptor(IConfigurationElement configuration) {
 		element = configuration;
-		extension[anExtensionPoint.className.toUpperFirst()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper()/]);
+		[anExtensionPoint.className.toLowerFirst()/]Attribute = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper()/]);
 [for (anAttribute : StringAttribute | anExtensionPoint.stringAttributes)]
-		extension[anAttribute.refactorAttributeName()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticStringAttributeName()/]);
+		[anAttribute.refactorAttributeName().toLowerFirst()/]Attribute = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticStringAttributeName()/]);
 [/for]
 [for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
-		extension[anAttribute.refactorAttributeName()/] = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/]);
+		[anAttribute.refactorAttributeName().toLowerFirst()/]Attribute = configuration.getAttribute([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/]);
 [/for]
 	}
 
@@ -127,8 +127,8 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * @return This descriptor's "[anExtensionPoint.className/]" class name.
 	 * @generated
 	 */
-	public String getExtension[anExtensionPoint.className.toUpperFirst()/]() {
-		return extension[anExtensionPoint.className.toUpperFirst()/];
+	public String get[anExtensionPoint.className.toUpperFirst()/]Attribute() {
+		return [anExtensionPoint.className.toUpperFirst().toLowerFirst()/]Attribute;
 	}
 
 [for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
@@ -138,8 +138,8 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * @return This descriptor's "[anAttribute.name/]" class name.
 	 * @generated
 	 */
-	public String getExtension[anAttribute.refactorAttributeName()/]() {
-		return extension[anAttribute.refactorAttributeName()/];
+	public String get[anAttribute.refactorAttributeName()/]Attribute() {
+		return [anAttribute.refactorAttributeName().toLowerFirst()/]Attribute;
 	}
 [/for]
 
@@ -150,46 +150,46 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionDescriptor {
 	 * @return This descriptor's "[anAttribute.name/]" field name.
 	 * @generated
 	 */
-	public String getExtension[anAttribute.refactorAttributeName()/]() {
-		return extension[anAttribute.refactorAttributeName()/];
+	public String get[anAttribute.refactorAttributeName()/]Attribute() {
+		return [anAttribute.refactorAttributeName().toLowerFirst()/]Attribute;
 	}
 [/for]
 
 	/**
-	 * Creates an instance of this descriptor's {@link I[anExtensionPoint.refactorExtensionClassName()/]Extension}.
+	 * Creates an instance of this descriptor's {@link [anExtensionPoint.refactorExtensionClassName()/]}.
 	 * 
-	 * @return A new instance of this descriptor's {@link I[anExtensionPoint.refactorExtensionClassName()/]Extension}.
+	 * @return A new instance of this descriptor's {@link [anExtensionPoint.refactorExtensionClassName()/]}.
 	 * @generated
 	 */
-	public I[anExtensionPoint.refactorExtensionClassName()/]Extension get[anExtensionPoint.refactorExtensionClassName()/]Extension() {
-		if ([anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension == null) {
+	public [anExtensionPoint.refactorExtensionClassName()/] get[anExtensionPoint.refactorExtensionClassName()/]() {
+		if ([anExtensionPoint.refactorExtensionClassName().toLowerFirst()/] == null) {
 			try {
-				[anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension = (I[anExtensionPoint.refactorExtensionClassName()/]Extension)element
+				[anExtensionPoint.refactorExtensionClassName().toLowerFirst()/] = ([anExtensionPoint.refactorExtensionClassName()/])element
 						.createExecutableExtension([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anExtensionPoint.className.toUpper().substituteAll(' ', '_')/]);
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
-		return [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/]Extension;
+		return [anExtensionPoint.refactorExtensionClassName().toLowerFirst()/];
 	}
 
 [for (anAttribute : JavaAttribute | anExtensionPoint.javaAttributes)]
 	/**
-	 * Creates an instance of this descriptor's {@link I[anAttribute.genAttributeClassName()/]Extension}.
+	 * Creates an instance of this descriptor's {@link [anAttribute.genAttributeClassName()/]}.
 	 * 
-	 * @return A new instance of this descriptor's {@link I[anAttribute.genAttributeClassName()/]Extension}.
+	 * @return A new instance of this descriptor's {@link [anAttribute.genAttributeClassName()/]}.
 	 * @generated
 	 */
-	public I[anAttribute.genAttributeClassName()/]Extension get[anAttribute.genAttributeClassName()/]Extension() {
-		if ([anAttribute.genAttributeClassName().toLowerFirst()/]Extension == null) {
+	public [anAttribute.genAttributeClassName()/] get[anAttribute.genAttributeClassName()/]() {
+		if ([anAttribute.genAttributeClassName().toLowerFirst()/] == null) {
 			try {
-				[anAttribute.genAttributeClassName().toLowerFirst()/]Extension = (I[anAttribute.genAttributeClassName()/]Extension)element
+				[anAttribute.genAttributeClassName().toLowerFirst()/] = ([anAttribute.genAttributeClassName()/])element
 						.createExecutableExtension([anExtensionPoint.staticExtensionName()/]_ATTRIBUTE_[anAttribute.staticJavaAttributeName()/]);
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
-		return [anAttribute.genAttributeClassName().toLowerFirst()/]Extension;
+		return [anAttribute.genAttributeClassName().toLowerFirst()/];
 	}
 [/for]
 

@@ -24,6 +24,7 @@ Contributors :
 package [aBundle.genBundleID()/].tests.unit.utils;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 //[protected (': add imports for ' + aBundle.name +'Test')]
 //[/protected]
 
@@ -35,6 +36,12 @@ public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends Test
 
 	//[protected (': add attributes for ' + aBundle.name +'Test')]
 	//[/protected]
+
+	@Test
+	public void testDefault(){
+		int var = 1;
+		assertTrue(var == 1);
+	}
 
 	//[protected (': add methods for ' + aBundle.name +'Test')]
 	//[/protected]

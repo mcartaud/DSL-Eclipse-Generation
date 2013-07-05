@@ -16,37 +16,37 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private extensionRegistryJavaFile(anExtensionPoint : ExtensionPointProvider)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.genExtensionName()/]ExtensionRegistry.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/extension/[anExtensionPoint.genExtensionName().toLowerFirst()/]/[anExtensionPoint.genExtensionName()/]Registry.java
 [/template]
 
 [template public genExtensionRegistryJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (extensionRegistryJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
 import java.util.ArrayList;
 import java.util.List;
-//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'ExtensionRegistry')]
+//[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'Registry')]
 //[/protected]
 
 /**
  * This will contain all [anExtensionPoint.name/] extension that have been parsed from the extension point.
  * @generated
  */
-public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
+public class [anExtensionPoint.genExtensionName()/]Registry {
 	/** 
 	 * List of extensions created from the extension point contributions. 
 	 * @generated
 	 */
-	private static final List<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor> EXTENSIONS = new ArrayList<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor>();
+	private static final List<[anExtensionPoint.genExtensionName()/]Descriptor> EXTENSIONS = new ArrayList<[anExtensionPoint.genExtensionName()/]Descriptor>();
 
-//[protected (': add attributes for ' + anExtensionPoint.genExtensionName() + 'ExtensionRegistry')]
+//[protected (': add attributes for ' + anExtensionPoint.genExtensionName() + 'Registry')]
 //[/protected]
 
 	/**
 	 * Utility classes don't need a default constructor.
 	 * @generated
 	 */
-	private [anExtensionPoint.genExtensionName()/]ExtensionRegistry() {
+	private [anExtensionPoint.genExtensionName()/]Registry() {
 		// hides constructor
 	}
 
@@ -57,7 +57,7 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 *            The extension that is to be added to the registry.
 	 * @generated
 	 */
-	public static void addExtension([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension) {
+	public static void addExtension([anExtensionPoint.genExtensionName()/]Descriptor extension) {
 		EXTENSIONS.add(extension);
 	}
 
@@ -75,8 +75,8 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 * @return A copy of the registered extensions list.
 	 * @generated
 	 */
-	public static List<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor> getRegisteredExtensions() {
-		return new ArrayList<[anExtensionPoint.genExtensionName()/]ExtensionDescriptor>(EXTENSIONS);
+	public static List<[anExtensionPoint.genExtensionName()/]Descriptor> getRegisteredExtensions() {
+		return new ArrayList<[anExtensionPoint.genExtensionName()/]Descriptor>(EXTENSIONS);
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class [anExtensionPoint.genExtensionName()/]ExtensionRegistry {
 	 * @generated
 	 */
 	public static void removeExtension(String extensionClassName) {
-		for ([anExtensionPoint.genExtensionName()/]ExtensionDescriptor extension : getRegisteredExtensions()) {
-			if (extension.getExtension[anExtensionPoint.className.toUpperFirst()/]().equals(extensionClassName)) {
+		for ([anExtensionPoint.genExtensionName()/]Descriptor extension : getRegisteredExtensions()) {
+			if (extension.get[anExtensionPoint.className.toUpperFirst()/]().equals(extensionClassName)) {
 				EXTENSIONS.remove(extension);
 			}
 		}

@@ -39,6 +39,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isMavenCompilation <em>Maven Compilation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProjects <em>Projects</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#isGenerateTestsBundle <em>Generate Tests Bundle</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getGenerateCheckStyle <em>Generate Check Style</em>}</li>
  * </ul>
  * </p>
  *
@@ -234,6 +235,26 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * @ordered
 	 */
 	protected boolean generateTestsBundle = GENERATE_TESTS_BUNDLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGenerateCheckStyle() <em>Generate Check Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenerateCheckStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean GENERATE_CHECK_STYLE_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getGenerateCheckStyle() <em>Generate Check Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenerateCheckStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean generateCheckStyle = GENERATE_CHECK_STYLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +481,27 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getGenerateCheckStyle() {
+		return generateCheckStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenerateCheckStyle(Boolean newGenerateCheckStyle) {
+		Boolean oldGenerateCheckStyle = generateCheckStyle;
+		generateCheckStyle = newGenerateCheckStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE, oldGenerateCheckStyle, generateCheckStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -497,6 +539,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				return getProjects();
 			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
 				return isGenerateTestsBundle();
+			case EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE:
+				return getGenerateCheckStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -541,6 +585,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
 				setGenerateTestsBundle((Boolean)newValue);
 				return;
+			case EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE:
+				setGenerateCheckStyle((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -583,6 +630,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
 				setGenerateTestsBundle(GENERATE_TESTS_BUNDLE_EDEFAULT);
 				return;
+			case EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE:
+				setGenerateCheckStyle(GENERATE_CHECK_STYLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -615,6 +665,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				return projects != null && !projects.isEmpty();
 			case EclipsePackage.APPLICATION__GENERATE_TESTS_BUNDLE:
 				return generateTestsBundle != GENERATE_TESTS_BUNDLE_EDEFAULT;
+			case EclipsePackage.APPLICATION__GENERATE_CHECK_STYLE:
+				return GENERATE_CHECK_STYLE_EDEFAULT == null ? generateCheckStyle != null : !GENERATE_CHECK_STYLE_EDEFAULT.equals(generateCheckStyle);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -647,6 +699,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		result.append(mavenCompilation);
 		result.append(", generateTestsBundle: ");
 		result.append(generateTestsBundle);
+		result.append(", generateCheckStyle: ");
+		result.append(generateCheckStyle);
 		result.append(')');
 		return result.toString();
 	}

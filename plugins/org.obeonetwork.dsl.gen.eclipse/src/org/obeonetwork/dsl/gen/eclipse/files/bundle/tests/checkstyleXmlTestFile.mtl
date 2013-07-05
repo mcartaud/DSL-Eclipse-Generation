@@ -11,17 +11,17 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module checkstyleXmlFile('http://www.eclipse.org/2008/Xtext', 'http://www.obeonetwork.org/dsl/eclipse')]
+[module checkstyleXmlTestFile('http://www.eclipse.org/2008/Xtext', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
-[template private checkstyleXmlFile(aBundle : Bundle)]
-[aBundle.genBundlePath()/]/.checkstyle
+[template private checkstyleXmlTestFile(aBundle : Bundle)]
+[aBundle.genBundleTestPath()/]/.checkstyle
 [/template]
 
-[template public genCheckstyleXmlFile(aBundle : Bundle)]
-[file (aBundle.checkstyleXmlFile(), false, 'UTF-8')]
+[template public genCheckstyleXmlTestFile(aBundle : Bundle)]
+[file (aBundle.checkstyleXmlTestFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 
 <fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">

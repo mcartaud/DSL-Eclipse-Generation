@@ -16,7 +16,7 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 [template private coreSettingsParentFile(anApplication : Application)]
-[anApplication.genApplicationPath()/]/.settings/org.eclipse.core.ressources.prefs
+[anApplication.genApplicationParentPath()/]/.settings/org.eclipse.core.ressources.prefs
 [/template]
 
 [template public genCoreSettingsParentFile(anApplication : Application)]

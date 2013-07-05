@@ -16,17 +16,17 @@ Contributors :
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
 
-[template private extensionClientJavaFile(anExtensionPoint : ExtensionPointClient, counter : Integer)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/contributions/[anExtensionPoint.provider.genExtensionName()/][counter/].java
+[template private extensionClientJavaFile(anExtensionPoint : ExtensionPointClient)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/contributions/[anExtensionPoint.genExtensionClientClass()/].java
 [/template]
 
-[template public genExtensionClientJavaFile(anExtensionPoint : ExtensionPointClient, counter : Integer)]
-[file (anExtensionPoint.extensionClientJavaFile(counter), false, 'UTF-8')]
+[template public genExtensionClientJavaFile(anExtensionPoint : ExtensionPointClient)]
+[file (anExtensionPoint.extensionClientJavaFile(), false, 'UTF-8')]
 package [anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions;
 
-import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/].Abstract[anExtensionPoint.provider.refactorExtensionClassName()/]Extension;
-import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/].I[anExtensionPoint.provider.refactorExtensionClassName()/]Extension;
-//[protected (': add imports for the extension of ' + anExtensionPoint.provider.genExtensionName() + counter)]
+import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/].Abstract[anExtensionPoint.provider.refactorExtensionClassName()/];
+import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/].[anExtensionPoint.provider.refactorExtensionClassName()/];
+//[protected (': add imports for the extension of ' + anExtensionPoint.genExtensionClientClass())]
 //[/protected]
 
 
@@ -34,10 +34,10 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[a
  * implementation of the extension point's client
  * @generated
  */
-public class [anExtensionPoint.provider.genExtensionName()/][counter/] extends Abstract[anExtensionPoint.provider.refactorExtensionClassName()/]Extension implements
-		I[anExtensionPoint.provider.refactorExtensionClassName()/]Extension {
+public class [anExtensionPoint.genExtensionClientClass()/] extends Abstract[anExtensionPoint.provider.refactorExtensionClassName()/] implements
+		[anExtensionPoint.provider.refactorExtensionClassName()/] {
 
-//[protected (': add attributes for the extension of ' + anExtensionPoint.provider.genExtensionName() + counter)]
+//[protected (': add attributes for the extension of ' + anExtensionPoint.genExtensionClientClass())]
 //[/protected]
 
 
@@ -45,7 +45,7 @@ public class [anExtensionPoint.provider.genExtensionName()/][counter/] extends A
 	 * the constructor
 	 * @generated
 	 */
-	public [anExtensionPoint.provider.genExtensionName()/][counter/]() {
+	public [anExtensionPoint.genExtensionClientClass()/]() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -59,7 +59,7 @@ public class [anExtensionPoint.provider.genExtensionName()/][counter/] extends A
 		return null;
 	}
 
-//[protected (': add methods for the extension of ' + anExtensionPoint.provider.genExtensionName() + counter)]
+//[protected (': add methods for the extension of ' + anExtensionPoint.genExtensionClientClass())]
 //[/protected]
 
 }
@@ -67,17 +67,17 @@ public class [anExtensionPoint.provider.genExtensionName()/][counter/] extends A
 [/template]
 
 
-[template private extensionClientJavaFile(anExtensionPoint : ExtensionPointClient, anAttribute : JavaAttribute, counter : Integer)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/contributions/[anAttribute.genAttributeClassName()/][counter/].java
+[template private extensionClientJavaFile(anExtensionPoint : ExtensionPointClient, anAttribute : JavaAttribute)]
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/contributions/[anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/].java
 [/template]
 
-[template public genExtensionClientJavaFile(anExtensionPoint : ExtensionPointClient, anAttribute : JavaAttribute, counter : Integer)]
-[file (anExtensionPoint.extensionClientJavaFile(anAttribute, counter), false, 'UTF-8')]
+[template public genExtensionClientJavaFile(anExtensionPoint : ExtensionPointClient, anAttribute : JavaAttribute)]
+[file (anExtensionPoint.extensionClientJavaFile(anAttribute), false, 'UTF-8')]
 package [anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions;
 
-import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/].Abstract[anAttribute.genAttributeClassName()/]Extension;
-import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/].I[anAttribute.genAttributeClassName()/]Extension;
-//[protected (': add imports for the extension of ' + anAttribute.genAttributeClassName() + counter)]
+import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/].Abstract[anAttribute.genAttributeClassName()/];
+import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/].[anAttribute.genAttributeClassName()/];
+//[protected (': add imports for the extension of ' + anExtensionPoint.genExtensionClientClass() + anAttribute.genAttributeClassName())]
 //[/protected]
 
 
@@ -85,10 +85,10 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].registry.[a
  * implementation of the extension point's client
  * @generated
  */
-public class [anAttribute.genAttributeClassName()/][counter/] extends Abstract[anAttribute.genAttributeClassName()/]Extension implements
-		I[anAttribute.genAttributeClassName()/]Extension {
+public class [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/] extends Abstract[anAttribute.genAttributeClassName()/] implements
+		[anAttribute.genAttributeClassName()/] {
 
-//[protected (': add attributes for the extension of ' + anAttribute.genAttributeClassName() + counter)]
+//[protected (': add attributes for the extension of ' + anExtensionPoint.genExtensionClientClass() + anAttribute.genAttributeClassName())]
 //[/protected]
 
 
@@ -96,7 +96,7 @@ public class [anAttribute.genAttributeClassName()/][counter/] extends Abstract[a
 	 * the constructor
 	 * @generated
 	 */
-	public [anAttribute.genAttributeClassName()/][counter/]() {
+	public [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/]() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -110,7 +110,7 @@ public class [anAttribute.genAttributeClassName()/][counter/] extends Abstract[a
 		return null;
 	}
 
-//[protected (': add methods for the extension of ' + anAttribute.genAttributeClassName() + counter)]
+//[protected (': add methods for the extension of ' + anExtensionPoint.genExtensionClientClass() + anAttribute.genAttributeClassName())]
 //[/protected]
 
 }

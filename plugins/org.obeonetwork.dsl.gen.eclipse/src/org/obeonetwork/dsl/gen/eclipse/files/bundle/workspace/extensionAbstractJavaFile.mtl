@@ -17,12 +17,12 @@ Contributors :
 
 
 [template private extensionAbstractJavaFile(anAttribute : JavaAttribute)]
-[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/registry/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/Abstract[anAttribute.genAttributeClassName()/]Extension.java
+[anAttribute.eContainer(Bundle).genBundleJavaPath()/]/extension/[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/]/Abstract[anAttribute.genAttributeClassName()/].java
 [/template]
 
 [template public genExtensionAbstractJavaFile(anAttribute : JavaAttribute)]
 [file (anAttribute.extensionAbstractJavaFile(), false, 'UTF-8')]
-package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
+package [anAttribute.ancestors(Bundle).genBundleID()/].extension.[anAttribute.eContainer(ExtensionPointProvider).genExtensionName().toLowerFirst()/];
 
 //[protected (': add imports for Abstract' + anAttribute.genAttributeClassName() + 'Extension')]
 //[/protected]
@@ -31,7 +31,7 @@ package [anAttribute.ancestors(Bundle).genBundleID()/].registry.[anAttribute.eCo
  * Clients should extend this abstract class to extend the extensionPoint mechanism 
  * @generated
  */
-public abstract class Abstract[anAttribute.genAttributeClassName()/]Extension implements I[anAttribute.genAttributeClassName()/]Extension {
+public abstract class Abstract[anAttribute.genAttributeClassName()/] implements [anAttribute.genAttributeClassName()/] {
 	
 	//[protected (': add attributes for Abstract' + anAttribute.genAttributeClassName() + 'Extension')]
 	//[/protected]
@@ -49,12 +49,12 @@ public abstract class Abstract[anAttribute.genAttributeClassName()/]Extension im
 [/template]
 
 [template private extensionAbstractJavaFile(anExtensionPoint : ExtensionPointProvider)]
-[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/registry/[anExtensionPoint.genExtensionName().toLowerFirst()/]/Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension.java
+[anExtensionPoint.eContainer(Bundle).genBundleJavaPath()/]/extension/[anExtensionPoint.genExtensionName().toLowerFirst()/]/Abstract[anExtensionPoint.refactorExtensionClassName()/].java
 [/template]
 
 [template public genExtensionAbstractJavaFile(anExtensionPoint : ExtensionPointProvider)]
 [file (anExtensionPoint.extensionAbstractJavaFile(), false, 'UTF-8')]
-package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensionPoint.genExtensionName().toLowerFirst()/];
+package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/];
 
 //[protected (': add imports for Abstract' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
 //[/protected]
@@ -63,7 +63,7 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].registry.[anExtensio
  * Clients should implements this abstract class to implements the extensionPoint mechanism 
  * @generated
  */
-public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/]Extension implements I[anExtensionPoint.refactorExtensionClassName()/]Extension {
+public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/] implements [anExtensionPoint.refactorExtensionClassName()/] {
 	
 	//[protected (': add attributes for Abstract' + anExtensionPoint.refactorExtensionClassName() + 'Extension')]
 	//[/protected]

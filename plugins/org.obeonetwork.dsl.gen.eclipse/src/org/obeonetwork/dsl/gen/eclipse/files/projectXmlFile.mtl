@@ -44,6 +44,13 @@ Contributors :
 			<arguments>
 			</arguments>
 		</buildCommand>
+[if (aProject.eContainer(Application).generateCheckStyle)]
+		<buildCommand>
+			<name>net.sf.eclipsecs.core.CheckstyleBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+[/if]
 		[/if]
 	</buildSpec>
 	<natures>
@@ -54,6 +61,9 @@ Contributors :
 		[else]
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+[if (aProject.eContainer(Application).generateCheckStyle)]
+		<nature>net.sf.eclipsecs.core.CheckstyleNature</nature>
+[/if]
 		[/if]
 	</natures>
 </projectDescription>

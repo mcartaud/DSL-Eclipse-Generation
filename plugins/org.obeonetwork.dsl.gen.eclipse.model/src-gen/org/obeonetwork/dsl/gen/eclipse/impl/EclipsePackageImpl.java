@@ -553,6 +553,15 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getApplication_GenerateCheckStyle() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProject() {
 		return projectEClass;
 	}
@@ -1282,8 +1291,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExtensionPointClient_Provider() {
-		return (EReference)extensionPointClientEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExtensionPointClient_Name() {
+		return (EAttribute)extensionPointClientEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1291,8 +1300,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExtensionPointClient_SequenceIteration() {
-		return (EAttribute)extensionPointClientEClass.getEStructuralFeatures().get(1);
+	public EReference getExtensionPointClient_Provider() {
+		return (EReference)extensionPointClientEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2234,6 +2243,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEAttribute(applicationEClass, APPLICATION__MAVEN_COMPILATION);
 		createEReference(applicationEClass, APPLICATION__PROJECTS);
 		createEAttribute(applicationEClass, APPLICATION__GENERATE_TESTS_BUNDLE);
+		createEAttribute(applicationEClass, APPLICATION__GENERATE_CHECK_STYLE);
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
@@ -2330,8 +2340,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		createEReference(extensionPointProviderEClass, EXTENSION_POINT_PROVIDER__JAVA_ATTRIBUTES);
 
 		extensionPointClientEClass = createEClass(EXTENSION_POINT_CLIENT);
+		createEAttribute(extensionPointClientEClass, EXTENSION_POINT_CLIENT__NAME);
 		createEReference(extensionPointClientEClass, EXTENSION_POINT_CLIENT__PROVIDER);
-		createEAttribute(extensionPointClientEClass, EXTENSION_POINT_CLIENT__SEQUENCE_ITERATION);
 
 		stringAttributeEClass = createEClass(STRING_ATTRIBUTE);
 		createEAttribute(stringAttributeEClass, STRING_ATTRIBUTE__NAME);
@@ -2512,6 +2522,7 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEAttribute(getApplication_MavenCompilation(), theEcorePackage.getEBoolean(), "mavenCompilation", "true", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Projects(), this.getProject(), null, "projects", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_GenerateTestsBundle(), theEcorePackage.getEBoolean(), "generateTestsBundle", "true", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_GenerateCheckStyle(), theEcorePackage.getEBooleanObject(), "generateCheckStyle", "true", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProject_Name(), this.getName_(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2608,8 +2619,8 @@ public class EclipsePackageImpl extends EPackageImpl implements EclipsePackage {
 		initEReference(getExtensionPointProvider_JavaAttributes(), this.getJavaAttribute(), null, "javaAttributes", null, 0, -1, ExtensionPointProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(extensionPointClientEClass, ExtensionPointClient.class, "ExtensionPointClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExtensionPointClient_Name(), this.getName_(), "name", null, 1, 1, ExtensionPointClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExtensionPointClient_Provider(), this.getExtensionPointProvider(), null, "provider", null, 1, 1, ExtensionPointClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExtensionPointClient_SequenceIteration(), theEcorePackage.getEInt(), "sequenceIteration", "1", 0, 1, ExtensionPointClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringAttribute_Name(), this.getName_(), "name", null, 1, 1, StringAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

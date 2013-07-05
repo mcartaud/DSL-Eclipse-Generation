@@ -32,7 +32,7 @@ Contributors :
     <groupId>org.obeonetwork.acceleo</groupId>
     <artifactId>[aBundle.ancestors(Application).genApplicationID()/].parent</artifactId>
     <version>[aBundle.eContainer(Application).applicationVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
-    <relativePath>../..</relativePath>
+    <relativePath>../../[aBundle.eContainer(Application).genApplicationID()/]-parent</relativePath>
   </parent>
 
   <artifactId>[aBundle.genBundleID()/].tests</artifactId>

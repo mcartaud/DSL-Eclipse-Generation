@@ -79,23 +79,21 @@ Contributors :
 
 [template private genExtensionPointProvider(aBundle : Bundle)]
 [for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
-   <extension-point id="[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" name="[anExtensionPoint.genExtensionName()/]Extension" schema="schema/[anExtensionPoint.genExtensionName()/]Extension.exsd"/>
+   <extension-point id="[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]" name="[anExtensionPoint.genExtensionName()/]" schema="schema/[anExtensionPoint.genExtensionName()/].exsd"/>
 [/for]
 [/template]
 
 [template private userDefineExtensionPoint(anExtensionPoint : ExtensionPointClient)]
    <extension
-         point="[anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].[anExtensionPoint.provider.genExtensionName()/]Extension">
-[for (counter : Integer | Sequence{1..anExtensionPoint.sequenceIteration})]
+         point="[anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].[anExtensionPoint.provider.genExtensionName()/]">
 	  <[anExtensionPoint.provider.genExtensionName()/]
-			[anExtensionPoint.provider.className/]="[anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions.[anExtensionPoint.provider.genExtensionName()/][counter/]"
+			[anExtensionPoint.provider.className/]="[anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions.[anExtensionPoint.genExtensionClientClass()/]"
 [for (anAttribute : StringAttribute | anExtensionPoint.provider.stringAttributes)]
 			[anAttribute.name/]="[anAttribute.refactorAttributeName()/]"
 [/for][for (anAttribute : JavaAttribute | anExtensionPoint.provider.javaAttributes)]
-			[anAttribute.name/]="[anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions.[anAttribute.genAttributeClassName()/][counter/]"
+			[anAttribute.name/]="[anExtensionPoint.eContainer(Bundle).genBundleID()/].contributions.[anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/]"
 [/for]
 			/>
-[/for]
    </extension>
 [/template]
 

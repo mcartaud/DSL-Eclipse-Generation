@@ -28,6 +28,8 @@
         eType="#//Project" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateTestsBundle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generateCheckStyle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="#//Name"/>
@@ -184,10 +186,9 @@
         eType="#//JavaAttribute" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtensionPointClient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//Name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
         eType="#//ExtensionPointProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceIteration" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
-        defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
