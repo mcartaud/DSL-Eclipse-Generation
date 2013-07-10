@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module osgiServiceXmlFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module osgiServiceXmlFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -49,5 +49,5 @@ Contributors :
 [/template]
 
 [template private genUpperBound(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound = -1)]n[else][aRequiredService.reference.upperBound/][/if]
+[if (aRequiredService.reference.upperBound.toString().matches('-1'))]n[else][aRequiredService.reference.upperBound/][/if]
 [/template]

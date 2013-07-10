@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module perspectiveJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module perspectiveJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -31,7 +31,8 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 
 /**
- * implementation class for the perspective
+ * implementation class for the perspective.
+ * @author <a href="mailto:[aPerspective.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aPerspective.eContainer(Bundle).refactorName()/]</a>
  * @generated 
  */
 public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements IPerspectiveFactory {

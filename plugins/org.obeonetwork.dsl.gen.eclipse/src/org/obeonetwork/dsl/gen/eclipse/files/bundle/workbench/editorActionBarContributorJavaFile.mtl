@@ -1,5 +1,17 @@
-[comment encoding = UTF-8 /]
-[module editorActionBarContributorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[comment encoding = UTF-8 
+
+Copyright (c) 2012 Obeo
+All rights reserved.  This program and the accompanying materials
+are made available under the terms of the Eclipse Public License 1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+You can apply any license to the files generated with this module and Acceleo.
+
+Contributors :
+	Mathieu Cartaud (Obeo) - initial API and implementation
+/]
+[module editorActionBarContributorJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -54,8 +66,7 @@ import org.eclipse.ui.PartInitException;
 
 /**
  * This is the action bar contributor for the [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * @author <a href="mailto:[anEditor.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anEditor.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContributor extends
@@ -76,8 +87,6 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 */
 	protected ISelectionProvider selectionProvider;
 
-	//[protected (': add actionBarContributor attributes for ' + anEditor.name)]
-	//[/protected]
 
 	/**
 	 * This action opens the Properties view.
@@ -90,8 +99,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
-				}
-				catch (PartInitException exception) {
+				} catch (PartInitException exception) {
 					[anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin.INSTANCE.log(exception);
 				}
 			}
@@ -156,6 +164,22 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	protected IMenuManager createSiblingMenuManager;
 
 	/**
+	 * the type of extension for the menu.
+	 * @generated
+	 */
+	private String additionKind = "additions";
+
+	/**
+	 * the separator's name.
+	 * @generated
+	 */
+	private String separatorLabel = "ui-actions";
+
+	//[protected (': add actionBarContributor attributes for ' + anEditor.name)]
+	//[/protected]
+
+
+	/**
 	 * This creates an instance of the contributor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,6 +196,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param toolBarManager the toolbar manager
 	 * @generated
 	 */
 	@Override
@@ -185,32 +210,32 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * as well as the sub-menus for object creation items.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param menuManager the menu manager
 	 * @generated
 	 */
 	@Override
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 		IMenuManager submenuManager = new MenuManager([anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin.INSTANCE.getString("_UI_[anEditor.name.replaceAll(' ', '').toUpperFirst()/]Editor_menu"), "[anEditor.eContainer(Bundle).genBundleID()/].menuEditor-id.[anEditor.name.replaceAll(' ', '').toLowerFirst()/]");
-		menuManager.insertAfter("additions", submenuManager);
+		menuManager.insertAfter(additionKind, submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
-		submenuManager.add(new Separator("additions"));
+		submenuManager.add(new Separator(additionKind));
 		submenuManager.add(new Separator("additions-end"));
 
 		// Prepare for CreateChild item addition or removal.
 		//
 		createChildMenuManager = new MenuManager([anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
-		submenuManager.insertBefore("additions", createChildMenuManager);
+		submenuManager.insertBefore(additionKind, createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
 		createSiblingMenuManager = new MenuManager([anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
-		submenuManager.insertBefore("additions", createSiblingMenuManager);
+		submenuManager.insertBefore(additionKind, createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
 		//
-		submenuManager.addMenuListener
-			(new IMenuListener() {
+		submenuManager.addMenuListener(new IMenuListener() {
 				 public void menuAboutToShow(IMenuManager menuManager) {
 					 menuManager.updateAll(true);
 				 }
@@ -223,6 +248,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * When the active editor changes, this remembers the change and registers with it as a selection provider.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param part the editor part
 	 * @generated
 	 */
 	@Override
@@ -237,8 +263,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 		}
 		if (part == null) {
 			selectionProvider = null;
-		}
-		else {
+		} else {
 			selectionProvider = part.getSite().getSelectionProvider();
 			selectionProvider.addSelectionChangedListener(this);
 
@@ -256,6 +281,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * that can be added to the selected object and updating the menus accordingly.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param event a change in the selection
 	 * @generated
 	 */
 	public void selectionChanged(SelectionChangedEvent event) {
@@ -303,6 +329,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param descriptors a collection of descriptors
+	 * @param selection the current selection
+	 * @return a collection of actions
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(
@@ -321,6 +350,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param descriptors a collection of descriptors
+	 * @param selection the current selection
+	 * @return a collection of actions
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(
@@ -341,6 +373,9 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param manager the contribution manager
+	 * @param actions a collection of actions
+	 * @param contributionID the ID of the contribution
 	 * @generated
 	 */
 	protected void populateManager(IContributionManager manager,
@@ -349,8 +384,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 			for (IAction action : actions) {
 				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
-				}
-				else {
+				} else {
 					manager.add(action);
 				}
 			}
@@ -362,6 +396,8 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param manager the contribution manager
+	 * @param actions a collection of actions
 	 * @generated
 	 */
 	protected void depopulateManager(IContributionManager manager,
@@ -392,6 +428,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * This populates the pop-up menu before it appears.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param menuManager the menu manager
 	 * @generated
 	 */
 	@Override
@@ -412,15 +449,16 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * This inserts global actions before the "additions-end" separator.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param menuManager the menu manager
 	 * @generated
 	 */
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
-		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
+		menuManager.insertAfter("additions-end", new Separator(separatorLabel));
+		menuManager.insertAfter(separatorLabel, showPropertiesViewAction);
 
 		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
-		menuManager.insertAfter("ui-actions", refreshViewerAction);
+		menuManager.insertAfter(separatorLabel, refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
 	}
@@ -429,6 +467,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContrib
 	 * This ensures that a delete action will clean up all references to deleted objects.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return a boolean
 	 * @generated
 	 */
 	@Override

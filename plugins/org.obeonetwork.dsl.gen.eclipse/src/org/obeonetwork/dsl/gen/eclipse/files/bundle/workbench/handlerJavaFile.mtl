@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module handlerJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module handlerJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -30,7 +30,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
-[if (aHandler.oclIsTypeOf(ContextualHandler))][if (not(aHandler.oclAsType(ContextualHandler).activateWith.toString().tokenize()->isEmpty()))]
+[if (aHandler.oclIsTypeOf(ContextualHandler))][if (not(aHandler.oclAsType(ContextualHandler).activateWith.oclIsUndefined()))]
 import org.eclipse.jface.viewers.ISelection;
 [if (aHandler.oclAsType(ContextualHandler).activateWith.matches('java.lang.String'))]import org.eclipse.jface.text.ITextSelection;
 [else]import org.eclipse.jface.viewers.IStructuredSelection;
@@ -44,7 +44,8 @@ import java.util.List;
 
 
 /**
- * the implementation class of the handler
+ * the implementation class of the handler.
+ * @author <a href="mailto:[aHandler.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aHandler.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends AbstractHandler {
@@ -76,10 +77,14 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 [/template]
 
 [template private genBody(aHandler : ContextualHandler)]
-[if (not(aHandler.activateWith.toString().tokenize()->isEmpty()))]
+[if (not(aHandler.activateWith.oclIsUndefined()))]
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @param event
+	 * 			the execution of the action
+	 * @return null
+	 * @throws ExecutionException an exception
 	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -108,6 +113,13 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 
 [if (aHandler.activateWith.matches('java.lang.String'))]
 	/**
+	 * The command has been executed, this method perform the action.
+	 * @param selected
+	 * 			the selected element
+	 * @param event
+	 * 			the execution of the action
+	 * @return null
+	 * @throws ExecutionException an exception
 	 * @generated
 	 */
 	private Object doExecute(String selected, ExecutionEvent event) throws ExecutionException {		
@@ -123,6 +135,13 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 
 [if (not(aHandler.activateWith.matches('java.lang.String')))]
 	/**
+	 * The command has been executed, this method perform the action.
+	 * @param selected
+	 * 			the selected element
+	 * @param event
+	 * 			the execution of the action
+	 * @return null
+	 * @throws ExecutionException an exception
 	 * @generated
 	 */
 	private Object doExecute(List<[aHandler.activateWith/]> selected, ExecutionEvent event) throws ExecutionException {		
@@ -138,6 +157,10 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @param event
+	 * 			the execution of the action
+	 * @return null
+	 * @throws ExecutionException an exception
 	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -155,6 +178,10 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	/**
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
+	 * @param event
+	 * 			the execution of the action
+	 * @return null
+	 * @throws ExecutionException an exception
 	 * @generated
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {

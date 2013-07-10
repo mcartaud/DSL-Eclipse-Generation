@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module pluginPropertiesFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module pluginPropertiesFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -23,7 +23,7 @@ Contributors :
 [file (aBundle.pluginPropertiesFile(), false, 'UTF-8')]
 #User information for the Bundle
 Bundle-Name = [aBundle.name/]
-Bundle-Provider = [aBundle.vendor/]
+Bundle-Provider = [aBundle.refactorName()/]
 
 [if (aBundle.eAllContents(Wizard)->size() > 0)]
 [aBundle.wizardInformation()/]

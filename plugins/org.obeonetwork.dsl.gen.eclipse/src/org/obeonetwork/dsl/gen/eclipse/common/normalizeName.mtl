@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module normalizeName('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore')]
+[module normalizeName('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 
 [template public genApplicationID(anApplication : Application)]
@@ -330,4 +330,13 @@ Command-[aCommand.refactorCommandName().toUpperFirst()/]-Icon.gif
 
 [template public iconName(aDecorator : Decorator)]
 Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon.gif
+[/template]
+
+
+[template public refactorName(aBundle : Bundle)]
+[aBundle.defaultAuthor.substituteAll(' ', '.').substituteAll('.', ' . ').tokenize().toUpperFirst().substituteAll('.', ' ')/]
+[/template]
+
+[template public refactorNameForMail(aBundle : Bundle)]
+[aBundle.defaultAuthor.toLower().replaceAll(' ', '.')/]
 [/template]

@@ -479,13 +479,13 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__REQUIRED_ENVIRONMENT = PROJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
+	 * The feature id for the '<em><b>Default Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__VENDOR = PROJECT_FEATURE_COUNT + 2;
+	int BUNDLE__DEFAULT_AUTHOR = PROJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Declarative Services</b></em>' containment reference list.
@@ -2726,15 +2726,15 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getBundle_RequiredEnvironment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVendor <em>Vendor</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor <em>Default Author</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Vendor</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getVendor()
+	 * @return the meta object for the attribute '<em>Default Author</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor()
 	 * @see #getBundle()
 	 * @generated
 	 */
-	EAttribute getBundle_Vendor();
+	EAttribute getBundle_DefaultAuthor();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices <em>Declarative Services</em>}'.
@@ -4764,12 +4764,12 @@ public interface EclipsePackage extends EPackage {
 		EAttribute BUNDLE__REQUIRED_ENVIRONMENT = eINSTANCE.getBundle_RequiredEnvironment();
 
 		/**
-		 * The meta object literal for the '<em><b>Vendor</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Default Author</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUNDLE__VENDOR = eINSTANCE.getBundle_Vendor();
+		EAttribute BUNDLE__DEFAULT_AUTHOR = eINSTANCE.getBundle_DefaultAuthor();
 
 		/**
 		 * The meta object literal for the '<em><b>Declarative Services</b></em>' containment reference list feature.

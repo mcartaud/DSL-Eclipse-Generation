@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module extensionAbstractJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module extensionAbstractJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -28,7 +28,8 @@ package [anAttribute.ancestors(Bundle).genBundleID()/].extension.[anAttribute.eC
 //[/protected]
 
 /**
- * Clients should extend this abstract class to extend the extensionPoint mechanism 
+ * Clients should extend this abstract class to extend the extensionPoint mechanism.
+ * @author <a href="mailto:[anAttribute.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anAttribute.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public abstract class Abstract[anAttribute.genAttributeClassName()/] implements [anAttribute.genAttributeClassName()/] {
@@ -37,6 +38,8 @@ public abstract class Abstract[anAttribute.genAttributeClassName()/] implements 
 	//[/protected]
 
 	/**
+	 * an abstract method for the extension point.
+	 * @return the name
 	 * @generated
 	 */
 	public abstract String getName();
@@ -60,7 +63,8 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensi
 //[/protected]
 
 /**
- * Clients should implements this abstract class to implements the extensionPoint mechanism 
+ * Clients should implements this abstract class to implements the extensionPoint mechanism.
+ * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/] implements [anExtensionPoint.refactorExtensionClassName()/] {
@@ -69,6 +73,8 @@ public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/] i
 	//[/protected]
 
 	/**
+	 * an abstract method for the extension point.
+	 * @return the name
 	 * @generated
 	 */
 	public abstract String getName();

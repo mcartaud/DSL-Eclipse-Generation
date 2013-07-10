@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module editorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module editorJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::emfEditorJavaFile /]
@@ -35,10 +35,10 @@ package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 [/template]
 
 [template private textType(anEditor : Editor)]
-import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.ui.editors.text.TextEditor;
 [if (anEditor.dynamicHelp->size() > 0)]
 import org.eclipse.ui.PlatformUI;
 [/if]
@@ -46,7 +46,8 @@ import org.eclipse.ui.PlatformUI;
 //[/protected]
 
 /**
- * the implementation class of the editor
+ * the implementation class of the editor.
+ * @author <a href="mailto:[anEditor.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anEditor.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEditor {
@@ -57,12 +58,16 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	 */
 	public static final String ID = "[anEditor.genEditorID()/]";
 
+	/**
+	 * the attribute textEditor.
+	 * @generated
+	 */
 	private TableEditor tableEditor;
 	//[protected (': add textEditor attributes for ' + anEditor.name)]
 	//[/protected]
 
 	/**
-	 * Default constructor
+	 * Default constructor.
 	 * @generated
 	 */
 	public [anEditor.name.replaceAll(' ', '_').toUpperFirst()/]() {
@@ -70,6 +75,8 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	}
 
 	/**
+	 * create the view widget.
+	 * @param parent the composite parent
 	 * @generated
 	 */
 	public void createPartControl(Composite parent) {

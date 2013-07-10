@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module workbenchPluginXml('http://www.obeonetwork.org/dsl/eclipse')]
+[module workbenchPluginXml('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::menuPluginXml /]
@@ -134,9 +134,9 @@ Command-[aCategory.commands->first().refactorCommandName().toUpperFirst()/]-Cate
       <handler
             commandId="[aCommand.genCommandID()/]"
             class="[anHandler.genHandlerPath()/]">
-[if (anHandler.associatedWith->size() > 0 or anHandler.activateWith.contains('.'))]
+[if (anHandler.associatedWith->size() > 0 or not(anHandler.activateWith.oclIsUndefined()))]
 		<activeWhen>
-[if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.contains('.'))]
+[if (anHandler.associatedWith->size() > 0 and anHandler.activateWith.size() > 0)]
             <and>
 [/if][if (anHandler.activateWith.contains('.'))]
                <with

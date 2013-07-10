@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module extensionClientJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module extensionClientJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -31,7 +31,8 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[
 
 
 /**
- * implementation of the extension point's client
+ * implementation of the extension point's client.
+ * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [anExtensionPoint.genExtensionClientClass()/] extends Abstract[anExtensionPoint.provider.refactorExtensionClassName()/] implements
@@ -42,7 +43,7 @@ public class [anExtensionPoint.genExtensionClientClass()/] extends Abstract[anEx
 
 
 	/**
-	 * the constructor
+	 * the constructor.
 	 * @generated
 	 */
 	public [anExtensionPoint.genExtensionClientClass()/]() {
@@ -50,7 +51,8 @@ public class [anExtensionPoint.genExtensionClientClass()/] extends Abstract[anEx
 	}
 
 	/**
-	 * the implemetation of the interface methods
+	 * the implemetation of the interface methods.
+	 * @return the name
 	 * @generated
 	 */
 	@Override
@@ -82,7 +84,8 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[
 
 
 /**
- * implementation of the extension point's client
+ * implementation of the extension point's client.
+ * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/] extends Abstract[anAttribute.genAttributeClassName()/] implements
@@ -93,7 +96,7 @@ public class [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttrib
 
 
 	/**
-	 * the constructor
+	 * the constructor.
 	 * @generated
 	 */
 	public [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/]() {
@@ -101,7 +104,8 @@ public class [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttrib
 	}
 
 	/**
-	 * the implemetation of the interface methods
+	 * the implemetation of the interface methods.
+	 * @return the name
 	 * @generated
 	 */
 	@Override

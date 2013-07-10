@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module extensionInterfaceJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module extensionInterfaceJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -27,7 +27,8 @@ package [anAttribute.ancestors(Bundle).genBundleID()/].extension.[anAttribute.eC
 //[/protected]
 
 /**
- * Clients should extend this interface to extend the extensionPoint mechanism 
+ * Clients should extend this interface to extend the extensionPoint mechanism.
+ * @author <a href="mailto:[anAttribute.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anAttribute.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public interface [anAttribute.genAttributeClassName()/] {
@@ -36,6 +37,8 @@ public interface [anAttribute.genAttributeClassName()/] {
 	//[/protected]
 	
 	/**
+	 * an method for the extension point.
+	 * @return the name
 	 * @generated
 	 */
 	String getName();
@@ -62,7 +65,8 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensi
 
 
 /**
- * Clients should extend this interface to extend the extensionPoint mechanism 
+ * Clients should extend this interface to extend the extensionPoint mechanism.
+ * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public interface [anExtensionPoint.refactorExtensionClassName()/] {
@@ -71,6 +75,8 @@ public interface [anExtensionPoint.refactorExtensionClassName()/] {
 	//[/protected]
 	
 	/**
+	 * an method for the extension point.
+	 * @return the name
 	 * @generated
 	 */
 	String getName();

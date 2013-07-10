@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module testSuiteJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module testSuiteJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -32,7 +32,8 @@ import junit.textui.TestRunner;
 import [aBundle.genBundleID()/].tests.unit.utils.[aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test;
 
 /**
- * a TestSuite for the bundle
+ * a TestSuite for the bundle.
+ * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
  * @generated
  */
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]TestSuite extends TestCase {

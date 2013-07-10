@@ -78,7 +78,7 @@
     <genClasses ecoreClass="eclipse.ecore#//Bundle">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/requiredEnvironment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/vendor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eclipse.ecore#//Bundle/defaultAuthor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/declarativeServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/importDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eclipse.ecore#//Bundle/natures"/>

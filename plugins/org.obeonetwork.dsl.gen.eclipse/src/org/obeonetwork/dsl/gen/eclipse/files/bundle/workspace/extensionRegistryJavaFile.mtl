@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module extensionRegistryJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module extensionRegistryJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -30,9 +30,10 @@ import java.util.List;
 
 /**
  * This will contain all [anExtensionPoint.name/] extension that have been parsed from the extension point.
+ * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
-public class [anExtensionPoint.genExtensionName()/]Registry {
+public final class [anExtensionPoint.genExtensionName()/]Registry {
 	/** 
 	 * List of extensions created from the extension point contributions. 
 	 * @generated
@@ -82,7 +83,7 @@ public class [anExtensionPoint.genExtensionName()/]Registry {
 	/**
 	 * Removes a phantom from the registry.
 	 * 
-	 * @param syncElementClassName
+	 * @param extensionClassName
 	 *            Qualified class name of the sync element which corresponding phantom is to be removed from
 	 *            the registry.
 	 * @generated

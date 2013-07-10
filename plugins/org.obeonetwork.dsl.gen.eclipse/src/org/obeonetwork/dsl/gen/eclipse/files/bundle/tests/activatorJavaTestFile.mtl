@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module activatorJavaTestFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module activatorJavaTestFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -31,6 +31,7 @@ import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle.
+ * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
  * @generated
  */
 public class Activator extends AbstractUIPlugin {

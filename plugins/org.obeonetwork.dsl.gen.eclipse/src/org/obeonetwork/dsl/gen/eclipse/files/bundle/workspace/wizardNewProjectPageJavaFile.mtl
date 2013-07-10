@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module wizardNewProjectPageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module wizardNewProjectPageJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -27,12 +27,18 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 //[protected (': add newProject imports for ' + aWizard.name)]
 //[/protected]
 
+/**
+ * this class create a new page for the project wizard.
+ * @author <a href="mailto:[aWizard.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aWizard.eContainer(Bundle).refactorName()/]</a>
+ * @generated
+ */
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {
 	
 	//[protected (': add newProject attributes for ' + aWizard.name)]
 	//[/protected]
 
 	/**
+	 * method to create the new page.
 	 * @generated
 	 */
 	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage() {

@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -16,7 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.obeonetwork.dsl.gen.eclipse.Application;
+
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Repository;
@@ -105,29 +107,14 @@ public class RepositoryItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated-NOT
+	 * @generated
 	 */
-	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Repository)object).getName();
-		String id = ((Repository)object).getID();
-		String baseID = "";
-		if (((Application)((Repository)object).eContainer()).getBaseNamespace() == null) {
-			baseID = " complete the baseNamespace field";
-		} else {
-			baseID = ((Application)((Repository)object).eContainer()).getBaseNamespace();			
-		}
-		
-		if ((label == null || label.length() == 0) && (id == null || id.length() == 0)) {
-			return getString("_UI_Repository_type");			
-		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
-			return getString("_UI_Repository_type") + " " + baseID + "." + id + " -- no name define";
-		} else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
-			return getString("_UI_Repsoitory_type") + " no ID define -- " + label;
-		} else {
-			return getString("_UI_Repository_type") + " " + baseID + "." + id + " -- " + label;
-		}
+		return label == null || label.length() == 0 ?
+			getString("_UI_Repository_type") :
+			getString("_UI_Repository_type") + " " + label;
 	}
 
 	/**

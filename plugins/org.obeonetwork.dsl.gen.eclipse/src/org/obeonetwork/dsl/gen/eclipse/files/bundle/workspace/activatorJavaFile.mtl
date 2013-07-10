@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module activatorJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module activatorJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -23,12 +23,14 @@ Contributors :
 [file (activatorJavafile(), false, 'UTF-8')]
 package [aBundle.genBundleID()/];
 
+[if (aBundle.extensionPointProvider->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
+[/if]
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-[if (aBundle.extensionPointProvider->size() > 0)]import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
-[/if][for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
+
+[for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
 import [aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]Registry;
 import [aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]
@@ -36,19 +38,20 @@ import [aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().t
 //[/protected]
 
 /**
- * The activator class controls the plug-in life cycle
+ * The activator class controls the plug-in life cycle.
+ * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
  * @generated
  */
 public class Activator extends AbstractUIPlugin {
 
-	/** The plug-in ID */
+	/** The plug-in ID. */
 	public static final String PLUGIN_ID = "[aBundle.genBundleID()/]"; //$NON-NLS-1$
 
-	/** The shared instance */
+	/** The shared instance. */
 	private static Activator plugin;
 	
 [for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
-	/** The registry listener that will be used to listen to [anExtensionPoint.name/] extension changes. */
+	/**. The registry listener that will be used to listen to [anExtensionPoint.name/] extension changes. */
 	private [anExtensionPoint.genExtensionName()/]RegistryListener [anExtensionPoint.genExtensionName().toLowerFirst()/]RegistryListener = new [anExtensionPoint.genExtensionName()/]RegistryListener();
 [/for]
 
@@ -56,7 +59,7 @@ public class Activator extends AbstractUIPlugin {
 	//[/protected]
 
 	/**
-	 * The constructor
+	 * The constructor.
 	 * @generated
 	 */
 	public Activator() {
@@ -102,7 +105,7 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns the shared instance
+	 * Returns the shared instance.
 	 *
 	 * @return the shared instance
 	 * @generated
@@ -113,7 +116,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/**
 	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path
+	 * plug-in relative path.
 	 *
 	 * @param path the path
 	 * @return the image descriptor

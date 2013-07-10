@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module osgiServiceJavaFile('http://www.obeonetwork.org/dsl/eclipse', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel')]
+[module osgiServiceJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -35,7 +35,8 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 
 
 /**
- * referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml
+ * referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml.
+ * @author <a href="mailto:[aDeclarativeService.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aDeclarativeService.eContainer(Bundle).refactorName()/]</a>
  * @generated
  */
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarativeService.monitorSuperType()/] {
@@ -47,6 +48,7 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 	// Provided Services
 [for (anEOperation : EOperation | aDeclarativeService.providedServices.interface.ecoreClass.eAllOperations)]
 	/**
+	 * 
 	 * @generated
 	 */
 	public [anEOperation.genReturn()/] [anEOperation.name.toLowerFirst()/]([anEOperation.eParameters.genDeclaration()->sep(', ')/]) {
@@ -57,6 +59,7 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 
 [if (aDeclarativeService.requiredServices->size() > 0)]
 	/**
+	 * the constructor.
 	 * @generated
 	 */
 	public [aDeclarativeService.serviceClassName.toUpperFirst()/]() {
@@ -67,6 +70,8 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 	// Required Services
 [for (aRequiredService : RequiredService | aDeclarativeService.requiredServices)]
 	/**
+	 * add the required service.
+	 * @param a[aRequiredService.reference.eType.name.toUpperFirst()/] the attribute
 	 * @generated
 	 */
 	public void add[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
@@ -74,6 +79,8 @@ public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarative
 	}
 
 	/**
+	 * remove the required service.
+	 * @param a[aRequiredService.reference.eType.name.toUpperFirst()/] the attribute
 	 * @generated
 	 */
 	public void remove[aRequiredService.reference.name.toUpperFirst()/]([aRequiredService.reference.eType.name.toUpperFirst()/] a[aRequiredService.reference.eType.name.toUpperFirst()/]) {
@@ -118,7 +125,7 @@ void[else][anEOperation.eType.name.toUpperFirst()/]
 [/template]
 
 [template private addMethodBody(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound = 1)]
+[if (aRequiredService.reference.upperBound.toString().matches('1'))]
 set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [else]
 get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
@@ -126,7 +133,7 @@ get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.re
 [/template]
 
 [template private removeMethodBody(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound = 1)]
+[if (aRequiredService.reference.upperBound.toString().matches('1'))]
 set[aRequiredService.reference.name.toUpperFirst()/](null);
 [else]
 get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);

@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module testJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module testJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -29,7 +29,8 @@ import org.junit.Test;
 //[/protected]
 
 /**
- * a testCase
+ * a testCase.
+ * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
  * @generated
  */
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends TestCase {
@@ -37,8 +38,12 @@ public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends Test
 	//[protected (': add attributes for ' + aBundle.name +'Test')]
 	//[/protected]
 
+	/**
+	 * a test.
+	 * @generated
+	 */
 	@Test
-	public void testDefault(){
+	public void testDefault() {
 		int var = 1;
 		assertTrue(var == 1);
 	}

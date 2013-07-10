@@ -11,7 +11,7 @@ You can apply any license to the files generated with this module and Acceleo.
 Contributors :
 	Mathieu Cartaud (Obeo) - initial API and implementation
 /]
-[module wizardNewFilePageJavaFile('http://www.obeonetwork.org/dsl/eclipse')]
+[module wizardNewFilePageJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 
@@ -28,13 +28,20 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 //[protected (': add newFile imports for ' + aWizard.name)]
 //[/protected]
 
-
-public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage extends WizardNewFileCreationPage{
+/**
+ * this class create a new page for the file wizard.
+ * @author <a href="mailto:[aWizard.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aWizard.eContainer(Bundle).refactorName()/]</a>
+ * @generated
+ */
+public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage extends WizardNewFileCreationPage {
 
 	//[protected (': add newFile attributes for ' + aWizard.name)]
 	//[/protected]
 
 	/**
+	 * the constructor.
+	 * @param pageName the name of the page
+	 * @param selection the current selection
 	 * @generated
 	 */
 	public [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage(String pageName, IStructuredSelection selection) {
