@@ -125,7 +125,7 @@ void[else][anEOperation.eType.name.toUpperFirst()/]
 [/template]
 
 [template private addMethodBody(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound.toString().matches('1'))]
+[if (aRequiredService.reference.upperBound = 1)]
 set[aRequiredService.reference.name.toUpperFirst()/](a[aRequiredService.reference.eType.name.toUpperFirst()/]);
 [else]
 get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.reference.eType.name.toUpperFirst()/]);
@@ -133,7 +133,7 @@ get[aRequiredService.reference.name.toUpperFirst()/]().add(a[aRequiredService.re
 [/template]
 
 [template private removeMethodBody(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound.toString().matches('1'))]
+[if (aRequiredService.reference.upperBound = 1)]
 set[aRequiredService.reference.name.toUpperFirst()/](null);
 [else]
 get[aRequiredService.reference.name.toUpperFirst()/]().remove(a[aRequiredService.reference.eType.name.toUpperFirst()/]);

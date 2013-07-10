@@ -168,7 +168,7 @@ endif  /]
 
 
 [query private defaultRequireBundle(aBundle : Bundle) : Sequence(String) =
-if (aBundle.basedOn.toString().matches('Ecore')) then
+if (aBundle.basedOn.toString().matches('Ecore') or aBundle.declarativeServices.requiredServices->size() > 0) then
 	Sequence {'org.eclipse.emf.ecore;visibility:=reexport'}
 else
 	Sequence {}
