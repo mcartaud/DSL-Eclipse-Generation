@@ -49,5 +49,5 @@ Contributors :
 [/template]
 
 [template private genUpperBound(aRequiredService : RequiredService)]
-[if (aRequiredService.reference.upperBound.toString().matches('-1'))]n[else][aRequiredService.reference.upperBound/][/if]
+[if (aRequiredService.reference.upperBound = -1)]n[else][aRequiredService.reference.upperBound/][/if]
 [/template]
