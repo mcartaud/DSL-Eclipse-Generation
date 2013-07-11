@@ -31,11 +31,9 @@ Contributors :
   <fileset name="all" enabled="true" check-config-name="[aBundle.eContainer(Application).applicationID/]" local="true">
     <file-match-pattern match-pattern="." include-pattern="true"/>
   </fileset>
-[if (aBundle.basedOn.toString().matches('Ecore'))]
   <filter name="FilesFromPackage" enabled="true">
     <filter-data value="src-gen"/>
   </filter>
-[/if]
 </fileset-config>
 [/file]
 [/template]

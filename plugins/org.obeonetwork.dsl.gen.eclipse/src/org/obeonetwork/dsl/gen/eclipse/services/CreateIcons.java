@@ -17,11 +17,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 
-import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.runtime.IPath;
 
 public class CreateIcons {
 
-	private static IContainer projectPath;
+	private static IPath iPath;
 
 	/**
 	 * Copies the image located in the plugin into the given destination path
@@ -37,7 +37,7 @@ public class CreateIcons {
 			throws IOException, URISyntaxException {
 
 		try {
-			File targetFolder = new File(projectPath.getLocation() + "/"
+			File targetFolder = new File(iPath + "/"
 					+ bundlePath + "/icons");
 			targetFolder.mkdirs();
 			File targetFile = new File(targetFolder.getAbsolutePath() + "/"
@@ -92,8 +92,8 @@ public class CreateIcons {
 	 * 
 	 * @param projectPath
 	 */
-	public static void setProjectPath(IContainer projectPath) {
-		CreateIcons.projectPath = projectPath;
+	public static void setProjectPath(IPath iPath) {
+		CreateIcons.iPath = iPath;
 	}
 
 }

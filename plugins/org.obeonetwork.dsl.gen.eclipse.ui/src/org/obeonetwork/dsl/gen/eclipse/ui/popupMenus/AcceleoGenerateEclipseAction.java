@@ -16,17 +16,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.IAction;
@@ -82,49 +77,15 @@ public class AcceleoGenerateEclipseAction extends ActionDelegate implements
 							URI modelURI = URI.createPlatformResourceURI(model
 									.getFullPath().toString(), true);
 							try {
-								IContainer target = model.getProject()
-										.getFolder("src-gen");
-								CreateIcons.setProjectPath(target);
+								IPath iPath = model.getProject().getLocation();
+								iPath = iPath.removeLastSegments(1);
+								
+								CreateIcons.setProjectPath(iPath);
 								GenerateAll generator = new GenerateAll(
-										modelURI, target, getArguments());
+										modelURI, iPath,
+										getArguments(), files);
 
 								generator.doGenerate(monitor);
-
-								target.refreshLocal(IResource.DEPTH_INFINITE,
-										null);
-								final List<Path> generatedProjects = new ArrayList<Path>();
-								target.accept(new IResourceVisitor() {
-
-									public boolean visit(IResource resource)
-											throws CoreException {
-										if (".project".equals(resource
-												.getName())) {
-											generatedProjects
-													.add(new Path(resource
-															.getLocation()
-															.toPortableString()));
-											return false;
-										}
-										return true;
-									}
-								});
-
-								for (Path path : generatedProjects) {
-									IProjectDescription description = ResourcesPlugin
-											.getWorkspace()
-											.loadProjectDescription(path);
-									IProject project = ResourcesPlugin
-											.getWorkspace().getRoot()
-											.getProject(description.getName());
-									if (!project.exists()) {
-										project.create(description, null);
-										project.open(null);
-									} else {
-										project.refreshLocal(
-												IResource.DEPTH_INFINITE, null);
-									}
-								}
-
 							} catch (IOException e) {
 								IStatus status = new Status(IStatus.ERROR,
 										Activator.PLUGIN_ID, e.getMessage(), e);

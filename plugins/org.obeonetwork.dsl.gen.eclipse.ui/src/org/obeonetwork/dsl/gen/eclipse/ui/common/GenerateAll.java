@@ -10,19 +10,29 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.gen.eclipse.ui.common;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.obeonetwork.dsl.gen.eclipse.ui.Activator;
 import org.osgi.framework.Bundle;
 
 /**
@@ -38,12 +48,19 @@ public class GenerateAll {
 	/**
 	 * The output folder.
 	 */
-	private IContainer targetFolder;
+	private IPath targetPath;
 
 	/**
 	 * The other arguments.
 	 */
 	List<? extends Object> arguments;
+
+	/**
+	 * Selected model files.
+	 * 
+	 * @generatedNOT
+	 */
+	List<IFile> files;
 
 	/**
 	 * Constructor.
@@ -56,13 +73,29 @@ public class GenerateAll {
 	 *            are the other arguments
 	 * @throws IOException
 	 *             Thrown when the output cannot be saved.
-	 * @generated
+	 * @generatedNOT
 	 */
-	public GenerateAll(URI modelURI, IContainer targetFolder,
-			List<? extends Object> arguments) {
+	public GenerateAll(URI modelURI, IPath targetPath,
+			List<? extends Object> arguments, List<IFile> files) {
 		this.modelURI = modelURI;
-		this.targetFolder = targetFolder;
+		this.targetPath = targetPath;
 		this.arguments = arguments;
+		this.files = files;
+	}
+
+	public static void findEclipseProjectsInFolder(List<File> projectFolders,
+			File currentRoot) {
+		for (File file : currentRoot.listFiles()) {
+			if (file.isDirectory()) {
+				findEclipseProjectsInFolder(projectFolders, file); // Calls same
+																	// method
+																	// again.
+			} else {
+				if (".project".equals(file.getName())) {
+					projectFolders.add(file);
+				}
+			}
+		}
 	}
 
 	/**
@@ -72,35 +105,81 @@ public class GenerateAll {
 	 *            This will be used to display progress information to the user.
 	 * @throws IOException
 	 *             Thrown when the output cannot be saved.
-	 * @generated
+	 * @throws CoreException
+	 * @generatedNOT
 	 */
-	public void doGenerate(IProgressMonitor monitor) throws IOException {
-		if (!targetFolder.getLocation().toFile().exists()) {
-			targetFolder.getLocation().toFile().mkdirs();
+	public void doGenerate(IProgressMonitor monitor) throws IOException,
+			CoreException {
+
+		if (!targetPath.toFile().exists()) {
+			targetPath.toFile().mkdirs();
 		}
 
-		// final URI template0 =
-		// getTemplateURI("org.obeonetwork.dsl.gen.eclipse", new
-		// Path("/org/obeonetwork/dsl/gen/eclipse/main/dsl2Eclipse.emtl"));
-		// org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new
-		// org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(modelURI,
-		// targetFolder.getLocation().toFile(), arguments) {
-		// protected URI createTemplateURI(String entry) {
-		// return template0;
-		// }
-		// };
-		// gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 		monitor.subTask("Loading...");
+
+		// Generate Local Code
 		org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse gen0 = new org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse(
-				modelURI, targetFolder.getLocation().toFile(), arguments);
+				modelURI, targetPath.toFile(), arguments);
 		monitor.worked(1);
 		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil
 				.computeUIProjectID("org.obeonetwork.dsl.gen.eclipse",
 						"org.obeonetwork.dsl.gen.eclipse.main.Dsl2Eclipse",
-						modelURI.toString(), targetFolder.getFullPath()
-								.toString(), new ArrayList<String>());
+						modelURI.toString(), targetPath.toString(),
+						new ArrayList<String>());
 		gen0.setGenerationID(generationID);
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
+
+		// Refresh workspace
+		// currentProject.getParent().refreshLocal(IResource.DEPTH_INFINITE,
+		// null);
+
+		Iterator<IFile> filesIt = files.iterator();
+		while (filesIt.hasNext()) {
+			IFile model = (IFile) filesIt.next();
+			model.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+			final List<File> generatedProjects = new ArrayList<File>();
+			File rootFolder = new File(targetPath.toOSString());
+
+			findEclipseProjectsInFolder(generatedProjects, rootFolder);
+
+			for (File projectFolder : generatedProjects) {
+				IPath path = new Path(projectFolder.getAbsolutePath());
+				IProjectDescription description = ResourcesPlugin
+						.getWorkspace().loadProjectDescription(path);
+				IProject project = ResourcesPlugin.getWorkspace().getRoot()
+						.getProject(description.getName());
+				if (!project.exists()) {
+					project.create(description, null);
+					project.open(null);
+				} else {
+					if (!project.getLocation().toOSString().equals(projectFolder.getParent())) {
+						Activator
+								.getDefault()
+								.getLog()
+								.log(new Status(
+										IStatus.WARNING,
+										Activator.PLUGIN_ID,
+										"A project "
+												+ project.getName()
+												+ " already exists in the workspace with a different location"));
+					}
+					project.refreshLocal(IResource.DEPTH_INFINITE, null);
+				}
+			}
+		}
+
+		// Generate Model Code
+		org.obeonetwork.dsl.gen.eclipse.main.GenModelGeneration gen1 = new org.obeonetwork.dsl.gen.eclipse.main.GenModelGeneration(
+				modelURI, targetPath.toFile(), arguments);
+		monitor.worked(1);
+		generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil
+				.computeUIProjectID(
+						"org.obeonetwork.dsl.gen.eclipse",
+						"org.obeonetwork.dsl.gen.eclipse.main.GenModelGeneration",
+						modelURI.toString(), targetPath.toString(),
+						new ArrayList<String>());
+		gen1.setGenerationID(generationID);
+		gen1.doGenerate(BasicMonitor.toMonitor(monitor));
 
 	}
 
