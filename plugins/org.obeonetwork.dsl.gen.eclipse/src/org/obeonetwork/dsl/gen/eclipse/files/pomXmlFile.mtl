@@ -14,6 +14,7 @@ Contributors :
 [module pomXmlFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::services::findModelBundle /]
 
 [template private pomXmlFile(aProject : Project)]
 [aProject.pomPath()/]/pom.xml
@@ -30,9 +31,9 @@ Contributors :
 
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
-    <artifactId>[aProject.ancestors(Application).genApplicationID()/].parent</artifactId>
+    <artifactId>[aProject.ancestors(Application).genParentID()/]</artifactId>
     <version>[aProject.eContainer(Application).applicationVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
-    <relativePath>../../[aProject.eContainer(Application).genApplicationID()/]-parent</relativePath>
+    <relativePath>../../[aProject.eContainer(Application).getTheBundleForModel()/]</relativePath>
   </parent>
 
   [if (aProject.oclIsKindOf(Bundle))]

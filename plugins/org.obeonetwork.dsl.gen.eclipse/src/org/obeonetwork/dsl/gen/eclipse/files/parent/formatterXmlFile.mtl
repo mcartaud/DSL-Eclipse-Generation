@@ -14,10 +14,11 @@ Contributors :
 [module formatterXmlFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::services::findModelBundle /]
 
 
 [template private formatterXmlFile(anApplication : Application)]
-[anApplication.genApplicationParentPath()/]/codeStyle/[anApplication.applicationID.replaceAll(' ', '').toUpperFirst()/]Formatter.xml
+[anApplication.getTheBundleForModel()/]/codeStyle/[anApplication.applicationID.replaceAll(' ', '').toUpperFirst()/]Formatter.xml
 [/template]
 
 [template public genFormatterXmlFile(anApplication : Application)]

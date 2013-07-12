@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -32,6 +33,7 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 import org.obeonetwork.dsl.gen.eclipse.services.CreateIcons;
+import org.obeonetwork.dsl.gen.eclipse.services.FindModelBundle;
 import org.obeonetwork.dsl.gen.eclipse.ui.Activator;
 import org.obeonetwork.dsl.gen.eclipse.ui.common.GenerateAll;
 
@@ -77,10 +79,13 @@ public class AcceleoGenerateEclipseAction extends ActionDelegate implements
 							URI modelURI = URI.createPlatformResourceURI(model
 									.getFullPath().toString(), true);
 							try {
-								IPath iPath = model.getProject().getLocation();
-								iPath = iPath.removeLastSegments(1);
+								IProject iProject = model.getProject();
+								FindModelBundle.setProject(iProject);
 								
+								IPath iPath = iProject.getLocation();
+								iPath = iPath.removeLastSegments(1);
 								CreateIcons.setProjectPath(iPath);
+								
 								GenerateAll generator = new GenerateAll(
 										modelURI, iPath,
 										getArguments(), files);

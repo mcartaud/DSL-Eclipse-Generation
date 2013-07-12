@@ -47,6 +47,7 @@ public class GenerateAll {
 
 	/**
 	 * The output folder.
+	 * @generatedNot
 	 */
 	private IPath targetPath;
 
@@ -75,7 +76,7 @@ public class GenerateAll {
 	 *             Thrown when the output cannot be saved.
 	 * @generatedNOT
 	 */
-	public GenerateAll(URI modelURI, IPath targetPath,
+	public GenerateAll(URI modelURI, IPath targetPath, 
 			List<? extends Object> arguments, List<IFile> files) {
 		this.modelURI = modelURI;
 		this.targetPath = targetPath;
@@ -83,6 +84,13 @@ public class GenerateAll {
 		this.files = files;
 	}
 
+	/**
+	 * find the generated projects.
+	 * 
+	 * @param projectFolders
+	 * @param currentRoot
+	 * @generatedNot
+	 */
 	public static void findEclipseProjectsInFolder(List<File> projectFolders,
 			File currentRoot) {
 		for (File file : currentRoot.listFiles()) {

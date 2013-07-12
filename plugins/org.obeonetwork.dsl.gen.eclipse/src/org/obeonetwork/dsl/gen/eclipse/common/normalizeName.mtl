@@ -13,13 +13,15 @@ Contributors :
 /]
 [module normalizeName('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
+[import org::obeonetwork::dsl::gen::eclipse::services::findModelBundle /]
+
 
 [template public genApplicationID(anApplication : Application)]
 [anApplication.baseNamespace/].[anApplication.applicationID/]
 [/template]
 
-[template public genApplicationParentPath(anApplication : Application)]
-[anApplication.genApplicationName()/]/[anApplication.genApplicationID()/]-parent
+[template public genParentID(anApplication : Application)]
+[anApplication.getTheBundleForModel().substituteAll('-', '.').substituteAll('_', '.').toLower()/]
 [/template]
 
 [template public genApplicationName(anApplication : Application)]
@@ -31,7 +33,7 @@ Contributors :
 [/template]
 
 [template public genFeaturePath(aFeature : Feature)]
-[aFeature.eContainer(Application).genApplicationName()/]/features/[aFeature.genFeatureID()/]
+features/[aFeature.genFeatureID()/]
 [/template]
 
 [template public genRepositoryID(aRepository : Repository)]
@@ -39,7 +41,7 @@ Contributors :
 [/template]
 
 [template public genRepositoryPath(aRepository : Repository)]
-[aRepository.eContainer(Application).genApplicationName()/]/repositories/[aRepository.genRepositoryID()/]
+repositories/[aRepository.genRepositoryID()/]
 [/template]
 
 [template public genBundleID(aBundle : Bundle)]
@@ -47,11 +49,11 @@ Contributors :
 [/template]
 
 [template public genBundlePath(aBundle : Bundle)]
-[aBundle.eContainer(Application).genApplicationName()/]/plugins/[aBundle.genBundleID()/]
+plugins/[aBundle.genBundleID()/]
 [/template]
 
 [template public genBundleTestPath(aBundle : Bundle)]
-[aBundle.eContainer(Application).genApplicationName()/]/tests/[aBundle.genBundleID()/].tests
+tests/[aBundle.genBundleID()/].tests
 [/template]
 
 [template public genBundleJavaPath(aBundle : Bundle)]
