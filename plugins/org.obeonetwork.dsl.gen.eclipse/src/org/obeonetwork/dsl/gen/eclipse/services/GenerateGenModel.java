@@ -16,21 +16,29 @@ import org.eclipse.emf.codegen.ecore.genmodel.generator.GenBaseGeneratorAdapter;
 import org.eclipse.emf.codegen.ecore.genmodel.util.GenModelUtil;
 import org.eclipse.emf.common.util.BasicMonitor;
 
-
+/**
+ * Service class to launch genModel generation.
+ * 
+ * @author <a href="mailto:mathieu.cartaud@obeo.fr">Mathieu Cartaud</a>
+ */
 public class GenerateGenModel {
 
 	private Generator generator;
 	private BasicMonitor basicMonitor;
 	
-	public void generate(GenModel genModel, String bundleID) {
+	/**
+	 * Launch GenModel generation if the required field are feed.
+	 * 
+	 * @param genModel the genModel associate with the eclipse model
+	 */
+	public void generate(GenModel genModel) {
 		basicMonitor = new BasicMonitor();
 		
 		genModel.reconcile();
 		genModel.setCanGenerate(true);
 		generator = GenModelUtil.createGenerator(genModel);
 		
-		bundleID = "./plugins/" + bundleID;
-		generator.generate(genModel, GenBaseGeneratorAdapter.MODEL_PROJECT_TYPE, bundleID, basicMonitor);
+		generator.generate(genModel, GenBaseGeneratorAdapter.MODEL_PROJECT_TYPE, basicMonitor);
 		if (genModel.getEditDirectory() != null) {
 			generator.generate(genModel, GenBaseGeneratorAdapter.EDIT_PROJECT_TYPE, basicMonitor);
 		}

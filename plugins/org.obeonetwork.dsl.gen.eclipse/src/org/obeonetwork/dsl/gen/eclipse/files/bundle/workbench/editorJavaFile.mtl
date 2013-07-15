@@ -63,6 +63,7 @@ public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends TextEdi
 	 * @generated
 	 */
 	private TableEditor tableEditor;
+
 	//[protected (': add textEditor attributes for ' + anEditor.name)]
 	//[/protected]
 

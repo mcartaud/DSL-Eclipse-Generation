@@ -2,6 +2,11 @@ package org.obeonetwork.dsl.gen.eclipse.services;
 
 import org.eclipse.core.resources.IProject;
 
+/**
+ * Get the name of the project containing the current eclipse model.
+ * 
+ * @author <a href="mailto:mathieu.cartaud@obeo.fr">Mathieu Cartaud</a>
+ */
 public class FindModelBundle {
 
 	private static IProject iProject;

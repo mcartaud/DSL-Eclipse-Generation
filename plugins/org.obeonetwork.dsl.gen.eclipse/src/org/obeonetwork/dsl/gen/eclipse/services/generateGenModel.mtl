@@ -15,9 +15,9 @@ Contributors :
 
 
 
-[query public generateGenModel(aGenModel : GenModel, aBundleId : String) : OclVoid = 
+[query public generateGenModel(aGenModel : GenModel) : OclVoid = 
 	invoke('org.obeonetwork.dsl.gen.eclipse.services.GenerateGenModel',
- 'generate(org.eclipse.emf.codegen.ecore.genmodel.GenModel, java.lang.String)', 
-Sequence{aGenModel, aBundleId})
+ 'generate(org.eclipse.emf.codegen.ecore.genmodel.GenModel)', 
+Sequence{aGenModel})
  /]
 

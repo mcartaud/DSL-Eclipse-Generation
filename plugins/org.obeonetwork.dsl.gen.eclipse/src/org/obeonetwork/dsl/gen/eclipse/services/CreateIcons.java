@@ -19,12 +19,17 @@ import java.net.URISyntaxException;
 
 import org.eclipse.core.runtime.IPath;
 
+/**
+ * Copy a default icon for the ui elements in the model.
+ * 
+ * @author <a href="mailto:mathieu.cartaud@obeo.fr">Mathieu Cartaud</a>
+ */
 public class CreateIcons {
 
 	private static IPath iPath;
 
 	/**
-	 * Copies the image located in the plugin into the given destination path
+	 * Copies the image located in the plugin into the given destination path.
 	 * 
 	 * @param bundlePath
 	 *            the path of the generated bundle
@@ -88,7 +93,7 @@ public class CreateIcons {
 	}
 
 	/**
-	 * retrieves the user project containing the model
+	 * retrieves the user project containing the model.
 	 * 
 	 * @param projectPath
 	 */
