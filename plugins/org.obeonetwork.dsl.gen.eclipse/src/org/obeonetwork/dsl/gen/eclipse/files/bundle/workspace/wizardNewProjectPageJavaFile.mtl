@@ -29,7 +29,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 /**
  * this class create a new page for the project wizard.
- * @author <a href="mailto:[aWizard.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aWizard.eContainer(Bundle).refactorName()/]</a>
+[aWizard.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]ProjectPage extends WizardNewProjectCreationPage {

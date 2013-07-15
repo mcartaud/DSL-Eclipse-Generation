@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * This will contain all [anExtensionPoint.name/] extension that have been parsed from the extension point.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public final class [anExtensionPoint.genExtensionName()/]Registry {

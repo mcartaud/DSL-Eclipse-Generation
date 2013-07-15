@@ -368,6 +368,9 @@ public class Dsl2Eclipse extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.eINSTANCE.getNsURI(), org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage.eINSTANCE);
         }
+        if (!isInWorkspace(org.obeonetwork.dsl.gen.eclipse.EclipsePackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.gen.eclipse.EclipsePackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.gen.eclipse.EclipsePackage.eINSTANCE);
+        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

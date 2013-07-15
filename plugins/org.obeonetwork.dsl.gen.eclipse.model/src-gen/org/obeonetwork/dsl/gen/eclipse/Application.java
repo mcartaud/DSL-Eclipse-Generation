@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getApplicationID <em>Application ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getDefaultAuthor <em>Default Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Application#getVersion <em>Version</em>}</li>
@@ -60,30 +60,30 @@ public interface Application extends EObject {
 	void setApplicationID(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Provider</b></em>' attribute.
+	 * Returns the value of the '<em><b>Default Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provider</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Default Author</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider</em>' attribute.
-	 * @see #setProvider(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_Provider()
+	 * @return the value of the '<em>Default Author</em>' attribute.
+	 * @see #setDefaultAuthor(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getApplication_DefaultAuthor()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getProvider();
+	String getDefaultAuthor();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Application#getDefaultAuthor <em>Default Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider</em>' attribute.
-	 * @see #getProvider()
+	 * @param value the new value of the '<em>Default Author</em>' attribute.
+	 * @see #getDefaultAuthor()
 	 * @generated
 	 */
-	void setProvider(String value);
+	void setDefaultAuthor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Copyright</b></em>' attribute.

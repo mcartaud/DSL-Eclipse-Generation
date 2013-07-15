@@ -32,7 +32,7 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[
 
 /**
  * implementation of the extension point's client.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anExtensionPoint.genExtensionClientClass()/] extends Abstract[anExtensionPoint.provider.refactorExtensionClassName()/] implements
@@ -85,7 +85,7 @@ import [anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[
 
 /**
  * implementation of the extension point's client.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anExtensionPoint.genExtensionClientClass()/][anAttribute.genAttributeClassName()/] extends Abstract[anAttribute.genAttributeClassName()/] implements

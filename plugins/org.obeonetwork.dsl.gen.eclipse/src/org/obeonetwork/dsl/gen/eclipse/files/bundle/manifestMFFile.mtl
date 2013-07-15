@@ -64,18 +64,48 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 [query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.viewWizardRequiredBundles())->union(aBundle.wizardRequiredBundles())
 ->union(aBundle.emfEditorRequiredBundles())->union(aBundle.textEditorRequiredBundles())
-->union(aBundle.perspectiveRequiredBundles())->asSet() /]
+->union(aBundle.perspectiveRequiredBundles())->asOrderedSet() /]
 
 [query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
 ->union(aBundle.declarativeServiceImportPackages())->union(aBundle.editorImportPackages())->union(aBundle.extensionPointClient())
-->asSet() /]
+->asOrderedSet() /]
 
 [query private allExportPackages(aBundle : Bundle) : Set(String) = aBundle.userExportedPackages()
-->union(aBundle.exportedPackages())->union(aBundle.extensionExportedPackages())->asSet() /]
+->union(aBundle.exportedPackages())->union(aBundle.extensionExportedPackages())->union(aBundle.ecoreExportedPackages())
+->union(aBundle.ecoreDSPackages())->asOrderedSet() /]
 
 
 
 
+[query private ecoreExportedPackages(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.exportedPackages->size() > 0) then
+	aBundle.exportedPackages.genModel.ecorePackage()->union(aBundle.exportedPackages.genModel.ecorePackageUtil())
+else
+	Sequence {}
+endif  /]
+
+[query private ecoreDSPackages(aBundle : Bundle) : Sequence(String) = 
+if (aBundle.declarativeServices->size() > 0) then
+	aBundle.declarativeServices.delegatorClass.genPackage.genModel.ecorePackage()->union(aBundle.declarativeServices.delegatorClass.genPackage.genModel.ecorePackageUtil())
+else
+	Sequence {}
+endif  /]
+
+[query private ecorePackage(aGenModel : GenModel) : OrderedSet(String) = 
+	aGenModel.eAllContents(GenClassifier).eContainer(GenPackage).ecorePackageName()->asOrderedSet()
+ /]
+
+[query private ecorePackageUtil(aGenModel : GenModel) : OrderedSet(String) = 
+	aGenModel.eAllContents(GenClassifier).eContainer(GenPackage).ecorePackageNameUtil()->asOrderedSet()
+ /]
+
+[template private ecorePackageName(aGenPackage : GenPackage)]
+[aGenPackage.basePackage/].[aGenPackage.ecorePackage.name/]
+[/template]
+
+[template private ecorePackageNameUtil(aGenPackage : GenPackage)]
+[aGenPackage.basePackage/].[aGenPackage.ecorePackage.name/].util
+[/template]
 
 [query private userExportedPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.exportedPackages->size() > 0) then

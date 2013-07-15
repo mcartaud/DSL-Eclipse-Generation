@@ -21,12 +21,17 @@ Contributors :
 
 [template public genBuildPropertiesBundleFile(aBundle : Bundle)]
 [file (aBundle.buildPropertiesBundleFile(), false, 'UTF-8')]
-source.. = src/
+source.. = src/[if (aBundle.exportedPackages->size() > 0 or aBundle.declarativeServices->size() > 0)],\
+		   [aBundle.ecoreSourceFolder()/][/if]
 output.. = bin/
 bin.includes = META-INF/,\
                .,\
                plugin.properties[binIncludes()/]
 [/file]
+[/template]
+
+[template private ecoreSourceFolder(aBundle : Bundle)]
+[if (aBundle.exportedPackages->size() > 0)][aBundle.exportedPackages.genModel.modelDirectory.tokenize('/')->last()/]/[elseif (aBundle.declarativeServices->size() > 0)][aBundle.declarativeServices.delegatorClass.genPackage.genModel.modelDirectory.tokenize('/')->last()/]/[/if]
 [/template]
 
 [template private buildPropertiesWorkbench(aBundle : Bundle)]

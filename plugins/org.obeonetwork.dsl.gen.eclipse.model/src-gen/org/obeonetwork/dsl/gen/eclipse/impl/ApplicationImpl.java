@@ -30,7 +30,7 @@ import org.obeonetwork.dsl.gen.eclipse.Project;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getApplicationID <em>Application ID</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getDefaultAuthor <em>Default Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.ApplicationImpl#getVersion <em>Version</em>}</li>
@@ -67,24 +67,24 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	protected String applicationID = APPLICATION_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getProvider() <em>Provider</em>}' attribute.
+	 * The default value of the '{@link #getDefaultAuthor() <em>Default Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getDefaultAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROVIDER_EDEFAULT = null;
+	protected static final String DEFAULT_AUTHOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' attribute.
+	 * The cached value of the '{@link #getDefaultAuthor() <em>Default Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getDefaultAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String provider = PROVIDER_EDEFAULT;
+	protected String defaultAuthor = DEFAULT_AUTHOR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCopyright() <em>Copyright</em>}' attribute.
@@ -301,8 +301,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProvider() {
-		return provider;
+	public String getDefaultAuthor() {
+		return defaultAuthor;
 	}
 
 	/**
@@ -310,11 +310,11 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvider(String newProvider) {
-		String oldProvider = provider;
-		provider = newProvider;
+	public void setDefaultAuthor(String newDefaultAuthor) {
+		String oldDefaultAuthor = defaultAuthor;
+		defaultAuthor = newDefaultAuthor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__PROVIDER, oldProvider, provider));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.APPLICATION__DEFAULT_AUTHOR, oldDefaultAuthor, defaultAuthor));
 	}
 
 	/**
@@ -521,8 +521,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		switch (featureID) {
 			case EclipsePackage.APPLICATION__APPLICATION_ID:
 				return getApplicationID();
-			case EclipsePackage.APPLICATION__PROVIDER:
-				return getProvider();
+			case EclipsePackage.APPLICATION__DEFAULT_AUTHOR:
+				return getDefaultAuthor();
 			case EclipsePackage.APPLICATION__COPYRIGHT:
 				return getCopyright();
 			case EclipsePackage.APPLICATION__LICENSE:
@@ -557,8 +557,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			case EclipsePackage.APPLICATION__APPLICATION_ID:
 				setApplicationID((String)newValue);
 				return;
-			case EclipsePackage.APPLICATION__PROVIDER:
-				setProvider((String)newValue);
+			case EclipsePackage.APPLICATION__DEFAULT_AUTHOR:
+				setDefaultAuthor((String)newValue);
 				return;
 			case EclipsePackage.APPLICATION__COPYRIGHT:
 				setCopyright((String)newValue);
@@ -603,8 +603,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			case EclipsePackage.APPLICATION__APPLICATION_ID:
 				setApplicationID(APPLICATION_ID_EDEFAULT);
 				return;
-			case EclipsePackage.APPLICATION__PROVIDER:
-				setProvider(PROVIDER_EDEFAULT);
+			case EclipsePackage.APPLICATION__DEFAULT_AUTHOR:
+				setDefaultAuthor(DEFAULT_AUTHOR_EDEFAULT);
 				return;
 			case EclipsePackage.APPLICATION__COPYRIGHT:
 				setCopyright(COPYRIGHT_EDEFAULT);
@@ -647,8 +647,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		switch (featureID) {
 			case EclipsePackage.APPLICATION__APPLICATION_ID:
 				return APPLICATION_ID_EDEFAULT == null ? applicationID != null : !APPLICATION_ID_EDEFAULT.equals(applicationID);
-			case EclipsePackage.APPLICATION__PROVIDER:
-				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
+			case EclipsePackage.APPLICATION__DEFAULT_AUTHOR:
+				return DEFAULT_AUTHOR_EDEFAULT == null ? defaultAuthor != null : !DEFAULT_AUTHOR_EDEFAULT.equals(defaultAuthor);
 			case EclipsePackage.APPLICATION__COPYRIGHT:
 				return COPYRIGHT_EDEFAULT == null ? copyright != null : !COPYRIGHT_EDEFAULT.equals(copyright);
 			case EclipsePackage.APPLICATION__LICENSE:
@@ -683,8 +683,8 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (applicationID: ");
 		result.append(applicationID);
-		result.append(", provider: ");
-		result.append(provider);
+		result.append(", defaultAuthor: ");
+		result.append(defaultAuthor);
 		result.append(", copyright: ");
 		result.append(copyright);
 		result.append(", license: ");

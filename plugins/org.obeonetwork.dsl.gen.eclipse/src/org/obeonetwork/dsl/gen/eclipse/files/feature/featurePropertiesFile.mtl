@@ -22,6 +22,6 @@ Contributors :
 [template public genFeaturePropertiesFile(aFeature : Feature)]
 [file (aFeature.featurePropertiesFile(), false, 'UTF-8')]
 Feature-Name = [aFeature.name/]
-Feature-Provider = [aFeature.provider/] 
+Feature-Provider = [aFeature.author/] 
 [/file]
 [/template]

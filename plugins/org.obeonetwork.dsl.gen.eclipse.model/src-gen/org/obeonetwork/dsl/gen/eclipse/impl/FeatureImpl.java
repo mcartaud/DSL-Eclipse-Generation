@@ -24,7 +24,7 @@ import org.obeonetwork.dsl.gen.eclipse.Feature;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getLicense <em>License</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getBundles <em>Bundles</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#isGenerateSdkFeature <em>Generate Sdk Feature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.FeatureImpl#getExcludeBundleForSdk <em>Exclude Bundle For Sdk</em>}</li>
@@ -116,24 +116,24 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	protected String license = LICENSE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getProvider() <em>Provider</em>}' attribute.
+	 * The default value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROVIDER_EDEFAULT = null;
+	protected static final String AUTHOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' attribute.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvider()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String provider = PROVIDER_EDEFAULT;
+	protected String author = AUTHOR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' reference list.
@@ -293,8 +293,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProvider() {
-		return provider;
+	public String getAuthor() {
+		return author;
 	}
 
 	/**
@@ -302,11 +302,11 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvider(String newProvider) {
-		String oldProvider = provider;
-		provider = newProvider;
+	public void setAuthor(String newAuthor) {
+		String oldAuthor = author;
+		author = newAuthor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__PROVIDER, oldProvider, provider));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.FEATURE__AUTHOR, oldAuthor, author));
 	}
 
 	/**
@@ -382,8 +382,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 				return getVersion();
 			case EclipsePackage.FEATURE__LICENSE:
 				return getLicense();
-			case EclipsePackage.FEATURE__PROVIDER:
-				return getProvider();
+			case EclipsePackage.FEATURE__AUTHOR:
+				return getAuthor();
 			case EclipsePackage.FEATURE__BUNDLES:
 				return getBundles();
 			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
@@ -417,8 +417,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 			case EclipsePackage.FEATURE__LICENSE:
 				setLicense((String)newValue);
 				return;
-			case EclipsePackage.FEATURE__PROVIDER:
-				setProvider((String)newValue);
+			case EclipsePackage.FEATURE__AUTHOR:
+				setAuthor((String)newValue);
 				return;
 			case EclipsePackage.FEATURE__BUNDLES:
 				getBundles().clear();
@@ -459,8 +459,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 			case EclipsePackage.FEATURE__LICENSE:
 				setLicense(LICENSE_EDEFAULT);
 				return;
-			case EclipsePackage.FEATURE__PROVIDER:
-				setProvider(PROVIDER_EDEFAULT);
+			case EclipsePackage.FEATURE__AUTHOR:
+				setAuthor(AUTHOR_EDEFAULT);
 				return;
 			case EclipsePackage.FEATURE__BUNDLES:
 				getBundles().clear();
@@ -494,8 +494,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EclipsePackage.FEATURE__LICENSE:
 				return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals(license);
-			case EclipsePackage.FEATURE__PROVIDER:
-				return PROVIDER_EDEFAULT == null ? provider != null : !PROVIDER_EDEFAULT.equals(provider);
+			case EclipsePackage.FEATURE__AUTHOR:
+				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
 			case EclipsePackage.FEATURE__BUNDLES:
 				return bundles != null && !bundles.isEmpty();
 			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
@@ -526,8 +526,8 @@ public class FeatureImpl extends ProjectImpl implements Feature {
 		result.append(version);
 		result.append(", license: ");
 		result.append(license);
-		result.append(", provider: ");
-		result.append(provider);
+		result.append(", author: ");
+		result.append(author);
 		result.append(", generateSdkFeature: ");
 		result.append(generateSdkFeature);
 		result.append(')');

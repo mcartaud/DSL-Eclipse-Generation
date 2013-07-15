@@ -23,7 +23,7 @@ Contributors :
 
 [template public genApplicationReadMeTextileFile(anApplication : Application)]
 [file (applicationReadMeTextileFile(), false, 'UTF-8')]
-h1. Welcome to [anApplication.genApplicationName().toUpperFirst()/] by [anApplication.provider/]
+h1. Welcome to [anApplication.genApplicationName().toUpperFirst()/] by [anApplication.defaultAuthor/]
 
 [anApplication.description/]
 

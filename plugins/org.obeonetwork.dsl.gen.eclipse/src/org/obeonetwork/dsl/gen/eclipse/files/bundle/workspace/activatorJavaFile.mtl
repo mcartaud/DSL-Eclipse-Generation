@@ -34,12 +34,12 @@ import org.osgi.framework.BundleContext;
 import [aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]Registry;
 import [aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/].[anExtensionPoint.genExtensionName()/]RegistryListener;
 [/for]
-//[protected (': add Activator imports')]
+//[protected (': add Activator imports for the bundle ' + aBundle.genBundleID())]
 //[/protected]
 
 /**
  * The activator class controls the plug-in life cycle.
- * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
+[aBundle.genMail()/]
  * @generated
  */
 public class Activator extends AbstractUIPlugin {
@@ -55,7 +55,7 @@ public class Activator extends AbstractUIPlugin {
 	private [anExtensionPoint.genExtensionName()/]RegistryListener [anExtensionPoint.genExtensionName().toLowerFirst()/]RegistryListener = new [anExtensionPoint.genExtensionName()/]RegistryListener();
 [/for]
 
-	//[protected (': add Activator attributes')]
+	//[protected (': add Activator attributes for the bundle ' + aBundle.genBundleID())]
 	//[/protected]
 
 	/**
@@ -126,7 +126,7 @@ public class Activator extends AbstractUIPlugin {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
-	//[protected (': add activator methods')]
+	//[protected (': add activator methods for the bundle ' + aBundle.genBundleID())]
 	//[/protected]
 
 }

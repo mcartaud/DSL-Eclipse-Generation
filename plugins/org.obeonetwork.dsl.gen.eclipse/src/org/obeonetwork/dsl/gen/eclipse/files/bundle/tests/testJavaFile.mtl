@@ -30,7 +30,7 @@ import org.junit.Test;
 
 /**
  * a testCase.
- * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
+[aBundle.genMail()/]
  * @generated
  */
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test extends TestCase {

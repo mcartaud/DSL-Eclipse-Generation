@@ -64,7 +64,7 @@ public class ApplicationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addApplicationIDPropertyDescriptor(object);
-			addProviderPropertyDescriptor(object);
+			addDefaultAuthorPropertyDescriptor(object);
 			addCopyrightPropertyDescriptor(object);
 			addLicensePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
@@ -100,19 +100,19 @@ public class ApplicationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Provider feature.
+	 * This adds a property descriptor for the Default Author feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProviderPropertyDescriptor(Object object) {
+	protected void addDefaultAuthorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Application_provider_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_provider_feature", "_UI_Application_type"),
-				 EclipsePackage.Literals.APPLICATION__PROVIDER,
+				 getString("_UI_Application_defaultAuthor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_defaultAuthor_feature", "_UI_Application_type"),
+				 EclipsePackage.Literals.APPLICATION__DEFAULT_AUTHOR,
 				 true,
 				 false,
 				 false,
@@ -342,11 +342,11 @@ public class ApplicationItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generatedNOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Application)object).getBaseNamespace();
+		String label = ((Application)object).getApplicationID();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Application_type") :
 			getString("_UI_Application_type") + " " + label;
@@ -365,7 +365,7 @@ public class ApplicationItemProvider
 
 		switch (notification.getFeatureID(Application.class)) {
 			case EclipsePackage.APPLICATION__APPLICATION_ID:
-			case EclipsePackage.APPLICATION__PROVIDER:
+			case EclipsePackage.APPLICATION__DEFAULT_AUTHOR:
 			case EclipsePackage.APPLICATION__COPYRIGHT:
 			case EclipsePackage.APPLICATION__LICENSE:
 			case EclipsePackage.APPLICATION__VERSION:

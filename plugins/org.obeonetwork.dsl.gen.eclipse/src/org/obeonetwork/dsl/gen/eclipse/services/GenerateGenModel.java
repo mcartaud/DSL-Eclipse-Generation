@@ -28,6 +28,8 @@ public class GenerateGenModel {
 		genModel.reconcile();
 		genModel.setCanGenerate(true);
 		generator = GenModelUtil.createGenerator(genModel);
+		
+		bundleID = "./plugins/" + bundleID;
 		generator.generate(genModel, GenBaseGeneratorAdapter.MODEL_PROJECT_TYPE, bundleID, basicMonitor);
 		if (genModel.getEditDirectory() != null) {
 			generator.generate(genModel, GenBaseGeneratorAdapter.EDIT_PROJECT_TYPE, basicMonitor);

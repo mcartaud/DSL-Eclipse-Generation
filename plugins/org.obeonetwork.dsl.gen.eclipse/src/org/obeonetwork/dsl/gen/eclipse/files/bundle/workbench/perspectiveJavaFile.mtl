@@ -32,7 +32,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 /**
  * implementation class for the perspective.
- * @author <a href="mailto:[aPerspective.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aPerspective.eContainer(Bundle).refactorName()/]</a>
+[aPerspective.eContainer(Bundle).genMail()/]
  * @generated 
  */
 public class [aPerspective.name.replaceAll(' ', '_').toUpperFirst()/] implements IPerspectiveFactory {

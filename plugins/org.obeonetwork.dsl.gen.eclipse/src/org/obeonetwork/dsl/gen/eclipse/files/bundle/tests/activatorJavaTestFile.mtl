@@ -25,13 +25,13 @@ package [aBundle.genBundleID()/].tests;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-//[protected (': add Activator imports for ' + aBundle.ID + 'Test')]
+//[protected (': add Activator imports for the bundle ' + aBundle.genBundleID() + 'Test')]
 //[/protected]
 
 
 /**
  * The activator class controls the plug-in life cycle.
- * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
+[aBundle.genMail()/]
  * @generated
  */
 public class Activator extends AbstractUIPlugin {
@@ -47,7 +47,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	private static Activator plugin;
 
-//[protected (': add Activator attributes for ' + aBundle.ID + 'Test')]
+//[protected (': add Activator attributes for the bundle ' + aBundle.genBundleID() + 'Test')]
 //[/protected]
 
 	/**
@@ -92,7 +92,7 @@ public class Activator extends AbstractUIPlugin {
 		super.stop(context);
 	}
 
-//[protected (': add Activator methods for ' + aBundle.ID + 'Test')]
+//[protected (': add Activator methods for the bundle ' + aBundle.genBundleID() + 'Test')]
 //[/protected]
 
 }

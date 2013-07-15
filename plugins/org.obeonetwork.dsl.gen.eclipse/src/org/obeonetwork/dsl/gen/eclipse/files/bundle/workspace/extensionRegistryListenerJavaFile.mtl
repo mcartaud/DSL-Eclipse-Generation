@@ -35,7 +35,7 @@ import org.eclipse.core.runtime.Platform;
 /**
  * This listener will allow us to be aware of contribution changes against the [anExtensionPoint.name/]
  * extension point.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anExtensionPoint.genExtensionName()/]RegistryListener implements IRegistryEventListener {

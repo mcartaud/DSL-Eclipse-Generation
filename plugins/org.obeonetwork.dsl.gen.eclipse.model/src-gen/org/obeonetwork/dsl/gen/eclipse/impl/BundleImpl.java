@@ -49,7 +49,7 @@ import org.obeonetwork.dsl.gen.eclipse.Wizard;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getRequiredEnvironment <em>Required Environment</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDefaultAuthor <em>Default Author</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getDeclarativeServices <em>Declarative Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getImportDeclarations <em>Import Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.impl.BundleImpl#getNatures <em>Natures</em>}</li>
@@ -120,24 +120,24 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	protected JavaVersion requiredEnvironment = REQUIRED_ENVIRONMENT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDefaultAuthor() <em>Default Author</em>}' attribute.
+	 * The default value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefaultAuthor()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DEFAULT_AUTHOR_EDEFAULT = null;
+	protected static final String AUTHOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDefaultAuthor() <em>Default Author</em>}' attribute.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefaultAuthor()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String defaultAuthor = DEFAULT_AUTHOR_EDEFAULT;
+	protected String author = AUTHOR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDeclarativeServices() <em>Declarative Services</em>}' containment reference list.
@@ -445,8 +445,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDefaultAuthor() {
-		return defaultAuthor;
+	public String getAuthor() {
+		return author;
 	}
 
 	/**
@@ -454,11 +454,11 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefaultAuthor(String newDefaultAuthor) {
-		String oldDefaultAuthor = defaultAuthor;
-		defaultAuthor = newDefaultAuthor;
+	public void setAuthor(String newAuthor) {
+		String oldAuthor = author;
+		author = newAuthor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__DEFAULT_AUTHOR, oldDefaultAuthor, defaultAuthor));
+			eNotify(new ENotificationImpl(this, Notification.SET, EclipsePackage.BUNDLE__AUTHOR, oldAuthor, author));
 	}
 
 	/**
@@ -812,8 +812,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return getVersion();
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
 				return getRequiredEnvironment();
-			case EclipsePackage.BUNDLE__DEFAULT_AUTHOR:
-				return getDefaultAuthor();
+			case EclipsePackage.BUNDLE__AUTHOR:
+				return getAuthor();
 			case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
 				return getDeclarativeServices();
 			case EclipsePackage.BUNDLE__IMPORT_DECLARATIONS:
@@ -879,8 +879,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
 				setRequiredEnvironment((JavaVersion)newValue);
 				return;
-			case EclipsePackage.BUNDLE__DEFAULT_AUTHOR:
-				setDefaultAuthor((String)newValue);
+			case EclipsePackage.BUNDLE__AUTHOR:
+				setAuthor((String)newValue);
 				return;
 			case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
 				getDeclarativeServices().clear();
@@ -991,8 +991,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
 				setRequiredEnvironment(REQUIRED_ENVIRONMENT_EDEFAULT);
 				return;
-			case EclipsePackage.BUNDLE__DEFAULT_AUTHOR:
-				setDefaultAuthor(DEFAULT_AUTHOR_EDEFAULT);
+			case EclipsePackage.BUNDLE__AUTHOR:
+				setAuthor(AUTHOR_EDEFAULT);
 				return;
 			case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
 				getDeclarativeServices().clear();
@@ -1079,8 +1079,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
 				return requiredEnvironment != REQUIRED_ENVIRONMENT_EDEFAULT;
-			case EclipsePackage.BUNDLE__DEFAULT_AUTHOR:
-				return DEFAULT_AUTHOR_EDEFAULT == null ? defaultAuthor != null : !DEFAULT_AUTHOR_EDEFAULT.equals(defaultAuthor);
+			case EclipsePackage.BUNDLE__AUTHOR:
+				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
 			case EclipsePackage.BUNDLE__DECLARATIVE_SERVICES:
 				return declarativeServices != null && !declarativeServices.isEmpty();
 			case EclipsePackage.BUNDLE__IMPORT_DECLARATIONS:
@@ -1145,8 +1145,8 @@ public class BundleImpl extends ProjectImpl implements Bundle {
 		result.append(version);
 		result.append(", requiredEnvironment: ");
 		result.append(requiredEnvironment);
-		result.append(", defaultAuthor: ");
-		result.append(defaultAuthor);
+		result.append(", author: ");
+		result.append(author);
 		result.append(", basedOn: ");
 		result.append(basedOn);
 		result.append(')');

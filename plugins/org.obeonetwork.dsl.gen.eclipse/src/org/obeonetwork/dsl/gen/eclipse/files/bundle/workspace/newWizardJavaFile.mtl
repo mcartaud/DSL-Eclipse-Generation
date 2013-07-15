@@ -49,7 +49,7 @@ import java.io.InputStream;
 
 /**
  * this class create a new wizard.
- * @author <a href="mailto:[aWizard.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aWizard.eContainer(Bundle).refactorName()/]</a>
+[aWizard.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/] extends Wizard implements INewWizard {

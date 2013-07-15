@@ -66,7 +66,7 @@ import org.eclipse.ui.PartInitException;
 
 /**
  * This is the action bar contributor for the [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
- * @author <a href="mailto:[anEditor.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anEditor.eContainer(Bundle).refactorName()/]</a>
+[anEditor.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]ActionBarContributor extends

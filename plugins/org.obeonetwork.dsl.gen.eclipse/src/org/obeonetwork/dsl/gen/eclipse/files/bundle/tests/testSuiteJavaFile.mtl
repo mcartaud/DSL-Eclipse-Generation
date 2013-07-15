@@ -33,7 +33,7 @@ import [aBundle.genBundleID()/].tests.unit.utils.[aBundle.name.replaceAll(' ', '
 
 /**
  * a TestSuite for the bundle.
- * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
+[aBundle.genMail()/]
  * @generated
  */
 public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]TestSuite extends TestCase {

@@ -27,6 +27,7 @@ Contributors :
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<!--[protected (': add your source folders for ' + aBundle.name + '-->')]
 	<classpathentry kind="src" path="src"/>
+[if (aBundle.exportedPackages->size() > 0 or aBundle.declarativeServices->size() > 0)]    <classpathentry kind="src" path="src-gen"/>[/if]
 	<!--[/protected]-->
 	<classpathentry kind="output" path="bin"/>
 </classpath>

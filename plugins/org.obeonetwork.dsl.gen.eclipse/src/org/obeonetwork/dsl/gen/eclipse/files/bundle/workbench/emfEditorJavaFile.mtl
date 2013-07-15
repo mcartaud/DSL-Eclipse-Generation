@@ -136,7 +136,7 @@ import org.eclipse.ui.PlatformUI;
  * This is an example of a [anEditor.name.replaceAll(' ', '').toUpperFirst()/] model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @author <a href="mailto:[anEditor.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anEditor.eContainer(Bundle).refactorName()/]</a>
+[anEditor.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anEditor.name.replaceAll(' ', '').toUpperFirst()/] extends MultiPageEditorPart implements

@@ -32,8 +32,8 @@ Contributors :
     <maven>3.0</maven>
   </prerequisites>
 
-  <groupId>org.obeonetwork.acceleo</groupId>
-  <artifactId>[anApplication.genParentID()/].parent</artifactId>
+  <groupId>[anApplication.genApplicationID()/]</groupId>
+  <artifactId>[anApplication.genParentID()/]</artifactId>
   <version>[anApplication.applicationVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>[anApplication.description/] Project</name>

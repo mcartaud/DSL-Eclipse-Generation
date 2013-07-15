@@ -68,7 +68,7 @@ import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.n
 
 /**
  * implementation class for the view.
- * @author <a href="mailto:[aView.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aView.eContainer(Bundle).refactorName()/]</a>
+[aView.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart {
@@ -253,7 +253,7 @@ import org.eclipse.ui.part.ViewPart;
  * in order to ensure that objects of the same type are
  * presented in the same way everywhere.
  * <p>
- * @author <a href="mailto:[aView.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aView.eContainer(Bundle).refactorName()/]</a>
+[aView.eContainer(Bundle).genMail()/]
  * @generated
  */
 

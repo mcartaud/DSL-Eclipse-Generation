@@ -31,7 +31,7 @@ Contributors :
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.obeonetwork.acceleo</groupId>
+    <groupId>[aBundle.eContainer(Application).genApplicationID()/]</groupId>
     <artifactId>[aBundle.ancestors(Application).genParentID()/]</artifactId>
     <version>[aBundle.eContainer(Application).applicationVersion().substitute('.qualifier', '')/]-SNAPSHOT</version>
     <relativePath>../../[aBundle.eContainer(Application).getTheBundleForModel()/]</relativePath>

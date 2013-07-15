@@ -65,15 +65,15 @@ tests/[aBundle.genBundleID()/].tests
 [/template]
 
 [template public applicationVersion(anApplication : Application)]
-[if (anApplication.version.oclIsUndefined())]1.0.0.qualifier[else][anApplication.version/].qualifier[/if]
+[if (anApplication.version.oclIsUndefined() or anApplication.version->size() > 0)]1.0.0.qualifier[else][anApplication.version/].qualifier[/if]
 [/template]
 
 [template public bundleVersion(aBundle : Bundle)]
-[if (aBundle.version.oclIsUndefined())]1.0.0.qualifier[else][aBundle.version/].qualifier[/if]
+[if (aBundle.version.oclIsUndefined() or aBundle.version->size() > 0)]1.0.0.qualifier[else][aBundle.version/].qualifier[/if]
 [/template]
 
 [template public featureVersion(aFeature : Feature)]
-[if (aFeature.version.oclIsUndefined())]1.0.0.qualifier[else][aFeature.version/].qualifier[/if]
+[if (aFeature.version.oclIsUndefined() or aFeature.version->size() > 0)]1.0.0.qualifier[else][aFeature.version/].qualifier[/if]
 [/template]
 
 [template public genNatureID(aNature : Nature)]
@@ -335,10 +335,28 @@ Decorator-[aDecorator.refactorDecoratorName().toUpperFirst()/]-Icon.gif
 [/template]
 
 
-[template public refactorName(aBundle : Bundle)]
-[aBundle.defaultAuthor.substituteAll(' ', '.').substituteAll('.', ' . ').tokenize().toUpperFirst().substituteAll('.', ' ')/]
+[template public genMail(aBundle : Bundle)]
+[if (aBundle.author->size() > 0 and not(aBundle.author.oclIsUndefined()))]
+ * @author <a href="mailto:[aBundle.refactorNameForMail()/]@obeo.fr">[aBundle.refactorName()/]</a>
+[elseif (aBundle.eContainer(Application).defaultAuthor->size() > 0 and not(aBundle.eContainer(Application).defaultAuthor.oclIsUndefined()))]
+ * @author <a href="mailto:[aBundle.eContainer(Application).refactorNameForMail()/]@obeo.fr">[aBundle.eContainer(Application).refactorName()/]</a>
+[else]
+ * @author <a href="mailto:invalid.invalid@obeo.fr">No Author</a>
+[/if]
 [/template]
 
-[template public refactorNameForMail(aBundle : Bundle)]
-[aBundle.defaultAuthor.toLower().replaceAll(' ', '.')/]
+[template public refactorName(aBundle : Bundle)]
+[aBundle.author.substituteAll(' ', '.').substituteAll('.', ' . ').tokenize().toUpperFirst().substituteAll('.', ' ')/]
+[/template]
+
+[template private refactorNameForMail(aBundle : Bundle)]
+[aBundle.author.toLower().replaceAll(' ', '.')/]
+[/template]
+
+[template private refactorName(anApplication : Application)]
+[anApplication.defaultAuthor.substituteAll(' ', '.').substituteAll('.', ' . ').tokenize().toUpperFirst().substituteAll('.', ' ')/]
+[/template]
+
+[template private refactorNameForMail(anApplication : Application)]
+[anApplication.defaultAuthor.toLower().replaceAll(' ', '.')/]
 [/template]

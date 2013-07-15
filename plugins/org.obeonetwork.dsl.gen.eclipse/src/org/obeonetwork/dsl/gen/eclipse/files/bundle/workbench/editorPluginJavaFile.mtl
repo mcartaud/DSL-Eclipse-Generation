@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
  * This is the central singleton for the [anEditor.name.replaceAll(' ', '').toUpperFirst()/] editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * @author <a href="mailto:[anEditor.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anEditor.eContainer(Bundle).refactorName()/]</a>
+[anEditor.eContainer(Bundle).genMail()/]
  * @generated
  */
 public final class [anEditor.name.replaceAll(' ', '').toUpperFirst()/]Plugin extends EMFPlugin {

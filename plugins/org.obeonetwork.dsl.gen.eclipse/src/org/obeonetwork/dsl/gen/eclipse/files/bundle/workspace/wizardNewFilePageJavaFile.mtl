@@ -30,7 +30,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 /**
  * this class create a new page for the file wizard.
- * @author <a href="mailto:[aWizard.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aWizard.eContainer(Bundle).refactorName()/]</a>
+[aWizard.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [aWizard.name.replaceAll(' ', '_').toUpperFirst()/]FilePage extends WizardNewFileCreationPage {

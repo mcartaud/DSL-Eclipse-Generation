@@ -36,7 +36,7 @@ import [aDeclarativeService.delegatorClass.genPackage.basePackage/].[aDeclarativ
 
 /**
  * referenced in [aDeclarativeService.serviceClassName.toLowerFirst()/].xml.
- * @author <a href="mailto:[aDeclarativeService.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[aDeclarativeService.eContainer(Bundle).refactorName()/]</a>
+[aDeclarativeService.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [aDeclarativeService.serviceClassName.toUpperFirst()/][aDeclarativeService.monitorSuperType()/] {

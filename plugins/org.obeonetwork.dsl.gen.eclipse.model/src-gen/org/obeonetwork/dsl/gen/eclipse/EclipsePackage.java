@@ -78,13 +78,13 @@ public interface EclipsePackage extends EPackage {
 	int APPLICATION__APPLICATION_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * The feature id for the '<em><b>Default Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PROVIDER = 1;
+	int APPLICATION__DEFAULT_AUTHOR = 1;
 
 	/**
 	 * The feature id for the '<em><b>Copyright</b></em>' attribute.
@@ -379,13 +379,13 @@ public interface EclipsePackage extends EPackage {
 	int FEATURE__LICENSE = PROJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Provider</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__PROVIDER = PROJECT_FEATURE_COUNT + 4;
+	int FEATURE__AUTHOR = PROJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Bundles</b></em>' reference list.
@@ -479,13 +479,13 @@ public interface EclipsePackage extends EPackage {
 	int BUNDLE__REQUIRED_ENVIRONMENT = PROJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Default Author</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__DEFAULT_AUTHOR = PROJECT_FEATURE_COUNT + 2;
+	int BUNDLE__AUTHOR = PROJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Declarative Services</b></em>' containment reference list.
@@ -2368,15 +2368,15 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getApplication_ApplicationID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getProvider <em>Provider</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getDefaultAuthor <em>Default Author</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Provider</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Application#getProvider()
+	 * @return the meta object for the attribute '<em>Default Author</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Application#getDefaultAuthor()
 	 * @see #getApplication()
 	 * @generated
 	 */
-	EAttribute getApplication_Provider();
+	EAttribute getApplication_DefaultAuthor();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Application#getCopyright <em>Copyright</em>}'.
@@ -2639,15 +2639,15 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getFeature_License();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getAuthor <em>Author</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Provider</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Feature#getProvider()
+	 * @return the meta object for the attribute '<em>Author</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Feature#getAuthor()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_Provider();
+	EAttribute getFeature_Author();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getBundles <em>Bundles</em>}'.
@@ -2726,15 +2726,15 @@ public interface EclipsePackage extends EPackage {
 	EAttribute getBundle_RequiredEnvironment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor <em>Default Author</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAuthor <em>Author</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default Author</em>'.
-	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor()
+	 * @return the meta object for the attribute '<em>Author</em>'.
+	 * @see org.obeonetwork.dsl.gen.eclipse.Bundle#getAuthor()
 	 * @see #getBundle()
 	 * @generated
 	 */
-	EAttribute getBundle_DefaultAuthor();
+	EAttribute getBundle_Author();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices <em>Declarative Services</em>}'.
@@ -4490,12 +4490,12 @@ public interface EclipsePackage extends EPackage {
 		EAttribute APPLICATION__APPLICATION_ID = eINSTANCE.getApplication_ApplicationID();
 
 		/**
-		 * The meta object literal for the '<em><b>Provider</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Default Author</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute APPLICATION__PROVIDER = eINSTANCE.getApplication_Provider();
+		EAttribute APPLICATION__DEFAULT_AUTHOR = eINSTANCE.getApplication_DefaultAuthor();
 
 		/**
 		 * The meta object literal for the '<em><b>Copyright</b></em>' attribute feature.
@@ -4698,12 +4698,12 @@ public interface EclipsePackage extends EPackage {
 		EAttribute FEATURE__LICENSE = eINSTANCE.getFeature_License();
 
 		/**
-		 * The meta object literal for the '<em><b>Provider</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FEATURE__PROVIDER = eINSTANCE.getFeature_Provider();
+		EAttribute FEATURE__AUTHOR = eINSTANCE.getFeature_Author();
 
 		/**
 		 * The meta object literal for the '<em><b>Bundles</b></em>' reference list feature.
@@ -4764,12 +4764,12 @@ public interface EclipsePackage extends EPackage {
 		EAttribute BUNDLE__REQUIRED_ENVIRONMENT = eINSTANCE.getBundle_RequiredEnvironment();
 
 		/**
-		 * The meta object literal for the '<em><b>Default Author</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUNDLE__DEFAULT_AUTHOR = eINSTANCE.getBundle_DefaultAuthor();
+		EAttribute BUNDLE__AUTHOR = eINSTANCE.getBundle_Author();
 
 		/**
 		 * The meta object literal for the '<em><b>Declarative Services</b></em>' containment reference list feature.

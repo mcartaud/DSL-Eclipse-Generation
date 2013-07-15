@@ -8,9 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,8 +18,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.obeonetwork.dsl.gen.eclipse.Bundle;
+import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.EclipseFactory;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 
@@ -62,7 +60,7 @@ public class BundleItemProvider
 
 			addVersionPropertyDescriptor(object);
 			addRequiredEnvironmentPropertyDescriptor(object);
-			addDefaultAuthorPropertyDescriptor(object);
+			addAuthorPropertyDescriptor(object);
 			addExportedPackagesPropertyDescriptor(object);
 			addBasedOnPropertyDescriptor(object);
 		}
@@ -114,19 +112,19 @@ public class BundleItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Default Author feature.
+	 * This adds a property descriptor for the Author feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDefaultAuthorPropertyDescriptor(Object object) {
+	protected void addAuthorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Bundle_defaultAuthor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_defaultAuthor_feature", "_UI_Bundle_type"),
-				 EclipsePackage.Literals.BUNDLE__DEFAULT_AUTHOR,
+				 getString("_UI_Bundle_author_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Bundle_author_feature", "_UI_Bundle_type"),
+				 EclipsePackage.Literals.BUNDLE__AUTHOR,
 				 true,
 				 false,
 				 false,
@@ -244,14 +242,29 @@ public class BundleItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generatedNOT
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Bundle)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Bundle_type") :
-			getString("_UI_Bundle_type") + " " + label;
+		String id = ((Bundle)object).getID();
+		String baseID = "";
+		if (((Application)((Bundle)object).eContainer()).getBaseNamespace() == null) {
+			baseID = " complete the baseNamespace field";
+		} else {
+			baseID = ((Application)((Bundle)object).eContainer()).getBaseNamespace();			
+		}
+		
+		if ((label == null || label.length() == 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Bundle_type");			
+		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Bundle_type") + " " + baseID + "." + id + " -- no name define";
+		} else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Bundle_type") + " no ID define -- " + label;
+		} else {
+			return getString("_UI_Bundle_type") + " " + baseID + "." + id + " -- " + label;
+		}
 	}
 
 	/**
@@ -268,7 +281,7 @@ public class BundleItemProvider
 		switch (notification.getFeatureID(Bundle.class)) {
 			case EclipsePackage.BUNDLE__VERSION:
 			case EclipsePackage.BUNDLE__REQUIRED_ENVIRONMENT:
-			case EclipsePackage.BUNDLE__DEFAULT_AUTHOR:
+			case EclipsePackage.BUNDLE__AUTHOR:
 			case EclipsePackage.BUNDLE__BASED_ON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

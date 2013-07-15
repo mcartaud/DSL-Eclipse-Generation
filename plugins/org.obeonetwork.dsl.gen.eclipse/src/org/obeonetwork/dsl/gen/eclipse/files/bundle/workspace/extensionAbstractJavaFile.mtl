@@ -29,7 +29,7 @@ package [anAttribute.ancestors(Bundle).genBundleID()/].extension.[anAttribute.eC
 
 /**
  * Clients should extend this abstract class to extend the extensionPoint mechanism.
- * @author <a href="mailto:[anAttribute.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anAttribute.eContainer(Bundle).refactorName()/]</a>
+[anAttribute.eContainer(Bundle).genMail()/]
  * @generated
  */
 public abstract class Abstract[anAttribute.genAttributeClassName()/] implements [anAttribute.genAttributeClassName()/] {
@@ -64,7 +64,7 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensi
 
 /**
  * Clients should implements this abstract class to implements the extensionPoint mechanism.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public abstract class Abstract[anExtensionPoint.refactorExtensionClassName()/] implements [anExtensionPoint.refactorExtensionClassName()/] {

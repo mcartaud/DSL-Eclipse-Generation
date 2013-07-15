@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getRequiredEnvironment <em>Required Environment</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor <em>Default Author</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDeclarativeServices <em>Declarative Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getImportDeclarations <em>Import Declarations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getNatures <em>Natures</em>}</li>
@@ -105,30 +105,30 @@ public interface Bundle extends Project {
 	void setRequiredEnvironment(JavaVersion value);
 
 	/**
-	 * Returns the value of the '<em><b>Default Author</b></em>' attribute.
+	 * Returns the value of the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Author</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Author</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Author</em>' attribute.
-	 * @see #setDefaultAuthor(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_DefaultAuthor()
+	 * @return the value of the '<em>Author</em>' attribute.
+	 * @see #setAuthor(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getBundle_Author()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getDefaultAuthor();
+	String getAuthor();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getDefaultAuthor <em>Default Author</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Bundle#getAuthor <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Author</em>' attribute.
-	 * @see #getDefaultAuthor()
+	 * @param value the new value of the '<em>Author</em>' attribute.
+	 * @see #getAuthor()
 	 * @generated
 	 */
-	void setDefaultAuthor(String value);
+	void setAuthor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Declarative Services</b></em>' containment reference list.

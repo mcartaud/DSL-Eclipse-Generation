@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,7 +17,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.obeonetwork.dsl.gen.eclipse.Application;
 import org.obeonetwork.dsl.gen.eclipse.EclipsePackage;
 import org.obeonetwork.dsl.gen.eclipse.Feature;
 
@@ -61,7 +60,7 @@ public class FeatureItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addLicensePropertyDescriptor(object);
-			addProviderPropertyDescriptor(object);
+			addAuthorPropertyDescriptor(object);
 			addBundlesPropertyDescriptor(object);
 			addGenerateSdkFeaturePropertyDescriptor(object);
 			addExcludeBundleForSdkPropertyDescriptor(object);
@@ -159,19 +158,19 @@ public class FeatureItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Provider feature.
+	 * This adds a property descriptor for the Author feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProviderPropertyDescriptor(Object object) {
+	protected void addAuthorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_provider_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_provider_feature", "_UI_Feature_type"),
-				 EclipsePackage.Literals.FEATURE__PROVIDER,
+				 getString("_UI_Feature_author_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_author_feature", "_UI_Feature_type"),
+				 EclipsePackage.Literals.FEATURE__AUTHOR,
 				 true,
 				 false,
 				 false,
@@ -283,14 +282,29 @@ public class FeatureItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated-NOT
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public String getText(Object object) {
 		String label = ((Feature)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Feature_type") :
-			getString("_UI_Feature_type") + " " + label;
+		String id = ((Feature)object).getID();
+		String baseID = "";
+		if (((Application)((Feature)object).eContainer()).getBaseNamespace() == null) {
+			baseID = " complete the baseNamespace field";
+		} else {
+			baseID = ((Application)((Feature)object).eContainer()).getBaseNamespace();			
+		}
+
+		if ((label == null || label.length() == 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Feature_type");			
+		} else if ((label == null || label.length() == 0) && (id != null || id.length() != 0)) {
+			return getString("_UI_Feature_type") + " " + baseID + "." + id + " -- no name define";
+		} else if ((label != null || label.length() != 0) && (id == null || id.length() == 0)) {
+			return getString("_UI_Feature_type") + " no ID define -- " + label;
+		} else {
+			return getString("_UI_Feature_type") + " " + baseID + "." + id + " -- " + label;
+		}
 	}
 
 	/**
@@ -309,7 +323,7 @@ public class FeatureItemProvider
 			case EclipsePackage.FEATURE__DESCRIPTION:
 			case EclipsePackage.FEATURE__VERSION:
 			case EclipsePackage.FEATURE__LICENSE:
-			case EclipsePackage.FEATURE__PROVIDER:
+			case EclipsePackage.FEATURE__AUTHOR:
 			case EclipsePackage.FEATURE__GENERATE_SDK_FEATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getVersion <em>Version</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getLicense <em>License</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getBundles <em>Bundles</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#isGenerateSdkFeature <em>Generate Sdk Feature</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.gen.eclipse.Feature#getExcludeBundleForSdk <em>Exclude Bundle For Sdk</em>}</li>
@@ -134,30 +134,30 @@ public interface Feature extends Project {
 	void setLicense(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Provider</b></em>' attribute.
+	 * Returns the value of the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provider</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Author</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provider</em>' attribute.
-	 * @see #setProvider(String)
-	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Provider()
+	 * @return the value of the '<em>Author</em>' attribute.
+	 * @see #setAuthor(String)
+	 * @see org.obeonetwork.dsl.gen.eclipse.EclipsePackage#getFeature_Author()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getProvider();
+	String getAuthor();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getProvider <em>Provider</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.gen.eclipse.Feature#getAuthor <em>Author</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provider</em>' attribute.
-	 * @see #getProvider()
+	 * @param value the new value of the '<em>Author</em>' attribute.
+	 * @see #getAuthor()
 	 * @generated
 	 */
-	void setProvider(String value);
+	void setAuthor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Bundles</b></em>' reference list.

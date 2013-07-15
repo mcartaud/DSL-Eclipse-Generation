@@ -32,7 +32,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
  * Describes a extension as contributed to the "[anExtensionPoint.ancestors(Bundle).genBundleID()/].[anExtensionPoint.genExtensionName()/]Extension" extension point.
- * @author <a href="mailto:[anExtensionPoint.eContainer(Bundle).refactorNameForMail()/]@obeo.fr">[anExtensionPoint.eContainer(Bundle).refactorName()/]</a>
+[anExtensionPoint.eContainer(Bundle).genMail()/]
  * @generated
  */
 public class [anExtensionPoint.genExtensionName()/]Descriptor {

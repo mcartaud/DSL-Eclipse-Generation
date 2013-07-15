@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.obeonetwork.dsl.gen.eclipse.tests/src" modelPluginID="org.obeonetwork.dsl.gen.eclipse.tests"
+    modelName="My" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false">
+  <foreignModel>My.ecore</foreignModel>
+  <genPackages prefix="Org" disposableProviderFactory="true" ecorePackage="My.ecore#/">
+    <nestedGenPackages prefix="Obeo" disposableProviderFactory="true" ecorePackage="My.ecore#//obeo">
+      <nestedGenPackages prefix="Stuff" disposableProviderFactory="true" ecorePackage="My.ecore#//obeo/stuff">
+        <genClasses ecoreClass="My.ecore#//obeo/stuff/mchin"/>
+        <nestedGenPackages prefix="Truc" disposableProviderFactory="true" ecorePackage="My.ecore#//obeo/stuff/truc">
+          <genClasses ecoreClass="My.ecore#//obeo/stuff/truc/bidule"/>
+        </nestedGenPackages>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
