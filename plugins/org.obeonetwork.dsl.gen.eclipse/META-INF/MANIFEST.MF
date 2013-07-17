@@ -21,4 +21,3 @@ Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.obeonetwork.dsl.gen.eclipse.main,
  org.obeonetwork.dsl.gen.eclipse.services
-
