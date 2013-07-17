@@ -14,6 +14,7 @@ Contributors :
 [module viewJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::common::javaImports /]
 
 
 [template private viewJavaFile(aView : View)]
@@ -30,38 +31,13 @@ Contributors :
 [/file]
 [/template]
 
+
 [template private ecoreTreeView(aView : View)]
 package [aView.eContainer(Bundle).genBundleID()/].views;
 
 
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.ViewerSorter;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.ui.part.ViewPart;
+[aView.genViewImport()/]
 
-[if (aView.dynamicHelp->size() > 0)]
-import org.eclipse.ui.PlatformUI;
-[/if]
-[comment][if (aView.eContainer(Bundle).exportedPackages->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass).eContainer(EPackage))]
-import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/];
-[/for][/if][/comment]
-[if (aView.eContainer(Bundle).declarativeServices->size() > 0)][for (anEPackage : EPackage | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass).eContainer(EPackage))]
-import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.name/];
-import [anEPackage.ancestors(EPackage).name->reverse()->sep('.')/].[anEPackage.name/].[anEPackage.name.toUpperFirst()/]Factory;
-[/for][/if]
 //[protected (': add ecoreTreeView imports for ' + aView.name)]
 //[/protected]
 
@@ -136,7 +112,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 	}
 
 	/**
-	 * retriece the model instance.
+	 * retrieve the model instance.
 	 * @return a Notifier
 	 * @generated
 	 */
@@ -147,9 +123,9 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 		 */
 
 [if (aView.eContainer(Bundle).exportedPackages->size() > 0)]
-[for (anEClass : EClass | aView.eContainer(Bundle).exportedPackages.eAllContents(EClass))]
-		[anEClass.name.toUpperFirst()/] [anEClass.name.toLowerFirst()/] = [anEClass.eContainer(EPackage).name.toUpperFirst()/]Factory.eINSTANCE.create[anEClass.name.toUpperFirst()/]();
-		res.getContents().add([anEClass.name.toLowerFirst()/]);
+[for (aGenClass : GenClass | aView.eContainer(Bundle).exportedPackages.genModel.eAllContents(GenClass))]
+		[aGenClass.ecoreClass.name.toUpperFirst()/] [aGenClass.ecoreClass.name.toLowerFirst()/] = [aGenClass.eContainer(GenPackage).ecorePackage.name.toUpperFirst()/]Factory.eINSTANCE.create[aGenClass.ecoreClass.name.toUpperFirst()/]();
+		res.getContents().add([aGenClass.ecoreClass.name.toLowerFirst()/]);
 [/for]
 [/if][if (aView.eContainer(Bundle).declarativeServices->size() > 0)]
 [for (anEClass : EClass | aView.eContainer(Bundle).declarativeServices.delegatorClass.ecoreClass.eContainer(EPackage).eAllContents(EClass))]
@@ -215,6 +191,7 @@ public class [aView.name.replaceAll(' ', '_').toUpperFirst()/] extends ViewPart 
 }
 [/template]
 
+
 [template private viewTree(aView : View)]
 package [aView.eContainer(Bundle).genBundleID()/].views;
 
@@ -239,6 +216,7 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
+
 //[protected (': add treeView imports for ' + aView.name)]
 //[/protected]
 

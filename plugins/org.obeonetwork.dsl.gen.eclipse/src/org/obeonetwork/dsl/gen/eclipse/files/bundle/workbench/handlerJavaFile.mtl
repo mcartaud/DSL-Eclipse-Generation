@@ -14,6 +14,8 @@ Contributors :
 [module handlerJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::common::javaImports /]
+
 
 [template private handlerJavaFile(aHandler : Handler)]
 [aHandler.eContainer(Bundle).genBundleJavaPath()/]/handlers/[aHandler.name.replaceAll(' ', '_').toUpperFirst()/].java
@@ -24,21 +26,12 @@ Contributors :
 package [aHandler.eContainer(Bundle).genBundleID()/].handlers;
 
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
-[if (aHandler.oclIsTypeOf(ContextualHandler))][if (not(aHandler.oclAsType(ContextualHandler).activateWith.oclIsUndefined()))]
-import org.eclipse.jface.viewers.ISelection;
-[if (aHandler.oclAsType(ContextualHandler).activateWith.matches('java.lang.String'))]import org.eclipse.jface.text.ITextSelection;
-[else]import org.eclipse.jface.viewers.IStructuredSelection;
+[if (aHandler.oclIsKindOf(ContextualHandler))]
+[aHandler.oclAsType(ContextualHandler).genContextualHandlerImport()/]
+[else]
+[aHandler.genDefaultHandlerImport()/]
+[/if]
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-[/if][/if][/if]
 //[protected (': add handler imports for ' + aHandler.name)]
 //[/protected]
 
@@ -76,6 +69,7 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 [/file]
 [/template]
 
+
 [template private genBody(aHandler : ContextualHandler)]
 [if (not(aHandler.activateWith.oclIsUndefined()))]
 	/**
@@ -90,7 +84,7 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
 				.getActivePage().getSelection();
-[if (not(aHandler.activateWith.matches('java.lang.String')))]		if (selection != null & selection instanceof IStructuredSelection) {
+[if (not(aHandler.activateWith.matches('java.lang.String')) and aHandler.activateWith.toString()->size() > 0)]		if (selection != null & selection instanceof IStructuredSelection) {
 			List<[aHandler.activateWith/]> selected = new ArrayList<[aHandler.activateWith/]>();
 			IStructuredSelection strucSelection = (IStructuredSelection) selection;
 			for (Iterator<Object> iterator = strucSelection.iterator(); iterator
@@ -99,14 +93,15 @@ public class [aHandler.name.replaceAll(' ', '_').toUpperFirst()/] extends Abstra
 				if (element instanceof [aHandler.activateWith/]) {
 					selected.add(([aHandler.activateWith/]) element);
 				}
-				doExecute(selected,event);
+				doExecute(selected, event);
 			}
 		}[/if][if (aHandler.activateWith.matches('java.lang.String'))]		if (selection != null & selection instanceof ITextSelection) {
 			ITextSelection textSelection = (ITextSelection) selection;
 			String selected;
 			selected = textSelection.toString();
-			doExecute(selected,event);
+			doExecute(selected, event);
 		}[/if]
+		
 		return null;
 	}
 

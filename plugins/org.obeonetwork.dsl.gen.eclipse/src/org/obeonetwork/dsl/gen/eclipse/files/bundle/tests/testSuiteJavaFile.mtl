@@ -14,6 +14,7 @@ Contributors :
 [module testSuiteJavaFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/emf/2002/GenModel', 'http://www.obeonetwork.org/dsl/eclipse')]
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
+[import org::obeonetwork::dsl::gen::eclipse::common::javaImports /]
 
 [template private testSuiteJavaFile(aBundle : Bundle)]
 [aBundle.genBundleJavaTestPath()/]/suite/[aBundle.name.replaceAll(' ', '').toUpperFirst()/]TestSuite.java
@@ -23,13 +24,11 @@ Contributors :
 [file (aBundle.testSuiteJavaFile(), false, 'UTF-8')]
 package [aBundle.genBundleID()/].tests.suite;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+
+[aBundle.genTestImport()/]
+
 //[protected (': add imports for ' + aBundle.name +'TestSuite')]
 //[/protected]
-import [aBundle.genBundleID()/].tests.unit.utils.[aBundle.name.replaceAll(' ', '').toUpperFirst()/]Test;
 
 /**
  * a TestSuite for the bundle.
@@ -69,7 +68,5 @@ public class [aBundle.name.replaceAll(' ', '').toUpperFirst()/]TestSuite extends
 	//[protected (': add methods for ' + aBundle.name +'TestSuite')]
 	//[/protected]
 }
-
-
 [/file]
 [/template]

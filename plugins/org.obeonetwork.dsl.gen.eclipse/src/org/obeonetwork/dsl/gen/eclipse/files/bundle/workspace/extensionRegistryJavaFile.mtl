@@ -25,6 +25,7 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensi
 
 import java.util.ArrayList;
 import java.util.List;
+
 //[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'Registry')]
 //[/protected]
 

@@ -15,6 +15,7 @@ Contributors :
 
 [import org::obeonetwork::dsl::gen::eclipse::common::normalizeName /]
 [import org::obeonetwork::dsl::gen::eclipse::files::bundle::workbench::emfEditorJavaFile /]
+[import org::obeonetwork::dsl::gen::eclipse::common::javaImports /]
 
 
 [template private editorJavaFile(anEditor : Editor)]
@@ -35,13 +36,9 @@ package [anEditor.eContainer(Bundle).genBundleID()/].editors;
 [/template]
 
 [template private textType(anEditor : Editor)]
-import org.eclipse.swt.custom.TableEditor;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.ui.editors.text.TextEditor;
-[if (anEditor.dynamicHelp->size() > 0)]
-import org.eclipse.ui.PlatformUI;
-[/if]
+
+[anEditor.genEditorImport()/]
+
 //[protected (': add textEditor imports for ' + anEditor.name)]
 //[/protected]
 

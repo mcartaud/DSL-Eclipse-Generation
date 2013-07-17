@@ -32,6 +32,7 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
 //[protected (': add editorPlugin imports for ' + anEditor.name)]
 //[/protected]
 

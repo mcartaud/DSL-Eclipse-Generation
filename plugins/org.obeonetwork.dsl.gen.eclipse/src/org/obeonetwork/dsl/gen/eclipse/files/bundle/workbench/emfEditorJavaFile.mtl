@@ -120,15 +120,16 @@ import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+[if (anEditor.dynamicHelp->size() > 0)]
+import org.eclipse.ui.PlatformUI;
+[/if]
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-[if (anEditor.dynamicHelp->size() > 0)]
-import org.eclipse.ui.PlatformUI;
-[/if]
+
 //[protected (': add emfEditor imports for ' + anEditor.name)]
 //[/protected]
 

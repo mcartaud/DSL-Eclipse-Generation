@@ -26,6 +26,7 @@ package [aPerspective.eContainer(Bundle).genBundleID()/].perspectives;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
+
 //[protected (': add perspective imports for ' + aPerspective.name)]
 //[/protected]
 

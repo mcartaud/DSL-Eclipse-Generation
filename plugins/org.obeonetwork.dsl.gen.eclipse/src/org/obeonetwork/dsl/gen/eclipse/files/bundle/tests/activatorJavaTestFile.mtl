@@ -25,6 +25,7 @@ package [aBundle.genBundleID()/].tests;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
 //[protected (': add Activator imports for the bundle ' + aBundle.genBundleID() + 'Test')]
 //[/protected]
 

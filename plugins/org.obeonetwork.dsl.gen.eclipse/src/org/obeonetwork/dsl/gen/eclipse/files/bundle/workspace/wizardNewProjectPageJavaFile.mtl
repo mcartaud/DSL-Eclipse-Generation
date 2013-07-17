@@ -23,7 +23,9 @@ Contributors :
 [file (wizardNewProjectPageJavaFile(), false, 'UTF-8')]
 package [aWizard.ancestors(Bundle).genBundleID()/].wizards;
 
+
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+
 //[protected (': add newProject imports for ' + aWizard.name)]
 //[/protected]
 

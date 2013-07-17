@@ -26,6 +26,7 @@ package [anExtensionPoint.ancestors(Bundle).genBundleID()/].extension.[anExtensi
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+
 //[protected (': add imports for ' + anExtensionPoint.genExtensionName() + 'Descriptor')]
 //[/protected]
 

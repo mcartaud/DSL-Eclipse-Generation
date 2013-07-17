@@ -25,6 +25,7 @@ package [aBundle.genBundleID()/].tests.unit.utils;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+
 //[protected (': add imports for ' + aBundle.name +'Test')]
 //[/protected]
 

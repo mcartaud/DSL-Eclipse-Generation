@@ -61,16 +61,16 @@ Bundle-Activator: [aBundle.genBundleID()/].Activator
 
 
 
-[query private allRequiredBundles(aBundle : Bundle) : Set(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
+[query private allRequiredBundles(aBundle : Bundle) : OrderedSet(String) = aBundle.defaultRequireBundle()->union(aBundle.defaultUIRequireBundle())
 ->union(aBundle.myRequiredBundles())->union(aBundle.viewRequiredBundles())->union(aBundle.viewWizardRequiredBundles())->union(aBundle.wizardRequiredBundles())
 ->union(aBundle.emfEditorRequiredBundles())->union(aBundle.textEditorRequiredBundles())
 ->union(aBundle.perspectiveRequiredBundles())->asOrderedSet() /]
 
-[query private allImportPackages(aBundle : Bundle) : Set(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
+[query private allImportPackages(aBundle : Bundle) : OrderedSet(String) = aBundle.myImportPackages()->union(aBundle.declarativeServiceDefaultImportPackages())
 ->union(aBundle.declarativeServiceImportPackages())->union(aBundle.editorImportPackages())->union(aBundle.extensionPointClient())
 ->asOrderedSet() /]
 
-[query private allExportPackages(aBundle : Bundle) : Set(String) = aBundle.userExportedPackages()
+[query private allExportPackages(aBundle : Bundle) : OrderedSet(String) = aBundle.userExportedPackages()
 ->union(aBundle.exportedPackages())->union(aBundle.extensionExportedPackages())->union(aBundle.ecoreExportedPackages())
 ->union(aBundle.ecoreDSPackages())->asOrderedSet() /]
 
@@ -109,43 +109,38 @@ endif  /]
 
 [query private userExportedPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.exportedPackages->size() > 0) then
-	Sequence {aBundle.bundleExportedPackages()}
+	aBundle.bundleExportedPackages().tokenize(',')
 else
 	Sequence {}
 endif  /]
 
 [query private exportedPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.declarativeServices.providedServices->size() > 0) then
-	Sequence {aBundle.genDSExportPackage()}
+	aBundle.genDSExportPackage().tokenize(',')
 else
 	Sequence {}
 endif  /]
 
 [query private extensionExportedPackages(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.extensionPointProvider->size() > 0) then
-	Sequence {aBundle.genExtensionExport()}
+	aBundle.genExtensionExport().tokenize(',')
 else
 	Sequence {}
 endif  /]
 
 [template private genExtensionExport(aBundle : Bundle)]
 [for (anExtensionPoint : ExtensionPointProvider | aBundle.extensionPointProvider)]
-[aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/]
-[/for]
+[aBundle.genBundleID()/].extension.[anExtensionPoint.genExtensionName().toLowerFirst()/],[/for]
 [/template]
 
 [template private bundleExportedPackages(aBundle : Bundle)]
 [for (aGenPackage : GenPackage | aBundle.exportedPackages)]
-[if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.ecorePackage.name/][/for]
+[if(aGenPackage.ancestors(GenPackage)->size() > 0)][aGenPackage.basePackage/].[/if][aGenPackage.ecorePackage.name/],[/for]
 [/template]
 
 [template private genDSExportPackage(aBundle : Bundle)]
 [for (aProvidedService : ProvidedService | aBundle.declarativeServices.providedServices)]
-[aProvidedService.genExportPackageRequiredID()/][/for]
-[/template]
-
-[template private genExportPackageRequiredID(aProvidedService : ProvidedService)]
-[aProvidedService.exportPackageProvidedID()/].[aProvidedService.interface.genPackage.ecorePackage.name/]
+[aProvidedService.exportPackageProvidedID()/].[aProvidedService.interface.genPackage.ecorePackage.name/],[/for]
 [/template]
 
 [query private exportPackageProvidedID(aProvidedService : ProvidedService) : Sequence(EPackage) = 
@@ -251,14 +246,14 @@ endif  /]
 
 [query private extensionPointClient(aBundle : Bundle) : Sequence(String) = 
 if (aBundle.extensionPointClient->size() > 0) then
-	Sequence {aBundle.genExtensionImportPackage()}
+	aBundle.genExtensionImportPackage().tokenize(',')
 else
 	Sequence {}
 endif  /]
 
 [template private genExtensionImportPackage(aBundle : Bundle)]
 [for (anExtensionPoint : ExtensionPointClient | aBundle.extensionPointClient)]
-[anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/][/for]
+[anExtensionPoint.provider.eContainer(Bundle).genBundleID()/].extension.[anExtensionPoint.provider.genExtensionName().toLowerFirst()/],[/for]
 [/template]
 
 
