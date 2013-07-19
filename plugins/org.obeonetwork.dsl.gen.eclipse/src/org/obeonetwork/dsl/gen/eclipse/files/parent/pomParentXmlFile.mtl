@@ -120,6 +120,7 @@ Contributors :
    </dependencies>
   
   <repositories>
+<!--[protected (': add your own repositories -->')]
     <repository>
       <id>eclipse-platform</id>
       <layout>p2</layout>
@@ -143,9 +144,11 @@ Contributors :
        <id>Snapshots</id>
        <url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>
      </repository>
+<!--[/protected]-->
   </repositories>
 
   <pluginRepositories>
+<!--[protected (': add your own pluginRepositories -->')]
     <pluginRepository>
        <id>Indigo Release</id>
        <url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>
@@ -159,6 +162,7 @@ Contributors :
       <id>codehaus.snapshots</id>
       <url>http://snapshots.repository.codehaus.org/</url>
     </pluginRepository>
+<!--[/protected]-->
   </pluginRepositories>
 
   <build>
@@ -177,6 +181,7 @@ Contributors :
           <resolver>p2</resolver>
           <pomDependencies>consider</pomDependencies>
 		   <environments>
+<!--[protected (': choose your environments -->')]
             <environment>
               <os>linux</os>
               <ws>gtk</ws>
@@ -202,6 +207,7 @@ Contributors :
               <ws>cocoa</ws>
               <arch>x86_64</arch>
             </environment>
+<!--[/protected]-->
           </environments>
         </configuration>
       </plugin>
@@ -237,6 +243,7 @@ Contributors :
             </execution>
           </executions>
         </plugin>
+<!--[protected (': configure your plugins -->')]
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
@@ -264,6 +271,7 @@ Contributors :
             </execution>
           </executions>
         </plugin>
+<!--[/protected]-->
       </plugins>
     </pluginManagement>
   </build>
@@ -276,19 +284,14 @@ Contributors :
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>../plugins/[aBundle.genBundleID()/]</module>
 [/for]
-
 [if (anApplication.generateTestsBundle)]
 [for (aBundle : Bundle | anApplication.eAllContents(Bundle))]
 <module>../tests/[aBundle.genBundleID()/].tests</module>
 [/for]
 [/if]
-
-
 [for (aFeature : Feature | anApplication.eAllContents(Feature))]
 <module>../features/[aFeature.genFeatureID()/]</module>
 [/for]
-
-
 [for (aRepository : Repository | anApplication.eAllContents(Repository))]
 <module>../repositories/[aRepository.genRepositoryID()/]</module>
 [/for]

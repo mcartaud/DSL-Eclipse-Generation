@@ -103,11 +103,6 @@ Contributors :
 [/for]
 [/template]
 
-
-
-
-
-
 [template private popupContribution(aPopup : PopupMenuContribution)]
 	  <menuContribution
             allPopups="true"
